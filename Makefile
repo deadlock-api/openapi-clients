@@ -14,7 +14,7 @@ generate-api-python:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p python/api
 	@echo "--> Generating Python client for the main API..."
-	uvx openapi-python-client generate --url https://api.deadlock-api.com/openapi.json --output-path python/api/ --overwrite --meta uv
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g python -o python/api/ --skip-validate-spec
 	@echo "--> Main API client generated successfully in python/api/"
 
 # Target to generate the client for the assets API in python.
@@ -22,7 +22,7 @@ generate-assets-api-python:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p python/assets-api
 	@echo "--> Generating Python client for the assets API..."
-	uvx openapi-python-client generate --url https://assets.deadlock-api.com/openapi.json --output-path python/assets-api/ --overwrite --meta uv
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g python -o python/assets-api/ --skip-validate-spec
 	@echo "--> Assets API client generated successfully in python/assets-api/"
 
 
@@ -31,17 +31,17 @@ typescript: generate-api-typescript generate-assets-api-typescript generate-kubb
 # Target to generate the client for the main API in typescript.
 generate-api-typescript:
 	@echo "--> Creating directory for the main API client..."
-	@mkdir -p typescript/api/src
+	@mkdir -p typescript/api
 	@echo "--> Generating Typescript client for the main API..."
-	pnpx openapi-typescript-codegen --input https://api.deadlock-api.com/openapi.json --output ./typescript/api/src --client axios
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g typescript-axios -o typescript/api/ --skip-validate-spec --additional-properties=npmName=deadlock-api-client
 	@echo "--> Main API client generated successfully in typescript/api/"
 
 # Target to generate the client for the assets API in typescript.
 generate-assets-api-typescript:
 	@echo "--> Creating directory for the assets API client..."
-	@mkdir -p typescript/assets-api/src
+	@mkdir -p typescript/assets-api
 	@echo "--> Generating Typescript client for the assets API..."
-	pnpx openapi-typescript-codegen --input https://assets.deadlock-api.com/openapi.json --output ./typescript/assets-api/src --client axios
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g typescript-axios -o typescript/assets-api/ --skip-validate-spec --additional-properties=npmName=assets-deadlock-api-client
 	@echo "--> Assets API client generated successfully in typescript/assets-api/"
 
 # Target to generate the client for the main API in typescript.
@@ -49,11 +49,11 @@ generate-kubb-typescript-sdks:
 	@echo "--> Creating directories for Kubb typescript SDK clients..."
 	@mkdir -p kubb-typescript/
 	@echo "--> Generating Kubb Typescript client for the main API + Assets..."
-	bun run generate-kubb
+	cd kubb-typescript && pnpx @kubb/cli generate
 	@echo "--> Kubb API clients generated successfully in kubb-typescript/"
 
 # Target to clean up all generated directories.
 clean:
 	@echo "--> Removing generated client directories..."
-	@rm -rf python/api python/assets-api typescript/api/src typescript/assets-api/src
+	@rm -rf python/api python/assets-api typescript/api typescript/assets-api kubb-typescript/api kubb-typescript/assets-api
 	@echo "--> Cleanup complete."

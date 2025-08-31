@@ -29,7 +29,7 @@ export default defineConfig(() => {
         path: apiPath,
       },
       output: {
-        path: "./kubb-typescript/api/src/",
+        path: "./api/src/",
         clean: true,
       },
       plugins: [pluginOas(), pluginTs(), pluginClient()],
@@ -41,7 +41,7 @@ export default defineConfig(() => {
         path: assetsPath,
       },
       output: {
-        path: "./kubb-typescript/assets/src/",
+        path: "./assets-api/src/",
         clean: true,
       },
       plugins: [pluginOas(), pluginTs(), pluginClient()],
