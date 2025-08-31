@@ -1,0 +1,1 @@
+{"properties":{"desc":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Desc"},"active":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Active"},"passive":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Passive"}},"type":"object","title":"UpgradeDescriptionV2","x-readme-ref-name":"UpgradeDescriptionV2"}

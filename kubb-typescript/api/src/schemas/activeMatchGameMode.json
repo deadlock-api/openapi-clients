@@ -1,0 +1,1 @@
+{"type":"string","enum":["KECitadelGameModeInvalid","KECitadelGameModeNormal","KECitadelGameMode1v1Test","KECitadelGameModeSandbox"],"x-readme-ref-name":"ActiveMatchGameMode"}

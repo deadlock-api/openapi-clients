@@ -1,0 +1,1 @@
+{"properties":{"class_name":{"type":"string","title":"Class Name"},"label":{"type":"string","title":"Label"},"id":{"type":"integer","title":"Id","readOnly":true},"icon":{"type":"string","title":"Icon","readOnly":true}},"type":"object","required":["class_name","label","id","icon"],"title":"BuildTagV2","x-readme-ref-name":"BuildTagV2"}

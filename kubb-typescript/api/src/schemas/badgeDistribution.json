@@ -1,0 +1,1 @@
+{"type":"object","required":["badge_level","total_matches"],"properties":{"badge_level":{"type":"integer","format":"int32","description":"The badge level. See more: <https://assets.deadlock-api.com/v2/ranks>","minimum":0},"total_matches":{"type":"integer","format":"int64","description":"The total number of matches.","minimum":0}},"x-readme-ref-name":"BadgeDistribution"}

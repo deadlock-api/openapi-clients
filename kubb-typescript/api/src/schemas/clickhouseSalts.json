@@ -1,0 +1,1 @@
+{"type":"object","required":["match_id"],"properties":{"cluster_id":{"type":["integer","null"],"format":"int32","minimum":0},"match_id":{"type":"integer","format":"int64","minimum":0},"metadata_salt":{"type":["integer","null"],"format":"int32","minimum":0},"replay_salt":{"type":["integer","null"],"format":"int32","minimum":0}},"x-readme-ref-name":"ClickhouseSalts"}
