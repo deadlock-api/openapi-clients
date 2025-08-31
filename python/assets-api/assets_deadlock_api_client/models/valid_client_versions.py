@@ -1,0 +1,35 @@
+from enum import IntEnum
+
+
+class ValidClientVersions(IntEnum):
+    VALUE_5885 = 5885
+    VALUE_5878 = 5878
+    VALUE_5869 = 5869
+    VALUE_5852 = 5852
+    VALUE_5831 = 5831
+    VALUE_5826 = 5826
+    VALUE_5818 = 5818
+    VALUE_5789 = 5789
+    VALUE_5748 = 5748
+    VALUE_5723 = 5723
+    VALUE_5712 = 5712
+    VALUE_5710 = 5710
+    VALUE_5690 = 5690
+    VALUE_5675 = 5675
+    VALUE_5668 = 5668
+    VALUE_5664 = 5664
+    VALUE_5658 = 5658
+    VALUE_5650 = 5650
+    VALUE_5636 = 5636
+    VALUE_5624 = 5624
+    VALUE_5615 = 5615
+    VALUE_5602 = 5602
+    VALUE_5583 = 5583
+    VALUE_5554 = 5554
+    VALUE_5538 = 5538
+    VALUE_5533 = 5533
+    VALUE_5529 = 5529
+    VALUE_5527 = 5527
+
+    def __str__(self) -> str:
+        return str(self.value)

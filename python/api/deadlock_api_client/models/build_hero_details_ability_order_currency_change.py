@@ -1,0 +1,97 @@
+from collections.abc import Mapping
+from typing import Any, TypeVar, Union, cast
+
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
+
+T = TypeVar("T", bound="BuildHeroDetailsAbilityOrderCurrencyChange")
+
+
+@_attrs_define
+class BuildHeroDetailsAbilityOrderCurrencyChange:
+    """
+    Attributes:
+        ability_id (int):
+        currency_type (int):
+        delta (int):
+        annotation (Union[None, Unset, str]):
+    """
+
+    ability_id: int
+    currency_type: int
+    delta: int
+    annotation: Union[None, Unset, str] = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    def to_dict(self) -> dict[str, Any]:
+        ability_id = self.ability_id
+
+        currency_type = self.currency_type
+
+        delta = self.delta
+
+        annotation: Union[None, Unset, str]
+        if isinstance(self.annotation, Unset):
+            annotation = UNSET
+        else:
+            annotation = self.annotation
+
+        field_dict: dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update(
+            {
+                "ability_id": ability_id,
+                "currency_type": currency_type,
+                "delta": delta,
+            }
+        )
+        if annotation is not UNSET:
+            field_dict["annotation"] = annotation
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        d = dict(src_dict)
+        ability_id = d.pop("ability_id")
+
+        currency_type = d.pop("currency_type")
+
+        delta = d.pop("delta")
+
+        def _parse_annotation(data: object) -> Union[None, Unset, str]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(Union[None, Unset, str], data)
+
+        annotation = _parse_annotation(d.pop("annotation", UNSET))
+
+        build_hero_details_ability_order_currency_change = cls(
+            ability_id=ability_id,
+            currency_type=currency_type,
+            delta=delta,
+            annotation=annotation,
+        )
+
+        build_hero_details_ability_order_currency_change.additional_properties = d
+        return build_hero_details_ability_order_currency_change
+
+    @property
+    def additional_keys(self) -> list[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties
