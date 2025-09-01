@@ -1,4 +1,4 @@
-# openapi_client.ESportsApi
+# deadlock-api-client.ESportsApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -29,23 +29,23 @@ Please contact us if you organize E-Sports Matches and want to ingest them to us
 
 
 ```python
-import openapi_client
-from openapi_client.models.e_sports_match import ESportsMatch
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.e_sports_match import ESportsMatch
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ESportsApi(api_client)
-    e_sports_match = openapi_client.ESportsMatch() # ESportsMatch | 
+    api_instance = deadlock-api-client.ESportsApi(api_client)
+    e_sports_match = deadlock-api-client.ESportsMatch() # ESportsMatch | 
 
     try:
         # Ingest
@@ -104,22 +104,22 @@ List Matches
 
 
 ```python
-import openapi_client
-from openapi_client.models.e_sports_match import ESportsMatch
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.e_sports_match import ESportsMatch
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ESportsApi(api_client)
+    api_instance = deadlock-api-client.ESportsApi(api_client)
 
     try:
         # List Matches

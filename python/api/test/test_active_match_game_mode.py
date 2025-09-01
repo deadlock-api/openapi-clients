@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.active_match_game_mode import ActiveMatchGameMode
+from deadlock-api-client.models.active_match_game_mode import ActiveMatchGameMode
 
 class TestActiveMatchGameMode(unittest.TestCase):
     """ActiveMatchGameMode unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.info_api import InfoApi
+from deadlock-api-client.api.info_api import InfoApi
 
 
 class TestInfoApi(unittest.TestCase):

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.hero_synergy_stats import HeroSynergyStats
+from deadlock-api-client.models.hero_synergy_stats import HeroSynergyStats
 
 class TestHeroSynergyStats(unittest.TestCase):
     """HeroSynergyStats unit test stubs"""

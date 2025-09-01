@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.raw_weapon_info_horizontal_recoil_v2 import RawWeaponInfoHorizontalRecoilV2
+from assets-deadlock-api-client.models.raw_weapon_info_horizontal_recoil_v2 import RawWeaponInfoHorizontalRecoilV2
 
 class TestRawWeaponInfoHorizontalRecoilV2(unittest.TestCase):
     """RawWeaponInfoHorizontalRecoilV2 unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.player_match_history_entry import PlayerMatchHistoryEntry
+from deadlock-api-client.models.player_match_history_entry import PlayerMatchHistoryEntry
 
 class TestPlayerMatchHistoryEntry(unittest.TestCase):
     """PlayerMatchHistoryEntry unit test stubs"""

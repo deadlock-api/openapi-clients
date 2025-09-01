@@ -1,4 +1,4 @@
-# openapi_client.DefaultApi
+# assets-deadlock-api-client.DefaultApi
 
 All URIs are relative to *https://assets.deadlock-api.com*
 
@@ -23,26 +23,26 @@ Get Build Tags
 
 
 ```python
-import openapi_client
-from openapi_client.models.build_tag_v2 import BuildTagV2
-from openapi_client.models.language import Language
-from openapi_client.models.valid_client_versions import ValidClientVersions
-from openapi_client.rest import ApiException
+import assets-deadlock-api-client
+from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2
+from assets-deadlock-api-client.models.language import Language
+from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = assets-deadlock-api-client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
-    language = openapi_client.Language() # Language |  (optional)
-    client_version = openapi_client.ValidClientVersions() # ValidClientVersions |  (optional)
+    api_instance = assets-deadlock-api-client.DefaultApi(api_client)
+    language = assets-deadlock-api-client.Language() # Language |  (optional)
+    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
 
     try:
         # Get Build Tags
@@ -94,21 +94,21 @@ Get Client Versions
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import assets-deadlock-api-client
+from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = assets-deadlock-api-client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
+    api_instance = assets-deadlock-api-client.DefaultApi(api_client)
 
     try:
         # Get Client Versions
@@ -155,24 +155,24 @@ Get Colors
 
 
 ```python
-import openapi_client
-from openapi_client.models.color_v1 import ColorV1
-from openapi_client.models.valid_client_versions import ValidClientVersions
-from openapi_client.rest import ApiException
+import assets-deadlock-api-client
+from assets-deadlock-api-client.models.color_v1 import ColorV1
+from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = assets-deadlock-api-client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
-    client_version = openapi_client.ValidClientVersions() # ValidClientVersions |  (optional)
+    api_instance = assets-deadlock-api-client.DefaultApi(api_client)
+    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
 
     try:
         # Get Colors
@@ -223,23 +223,23 @@ Get Icons
 
 
 ```python
-import openapi_client
-from openapi_client.models.valid_client_versions import ValidClientVersions
-from openapi_client.rest import ApiException
+import assets-deadlock-api-client
+from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = assets-deadlock-api-client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
-    client_version = openapi_client.ValidClientVersions() # ValidClientVersions |  (optional)
+    api_instance = assets-deadlock-api-client.DefaultApi(api_client)
+    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
 
     try:
         # Get Icons
@@ -290,24 +290,24 @@ Get Map
 
 
 ```python
-import openapi_client
-from openapi_client.models.map_v1 import MapV1
-from openapi_client.models.valid_client_versions import ValidClientVersions
-from openapi_client.rest import ApiException
+import assets-deadlock-api-client
+from assets-deadlock-api-client.models.map_v1 import MapV1
+from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = assets-deadlock-api-client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
-    client_version = openapi_client.ValidClientVersions() # ValidClientVersions |  (optional)
+    api_instance = assets-deadlock-api-client.DefaultApi(api_client)
+    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
 
     try:
         # Get Map
@@ -358,26 +358,26 @@ Get Ranks
 
 
 ```python
-import openapi_client
-from openapi_client.models.language import Language
-from openapi_client.models.rank_v2 import RankV2
-from openapi_client.models.valid_client_versions import ValidClientVersions
-from openapi_client.rest import ApiException
+import assets-deadlock-api-client
+from assets-deadlock-api-client.models.language import Language
+from assets-deadlock-api-client.models.rank_v2 import RankV2
+from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = assets-deadlock-api-client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
-    language = openapi_client.Language() # Language |  (optional)
-    client_version = openapi_client.ValidClientVersions() # ValidClientVersions |  (optional)
+    api_instance = assets-deadlock-api-client.DefaultApi(api_client)
+    language = assets-deadlock-api-client.Language() # Language |  (optional)
+    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
 
     try:
         # Get Ranks
@@ -429,23 +429,23 @@ Get Sounds
 
 
 ```python
-import openapi_client
-from openapi_client.models.valid_client_versions import ValidClientVersions
-from openapi_client.rest import ApiException
+import assets-deadlock-api-client
+from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = assets-deadlock-api-client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
-    client_version = openapi_client.ValidClientVersions() # ValidClientVersions |  (optional)
+    api_instance = assets-deadlock-api-client.DefaultApi(api_client)
+    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
 
     try:
         # Get Sounds
@@ -496,23 +496,23 @@ Get Steam Info
 
 
 ```python
-import openapi_client
-from openapi_client.models.valid_client_versions import ValidClientVersions
-from openapi_client.rest import ApiException
+import assets-deadlock-api-client
+from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = assets-deadlock-api-client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
-    client_version = openapi_client.ValidClientVersions() # ValidClientVersions |  (optional)
+    api_instance = assets-deadlock-api-client.DefaultApi(api_client)
+    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
 
     try:
         # Get Steam Info

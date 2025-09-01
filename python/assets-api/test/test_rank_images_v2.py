@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.rank_images_v2 import RankImagesV2
+from assets-deadlock-api-client.models.rank_images_v2 import RankImagesV2
 
 class TestRankImagesV2(unittest.TestCase):
     """RankImagesV2 unit test stubs"""

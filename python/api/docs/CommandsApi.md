@@ -1,4 +1,4 @@
-# openapi_client.CommandsApi
+# deadlock-api-client.CommandsApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -30,22 +30,22 @@ Returns a list of available variables that can be used in the command endpoint.
 
 
 ```python
-import openapi_client
-from openapi_client.models.variable_description import VariableDescription
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.variable_description import VariableDescription
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CommandsApi(api_client)
+    api_instance = deadlock-api-client.CommandsApi(api_client)
 
     try:
         # Available Variables
@@ -104,21 +104,21 @@ Resolve Command
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CommandsApi(api_client)
+    api_instance = deadlock-api-client.CommandsApi(api_client)
     account_id = 56 # int | The players `SteamID3`
     region = 'region_example' # str | The players region (optional)
     template = 'template_example' # str | The command template to resolve (optional)
@@ -187,21 +187,21 @@ Resolves variables and returns a map of variable name to resolved value.
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CommandsApi(api_client)
+    api_instance = deadlock-api-client.CommandsApi(api_client)
     account_id = 56 # int | 
     region = 'region_example' # str |  (optional)
     variables = 'variables_example' # str | Variables to resolve, separated by commas. (optional)
@@ -270,21 +270,21 @@ Returns a map of str->int of widget versions.
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CommandsApi(api_client)
+    api_instance = deadlock-api-client.CommandsApi(api_client)
 
     try:
         # Widget Versions

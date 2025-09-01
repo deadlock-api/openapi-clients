@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.mate_stats import MateStats
+from deadlock-api-client.models.mate_stats import MateStats
 
 class TestMateStats(unittest.TestCase):
     """MateStats unit test stubs"""

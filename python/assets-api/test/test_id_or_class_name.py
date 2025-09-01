@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.id_or_class_name import IdOrClassName
+from assets-deadlock-api-client.models.id_or_class_name import IdOrClassName
 
 class TestIdOrClassName(unittest.TestCase):
     """IdOrClassName unit test stubs"""

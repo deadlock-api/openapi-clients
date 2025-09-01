@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.ability_description_v2 import AbilityDescriptionV2
+from assets-deadlock-api-client.models.ability_description_v2 import AbilityDescriptionV2
 
 class TestAbilityDescriptionV2(unittest.TestCase):
     """AbilityDescriptionV2 unit test stubs"""

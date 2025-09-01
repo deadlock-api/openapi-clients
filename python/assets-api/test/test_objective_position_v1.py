@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.objective_position_v1 import ObjectivePositionV1
+from assets-deadlock-api-client.models.objective_position_v1 import ObjectivePositionV1
 
 class TestObjectivePositionV1(unittest.TestCase):
     """ObjectivePositionV1 unit test stubs"""

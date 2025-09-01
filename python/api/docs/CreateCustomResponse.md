@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_custom_response import CreateCustomResponse
+from deadlock-api-client.models.create_custom_response import CreateCustomResponse
 
 # TODO update the JSON string below
 json = "{}"

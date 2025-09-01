@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.rank_images_v2 import RankImagesV2
+from assets-deadlock-api-client.models.rank_images_v2 import RankImagesV2
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.hero_colors_v2 import HeroColorsV2
+from assets-deadlock-api-client.models.hero_colors_v2 import HeroColorsV2
 
 class TestHeroColorsV2(unittest.TestCase):
     """HeroColorsV2 unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.builds_api import BuildsApi
+from deadlock-api-client.api.builds_api import BuildsApi
 
 
 class TestBuildsApi(unittest.TestCase):

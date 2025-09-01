@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.get_custom_match_id_response import GetCustomMatchIdResponse
+from deadlock-api-client.models.get_custom_match_id_response import GetCustomMatchIdResponse
 
 class TestGetCustomMatchIdResponse(unittest.TestCase):
     """GetCustomMatchIdResponse unit test stubs"""

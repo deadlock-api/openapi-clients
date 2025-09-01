@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.steam_profile import SteamProfile
+from deadlock-api-client.models.steam_profile import SteamProfile
 
 # TODO update the JSON string below
 json = "{}"

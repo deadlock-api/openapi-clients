@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
 
 class TestValidClientVersions(unittest.TestCase):
     """ValidClientVersions unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.hero_shop_weapon_stats_display_v2 import HeroShopWeaponStatsDisplayV2
+from assets-deadlock-api-client.models.hero_shop_weapon_stats_display_v2 import HeroShopWeaponStatsDisplayV2
 
 class TestHeroShopWeaponStatsDisplayV2(unittest.TestCase):
     """HeroShopWeaponStatsDisplayV2 unit test stubs"""

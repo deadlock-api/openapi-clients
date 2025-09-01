@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.build_hero_details_category_ability import BuildHeroDetailsCategoryAbility
+from deadlock-api-client.models.build_hero_details_category_ability import BuildHeroDetailsCategoryAbility
 
 class TestBuildHeroDetailsCategoryAbility(unittest.TestCase):
     """BuildHeroDetailsCategoryAbility unit test stubs"""

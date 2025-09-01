@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_custom_response import CreateCustomResponse
+from deadlock-api-client.models.create_custom_response import CreateCustomResponse
 
 class TestCreateCustomResponse(unittest.TestCase):
     """CreateCustomResponse unit test stubs"""

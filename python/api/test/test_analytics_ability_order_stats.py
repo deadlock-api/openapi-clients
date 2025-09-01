@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
+from deadlock-api-client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
 
 class TestAnalyticsAbilityOrderStats(unittest.TestCase):
     """AnalyticsAbilityOrderStats unit test stubs"""

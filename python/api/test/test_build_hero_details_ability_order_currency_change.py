@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.build_hero_details_ability_order_currency_change import BuildHeroDetailsAbilityOrderCurrencyChange
+from deadlock-api-client.models.build_hero_details_ability_order_currency_change import BuildHeroDetailsAbilityOrderCurrencyChange
 
 class TestBuildHeroDetailsAbilityOrderCurrencyChange(unittest.TestCase):
     """BuildHeroDetailsAbilityOrderCurrencyChange unit test stubs"""

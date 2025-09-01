@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.hero_starting_stats_v2 import HeroStartingStatsV2
+from assets-deadlock-api-client.models.hero_starting_stats_v2 import HeroStartingStatsV2
 
 # TODO update the JSON string below
 json = "{}"

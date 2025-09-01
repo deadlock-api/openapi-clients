@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.build_tag_v2 import BuildTagV2
+from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2
 
 class TestBuildTagV2(unittest.TestCase):
     """BuildTagV2 unit test stubs"""

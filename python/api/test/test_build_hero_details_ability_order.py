@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.build_hero_details_ability_order import BuildHeroDetailsAbilityOrder
+from deadlock-api-client.models.build_hero_details_ability_order import BuildHeroDetailsAbilityOrder
 
 class TestBuildHeroDetailsAbilityOrder(unittest.TestCase):
     """BuildHeroDetailsAbilityOrder unit test stubs"""
@@ -36,7 +36,7 @@ class TestBuildHeroDetailsAbilityOrder(unittest.TestCase):
         if include_optional:
             return BuildHeroDetailsAbilityOrder(
                 currency_changes = [
-                    openapi_client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
+                    deadlock-api-client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
                         ability_id = 0, 
                         annotation = '', 
                         currency_type = 56, 

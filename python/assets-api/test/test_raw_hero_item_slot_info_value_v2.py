@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.raw_hero_item_slot_info_value_v2 import RawHeroItemSlotInfoValueV2
+from assets-deadlock-api-client.models.raw_hero_item_slot_info_value_v2 import RawHeroItemSlotInfoValueV2
 
 class TestRawHeroItemSlotInfoValueV2(unittest.TestCase):
     """RawHeroItemSlotInfoValueV2 unit test stubs"""

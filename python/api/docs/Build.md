@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.build import Build
+from deadlock-api-client.models.build import Build
 
 # TODO update the JSON string below
 json = "{}"

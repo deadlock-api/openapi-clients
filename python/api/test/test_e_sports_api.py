@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.e_sports_api import ESportsApi
+from deadlock-api-client.api.e_sports_api import ESportsApi
 
 
 class TestESportsApi(unittest.TestCase):

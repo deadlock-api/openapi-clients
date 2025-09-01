@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.language import Language
+from assets-deadlock-api-client.models.language import Language
 
 class TestLanguage(unittest.TestCase):
     """Language unit test stubs"""

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.raw_hero_stats_ui_display_v2 import RawHeroStatsUIDisplayV2
+from assets-deadlock-api-client.models.raw_hero_stats_ui_display_v2 import RawHeroStatsUIDisplayV2
 
 # TODO update the JSON string below
 json = "{}"

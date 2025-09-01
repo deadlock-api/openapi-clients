@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.item_type_v2 import ItemTypeV2
+from assets-deadlock-api-client.models.item_type_v2 import ItemTypeV2
 
 class TestItemTypeV2(unittest.TestCase):
     """ItemTypeV2 unit test stubs"""

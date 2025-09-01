@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet
+from assets-deadlock-api-client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet
 
 class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
     """ResponseGetItemV2ItemsIdOrClassNameGet unit test stubs"""
@@ -47,7 +47,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                     ],
                 update_time = 56,
                 properties = {
-                    'key' : openapi_client.models.upgrade_property_v2.UpgradePropertyV2(
+                    'key' : assets-deadlock-api-client.models.upgrade_property_v2.UpgradePropertyV2(
                         value = null, 
                         can_set_token_override = True, 
                         provided_property_type = '', 
@@ -58,7 +58,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                         loc_token_override = '', 
                         display_units = '', 
                         icon_path = '', 
-                        scale_function = openapi_client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
+                        scale_function = assets-deadlock-api-client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
                             class_name = '', 
                             subclass_name = '', 
                             specific_stat_scale_type = '', 
@@ -76,10 +76,10 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                         tooltip_is_elevated = True, 
                         tooltip_is_important = True, )
                     },
-                weapon_info = openapi_client.models.raw_item_weapon_info_v2.RawItemWeaponInfoV2(
-                    bullet_speed_curve = openapi_client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
+                weapon_info = assets-deadlock-api-client.models.raw_item_weapon_info_v2.RawItemWeaponInfoV2(
+                    bullet_speed_curve = assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
                         spline = [
-                            openapi_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
+                            assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
                                 slope_incoming = 1.337, 
                                 slope_outgoing = 1.337, 
                                 x = 1.337, 
@@ -95,20 +95,20 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                 behaviours = [
                     ''
                     ],
-                description = openapi_client.models.upgrade_description_v2.UpgradeDescriptionV2(
+                description = assets-deadlock-api-client.models.upgrade_description_v2.UpgradeDescriptionV2(
                     desc = '', 
                     active = '', 
                     passive = '', ),
-                tooltip_details = openapi_client.models.ability_tooltip_details_v2.AbilityTooltipDetailsV2(
+                tooltip_details = assets-deadlock-api-client.models.ability_tooltip_details_v2.AbilityTooltipDetailsV2(
                     info_sections = [
-                        openapi_client.models.ability_tooltip_details_info_section_v2.AbilityTooltipDetailsInfoSectionV2(
+                        assets-deadlock-api-client.models.ability_tooltip_details_info_section_v2.AbilityTooltipDetailsInfoSectionV2(
                             loc_string = '', 
                             property_upgrade_required = '', 
                             properties_block = [
-                                openapi_client.models.ability_tooltip_details_info_section_property_block_v2.AbilityTooltipDetailsInfoSectionPropertyBlockV2(
+                                assets-deadlock-api-client.models.ability_tooltip_details_info_section_property_block_v2.AbilityTooltipDetailsInfoSectionPropertyBlockV2(
                                     loc_string = '', 
                                     properties = [
-                                        openapi_client.models.ability_v2_tooltip_details_info_section_property_block_property.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty(
+                                        assets-deadlock-api-client.models.ability_v2_tooltip_details_info_section_property_block_property.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty(
                                             requires_ability_upgrade = True, 
                                             show_property_value = True, 
                                             important_property = '', 
@@ -125,9 +125,9 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                         ''
                         ], ),
                 upgrades = [
-                    openapi_client.models.raw_ability_upgrade_v2.RawAbilityUpgradeV2(
+                    assets-deadlock-api-client.models.raw_ability_upgrade_v2.RawAbilityUpgradeV2(
                         property_upgrades = [
-                            openapi_client.models.raw_ability_upgrade_property_upgrade_v2.RawAbilityUpgradePropertyUpgradeV2(
+                            assets-deadlock-api-client.models.raw_ability_upgrade_property_upgrade_v2.RawAbilityUpgradePropertyUpgradeV2(
                                 name = '', 
                                 bonus = null, 
                                 scale_stat_filter = '', 
@@ -139,7 +139,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                 dependant_abilities = [
                     ''
                     ],
-                videos = openapi_client.models.ability_videos_v2.AbilityVideosV2(
+                videos = assets-deadlock-api-client.models.ability_videos_v2.AbilityVideosV2(
                     webm = '', 
                     mp4 = '', ),
                 shop_image = '',
@@ -155,10 +155,10 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                     ''
                     ],
                 tooltip_sections = [
-                    openapi_client.models.upgrade_tooltip_section_v2.UpgradeTooltipSectionV2(
+                    assets-deadlock-api-client.models.upgrade_tooltip_section_v2.UpgradeTooltipSectionV2(
                         section_type = 'innate', 
                         section_attributes = [
-                            openapi_client.models.upgrade_tooltip_section_attribute_v2.UpgradeTooltipSectionAttributeV2(
+                            assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2.UpgradeTooltipSectionAttributeV2(
                                 loc_string = '', 
                                 properties = [
                                     ''
@@ -170,7 +170,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                                     ''
                                     ], 
                                 important_properties_with_icon = [
-                                    openapi_client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon.UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon(
+                                    assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon.UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon(
                                         name = '', 
                                         icon = '', 
                                         localized_name = '', )
@@ -186,7 +186,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                 id = 56,
                 class_name = '',
                 name = '',
-                description = openapi_client.models.upgrade_description_v2.UpgradeDescriptionV2(
+                description = assets-deadlock-api-client.models.upgrade_description_v2.UpgradeDescriptionV2(
                     desc = '', 
                     active = '', 
                     passive = '', ),

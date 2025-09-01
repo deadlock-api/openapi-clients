@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.raw_ability_section_type_v2 import RawAbilitySectionTypeV2
+from assets-deadlock-api-client.models.raw_ability_section_type_v2 import RawAbilitySectionTypeV2
 
 class TestRawAbilitySectionTypeV2(unittest.TestCase):
     """RawAbilitySectionTypeV2 unit test stubs"""

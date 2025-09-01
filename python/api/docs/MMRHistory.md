@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.mmr_history import MMRHistory
+from deadlock-api-client.models.mmr_history import MMRHistory
 
 # TODO update the JSON string below
 json = "{}"

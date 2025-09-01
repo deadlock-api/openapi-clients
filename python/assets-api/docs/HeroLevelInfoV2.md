@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.hero_level_info_v2 import HeroLevelInfoV2
+from assets-deadlock-api-client.models.hero_level_info_v2 import HeroLevelInfoV2
 
 # TODO update the JSON string below
 json = "{}"

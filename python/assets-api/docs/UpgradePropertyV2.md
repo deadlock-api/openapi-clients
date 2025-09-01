@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.upgrade_property_v2 import UpgradePropertyV2
+from assets-deadlock-api-client.models.upgrade_property_v2 import UpgradePropertyV2
 
 # TODO update the JSON string below
 json = "{}"

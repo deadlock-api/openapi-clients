@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.hero_shop_weapon_stats_display_v2 import HeroShopWeaponStatsDisplayV2
+from assets-deadlock-api-client.models.hero_shop_weapon_stats_display_v2 import HeroShopWeaponStatsDisplayV2
 
 # TODO update the JSON string below
 json = "{}"

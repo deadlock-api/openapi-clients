@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.leaderboard_entry import LeaderboardEntry
+from deadlock-api-client.models.leaderboard_entry import LeaderboardEntry
 
 # TODO update the JSON string below
 json = "{}"

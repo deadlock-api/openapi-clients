@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.upgrade_tooltip_section_attribute_v2 import UpgradeTooltipSectionAttributeV2
+from assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2 import UpgradeTooltipSectionAttributeV2
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.hero_stats import HeroStats
+from deadlock-api-client.models.hero_stats import HeroStats
 
 class TestHeroStats(unittest.TestCase):
     """HeroStats unit test stubs"""

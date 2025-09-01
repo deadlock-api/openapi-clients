@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.hero_physics_v2 import HeroPhysicsV2
+from assets-deadlock-api-client.models.hero_physics_v2 import HeroPhysicsV2
 
 class TestHeroPhysicsV2(unittest.TestCase):
     """HeroPhysicsV2 unit test stubs"""

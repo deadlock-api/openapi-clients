@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.ability_videos_v2 import AbilityVideosV2
+from assets-deadlock-api-client.models.ability_videos_v2 import AbilityVideosV2
 
 class TestAbilityVideosV2(unittest.TestCase):
     """AbilityVideosV2 unit test stubs"""

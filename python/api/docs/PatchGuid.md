@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.patch_guid import PatchGuid
+from deadlock-api-client.models.patch_guid import PatchGuid
 
 # TODO update the JSON string below
 json = "{}"

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.raw_weapon_info_horizontal_recoil_v2 import RawWeaponInfoHorizontalRecoilV2
+from assets-deadlock-api-client.models.raw_weapon_info_horizontal_recoil_v2 import RawWeaponInfoHorizontalRecoilV2
 
 # TODO update the JSON string below
 json = "{}"

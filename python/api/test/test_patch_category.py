@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.patch_category import PatchCategory
+from deadlock-api-client.models.patch_category import PatchCategory
 
 class TestPatchCategory(unittest.TestCase):
     """PatchCategory unit test stubs"""

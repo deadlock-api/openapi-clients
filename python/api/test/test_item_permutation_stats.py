@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.item_permutation_stats import ItemPermutationStats
+from deadlock-api-client.models.item_permutation_stats import ItemPermutationStats
 
 class TestItemPermutationStats(unittest.TestCase):
     """ItemPermutationStats unit test stubs"""

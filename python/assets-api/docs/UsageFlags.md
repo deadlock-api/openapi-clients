@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.usage_flags import UsageFlags
+from assets-deadlock-api-client.models.usage_flags import UsageFlags
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,4 +1,4 @@
-# openapi_client.InternalApi
+# deadlock-api-client.InternalApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -35,23 +35,23 @@ The endpoint accepts a list of MatchSalts objects, which contain the following f
 
 
 ```python
-import openapi_client
-from openapi_client.models.clickhouse_salts import ClickhouseSalts
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.clickhouse_salts import ClickhouseSalts
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.InternalApi(api_client)
-    clickhouse_salts = [openapi_client.ClickhouseSalts()] # List[ClickhouseSalts] | 
+    api_instance = deadlock-api-client.InternalApi(api_client)
+    clickhouse_salts = [deadlock-api-client.ClickhouseSalts()] # List[ClickhouseSalts] | 
 
     try:
         # Match Salts Ingest

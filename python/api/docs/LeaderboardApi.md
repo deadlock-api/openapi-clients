@@ -1,4 +1,4 @@
-# openapi_client.LeaderboardApi
+# deadlock-api-client.LeaderboardApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -30,22 +30,22 @@ Returns the leaderboard.
 
 
 ```python
-import openapi_client
-from openapi_client.models.leaderboard import Leaderboard
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.leaderboard import Leaderboard
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.LeaderboardApi(api_client)
+    api_instance = deadlock-api-client.LeaderboardApi(api_client)
     region = 'region_example' # str | The region to fetch the leaderboard for.
 
     try:
@@ -109,22 +109,22 @@ Returns the leaderboard for a specific hero.
 
 
 ```python
-import openapi_client
-from openapi_client.models.leaderboard import Leaderboard
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.leaderboard import Leaderboard
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.LeaderboardApi(api_client)
+    api_instance = deadlock-api-client.LeaderboardApi(api_client)
     region = 'region_example' # str | The region to fetch the leaderboard for.
     hero_id = 56 # int | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
 
@@ -197,21 +197,21 @@ Relevant Protobuf Message:
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.LeaderboardApi(api_client)
+    api_instance = deadlock-api-client.LeaderboardApi(api_client)
     region = 'region_example' # str | The region to fetch the leaderboard for.
     hero_id = 56 # int | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
 
@@ -284,21 +284,21 @@ Relevant Protobuf Message:
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.LeaderboardApi(api_client)
+    api_instance = deadlock-api-client.LeaderboardApi(api_client)
     region = 'region_example' # str | The region to fetch the leaderboard for.
 
     try:

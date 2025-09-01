@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2
+from assets-deadlock-api-client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2
 
 # TODO update the JSON string below
 json = "{}"

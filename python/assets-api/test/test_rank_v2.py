@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.rank_v2 import RankV2
+from assets-deadlock-api-client.models.rank_v2 import RankV2
 
 class TestRankV2(unittest.TestCase):
     """RankV2 unit test stubs"""
@@ -37,7 +37,7 @@ class TestRankV2(unittest.TestCase):
             return RankV2(
                 tier = 56,
                 name = '',
-                images = openapi_client.models.rank_images_v2.RankImagesV2(
+                images = assets-deadlock-api-client.models.rank_images_v2.RankImagesV2(
                     large = '', 
                     large_webp = '', 
                     large_subrank1 = '', 
@@ -72,7 +72,7 @@ class TestRankV2(unittest.TestCase):
             return RankV2(
                 tier = 56,
                 name = '',
-                images = openapi_client.models.rank_images_v2.RankImagesV2(
+                images = assets-deadlock-api-client.models.rank_images_v2.RankImagesV2(
                     large = '', 
                     large_webp = '', 
                     large_subrank1 = '', 

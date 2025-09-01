@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.hero_starting_stat_v2 import HeroStartingStatV2
+from assets-deadlock-api-client.models.hero_starting_stat_v2 import HeroStartingStatV2
 
 class TestHeroStartingStatV2(unittest.TestCase):
     """HeroStartingStatV2 unit test stubs"""

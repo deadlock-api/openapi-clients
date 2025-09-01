@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.objective_positions_v1 import ObjectivePositionsV1
+from assets-deadlock-api-client.models.objective_positions_v1 import ObjectivePositionsV1
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.api_info import APIInfo
+from deadlock-api-client.models.api_info import APIInfo
 
 class TestAPIInfo(unittest.TestCase):
     """APIInfo unit test stubs"""
@@ -38,7 +38,7 @@ class TestAPIInfo(unittest.TestCase):
                 fetched_matches_per_day = 0,
                 missed_matches = 0,
                 table_sizes = {
-                    'key' : openapi_client.models.table_size.TableSize(
+                    'key' : deadlock-api-client.models.table_size.TableSize(
                         data_compressed_bytes = 0, 
                         data_uncompressed_bytes = 0, 
                         is_view = True, 

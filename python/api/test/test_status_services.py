@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.status_services import StatusServices
+from deadlock-api-client.models.status_services import StatusServices
 
 class TestStatusServices(unittest.TestCase):
     """StatusServices unit test stubs"""

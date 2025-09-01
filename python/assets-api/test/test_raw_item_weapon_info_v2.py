@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.raw_item_weapon_info_v2 import RawItemWeaponInfoV2
+from assets-deadlock-api-client.models.raw_item_weapon_info_v2 import RawItemWeaponInfoV2
 
 class TestRawItemWeaponInfoV2(unittest.TestCase):
     """RawItemWeaponInfoV2 unit test stubs"""
@@ -35,9 +35,9 @@ class TestRawItemWeaponInfoV2(unittest.TestCase):
         model = RawItemWeaponInfoV2()
         if include_optional:
             return RawItemWeaponInfoV2(
-                bullet_speed_curve = openapi_client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
+                bullet_speed_curve = assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
                     spline = [
-                        openapi_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
+                        assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
                             slope_incoming = 1.337, 
                             slope_outgoing = 1.337, 
                             x = 1.337, 

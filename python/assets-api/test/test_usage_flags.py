@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.usage_flags import UsageFlags
+from assets-deadlock-api-client.models.usage_flags import UsageFlags
 
 class TestUsageFlags(unittest.TestCase):
     """UsageFlags unit test stubs"""

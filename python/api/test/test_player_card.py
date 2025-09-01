@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.player_card import PlayerCard
+from deadlock-api-client.models.player_card import PlayerCard
 
 class TestPlayerCard(unittest.TestCase):
     """PlayerCard unit test stubs"""
@@ -40,13 +40,13 @@ class TestPlayerCard(unittest.TestCase):
                 ranked_rank = 0,
                 ranked_subrank = 0,
                 slots = [
-                    openapi_client.models.player_card_slot.PlayerCardSlot(
-                        hero = openapi_client.models.player_card_slot_hero.PlayerCardSlotHero(
+                    deadlock-api-client.models.player_card_slot.PlayerCardSlot(
+                        hero = deadlock-api-client.models.player_card_slot_hero.PlayerCardSlotHero(
                             id = 0, 
                             kills = 0, 
                             wins = 0, ), 
                         slot_id = 0, 
-                        stat = openapi_client.models.player_card_slot_stat.PlayerCardSlotStat(
+                        stat = deadlock-api-client.models.player_card_slot_stat.PlayerCardSlotStat(
                             stat_id = 56, 
                             stat_score = 0, ), )
                     ]
@@ -55,13 +55,13 @@ class TestPlayerCard(unittest.TestCase):
             return PlayerCard(
                 account_id = 0,
                 slots = [
-                    openapi_client.models.player_card_slot.PlayerCardSlot(
-                        hero = openapi_client.models.player_card_slot_hero.PlayerCardSlotHero(
+                    deadlock-api-client.models.player_card_slot.PlayerCardSlot(
+                        hero = deadlock-api-client.models.player_card_slot_hero.PlayerCardSlotHero(
                             id = 0, 
                             kills = 0, 
                             wins = 0, ), 
                         slot_id = 0, 
-                        stat = openapi_client.models.player_card_slot_stat.PlayerCardSlotStat(
+                        stat = deadlock-api-client.models.player_card_slot_stat.PlayerCardSlotStat(
                             stat_id = 56, 
                             stat_score = 0, ), )
                     ],

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.player_card_slot import PlayerCardSlot
+from deadlock-api-client.models.player_card_slot import PlayerCardSlot
 
 class TestPlayerCardSlot(unittest.TestCase):
     """PlayerCardSlot unit test stubs"""
@@ -35,12 +35,12 @@ class TestPlayerCardSlot(unittest.TestCase):
         model = PlayerCardSlot()
         if include_optional:
             return PlayerCardSlot(
-                hero = openapi_client.models.player_card_slot_hero.PlayerCardSlotHero(
+                hero = deadlock-api-client.models.player_card_slot_hero.PlayerCardSlotHero(
                     id = 0, 
                     kills = 0, 
                     wins = 0, ),
                 slot_id = 0,
-                stat = openapi_client.models.player_card_slot_stat.PlayerCardSlotStat(
+                stat = deadlock-api-client.models.player_card_slot_stat.PlayerCardSlotStat(
                     stat_id = 56, 
                     stat_score = 0, )
             )

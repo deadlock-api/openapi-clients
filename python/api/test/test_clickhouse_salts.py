@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.clickhouse_salts import ClickhouseSalts
+from deadlock-api-client.models.clickhouse_salts import ClickhouseSalts
 
 class TestClickhouseSalts(unittest.TestCase):
     """ClickhouseSalts unit test stubs"""

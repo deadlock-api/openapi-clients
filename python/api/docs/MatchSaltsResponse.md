@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.match_salts_response import MatchSaltsResponse
+from deadlock-api-client.models.match_salts_response import MatchSaltsResponse
 
 # TODO update the JSON string below
 json = "{}"

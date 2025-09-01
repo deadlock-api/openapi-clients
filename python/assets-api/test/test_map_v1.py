@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.map_v1 import MapV1
+from assets-deadlock-api-client.models.map_v1 import MapV1
 
 class TestMapV1(unittest.TestCase):
     """MapV1 unit test stubs"""
@@ -36,17 +36,17 @@ class TestMapV1(unittest.TestCase):
         if include_optional:
             return MapV1(
                 radius = 56,
-                images = openapi_client.models.map_images_v1.MapImagesV1(
+                images = assets-deadlock-api-client.models.map_images_v1.MapImagesV1(
                     minimap = '', 
                     plain = '', 
                     background = '', 
                     frame = '', 
                     mid = '', ),
-                objective_positions = openapi_client.models.objective_positions_v1.ObjectivePositionsV1(
-                    team0_core = openapi_client.models.objective_position_v1.ObjectivePositionV1(
+                objective_positions = assets-deadlock-api-client.models.objective_positions_v1.ObjectivePositionsV1(
+                    team0_core = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
                         left_relative = 1.337, 
                         top_relative = 1.337, ), 
-                    team1_core = openapi_client.models.objective_position_v1.ObjectivePositionV1(
+                    team1_core = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
                         left_relative = 1.337, 
                         top_relative = 1.337, ), 
                     team0_titan = , 
@@ -68,7 +68,7 @@ class TestMapV1(unittest.TestCase):
                     team1_tier1_3 = , 
                     team1_tier1_4 = , ),
                 zipline_paths = [
-                    openapi_client.models.ziplane_path_v1.ZiplanePathV1(
+                    assets-deadlock-api-client.models.ziplane_path_v1.ZiplanePathV1(
                         origin = [
                             null
                             ], 
@@ -92,17 +92,17 @@ class TestMapV1(unittest.TestCase):
             )
         else:
             return MapV1(
-                images = openapi_client.models.map_images_v1.MapImagesV1(
+                images = assets-deadlock-api-client.models.map_images_v1.MapImagesV1(
                     minimap = '', 
                     plain = '', 
                     background = '', 
                     frame = '', 
                     mid = '', ),
-                objective_positions = openapi_client.models.objective_positions_v1.ObjectivePositionsV1(
-                    team0_core = openapi_client.models.objective_position_v1.ObjectivePositionV1(
+                objective_positions = assets-deadlock-api-client.models.objective_positions_v1.ObjectivePositionsV1(
+                    team0_core = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
                         left_relative = 1.337, 
                         top_relative = 1.337, ), 
-                    team1_core = openapi_client.models.objective_position_v1.ObjectivePositionV1(
+                    team1_core = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
                         left_relative = 1.337, 
                         top_relative = 1.337, ), 
                     team0_titan = , 
@@ -124,7 +124,7 @@ class TestMapV1(unittest.TestCase):
                     team1_tier1_3 = , 
                     team1_tier1_4 = , ),
                 zipline_paths = [
-                    openapi_client.models.ziplane_path_v1.ZiplanePathV1(
+                    assets-deadlock-api-client.models.ziplane_path_v1.ZiplanePathV1(
                         origin = [
                             null
                             ], 

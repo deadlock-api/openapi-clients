@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.upgrade_property_v2 import UpgradePropertyV2
+from assets-deadlock-api-client.models.upgrade_property_v2 import UpgradePropertyV2
 
 class TestUpgradePropertyV2(unittest.TestCase):
     """UpgradePropertyV2 unit test stubs"""
@@ -45,7 +45,7 @@ class TestUpgradePropertyV2(unittest.TestCase):
                 loc_token_override = '',
                 display_units = '',
                 icon_path = '',
-                scale_function = openapi_client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
+                scale_function = assets-deadlock-api-client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
                     class_name = '', 
                     subclass_name = '', 
                     specific_stat_scale_type = '', 

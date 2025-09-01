@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.active_match_team import ActiveMatchTeam
+from deadlock-api-client.models.active_match_team import ActiveMatchTeam
 
 class TestActiveMatchTeam(unittest.TestCase):
     """ActiveMatchTeam unit test stubs"""

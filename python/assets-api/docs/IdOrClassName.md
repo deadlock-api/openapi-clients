@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.id_or_class_name import IdOrClassName
+from assets-deadlock-api-client.models.id_or_class_name import IdOrClassName
 
 # TODO update the JSON string below
 json = "{}"

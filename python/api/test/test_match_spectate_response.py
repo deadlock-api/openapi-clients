@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.match_spectate_response import MatchSpectateResponse
+from deadlock-api-client.models.match_spectate_response import MatchSpectateResponse
 
 class TestMatchSpectateResponse(unittest.TestCase):
     """MatchSpectateResponse unit test stubs"""

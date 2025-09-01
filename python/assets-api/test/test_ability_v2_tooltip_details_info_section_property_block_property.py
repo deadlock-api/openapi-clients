@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.ability_v2_tooltip_details_info_section_property_block_property import AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
+from assets-deadlock-api-client.models.ability_v2_tooltip_details_info_section_property_block_property import AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
 
 class TestAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty(unittest.TestCase):
     """AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty unit test stubs"""

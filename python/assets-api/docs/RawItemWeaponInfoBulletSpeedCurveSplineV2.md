@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2 import RawItemWeaponInfoBulletSpeedCurveSplineV2
+from assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2 import RawItemWeaponInfoBulletSpeedCurveSplineV2
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,4 +1,4 @@
-# openapi-client
+# assets-deadlock-api-client
 
 ## Support the Deadlock API
 
@@ -38,7 +38,7 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 
 Then import the package:
 ```python
-import openapi_client
+import assets-deadlock-api-client
 ```
 
 ### Setuptools
@@ -52,7 +52,7 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import openapi_client
+import assets-deadlock-api-client
 ```
 
 ### Tests
@@ -65,25 +65,25 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 
-import openapi_client
-from openapi_client.rest import ApiException
+import assets-deadlock-api-client
+from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = assets-deadlock-api-client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.HeroesApi(api_client)
+    api_instance = assets-deadlock-api-client.HeroesApi(api_client)
     name = 'name_example' # str | 
-    language = openapi_client.Language() # Language |  (optional)
-    client_version = openapi_client.ValidClientVersions() # ValidClientVersions |  (optional)
+    language = assets-deadlock-api-client.Language() # Language |  (optional)
+    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
 
     try:
         # Get Hero By Name

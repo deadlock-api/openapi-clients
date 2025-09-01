@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.variable_description import VariableDescription
+from deadlock-api-client.models.variable_description import VariableDescription
 
 # TODO update the JSON string below
 json = "{}"

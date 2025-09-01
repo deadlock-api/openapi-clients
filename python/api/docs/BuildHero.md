@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.build_hero import BuildHero
+from deadlock-api-client.models.build_hero import BuildHero
 
 # TODO update the JSON string below
 json = "{}"

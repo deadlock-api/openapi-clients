@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.color_v1 import ColorV1
+from assets-deadlock-api-client.models.color_v1 import ColorV1
 
 # TODO update the JSON string below
 json = "{}"

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty
+from assets-deadlock-api-client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.clickhouse_match_info import ClickhouseMatchInfo
+from deadlock-api-client.models.clickhouse_match_info import ClickhouseMatchInfo
 
 class TestClickhouseMatchInfo(unittest.TestCase):
     """ClickhouseMatchInfo unit test stubs"""

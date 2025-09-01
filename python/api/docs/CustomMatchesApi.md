@@ -1,4 +1,4 @@
-# openapi_client.CustomMatchesApi
+# deadlock-api-client.CustomMatchesApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -46,24 +46,24 @@ The bot will leave the match 15 minutes after creation, regardless of match stat
 
 
 ```python
-import openapi_client
-from openapi_client.models.create_custom_request import CreateCustomRequest
-from openapi_client.models.create_custom_response import CreateCustomResponse
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.create_custom_request import CreateCustomRequest
+from deadlock-api-client.models.create_custom_response import CreateCustomResponse
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CustomMatchesApi(api_client)
-    create_custom_request = openapi_client.CreateCustomRequest() # CreateCustomRequest | 
+    api_instance = deadlock-api-client.CustomMatchesApi(api_client)
+    create_custom_request = deadlock-api-client.CreateCustomRequest() # CreateCustomRequest | 
 
     try:
         # Create Match
@@ -127,22 +127,22 @@ This endpoint allows you to get the match id of a custom match.
 
 
 ```python
-import openapi_client
-from openapi_client.models.get_custom_match_id_response import GetCustomMatchIdResponse
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.get_custom_match_id_response import GetCustomMatchIdResponse
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CustomMatchesApi(api_client)
+    api_instance = deadlock-api-client.CustomMatchesApi(api_client)
     party_id = 56 # int | 
 
     try:

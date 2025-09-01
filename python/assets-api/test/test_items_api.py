@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.items_api import ItemsApi
+from assets-deadlock-api-client.api.items_api import ItemsApi
 
 
 class TestItemsApi(unittest.TestCase):

@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.hash_map_value import HashMapValue
+from deadlock-api-client.models.hash_map_value import HashMapValue
 
 # TODO update the JSON string below
 json = "{}"

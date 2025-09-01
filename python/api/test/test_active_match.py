@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.active_match import ActiveMatch
+from deadlock-api-client.models.active_match import ActiveMatch
 
 class TestActiveMatch(unittest.TestCase):
     """ActiveMatch unit test stubs"""
@@ -51,7 +51,7 @@ class TestActiveMatch(unittest.TestCase):
                 objectives_mask_team1 = 0,
                 open_spectator_slots = 0,
                 players = [
-                    openapi_client.models.active_match_player.ActiveMatchPlayer(
+                    deadlock-api-client.models.active_match_player.ActiveMatchPlayer(
                         abandoned = True, 
                         account_id = 0, 
                         hero_id = 0, 
@@ -68,7 +68,7 @@ class TestActiveMatch(unittest.TestCase):
         else:
             return ActiveMatch(
                 players = [
-                    openapi_client.models.active_match_player.ActiveMatchPlayer(
+                    deadlock-api-client.models.active_match_player.ActiveMatchPlayer(
                         abandoned = True, 
                         account_id = 0, 
                         hero_id = 0, 

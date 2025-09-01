@@ -1,4 +1,4 @@
-# openapi_client.MMRApi
+# deadlock-api-client.MMRApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -21,22 +21,22 @@ Batch Player Hero MMR
 
 
 ```python
-import openapi_client
-from openapi_client.models.mmr_history import MMRHistory
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.mmr_history import MMRHistory
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MMRApi(api_client)
+    api_instance = deadlock-api-client.MMRApi(api_client)
     account_ids = [56] # List[int] | Comma separated list of account ids, Account IDs are in `SteamID3` format.
     hero_id = 56 # int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
 
@@ -93,22 +93,22 @@ Player Hero MMR History
 
 
 ```python
-import openapi_client
-from openapi_client.models.mmr_history import MMRHistory
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.mmr_history import MMRHistory
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MMRApi(api_client)
+    api_instance = deadlock-api-client.MMRApi(api_client)
     account_id = 56 # int | The players `SteamID3`
     hero_id = 56 # int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
 
@@ -165,22 +165,22 @@ Batch Player MMR
 
 
 ```python
-import openapi_client
-from openapi_client.models.mmr_history import MMRHistory
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.mmr_history import MMRHistory
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MMRApi(api_client)
+    api_instance = deadlock-api-client.MMRApi(api_client)
     account_ids = [56] # List[int] | Comma separated list of account ids, Account IDs are in `SteamID3` format.
 
     try:
@@ -235,22 +235,22 @@ Player MMR History
 
 
 ```python
-import openapi_client
-from openapi_client.models.mmr_history import MMRHistory
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.mmr_history import MMRHistory
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MMRApi(api_client)
+    api_instance = deadlock-api-client.MMRApi(api_client)
     account_id = 56 # int | The players `SteamID3`
 
     try:

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.sql_api import SQLApi
+from deadlock-api-client.api.sql_api import SQLApi
 
 
 class TestSQLApi(unittest.TestCase):

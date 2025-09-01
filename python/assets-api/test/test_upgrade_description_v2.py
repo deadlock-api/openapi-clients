@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.upgrade_description_v2 import UpgradeDescriptionV2
+from assets-deadlock-api-client.models.upgrade_description_v2 import UpgradeDescriptionV2
 
 class TestUpgradeDescriptionV2(unittest.TestCase):
     """UpgradeDescriptionV2 unit test stubs"""

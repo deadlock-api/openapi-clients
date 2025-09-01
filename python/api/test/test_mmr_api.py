@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.mmr_api import MMRApi
+from deadlock-api-client.api.mmr_api import MMRApi
 
 
 class TestMMRApi(unittest.TestCase):

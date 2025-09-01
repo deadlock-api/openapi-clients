@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.player_card_slot_stat import PlayerCardSlotStat
+from deadlock-api-client.models.player_card_slot_stat import PlayerCardSlotStat
 
 # TODO update the JSON string below
 json = "{}"

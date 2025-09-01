@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.variable_category import VariableCategory
+from deadlock-api-client.models.variable_category import VariableCategory
 
 class TestVariableCategory(unittest.TestCase):
     """VariableCategory unit test stubs"""

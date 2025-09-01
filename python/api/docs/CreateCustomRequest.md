@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_custom_request import CreateCustomRequest
+from deadlock-api-client.models.create_custom_request import CreateCustomRequest
 
 # TODO update the JSON string below
 json = "{}"

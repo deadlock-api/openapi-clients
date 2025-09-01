@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.item_tier_v2 import ItemTierV2
+from assets-deadlock-api-client.models.item_tier_v2 import ItemTierV2
 
 class TestItemTierV2(unittest.TestCase):
     """ItemTierV2 unit test stubs"""

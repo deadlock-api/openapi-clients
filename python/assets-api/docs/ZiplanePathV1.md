@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.ziplane_path_v1 import ZiplanePathV1
+from assets-deadlock-api-client.models.ziplane_path_v1 import ZiplanePathV1
 
 # TODO update the JSON string below
 json = "{}"

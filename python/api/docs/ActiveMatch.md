@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.active_match import ActiveMatch
+from deadlock-api-client.models.active_match import ActiveMatch
 
 # TODO update the JSON string below
 json = "{}"

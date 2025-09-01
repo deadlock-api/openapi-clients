@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.hero_images_v2 import HeroImagesV2
+from assets-deadlock-api-client.models.hero_images_v2 import HeroImagesV2
 
 class TestHeroImagesV2(unittest.TestCase):
     """HeroImagesV2 unit test stubs"""

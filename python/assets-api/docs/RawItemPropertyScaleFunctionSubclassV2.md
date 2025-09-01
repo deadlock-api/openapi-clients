@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.raw_item_property_scale_function_subclass_v2 import RawItemPropertyScaleFunctionSubclassV2
+from assets-deadlock-api-client.models.raw_item_property_scale_function_subclass_v2 import RawItemPropertyScaleFunctionSubclassV2
 
 # TODO update the JSON string below
 json = "{}"

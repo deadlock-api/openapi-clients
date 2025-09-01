@@ -1,4 +1,4 @@
-# openapi_client.InfoApi
+# deadlock-api-client.InfoApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -28,22 +28,22 @@ Checks the health of the services.
 
 
 ```python
-import openapi_client
-from openapi_client.models.status import Status
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.status import Status
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.InfoApi(api_client)
+    api_instance = deadlock-api-client.InfoApi(api_client)
 
     try:
         # Health Check
@@ -102,22 +102,22 @@ Returns information about the API.
 
 
 ```python
-import openapi_client
-from openapi_client.models.api_info import APIInfo
-from openapi_client.rest import ApiException
+import deadlock-api-client
+from deadlock-api-client.models.api_info import APIInfo
+from deadlock-api-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = deadlock-api-client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.InfoApi(api_client)
+    api_instance = deadlock-api-client.InfoApi(api_client)
 
     try:
         # API Info

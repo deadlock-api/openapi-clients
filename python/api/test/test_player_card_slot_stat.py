@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.player_card_slot_stat import PlayerCardSlotStat
+from deadlock-api-client.models.player_card_slot_stat import PlayerCardSlotStat
 
 class TestPlayerCardSlotStat(unittest.TestCase):
     """PlayerCardSlotStat unit test stubs"""

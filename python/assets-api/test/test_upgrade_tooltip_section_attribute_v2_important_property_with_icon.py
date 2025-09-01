@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon import UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
+from assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon import UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
 
 class TestUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon(unittest.TestCase):
     """UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.active_match_mode import ActiveMatchMode
+from deadlock-api-client.models.active_match_mode import ActiveMatchMode
 
 class TestActiveMatchMode(unittest.TestCase):
     """ActiveMatchMode unit test stubs"""

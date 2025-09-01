@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
+from deadlock-api-client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
 
 # TODO update the JSON string below
 json = "{}"

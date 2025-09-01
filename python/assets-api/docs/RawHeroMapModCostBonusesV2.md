@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.raw_hero_map_mod_cost_bonuses_v2 import RawHeroMapModCostBonusesV2
+from assets-deadlock-api-client.models.raw_hero_map_mod_cost_bonuses_v2 import RawHeroMapModCostBonusesV2
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.hero_level_info_v2 import HeroLevelInfoV2
+from assets-deadlock-api-client.models.hero_level_info_v2 import HeroLevelInfoV2
 
 class TestHeroLevelInfoV2(unittest.TestCase):
     """HeroLevelInfoV2 unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.analytics_hero_stats import AnalyticsHeroStats
+from deadlock-api-client.models.analytics_hero_stats import AnalyticsHeroStats
 
 class TestAnalyticsHeroStats(unittest.TestCase):
     """AnalyticsHeroStats unit test stubs"""

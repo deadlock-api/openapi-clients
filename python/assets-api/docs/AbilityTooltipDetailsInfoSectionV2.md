@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.ability_tooltip_details_info_section_v2 import AbilityTooltipDetailsInfoSectionV2
+from assets-deadlock-api-client.models.ability_tooltip_details_info_section_v2 import AbilityTooltipDetailsInfoSectionV2
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.active_match_region_mode import ActiveMatchRegionMode
+from deadlock-api-client.models.active_match_region_mode import ActiveMatchRegionMode
 
 class TestActiveMatchRegionMode(unittest.TestCase):
     """ActiveMatchRegionMode unit test stubs"""

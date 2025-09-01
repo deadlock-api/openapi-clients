@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.raw_hero_shop_spirit_stats_display_v2 import RawHeroShopSpiritStatsDisplayV2
+from assets-deadlock-api-client.models.raw_hero_shop_spirit_stats_display_v2 import RawHeroShopSpiritStatsDisplayV2
 
 class TestRawHeroShopSpiritStatsDisplayV2(unittest.TestCase):
     """RawHeroShopSpiritStatsDisplayV2 unit test stubs"""
