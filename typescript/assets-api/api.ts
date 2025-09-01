@@ -3638,13 +3638,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary Get Build Tags
-         * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DefaultApiGetBuildTagsV2BuildTagsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBuildTagsV2BuildTagsGet(language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<BuildTagV2>> {
-            return localVarFp.getBuildTagsV2BuildTagsGet(language, clientVersion, options).then((request) => request(axios, basePath));
+        getBuildTagsV2BuildTagsGet(requestParameters: DefaultApiGetBuildTagsV2BuildTagsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<BuildTagV2>> {
+            return localVarFp.getBuildTagsV2BuildTagsGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -3658,66 +3657,177 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary Get Colors
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DefaultApiGetColorsV1ColorsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getColorsV1ColorsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: ColorV1; }> {
-            return localVarFp.getColorsV1ColorsGet(clientVersion, options).then((request) => request(axios, basePath));
+        getColorsV1ColorsGet(requestParameters: DefaultApiGetColorsV1ColorsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: ColorV1; }> {
+            return localVarFp.getColorsV1ColorsGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Icons
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DefaultApiGetIconsV1IconsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIconsV1IconsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
-            return localVarFp.getIconsV1IconsGet(clientVersion, options).then((request) => request(axios, basePath));
+        getIconsV1IconsGet(requestParameters: DefaultApiGetIconsV1IconsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
+            return localVarFp.getIconsV1IconsGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Map
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DefaultApiGetMapV1MapGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMapV1MapGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<MapV1> {
-            return localVarFp.getMapV1MapGet(clientVersion, options).then((request) => request(axios, basePath));
+        getMapV1MapGet(requestParameters: DefaultApiGetMapV1MapGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<MapV1> {
+            return localVarFp.getMapV1MapGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Ranks
-         * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DefaultApiGetRanksV2RanksGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRanksV2RanksGet(language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<RankV2>> {
-            return localVarFp.getRanksV2RanksGet(language, clientVersion, options).then((request) => request(axios, basePath));
+        getRanksV2RanksGet(requestParameters: DefaultApiGetRanksV2RanksGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<RankV2>> {
+            return localVarFp.getRanksV2RanksGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Sounds
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DefaultApiGetSoundsV1SoundsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSoundsV1SoundsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
-            return localVarFp.getSoundsV1SoundsGet(clientVersion, options).then((request) => request(axios, basePath));
+        getSoundsV1SoundsGet(requestParameters: DefaultApiGetSoundsV1SoundsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
+            return localVarFp.getSoundsV1SoundsGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Steam Info
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DefaultApiGetSteamInfoV1SteamInfoGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSteamInfoV1SteamInfoGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getSteamInfoV1SteamInfoGet(clientVersion, options).then((request) => request(axios, basePath));
+        getSteamInfoV1SteamInfoGet(requestParameters: DefaultApiGetSteamInfoV1SteamInfoGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+            return localVarFp.getSteamInfoV1SteamInfoGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
     };
 };
+
+/**
+ * Request parameters for getBuildTagsV2BuildTagsGet operation in DefaultApi.
+ * @export
+ * @interface DefaultApiGetBuildTagsV2BuildTagsGetRequest
+ */
+export interface DefaultApiGetBuildTagsV2BuildTagsGetRequest {
+    /**
+     * 
+     * @type {Language}
+     * @memberof DefaultApiGetBuildTagsV2BuildTagsGet
+     */
+    readonly language?: Language | null
+
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof DefaultApiGetBuildTagsV2BuildTagsGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getColorsV1ColorsGet operation in DefaultApi.
+ * @export
+ * @interface DefaultApiGetColorsV1ColorsGetRequest
+ */
+export interface DefaultApiGetColorsV1ColorsGetRequest {
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof DefaultApiGetColorsV1ColorsGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getIconsV1IconsGet operation in DefaultApi.
+ * @export
+ * @interface DefaultApiGetIconsV1IconsGetRequest
+ */
+export interface DefaultApiGetIconsV1IconsGetRequest {
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof DefaultApiGetIconsV1IconsGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getMapV1MapGet operation in DefaultApi.
+ * @export
+ * @interface DefaultApiGetMapV1MapGetRequest
+ */
+export interface DefaultApiGetMapV1MapGetRequest {
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof DefaultApiGetMapV1MapGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getRanksV2RanksGet operation in DefaultApi.
+ * @export
+ * @interface DefaultApiGetRanksV2RanksGetRequest
+ */
+export interface DefaultApiGetRanksV2RanksGetRequest {
+    /**
+     * 
+     * @type {Language}
+     * @memberof DefaultApiGetRanksV2RanksGet
+     */
+    readonly language?: Language | null
+
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof DefaultApiGetRanksV2RanksGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getSoundsV1SoundsGet operation in DefaultApi.
+ * @export
+ * @interface DefaultApiGetSoundsV1SoundsGetRequest
+ */
+export interface DefaultApiGetSoundsV1SoundsGetRequest {
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof DefaultApiGetSoundsV1SoundsGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getSteamInfoV1SteamInfoGet operation in DefaultApi.
+ * @export
+ * @interface DefaultApiGetSteamInfoV1SteamInfoGetRequest
+ */
+export interface DefaultApiGetSteamInfoV1SteamInfoGetRequest {
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof DefaultApiGetSteamInfoV1SteamInfoGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
 
 /**
  * DefaultApi - object-oriented interface
@@ -3729,14 +3839,13 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @summary Get Build Tags
-     * @param {Language | null} [language] 
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {DefaultApiGetBuildTagsV2BuildTagsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getBuildTagsV2BuildTagsGet(language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getBuildTagsV2BuildTagsGet(language, clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getBuildTagsV2BuildTagsGet(requestParameters: DefaultApiGetBuildTagsV2BuildTagsGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getBuildTagsV2BuildTagsGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3753,74 +3862,73 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @summary Get Colors
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {DefaultApiGetColorsV1ColorsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getColorsV1ColorsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getColorsV1ColorsGet(clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getColorsV1ColorsGet(requestParameters: DefaultApiGetColorsV1ColorsGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getColorsV1ColorsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Icons
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {DefaultApiGetIconsV1IconsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getIconsV1IconsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getIconsV1IconsGet(clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getIconsV1IconsGet(requestParameters: DefaultApiGetIconsV1IconsGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getIconsV1IconsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Map
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {DefaultApiGetMapV1MapGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getMapV1MapGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getMapV1MapGet(clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getMapV1MapGet(requestParameters: DefaultApiGetMapV1MapGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getMapV1MapGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Ranks
-     * @param {Language | null} [language] 
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {DefaultApiGetRanksV2RanksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getRanksV2RanksGet(language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getRanksV2RanksGet(language, clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getRanksV2RanksGet(requestParameters: DefaultApiGetRanksV2RanksGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getRanksV2RanksGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Sounds
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {DefaultApiGetSoundsV1SoundsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getSoundsV1SoundsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getSoundsV1SoundsGet(clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getSoundsV1SoundsGet(requestParameters: DefaultApiGetSoundsV1SoundsGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getSoundsV1SoundsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Steam Info
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {DefaultApiGetSteamInfoV1SteamInfoGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getSteamInfoV1SteamInfoGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getSteamInfoV1SteamInfoGet(clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getSteamInfoV1SteamInfoGet(requestParameters: DefaultApiGetSteamInfoV1SteamInfoGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getSteamInfoV1SteamInfoGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -4033,41 +4141,119 @@ export const HeroesApiFactory = function (configuration?: Configuration, basePat
         /**
          * 
          * @summary Get Hero By Name
-         * @param {string} name 
-         * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHeroByNameV2HeroesByNameNameGet(name: string, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<HeroV2> {
-            return localVarFp.getHeroByNameV2HeroesByNameNameGet(name, language, clientVersion, options).then((request) => request(axios, basePath));
+        getHeroByNameV2HeroesByNameNameGet(requestParameters: HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<HeroV2> {
+            return localVarFp.getHeroByNameV2HeroesByNameNameGet(requestParameters.name, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Hero
-         * @param {number} id 
-         * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {HeroesApiGetHeroV2HeroesIdGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHeroV2HeroesIdGet(id: number, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<HeroV2> {
-            return localVarFp.getHeroV2HeroesIdGet(id, language, clientVersion, options).then((request) => request(axios, basePath));
+        getHeroV2HeroesIdGet(requestParameters: HeroesApiGetHeroV2HeroesIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<HeroV2> {
+            return localVarFp.getHeroV2HeroesIdGet(requestParameters.id, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Heroes
-         * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
-         * @param {boolean | null} [onlyActive] 
+         * @param {HeroesApiGetHeroesV2HeroesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHeroesV2HeroesGet(language?: Language | null, clientVersion?: ValidClientVersions | null, onlyActive?: boolean | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroV2>> {
-            return localVarFp.getHeroesV2HeroesGet(language, clientVersion, onlyActive, options).then((request) => request(axios, basePath));
+        getHeroesV2HeroesGet(requestParameters: HeroesApiGetHeroesV2HeroesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroV2>> {
+            return localVarFp.getHeroesV2HeroesGet(requestParameters.language, requestParameters.clientVersion, requestParameters.onlyActive, options).then((request) => request(axios, basePath));
         },
     };
 };
+
+/**
+ * Request parameters for getHeroByNameV2HeroesByNameNameGet operation in HeroesApi.
+ * @export
+ * @interface HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest
+ */
+export interface HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof HeroesApiGetHeroByNameV2HeroesByNameNameGet
+     */
+    readonly name: string
+
+    /**
+     * 
+     * @type {Language}
+     * @memberof HeroesApiGetHeroByNameV2HeroesByNameNameGet
+     */
+    readonly language?: Language | null
+
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof HeroesApiGetHeroByNameV2HeroesByNameNameGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getHeroV2HeroesIdGet operation in HeroesApi.
+ * @export
+ * @interface HeroesApiGetHeroV2HeroesIdGetRequest
+ */
+export interface HeroesApiGetHeroV2HeroesIdGetRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroesApiGetHeroV2HeroesIdGet
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {Language}
+     * @memberof HeroesApiGetHeroV2HeroesIdGet
+     */
+    readonly language?: Language | null
+
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof HeroesApiGetHeroV2HeroesIdGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getHeroesV2HeroesGet operation in HeroesApi.
+ * @export
+ * @interface HeroesApiGetHeroesV2HeroesGetRequest
+ */
+export interface HeroesApiGetHeroesV2HeroesGetRequest {
+    /**
+     * 
+     * @type {Language}
+     * @memberof HeroesApiGetHeroesV2HeroesGet
+     */
+    readonly language?: Language | null
+
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof HeroesApiGetHeroesV2HeroesGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof HeroesApiGetHeroesV2HeroesGet
+     */
+    readonly onlyActive?: boolean | null
+}
 
 /**
  * HeroesApi - object-oriented interface
@@ -4079,43 +4265,37 @@ export class HeroesApi extends BaseAPI {
     /**
      * 
      * @summary Get Hero By Name
-     * @param {string} name 
-     * @param {Language | null} [language] 
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HeroesApi
      */
-    public getHeroByNameV2HeroesByNameNameGet(name: string, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return HeroesApiFp(this.configuration).getHeroByNameV2HeroesByNameNameGet(name, language, clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getHeroByNameV2HeroesByNameNameGet(requestParameters: HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest, options?: RawAxiosRequestConfig) {
+        return HeroesApiFp(this.configuration).getHeroByNameV2HeroesByNameNameGet(requestParameters.name, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Hero
-     * @param {number} id 
-     * @param {Language | null} [language] 
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {HeroesApiGetHeroV2HeroesIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HeroesApi
      */
-    public getHeroV2HeroesIdGet(id: number, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return HeroesApiFp(this.configuration).getHeroV2HeroesIdGet(id, language, clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getHeroV2HeroesIdGet(requestParameters: HeroesApiGetHeroV2HeroesIdGetRequest, options?: RawAxiosRequestConfig) {
+        return HeroesApiFp(this.configuration).getHeroV2HeroesIdGet(requestParameters.id, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Heroes
-     * @param {Language | null} [language] 
-     * @param {ValidClientVersions | null} [clientVersion] 
-     * @param {boolean | null} [onlyActive] 
+     * @param {HeroesApiGetHeroesV2HeroesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HeroesApi
      */
-    public getHeroesV2HeroesGet(language?: Language | null, clientVersion?: ValidClientVersions | null, onlyActive?: boolean | null, options?: RawAxiosRequestConfig) {
-        return HeroesApiFp(this.configuration).getHeroesV2HeroesGet(language, clientVersion, onlyActive, options).then((request) => request(this.axios, this.basePath));
+    public getHeroesV2HeroesGet(requestParameters: HeroesApiGetHeroesV2HeroesGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return HeroesApiFp(this.configuration).getHeroesV2HeroesGet(requestParameters.language, requestParameters.clientVersion, requestParameters.onlyActive, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -4440,64 +4620,188 @@ export const ItemsApiFactory = function (configuration?: Configuration, basePath
         /**
          * 
          * @summary Get Item
-         * @param {IdOrClassName} idOrClassName 
-         * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {ItemsApiGetItemV2ItemsIdOrClassNameGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemV2ItemsIdOrClassNameGet(idOrClassName: IdOrClassName, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<ResponseGetItemV2ItemsIdOrClassNameGet> {
-            return localVarFp.getItemV2ItemsIdOrClassNameGet(idOrClassName, language, clientVersion, options).then((request) => request(axios, basePath));
+        getItemV2ItemsIdOrClassNameGet(requestParameters: ItemsApiGetItemV2ItemsIdOrClassNameGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ResponseGetItemV2ItemsIdOrClassNameGet> {
+            return localVarFp.getItemV2ItemsIdOrClassNameGet(requestParameters.idOrClassName, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Items By Hero Id
-         * @param {number} id 
-         * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsByHeroIdV2ItemsByHeroIdIdGet(id: number, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
-            return localVarFp.getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion, options).then((request) => request(axios, basePath));
+        getItemsByHeroIdV2ItemsByHeroIdIdGet(requestParameters: ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
+            return localVarFp.getItemsByHeroIdV2ItemsByHeroIdIdGet(requestParameters.id, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Items By Slot Type
-         * @param {ItemSlotTypeV2} slotType 
-         * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
-            return localVarFp.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion, options).then((request) => request(axios, basePath));
+        getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(requestParameters: ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
+            return localVarFp.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(requestParameters.slotType, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Items By Type
-         * @param {ItemTypeV2} type 
-         * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
-            return localVarFp.getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion, options).then((request) => request(axios, basePath));
+        getItemsByTypeV2ItemsByTypeTypeGet(requestParameters: ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
+            return localVarFp.getItemsByTypeV2ItemsByTypeTypeGet(requestParameters.type, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Items
-         * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {ItemsApiGetItemsV2ItemsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsV2ItemsGet(language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
-            return localVarFp.getItemsV2ItemsGet(language, clientVersion, options).then((request) => request(axios, basePath));
+        getItemsV2ItemsGet(requestParameters: ItemsApiGetItemsV2ItemsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
+            return localVarFp.getItemsV2ItemsGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
     };
 };
+
+/**
+ * Request parameters for getItemV2ItemsIdOrClassNameGet operation in ItemsApi.
+ * @export
+ * @interface ItemsApiGetItemV2ItemsIdOrClassNameGetRequest
+ */
+export interface ItemsApiGetItemV2ItemsIdOrClassNameGetRequest {
+    /**
+     * 
+     * @type {IdOrClassName}
+     * @memberof ItemsApiGetItemV2ItemsIdOrClassNameGet
+     */
+    readonly idOrClassName: IdOrClassName
+
+    /**
+     * 
+     * @type {Language}
+     * @memberof ItemsApiGetItemV2ItemsIdOrClassNameGet
+     */
+    readonly language?: Language | null
+
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof ItemsApiGetItemV2ItemsIdOrClassNameGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getItemsByHeroIdV2ItemsByHeroIdIdGet operation in ItemsApi.
+ * @export
+ * @interface ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest
+ */
+export interface ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGet
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {Language}
+     * @memberof ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGet
+     */
+    readonly language?: Language | null
+
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet operation in ItemsApi.
+ * @export
+ * @interface ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest
+ */
+export interface ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest {
+    /**
+     * 
+     * @type {ItemSlotTypeV2}
+     * @memberof ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet
+     */
+    readonly slotType: ItemSlotTypeV2
+
+    /**
+     * 
+     * @type {Language}
+     * @memberof ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet
+     */
+    readonly language?: Language | null
+
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getItemsByTypeV2ItemsByTypeTypeGet operation in ItemsApi.
+ * @export
+ * @interface ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest
+ */
+export interface ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest {
+    /**
+     * 
+     * @type {ItemTypeV2}
+     * @memberof ItemsApiGetItemsByTypeV2ItemsByTypeTypeGet
+     */
+    readonly type: ItemTypeV2
+
+    /**
+     * 
+     * @type {Language}
+     * @memberof ItemsApiGetItemsByTypeV2ItemsByTypeTypeGet
+     */
+    readonly language?: Language | null
+
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof ItemsApiGetItemsByTypeV2ItemsByTypeTypeGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getItemsV2ItemsGet operation in ItemsApi.
+ * @export
+ * @interface ItemsApiGetItemsV2ItemsGetRequest
+ */
+export interface ItemsApiGetItemsV2ItemsGetRequest {
+    /**
+     * 
+     * @type {Language}
+     * @memberof ItemsApiGetItemsV2ItemsGet
+     */
+    readonly language?: Language | null
+
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof ItemsApiGetItemsV2ItemsGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
 
 /**
  * ItemsApi - object-oriented interface
@@ -4509,70 +4813,61 @@ export class ItemsApi extends BaseAPI {
     /**
      * 
      * @summary Get Item
-     * @param {IdOrClassName} idOrClassName 
-     * @param {Language | null} [language] 
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {ItemsApiGetItemV2ItemsIdOrClassNameGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ItemsApi
      */
-    public getItemV2ItemsIdOrClassNameGet(idOrClassName: IdOrClassName, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return ItemsApiFp(this.configuration).getItemV2ItemsIdOrClassNameGet(idOrClassName, language, clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getItemV2ItemsIdOrClassNameGet(requestParameters: ItemsApiGetItemV2ItemsIdOrClassNameGetRequest, options?: RawAxiosRequestConfig) {
+        return ItemsApiFp(this.configuration).getItemV2ItemsIdOrClassNameGet(requestParameters.idOrClassName, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Items By Hero Id
-     * @param {number} id 
-     * @param {Language | null} [language] 
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ItemsApi
      */
-    public getItemsByHeroIdV2ItemsByHeroIdIdGet(id: number, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return ItemsApiFp(this.configuration).getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getItemsByHeroIdV2ItemsByHeroIdIdGet(requestParameters: ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest, options?: RawAxiosRequestConfig) {
+        return ItemsApiFp(this.configuration).getItemsByHeroIdV2ItemsByHeroIdIdGet(requestParameters.id, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Items By Slot Type
-     * @param {ItemSlotTypeV2} slotType 
-     * @param {Language | null} [language] 
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ItemsApi
      */
-    public getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return ItemsApiFp(this.configuration).getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(requestParameters: ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest, options?: RawAxiosRequestConfig) {
+        return ItemsApiFp(this.configuration).getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(requestParameters.slotType, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Items By Type
-     * @param {ItemTypeV2} type 
-     * @param {Language | null} [language] 
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ItemsApi
      */
-    public getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return ItemsApiFp(this.configuration).getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getItemsByTypeV2ItemsByTypeTypeGet(requestParameters: ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest, options?: RawAxiosRequestConfig) {
+        return ItemsApiFp(this.configuration).getItemsByTypeV2ItemsByTypeTypeGet(requestParameters.type, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Items
-     * @param {Language | null} [language] 
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {ItemsApiGetItemsV2ItemsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ItemsApi
      */
-    public getItemsV2ItemsGet(language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return ItemsApiFp(this.configuration).getItemsV2ItemsGet(language, clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getItemsV2ItemsGet(requestParameters: ItemsApiGetItemsV2ItemsGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return ItemsApiFp(this.configuration).getItemsV2ItemsGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -4751,35 +5046,77 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
         /**
          * 
          * @summary Get Generic Data
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {RawApiGetGenericDataRawGenericDataGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGenericDataRawGenericDataGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getGenericDataRawGenericDataGet(clientVersion, options).then((request) => request(axios, basePath));
+        getGenericDataRawGenericDataGet(requestParameters: RawApiGetGenericDataRawGenericDataGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+            return localVarFp.getGenericDataRawGenericDataGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Raw Heroes
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {RawApiGetRawHeroesRawHeroesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRawHeroesRawHeroesGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getRawHeroesRawHeroesGet(clientVersion, options).then((request) => request(axios, basePath));
+        getRawHeroesRawHeroesGet(requestParameters: RawApiGetRawHeroesRawHeroesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+            return localVarFp.getRawHeroesRawHeroesGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Raw Items
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {RawApiGetRawItemsRawItemsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRawItemsRawItemsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getRawItemsRawItemsGet(clientVersion, options).then((request) => request(axios, basePath));
+        getRawItemsRawItemsGet(requestParameters: RawApiGetRawItemsRawItemsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+            return localVarFp.getRawItemsRawItemsGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
     };
 };
+
+/**
+ * Request parameters for getGenericDataRawGenericDataGet operation in RawApi.
+ * @export
+ * @interface RawApiGetGenericDataRawGenericDataGetRequest
+ */
+export interface RawApiGetGenericDataRawGenericDataGetRequest {
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof RawApiGetGenericDataRawGenericDataGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getRawHeroesRawHeroesGet operation in RawApi.
+ * @export
+ * @interface RawApiGetRawHeroesRawHeroesGetRequest
+ */
+export interface RawApiGetRawHeroesRawHeroesGetRequest {
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof RawApiGetRawHeroesRawHeroesGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getRawItemsRawItemsGet operation in RawApi.
+ * @export
+ * @interface RawApiGetRawItemsRawItemsGetRequest
+ */
+export interface RawApiGetRawItemsRawItemsGetRequest {
+    /**
+     * 
+     * @type {ValidClientVersions}
+     * @memberof RawApiGetRawItemsRawItemsGet
+     */
+    readonly clientVersion?: ValidClientVersions | null
+}
 
 /**
  * RawApi - object-oriented interface
@@ -4791,37 +5128,37 @@ export class RawApi extends BaseAPI {
     /**
      * 
      * @summary Get Generic Data
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {RawApiGetGenericDataRawGenericDataGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RawApi
      */
-    public getGenericDataRawGenericDataGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return RawApiFp(this.configuration).getGenericDataRawGenericDataGet(clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getGenericDataRawGenericDataGet(requestParameters: RawApiGetGenericDataRawGenericDataGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return RawApiFp(this.configuration).getGenericDataRawGenericDataGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Raw Heroes
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {RawApiGetRawHeroesRawHeroesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RawApi
      */
-    public getRawHeroesRawHeroesGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return RawApiFp(this.configuration).getRawHeroesRawHeroesGet(clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getRawHeroesRawHeroesGet(requestParameters: RawApiGetRawHeroesRawHeroesGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return RawApiFp(this.configuration).getRawHeroesRawHeroesGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Raw Items
-     * @param {ValidClientVersions | null} [clientVersion] 
+     * @param {RawApiGetRawItemsRawItemsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RawApi
      */
-    public getRawItemsRawItemsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig) {
-        return RawApiFp(this.configuration).getRawItemsRawItemsGet(clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getRawItemsRawItemsGet(requestParameters: RawApiGetRawItemsRawItemsGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return RawApiFp(this.configuration).getRawItemsRawItemsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

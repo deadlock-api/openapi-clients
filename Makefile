@@ -33,7 +33,7 @@ generate-api-typescript:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p typescript/api
 	@echo "--> Generating Typescript client for the main API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g typescript-axios -o typescript/api/ --skip-validate-spec --additional-properties=npmName=deadlock-api-client
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g typescript-axios -o typescript/api/ --skip-validate-spec --additional-properties=npmName=deadlock-api-client,useSingleRequestParameter=true
 	@echo "--> Main API client generated successfully in typescript/api/"
 
 # Target to generate the client for the assets API in typescript.
@@ -41,7 +41,7 @@ generate-assets-api-typescript:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p typescript/assets-api
 	@echo "--> Generating Typescript client for the assets API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g typescript-axios -o typescript/assets-api/ --skip-validate-spec --additional-properties=npmName=assets-deadlock-api-client
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g typescript-axios -o typescript/assets-api/ --skip-validate-spec --additional-properties=npmName=assets-deadlock-api-client,useSingleRequestParameter=true
 
 # Target to generate the client for the main API in typescript.
 generate-kubb-typescript-sdks:
