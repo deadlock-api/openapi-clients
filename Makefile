@@ -48,6 +48,7 @@ generate-kubb-typescript-sdks:
 	@echo "--> Creating directories for Kubb typescript SDK clients..."
 	@mkdir -p kubb-typescript/
 	@echo "--> Generating Kubb Typescript client for the main API + Assets..."
+	pnpm i -g @kubb/cli @kubb/plugin-client @kubb/plugin-oas @kubb/plugin-ts @kubb/core
 	cd kubb-typescript && pnpx @kubb/cli generate
 	@echo "--> Kubb API clients generated successfully in kubb-typescript/"
 
