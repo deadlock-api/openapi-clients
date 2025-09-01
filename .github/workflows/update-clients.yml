@@ -22,8 +22,8 @@ jobs:
         with:
           version: 10
 
-      - name: Run make all
-        run: make all
+      - name: Run make clean all
+        run: make clean all
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v6
