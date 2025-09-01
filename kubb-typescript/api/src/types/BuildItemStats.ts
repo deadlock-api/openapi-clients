@@ -25,7 +25,7 @@ export type BuildItemStatsQueryParams = {
     hero_id?: number | null;
     /**
      * @description Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
-     * @default 1754006400
+     * @default 1754092800
      * @type integer,null | undefined, int64
     */
     min_last_updated_unix_timestamp?: number | null;

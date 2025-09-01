@@ -149,7 +149,7 @@ export type HeroStatsQueryParams = {
     bucket?: HeroStatsQueryParamsBucketEnum;
     /**
      * @description Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @default 1754006400
+     * @default 1754092800
      * @type integer,null | undefined, int64
     */
     min_unix_timestamp?: number | null;
