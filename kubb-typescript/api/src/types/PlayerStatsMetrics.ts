@@ -94,7 +94,7 @@ export type PlayerStatsMetricsQueryParams = {
 /**
  * @description Hero Stats
 */
-export type PlayerStatsMetrics200 = HashMap[];
+export type PlayerStatsMetrics200 = HashMap;
 
 /**
  * @description Provided parameters are invalid.

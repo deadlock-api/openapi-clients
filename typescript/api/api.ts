@@ -3944,7 +3944,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async playerStatsMetrics(heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<{ [key: string]: HashMapValue; }>>> {
+        async playerStatsMetrics(heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: HashMapValue; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.playerStatsMetrics(heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.playerStatsMetrics']?.[localVarOperationServerIndex]?.url;
@@ -4067,7 +4067,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerStatsMetrics(requestParameters: AnalyticsApiPlayerStatsMetricsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<{ [key: string]: HashMapValue; }>> {
+        playerStatsMetrics(requestParameters: AnalyticsApiPlayerStatsMetricsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: HashMapValue; }> {
             return localVarFp.playerStatsMetrics(requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
     };

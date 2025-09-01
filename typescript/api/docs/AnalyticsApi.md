@@ -979,7 +979,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **playerStatsMetrics**
-> Array<{ [key: string]: HashMapValue; }> playerStatsMetrics()
+> { [key: string]: HashMapValue; } playerStatsMetrics()
 
  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
@@ -1049,7 +1049,7 @@ const { status, data } = await apiInstance.playerStatsMetrics(
 
 ### Return type
 
-**Array<{ [key: string]: HashMapValue; }>**
+**{ [key: string]: HashMapValue; }**
 
 ### Authorization
 

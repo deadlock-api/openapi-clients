@@ -464,7 +464,7 @@ No authorization required
 
 ## player_stats_metrics
 
-> Vec<std::collections::HashMap<String, models::HashMapValue>> player_stats_metrics(hero_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, include_item_ids, exclude_item_ids, account_ids)
+> std::collections::HashMap<String, models::HashMapValue> player_stats_metrics(hero_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, include_item_ids, exclude_item_ids, account_ids)
 Player Stats Metrics
 
  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -491,7 +491,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<std::collections::HashMap<String, models::HashMapValue>>**](std::collections::HashMap.md)
+[**std::collections::HashMap<String, models::HashMapValue>**](HashMap_value.md)
 
 ### Authorization
 

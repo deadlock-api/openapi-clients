@@ -1112,7 +1112,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **player_stats_metrics**
-> List[Dict[str, HashMapValue]] player_stats_metrics(hero_ids=hero_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, account_ids=account_ids)
+> Dict[str, HashMapValue] player_stats_metrics(hero_ids=hero_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, account_ids=account_ids)
 
 Player Stats Metrics
 
@@ -1199,7 +1199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List[Dict[str, HashMapValue]]**
+[**Dict[str, HashMapValue]**](HashMapValue.md)
 
 ### Authorization
 

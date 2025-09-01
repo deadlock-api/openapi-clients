@@ -5221,7 +5221,7 @@ class AnalyticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[Dict[str, HashMapValue]]:
+    ) -> Dict[str, HashMapValue]:
         """Player Stats Metrics
 
          Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -5298,7 +5298,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Dict[str, HashMapValue]]",
+            '200': "Dict[str, HashMapValue]",
             '400': None,
             '500': None,
         }
@@ -5342,7 +5342,7 @@ class AnalyticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[Dict[str, HashMapValue]]]:
+    ) -> ApiResponse[Dict[str, HashMapValue]]:
         """Player Stats Metrics
 
          Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -5419,7 +5419,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Dict[str, HashMapValue]]",
+            '200': "Dict[str, HashMapValue]",
             '400': None,
             '500': None,
         }
@@ -5540,7 +5540,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Dict[str, HashMapValue]]",
+            '200': "Dict[str, HashMapValue]",
             '400': None,
             '500': None,
         }

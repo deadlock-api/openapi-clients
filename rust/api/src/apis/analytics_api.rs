@@ -1361,7 +1361,7 @@ pub async fn player_scoreboard(configuration: &configuration::Configuration, par
 }
 
 ///  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn player_stats_metrics(configuration: &configuration::Configuration, params: PlayerStatsMetricsParams) -> Result<Vec<std::collections::HashMap<String, models::HashMapValue>>, Error<PlayerStatsMetricsError>> {
+pub async fn player_stats_metrics(configuration: &configuration::Configuration, params: PlayerStatsMetricsParams) -> Result<std::collections::HashMap<String, models::HashMapValue>, Error<PlayerStatsMetricsError>> {
 
     let uri_str = format!("{}/v1/analytics/player-stats/metrics", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1436,8 +1436,8 @@ pub async fn player_stats_metrics(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;std::collections::HashMap&lt;String, models::HashMapValue&gt;&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;std::collections::HashMap&lt;String, models::HashMapValue&gt;&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `std::collections::HashMap&lt;String, models::HashMapValue&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `std::collections::HashMap&lt;String, models::HashMapValue&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
