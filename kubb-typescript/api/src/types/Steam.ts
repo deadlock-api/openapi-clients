@@ -5,19 +5,18 @@
 
 import type { SteamProfile } from "./SteamProfile.ts";
 
-export type SteamPathParams = {
+export type SteamQueryParams = {
     /**
-     * @description The players `SteamID3`
-     * @minLength 0
-     * @type integer, int32
+     * @description Comma separated list of account ids, Account IDs are in `SteamID3` format.
+     * @type array
     */
-    account_id: number;
+    account_ids: number[];
 };
 
 /**
- * @description Steam Profile
+ * @description Steam Profiles
 */
-export type Steam200 = SteamProfile;
+export type Steam200 = SteamProfile[];
 
 /**
  * @description Provided parameters are invalid.
@@ -25,12 +24,12 @@ export type Steam200 = SteamProfile;
 export type Steam400 = any;
 
 /**
- * @description Steam profile not found.
+ * @description No Steam profile found.
 */
 export type Steam404 = any;
 
 /**
- * @description Failed to fetch steam profile.
+ * @description Failed to fetch steam profiles.
 */
 export type Steam500 = any;
 
@@ -38,6 +37,6 @@ export type SteamQueryResponse = Steam200;
 
 export type SteamQuery = {
     Response: Steam200;
-    PathParams: SteamPathParams;
+    QueryParams: SteamQueryParams;
     Errors: Steam400 | Steam404 | Steam500;
 };

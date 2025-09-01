@@ -46,7 +46,6 @@ export { salts } from "./salts.ts";
 export { searchBuilds } from "./searchBuilds.ts";
 export { sql } from "./sql.ts";
 export { steam } from "./steam.ts";
-export { steamBatch } from "./steamBatch.ts";
 export { steamSearch } from "./steamSearch.ts";
 export { tableSchema } from "./tableSchema.ts";
 export { url } from "./url.ts";

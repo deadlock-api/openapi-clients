@@ -99,8 +99,7 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**mateStats**](docs/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**partyStats**](docs/PlayersApi.md#partystats) | **GET** /v1/players/{account_id}/party-stats | Party Stats
 *PlayersApi* | [**playerHeroStats**](docs/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
-*PlayersApi* | [**steam**](docs/PlayersApi.md#steam) | **GET** /v1/players/{account_id}/steam | Steam Profile
-*PlayersApi* | [**steamBatch**](docs/PlayersApi.md#steambatch) | **GET** /v1/players/steam | Batch Steam Profile
+*PlayersApi* | [**steam**](docs/PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *PlayersApi* | [**steamSearch**](docs/PlayersApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
 *SQLApi* | [**listTables**](docs/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query

@@ -9652,49 +9652,15 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  This endpoint returns the Steam profile of a player.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Steam Profile
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        steam: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('steam', 'accountId', accountId)
-            const localVarPath = `/v1/players/{account_id}/steam`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Batch Steam Profile
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        steamBatch: async (accountIds: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        steam: async (accountIds: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountIds' is not null or undefined
-            assertParamExists('steamBatch', 'accountIds', accountIds)
+            assertParamExists('steam', 'accountIds', accountIds)
             const localVarPath = `/v1/players/steam`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -9889,29 +9855,16 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the Steam profile of a player.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Steam Profile
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async steam(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SteamProfile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.steam(accountId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.steam']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
          *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Batch Steam Profile
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async steamBatch(accountIds: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamProfile>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.steamBatch(accountIds, options);
+        async steam(accountIds: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamProfile>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.steam(accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.steamBatch']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PlayersApi.steam']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -9998,24 +9951,14 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.playerHeroStats(requestParameters.accountIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the Steam profile of a player.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Steam Profile
+         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Batch Steam Profile
          * @param {PlayersApiSteamRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        steam(requestParameters: PlayersApiSteamRequest, options?: RawAxiosRequestConfig): AxiosPromise<SteamProfile> {
-            return localVarFp.steam(requestParameters.accountId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Batch Steam Profile
-         * @param {PlayersApiSteamBatchRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        steamBatch(requestParameters: PlayersApiSteamBatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<SteamProfile>> {
-            return localVarFp.steamBatch(requestParameters.accountIds, options).then((request) => request(axios, basePath));
+        steam(requestParameters: PlayersApiSteamRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<SteamProfile>> {
+            return localVarFp.steam(requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -10408,23 +10351,9 @@ export interface PlayersApiPlayerHeroStatsRequest {
  */
 export interface PlayersApiSteamRequest {
     /**
-     * The players &#x60;SteamID3&#x60;
-     * @type {number}
-     * @memberof PlayersApiSteam
-     */
-    readonly accountId: number
-}
-
-/**
- * Request parameters for steamBatch operation in PlayersApi.
- * @export
- * @interface PlayersApiSteamBatchRequest
- */
-export interface PlayersApiSteamBatchRequest {
-    /**
      * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @type {Array<number>}
-     * @memberof PlayersApiSteamBatch
+     * @memberof PlayersApiSteam
      */
     readonly accountIds: Array<number>
 }
@@ -10523,27 +10452,15 @@ export class PlayersApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the Steam profile of a player.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @summary Steam Profile
+     *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Batch Steam Profile
      * @param {PlayersApiSteamRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PlayersApi
      */
     public steam(requestParameters: PlayersApiSteamRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).steam(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @summary Batch Steam Profile
-     * @param {PlayersApiSteamBatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PlayersApi
-     */
-    public steamBatch(requestParameters: PlayersApiSteamBatchRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).steamBatch(requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).steam(requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

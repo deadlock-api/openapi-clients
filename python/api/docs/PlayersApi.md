@@ -10,8 +10,7 @@ Method | HTTP request | Description
 [**mate_stats**](PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 [**party_stats**](PlayersApi.md#party_stats) | **GET** /v1/players/{account_id}/party-stats | Party Stats
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
-[**steam**](PlayersApi.md#steam) | **GET** /v1/players/{account_id}/steam | Steam Profile
-[**steam_batch**](PlayersApi.md#steam_batch) | **GET** /v1/players/steam | Batch Steam Profile
+[**steam**](PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 [**steam_search**](PlayersApi.md#steam_search) | **GET** /v1/players/steam-search | Steam Profile Search
 
 
@@ -592,89 +591,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **steam**
-> SteamProfile steam(account_id)
-
-Steam Profile
-
-
-This endpoint returns the Steam profile of a player.
-
-See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
-
-### Example
-
-
-```python
-import deadlock-api-client
-from deadlock-api-client.models.steam_profile import SteamProfile
-from deadlock-api-client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.deadlock-api.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
-    host = "https://api.deadlock-api.com"
-)
-
-
-# Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = deadlock-api-client.PlayersApi(api_client)
-    account_id = 56 # int | The players `SteamID3`
-
-    try:
-        # Steam Profile
-        api_response = api_instance.steam(account_id)
-        print("The response of PlayersApi->steam:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling PlayersApi->steam: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
-
-### Return type
-
-[**SteamProfile**](SteamProfile.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Steam Profile |  -  |
-**400** | Provided parameters are invalid. |  -  |
-**404** | Steam profile not found. |  -  |
-**500** | Failed to fetch steam profile. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **steam_batch**
-> List[SteamProfile] steam_batch(account_ids)
+> List[SteamProfile] steam(account_ids)
 
 Batch Steam Profile
 
@@ -715,11 +632,11 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 
     try:
         # Batch Steam Profile
-        api_response = api_instance.steam_batch(account_ids)
-        print("The response of PlayersApi->steam_batch:\n")
+        api_response = api_instance.steam(account_ids)
+        print("The response of PlayersApi->steam:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PlayersApi->steam_batch: %s\n" % e)
+        print("Exception when calling PlayersApi->steam: %s\n" % e)
 ```
 
 

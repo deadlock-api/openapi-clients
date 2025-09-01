@@ -86,8 +86,7 @@ export type { SearchBuildsQueryParamsSortByEnum, SearchBuildsQueryParamsSortDire
 export type { SqlQueryParams, Sql200, Sql500, SqlQueryResponse, SqlQuery } from "./types/Sql.ts";
 export type { Status } from "./types/Status.ts";
 export type { StatusServices } from "./types/StatusServices.ts";
-export type { SteamPathParams, Steam200, Steam400, Steam404, Steam500, SteamQueryResponse, SteamQuery } from "./types/Steam.ts";
-export type { SteamBatchQueryParams, SteamBatch200, SteamBatch400, SteamBatch404, SteamBatch500, SteamBatchQueryResponse, SteamBatchQuery } from "./types/SteamBatch.ts";
+export type { SteamQueryParams, Steam200, Steam400, Steam404, Steam500, SteamQueryResponse, SteamQuery } from "./types/Steam.ts";
 export type { SteamProfile } from "./types/SteamProfile.ts";
 export type { SteamSearchQueryParams, SteamSearch200, SteamSearch400, SteamSearch404, SteamSearch500, SteamSearchQueryResponse, SteamSearchQuery } from "./types/SteamSearch.ts";
 export type { TableSchemaPathParams, TableSchema200, TableSchema500, TableSchemaQueryResponse, TableSchemaQuery } from "./types/TableSchema.ts";
@@ -145,7 +144,6 @@ export { salts } from "./clients/salts.ts";
 export { searchBuilds } from "./clients/searchBuilds.ts";
 export { sql } from "./clients/sql.ts";
 export { steam } from "./clients/steam.ts";
-export { steamBatch } from "./clients/steamBatch.ts";
 export { steamSearch } from "./clients/steamSearch.ts";
 export { tableSchema } from "./clients/tableSchema.ts";
 export { url } from "./clients/url.ts";

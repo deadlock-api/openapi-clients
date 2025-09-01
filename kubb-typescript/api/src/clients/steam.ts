@@ -4,23 +4,23 @@
 */
 
 import fetch from "@kubb/plugin-client/clients/axios";
-import type { SteamQueryResponse, SteamPathParams, Steam400, Steam404, Steam500 } from "../types/Steam.ts";
+import type { SteamQueryResponse, SteamQueryParams, Steam400, Steam404, Steam500 } from "../types/Steam.ts";
 import type { RequestConfig, ResponseErrorConfig } from "@kubb/plugin-client/clients/axios";
 
-function getSteamUrl(account_id: SteamPathParams["account_id"]) {
-  const res = { method: 'GET', url: `/v1/players/${account_id}/steam` as const }
+function getSteamUrl() {
+  const res = { method: 'GET', url: `/v1/players/steam` as const }
 return res
 }
 
 /**
- * @description This endpoint returns the Steam profile of a player.See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)### Rate Limits:| Type | Limit || ---- | ----- || IP | 100req/s || Key | - || Global | - |
- * @summary Steam Profile
- * {@link /v1/players/:account_id/steam}
+ * @description This endpoint returns Steam profiles of players.See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)### Rate Limits:| Type | Limit || ---- | ----- || IP | 100req/s || Key | - || Global | - |
+ * @summary Batch Steam Profile
+ * {@link /v1/players/steam}
  */
-export async function steam(account_id: SteamPathParams["account_id"], config: Partial<RequestConfig> & { client?: typeof fetch } = {}) {
+export async function steam(params: SteamQueryParams, config: Partial<RequestConfig> & { client?: typeof fetch } = {}) {
   const { client:request = fetch, ...requestConfig } = config
 
 
-const res = await request<SteamQueryResponse, ResponseErrorConfig<Steam400 | Steam404 | Steam500>, unknown>({ method : "GET", url : getSteamUrl(account_id).url.toString(), ... requestConfig })
+const res = await request<SteamQueryResponse, ResponseErrorConfig<Steam400 | Steam404 | Steam500>, unknown>({ method : "GET", url : getSteamUrl().url.toString(), params, ... requestConfig })
 return res.data
 }

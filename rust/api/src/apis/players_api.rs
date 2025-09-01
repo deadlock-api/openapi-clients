@@ -141,13 +141,6 @@ pub struct PlayerHeroStatsParams {
 /// struct for passing parameters to the method [`steam`]
 #[derive(Clone, Debug)]
 pub struct SteamParams {
-    /// The players `SteamID3`
-    pub account_id: i32
-}
-
-/// struct for passing parameters to the method [`steam_batch`]
-#[derive(Clone, Debug)]
-pub struct SteamBatchParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
     pub account_ids: Vec<i64>
 }
@@ -220,16 +213,6 @@ pub enum PlayerHeroStatsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SteamError {
-    Status400(),
-    Status404(),
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`steam_batch`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum SteamBatchError {
     Status400(),
     Status404(),
     Status500(),
@@ -584,43 +567,8 @@ pub async fn player_hero_stats(configuration: &configuration::Configuration, par
     }
 }
 
-///  This endpoint returns the Steam profile of a player.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn steam(configuration: &configuration::Configuration, params: SteamParams) -> Result<models::SteamProfile, Error<SteamError>> {
-
-    let uri_str = format!("{}/v1/players/{account_id}/steam", configuration.base_path, account_id=params.account_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SteamProfile`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SteamProfile`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<SteamError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
 ///  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn steam_batch(configuration: &configuration::Configuration, params: SteamBatchParams) -> Result<Vec<models::SteamProfile>, Error<SteamBatchError>> {
+pub async fn steam(configuration: &configuration::Configuration, params: SteamParams) -> Result<Vec<models::SteamProfile>, Error<SteamError>> {
 
     let uri_str = format!("{}/v1/players/steam", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -653,7 +601,7 @@ pub async fn steam_batch(configuration: &configuration::Configuration, params: S
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<SteamBatchError> = serde_json::from_str(&content).ok();
+        let entity: Option<SteamError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
