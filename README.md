@@ -19,6 +19,77 @@ The clients are organized by language and API:
     -   `kubb-typescript/api`: Client for the main Deadlock API.
     -   `kubb-typescript/assets-api`: Client for the Deadlock Assets API.
 
+## Installation from GitHub
+
+You can install the clients directly from this GitHub repository.
+
+### Rust
+
+Use `cargo` to add the clients to your project:
+
+-   **API Client:**
+    ```bash
+    cargo add --git https://github.com/deadlock-api/openapi-clients deadlock-api-client
+    ```
+-   **Assets API Client:**
+    ```bash
+    cargo add --git https://github.com/deadlock-api/openapi-clients assets-deadlock-api-client
+    ```
+
+### Python
+
+Use `pip`, `poetry`, or `uv` to install the clients:
+
+-   **API Client:**
+    ```bash
+    # pip
+    pip install git+https://github.com/deadlock-api/openapi-clients.git#subdirectory=python/api
+
+    # poetry
+    poetry add git+https://github.com/deadlock-api/openapi-clients.git#subdirectory=python/api
+
+    # uv
+    uv add git+https://github.com/deadlock-api/openapi-clients#subdirectory=python/api
+    ```
+-   **Assets API Client:**
+    ```bash
+    # pip
+    pip install git+https://github.com/deadlock-api/openapi-clients.git#subdirectory=python/assets-api
+
+    # poetry
+    poetry add git+https://github.com/deadlock-api/openapi-clients.git#subdirectory=python/assets-api
+
+    # uv
+    uv add git+https://github.com/deadlock-api/openapi-clients#subdirectory=python/assets-api
+    ```
+
+### TypeScript
+
+Use `npm`, `yarn`, `pnpm`, or `bun` to install the clients:
+
+-   **API Client:**
+    ```bash
+    # npm
+    npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript/api?master'
+
+    # yarn
+    yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript/api?master'
+
+    # pnpm
+    pnpm add github:deadlock-api/openapi-clients#path:/typescript/api
+    ```
+-   **Assets API Client:**
+    ```bash
+    # npm
+    npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript/assets-api?master'
+
+    # yarn
+    yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript/assets-api?master'
+
+    # pnpm
+    pnpm add github:deadlock-api/openapi-clients#path:/typescript/assets-api
+    ```
+
 ## Usage
 
 Each client is located in its respective directory. Please refer to the `README.md` and documentation within each client's directory for specific installation and usage instructions.
