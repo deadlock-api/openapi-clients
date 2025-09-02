@@ -1,1 +1,0 @@
-{"type":"string","enum":["Live","Completed","Scheduled","Cancelled"],"x-readme-ref-name":"ESportsMatchStatus"}

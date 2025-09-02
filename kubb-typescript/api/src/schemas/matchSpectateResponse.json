@@ -1,1 +1,0 @@
-{"type":"object","required":["broadcast_url"],"properties":{"broadcast_url":{"type":"string"},"lobby_id":{"type":["integer","null"],"format":"int64","minimum":0}},"x-readme-ref-name":"MatchSpectateResponse"}

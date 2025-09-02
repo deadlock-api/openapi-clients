@@ -1,1 +1,0 @@
-{"type":"object","required":["item_id","builds"],"properties":{"builds":{"type":"integer","format":"int64"},"item_id":{"type":"integer","format":"int64","description":"See more: <https://assets.deadlock-api.com/v2/items>"}},"x-readme-ref-name":"BuildItemStats"}

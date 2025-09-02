@@ -1,1 +1,0 @@
-{"type":"string","enum":["weapon_primary","weapon_secondary","weapon_melee","ability_mantle","ability_jump","ability_slide","ability_zip_line","ability_zip_line_boost","ability_climb_rope","ability_innate1","ability_innate2","ability_innate3","signature1","signature2","signature3","signature4"],"title":"HeroItemTypeV2","x-readme-ref-name":"HeroItemTypeV2"}

@@ -12,12 +12,9 @@ The clients are organized by language and API:
 -   **Rust**:
     -   `rust/api`: Client for the main Deadlock API.
     -   `rust/assets-api`: Client for the Deadlock Assets API.
--   **TypeScript (via OpenAPI Generator)**:
+-   **TypeScript**:
     -   `typescript/api`: Client for the main Deadlock API.
     -   `typescript/assets-api`: Client for the Deadlock Assets API.
--   **TypeScript (via Kubb)**:
-    -   `kubb-typescript/api`: Client for the main Deadlock API.
-    -   `kubb-typescript/assets-api`: Client for the Deadlock Assets API.
 
 ## Installation from GitHub
 
@@ -96,7 +93,7 @@ Each client is located in its respective directory. Please refer to the `README.
 
 ## Client Generation
 
-The clients in this repository are generated using `openapi-generator-cli` and `kubb`.
+The clients in this repository are generated using `openapi-generator-cli`.
 
 ### Manual Generation
 

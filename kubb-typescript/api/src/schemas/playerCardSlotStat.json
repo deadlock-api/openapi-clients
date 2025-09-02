@@ -1,1 +1,0 @@
-{"type":"object","properties":{"stat_id":{"type":["integer","null"],"format":"int32"},"stat_score":{"type":["integer","null"],"format":"int32","minimum":0}},"x-readme-ref-name":"PlayerCardSlotStat"}

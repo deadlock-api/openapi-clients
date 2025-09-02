@@ -1,1 +1,0 @@
-{"properties":{"category":{"type":"string","title":"Category"},"stat_type":{"type":"string","title":"Stat Type"}},"type":"object","required":["category","stat_type"],"title":"RawHeroStatsUIDisplayV2","x-readme-ref-name":"RawHeroStatsUIDisplayV2"}

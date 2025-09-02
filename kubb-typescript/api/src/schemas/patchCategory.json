@@ -1,1 +1,0 @@
-{"type":"object","required":["domain","text"],"properties":{"domain":{"type":"string"},"text":{"type":"string"}},"x-readme-ref-name":"PatchCategory"}

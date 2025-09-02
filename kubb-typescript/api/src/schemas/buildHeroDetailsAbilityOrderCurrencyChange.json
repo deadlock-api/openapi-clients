@@ -1,1 +1,0 @@
-{"type":"object","required":["ability_id","currency_type","delta"],"properties":{"ability_id":{"type":"integer","format":"int32","minimum":0},"annotation":{"type":["string","null"]},"currency_type":{"type":"integer","format":"int32"},"delta":{"type":"integer","format":"int32"}},"x-readme-ref-name":"BuildHeroDetailsAbilityOrderCurrencyChange"}

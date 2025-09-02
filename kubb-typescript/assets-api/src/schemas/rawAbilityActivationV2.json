@@ -1,1 +1,0 @@
-{"type":"string","enum":["hold_toggle","instant_cast","on_button_is_down","passive","press","press_toggle"],"title":"RawAbilityActivationV2","x-readme-ref-name":"RawAbilityActivationV2"}

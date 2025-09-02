@@ -1,1 +1,0 @@
-{"type":"object","required":["match_id"],"properties":{"match_id":{"type":"integer","format":"int64","minimum":0}},"x-readme-ref-name":"GetCustomMatchIdResponse"}

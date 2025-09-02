@@ -1,1 +1,0 @@
-{"properties":{"lore":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Lore"},"role":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Role"},"playstyle":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Playstyle"}},"type":"object","title":"HeroDescriptionV2","x-readme-ref-name":"HeroDescriptionV2"}

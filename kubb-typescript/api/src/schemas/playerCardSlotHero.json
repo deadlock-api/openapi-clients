@@ -1,1 +1,0 @@
-{"type":"object","properties":{"id":{"type":["integer","null"],"format":"int32","description":"See more: <https://assets.deadlock-api.com/v2/heroes>","minimum":0},"kills":{"type":["integer","null"],"format":"int32","minimum":0},"wins":{"type":["integer","null"],"format":"int32","minimum":0}},"x-readme-ref-name":"PlayerCardSlotHero"}

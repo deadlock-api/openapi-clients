@@ -1,1 +1,0 @@
-{"properties":{"range":{"anyOf":[{"items":{"type":"number"},"type":"array"},{"type":"number"},{"type":"null"}],"title":"Range"},"burst_exponent":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Burst Exponent"}},"type":"object","title":"RawWeaponInfoHorizontalRecoilV2","x-readme-ref-name":"RawWeaponInfoHorizontalRecoilV2"}

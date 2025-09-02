@@ -1,1 +1,0 @@
-{"properties":{"gold_threshold":{"type":"integer","title":"Gold Threshold"},"bonus":{"type":"number","title":"Bonus"},"percent_on_graph":{"type":"number","title":"Percent On Graph"}},"type":"object","required":["gold_threshold","bonus","percent_on_graph"],"title":"RawHeroMapModCostBonusesV2","x-readme-ref-name":"RawHeroMapModCostBonusesV2"}

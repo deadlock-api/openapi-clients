@@ -1,1 +1,0 @@
-{"type":"object","required":["is_perma_link","text"],"properties":{"is_perma_link":{"type":"boolean"},"text":{"type":"string"}},"x-readme-ref-name":"PatchGuid"}

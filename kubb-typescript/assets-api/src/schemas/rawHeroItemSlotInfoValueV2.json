@@ -1,1 +1,0 @@
-{"properties":{"max_purchases_for_tier":{"items":{"type":"integer"},"type":"array","title":"Max Purchases For Tier"}},"type":"object","required":["max_purchases_for_tier"],"title":"RawHeroItemSlotInfoValueV2","x-readme-ref-name":"RawHeroItemSlotInfoValueV2"}

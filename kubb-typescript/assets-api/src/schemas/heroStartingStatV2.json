@@ -1,1 +1,0 @@
-{"properties":{"value":{"anyOf":[{"type":"integer"},{"type":"number"}],"title":"Value"},"display_stat_name":{"type":"string","title":"Display Stat Name"}},"type":"object","required":["value","display_stat_name"],"title":"HeroStartingStatV2","x-readme-ref-name":"HeroStartingStatV2"}
