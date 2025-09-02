@@ -1,0 +1,1 @@
+{"type":"string","enum":["General","Daily","Hero","Leaderboard","Overall"],"x-readme-ref-name":"VariableCategory"}

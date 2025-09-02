@@ -1,0 +1,1 @@
+{"properties":{"display_stats":{"items":{"type":"string"},"type":"array","title":"Display Stats"}},"type":"object","required":["display_stats"],"title":"RawHeroShopSpiritStatsDisplayV2","x-readme-ref-name":"RawHeroShopSpiritStatsDisplayV2"}

@@ -1,0 +1,1 @@
+{"type":"string","enum":["Invalid","Unranked","PrivateLobby","CoopBot","Ranked","ServerTest","Tutorial","HeroLabs"],"x-readme-ref-name":"ActiveMatchMode"}

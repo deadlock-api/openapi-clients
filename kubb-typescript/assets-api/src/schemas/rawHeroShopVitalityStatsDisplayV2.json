@@ -1,0 +1,1 @@
+{"properties":{"display_stats":{"items":{"type":"string"},"type":"array","title":"Display Stats"},"other_display_stats":{"items":{"type":"string"},"type":"array","title":"Other Display Stats"}},"type":"object","required":["display_stats","other_display_stats"],"title":"RawHeroShopVitalityStatsDisplayV2","x-readme-ref-name":"RawHeroShopVitalityStatsDisplayV2"}

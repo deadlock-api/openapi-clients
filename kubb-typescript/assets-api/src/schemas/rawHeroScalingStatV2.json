@@ -1,0 +1,1 @@
+{"properties":{"scaling_stat":{"type":"string","title":"Scaling Stat"},"scale":{"type":"number","title":"Scale"}},"type":"object","required":["scaling_stat","scale"],"title":"RawHeroScalingStatV2","x-readme-ref-name":"RawHeroScalingStatV2"}

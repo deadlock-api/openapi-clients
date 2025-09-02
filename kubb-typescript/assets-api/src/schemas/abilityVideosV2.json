@@ -1,0 +1,1 @@
+{"properties":{"webm":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Webm"},"mp4":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Mp4"}},"type":"object","title":"AbilityVideosV2","x-readme-ref-name":"AbilityVideosV2"}

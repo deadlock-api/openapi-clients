@@ -1,0 +1,1 @@
+{"properties":{"left_relative":{"type":"number","title":"Left Relative","description":"The relative margin left of the map image."},"top_relative":{"type":"number","title":"Top Relative","description":"The relative margin top of the map image."}},"type":"object","required":["left_relative","top_relative"],"title":"ObjectivePositionV1","x-readme-ref-name":"ObjectivePositionV1"}

@@ -1,0 +1,1 @@
+{"type":"object","required":["mate_id","wins","matches_played","matches"],"properties":{"matches":{"type":"array","items":{"type":"integer","format":"int64","minimum":0}},"matches_played":{"type":"integer","format":"int64","minimum":0},"mate_id":{"type":"integer","format":"int32","minimum":0},"wins":{"type":"integer","format":"int64","minimum":0}},"x-readme-ref-name":"MateStats"}

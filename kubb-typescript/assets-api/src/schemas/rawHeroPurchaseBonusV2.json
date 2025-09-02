@@ -1,0 +1,1 @@
+{"properties":{"value_type":{"type":"string","title":"Value Type"},"tier":{"type":"integer","title":"Tier"},"value":{"type":"string","title":"Value"}},"type":"object","required":["value_type","tier","value"],"title":"RawHeroPurchaseBonusV2","x-readme-ref-name":"RawHeroPurchaseBonusV2"}
