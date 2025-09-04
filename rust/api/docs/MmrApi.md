@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## hero_mmr
 
-> Vec<models::MmrHistory> hero_mmr(account_ids, hero_id)
+> Vec<models::MmrHistory> hero_mmr(account_ids, hero_id, max_match_id)
 Hero MMR
 
 Batch Player Hero MMR
@@ -25,6 +25,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_ids** | [**Vec<i32>**](i32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
 **hero_id** | **i32** | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
+**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
 
 ### Return type
 
@@ -44,7 +45,7 @@ No authorization required
 
 ## hero_mmr_history
 
-> Vec<models::MmrHistory> hero_mmr_history(account_id, hero_id)
+> Vec<models::MmrHistory> hero_mmr_history(account_id, hero_id, start, limit)
 Hero MMR History
 
 Player Hero MMR History
@@ -56,6 +57,8 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_id** | **i32** | The players `SteamID3` | [required] |
 **hero_id** | **i32** | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
+**start** | Option<**i32**> | The index of the first match to return. |  |
+**limit** | Option<**i32**> | The maximum number of matches to return. |  |[default to 100]
 
 ### Return type
 
@@ -75,7 +78,7 @@ No authorization required
 
 ## mmr
 
-> Vec<models::MmrHistory> mmr(account_ids)
+> Vec<models::MmrHistory> mmr(account_ids, max_match_id)
 MMR
 
 Batch Player MMR
@@ -86,6 +89,7 @@ Batch Player MMR
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_ids** | [**Vec<i32>**](i32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
+**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
 
 ### Return type
 
@@ -105,7 +109,7 @@ No authorization required
 
 ## mmr_history
 
-> Vec<models::MmrHistory> mmr_history(account_id)
+> Vec<models::MmrHistory> mmr_history(account_id, start, limit)
 MMR History
 
 Player MMR History
@@ -116,6 +120,8 @@ Player MMR History
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_id** | **i32** | The players `SteamID3` | [required] |
+**start** | Option<**i32**> | The index of the first match to return. |  |
+**limit** | Option<**i32**> | The maximum number of matches to return. |  |[default to 100]
 
 ### Return type
 

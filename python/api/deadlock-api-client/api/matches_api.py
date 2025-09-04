@@ -1544,6 +1544,7 @@ class MatchesApi:
     def metadata(
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
+        is_custom: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1563,6 +1564,8 @@ class MatchesApi:
 
         :param match_id: The match ID (required)
         :type match_id: int
+        :param is_custom:
+        :type is_custom: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1587,6 +1590,7 @@ class MatchesApi:
 
         _param = self._metadata_serialize(
             match_id=match_id,
+            is_custom=is_custom,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1615,6 +1619,7 @@ class MatchesApi:
     def metadata_with_http_info(
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
+        is_custom: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1634,6 +1639,8 @@ class MatchesApi:
 
         :param match_id: The match ID (required)
         :type match_id: int
+        :param is_custom:
+        :type is_custom: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1658,6 +1665,7 @@ class MatchesApi:
 
         _param = self._metadata_serialize(
             match_id=match_id,
+            is_custom=is_custom,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1686,6 +1694,7 @@ class MatchesApi:
     def metadata_without_preload_content(
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
+        is_custom: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1705,6 +1714,8 @@ class MatchesApi:
 
         :param match_id: The match ID (required)
         :type match_id: int
+        :param is_custom:
+        :type is_custom: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1729,6 +1740,7 @@ class MatchesApi:
 
         _param = self._metadata_serialize(
             match_id=match_id,
+            is_custom=is_custom,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1752,6 +1764,7 @@ class MatchesApi:
     def _metadata_serialize(
         self,
         match_id,
+        is_custom,
         _request_auth,
         _content_type,
         _headers,
@@ -1776,6 +1789,10 @@ class MatchesApi:
         if match_id is not None:
             _path_params['match_id'] = match_id
         # process the query parameters
+        if is_custom is not None:
+            
+            _query_params.append(('is_custom', is_custom))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1809,6 +1826,7 @@ class MatchesApi:
     def metadata_raw(
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
+        is_custom: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1828,6 +1846,8 @@ class MatchesApi:
 
         :param match_id: The match ID (required)
         :type match_id: int
+        :param is_custom:
+        :type is_custom: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1852,6 +1872,7 @@ class MatchesApi:
 
         _param = self._metadata_raw_serialize(
             match_id=match_id,
+            is_custom=is_custom,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1880,6 +1901,7 @@ class MatchesApi:
     def metadata_raw_with_http_info(
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
+        is_custom: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1899,6 +1921,8 @@ class MatchesApi:
 
         :param match_id: The match ID (required)
         :type match_id: int
+        :param is_custom:
+        :type is_custom: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1923,6 +1947,7 @@ class MatchesApi:
 
         _param = self._metadata_raw_serialize(
             match_id=match_id,
+            is_custom=is_custom,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1951,6 +1976,7 @@ class MatchesApi:
     def metadata_raw_without_preload_content(
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
+        is_custom: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1970,6 +1996,8 @@ class MatchesApi:
 
         :param match_id: The match ID (required)
         :type match_id: int
+        :param is_custom:
+        :type is_custom: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1994,6 +2022,7 @@ class MatchesApi:
 
         _param = self._metadata_raw_serialize(
             match_id=match_id,
+            is_custom=is_custom,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2017,6 +2046,7 @@ class MatchesApi:
     def _metadata_raw_serialize(
         self,
         match_id,
+        is_custom,
         _request_auth,
         _content_type,
         _headers,
@@ -2041,6 +2071,10 @@ class MatchesApi:
         if match_id is not None:
             _path_params['match_id'] = match_id
         # process the query parameters
+        if is_custom is not None:
+            
+            _query_params.append(('is_custom', is_custom))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

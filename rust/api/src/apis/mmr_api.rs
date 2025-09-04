@@ -20,7 +20,9 @@ pub struct HeroMmrParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
     pub account_ids: Vec<i32>,
     /// The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: i32
+    pub hero_id: i32,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<i64>
 }
 
 /// struct for passing parameters to the method [`hero_mmr_history`]
@@ -29,21 +31,31 @@ pub struct HeroMmrHistoryParams {
     /// The players `SteamID3`
     pub account_id: i32,
     /// The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: i32
+    pub hero_id: i32,
+    /// The index of the first match to return.
+    pub start: Option<i32>,
+    /// The maximum number of matches to return.
+    pub limit: Option<i32>
 }
 
 /// struct for passing parameters to the method [`mmr`]
 #[derive(Clone, Debug)]
 pub struct MmrParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
-    pub account_ids: Vec<i32>
+    pub account_ids: Vec<i32>,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<i64>
 }
 
 /// struct for passing parameters to the method [`mmr_history`]
 #[derive(Clone, Debug)]
 pub struct MmrHistoryParams {
     /// The players `SteamID3`
-    pub account_id: i32
+    pub account_id: i32,
+    /// The index of the first match to return.
+    pub start: Option<i32>,
+    /// The maximum number of matches to return.
+    pub limit: Option<i32>
 }
 
 
@@ -94,6 +106,9 @@ pub async fn hero_mmr(configuration: &configuration::Configuration, params: Hero
         "multi" => req_builder.query(&params.account_ids.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
         _ => req_builder.query(&[("account_ids", &params.account_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
     };
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -129,6 +144,12 @@ pub async fn hero_mmr_history(configuration: &configuration::Configuration, para
     let uri_str = format!("{}/v1/players/{account_id}/mmr-history/{hero_id}", configuration.base_path, account_id=params.account_id, hero_id=params.hero_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.start {
+        req_builder = req_builder.query(&[("start", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -168,6 +189,9 @@ pub async fn mmr(configuration: &configuration::Configuration, params: MmrParams
         "multi" => req_builder.query(&params.account_ids.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
         _ => req_builder.query(&[("account_ids", &params.account_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
     };
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -203,6 +227,12 @@ pub async fn mmr_history(configuration: &configuration::Configuration, params: M
     let uri_str = format!("{}/v1/players/{account_id}/mmr-history", configuration.base_path, account_id=params.account_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.start {
+        req_builder = req_builder.query(&[("start", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

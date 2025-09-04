@@ -313,9 +313,11 @@ const configuration = new Configuration();
 const apiInstance = new MatchesApi(configuration);
 
 let matchId: number; //The match ID (default to undefined)
+let isCustom: boolean; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.metadata(
-    matchId
+    matchId,
+    isCustom
 );
 ```
 
@@ -324,6 +326,7 @@ const { status, data } = await apiInstance.metadata(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **matchId** | [**number**] | The match ID | defaults to undefined|
+| **isCustom** | [**boolean**] |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -368,9 +371,11 @@ const configuration = new Configuration();
 const apiInstance = new MatchesApi(configuration);
 
 let matchId: number; //The match ID (default to undefined)
+let isCustom: boolean; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.metadataRaw(
-    matchId
+    matchId,
+    isCustom
 );
 ```
 
@@ -379,6 +384,7 @@ const { status, data } = await apiInstance.metadataRaw(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **matchId** | [**number**] | The match ID | defaults to undefined|
+| **isCustom** | [**boolean**] |  | (optional) defaults to undefined|
 
 
 ### Return type

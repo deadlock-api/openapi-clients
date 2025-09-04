@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field
-from typing import List
+from typing import List, Optional
 from typing_extensions import Annotated
 from deadlock-api-client.models.mmr_history import MMRHistory
 
@@ -44,6 +44,7 @@ class MMRApi:
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -65,6 +66,8 @@ class MMRApi:
         :type account_ids: List[int]
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
         :type hero_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -90,6 +93,7 @@ class MMRApi:
         _param = self._hero_mmr_serialize(
             account_ids=account_ids,
             hero_id=hero_id,
+            max_match_id=max_match_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -117,6 +121,7 @@ class MMRApi:
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -138,6 +143,8 @@ class MMRApi:
         :type account_ids: List[int]
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
         :type hero_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -163,6 +170,7 @@ class MMRApi:
         _param = self._hero_mmr_serialize(
             account_ids=account_ids,
             hero_id=hero_id,
+            max_match_id=max_match_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -190,6 +198,7 @@ class MMRApi:
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -211,6 +220,8 @@ class MMRApi:
         :type account_ids: List[int]
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
         :type hero_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -236,6 +247,7 @@ class MMRApi:
         _param = self._hero_mmr_serialize(
             account_ids=account_ids,
             hero_id=hero_id,
+            max_match_id=max_match_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -258,6 +270,7 @@ class MMRApi:
         self,
         account_ids,
         hero_id,
+        max_match_id,
         _request_auth,
         _content_type,
         _headers,
@@ -286,6 +299,10 @@ class MMRApi:
         if account_ids is not None:
             
             _query_params.append(('account_ids', account_ids))
+            
+        if max_match_id is not None:
+            
+            _query_params.append(('max_match_id', max_match_id))
             
         # process the header parameters
         # process the form parameters
@@ -328,6 +345,8 @@ class MMRApi:
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The index of the first match to return.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -349,6 +368,10 @@ class MMRApi:
         :type account_id: int
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
         :type hero_id: int
+        :param start: The index of the first match to return.
+        :type start: int
+        :param limit: The maximum number of matches to return.
+        :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -374,6 +397,8 @@ class MMRApi:
         _param = self._hero_mmr_history_serialize(
             account_id=account_id,
             hero_id=hero_id,
+            start=start,
+            limit=limit,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -401,6 +426,8 @@ class MMRApi:
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The index of the first match to return.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -422,6 +449,10 @@ class MMRApi:
         :type account_id: int
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
         :type hero_id: int
+        :param start: The index of the first match to return.
+        :type start: int
+        :param limit: The maximum number of matches to return.
+        :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -447,6 +478,8 @@ class MMRApi:
         _param = self._hero_mmr_history_serialize(
             account_id=account_id,
             hero_id=hero_id,
+            start=start,
+            limit=limit,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -474,6 +507,8 @@ class MMRApi:
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The index of the first match to return.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -495,6 +530,10 @@ class MMRApi:
         :type account_id: int
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
         :type hero_id: int
+        :param start: The index of the first match to return.
+        :type start: int
+        :param limit: The maximum number of matches to return.
+        :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -520,6 +559,8 @@ class MMRApi:
         _param = self._hero_mmr_history_serialize(
             account_id=account_id,
             hero_id=hero_id,
+            start=start,
+            limit=limit,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -542,6 +583,8 @@ class MMRApi:
         self,
         account_id,
         hero_id,
+        start,
+        limit,
         _request_auth,
         _content_type,
         _headers,
@@ -568,6 +611,14 @@ class MMRApi:
         if hero_id is not None:
             _path_params['hero_id'] = hero_id
         # process the query parameters
+        if start is not None:
+            
+            _query_params.append(('start', start))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -608,6 +659,7 @@ class MMRApi:
     def mmr(
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -627,6 +679,8 @@ class MMRApi:
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -651,6 +705,7 @@ class MMRApi:
 
         _param = self._mmr_serialize(
             account_ids=account_ids,
+            max_match_id=max_match_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -677,6 +732,7 @@ class MMRApi:
     def mmr_with_http_info(
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -696,6 +752,8 @@ class MMRApi:
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -720,6 +778,7 @@ class MMRApi:
 
         _param = self._mmr_serialize(
             account_ids=account_ids,
+            max_match_id=max_match_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -746,6 +805,7 @@ class MMRApi:
     def mmr_without_preload_content(
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -765,6 +825,8 @@ class MMRApi:
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -789,6 +851,7 @@ class MMRApi:
 
         _param = self._mmr_serialize(
             account_ids=account_ids,
+            max_match_id=max_match_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -810,6 +873,7 @@ class MMRApi:
     def _mmr_serialize(
         self,
         account_ids,
+        max_match_id,
         _request_auth,
         _content_type,
         _headers,
@@ -836,6 +900,10 @@ class MMRApi:
         if account_ids is not None:
             
             _query_params.append(('account_ids', account_ids))
+            
+        if max_match_id is not None:
+            
+            _query_params.append(('max_match_id', max_match_id))
             
         # process the header parameters
         # process the form parameters
@@ -877,6 +945,8 @@ class MMRApi:
     def mmr_history(
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The index of the first match to return.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -896,6 +966,10 @@ class MMRApi:
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
+        :param start: The index of the first match to return.
+        :type start: int
+        :param limit: The maximum number of matches to return.
+        :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -920,6 +994,8 @@ class MMRApi:
 
         _param = self._mmr_history_serialize(
             account_id=account_id,
+            start=start,
+            limit=limit,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -946,6 +1022,8 @@ class MMRApi:
     def mmr_history_with_http_info(
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The index of the first match to return.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -965,6 +1043,10 @@ class MMRApi:
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
+        :param start: The index of the first match to return.
+        :type start: int
+        :param limit: The maximum number of matches to return.
+        :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -989,6 +1071,8 @@ class MMRApi:
 
         _param = self._mmr_history_serialize(
             account_id=account_id,
+            start=start,
+            limit=limit,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1015,6 +1099,8 @@ class MMRApi:
     def mmr_history_without_preload_content(
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The index of the first match to return.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1034,6 +1120,10 @@ class MMRApi:
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
+        :param start: The index of the first match to return.
+        :type start: int
+        :param limit: The maximum number of matches to return.
+        :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1058,6 +1148,8 @@ class MMRApi:
 
         _param = self._mmr_history_serialize(
             account_id=account_id,
+            start=start,
+            limit=limit,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1079,6 +1171,8 @@ class MMRApi:
     def _mmr_history_serialize(
         self,
         account_id,
+        start,
+        limit,
         _request_auth,
         _content_type,
         _headers,
@@ -1103,6 +1197,14 @@ class MMRApi:
         if account_id is not None:
             _path_params['account_id'] = account_id
         # process the query parameters
+        if start is not None:
+            
+            _query_params.append(('start', start))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

@@ -388,7 +388,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **metadata**
-> metadata(match_id)
+> metadata(match_id, is_custom=is_custom)
 
 Metadata
 
@@ -429,10 +429,11 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.MatchesApi(api_client)
     match_id = 56 # int | The match ID
+    is_custom = True # bool |  (optional)
 
     try:
         # Metadata
-        api_instance.metadata(match_id)
+        api_instance.metadata(match_id, is_custom=is_custom)
     except Exception as e:
         print("Exception when calling MatchesApi->metadata: %s\n" % e)
 ```
@@ -445,6 +446,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **match_id** | **int**| The match ID | 
+ **is_custom** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -472,7 +474,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **metadata_raw**
-> List[int] metadata_raw(match_id)
+> List[int] metadata_raw(match_id, is_custom=is_custom)
 
 Metadata as Protobuf
 
@@ -515,10 +517,11 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.MatchesApi(api_client)
     match_id = 56 # int | The match ID
+    is_custom = True # bool |  (optional)
 
     try:
         # Metadata as Protobuf
-        api_response = api_instance.metadata_raw(match_id)
+        api_response = api_instance.metadata_raw(match_id, is_custom=is_custom)
         print("The response of MatchesApi->metadata_raw:\n")
         pprint(api_response)
     except Exception as e:
@@ -533,6 +536,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **match_id** | **int**| The match ID | 
+ **is_custom** | **bool**|  | [optional] 
 
 ### Return type
 

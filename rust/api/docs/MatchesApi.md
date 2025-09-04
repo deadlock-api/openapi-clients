@@ -161,7 +161,7 @@ No authorization required
 
 ## metadata
 
-> metadata(match_id)
+> metadata(match_id, is_custom)
 Metadata
 
  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
@@ -172,6 +172,7 @@ Metadata
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **match_id** | **i64** | The match ID | [required] |
+**is_custom** | Option<**bool**> |  |  |
 
 ### Return type
 
@@ -191,7 +192,7 @@ No authorization required
 
 ## metadata_raw
 
-> Vec<i32> metadata_raw(match_id)
+> Vec<i32> metadata_raw(match_id, is_custom)
 Metadata as Protobuf
 
  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
@@ -202,6 +203,7 @@ Metadata as Protobuf
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **match_id** | **i64** | The match ID | [required] |
+**is_custom** | Option<**bool**> |  |  |
 
 ### Return type
 

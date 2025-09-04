@@ -91,14 +91,16 @@ pub struct BulkMetadataParams {
 #[derive(Clone, Debug)]
 pub struct MetadataParams {
     /// The match ID
-    pub match_id: i64
+    pub match_id: i64,
+    pub is_custom: Option<bool>
 }
 
 /// struct for passing parameters to the method [`metadata_raw`]
 #[derive(Clone, Debug)]
 pub struct MetadataRawParams {
     /// The match ID
-    pub match_id: i64
+    pub match_id: i64,
+    pub is_custom: Option<bool>
 }
 
 /// struct for passing parameters to the method [`salts`]
@@ -444,6 +446,9 @@ pub async fn metadata(configuration: &configuration::Configuration, params: Meta
     let uri_str = format!("{}/v1/matches/{match_id}/metadata", configuration.base_path, match_id=params.match_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.is_custom {
+        req_builder = req_builder.query(&[("is_custom", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -468,6 +473,9 @@ pub async fn metadata_raw(configuration: &configuration::Configuration, params: 
     let uri_str = format!("{}/v1/matches/{match_id}/metadata/raw", configuration.base_path, match_id=params.match_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.is_custom {
+        req_builder = req_builder.query(&[("is_custom", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
