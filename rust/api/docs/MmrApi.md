@@ -45,7 +45,7 @@ No authorization required
 
 ## hero_mmr_history
 
-> Vec<models::MmrHistory> hero_mmr_history(account_id, hero_id, start, limit)
+> Vec<models::MmrHistory> hero_mmr_history(account_id, hero_id)
 Hero MMR History
 
 Player Hero MMR History
@@ -57,8 +57,6 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_id** | **i32** | The players `SteamID3` | [required] |
 **hero_id** | **i32** | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
-**start** | Option<**i32**> | The index of the first match to return. |  |
-**limit** | Option<**i32**> | The maximum number of matches to return. |  |[default to 100]
 
 ### Return type
 
@@ -109,7 +107,7 @@ No authorization required
 
 ## mmr_history
 
-> Vec<models::MmrHistory> mmr_history(account_id, start, limit)
+> Vec<models::MmrHistory> mmr_history(account_id)
 MMR History
 
 Player MMR History
@@ -120,8 +118,6 @@ Player MMR History
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_id** | **i32** | The players `SteamID3` | [required] |
-**start** | Option<**i32**> | The index of the first match to return. |  |
-**limit** | Option<**i32**> | The maximum number of matches to return. |  |[default to 100]
 
 ### Return type
 

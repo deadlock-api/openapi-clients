@@ -7625,12 +7625,10 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
          * @summary Hero MMR History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-         * @param {number | null} [start] The index of the first match to return.
-         * @param {number | null} [limit] The maximum number of matches to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroMmrHistory: async (accountId: number, heroId: number, start?: number | null, limit?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroMmrHistory: async (accountId: number, heroId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('heroMmrHistory', 'accountId', accountId)
             // verify required parameter 'heroId' is not null or undefined
@@ -7648,14 +7646,6 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
 
 
     
@@ -7714,12 +7704,10 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
          * Player MMR History
          * @summary MMR History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {number | null} [start] The index of the first match to return.
-         * @param {number | null} [limit] The maximum number of matches to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mmrHistory: async (accountId: number, start?: number | null, limit?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        mmrHistory: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('mmrHistory', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/mmr-history`
@@ -7734,14 +7722,6 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
 
 
     
@@ -7784,13 +7764,11 @@ export const MMRApiFp = function(configuration?: Configuration) {
          * @summary Hero MMR History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-         * @param {number | null} [start] The index of the first match to return.
-         * @param {number | null} [limit] The maximum number of matches to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroMmrHistory(accountId: number, heroId: number, start?: number | null, limit?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MMRHistory>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.heroMmrHistory(accountId, heroId, start, limit, options);
+        async heroMmrHistory(accountId: number, heroId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MMRHistory>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroMmrHistory(accountId, heroId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MMRApi.heroMmrHistory']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7813,13 +7791,11 @@ export const MMRApiFp = function(configuration?: Configuration) {
          * Player MMR History
          * @summary MMR History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {number | null} [start] The index of the first match to return.
-         * @param {number | null} [limit] The maximum number of matches to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async mmrHistory(accountId: number, start?: number | null, limit?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MMRHistory>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mmrHistory(accountId, start, limit, options);
+        async mmrHistory(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MMRHistory>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mmrHistory(accountId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MMRApi.mmrHistory']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7852,7 +7828,7 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
          * @throws {RequiredError}
          */
         heroMmrHistory(requestParameters: MMRApiHeroMmrHistoryRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<MMRHistory>> {
-            return localVarFp.heroMmrHistory(requestParameters.accountId, requestParameters.heroId, requestParameters.start, requestParameters.limit, options).then((request) => request(axios, basePath));
+            return localVarFp.heroMmrHistory(requestParameters.accountId, requestParameters.heroId, options).then((request) => request(axios, basePath));
         },
         /**
          * Batch Player MMR
@@ -7872,7 +7848,7 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
          * @throws {RequiredError}
          */
         mmrHistory(requestParameters: MMRApiMmrHistoryRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<MMRHistory>> {
-            return localVarFp.mmrHistory(requestParameters.accountId, requestParameters.start, requestParameters.limit, options).then((request) => request(axios, basePath));
+            return localVarFp.mmrHistory(requestParameters.accountId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7924,20 +7900,6 @@ export interface MMRApiHeroMmrHistoryRequest {
      * @memberof MMRApiHeroMmrHistory
      */
     readonly heroId: number
-
-    /**
-     * The index of the first match to return.
-     * @type {number}
-     * @memberof MMRApiHeroMmrHistory
-     */
-    readonly start?: number | null
-
-    /**
-     * The maximum number of matches to return.
-     * @type {number}
-     * @memberof MMRApiHeroMmrHistory
-     */
-    readonly limit?: number | null
 }
 
 /**
@@ -7973,20 +7935,6 @@ export interface MMRApiMmrHistoryRequest {
      * @memberof MMRApiMmrHistory
      */
     readonly accountId: number
-
-    /**
-     * The index of the first match to return.
-     * @type {number}
-     * @memberof MMRApiMmrHistory
-     */
-    readonly start?: number | null
-
-    /**
-     * The maximum number of matches to return.
-     * @type {number}
-     * @memberof MMRApiMmrHistory
-     */
-    readonly limit?: number | null
 }
 
 /**
@@ -8017,7 +7965,7 @@ export class MMRApi extends BaseAPI {
      * @memberof MMRApi
      */
     public heroMmrHistory(requestParameters: MMRApiHeroMmrHistoryRequest, options?: RawAxiosRequestConfig) {
-        return MMRApiFp(this.configuration).heroMmrHistory(requestParameters.accountId, requestParameters.heroId, requestParameters.start, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
+        return MMRApiFp(this.configuration).heroMmrHistory(requestParameters.accountId, requestParameters.heroId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8041,7 +7989,7 @@ export class MMRApi extends BaseAPI {
      * @memberof MMRApi
      */
     public mmrHistory(requestParameters: MMRApiMmrHistoryRequest, options?: RawAxiosRequestConfig) {
-        return MMRApiFp(this.configuration).mmrHistory(requestParameters.accountId, requestParameters.start, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
+        return MMRApiFp(this.configuration).mmrHistory(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

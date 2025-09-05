@@ -86,14 +86,10 @@ const apiInstance = new MMRApi(configuration);
 
 let accountId: number; //The players `SteamID3` (default to undefined)
 let heroId: number; //The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (default to undefined)
-let start: number; //The index of the first match to return. (optional) (default to undefined)
-let limit: number; //The maximum number of matches to return. (optional) (default to 100)
 
 const { status, data } = await apiInstance.heroMmrHistory(
     accountId,
-    heroId,
-    start,
-    limit
+    heroId
 );
 ```
 
@@ -103,8 +99,6 @@ const { status, data } = await apiInstance.heroMmrHistory(
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
 | **heroId** | [**number**] | The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | defaults to undefined|
-| **start** | [**number**] | The index of the first match to return. | (optional) defaults to undefined|
-| **limit** | [**number**] | The maximum number of matches to return. | (optional) defaults to 100|
 
 
 ### Return type
@@ -203,13 +197,9 @@ const configuration = new Configuration();
 const apiInstance = new MMRApi(configuration);
 
 let accountId: number; //The players `SteamID3` (default to undefined)
-let start: number; //The index of the first match to return. (optional) (default to undefined)
-let limit: number; //The maximum number of matches to return. (optional) (default to 100)
 
 const { status, data } = await apiInstance.mmrHistory(
-    accountId,
-    start,
-    limit
+    accountId
 );
 ```
 
@@ -218,8 +208,6 @@ const { status, data } = await apiInstance.mmrHistory(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
-| **start** | [**number**] | The index of the first match to return. | (optional) defaults to undefined|
-| **limit** | [**number**] | The maximum number of matches to return. | (optional) defaults to 100|
 
 
 ### Return type
