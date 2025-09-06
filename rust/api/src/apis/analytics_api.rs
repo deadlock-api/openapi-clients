@@ -397,6 +397,8 @@ pub struct PlayerStatsMetricsParams {
     pub min_match_id: Option<i64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<i64>,
+    /// The maximum number of matches to analyze.
+    pub max_matches: Option<i32>,
     /// Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
     pub include_item_ids: Option<Vec<i32>>,
     /// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
@@ -1398,6 +1400,9 @@ pub async fn player_stats_metrics(configuration: &configuration::Configuration, 
     }
     if let Some(ref param_value) = params.max_match_id {
         req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_matches {
+        req_builder = req_builder.query(&[("max_matches", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.include_item_ids {
         req_builder = match "multi" {

@@ -3554,13 +3554,14 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatches] The maximum number of matches to analyze.
          * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerStatsMetrics: async (heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        playerStatsMetrics: async (heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/player-stats/metrics`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3615,6 +3616,10 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (maxMatchId !== undefined) {
                 localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+            if (maxMatches !== undefined) {
+                localVarQueryParameter['max_matches'] = maxMatches;
             }
 
             if (includeItemIds) {
@@ -3938,14 +3943,15 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatches] The maximum number of matches to analyze.
          * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async playerStatsMetrics(heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: HashMapValue; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.playerStatsMetrics(heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, accountIds, options);
+        async playerStatsMetrics(heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: HashMapValue; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.playerStatsMetrics(heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.playerStatsMetrics']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -4068,7 +4074,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         playerStatsMetrics(requestParameters: AnalyticsApiPlayerStatsMetricsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: HashMapValue; }> {
-            return localVarFp.playerStatsMetrics(requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.playerStatsMetrics(requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.maxMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -5305,6 +5311,13 @@ export interface AnalyticsApiPlayerStatsMetricsRequest {
     readonly maxMatchId?: number | null
 
     /**
+     * The maximum number of matches to analyze.
+     * @type {number}
+     * @memberof AnalyticsApiPlayerStatsMetrics
+     */
+    readonly maxMatches?: number | null
+
+    /**
      * Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
      * @type {Array<number>}
      * @memberof AnalyticsApiPlayerStatsMetrics
@@ -5462,7 +5475,7 @@ export class AnalyticsApi extends BaseAPI {
      * @memberof AnalyticsApi
      */
     public playerStatsMetrics(requestParameters: AnalyticsApiPlayerStatsMetricsRequest = {}, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).playerStatsMetrics(requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).playerStatsMetrics(requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.maxMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

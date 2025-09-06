@@ -5206,6 +5206,7 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of account ids to include")] = None,
@@ -5248,6 +5249,8 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param max_matches: The maximum number of matches to analyze.
+        :type max_matches: int
         :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
@@ -5288,6 +5291,7 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            max_matches=max_matches,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             account_ids=account_ids,
@@ -5327,6 +5331,7 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of account ids to include")] = None,
@@ -5369,6 +5374,8 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param max_matches: The maximum number of matches to analyze.
+        :type max_matches: int
         :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
@@ -5409,6 +5416,7 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            max_matches=max_matches,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             account_ids=account_ids,
@@ -5448,6 +5456,7 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of account ids to include")] = None,
@@ -5490,6 +5499,8 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param max_matches: The maximum number of matches to analyze.
+        :type max_matches: int
         :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
@@ -5530,6 +5541,7 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            max_matches=max_matches,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             account_ids=account_ids,
@@ -5564,6 +5576,7 @@ class AnalyticsApi:
         max_average_badge,
         min_match_id,
         max_match_id,
+        max_matches,
         include_item_ids,
         exclude_item_ids,
         account_ids,
@@ -5635,6 +5648,10 @@ class AnalyticsApi:
         if max_match_id is not None:
             
             _query_params.append(('max_match_id', max_match_id))
+            
+        if max_matches is not None:
+            
+            _query_params.append(('max_matches', max_matches))
             
         if include_item_ids is not None:
             
