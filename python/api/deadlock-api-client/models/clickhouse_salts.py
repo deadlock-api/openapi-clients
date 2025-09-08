@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -31,7 +31,8 @@ class ClickhouseSalts(BaseModel):
     match_id: Annotated[int, Field(strict=True, ge=0)]
     metadata_salt: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     replay_salt: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    __properties: ClassVar[List[str]] = ["cluster_id", "match_id", "metadata_salt", "replay_salt"]
+    username: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["cluster_id", "match_id", "metadata_salt", "replay_salt", "username"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +88,11 @@ class ClickhouseSalts(BaseModel):
         if self.replay_salt is None and "replay_salt" in self.model_fields_set:
             _dict['replay_salt'] = None
 
+        # set to None if username (nullable) is None
+        # and model_fields_set contains the field
+        if self.username is None and "username" in self.model_fields_set:
+            _dict['username'] = None
+
         return _dict
 
     @classmethod
@@ -102,7 +108,8 @@ class ClickhouseSalts(BaseModel):
             "cluster_id": obj.get("cluster_id"),
             "match_id": obj.get("match_id"),
             "metadata_salt": obj.get("metadata_salt"),
-            "replay_salt": obj.get("replay_salt")
+            "replay_salt": obj.get("replay_salt"),
+            "username": obj.get("username")
         })
         return _obj
 

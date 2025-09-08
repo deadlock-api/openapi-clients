@@ -9,6 +9,8 @@
 
 * `HERO` (value: `'Hero'`)
 
+* `ITEM` (value: `'Item'`)
+
 * `LEADERBOARD` (value: `'Leaderboard'`)
 
 * `OVERALL` (value: `'Overall'`)

@@ -20,6 +20,8 @@ pub enum VariableCategory {
     Daily,
     #[serde(rename = "Hero")]
     Hero,
+    #[serde(rename = "Item")]
+    Item,
     #[serde(rename = "Leaderboard")]
     Leaderboard,
     #[serde(rename = "Overall")]
@@ -33,6 +35,7 @@ impl std::fmt::Display for VariableCategory {
             Self::General => write!(f, "General"),
             Self::Daily => write!(f, "Daily"),
             Self::Hero => write!(f, "Hero"),
+            Self::Item => write!(f, "Item"),
             Self::Leaderboard => write!(f, "Leaderboard"),
             Self::Overall => write!(f, "Overall"),
         }

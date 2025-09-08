@@ -867,6 +867,12 @@ export interface ClickhouseSalts {
      * @memberof ClickhouseSalts
      */
     'replay_salt'?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ClickhouseSalts
+     */
+    'username'?: string | null;
 }
 /**
  * 
@@ -2411,6 +2417,7 @@ export const VariableCategory = {
     General: 'General',
     Daily: 'Daily',
     Hero: 'Hero',
+    Item: 'Item',
     Leaderboard: 'Leaderboard',
     Overall: 'Overall'
 } as const;

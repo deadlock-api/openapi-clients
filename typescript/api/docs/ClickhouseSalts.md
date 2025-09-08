@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **match_id** | **number** |  | [default to undefined]
 **metadata_salt** | **number** |  | [optional] [default to undefined]
 **replay_salt** | **number** |  | [optional] [default to undefined]
+**username** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -20,6 +21,7 @@ const instance: ClickhouseSalts = {
     match_id,
     metadata_salt,
     replay_salt,
+    username,
 };
 ```
 

@@ -21,6 +21,8 @@ pub struct ClickhouseSalts {
     pub metadata_salt: Option<Option<i32>>,
     #[serde(rename = "replay_salt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub replay_salt: Option<Option<i32>>,
+    #[serde(rename = "username", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub username: Option<Option<String>>,
 }
 
 impl ClickhouseSalts {
@@ -30,6 +32,7 @@ impl ClickhouseSalts {
             match_id,
             metadata_salt: None,
             replay_salt: None,
+            username: None,
         }
     }
 }

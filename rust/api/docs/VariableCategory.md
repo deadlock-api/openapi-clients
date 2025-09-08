@@ -7,6 +7,7 @@
 | General | General |
 | Daily | Daily |
 | Hero | Hero |
+| Item | Item |
 | Leaderboard | Leaderboard |
 | Overall | Overall |
 

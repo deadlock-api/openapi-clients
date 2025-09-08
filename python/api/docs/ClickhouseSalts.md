@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **match_id** | **int** |  | 
 **metadata_salt** | **int** |  | [optional] 
 **replay_salt** | **int** |  | [optional] 
+**username** | **str** |  | [optional] 
 
 ## Example
 

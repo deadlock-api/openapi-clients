@@ -38,7 +38,8 @@ class TestClickhouseSalts(unittest.TestCase):
                 cluster_id = 0,
                 match_id = 0,
                 metadata_salt = 0,
-                replay_salt = 0
+                replay_salt = 0,
+                username = ''
             )
         else:
             return ClickhouseSalts(

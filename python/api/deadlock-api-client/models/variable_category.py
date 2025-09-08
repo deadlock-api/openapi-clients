@@ -29,6 +29,7 @@ class VariableCategory(str, Enum):
     GENERAL = 'General'
     DAILY = 'Daily'
     HERO = 'Hero'
+    ITEM = 'Item'
     LEADERBOARD = 'Leaderboard'
     OVERALL = 'Overall'
 
