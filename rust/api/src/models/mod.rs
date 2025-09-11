@@ -96,6 +96,8 @@ pub mod player_card_slot_stat;
 pub use self::player_card_slot_stat::PlayerCardSlotStat;
 pub mod player_match_history_entry;
 pub use self::player_match_history_entry::PlayerMatchHistoryEntry;
+pub mod region_mode;
+pub use self::region_mode::RegionMode;
 pub mod status;
 pub use self::status::Status;
 pub mod status_services;

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **is_publicly_visible** | **boolean** |  | [optional] [default to undefined]
 **min_roster_size** | **number** |  | [optional] [default to undefined]
 **randomize_lanes** | **boolean** |  | [optional] [default to undefined]
+**region_mode** | [**RegionMode**](RegionMode.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -26,6 +27,7 @@ const instance: CreateCustomRequest = {
     is_publicly_visible,
     min_roster_size,
     randomize_lanes,
+    region_mode,
 };
 ```
 

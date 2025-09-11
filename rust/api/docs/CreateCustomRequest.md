@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **is_publicly_visible** | Option<**bool**> |  | [optional]
 **min_roster_size** | Option<**i32**> |  | [optional]
 **randomize_lanes** | Option<**bool**> |  | [optional]
+**region_mode** | Option<[**models::RegionMode**](RegionMode.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

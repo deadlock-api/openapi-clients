@@ -73,6 +73,7 @@ deadlock-api-client/models/player_card_slot.py
 deadlock-api-client/models/player_card_slot_hero.py
 deadlock-api-client/models/player_card_slot_stat.py
 deadlock-api-client/models/player_match_history_entry.py
+deadlock-api-client/models/region_mode.py
 deadlock-api-client/models/status.py
 deadlock-api-client/models/status_services.py
 deadlock-api-client/models/steam_profile.py
@@ -142,6 +143,7 @@ docs/PlayerCardSlotHero.md
 docs/PlayerCardSlotStat.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayersApi.md
+docs/RegionMode.md
 docs/SQLApi.md
 docs/Status.md
 docs/StatusServices.md
@@ -217,6 +219,7 @@ test/test_player_card_slot_hero.py
 test/test_player_card_slot_stat.py
 test/test_player_match_history_entry.py
 test/test_players_api.py
+test/test_region_mode.py
 test/test_sql_api.py
 test/test_status.py
 test/test_status_services.py

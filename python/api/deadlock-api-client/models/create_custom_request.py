@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from deadlock-api-client.models.region_mode import RegionMode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -34,7 +35,8 @@ class CreateCustomRequest(BaseModel):
     is_publicly_visible: Optional[StrictBool] = None
     min_roster_size: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     randomize_lanes: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["callback_url", "cheats_enabled", "duplicate_heroes_enabled", "experimental_heroes_enabled", "is_publicly_visible", "min_roster_size", "randomize_lanes"]
+    region_mode: Optional[RegionMode] = None
+    __properties: ClassVar[List[str]] = ["callback_url", "cheats_enabled", "duplicate_heroes_enabled", "experimental_heroes_enabled", "is_publicly_visible", "min_roster_size", "randomize_lanes", "region_mode"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -110,6 +112,11 @@ class CreateCustomRequest(BaseModel):
         if self.randomize_lanes is None and "randomize_lanes" in self.model_fields_set:
             _dict['randomize_lanes'] = None
 
+        # set to None if region_mode (nullable) is None
+        # and model_fields_set contains the field
+        if self.region_mode is None and "region_mode" in self.model_fields_set:
+            _dict['region_mode'] = None
+
         return _dict
 
     @classmethod
@@ -128,7 +135,8 @@ class CreateCustomRequest(BaseModel):
             "experimental_heroes_enabled": obj.get("experimental_heroes_enabled"),
             "is_publicly_visible": obj.get("is_publicly_visible"),
             "min_roster_size": obj.get("min_roster_size"),
-            "randomize_lanes": obj.get("randomize_lanes")
+            "randomize_lanes": obj.get("randomize_lanes"),
+            "region_mode": obj.get("region_mode")
         })
         return _obj
 

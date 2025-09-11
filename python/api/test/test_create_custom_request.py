@@ -41,7 +41,8 @@ class TestCreateCustomRequest(unittest.TestCase):
                 experimental_heroes_enabled = True,
                 is_publicly_visible = True,
                 min_roster_size = 0,
-                randomize_lanes = True
+                randomize_lanes = True,
+                region_mode = 'row'
             )
         else:
             return CreateCustomRequest(

@@ -922,7 +922,15 @@ export interface CreateCustomRequest {
      * @memberof CreateCustomRequest
      */
     'randomize_lanes'?: boolean | null;
+    /**
+     * 
+     * @type {RegionMode}
+     * @memberof CreateCustomRequest
+     */
+    'region_mode'?: RegionMode | null;
 }
+
+
 /**
  * 
  * @export
@@ -2277,6 +2285,24 @@ export interface PlayerMatchHistoryEntry {
      */
     'team_abandoned'?: boolean | null;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+
+export const RegionMode = {
+    Row: 'row',
+    Europe: 'europe',
+    SeAsia: 'se_asia',
+    SAmerica: 's_america',
+    Russia: 'russia',
+    Oceania: 'oceania'
+} as const;
+
+export type RegionMode = typeof RegionMode[keyof typeof RegionMode];
+
+
 /**
  * 
  * @export

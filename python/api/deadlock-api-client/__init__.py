@@ -89,6 +89,7 @@ __all__ = [
     "PlayerCardSlotHero",
     "PlayerCardSlotStat",
     "PlayerMatchHistoryEntry",
+    "RegionMode",
     "Status",
     "StatusServices",
     "SteamProfile",
@@ -173,6 +174,7 @@ from deadlock-api-client.models.player_card_slot import PlayerCardSlot as Player
 from deadlock-api-client.models.player_card_slot_hero import PlayerCardSlotHero as PlayerCardSlotHero
 from deadlock-api-client.models.player_card_slot_stat import PlayerCardSlotStat as PlayerCardSlotStat
 from deadlock-api-client.models.player_match_history_entry import PlayerMatchHistoryEntry as PlayerMatchHistoryEntry
+from deadlock-api-client.models.region_mode import RegionMode as RegionMode
 from deadlock-api-client.models.status import Status as Status
 from deadlock-api-client.models.status_services import StatusServices as StatusServices
 from deadlock-api-client.models.steam_profile import SteamProfile as SteamProfile

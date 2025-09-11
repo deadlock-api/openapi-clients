@@ -157,6 +157,7 @@ Class | Method | HTTP request | Description
  - [PlayerCardSlotHero](docs/PlayerCardSlotHero.md)
  - [PlayerCardSlotStat](docs/PlayerCardSlotStat.md)
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
+ - [RegionMode](docs/RegionMode.md)
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
  - [SteamProfile](docs/SteamProfile.md)

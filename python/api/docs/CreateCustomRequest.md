@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **is_publicly_visible** | **bool** |  | [optional] 
 **min_roster_size** | **int** |  | [optional] 
 **randomize_lanes** | **bool** |  | [optional] 
+**region_mode** | [**RegionMode**](RegionMode.md) |  | [optional] 
 
 ## Example
 

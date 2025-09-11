@@ -63,6 +63,7 @@ from deadlock-api-client.models.player_card_slot import PlayerCardSlot
 from deadlock-api-client.models.player_card_slot_hero import PlayerCardSlotHero
 from deadlock-api-client.models.player_card_slot_stat import PlayerCardSlotStat
 from deadlock-api-client.models.player_match_history_entry import PlayerMatchHistoryEntry
+from deadlock-api-client.models.region_mode import RegionMode
 from deadlock-api-client.models.status import Status
 from deadlock-api-client.models.status_services import StatusServices
 from deadlock-api-client.models.steam_profile import SteamProfile
