@@ -15,6 +15,9 @@ The clients are organized by language and API:
 -   **TypeScript**:
     -   `typescript/api`: Client for the main Deadlock API.
     -   `typescript/assets-api`: Client for the Deadlock Assets API.
+-   **Kotlin & Java**:
+    -   `kotlin/api`: Client for the main Deadlock API.
+    -   `kotlin/assets-api`: Client for the Deadlock Assets API.
 
 ## Installation from GitHub
 
