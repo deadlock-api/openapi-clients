@@ -1,0 +1,3665 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: Deadlock API - Discord
+    url: https://discord.gg/XMF9Xrgfqu
+  description: |2
+
+    ## Support the Deadlock API
+
+    Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.
+
+    Your sponsorship helps keep this resource open, free and future-proof for everyone. By supporting the Deadlock API, you will enable continued development, new features and reliable access for developers, analysts and streamers worldwide.
+
+    Help us continue to provide the data you need - sponsor the Deadlock API today!
+
+    **-> You can Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or [GitHub](https://github.com/sponsors/raimannma)**
+
+    ## Disclaimer
+    _deadlock-api.com is not endorsed by Valve and does not reflect the views or opinions of Valve or anyone officially involved in producing or managing Valve properties. Valve and all associated properties are trademarks or registered trademarks of Valve Corporation_
+  license:
+    name: MIT
+    url: https://github.com/deadlock-api/deadlock-api-assets/blob/master/LICENSE
+  title: Assets - Deadlock API
+  version: 0.1.0
+servers:
+- url: https://assets.deadlock-api.com
+paths:
+  /v2/heroes:
+    get:
+      operationId: get_heroes_v2_heroes_get
+      parameters:
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          $ref: "#/components/schemas/Language"
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      - explode: true
+        in: query
+        name: only_active
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/HeroV2"
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Heroes
+      tags:
+      - Heroes
+  /v2/heroes/{id}:
+    get:
+      operationId: get_hero_v2_heroes__id__get
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          title: Id
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          $ref: "#/components/schemas/Language"
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HeroV2"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Hero
+      tags:
+      - Heroes
+  /v2/heroes/by-name/{name}:
+    get:
+      operationId: get_hero_by_name_v2_heroes_by_name__name__get
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          title: Name
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          $ref: "#/components/schemas/Language"
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HeroV2"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Hero By Name
+      tags:
+      - Heroes
+  /v2/items:
+    get:
+      operationId: get_items_v2_items_get
+      parameters:
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          $ref: "#/components/schemas/Language"
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Items
+      tags:
+      - Items
+  /v2/items/{id_or_class_name}:
+    get:
+      operationId: get_item_v2_items__id_or_class_name__get
+      parameters:
+      - explode: false
+        in: path
+        name: id_or_class_name
+        required: true
+        schema:
+          $ref: "#/components/schemas/Id_Or_Class_Name"
+        style: simple
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          $ref: "#/components/schemas/Language"
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response_Get_Item_V2_Items__Id_Or_Class_Name__Get"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Item
+      tags:
+      - Items
+  /v2/items/by-type/{type}:
+    get:
+      operationId: get_items_by_type_v2_items_by_type__type__get
+      parameters:
+      - explode: false
+        in: path
+        name: type
+        required: true
+        schema:
+          $ref: "#/components/schemas/ItemTypeV2"
+        style: simple
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          $ref: "#/components/schemas/Language"
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Items By Type
+      tags:
+      - Items
+  /v2/items/by-hero-id/{id}:
+    get:
+      operationId: get_items_by_hero_id_v2_items_by_hero_id__id__get
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          title: Id
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          $ref: "#/components/schemas/Language"
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Items By Hero Id
+      tags:
+      - Items
+  /v2/items/by-slot-type/{slot_type}:
+    get:
+      operationId: get_items_by_slot_type_v2_items_by_slot_type__slot_type__get
+      parameters:
+      - explode: false
+        in: path
+        name: slot_type
+        required: true
+        schema:
+          $ref: "#/components/schemas/ItemSlotTypeV2"
+        style: simple
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          $ref: "#/components/schemas/Language"
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Items By Slot Type
+      tags:
+      - Items
+  /v2/client-versions:
+    get:
+      operationId: get_client_versions_v2_client_versions_get
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: integer
+                type: array
+          description: Successful Response
+      summary: Get Client Versions
+  /v2/ranks:
+    get:
+      operationId: get_ranks_v2_ranks_get
+      parameters:
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          $ref: "#/components/schemas/Language"
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/RankV2"
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Ranks
+  /v2/build-tags:
+    get:
+      operationId: get_build_tags_v2_build_tags_get
+      parameters:
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          $ref: "#/components/schemas/Language"
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/BuildTagV2"
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Build Tags
+  /v1/map:
+    get:
+      operationId: get_map_v1_map_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MapV1"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Map
+  /v1/colors:
+    get:
+      operationId: get_colors_v1_colors_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: "#/components/schemas/ColorV1"
+                title: Response Get Colors V1 Colors Get
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Colors
+  /v1/steam-info:
+    get:
+      operationId: get_steam_info_v1_steam_info_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Steam Info
+  /v1/icons:
+    get:
+      operationId: get_icons_v1_icons_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                title: Response Get Icons V1 Icons Get
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Icons
+  /v1/sounds:
+    get:
+      operationId: get_sounds_v1_sounds_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties: {}
+                title: Response Get Sounds V1 Sounds Get
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Sounds
+  /raw/heroes:
+    get:
+      operationId: get_raw_heroes_raw_heroes_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Raw Heroes
+      tags:
+      - Raw
+  /raw/items:
+    get:
+      operationId: get_raw_items_raw_items_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Raw Items
+      tags:
+      - Raw
+  /raw/generic_data:
+    get:
+      operationId: get_generic_data_raw_generic_data_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Generic Data
+      tags:
+      - Raw
+components:
+  schemas:
+    AbilityDescriptionV2:
+      example:
+        t3_desc: t3_desc
+        t1_desc: t1_desc
+        active: active
+        t2_desc: t2_desc
+        passive: passive
+        quip: quip
+        desc: desc
+      properties:
+        desc:
+          nullable: true
+          type: string
+        quip:
+          nullable: true
+          type: string
+        t1_desc:
+          nullable: true
+          type: string
+        t2_desc:
+          nullable: true
+          type: string
+        t3_desc:
+          nullable: true
+          type: string
+        active:
+          nullable: true
+          type: string
+        passive:
+          nullable: true
+          type: string
+      title: AbilityDescriptionV2
+    AbilityTooltipDetailsInfoSectionPropertyBlockV2:
+      example:
+        loc_string: loc_string
+        properties:
+        - important_property_icon: important_property_icon
+          show_property_value: true
+          status_effect_name: status_effect_name
+          requires_ability_upgrade: true
+          status_effect_value: status_effect_value
+          important_property: important_property
+        - important_property_icon: important_property_icon
+          show_property_value: true
+          status_effect_name: status_effect_name
+          requires_ability_upgrade: true
+          status_effect_value: status_effect_value
+          important_property: important_property
+      properties:
+        loc_string:
+          nullable: true
+          type: string
+        properties:
+          items:
+            $ref: "#/components/schemas/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty"
+          nullable: true
+          type: array
+      title: AbilityTooltipDetailsInfoSectionPropertyBlockV2
+    AbilityTooltipDetailsInfoSectionV2:
+      example:
+        properties_block:
+        - loc_string: loc_string
+          properties:
+          - important_property_icon: important_property_icon
+            show_property_value: true
+            status_effect_name: status_effect_name
+            requires_ability_upgrade: true
+            status_effect_value: status_effect_value
+            important_property: important_property
+          - important_property_icon: important_property_icon
+            show_property_value: true
+            status_effect_name: status_effect_name
+            requires_ability_upgrade: true
+            status_effect_value: status_effect_value
+            important_property: important_property
+        - loc_string: loc_string
+          properties:
+          - important_property_icon: important_property_icon
+            show_property_value: true
+            status_effect_name: status_effect_name
+            requires_ability_upgrade: true
+            status_effect_value: status_effect_value
+            important_property: important_property
+          - important_property_icon: important_property_icon
+            show_property_value: true
+            status_effect_name: status_effect_name
+            requires_ability_upgrade: true
+            status_effect_value: status_effect_value
+            important_property: important_property
+        loc_string: loc_string
+        property_upgrade_required: property_upgrade_required
+        basic_properties:
+        - basic_properties
+        - basic_properties
+      properties:
+        loc_string:
+          nullable: true
+          type: string
+        property_upgrade_required:
+          nullable: true
+          type: string
+        properties_block:
+          items:
+            $ref: "#/components/schemas/AbilityTooltipDetailsInfoSectionPropertyBlockV2"
+          nullable: true
+          type: array
+        basic_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: AbilityTooltipDetailsInfoSectionV2
+    AbilityTooltipDetailsV2:
+      example:
+        info_sections:
+        - properties_block:
+          - loc_string: loc_string
+            properties:
+            - important_property_icon: important_property_icon
+              show_property_value: true
+              status_effect_name: status_effect_name
+              requires_ability_upgrade: true
+              status_effect_value: status_effect_value
+              important_property: important_property
+            - important_property_icon: important_property_icon
+              show_property_value: true
+              status_effect_name: status_effect_name
+              requires_ability_upgrade: true
+              status_effect_value: status_effect_value
+              important_property: important_property
+          - loc_string: loc_string
+            properties:
+            - important_property_icon: important_property_icon
+              show_property_value: true
+              status_effect_name: status_effect_name
+              requires_ability_upgrade: true
+              status_effect_value: status_effect_value
+              important_property: important_property
+            - important_property_icon: important_property_icon
+              show_property_value: true
+              status_effect_name: status_effect_name
+              requires_ability_upgrade: true
+              status_effect_value: status_effect_value
+              important_property: important_property
+          loc_string: loc_string
+          property_upgrade_required: property_upgrade_required
+          basic_properties:
+          - basic_properties
+          - basic_properties
+        - properties_block:
+          - loc_string: loc_string
+            properties:
+            - important_property_icon: important_property_icon
+              show_property_value: true
+              status_effect_name: status_effect_name
+              requires_ability_upgrade: true
+              status_effect_value: status_effect_value
+              important_property: important_property
+            - important_property_icon: important_property_icon
+              show_property_value: true
+              status_effect_name: status_effect_name
+              requires_ability_upgrade: true
+              status_effect_value: status_effect_value
+              important_property: important_property
+          - loc_string: loc_string
+            properties:
+            - important_property_icon: important_property_icon
+              show_property_value: true
+              status_effect_name: status_effect_name
+              requires_ability_upgrade: true
+              status_effect_value: status_effect_value
+              important_property: important_property
+            - important_property_icon: important_property_icon
+              show_property_value: true
+              status_effect_name: status_effect_name
+              requires_ability_upgrade: true
+              status_effect_value: status_effect_value
+              important_property: important_property
+          loc_string: loc_string
+          property_upgrade_required: property_upgrade_required
+          basic_properties:
+          - basic_properties
+          - basic_properties
+        additional_header_properties:
+        - additional_header_properties
+        - additional_header_properties
+      properties:
+        info_sections:
+          items:
+            $ref: "#/components/schemas/AbilityTooltipDetailsInfoSectionV2"
+          nullable: true
+          type: array
+        additional_header_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: AbilityTooltipDetailsV2
+    AbilityTypeV2:
+      enum:
+      - innate
+      - item
+      - signature
+      - ultimate
+      - weapon
+      - melee
+      title: AbilityTypeV2
+      type: string
+    AbilityV2:
+      example:
+        image: image
+        image_webp: image_webp
+        start_trained: true
+        description:
+          t3_desc: t3_desc
+          t1_desc: t1_desc
+          active: active
+          t2_desc: t2_desc
+          passive: passive
+          quip: quip
+          desc: desc
+        boss_damage_scale: 7.386281948385884
+        hero: 6
+        videos:
+          mp4: mp4
+          webm: webm
+        type: ability
+        upgrades:
+        - property_upgrades:
+          - scale_stat_filter: scale_stat_filter
+            bonus: Bonus
+            name: name
+            upgrade_type: upgrade_type
+          - scale_stat_filter: scale_stat_filter
+            bonus: Bonus
+            name: name
+            upgrade_type: upgrade_type
+        - property_upgrades:
+          - scale_stat_filter: scale_stat_filter
+            bonus: Bonus
+            name: name
+            upgrade_type: upgrade_type
+          - scale_stat_filter: scale_stat_filter
+            bonus: Bonus
+            name: name
+            upgrade_type: upgrade_type
+        update_time: 5
+        heroes:
+        - 1
+        - 1
+        tooltip_details:
+          info_sections:
+          - properties_block:
+            - loc_string: loc_string
+              properties:
+              - important_property_icon: important_property_icon
+                show_property_value: true
+                status_effect_name: status_effect_name
+                requires_ability_upgrade: true
+                status_effect_value: status_effect_value
+                important_property: important_property
+              - important_property_icon: important_property_icon
+                show_property_value: true
+                status_effect_name: status_effect_name
+                requires_ability_upgrade: true
+                status_effect_value: status_effect_value
+                important_property: important_property
+            - loc_string: loc_string
+              properties:
+              - important_property_icon: important_property_icon
+                show_property_value: true
+                status_effect_name: status_effect_name
+                requires_ability_upgrade: true
+                status_effect_value: status_effect_value
+                important_property: important_property
+              - important_property_icon: important_property_icon
+                show_property_value: true
+                status_effect_name: status_effect_name
+                requires_ability_upgrade: true
+                status_effect_value: status_effect_value
+                important_property: important_property
+            loc_string: loc_string
+            property_upgrade_required: property_upgrade_required
+            basic_properties:
+            - basic_properties
+            - basic_properties
+          - properties_block:
+            - loc_string: loc_string
+              properties:
+              - important_property_icon: important_property_icon
+                show_property_value: true
+                status_effect_name: status_effect_name
+                requires_ability_upgrade: true
+                status_effect_value: status_effect_value
+                important_property: important_property
+              - important_property_icon: important_property_icon
+                show_property_value: true
+                status_effect_name: status_effect_name
+                requires_ability_upgrade: true
+                status_effect_value: status_effect_value
+                important_property: important_property
+            - loc_string: loc_string
+              properties:
+              - important_property_icon: important_property_icon
+                show_property_value: true
+                status_effect_name: status_effect_name
+                requires_ability_upgrade: true
+                status_effect_value: status_effect_value
+                important_property: important_property
+              - important_property_icon: important_property_icon
+                show_property_value: true
+                status_effect_name: status_effect_name
+                requires_ability_upgrade: true
+                status_effect_value: status_effect_value
+                important_property: important_property
+            loc_string: loc_string
+            property_upgrade_required: property_upgrade_required
+            basic_properties:
+            - basic_properties
+            - basic_properties
+          additional_header_properties:
+          - additional_header_properties
+          - additional_header_properties
+        name: name
+        id: 0
+        ability_type: innate
+        class_name: class_name
+        behaviours:
+        - behaviours
+        - behaviours
+        dependant_abilities:
+        - dependant_abilities
+        - dependant_abilities
+        properties:
+          key:
+            conditional: conditional
+            usage_flags:
+            - ConditionallyApplied
+            - ConditionallyApplied
+            prefix: prefix
+            icon: icon
+            can_set_token_override: true
+            scale_function:
+              scaling_stats:
+              - scaling_stats
+              - scaling_stats
+              subclass_name: subclass_name
+              stat_scale: 5.637376656633329
+              class_name: class_name
+              specific_stat_scale_type: specific_stat_scale_type
+            label: label
+            loc_token_override: loc_token_override
+            css_class: css_class
+            disable_value: disable_value
+            icon_path: icon_path
+            provided_property_type: provided_property_type
+            negative_attribute: true
+            postfix: postfix
+            value: Value_1
+            postvalue_label: postvalue_label
+            display_units: display_units
+        weapon_info:
+          bullet_speed_curve:
+            domain_mins:
+            - 4.145608029883936
+            - 4.145608029883936
+            spline:
+            - x: 9.301444243932576
+              slope_outgoing: 7.061401241503109
+              "y": 3.616076749251911
+              slope_incoming: 2.3021358869347655
+            - x: 9.301444243932576
+              slope_outgoing: 7.061401241503109
+              "y": 3.616076749251911
+              slope_incoming: 2.3021358869347655
+            domain_maxs:
+            - 2.027123023002322
+            - 2.027123023002322
+      properties:
+        id:
+          title: Id
+          type: integer
+        class_name:
+          title: Class Name
+          type: string
+        name:
+          title: Name
+          type: string
+        start_trained:
+          nullable: true
+          type: boolean
+        image:
+          nullable: true
+          type: string
+        image_webp:
+          nullable: true
+          type: string
+        hero:
+          nullable: true
+          type: integer
+        heroes:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        update_time:
+          nullable: true
+          type: integer
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/ItemPropertyV2"
+          nullable: true
+        weapon_info:
+          $ref: "#/components/schemas/RawItemWeaponInfoV2"
+        type:
+          default: ability
+          enum:
+          - ability
+          title: Type
+          type: string
+        behaviours:
+          items:
+            type: string
+          nullable: true
+          type: array
+        description:
+          $ref: "#/components/schemas/AbilityDescriptionV2"
+        tooltip_details:
+          $ref: "#/components/schemas/AbilityTooltipDetailsV2"
+        upgrades:
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgradeV2"
+          nullable: true
+          type: array
+        ability_type:
+          $ref: "#/components/schemas/AbilityTypeV2"
+        boss_damage_scale:
+          nullable: true
+          type: number
+        dependant_abilities:
+          items:
+            type: string
+          nullable: true
+          type: array
+        videos:
+          $ref: "#/components/schemas/AbilityVideosV2"
+      required:
+      - class_name
+      - description
+      - id
+      - name
+      title: AbilityV2
+    AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty:
+      example:
+        important_property_icon: important_property_icon
+        show_property_value: true
+        status_effect_name: status_effect_name
+        requires_ability_upgrade: true
+        status_effect_value: status_effect_value
+        important_property: important_property
+      properties:
+        requires_ability_upgrade:
+          nullable: true
+          type: boolean
+        show_property_value:
+          nullable: true
+          type: boolean
+        important_property:
+          nullable: true
+          type: string
+        status_effect_value:
+          nullable: true
+          type: string
+        status_effect_name:
+          nullable: true
+          type: string
+        important_property_icon:
+          nullable: true
+          type: string
+      title: AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
+    AbilityVideosV2:
+      example:
+        mp4: mp4
+        webm: webm
+      properties:
+        webm:
+          nullable: true
+          type: string
+        mp4:
+          nullable: true
+          type: string
+      title: AbilityVideosV2
+    BuildTagV2:
+      example:
+        icon: icon
+        label: label
+        id: 0
+        class_name: class_name
+      properties:
+        class_name:
+          title: Class Name
+          type: string
+        label:
+          title: Label
+          type: string
+        id:
+          readOnly: true
+          title: Id
+          type: integer
+        icon:
+          readOnly: true
+          title: Icon
+          type: string
+      required:
+      - class_name
+      - icon
+      - id
+      - label
+      title: BuildTagV2
+    ColorV1:
+      properties:
+        red:
+          description: The red value of the color.
+          title: Red
+          type: integer
+        green:
+          description: The green value of the color.
+          title: Green
+          type: integer
+        blue:
+          description: The blue value of the color.
+          title: Blue
+          type: integer
+        alpha:
+          description: The alpha value of the color.
+          title: Alpha
+          type: integer
+      required:
+      - alpha
+      - blue
+      - green
+      - red
+      title: ColorV1
+    HTTPValidationError:
+      example:
+        detail:
+        - msg: msg
+          loc:
+          - ValidationError_loc_inner
+          - ValidationError_loc_inner
+          type: type
+        - msg: msg
+          loc:
+          - ValidationError_loc_inner
+          - ValidationError_loc_inner
+          type: type
+      properties:
+        detail:
+          items:
+            $ref: "#/components/schemas/ValidationError"
+          type: array
+      title: HTTPValidationError
+    HeroColorsV2:
+      example:
+        glow_team2:
+        - ""
+        - ""
+        - ""
+        glow_team1:
+        - ""
+        - ""
+        - ""
+        glow_enemy:
+        - ""
+        - ""
+        - ""
+        glow_friendly:
+        - ""
+        - ""
+        - ""
+        ui:
+        - ""
+        - ""
+        - ""
+      properties:
+        glow_enemy:
+          items: {}
+          maxItems: 3
+          minItems: 3
+          type: array
+        glow_friendly:
+          items: {}
+          maxItems: 3
+          minItems: 3
+          type: array
+        glow_team1:
+          items: {}
+          maxItems: 3
+          minItems: 3
+          type: array
+        glow_team2:
+          items: {}
+          maxItems: 3
+          minItems: 3
+          type: array
+        ui:
+          items: {}
+          maxItems: 3
+          minItems: 3
+          type: array
+      required:
+      - glow_enemy
+      - glow_friendly
+      - glow_team1
+      - glow_team2
+      - ui
+      title: HeroColorsV2
+    HeroDescriptionV2:
+      example:
+        role: role
+        lore: lore
+        playstyle: playstyle
+      properties:
+        lore:
+          nullable: true
+          type: string
+        role:
+          nullable: true
+          type: string
+        playstyle:
+          nullable: true
+          type: string
+      title: HeroDescriptionV2
+    HeroImagesV2:
+      example:
+        weapon_image: weapon_image
+        icon_hero_card: icon_hero_card
+        top_bar_vertical_image_webp: top_bar_vertical_image_webp
+        icon_hero_card_webp: icon_hero_card_webp
+        icon_image_small_webp: icon_image_small_webp
+        background_image_webp: background_image_webp
+        name_image: name_image
+        minimap_image: minimap_image
+        weapon_image_webp: weapon_image_webp
+        background_image: background_image
+        top_bar_image: top_bar_image
+        selection_image: selection_image
+        minimap_image_webp: minimap_image_webp
+        icon_image_small: icon_image_small
+        top_bar_vertical_image: top_bar_vertical_image
+        selection_image_webp: selection_image_webp
+        top_bar_image_webp: top_bar_image_webp
+      properties:
+        icon_hero_card:
+          nullable: true
+          type: string
+        icon_hero_card_webp:
+          nullable: true
+          type: string
+        icon_image_small:
+          nullable: true
+          type: string
+        icon_image_small_webp:
+          nullable: true
+          type: string
+        minimap_image:
+          nullable: true
+          type: string
+        minimap_image_webp:
+          nullable: true
+          type: string
+        selection_image:
+          nullable: true
+          type: string
+        selection_image_webp:
+          nullable: true
+          type: string
+        top_bar_image:
+          nullable: true
+          type: string
+        top_bar_image_webp:
+          nullable: true
+          type: string
+        top_bar_vertical_image:
+          nullable: true
+          type: string
+        top_bar_vertical_image_webp:
+          nullable: true
+          type: string
+        weapon_image:
+          nullable: true
+          type: string
+        weapon_image_webp:
+          nullable: true
+          type: string
+        background_image:
+          nullable: true
+          type: string
+        background_image_webp:
+          nullable: true
+          type: string
+        name_image:
+          nullable: true
+          type: string
+      title: HeroImagesV2
+    HeroItemTypeV2:
+      enum:
+      - weapon_primary
+      - weapon_secondary
+      - weapon_melee
+      - ability_mantle
+      - ability_jump
+      - ability_slide
+      - ability_zip_line
+      - ability_zip_line_boost
+      - ability_climb_rope
+      - ability_innate1
+      - ability_innate2
+      - ability_innate3
+      - signature1
+      - signature2
+      - signature3
+      - signature4
+      title: HeroItemTypeV2
+      type: string
+    HeroLevelInfoV2:
+      example:
+        use_standard_upgrade: true
+        bonus_currencies:
+        - bonus_currencies
+        - bonus_currencies
+        required_gold: 6
+      properties:
+        use_standard_upgrade:
+          nullable: true
+          type: boolean
+        bonus_currencies:
+          items:
+            type: string
+          nullable: true
+          type: array
+        required_gold:
+          title: Required Gold
+          type: integer
+      required:
+      - required_gold
+      title: HeroLevelInfoV2
+    HeroPhysicsV2:
+      example:
+        footstep_sound_travel_distance_meters: 2.027123023002322
+        step_height: 3.616076749251911
+        collision_height: 2.3021358869347655
+        collision_radius: 7.061401241503109
+        stealth_speed_meters_per_second: 9.301444243932576
+        step_sound_time: 4.145608029883936
+        step_sound_time_sprinting: 7.386281948385884
+      properties:
+        collision_height:
+          title: Collision Height
+          type: number
+        collision_radius:
+          title: Collision Radius
+          type: number
+        stealth_speed_meters_per_second:
+          title: Stealth Speed Meters Per Second
+          type: number
+        step_height:
+          title: Step Height
+          type: number
+        footstep_sound_travel_distance_meters:
+          nullable: true
+          type: number
+        step_sound_time:
+          nullable: true
+          type: number
+        step_sound_time_sprinting:
+          nullable: true
+          type: number
+      required:
+      - collision_height
+      - collision_radius
+      - stealth_speed_meters_per_second
+      - step_height
+      title: HeroPhysicsV2
+    HeroShopStatDisplayV2:
+      example:
+        vitality_stats_display:
+          display_stats:
+          - display_stats
+          - display_stats
+          other_display_stats:
+          - other_display_stats
+          - other_display_stats
+        weapon_stats_display:
+          weapon_image_webp: weapon_image_webp
+          display_stats:
+          - display_stats
+          - display_stats
+          weapon_image: weapon_image
+          weapon_attributes:
+          - weapon_attributes
+          - weapon_attributes
+          other_display_stats:
+          - other_display_stats
+          - other_display_stats
+        spirit_stats_display:
+          display_stats:
+          - display_stats
+          - display_stats
+      properties:
+        spirit_stats_display:
+          $ref: "#/components/schemas/RawHeroShopSpiritStatsDisplayV2"
+        vitality_stats_display:
+          $ref: "#/components/schemas/RawHeroShopVitalityStatsDisplayV2"
+        weapon_stats_display:
+          $ref: "#/components/schemas/HeroShopWeaponStatsDisplayV2"
+      required:
+      - spirit_stats_display
+      - vitality_stats_display
+      - weapon_stats_display
+      title: HeroShopStatDisplayV2
+    HeroShopWeaponStatsDisplayV2:
+      example:
+        weapon_image_webp: weapon_image_webp
+        display_stats:
+        - display_stats
+        - display_stats
+        weapon_image: weapon_image
+        weapon_attributes:
+        - weapon_attributes
+        - weapon_attributes
+        other_display_stats:
+        - other_display_stats
+        - other_display_stats
+      properties:
+        display_stats:
+          items:
+            type: string
+          type: array
+        other_display_stats:
+          items:
+            type: string
+          type: array
+        weapon_attributes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        weapon_image:
+          nullable: true
+          type: string
+        weapon_image_webp:
+          nullable: true
+          type: string
+      required:
+      - display_stats
+      - other_display_stats
+      title: HeroShopWeaponStatsDisplayV2
+    HeroStartingStatV2:
+      example:
+        display_stat_name: display_stat_name
+        value: 5
+      properties:
+        value:
+          $ref: "#/components/schemas/Value"
+        display_stat_name:
+          title: Display Stat Name
+          type: string
+      required:
+      - display_stat_name
+      - value
+      title: HeroStartingStatV2
+    HeroStartingStatsV2:
+      example:
+        heavy_melee_damage:
+          display_stat_name: display_stat_name
+          value: 5
+        tech_range:
+          display_stat_name: display_stat_name
+          value: 5
+        weapon_power_scale:
+          display_stat_name: display_stat_name
+          value: 5
+        crit_damage_received_scale:
+          display_stat_name: display_stat_name
+          value: 5
+        reload_speed:
+          display_stat_name: display_stat_name
+          value: 5
+        stamina:
+          display_stat_name: display_stat_name
+          value: 5
+        move_acceleration:
+          display_stat_name: display_stat_name
+          value: 5
+        crouch_speed:
+          display_stat_name: display_stat_name
+          value: 5
+        stamina_regen_per_second:
+          display_stat_name: display_stat_name
+          value: 5
+        max_health:
+          display_stat_name: display_stat_name
+          value: 5
+        ability_resource_max:
+          display_stat_name: display_stat_name
+          value: 5
+        bullet_armor_damage_reduction:
+          display_stat_name: display_stat_name
+          value: 5
+        tech_armor_damage_reduction:
+          display_stat_name: display_stat_name
+          value: 5
+        sprint_speed:
+          display_stat_name: display_stat_name
+          value: 5
+        proc_build_up_rate_scale:
+          display_stat_name: display_stat_name
+          value: 5
+        tech_duration:
+          display_stat_name: display_stat_name
+          value: 5
+        ability_resource_regen_per_second:
+          display_stat_name: display_stat_name
+          value: 5
+        max_move_speed:
+          display_stat_name: display_stat_name
+          value: 5
+        light_melee_damage:
+          display_stat_name: display_stat_name
+          value: 5
+        weapon_power:
+          display_stat_name: display_stat_name
+          value: 5
+        base_health_regen:
+          display_stat_name: display_stat_name
+          value: 5
+      properties:
+        max_move_speed:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        sprint_speed:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        crouch_speed:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        move_acceleration:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        light_melee_damage:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        heavy_melee_damage:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        max_health:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        weapon_power:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        reload_speed:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        weapon_power_scale:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        proc_build_up_rate_scale:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        stamina:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        base_health_regen:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        stamina_regen_per_second:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        ability_resource_max:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        ability_resource_regen_per_second:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        crit_damage_received_scale:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        tech_duration:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        tech_armor_damage_reduction:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        tech_range:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+        bullet_armor_damage_reduction:
+          $ref: "#/components/schemas/HeroStartingStatV2"
+      required:
+      - ability_resource_max
+      - ability_resource_regen_per_second
+      - base_health_regen
+      - crit_damage_received_scale
+      - crouch_speed
+      - heavy_melee_damage
+      - light_melee_damage
+      - max_health
+      - max_move_speed
+      - move_acceleration
+      - proc_build_up_rate_scale
+      - reload_speed
+      - sprint_speed
+      - stamina
+      - stamina_regen_per_second
+      - tech_duration
+      - tech_range
+      - weapon_power
+      - weapon_power_scale
+      title: HeroStartingStatsV2
+    HeroTypeV2:
+      enum:
+      - assassin
+      - brawler
+      - marksman
+      - mystic
+      title: HeroTypeV2
+      type: string
+    HeroV2:
+      example:
+        complexity: 6
+        recommended_upgrades:
+        - recommended_upgrades
+        - recommended_upgrades
+        skin: 1
+        description:
+          role: role
+          lore: lore
+          playstyle: playstyle
+        prerelease_only: true
+        colors:
+          glow_team2:
+          - ""
+          - ""
+          - ""
+          glow_team1:
+          - ""
+          - ""
+          - ""
+          glow_enemy:
+          - ""
+          - ""
+          - ""
+          glow_friendly:
+          - ""
+          - ""
+          - ""
+          ui:
+          - ""
+          - ""
+          - ""
+        shop_stat_display:
+          vitality_stats_display:
+            display_stats:
+            - display_stats
+            - display_stats
+            other_display_stats:
+            - other_display_stats
+            - other_display_stats
+          weapon_stats_display:
+            weapon_image_webp: weapon_image_webp
+            display_stats:
+            - display_stats
+            - display_stats
+            weapon_image: weapon_image
+            weapon_attributes:
+            - weapon_attributes
+            - weapon_attributes
+            other_display_stats:
+            - other_display_stats
+            - other_display_stats
+          spirit_stats_display:
+            display_stats:
+            - display_stats
+            - display_stats
+        physics:
+          footstep_sound_travel_distance_meters: 2.027123023002322
+          step_height: 3.616076749251911
+          collision_height: 2.3021358869347655
+          collision_radius: 7.061401241503109
+          stealth_speed_meters_per_second: 9.301444243932576
+          step_sound_time: 4.145608029883936
+          step_sound_time_sprinting: 7.386281948385884
+        gun_tag: gun_tag
+        disabled: true
+        hero_type: assassin
+        level_info:
+          key:
+            use_standard_upgrade: true
+            bonus_currencies:
+            - bonus_currencies
+            - bonus_currencies
+            required_gold: 6
+        id: 0
+        class_name: class_name
+        stats_display:
+          health_stats:
+          - health_stats
+          - health_stats
+          magic_stats:
+          - magic_stats
+          - magic_stats
+          weapon_stats:
+          - weapon_stats
+          - weapon_stats
+          weapon_header_stats:
+          - weapon_header_stats
+          - weapon_header_stats
+          magic_header_stats:
+          - magic_header_stats
+          - magic_header_stats
+          health_header_stats:
+          - health_header_stats
+          - health_header_stats
+        item_slot_info:
+          key:
+            max_purchases_for_tier:
+            - 5
+            - 5
+        assigned_players_only: true
+        limited_testing: true
+        images:
+          weapon_image: weapon_image
+          icon_hero_card: icon_hero_card
+          top_bar_vertical_image_webp: top_bar_vertical_image_webp
+          icon_hero_card_webp: icon_hero_card_webp
+          icon_image_small_webp: icon_image_small_webp
+          background_image_webp: background_image_webp
+          name_image: name_image
+          minimap_image: minimap_image
+          weapon_image_webp: weapon_image_webp
+          background_image: background_image
+          top_bar_image: top_bar_image
+          selection_image: selection_image
+          minimap_image_webp: minimap_image_webp
+          icon_image_small: icon_image_small
+          top_bar_vertical_image: top_bar_vertical_image
+          selection_image_webp: selection_image_webp
+          top_bar_image_webp: top_bar_image_webp
+        cost_bonuses:
+          key:
+          - bonus: 1.0246457001441578
+            gold_threshold: 1
+            percent_on_graph: 1.4894159098541704
+          - bonus: 1.0246457001441578
+            gold_threshold: 1
+            percent_on_graph: 1.4894159098541704
+        hero_stats_ui:
+          display_stats:
+          - stat_type: stat_type
+            category: category
+          - stat_type: stat_type
+            category: category
+          weapon_stat_display: weapon_stat_display
+        scaling_stats:
+          key:
+            scaling_stat: scaling_stat
+            scale: 7.457744773683766
+        starting_stats:
+          heavy_melee_damage:
+            display_stat_name: display_stat_name
+            value: 5
+          tech_range:
+            display_stat_name: display_stat_name
+            value: 5
+          weapon_power_scale:
+            display_stat_name: display_stat_name
+            value: 5
+          crit_damage_received_scale:
+            display_stat_name: display_stat_name
+            value: 5
+          reload_speed:
+            display_stat_name: display_stat_name
+            value: 5
+          stamina:
+            display_stat_name: display_stat_name
+            value: 5
+          move_acceleration:
+            display_stat_name: display_stat_name
+            value: 5
+          crouch_speed:
+            display_stat_name: display_stat_name
+            value: 5
+          stamina_regen_per_second:
+            display_stat_name: display_stat_name
+            value: 5
+          max_health:
+            display_stat_name: display_stat_name
+            value: 5
+          ability_resource_max:
+            display_stat_name: display_stat_name
+            value: 5
+          bullet_armor_damage_reduction:
+            display_stat_name: display_stat_name
+            value: 5
+          tech_armor_damage_reduction:
+            display_stat_name: display_stat_name
+            value: 5
+          sprint_speed:
+            display_stat_name: display_stat_name
+            value: 5
+          proc_build_up_rate_scale:
+            display_stat_name: display_stat_name
+            value: 5
+          tech_duration:
+            display_stat_name: display_stat_name
+            value: 5
+          ability_resource_regen_per_second:
+            display_stat_name: display_stat_name
+            value: 5
+          max_move_speed:
+            display_stat_name: display_stat_name
+            value: 5
+          light_melee_damage:
+            display_stat_name: display_stat_name
+            value: 5
+          weapon_power:
+            display_stat_name: display_stat_name
+            value: 5
+          base_health_regen:
+            display_stat_name: display_stat_name
+            value: 5
+        in_development: true
+        standard_level_up_upgrades:
+          key: 4.965218492984954
+        tags:
+        - tags
+        - tags
+        purchase_bonuses:
+          key:
+          - value_type: value_type
+            tier: 1
+            value: value
+          - value_type: value_type
+            tier: 1
+            value: value
+        name: name
+        recommended_ability_order:
+        - recommended_ability_order
+        - recommended_ability_order
+        player_selectable: true
+        needs_testing: true
+        hideout_rich_presence: hideout_rich_presence
+        items:
+          key: items
+      properties:
+        id:
+          title: Id
+          type: integer
+        class_name:
+          title: Class Name
+          type: string
+        name:
+          title: Name
+          type: string
+        description:
+          $ref: "#/components/schemas/HeroDescriptionV2"
+        recommended_upgrades:
+          items:
+            type: string
+          nullable: true
+          type: array
+        recommended_ability_order:
+          items:
+            type: string
+          nullable: true
+          type: array
+        player_selectable:
+          title: Player Selectable
+          type: boolean
+        disabled:
+          title: Disabled
+          type: boolean
+        in_development:
+          title: In Development
+          type: boolean
+        needs_testing:
+          title: Needs Testing
+          type: boolean
+        assigned_players_only:
+          title: Assigned Players Only
+          type: boolean
+        tags:
+          items:
+            type: string
+          nullable: true
+          type: array
+        gun_tag:
+          nullable: true
+          type: string
+        hideout_rich_presence:
+          nullable: true
+          type: string
+        hero_type:
+          $ref: "#/components/schemas/HeroTypeV2"
+        prerelease_only:
+          nullable: true
+          type: boolean
+        limited_testing:
+          title: Limited Testing
+          type: boolean
+        complexity:
+          title: Complexity
+          type: integer
+        skin:
+          title: Skin
+          type: integer
+        images:
+          $ref: "#/components/schemas/HeroImagesV2"
+        items:
+          additionalProperties:
+            type: string
+          title: Items
+        starting_stats:
+          $ref: "#/components/schemas/HeroStartingStatsV2"
+        item_slot_info:
+          additionalProperties:
+            $ref: "#/components/schemas/RawHeroItemSlotInfoValueV2"
+          title: Item Slot Info
+        physics:
+          $ref: "#/components/schemas/HeroPhysicsV2"
+        colors:
+          $ref: "#/components/schemas/HeroColorsV2"
+        shop_stat_display:
+          $ref: "#/components/schemas/HeroShopStatDisplayV2"
+        cost_bonuses:
+          additionalProperties:
+            items:
+              $ref: "#/components/schemas/RawHeroMapModCostBonusesV2"
+          nullable: true
+        stats_display:
+          $ref: "#/components/schemas/RawHeroStatsDisplayV2"
+        hero_stats_ui:
+          $ref: "#/components/schemas/RawHeroStatsUIV2"
+        level_info:
+          additionalProperties:
+            $ref: "#/components/schemas/HeroLevelInfoV2"
+          title: Level Info
+        scaling_stats:
+          additionalProperties:
+            $ref: "#/components/schemas/RawHeroScalingStatV2"
+          title: Scaling Stats
+        purchase_bonuses:
+          additionalProperties:
+            items:
+              $ref: "#/components/schemas/RawHeroPurchaseBonusV2"
+          title: Purchase Bonuses
+        standard_level_up_upgrades:
+          additionalProperties:
+            type: number
+          title: Standard Level Up Upgrades
+      required:
+      - assigned_players_only
+      - class_name
+      - colors
+      - complexity
+      - description
+      - disabled
+      - hero_stats_ui
+      - id
+      - images
+      - in_development
+      - item_slot_info
+      - items
+      - level_info
+      - limited_testing
+      - name
+      - needs_testing
+      - physics
+      - player_selectable
+      - purchase_bonuses
+      - scaling_stats
+      - shop_stat_display
+      - skin
+      - standard_level_up_upgrades
+      - starting_stats
+      - stats_display
+      title: HeroV2
+    ItemPropertyV2:
+      example:
+        conditional: conditional
+        usage_flags:
+        - ConditionallyApplied
+        - ConditionallyApplied
+        prefix: prefix
+        icon: icon
+        can_set_token_override: true
+        scale_function:
+          scaling_stats:
+          - scaling_stats
+          - scaling_stats
+          subclass_name: subclass_name
+          stat_scale: 5.637376656633329
+          class_name: class_name
+          specific_stat_scale_type: specific_stat_scale_type
+        label: label
+        loc_token_override: loc_token_override
+        css_class: css_class
+        disable_value: disable_value
+        icon_path: icon_path
+        provided_property_type: provided_property_type
+        negative_attribute: true
+        postfix: postfix
+        value: Value_1
+        postvalue_label: postvalue_label
+        display_units: display_units
+      properties:
+        value:
+          $ref: "#/components/schemas/Value_1"
+        can_set_token_override:
+          nullable: true
+          type: boolean
+        provided_property_type:
+          nullable: true
+          type: string
+        css_class:
+          nullable: true
+          type: string
+        usage_flags:
+          $ref: "#/components/schemas/Usage_Flags"
+        negative_attribute:
+          nullable: true
+          type: boolean
+        disable_value:
+          nullable: true
+          type: string
+        loc_token_override:
+          nullable: true
+          type: string
+        display_units:
+          nullable: true
+          type: string
+        icon_path:
+          nullable: true
+          type: string
+        scale_function:
+          $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2"
+        prefix:
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        postfix:
+          nullable: true
+          type: string
+        postvalue_label:
+          nullable: true
+          type: string
+        conditional:
+          nullable: true
+          type: string
+        icon:
+          nullable: true
+          type: string
+      title: ItemPropertyV2
+    ItemSlotTypeV2:
+      enum:
+      - weapon
+      - spirit
+      - vitality
+      title: ItemSlotTypeV2
+      type: string
+    ItemTierV2:
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      title: ItemTierV2
+      type: integer
+    ItemTypeV2:
+      enum:
+      - weapon
+      - ability
+      - upgrade
+      - tech
+      - armor
+      title: ItemTypeV2
+      type: string
+    Language:
+      enum:
+      - brazilian
+      - bulgarian
+      - czech
+      - danish
+      - dutch
+      - english
+      - finnish
+      - french
+      - german
+      - greek
+      - hungarian
+      - indonesian
+      - italian
+      - japanese
+      - koreana
+      - latam
+      - norwegian
+      - polish
+      - portuguese
+      - romanian
+      - russian
+      - schinese
+      - spanish
+      - swedish
+      - tchinese
+      - thai
+      - turkish
+      - ukrainian
+      - vietnamese
+      title: Language
+      type: string
+    MapImagesV1:
+      example:
+        minimap: minimap
+        plain: plain
+        background: background
+        mid: mid
+        frame: frame
+      properties:
+        minimap:
+          description: The minimap image of the map.
+          title: Minimap
+          type: string
+        plain:
+          description: The minimap image of the map without background image and frame
+            image.
+          title: Plain
+          type: string
+        background:
+          description: The background image of the map.
+          title: Background
+          type: string
+        frame:
+          description: The frame image of the map.
+          title: Frame
+          type: string
+        mid:
+          description: The mid image of the map.
+          title: Mid
+          type: string
+      required:
+      - background
+      - frame
+      - mid
+      - minimap
+      - plain
+      title: MapImagesV1
+    MapV1:
+      example:
+        zipline_paths:
+        - color: color
+          P0_points:
+          - - ""
+            - ""
+            - ""
+          - - ""
+            - ""
+            - ""
+          origin:
+          - ""
+          - ""
+          - ""
+          P1_points:
+          - - ""
+            - ""
+            - ""
+          - - ""
+            - ""
+            - ""
+          P2_points:
+          - - ""
+            - ""
+            - ""
+          - - ""
+            - ""
+            - ""
+        - color: color
+          P0_points:
+          - - ""
+            - ""
+            - ""
+          - - ""
+            - ""
+            - ""
+          origin:
+          - ""
+          - ""
+          - ""
+          P1_points:
+          - - ""
+            - ""
+            - ""
+          - - ""
+            - ""
+            - ""
+          P2_points:
+          - - ""
+            - ""
+            - ""
+          - - ""
+            - ""
+            - ""
+        images:
+          minimap: minimap
+          plain: plain
+          background: background
+          mid: mid
+          frame: frame
+        objective_positions:
+          team0_titan:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team1_titan:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team1_core:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team0_tier2_3:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team0_tier1_4:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team0_tier2_4:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team1_tier2_4:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team1_tier2_2:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team1_tier1_3:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team1_tier2_3:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team1_tier1_4:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team1_tier1_1:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team0_core:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team1_tier2_1:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team1_tier1_2:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team0_tier2_1:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team0_tier1_2:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team0_tier2_2:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team0_tier1_3:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+          team0_tier1_1:
+            top_relative: 1.4658129805029452
+            left_relative: 6.027456183070403
+        radius: 0
+      properties:
+        radius:
+          default: 10752
+          description: The radius of the map.
+          title: Radius
+          type: integer
+        images:
+          $ref: "#/components/schemas/MapImagesV1"
+        objective_positions:
+          $ref: "#/components/schemas/ObjectivePositionsV1"
+        zipline_paths:
+          description: "The ziplane paths of the map. Each path is a list of P0, P1,\
+            \ and P2 points, describing the cubic spline."
+          items:
+            $ref: "#/components/schemas/ZiplanePathV1"
+          type: array
+      required:
+      - images
+      - objective_positions
+      - zipline_paths
+      title: MapV1
+    ObjectivePositionV1:
+      example:
+        top_relative: 1.4658129805029452
+        left_relative: 6.027456183070403
+      properties:
+        left_relative:
+          description: The relative margin left of the map image.
+          title: Left Relative
+          type: number
+        top_relative:
+          description: The relative margin top of the map image.
+          title: Top Relative
+          type: number
+      required:
+      - left_relative
+      - top_relative
+      title: ObjectivePositionV1
+    ObjectivePositionsV1:
+      example:
+        team0_titan:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team1_titan:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team1_core:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team0_tier2_3:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team0_tier1_4:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team0_tier2_4:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team1_tier2_4:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team1_tier2_2:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team1_tier1_3:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team1_tier2_3:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team1_tier1_4:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team1_tier1_1:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team0_core:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team1_tier2_1:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team1_tier1_2:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team0_tier2_1:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team0_tier1_2:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team0_tier2_2:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team0_tier1_3:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+        team0_tier1_1:
+          top_relative: 1.4658129805029452
+          left_relative: 6.027456183070403
+      properties:
+        team0_core:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team1_core:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team0_titan:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team1_titan:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team0_tier2_1:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team0_tier2_2:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team0_tier2_3:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team0_tier2_4:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team1_tier2_1:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team1_tier2_2:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team1_tier2_3:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team1_tier2_4:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team0_tier1_1:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team0_tier1_2:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team0_tier1_3:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team0_tier1_4:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team1_tier1_1:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team1_tier1_2:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team1_tier1_3:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+        team1_tier1_4:
+          $ref: "#/components/schemas/ObjectivePositionV1"
+      required:
+      - team0_core
+      - team0_tier1_1
+      - team0_tier1_3
+      - team0_tier1_4
+      - team0_tier2_1
+      - team0_tier2_3
+      - team0_tier2_4
+      - team0_titan
+      - team1_core
+      - team1_tier1_1
+      - team1_tier1_3
+      - team1_tier1_4
+      - team1_tier2_1
+      - team1_tier2_3
+      - team1_tier2_4
+      - team1_titan
+      title: ObjectivePositionsV1
+    RankImagesV2:
+      example:
+        small: small
+        small_subrank3_webp: small_subrank3_webp
+        small_webp: small_webp
+        small_subrank6_webp: small_subrank6_webp
+        large_subrank6_webp: large_subrank6_webp
+        large_subrank4: large_subrank4
+        large_subrank5: large_subrank5
+        large_subrank6: large_subrank6
+        large_subrank1: large_subrank1
+        large_subrank2: large_subrank2
+        large_subrank3: large_subrank3
+        small_subrank2_webp: small_subrank2_webp
+        small_subrank2: small_subrank2
+        small_subrank3: small_subrank3
+        small_subrank1: small_subrank1
+        large_subrank3_webp: large_subrank3_webp
+        small_subrank5_webp: small_subrank5_webp
+        large: large
+        small_subrank6: small_subrank6
+        large_subrank2_webp: large_subrank2_webp
+        small_subrank4: small_subrank4
+        small_subrank5: small_subrank5
+        small_subrank4_webp: small_subrank4_webp
+        small_subrank1_webp: small_subrank1_webp
+        large_subrank4_webp: large_subrank4_webp
+        large_subrank1_webp: large_subrank1_webp
+        large_subrank5_webp: large_subrank5_webp
+        large_webp: large_webp
+      properties:
+        large:
+          nullable: true
+          type: string
+        large_webp:
+          nullable: true
+          type: string
+        large_subrank1:
+          nullable: true
+          type: string
+        large_subrank1_webp:
+          nullable: true
+          type: string
+        large_subrank2:
+          nullable: true
+          type: string
+        large_subrank2_webp:
+          nullable: true
+          type: string
+        large_subrank3:
+          nullable: true
+          type: string
+        large_subrank3_webp:
+          nullable: true
+          type: string
+        large_subrank4:
+          nullable: true
+          type: string
+        large_subrank4_webp:
+          nullable: true
+          type: string
+        large_subrank5:
+          nullable: true
+          type: string
+        large_subrank5_webp:
+          nullable: true
+          type: string
+        large_subrank6:
+          nullable: true
+          type: string
+        large_subrank6_webp:
+          nullable: true
+          type: string
+        small:
+          nullable: true
+          type: string
+        small_webp:
+          nullable: true
+          type: string
+        small_subrank1:
+          nullable: true
+          type: string
+        small_subrank1_webp:
+          nullable: true
+          type: string
+        small_subrank2:
+          nullable: true
+          type: string
+        small_subrank2_webp:
+          nullable: true
+          type: string
+        small_subrank3:
+          nullable: true
+          type: string
+        small_subrank3_webp:
+          nullable: true
+          type: string
+        small_subrank4:
+          nullable: true
+          type: string
+        small_subrank4_webp:
+          nullable: true
+          type: string
+        small_subrank5:
+          nullable: true
+          type: string
+        small_subrank5_webp:
+          nullable: true
+          type: string
+        small_subrank6:
+          nullable: true
+          type: string
+        small_subrank6_webp:
+          nullable: true
+          type: string
+      title: RankImagesV2
+    RankV2:
+      example:
+        images:
+          small: small
+          small_subrank3_webp: small_subrank3_webp
+          small_webp: small_webp
+          small_subrank6_webp: small_subrank6_webp
+          large_subrank6_webp: large_subrank6_webp
+          large_subrank4: large_subrank4
+          large_subrank5: large_subrank5
+          large_subrank6: large_subrank6
+          large_subrank1: large_subrank1
+          large_subrank2: large_subrank2
+          large_subrank3: large_subrank3
+          small_subrank2_webp: small_subrank2_webp
+          small_subrank2: small_subrank2
+          small_subrank3: small_subrank3
+          small_subrank1: small_subrank1
+          large_subrank3_webp: large_subrank3_webp
+          small_subrank5_webp: small_subrank5_webp
+          large: large
+          small_subrank6: small_subrank6
+          large_subrank2_webp: large_subrank2_webp
+          small_subrank4: small_subrank4
+          small_subrank5: small_subrank5
+          small_subrank4_webp: small_subrank4_webp
+          small_subrank1_webp: small_subrank1_webp
+          large_subrank4_webp: large_subrank4_webp
+          large_subrank1_webp: large_subrank1_webp
+          large_subrank5_webp: large_subrank5_webp
+          large_webp: large_webp
+        tier: 0
+        color: color
+        name: name
+      properties:
+        tier:
+          title: Tier
+          type: integer
+        name:
+          title: Name
+          type: string
+        images:
+          $ref: "#/components/schemas/RankImagesV2"
+        color:
+          readOnly: true
+          title: Color
+          type: string
+      required:
+      - color
+      - images
+      - name
+      - tier
+      title: RankV2
+    RawAbilityActivationV2:
+      enum:
+      - hold_toggle
+      - instant_cast
+      - on_button_is_down
+      - passive
+      - press
+      - press_toggle
+      title: RawAbilityActivationV2
+      type: string
+    RawAbilityImbueV2:
+      enum:
+      - imbue_active
+      - imbue_active_non_ult
+      - imbue_modifier_value
+      title: RawAbilityImbueV2
+      type: string
+    RawAbilitySectionTypeV2:
+      enum:
+      - innate
+      - active
+      - passive
+      title: RawAbilitySectionTypeV2
+      type: string
+    RawAbilityUpgradePropertyUpgradeV2:
+      example:
+        scale_stat_filter: scale_stat_filter
+        bonus: Bonus
+        name: name
+        upgrade_type: upgrade_type
+      properties:
+        name:
+          title: Name
+          type: string
+        bonus:
+          $ref: "#/components/schemas/Bonus"
+        scale_stat_filter:
+          nullable: true
+          type: string
+        upgrade_type:
+          nullable: true
+          type: string
+      required:
+      - bonus
+      - name
+      title: RawAbilityUpgradePropertyUpgradeV2
+    RawAbilityUpgradeV2:
+      example:
+        property_upgrades:
+        - scale_stat_filter: scale_stat_filter
+          bonus: Bonus
+          name: name
+          upgrade_type: upgrade_type
+        - scale_stat_filter: scale_stat_filter
+          bonus: Bonus
+          name: name
+          upgrade_type: upgrade_type
+      properties:
+        property_upgrades:
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgradePropertyUpgradeV2"
+          type: array
+      title: RawAbilityUpgradeV2
+    RawHeroItemSlotInfoValueV2:
+      example:
+        max_purchases_for_tier:
+        - 5
+        - 5
+      properties:
+        max_purchases_for_tier:
+          items:
+            type: integer
+          type: array
+      required:
+      - max_purchases_for_tier
+      title: RawHeroItemSlotInfoValueV2
+    RawHeroMapModCostBonusesV2:
+      example:
+        bonus: 1.0246457001441578
+        gold_threshold: 1
+        percent_on_graph: 1.4894159098541704
+      properties:
+        gold_threshold:
+          title: Gold Threshold
+          type: integer
+        bonus:
+          title: Bonus
+          type: number
+        percent_on_graph:
+          title: Percent On Graph
+          type: number
+      required:
+      - bonus
+      - gold_threshold
+      - percent_on_graph
+      title: RawHeroMapModCostBonusesV2
+    RawHeroPurchaseBonusV2:
+      example:
+        value_type: value_type
+        tier: 1
+        value: value
+      properties:
+        value_type:
+          title: Value Type
+          type: string
+        tier:
+          title: Tier
+          type: integer
+        value:
+          title: Value
+          type: string
+      required:
+      - tier
+      - value
+      - value_type
+      title: RawHeroPurchaseBonusV2
+    RawHeroScalingStatV2:
+      example:
+        scaling_stat: scaling_stat
+        scale: 7.457744773683766
+      properties:
+        scaling_stat:
+          title: Scaling Stat
+          type: string
+        scale:
+          title: Scale
+          type: number
+      required:
+      - scale
+      - scaling_stat
+      title: RawHeroScalingStatV2
+    RawHeroShopSpiritStatsDisplayV2:
+      example:
+        display_stats:
+        - display_stats
+        - display_stats
+      properties:
+        display_stats:
+          items:
+            type: string
+          type: array
+      required:
+      - display_stats
+      title: RawHeroShopSpiritStatsDisplayV2
+    RawHeroShopVitalityStatsDisplayV2:
+      example:
+        display_stats:
+        - display_stats
+        - display_stats
+        other_display_stats:
+        - other_display_stats
+        - other_display_stats
+      properties:
+        display_stats:
+          items:
+            type: string
+          type: array
+        other_display_stats:
+          items:
+            type: string
+          type: array
+      required:
+      - display_stats
+      - other_display_stats
+      title: RawHeroShopVitalityStatsDisplayV2
+    RawHeroStatsDisplayV2:
+      example:
+        health_stats:
+        - health_stats
+        - health_stats
+        magic_stats:
+        - magic_stats
+        - magic_stats
+        weapon_stats:
+        - weapon_stats
+        - weapon_stats
+        weapon_header_stats:
+        - weapon_header_stats
+        - weapon_header_stats
+        magic_header_stats:
+        - magic_header_stats
+        - magic_header_stats
+        health_header_stats:
+        - health_header_stats
+        - health_header_stats
+      properties:
+        health_header_stats:
+          items:
+            type: string
+          type: array
+        health_stats:
+          items:
+            type: string
+          type: array
+        magic_header_stats:
+          items:
+            type: string
+          type: array
+        magic_stats:
+          items:
+            type: string
+          type: array
+        weapon_header_stats:
+          items:
+            type: string
+          type: array
+        weapon_stats:
+          items:
+            type: string
+          type: array
+      required:
+      - health_header_stats
+      - health_stats
+      - magic_header_stats
+      - magic_stats
+      - weapon_header_stats
+      - weapon_stats
+      title: RawHeroStatsDisplayV2
+    RawHeroStatsUIDisplayV2:
+      example:
+        stat_type: stat_type
+        category: category
+      properties:
+        category:
+          title: Category
+          type: string
+        stat_type:
+          title: Stat Type
+          type: string
+      required:
+      - category
+      - stat_type
+      title: RawHeroStatsUIDisplayV2
+    RawHeroStatsUIV2:
+      example:
+        display_stats:
+        - stat_type: stat_type
+          category: category
+        - stat_type: stat_type
+          category: category
+        weapon_stat_display: weapon_stat_display
+      properties:
+        weapon_stat_display:
+          title: Weapon Stat Display
+          type: string
+        display_stats:
+          items:
+            $ref: "#/components/schemas/RawHeroStatsUIDisplayV2"
+          type: array
+      required:
+      - display_stats
+      - weapon_stat_display
+      title: RawHeroStatsUIV2
+    RawItemPropertyScaleFunctionSubclassV2:
+      example:
+        scaling_stats:
+        - scaling_stats
+        - scaling_stats
+        subclass_name: subclass_name
+        stat_scale: 5.637376656633329
+        class_name: class_name
+        specific_stat_scale_type: specific_stat_scale_type
+      properties:
+        class_name:
+          nullable: true
+          type: string
+        subclass_name:
+          nullable: true
+          type: string
+        specific_stat_scale_type:
+          nullable: true
+          type: string
+        scaling_stats:
+          items:
+            type: string
+          nullable: true
+          type: array
+        stat_scale:
+          nullable: true
+          type: number
+      title: RawItemPropertyScaleFunctionSubclassV2
+    RawItemWeaponInfoBulletSpeedCurveSplineV2:
+      example:
+        x: 9.301444243932576
+        slope_outgoing: 7.061401241503109
+        "y": 3.616076749251911
+        slope_incoming: 2.3021358869347655
+      properties:
+        slope_incoming:
+          title: Slope Incoming
+          type: number
+        slope_outgoing:
+          title: Slope Outgoing
+          type: number
+        x:
+          title: X
+          type: number
+        "y":
+          title: "Y"
+          type: number
+      required:
+      - slope_incoming
+      - slope_outgoing
+      - x
+      - "y"
+      title: RawItemWeaponInfoBulletSpeedCurveSplineV2
+    RawItemWeaponInfoBulletSpeedCurveV2:
+      example:
+        domain_mins:
+        - 4.145608029883936
+        - 4.145608029883936
+        spline:
+        - x: 9.301444243932576
+          slope_outgoing: 7.061401241503109
+          "y": 3.616076749251911
+          slope_incoming: 2.3021358869347655
+        - x: 9.301444243932576
+          slope_outgoing: 7.061401241503109
+          "y": 3.616076749251911
+          slope_incoming: 2.3021358869347655
+        domain_maxs:
+        - 2.027123023002322
+        - 2.027123023002322
+      properties:
+        spline:
+          items:
+            $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveSplineV2"
+          type: array
+        domain_maxs:
+          items:
+            type: number
+          type: array
+        domain_mins:
+          items:
+            type: number
+          type: array
+      required:
+      - domain_maxs
+      - domain_mins
+      title: RawItemWeaponInfoBulletSpeedCurveV2
+    RawItemWeaponInfoV2:
+      example:
+        bullet_speed_curve:
+          domain_mins:
+          - 4.145608029883936
+          - 4.145608029883936
+          spline:
+          - x: 9.301444243932576
+            slope_outgoing: 7.061401241503109
+            "y": 3.616076749251911
+            slope_incoming: 2.3021358869347655
+          - x: 9.301444243932576
+            slope_outgoing: 7.061401241503109
+            "y": 3.616076749251911
+            slope_incoming: 2.3021358869347655
+          domain_maxs:
+          - 2.027123023002322
+          - 2.027123023002322
+      properties:
+        bullet_speed_curve:
+          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
+      title: RawItemWeaponInfoV2
+    RawWeaponInfoHorizontalRecoilV2:
+      properties:
+        range:
+          $ref: "#/components/schemas/Range"
+        burst_exponent:
+          nullable: true
+          type: number
+      title: RawWeaponInfoHorizontalRecoilV2
+    RawWeaponInfoV2:
+      properties:
+        can_zoom:
+          nullable: true
+          type: boolean
+        bullet_damage:
+          nullable: true
+          type: number
+        bullet_gravity_scale:
+          nullable: true
+          type: number
+        bullet_inherit_shooter_velocity_scale:
+          nullable: true
+          type: number
+        bullet_lifetime:
+          nullable: true
+          type: number
+        bullet_radius:
+          nullable: true
+          type: number
+        bullet_radius_vs_world:
+          nullable: true
+          type: number
+        bullet_reflect_amount:
+          nullable: true
+          type: number
+        bullet_reflect_scale:
+          nullable: true
+          type: number
+        bullet_whiz_distance:
+          nullable: true
+          type: number
+        burst_shot_cooldown:
+          nullable: true
+          type: number
+        crit_bonus_against_npcs:
+          nullable: true
+          type: number
+        crit_bonus_end:
+          nullable: true
+          type: number
+        crit_bonus_end_range:
+          nullable: true
+          type: number
+        crit_bonus_start:
+          nullable: true
+          type: number
+        crit_bonus_start_range:
+          nullable: true
+          type: number
+        cycle_time:
+          nullable: true
+          type: number
+        intra_burst_cycle_time:
+          nullable: true
+          type: number
+        max_spin_cycle_time:
+          nullable: true
+          type: number
+        damage_falloff_bias:
+          nullable: true
+          type: number
+        damage_falloff_end_range:
+          nullable: true
+          type: number
+        damage_falloff_end_scale:
+          nullable: true
+          type: number
+        damage_falloff_start_range:
+          nullable: true
+          type: number
+        damage_falloff_start_scale:
+          nullable: true
+          type: number
+        horizontal_punch:
+          nullable: true
+          type: number
+        range:
+          nullable: true
+          type: number
+        recoil_recovery_delay_factor:
+          nullable: true
+          type: number
+        recoil_recovery_speed:
+          nullable: true
+          type: number
+        recoil_shot_index_recovery_time_factor:
+          nullable: true
+          type: number
+        recoil_speed:
+          nullable: true
+          type: number
+        reload_move_speed:
+          nullable: true
+          type: number
+        scatter_yaw_scale:
+          nullable: true
+          type: number
+        aiming_shot_spread_penalty:
+          $ref: "#/components/schemas/Aiming_Shot_Spread_Penalty"
+        standing_shot_spread_penalty:
+          $ref: "#/components/schemas/Standing_Shot_Spread_Penalty"
+        shoot_move_speed_percent:
+          nullable: true
+          type: number
+        shoot_spread_penalty_decay:
+          nullable: true
+          type: number
+        shoot_spread_penalty_decay_delay:
+          nullable: true
+          type: number
+        shoot_spread_penalty_per_shot:
+          nullable: true
+          type: number
+        shooting_up_spread_penalty:
+          nullable: true
+          type: number
+        vertical_punch:
+          nullable: true
+          type: number
+        zoom_fov:
+          nullable: true
+          type: number
+        zoom_move_speed_percent:
+          nullable: true
+          type: number
+        bullets:
+          nullable: true
+          type: integer
+        burst_shot_count:
+          nullable: true
+          type: integer
+        clip_size:
+          nullable: true
+          type: integer
+        spread:
+          nullable: true
+          type: number
+        standing_spread:
+          nullable: true
+          type: number
+        low_ammo_indicator_threshold:
+          nullable: true
+          type: number
+        recoil_seed:
+          nullable: true
+          type: number
+        reload_duration:
+          nullable: true
+          type: number
+        bullet_speed_curve:
+          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
+        horizontal_recoil:
+          $ref: "#/components/schemas/RawWeaponInfoHorizontalRecoilV2"
+        vertical_recoil:
+          $ref: "#/components/schemas/RawWeaponInfoVerticalRecoilV2"
+      title: RawWeaponInfoV2
+    RawWeaponInfoVerticalRecoilV2:
+      properties:
+        range:
+          $ref: "#/components/schemas/Range"
+        burst_exponent:
+          nullable: true
+          type: number
+        burst_constant:
+          nullable: true
+          type: number
+        burst_slope:
+          nullable: true
+          type: number
+      title: RawWeaponInfoVerticalRecoilV2
+    StatsUsageFlagV2:
+      enum:
+      - ConditionallyApplied
+      - ConditionallyEnemyApplied
+      - IntrinsicallyProvidedInAbility
+      - IntrinsicallyProvidedInModifier
+      title: StatsUsageFlagV2
+      type: string
+    UpgradeDescriptionV2:
+      properties:
+        desc:
+          nullable: true
+          type: string
+        active:
+          nullable: true
+          type: string
+        passive:
+          nullable: true
+          type: string
+      title: UpgradeDescriptionV2
+    UpgradePropertyV2:
+      properties:
+        value:
+          $ref: "#/components/schemas/Value_1"
+        can_set_token_override:
+          nullable: true
+          type: boolean
+        provided_property_type:
+          nullable: true
+          type: string
+        css_class:
+          nullable: true
+          type: string
+        usage_flags:
+          $ref: "#/components/schemas/Usage_Flags"
+        negative_attribute:
+          nullable: true
+          type: boolean
+        disable_value:
+          nullable: true
+          type: string
+        loc_token_override:
+          nullable: true
+          type: string
+        display_units:
+          nullable: true
+          type: string
+        icon_path:
+          nullable: true
+          type: string
+        scale_function:
+          $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2"
+        prefix:
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        postfix:
+          nullable: true
+          type: string
+        postvalue_label:
+          nullable: true
+          type: string
+        conditional:
+          nullable: true
+          type: string
+        icon:
+          nullable: true
+          type: string
+        tooltip_section:
+          $ref: "#/components/schemas/RawAbilitySectionTypeV2"
+        tooltip_is_elevated:
+          nullable: true
+          type: boolean
+        tooltip_is_important:
+          nullable: true
+          type: boolean
+      title: UpgradePropertyV2
+    UpgradeTooltipSectionAttributeV2:
+      properties:
+        loc_string:
+          nullable: true
+          type: string
+        properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+        elevated_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+        important_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+        important_properties_with_icon:
+          items:
+            $ref: "#/components/schemas/UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon"
+          nullable: true
+          type: array
+      title: UpgradeTooltipSectionAttributeV2
+    UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon:
+      properties:
+        name:
+          nullable: true
+          type: string
+        icon:
+          nullable: true
+          type: string
+        localized_name:
+          nullable: true
+          type: string
+      title: UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
+    UpgradeTooltipSectionV2:
+      properties:
+        section_type:
+          $ref: "#/components/schemas/RawAbilitySectionTypeV2"
+        section_attributes:
+          items:
+            $ref: "#/components/schemas/UpgradeTooltipSectionAttributeV2"
+          nullable: true
+          type: array
+      title: UpgradeTooltipSectionV2
+    UpgradeV2:
+      properties:
+        id:
+          title: Id
+          type: integer
+        class_name:
+          title: Class Name
+          type: string
+        name:
+          title: Name
+          type: string
+        start_trained:
+          nullable: true
+          type: boolean
+        image:
+          nullable: true
+          type: string
+        image_webp:
+          nullable: true
+          type: string
+        hero:
+          nullable: true
+          type: integer
+        heroes:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        update_time:
+          nullable: true
+          type: integer
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/UpgradePropertyV2"
+          nullable: true
+        weapon_info:
+          $ref: "#/components/schemas/RawItemWeaponInfoV2"
+        type:
+          default: upgrade
+          enum:
+          - upgrade
+          title: Type
+          type: string
+        shop_image:
+          nullable: true
+          type: string
+        shop_image_webp:
+          nullable: true
+          type: string
+        shop_image_small:
+          nullable: true
+          type: string
+        shop_image_small_webp:
+          nullable: true
+          type: string
+        item_slot_type:
+          $ref: "#/components/schemas/ItemSlotTypeV2"
+        item_tier:
+          $ref: "#/components/schemas/ItemTierV2"
+        disabled:
+          nullable: true
+          type: boolean
+        description:
+          $ref: "#/components/schemas/UpgradeDescriptionV2"
+        activation:
+          $ref: "#/components/schemas/RawAbilityActivationV2"
+        imbue:
+          $ref: "#/components/schemas/RawAbilityImbueV2"
+        component_items:
+          items:
+            type: string
+          nullable: true
+          type: array
+        tooltip_sections:
+          items:
+            $ref: "#/components/schemas/UpgradeTooltipSectionV2"
+          nullable: true
+          type: array
+        is_active_item:
+          readOnly: true
+          title: Is Active Item
+          type: boolean
+        shopable:
+          readOnly: true
+          title: Shopable
+          type: boolean
+        cost:
+          nullable: true
+          type: integer
+      required:
+      - activation
+      - class_name
+      - cost
+      - id
+      - is_active_item
+      - item_slot_type
+      - item_tier
+      - name
+      - shopable
+      title: UpgradeV2
+    ValidClientVersions:
+      enum:
+      - 5902
+      - 5885
+      - 5878
+      - 5869
+      - 5852
+      - 5831
+      - 5826
+      - 5818
+      - 5789
+      - 5748
+      - 5723
+      - 5712
+      - 5710
+      - 5690
+      - 5675
+      - 5668
+      - 5664
+      - 5658
+      - 5650
+      - 5636
+      - 5624
+      - 5615
+      - 5602
+      - 5583
+      - 5554
+      - 5538
+      - 5533
+      - 5529
+      - 5527
+      title: ValidClientVersions
+      type: integer
+    ValidationError:
+      example:
+        msg: msg
+        loc:
+        - ValidationError_loc_inner
+        - ValidationError_loc_inner
+        type: type
+      properties:
+        loc:
+          items:
+            $ref: "#/components/schemas/ValidationError_loc_inner"
+          type: array
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    WeaponV2:
+      properties:
+        id:
+          title: Id
+          type: integer
+        class_name:
+          title: Class Name
+          type: string
+        name:
+          title: Name
+          type: string
+        start_trained:
+          nullable: true
+          type: boolean
+        image:
+          nullable: true
+          type: string
+        image_webp:
+          nullable: true
+          type: string
+        hero:
+          nullable: true
+          type: integer
+        heroes:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        update_time:
+          nullable: true
+          type: integer
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/ItemPropertyV2"
+          nullable: true
+        weapon_info:
+          $ref: "#/components/schemas/RawWeaponInfoV2"
+        type:
+          default: weapon
+          enum:
+          - weapon
+          title: Type
+          type: string
+      required:
+      - class_name
+      - id
+      - name
+      title: WeaponV2
+    ZiplanePathV1:
+      example:
+        color: color
+        P0_points:
+        - - ""
+          - ""
+          - ""
+        - - ""
+          - ""
+          - ""
+        origin:
+        - ""
+        - ""
+        - ""
+        P1_points:
+        - - ""
+          - ""
+          - ""
+        - - ""
+          - ""
+          - ""
+        P2_points:
+        - - ""
+          - ""
+          - ""
+        - - ""
+          - ""
+          - ""
+      properties:
+        origin:
+          description: The origin of the path.
+          items: {}
+          maxItems: 3
+          minItems: 3
+          type: array
+        color:
+          description: The color of the path.
+          title: Color
+          type: string
+        P0_points:
+          description: The P0 points of the path.
+          items:
+            items: {}
+            maxItems: 3
+            minItems: 3
+            type: array
+          type: array
+        P1_points:
+          description: The P1 points of the path.
+          items:
+            items: {}
+            maxItems: 3
+            minItems: 3
+            type: array
+          type: array
+        P2_points:
+          description: The P2 points of the path.
+          items:
+            items: {}
+            maxItems: 3
+            minItems: 3
+            type: array
+          type: array
+      required:
+      - P0_points
+      - P1_points
+      - P2_points
+      - color
+      - origin
+      title: ZiplanePathV1
+    get_items_v2_items_get_200_response_inner:
+      discriminator:
+        mapping:
+          ability: "#/components/schemas/AbilityV2"
+          weapon: "#/components/schemas/WeaponV2"
+          upgrade: "#/components/schemas/UpgradeV2"
+        propertyName: type
+      oneOf:
+      - $ref: "#/components/schemas/AbilityV2"
+      - $ref: "#/components/schemas/WeaponV2"
+      - $ref: "#/components/schemas/UpgradeV2"
+    Id_Or_Class_Name:
+      anyOf:
+      - type: integer
+      - type: string
+      title: Id Or Class Name
+    Response_Get_Item_V2_Items__Id_Or_Class_Name__Get:
+      discriminator:
+        mapping:
+          ability: "#/components/schemas/AbilityV2"
+          weapon: "#/components/schemas/WeaponV2"
+          upgrade: "#/components/schemas/UpgradeV2"
+        propertyName: type
+      oneOf:
+      - $ref: "#/components/schemas/AbilityV2"
+      - $ref: "#/components/schemas/WeaponV2"
+      - $ref: "#/components/schemas/UpgradeV2"
+      title: Response Get Item V2 Items  Id Or Class Name  Get
+    Value:
+      anyOf:
+      - type: integer
+      - type: number
+      title: Value
+    Value_1:
+      anyOf:
+      - type: string
+      - type: number
+      nullable: true
+      title: Value
+    Usage_Flags:
+      anyOf:
+      - items:
+          $ref: "#/components/schemas/StatsUsageFlagV2"
+        type: array
+      - type: string
+      nullable: true
+      title: Usage Flags
+    Bonus:
+      anyOf:
+      - type: string
+      - type: number
+      title: Bonus
+    Range:
+      anyOf:
+      - items:
+          type: number
+        type: array
+      - type: number
+      nullable: true
+      title: Range
+    Aiming_Shot_Spread_Penalty:
+      anyOf:
+      - items:
+          type: number
+        type: array
+      - type: string
+      nullable: true
+      title: Aiming Shot Spread Penalty
+    Standing_Shot_Spread_Penalty:
+      anyOf:
+      - items:
+          type: number
+        type: array
+      - type: string
+      nullable: true
+      title: Standing Shot Spread Penalty
+    ValidationError_loc_inner:
+      anyOf:
+      - type: string
+      - type: integer

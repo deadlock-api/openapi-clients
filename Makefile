@@ -5,7 +5,7 @@
 
 # The default target executed when 'make' is run without arguments.
 # It depends on both individual generator targets.
-all: python typescript rust kotlin
+all: python typescript rust kotlin go
 
 python: generate-api-python generate-assets-api-python
 
@@ -79,8 +79,26 @@ generate-assets-api-kotlin:
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g kotlin -o kotlin/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client,idea=true,artifactId=assets-deadlock-api-client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients
 	@echo "--> Assets API client generated successfully in kotlin/assets-api/"
 
+go: generate-api-go generate-assets-api-go
+
+# Target to generate the client for the main API in typescript.
+generate-api-go:
+	@echo "--> Creating directory for the main API client..."
+	@mkdir -p go/api
+	@echo "--> Generating Go client for the main API..."
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g go -o go/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client
+	@echo "--> Main API client generated successfully in go/api/"
+
+# Target to generate the client for the assets API in typescript.
+generate-assets-api-go:
+	@echo "--> Creating directory for the assets API client..."
+	@mkdir -p go/assets-api
+	@echo "--> Generating Go client for the assets API..."
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g go -o go/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client
+	@echo "--> Assets API client generated successfully in go/assets-api/"
+
 # Target to clean up all generated directories.
 clean:
 	@echo "--> Removing generated client directories..."
-	@rm -rf python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api
+	@rm -rf python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api
 	@echo "--> Cleanup complete."

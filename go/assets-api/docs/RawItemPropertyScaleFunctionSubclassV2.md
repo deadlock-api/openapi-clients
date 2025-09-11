@@ -1,0 +1,210 @@
+# RawItemPropertyScaleFunctionSubclassV2
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ClassName** | Pointer to **NullableString** |  | [optional] 
+**SubclassName** | Pointer to **NullableString** |  | [optional] 
+**SpecificStatScaleType** | Pointer to **NullableString** |  | [optional] 
+**ScalingStats** | Pointer to **[]string** |  | [optional] 
+**StatScale** | Pointer to **NullableFloat32** |  | [optional] 
+
+## Methods
+
+### NewRawItemPropertyScaleFunctionSubclassV2
+
+`func NewRawItemPropertyScaleFunctionSubclassV2() *RawItemPropertyScaleFunctionSubclassV2`
+
+NewRawItemPropertyScaleFunctionSubclassV2 instantiates a new RawItemPropertyScaleFunctionSubclassV2 object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewRawItemPropertyScaleFunctionSubclassV2WithDefaults
+
+`func NewRawItemPropertyScaleFunctionSubclassV2WithDefaults() *RawItemPropertyScaleFunctionSubclassV2`
+
+NewRawItemPropertyScaleFunctionSubclassV2WithDefaults instantiates a new RawItemPropertyScaleFunctionSubclassV2 object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetClassName
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetClassName() string`
+
+GetClassName returns the ClassName field if non-nil, zero value otherwise.
+
+### GetClassNameOk
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetClassNameOk() (*string, bool)`
+
+GetClassNameOk returns a tuple with the ClassName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassName
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetClassName(v string)`
+
+SetClassName sets ClassName field to given value.
+
+### HasClassName
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) HasClassName() bool`
+
+HasClassName returns a boolean if a field has been set.
+
+### SetClassNameNil
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetClassNameNil(b bool)`
+
+ SetClassNameNil sets the value for ClassName to be an explicit nil
+
+### UnsetClassName
+`func (o *RawItemPropertyScaleFunctionSubclassV2) UnsetClassName()`
+
+UnsetClassName ensures that no value is present for ClassName, not even an explicit nil
+### GetSubclassName
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetSubclassName() string`
+
+GetSubclassName returns the SubclassName field if non-nil, zero value otherwise.
+
+### GetSubclassNameOk
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetSubclassNameOk() (*string, bool)`
+
+GetSubclassNameOk returns a tuple with the SubclassName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubclassName
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetSubclassName(v string)`
+
+SetSubclassName sets SubclassName field to given value.
+
+### HasSubclassName
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) HasSubclassName() bool`
+
+HasSubclassName returns a boolean if a field has been set.
+
+### SetSubclassNameNil
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetSubclassNameNil(b bool)`
+
+ SetSubclassNameNil sets the value for SubclassName to be an explicit nil
+
+### UnsetSubclassName
+`func (o *RawItemPropertyScaleFunctionSubclassV2) UnsetSubclassName()`
+
+UnsetSubclassName ensures that no value is present for SubclassName, not even an explicit nil
+### GetSpecificStatScaleType
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetSpecificStatScaleType() string`
+
+GetSpecificStatScaleType returns the SpecificStatScaleType field if non-nil, zero value otherwise.
+
+### GetSpecificStatScaleTypeOk
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetSpecificStatScaleTypeOk() (*string, bool)`
+
+GetSpecificStatScaleTypeOk returns a tuple with the SpecificStatScaleType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSpecificStatScaleType
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetSpecificStatScaleType(v string)`
+
+SetSpecificStatScaleType sets SpecificStatScaleType field to given value.
+
+### HasSpecificStatScaleType
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) HasSpecificStatScaleType() bool`
+
+HasSpecificStatScaleType returns a boolean if a field has been set.
+
+### SetSpecificStatScaleTypeNil
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetSpecificStatScaleTypeNil(b bool)`
+
+ SetSpecificStatScaleTypeNil sets the value for SpecificStatScaleType to be an explicit nil
+
+### UnsetSpecificStatScaleType
+`func (o *RawItemPropertyScaleFunctionSubclassV2) UnsetSpecificStatScaleType()`
+
+UnsetSpecificStatScaleType ensures that no value is present for SpecificStatScaleType, not even an explicit nil
+### GetScalingStats
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetScalingStats() []string`
+
+GetScalingStats returns the ScalingStats field if non-nil, zero value otherwise.
+
+### GetScalingStatsOk
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetScalingStatsOk() (*[]string, bool)`
+
+GetScalingStatsOk returns a tuple with the ScalingStats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScalingStats
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetScalingStats(v []string)`
+
+SetScalingStats sets ScalingStats field to given value.
+
+### HasScalingStats
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) HasScalingStats() bool`
+
+HasScalingStats returns a boolean if a field has been set.
+
+### SetScalingStatsNil
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetScalingStatsNil(b bool)`
+
+ SetScalingStatsNil sets the value for ScalingStats to be an explicit nil
+
+### UnsetScalingStats
+`func (o *RawItemPropertyScaleFunctionSubclassV2) UnsetScalingStats()`
+
+UnsetScalingStats ensures that no value is present for ScalingStats, not even an explicit nil
+### GetStatScale
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetStatScale() float32`
+
+GetStatScale returns the StatScale field if non-nil, zero value otherwise.
+
+### GetStatScaleOk
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetStatScaleOk() (*float32, bool)`
+
+GetStatScaleOk returns a tuple with the StatScale field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatScale
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetStatScale(v float32)`
+
+SetStatScale sets StatScale field to given value.
+
+### HasStatScale
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) HasStatScale() bool`
+
+HasStatScale returns a boolean if a field has been set.
+
+### SetStatScaleNil
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetStatScaleNil(b bool)`
+
+ SetStatScaleNil sets the value for StatScale to be an explicit nil
+
+### UnsetStatScale
+`func (o *RawItemPropertyScaleFunctionSubclassV2) UnsetStatScale()`
+
+UnsetStatScale ensures that no value is present for StatScale, not even an explicit nil
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

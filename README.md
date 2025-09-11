@@ -18,6 +18,9 @@ The clients are organized by language and API:
 -   **Kotlin & Java**:
     -   `kotlin/api`: Client for the main Deadlock API.
     -   `kotlin/assets-api`: Client for the Deadlock Assets API.
+-   **Go**:
+    -   `go/api`: Client for the main Deadlock API.
+    -   `go/assets-api`: Client for the Deadlock Assets API.
 
 ## Installation from GitHub
 
@@ -120,6 +123,19 @@ Use `gradle` or `maven` to install the clients:
     
     # build.gradle
     implementation 'com.deadlock-api:assets-deadlock-api-client:0.1.0'
+    ```
+
+### Go
+
+Use `go get` to install the clients:
+
+-   **API Client:**
+    ```bash
+    go get github.com/deadlock-api/openapi-clients/go/api
+    ```
+-   **Assets API Client:**
+    ```bash
+    go get github.com/deadlock-api/openapi-clients/go/assets-api
     ```
 
 ## Usage
