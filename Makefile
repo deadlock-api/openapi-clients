@@ -5,7 +5,7 @@
 
 # The default target executed when 'make' is run without arguments.
 # It depends on both individual generator targets.
-all: python typescript rust
+all: python typescript rust kotlin
 
 python: generate-api-python generate-assets-api-python
 
@@ -61,8 +61,26 @@ generate-assets-api-rust:
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g rust -o rust/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client,useSingleRequestParameter=true
 	@echo "--> Assets API client generated successfully in rust/assets-api/"
 
+kotlin: generate-api-kotlin generate-assets-api-kotlin
+
+# Target to generate the client for the main API in typescript.
+generate-api-kotlin:
+	@echo "--> Creating directory for the main API client..."
+	@mkdir -p kotlin/api
+	@echo "--> Generating Kotlin client for the main API..."
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g kotlin -o kotlin/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client,idea=true
+	@echo "--> Main API client generated successfully in kotlin/api/"
+
+# Target to generate the client for the assets API in typescript.
+generate-assets-api-kotlin:
+	@echo "--> Creating directory for the assets API client..."
+	@mkdir -p kotlin/assets-api
+	@echo "--> Generating Kotlin client for the assets API..."
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g kotlin -o kotlin/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client,idea=true
+	@echo "--> Assets API client generated successfully in kotlin/assets-api/"
+
 # Target to clean up all generated directories.
 clean:
 	@echo "--> Removing generated client directories..."
-	@rm -rf python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api
+	@rm -rf python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api
 	@echo "--> Cleanup complete."
