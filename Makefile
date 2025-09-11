@@ -68,7 +68,7 @@ generate-api-kotlin:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p kotlin/api
 	@echo "--> Generating Kotlin client for the main API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g kotlin -o kotlin/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client,idea=true
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g kotlin -o kotlin/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client,idea=true,artifactId=deadlock-api-client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients
 	@echo "--> Main API client generated successfully in kotlin/api/"
 
 # Target to generate the client for the assets API in typescript.
@@ -76,7 +76,7 @@ generate-assets-api-kotlin:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p kotlin/assets-api
 	@echo "--> Generating Kotlin client for the assets API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g kotlin -o kotlin/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client,idea=true
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g kotlin -o kotlin/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client,idea=true,artifactId=assets-deadlock-api-client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients
 	@echo "--> Assets API client generated successfully in kotlin/assets-api/"
 
 # Target to clean up all generated directories.

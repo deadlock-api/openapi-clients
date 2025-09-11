@@ -1,4 +1,4 @@
-group 'org.openapitools'
+group 'com.deadlock-api'
 version '1.0.0'
 
 wrapper {
