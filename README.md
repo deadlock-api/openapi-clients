@@ -87,6 +87,38 @@ Use `npm`, `yarn`, `pnpm`, or `bun` to install the clients:
     pnpm add github:deadlock-api/openapi-clients#path:/typescript/assets-api
     ```
 
+### Kotlin & Java
+
+Use `gradle` or `maven` to install the clients:
+
+-   **API Client:**
+    ```bash
+    # settings.gradle
+    sourceControl {
+        gitRepository(url = "https://github.com/deadlock-api/openapi-clients") {
+            producesModule("com.deadlock-api:deadlock-api-client")
+            rootDir = "kotlin/api"
+        }
+    }
+    
+    # build.gradle
+    implementation 'com.deadlock-api:deadlock-api-client:0.1.0'
+    ```
+    
+-   **Assets API Client:**
+    ```bash
+    # settings.gradle
+    sourceControl {
+        gitRepository(url = "https://github.com/deadlock-api/openapi-clients") {
+            producesModule("com.deadlock-api:assets-deadlock-api-client")
+            rootDir = "kotlin/assets-api"
+        }
+    }
+    
+    # build.gradle
+    implementation 'com.deadlock-api:assets-deadlock-api-client:0.1.0'
+    ```
+
 ## Usage
 
 Each client is located in its respective directory. Please refer to the `README.md` and documentation within each client's directory for specific installation and usage instructions.
@@ -109,6 +141,8 @@ You can regenerate the clients manually using the provided `Makefile`:
     make python
     make rust
     make typescript
+    make kotlin
+    make java
     ```
 
 -   **Clean all generated clients:**
