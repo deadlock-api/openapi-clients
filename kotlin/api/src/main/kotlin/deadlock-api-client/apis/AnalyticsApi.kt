@@ -59,7 +59,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Ability Order Stats
      *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -83,7 +83,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun abilityOrderStats(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long? = 1755043200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAbilityUpgrades: kotlin.Long? = null, maxAbilityUpgrades: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatches: kotlin.Int? = 20, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<AnalyticsAbilityOrderStats> {
+    fun abilityOrderStats(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long? = 1755129600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAbilityUpgrades: kotlin.Long? = null, maxAbilityUpgrades: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatches: kotlin.Int? = 20, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<AnalyticsAbilityOrderStats> {
         val localVarResponse = abilityOrderStatsWithHttpInfo(heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAbilityUpgrades = minAbilityUpgrades, maxAbilityUpgrades = maxAbilityUpgrades, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatches = minMatches, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -106,7 +106,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Ability Order Stats
      *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -139,7 +139,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation abilityOrderStats
      *
      * @param heroId See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -225,7 +225,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Build Item Stats
      *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @return kotlin.collections.List<BuildItemStats>
      * @throws IllegalStateException If the request is not correctly configured
@@ -236,7 +236,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun buildItemStats(heroId: kotlin.Int? = null, minLastUpdatedUnixTimestamp: kotlin.Long? = 1755043200L, maxLastUpdatedUnixTimestamp: kotlin.Long? = null) : kotlin.collections.List<BuildItemStats> {
+    fun buildItemStats(heroId: kotlin.Int? = null, minLastUpdatedUnixTimestamp: kotlin.Long? = 1755129600L, maxLastUpdatedUnixTimestamp: kotlin.Long? = null) : kotlin.collections.List<BuildItemStats> {
         val localVarResponse = buildItemStatsWithHttpInfo(heroId = heroId, minLastUpdatedUnixTimestamp = minLastUpdatedUnixTimestamp, maxLastUpdatedUnixTimestamp = maxLastUpdatedUnixTimestamp)
 
         return when (localVarResponse.responseType) {
@@ -259,7 +259,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Build Item Stats
      *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @return ApiResponse<kotlin.collections.List<BuildItemStats>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -279,7 +279,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation buildItemStats
      *
      * @param heroId Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @return RequestConfig
      */
@@ -314,7 +314,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * GET /v1/analytics/hero-comb-stats
      * Hero Comb Stats
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -340,7 +340,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroCombStats(minUnixTimestamp: kotlin.Long? = 1755043200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, includeHeroIds: kotlin.collections.List<kotlin.Int>? = null, excludeHeroIds: kotlin.collections.List<kotlin.Int>? = null, minMatches: kotlin.Int? = 20, maxMatches: kotlin.Int? = null, combSize: kotlin.Int? = 6, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroCombStats> {
+    fun heroCombStats(minUnixTimestamp: kotlin.Long? = 1755129600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, includeHeroIds: kotlin.collections.List<kotlin.Int>? = null, excludeHeroIds: kotlin.collections.List<kotlin.Int>? = null, minMatches: kotlin.Int? = 20, maxMatches: kotlin.Int? = null, combSize: kotlin.Int? = 6, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroCombStats> {
         val localVarResponse = heroCombStatsWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, includeHeroIds = includeHeroIds, excludeHeroIds = excludeHeroIds, minMatches = minMatches, maxMatches = maxMatches, combSize = combSize, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -362,7 +362,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * GET /v1/analytics/hero-comb-stats
      * Hero Comb Stats
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -396,7 +396,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation heroCombStats
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -488,7 +488,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * GET /v1/analytics/hero-counter-stats
      * Hero Counter Stats
      *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -514,7 +514,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroCountersStats(minUnixTimestamp: kotlin.Long? = 1755043200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minEnemyNetworth: kotlin.Long? = null, maxEnemyNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, sameLaneFilter: kotlin.Boolean? = true, minMatches: kotlin.Long? = 20L, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroCounterStats> {
+    fun heroCountersStats(minUnixTimestamp: kotlin.Long? = 1755129600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minEnemyNetworth: kotlin.Long? = null, maxEnemyNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, sameLaneFilter: kotlin.Boolean? = true, minMatches: kotlin.Long? = 20L, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroCounterStats> {
         val localVarResponse = heroCountersStatsWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minEnemyNetworth = minEnemyNetworth, maxEnemyNetworth = maxEnemyNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, sameLaneFilter = sameLaneFilter, minMatches = minMatches, maxMatches = maxMatches, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -536,7 +536,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * GET /v1/analytics/hero-counter-stats
      * Hero Counter Stats
      *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -570,7 +570,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation heroCountersStats
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -758,7 +758,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param sortBy The field to sort by.
      * @param sortDirection The direction to sort heroes in. (optional)
      * @param minMatches Filter by min number of matches played. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -779,7 +779,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroScoreboard(sortBy: SortByHeroScoreboard, sortDirection: SortDirectionHeroScoreboard? = null, minMatches: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1755043200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<Entry> {
+    fun heroScoreboard(sortBy: SortByHeroScoreboard, sortDirection: SortDirectionHeroScoreboard? = null, minMatches: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1755129600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<Entry> {
         val localVarResponse = heroScoreboardWithHttpInfo(sortBy = sortBy, sortDirection = sortDirection, minMatches = minMatches, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -804,7 +804,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param sortBy The field to sort by.
      * @param sortDirection The direction to sort heroes in. (optional)
      * @param minMatches Filter by min number of matches played. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -836,7 +836,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param sortBy The field to sort by.
      * @param sortDirection The direction to sort heroes in. (optional)
      * @param minMatches Filter by min number of matches played. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -936,7 +936,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Hero Stats
      *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -961,7 +961,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroStats(bucket: BucketHeroStats? = null, minUnixTimestamp: kotlin.Long? = 1755043200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minHeroMatches: kotlin.Long? = null, maxHeroMatches: kotlin.Long? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<AnalyticsHeroStats> {
+    fun heroStats(bucket: BucketHeroStats? = null, minUnixTimestamp: kotlin.Long? = 1755129600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minHeroMatches: kotlin.Long? = null, maxHeroMatches: kotlin.Long? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<AnalyticsHeroStats> {
         val localVarResponse = heroStatsWithHttpInfo(bucket = bucket, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, minHeroMatches = minHeroMatches, maxHeroMatches = maxHeroMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -984,7 +984,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Hero Stats
      *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1018,7 +1018,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation heroStats
      *
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1109,7 +1109,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * GET /v1/analytics/hero-synergy-stats
      * Hero Synergy Stats
      *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (&#x60;hero_id1&#x60; and &#x60;hero_id2&#x60;) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1134,7 +1134,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroSynergiesStats(minUnixTimestamp: kotlin.Long? = 1755043200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, sameLaneFilter: kotlin.Boolean? = true, samePartyFilter: kotlin.Boolean? = true, minMatches: kotlin.Long? = 20L, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroSynergyStats> {
+    fun heroSynergiesStats(minUnixTimestamp: kotlin.Long? = 1755129600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, sameLaneFilter: kotlin.Boolean? = true, samePartyFilter: kotlin.Boolean? = true, minMatches: kotlin.Long? = 20L, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroSynergyStats> {
         val localVarResponse = heroSynergiesStatsWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, sameLaneFilter = sameLaneFilter, samePartyFilter = samePartyFilter, minMatches = minMatches, maxMatches = maxMatches, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -1156,7 +1156,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * GET /v1/analytics/hero-synergy-stats
      * Hero Synergy Stats
      *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (&#x60;hero_id1&#x60; and &#x60;hero_id2&#x60;) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1189,7 +1189,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation heroSynergiesStats
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1281,7 +1281,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param combSize The combination size to return. (optional, default to 2)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1302,7 +1302,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun itemPermutationStats(itemIds: kotlin.collections.List<kotlin.Int>? = null, combSize: kotlin.Int? = 2, heroIds: kotlin.String? = null, heroId: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1755043200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<ItemPermutationStats> {
+    fun itemPermutationStats(itemIds: kotlin.collections.List<kotlin.Int>? = null, combSize: kotlin.Int? = 2, heroIds: kotlin.String? = null, heroId: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1755129600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<ItemPermutationStats> {
         val localVarResponse = itemPermutationStatsWithHttpInfo(itemIds = itemIds, combSize = combSize, heroIds = heroIds, heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -1328,7 +1328,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param combSize The combination size to return. (optional, default to 2)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1361,7 +1361,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param combSize The combination size to return. (optional, default to 2)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1477,7 +1477,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1502,7 +1502,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun itemStats(bucket: BucketItemStats? = null, heroIds: kotlin.String? = null, heroId: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1755043200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, minMatches: kotlin.Int? = 20, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<ItemStats> {
+    fun itemStats(bucket: BucketItemStats? = null, heroIds: kotlin.String? = null, heroId: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1755129600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, minMatches: kotlin.Int? = 20, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<ItemStats> {
         val localVarResponse = itemStatsWithHttpInfo(bucket = bucket, heroIds = heroIds, heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, minMatches = minMatches, maxMatches = maxMatches, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -1527,7 +1527,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1563,7 +1563,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1932,7 +1932,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Player Stats Metrics
      *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1955,7 +1955,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun playerStatsMetrics(heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1755043200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, maxMatches: kotlin.Int? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.Map<kotlin.String, HashMapValue> {
+    fun playerStatsMetrics(heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1755129600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, maxMatches: kotlin.Int? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.Map<kotlin.String, HashMapValue> {
         val localVarResponse = playerStatsMetricsWithHttpInfo(heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, maxMatches = maxMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -1978,7 +1978,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Player Stats Metrics
      *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2010,7 +2010,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation playerStatsMetrics
      *
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755043200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1755129600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
