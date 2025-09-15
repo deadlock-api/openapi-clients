@@ -5,11 +5,10 @@
 
 # The default target executed when 'make' is run without arguments.
 # It depends on both individual generator targets.
-all: python typescript rust kotlin go
+all: python typescript rust kotlin go php
 
 python: generate-api-python generate-assets-api-python
 
-# Target to generate the client for the main API in python.
 generate-api-python:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p python/api
@@ -17,7 +16,6 @@ generate-api-python:
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g python -o python/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client
 	@echo "--> Main API client generated successfully in python/api/"
 
-# Target to generate the client for the assets API in python.
 generate-assets-api-python:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p python/assets-api
@@ -28,7 +26,6 @@ generate-assets-api-python:
 
 typescript: generate-api-typescript generate-assets-api-typescript
 
-# Target to generate the client for the main API in typescript.
 generate-api-typescript:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p typescript/api
@@ -36,7 +33,6 @@ generate-api-typescript:
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g typescript-axios -o typescript/api/ --skip-validate-spec --additional-properties=npmName=deadlock-api-client,useSingleRequestParameter=true
 	@echo "--> Main API client generated successfully in typescript/api/"
 
-# Target to generate the client for the assets API in typescript.
 generate-assets-api-typescript:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p typescript/assets-api
@@ -45,7 +41,6 @@ generate-assets-api-typescript:
 
 rust: generate-api-rust generate-assets-api-rust
 
-# Target to generate the client for the main API in typescript.
 generate-api-rust:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p rust/api
@@ -53,7 +48,6 @@ generate-api-rust:
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g rust -o rust/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client,useSingleRequestParameter=true
 	@echo "--> Main API client generated successfully in rust/api/"
 
-# Target to generate the client for the assets API in typescript.
 generate-assets-api-rust:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p rust/assets-api
@@ -63,7 +57,6 @@ generate-assets-api-rust:
 
 kotlin: generate-api-kotlin generate-assets-api-kotlin
 
-# Target to generate the client for the main API in typescript.
 generate-api-kotlin:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p kotlin/api
@@ -71,7 +64,6 @@ generate-api-kotlin:
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g kotlin -o kotlin/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client,idea=true,artifactId=deadlock-api-client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients
 	@echo "--> Main API client generated successfully in kotlin/api/"
 
-# Target to generate the client for the assets API in typescript.
 generate-assets-api-kotlin:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p kotlin/assets-api
@@ -81,7 +73,6 @@ generate-assets-api-kotlin:
 
 go: generate-api-go generate-assets-api-go
 
-# Target to generate the client for the main API in typescript.
 generate-api-go:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p go/api
@@ -89,7 +80,6 @@ generate-api-go:
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g go -o go/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client
 	@echo "--> Main API client generated successfully in go/api/"
 
-# Target to generate the client for the assets API in typescript.
 generate-assets-api-go:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p go/assets-api
@@ -97,8 +87,24 @@ generate-assets-api-go:
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g go -o go/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client
 	@echo "--> Assets API client generated successfully in go/assets-api/"
 
+php: generate-api-php generate-assets-api-php
+
+generate-api-php:
+	@echo "--> Creating directory for the main API client..."
+	@mkdir -p php/api
+	@echo "--> Generating PHP client for the main API..."
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g php -o php/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client,srcBasePath=api,licenseName=MIT,developerOrganization=deadlock-api,developerOrganizationUrl=https://deadlock-api.com
+	@echo "--> Main API client generated successfully in php/api/"
+
+generate-assets-api-php:
+	@echo "--> Creating directory for the assets API client..."
+	@mkdir -p php/assets-api
+	@echo "--> Generating PHP client for the assets API..."
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g php -o php/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client,srcBasePath=api,licenseName=MIT,developerOrganization=deadlock-api,developerOrganizationUrl=https://deadlock-api.com
+	@echo "--> Assets API client generated successfully in php/assets-api/"
+
 # Target to clean up all generated directories.
 clean:
 	@echo "--> Removing generated client directories..."
-	@rm -rf python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api
+	@rm -rf python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api php/api php/assets-api
 	@echo "--> Cleanup complete."
