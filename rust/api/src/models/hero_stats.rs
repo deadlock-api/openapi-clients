@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HeroStats {
     #[serde(rename = "account_id")]
-    pub account_id: i32,
+    pub account_id: u32,
     #[serde(rename = "accuracy")]
     pub accuracy: f64,
     #[serde(rename = "assists")]
-    pub assists: i64,
+    pub assists: u64,
     #[serde(rename = "assists_per_min")]
     pub assists_per_min: f64,
     #[serde(rename = "creeps_per_min")]
@@ -36,7 +36,7 @@ pub struct HeroStats {
     #[serde(rename = "damage_taken_per_soul")]
     pub damage_taken_per_soul: f64,
     #[serde(rename = "deaths")]
-    pub deaths: i64,
+    pub deaths: u64,
     #[serde(rename = "deaths_per_min")]
     pub deaths_per_min: f64,
     #[serde(rename = "denies_per_match")]
@@ -47,19 +47,19 @@ pub struct HeroStats {
     pub ending_level: f64,
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "hero_id")]
-    pub hero_id: i32,
+    pub hero_id: u32,
     #[serde(rename = "kills")]
-    pub kills: i64,
+    pub kills: u64,
     #[serde(rename = "kills_per_min")]
     pub kills_per_min: f64,
     #[serde(rename = "last_hits_per_min")]
     pub last_hits_per_min: f64,
     #[serde(rename = "last_played")]
-    pub last_played: i32,
+    pub last_played: u32,
     #[serde(rename = "matches")]
-    pub matches: Vec<i64>,
+    pub matches: Vec<u64>,
     #[serde(rename = "matches_played")]
-    pub matches_played: i64,
+    pub matches_played: u64,
     #[serde(rename = "networth_per_min")]
     pub networth_per_min: f64,
     #[serde(rename = "obj_damage_per_min")]
@@ -67,13 +67,13 @@ pub struct HeroStats {
     #[serde(rename = "obj_damage_per_soul")]
     pub obj_damage_per_soul: f64,
     #[serde(rename = "time_played")]
-    pub time_played: i64,
+    pub time_played: u64,
     #[serde(rename = "wins")]
-    pub wins: i64,
+    pub wins: u64,
 }
 
 impl HeroStats {
-    pub fn new(account_id: i32, accuracy: f64, assists: i64, assists_per_min: f64, creeps_per_min: f64, crit_shot_rate: f64, damage_mitigated_per_min: f64, damage_per_min: f64, damage_per_soul: f64, damage_taken_per_min: f64, damage_taken_per_soul: f64, deaths: i64, deaths_per_min: f64, denies_per_match: f64, denies_per_min: f64, ending_level: f64, hero_id: i32, kills: i64, kills_per_min: f64, last_hits_per_min: f64, last_played: i32, matches: Vec<i64>, matches_played: i64, networth_per_min: f64, obj_damage_per_min: f64, obj_damage_per_soul: f64, time_played: i64, wins: i64) -> HeroStats {
+    pub fn new(account_id: u32, accuracy: f64, assists: u64, assists_per_min: f64, creeps_per_min: f64, crit_shot_rate: f64, damage_mitigated_per_min: f64, damage_per_min: f64, damage_per_soul: f64, damage_taken_per_min: f64, damage_taken_per_soul: f64, deaths: u64, deaths_per_min: f64, denies_per_match: f64, denies_per_min: f64, ending_level: f64, hero_id: u32, kills: u64, kills_per_min: f64, last_hits_per_min: f64, last_played: u32, matches: Vec<u64>, matches_played: u64, networth_per_min: f64, obj_damage_per_min: f64, obj_damage_per_soul: f64, time_played: u64, wins: u64) -> HeroStats {
         HeroStats {
             account_id,
             accuracy,

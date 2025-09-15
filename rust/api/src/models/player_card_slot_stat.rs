@@ -16,7 +16,7 @@ pub struct PlayerCardSlotStat {
     #[serde(rename = "stat_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub stat_id: Option<Option<i32>>,
     #[serde(rename = "stat_score", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub stat_score: Option<Option<i32>>,
+    pub stat_score: Option<Option<u32>>,
 }
 
 impl PlayerCardSlotStat {

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ability_id** | **i32** |  | 
+**ability_id** | **u32** |  | 
 **annotation** | Option<**String**> |  | [optional]
 **currency_type** | **i32** |  | 
 **delta** | **i32** |  | 

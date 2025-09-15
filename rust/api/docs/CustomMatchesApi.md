@@ -51,7 +51,7 @@ Get Match ID
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**party_id** | **i64** |  | [required] |
+**party_id** | **u64** |  | [required] |
 
 ### Return type
 

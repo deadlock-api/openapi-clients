@@ -28,9 +28,9 @@ pub struct SearchBuildsParams {
     /// The field to sort the builds by.
     pub sort_by: Option<String>,
     /// The index of the first build to return.
-    pub start: Option<i32>,
+    pub start: Option<u32>,
     /// The maximum number of builds to return.
-    pub limit: Option<i32>,
+    pub limit: Option<u32>,
     /// The direction to sort the builds in.
     pub sort_direction: Option<String>,
     /// Search for builds with a name containing this string.
@@ -40,19 +40,19 @@ pub struct SearchBuildsParams {
     /// Only return the latest version of each build.
     pub only_latest: Option<bool>,
     /// Filter builds by language.
-    pub language: Option<i32>,
+    pub language: Option<u32>,
     /// Filter builds by ID.
-    pub build_id: Option<i32>,
+    pub build_id: Option<u32>,
     /// Filter builds by version.
-    pub version: Option<i32>,
+    pub version: Option<u32>,
     /// Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: Option<i32>,
+    pub hero_id: Option<u32>,
     /// Filter builds by tag.
-    pub tag: Option<i32>,
+    pub tag: Option<u32>,
     /// Filter builds by rollup category.
-    pub rollup_category: Option<i32>,
+    pub rollup_category: Option<u32>,
     /// The author's `SteamID3`
-    pub author_id: Option<i32>
+    pub author_id: Option<u32>
 }
 
 

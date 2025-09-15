@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetCustomMatchIdResponse {
     #[serde(rename = "match_id")]
-    pub match_id: i64,
+    pub match_id: u64,
 }
 
 impl GetCustomMatchIdResponse {
-    pub fn new(match_id: i64) -> GetCustomMatchIdResponse {
+    pub fn new(match_id: u64) -> GetCustomMatchIdResponse {
         GetCustomMatchIdResponse {
             match_id,
         }

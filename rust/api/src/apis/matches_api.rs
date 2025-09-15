@@ -18,9 +18,9 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct ActiveMatchesParams {
     /// The account ID to filter active matches by (`SteamID3`)
-    pub account_id: Option<i32>,
+    pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`badge_distribution`]
@@ -31,9 +31,9 @@ pub struct BadgeDistributionParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>
+    pub max_match_id: Option<u64>
 }
 
 /// struct for passing parameters to the method [`bulk_metadata`]
@@ -54,23 +54,23 @@ pub struct BulkMetadataParams {
     /// Include player death details in the response.
     pub include_player_death_details: Option<bool>,
     /// Comma separated list of match ids, limited by `limit`
-    pub match_ids: Option<Vec<i64>>,
+    pub match_ids: Option<Vec<u64>>,
     /// Filter matches based on their start time (Unix timestamp).
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// Filter matches based on whether they are in the high skill range.
     pub is_high_skill_range_parties: Option<bool>,
     /// Filter matches based on whether they are in the low priority pool.
@@ -78,20 +78,20 @@ pub struct BulkMetadataParams {
     /// Filter matches based on whether they are in the new player pool.
     pub is_new_player_pool: Option<bool>,
     /// Filter matches by account IDs of players that participated in the match.
-    pub account_ids: Option<Vec<i32>>,
+    pub account_ids: Option<Vec<u32>>,
     /// The field to order the results by.
     pub order_by: Option<String>,
     /// The direction to order the results by.
     pub order_direction: Option<String>,
     /// The maximum number of matches to return.
-    pub limit: Option<i32>
+    pub limit: Option<u32>
 }
 
 /// struct for passing parameters to the method [`metadata`]
 #[derive(Clone, Debug)]
 pub struct MetadataParams {
     /// The match ID
-    pub match_id: i64,
+    pub match_id: u64,
     pub is_custom: Option<bool>
 }
 
@@ -99,7 +99,7 @@ pub struct MetadataParams {
 #[derive(Clone, Debug)]
 pub struct MetadataRawParams {
     /// The match ID
-    pub match_id: i64,
+    pub match_id: u64,
     pub is_custom: Option<bool>
 }
 
@@ -107,14 +107,14 @@ pub struct MetadataRawParams {
 #[derive(Clone, Debug)]
 pub struct SaltsParams {
     /// The match ID
-    pub match_id: i64
+    pub match_id: u64
 }
 
 /// struct for passing parameters to the method [`url`]
 #[derive(Clone, Debug)]
 pub struct UrlParams {
     /// The match ID
-    pub match_id: i64
+    pub match_id: u64
 }
 
 
@@ -249,7 +249,7 @@ pub async fn active_matches(configuration: &configuration::Configuration, params
 }
 
 ///  Returns active matches that are currently being played, serialized as protobuf message.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetActiveMatchesResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn active_matches_raw(configuration: &configuration::Configuration) -> Result<Vec<i32>, Error<ActiveMatchesRawError>> {
+pub async fn active_matches_raw(configuration: &configuration::Configuration) -> Result<Vec<u32>, Error<ActiveMatchesRawError>> {
 
     let uri_str = format!("{}/v1/matches/active/raw", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -273,8 +273,8 @@ pub async fn active_matches_raw(configuration: &configuration::Configuration) ->
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;i32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;i32&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -331,7 +331,7 @@ pub async fn badge_distribution(configuration: &configuration::Configuration, pa
 }
 
 ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
-pub async fn bulk_metadata(configuration: &configuration::Configuration, params: BulkMetadataParams) -> Result<Vec<i32>, Error<BulkMetadataError>> {
+pub async fn bulk_metadata(configuration: &configuration::Configuration, params: BulkMetadataParams) -> Result<Vec<u32>, Error<BulkMetadataError>> {
 
     let uri_str = format!("{}/v1/matches/metadata", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -430,8 +430,8 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;i32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;i32&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -468,7 +468,7 @@ pub async fn metadata(configuration: &configuration::Configuration, params: Meta
 }
 
 ///  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
-pub async fn metadata_raw(configuration: &configuration::Configuration, params: MetadataRawParams) -> Result<Vec<i32>, Error<MetadataRawError>> {
+pub async fn metadata_raw(configuration: &configuration::Configuration, params: MetadataRawParams) -> Result<Vec<u32>, Error<MetadataRawError>> {
 
     let uri_str = format!("{}/v1/matches/{match_id}/metadata/raw", configuration.base_path, match_id=params.match_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -495,8 +495,8 @@ pub async fn metadata_raw(configuration: &configuration::Configuration, params: 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;i32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;i32&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
         }
     } else {
         let content = resp.text().await?;

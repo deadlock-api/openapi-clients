@@ -14,50 +14,50 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PlayerMatchHistoryEntry {
     #[serde(rename = "abandoned_time_s", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub abandoned_time_s: Option<Option<i32>>,
+    pub abandoned_time_s: Option<Option<u32>>,
     #[serde(rename = "account_id")]
-    pub account_id: i32,
+    pub account_id: u32,
     #[serde(rename = "denies")]
-    pub denies: i32,
+    pub denies: u32,
     #[serde(rename = "game_mode")]
     pub game_mode: i32,
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "hero_id")]
-    pub hero_id: i32,
+    pub hero_id: u32,
     #[serde(rename = "hero_level")]
-    pub hero_level: i32,
+    pub hero_level: u32,
     #[serde(rename = "last_hits")]
-    pub last_hits: i32,
+    pub last_hits: u32,
     #[serde(rename = "match_duration_s")]
-    pub match_duration_s: i32,
+    pub match_duration_s: u32,
     #[serde(rename = "match_id")]
-    pub match_id: i64,
+    pub match_id: u64,
     #[serde(rename = "match_mode")]
     pub match_mode: i32,
     #[serde(rename = "match_result")]
-    pub match_result: i32,
+    pub match_result: u32,
     #[serde(rename = "net_worth")]
-    pub net_worth: i32,
+    pub net_worth: u32,
     #[serde(rename = "objectives_mask_team0")]
-    pub objectives_mask_team0: i32,
+    pub objectives_mask_team0: u32,
     #[serde(rename = "objectives_mask_team1")]
-    pub objectives_mask_team1: i32,
+    pub objectives_mask_team1: u32,
     #[serde(rename = "player_assists")]
-    pub player_assists: i32,
+    pub player_assists: u32,
     #[serde(rename = "player_deaths")]
-    pub player_deaths: i32,
+    pub player_deaths: u32,
     #[serde(rename = "player_kills")]
-    pub player_kills: i32,
+    pub player_kills: u32,
     #[serde(rename = "player_team")]
     pub player_team: i32,
     #[serde(rename = "start_time")]
-    pub start_time: i32,
+    pub start_time: u32,
     #[serde(rename = "team_abandoned", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub team_abandoned: Option<Option<bool>>,
 }
 
 impl PlayerMatchHistoryEntry {
-    pub fn new(account_id: i32, denies: i32, game_mode: i32, hero_id: i32, hero_level: i32, last_hits: i32, match_duration_s: i32, match_id: i64, match_mode: i32, match_result: i32, net_worth: i32, objectives_mask_team0: i32, objectives_mask_team1: i32, player_assists: i32, player_deaths: i32, player_kills: i32, player_team: i32, start_time: i32) -> PlayerMatchHistoryEntry {
+    pub fn new(account_id: u32, denies: u32, game_mode: i32, hero_id: u32, hero_level: u32, last_hits: u32, match_duration_s: u32, match_id: u64, match_mode: i32, match_result: u32, net_worth: u32, objectives_mask_team0: u32, objectives_mask_team1: u32, player_assists: u32, player_deaths: u32, player_kills: u32, player_team: i32, start_time: u32) -> PlayerMatchHistoryEntry {
         PlayerMatchHistoryEntry {
             abandoned_time_s: None,
             account_id,

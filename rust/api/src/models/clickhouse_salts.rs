@@ -14,19 +14,19 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClickhouseSalts {
     #[serde(rename = "cluster_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub cluster_id: Option<Option<i32>>,
+    pub cluster_id: Option<Option<u32>>,
     #[serde(rename = "match_id")]
-    pub match_id: i64,
+    pub match_id: u64,
     #[serde(rename = "metadata_salt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub metadata_salt: Option<Option<i32>>,
+    pub metadata_salt: Option<Option<u32>>,
     #[serde(rename = "replay_salt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub replay_salt: Option<Option<i32>>,
+    pub replay_salt: Option<Option<u32>>,
     #[serde(rename = "username", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub username: Option<Option<String>>,
 }
 
 impl ClickhouseSalts {
-    pub fn new(match_id: i64) -> ClickhouseSalts {
+    pub fn new(match_id: u64) -> ClickhouseSalts {
         ClickhouseSalts {
             cluster_id: None,
             match_id,

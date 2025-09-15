@@ -28,8 +28,8 @@ Active
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | Option<**i32**> | The account ID to filter active matches by (`SteamID3`) |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**account_id** | Option<**u32**> | The account ID to filter active matches by (`SteamID3`) |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -49,7 +49,7 @@ No authorization required
 
 ## active_matches_raw
 
-> Vec<i32> active_matches_raw()
+> Vec<u32> active_matches_raw()
 Active as Protobuf
 
  Returns active matches that are currently being played, serialized as protobuf message.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetActiveMatchesResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -60,7 +60,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Vec<i32>**
+**Vec<u32>**
 
 ### Authorization
 
@@ -88,8 +88,8 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 
 ### Return type
 
@@ -109,7 +109,7 @@ No authorization required
 
 ## bulk_metadata
 
-> Vec<i32> bulk_metadata(include_info, include_objectives, include_mid_boss, include_player_info, include_player_items, include_player_stats, include_player_death_details, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, order_by, order_direction, limit)
+> Vec<u32> bulk_metadata(include_info, include_objectives, include_mid_boss, include_player_info, include_player_items, include_player_stats, include_player_death_details, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, order_by, order_direction, limit)
 Bulk Metadata
 
  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
@@ -126,26 +126,26 @@ Name | Type | Description  | Required | Notes
 **include_player_items** | Option<**bool**> | Include player items in the response. |  |
 **include_player_stats** | Option<**bool**> | Include player stats in the response. |  |
 **include_player_death_details** | Option<**bool**> | Include player death details in the response. |  |
-**match_ids** | Option<[**Vec<i64>**](i64.md)> | Comma separated list of match ids, limited by `limit` |  |
+**match_ids** | Option<[**Vec<u64>**](u64.md)> | Comma separated list of match ids, limited by `limit` |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **is_high_skill_range_parties** | Option<**bool**> | Filter matches based on whether they are in the high skill range. |  |
 **is_low_pri_pool** | Option<**bool**> | Filter matches based on whether they are in the low priority pool. |  |
 **is_new_player_pool** | Option<**bool**> | Filter matches based on whether they are in the new player pool. |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Filter matches by account IDs of players that participated in the match. |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Filter matches by account IDs of players that participated in the match. |  |
 **order_by** | Option<**String**> | The field to order the results by. |  |
 **order_direction** | Option<**String**> | The direction to order the results by. |  |
-**limit** | Option<**i32**> | The maximum number of matches to return. |  |[default to 1000]
+**limit** | Option<**u32**> | The maximum number of matches to return. |  |[default to 1000]
 
 ### Return type
 
-**Vec<i32>**
+**Vec<u32>**
 
 ### Authorization
 
@@ -171,7 +171,7 @@ Metadata
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**match_id** | **i64** | The match ID | [required] |
+**match_id** | **u64** | The match ID | [required] |
 **is_custom** | Option<**bool**> |  |  |
 
 ### Return type
@@ -192,7 +192,7 @@ No authorization required
 
 ## metadata_raw
 
-> Vec<i32> metadata_raw(match_id, is_custom)
+> Vec<u32> metadata_raw(match_id, is_custom)
 Metadata as Protobuf
 
  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
@@ -202,12 +202,12 @@ Metadata as Protobuf
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**match_id** | **i64** | The match ID | [required] |
+**match_id** | **u64** | The match ID | [required] |
 **is_custom** | Option<**bool**> |  |  |
 
 ### Return type
 
-**Vec<i32>**
+**Vec<u32>**
 
 ### Authorization
 
@@ -260,7 +260,7 @@ Salts
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**match_id** | **i64** | The match ID | [required] |
+**match_id** | **u64** | The match ID | [required] |
 
 ### Return type
 
@@ -290,7 +290,7 @@ Live Broadcast URL
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**match_id** | **i64** | The match ID | [required] |
+**match_id** | **u64** | The match ID | [required] |
 
 ### Return type
 

@@ -16,15 +16,15 @@ pub struct Build {
     #[serde(rename = "hero_build")]
     pub hero_build: Box<models::BuildHero>,
     #[serde(rename = "num_favorites", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub num_favorites: Option<Option<i32>>,
+    pub num_favorites: Option<Option<u32>>,
     #[serde(rename = "num_ignores", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub num_ignores: Option<Option<i32>>,
+    pub num_ignores: Option<Option<u32>>,
     #[serde(rename = "num_reports", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub num_reports: Option<Option<i32>>,
+    pub num_reports: Option<Option<u32>>,
     #[serde(rename = "num_weekly_favorites", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub num_weekly_favorites: Option<Option<i32>>,
+    pub num_weekly_favorites: Option<Option<u32>>,
     #[serde(rename = "rollup_category", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub rollup_category: Option<Option<i32>>,
+    pub rollup_category: Option<Option<u32>>,
 }
 
 impl Build {

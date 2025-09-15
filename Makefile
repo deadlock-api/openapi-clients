@@ -45,14 +45,14 @@ generate-api-rust:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p rust/api
 	@echo "--> Generating Rust client for the main API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g rust -o rust/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client,useSingleRequestParameter=true
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g rust -o rust/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client,useSingleRequestParameter=true,preferUnsignedInt=true,bestFitInt=true
 	@echo "--> Main API client generated successfully in rust/api/"
 
 generate-assets-api-rust:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p rust/assets-api
 	@echo "--> Generating Rust client for the assets API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g rust -o rust/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client,useSingleRequestParameter=true
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g rust -o rust/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client,useSingleRequestParameter=true,preferUnsignedInt=true,bestFitInt=true
 	@echo "--> Assets API client generated successfully in rust/assets-api/"
 
 kotlin: generate-api-kotlin generate-assets-api-kotlin

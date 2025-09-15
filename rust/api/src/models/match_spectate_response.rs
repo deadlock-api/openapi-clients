@@ -16,7 +16,7 @@ pub struct MatchSpectateResponse {
     #[serde(rename = "broadcast_url")]
     pub broadcast_url: String,
     #[serde(rename = "lobby_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub lobby_id: Option<Option<i64>>,
+    pub lobby_id: Option<Option<u64>>,
 }
 
 impl MatchSpectateResponse {

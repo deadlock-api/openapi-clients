@@ -30,22 +30,22 @@ Ability Order Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**hero_id** | **i32** | See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
+**hero_id** | **u32** | See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1755302400]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_ability_upgrades** | Option<**i64**> | Filter players based on their minimum number of ability upgrades over the whole match. |  |
-**max_ability_upgrades** | Option<**i64**> | Filter players based on their maximum number of ability upgrades over the whole match. |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**min_matches** | Option<**i32**> | The minimum number of matches played for an ability order to be included in the response. |  |[default to 20]
-**account_id** | Option<**i32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_ability_upgrades** | Option<**u64**> | Filter players based on their minimum number of ability upgrades over the whole match. |  |
+**max_ability_upgrades** | Option<**u64**> | Filter players based on their maximum number of ability upgrades over the whole match. |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**min_matches** | Option<**u32**> | The minimum number of matches played for an ability order to be included in the response. |  |[default to 20]
+**account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -75,7 +75,7 @@ Build Item Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**hero_id** | Option<**i32**> | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
+**hero_id** | Option<**u32**> | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1755302400]
 **max_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). |  |
 
@@ -109,21 +109,21 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1755302400]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**include_hero_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**exclude_hero_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**min_matches** | Option<**i32**> | The minimum number of matches played for a hero combination to be included in the response. |  |[default to 20]
-**max_matches** | Option<**i32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
-**comb_size** | Option<**i32**> | The combination size to return. |  |[default to 6]
-**account_id** | Option<**i32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**include_hero_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
+**exclude_hero_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
+**min_matches** | Option<**u32**> | The minimum number of matches played for a hero combination to be included in the response. |  |[default to 20]
+**max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
+**comb_size** | Option<**u32**> | The combination size to return. |  |[default to 6]
+**account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -155,21 +155,21 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1755302400]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_enemy_networth** | Option<**i64**> | Filter enemy players based on their net worth. |  |
-**max_enemy_networth** | Option<**i64**> | Filter enemy players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_enemy_networth** | Option<**u64**> | Filter enemy players based on their net worth. |  |
+**max_enemy_networth** | Option<**u64**> | Filter enemy players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **same_lane_filter** | Option<**bool**> | When `true`, only considers matchups where both `hero_id` and `enemy_hero_id` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane. |  |[default to true]
-**min_matches** | Option<**i64**> | The minimum number of matches played for a hero combination to be included in the response. |  |[default to 20]
-**max_matches** | Option<**i32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
-**account_id** | Option<**i32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**min_matches** | Option<**u64**> | The minimum number of matches played for a hero combination to be included in the response. |  |[default to 20]
+**max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
+**account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -201,19 +201,19 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **sort_by** | **String** | The field to sort by. | [required] |
 **sort_direction** | Option<**String**> | The direction to sort heroes in. |  |
-**min_matches** | Option<**i32**> | Filter by min number of matches played. |  |
+**min_matches** | Option<**u32**> | Filter by min number of matches played. |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1755302400]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**account_id** | Option<**i32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -246,20 +246,20 @@ Name | Type | Description  | Required | Notes
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1755302400]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**min_hero_matches** | Option<**i64**> | Filter players based on the number of matches they have played with a specific hero. |  |
-**max_hero_matches** | Option<**i64**> | Filter players based on the number of matches they have played with a specific hero. |  |
-**include_item_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
-**exclude_item_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
-**account_id** | Option<**i32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**min_hero_matches** | Option<**u64**> | Filter players based on the number of matches they have played with a specific hero. |  |
+**max_hero_matches** | Option<**u64**> | Filter players based on the number of matches they have played with a specific hero. |  |
+**include_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
+**exclude_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
+**account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -291,20 +291,20 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1755302400]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **same_lane_filter** | Option<**bool**> | When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane. |  |[default to true]
 **same_party_filter** | Option<**bool**> | When `true`, only considers matchups where both `hero_id` and `hero_id2` were on the same party. When `false`, considers all matchups regardless of party affiliation. |  |[default to true]
-**min_matches** | Option<**i64**> | The minimum number of matches played for a hero combination to be included in the response. |  |[default to 20]
-**max_matches** | Option<**i32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
-**account_id** | Option<**i32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**min_matches** | Option<**u64**> | The minimum number of matches played for a hero combination to be included in the response. |  |[default to 20]
+**max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
+**account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -334,22 +334,22 @@ Item Permutation Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**item_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items> |  |
-**comb_size** | Option<**i32**> | The combination size to return. |  |[default to 2]
+**item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items> |  |
+**comb_size** | Option<**u32**> | The combination size to return. |  |[default to 2]
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**hero_id** | Option<**i32**> | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
+**hero_id** | Option<**u32**> | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1755302400]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**account_id** | Option<**i32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -381,23 +381,23 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**hero_id** | Option<**i32**> | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
+**hero_id** | Option<**u32**> | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1755302400]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**include_item_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items> |  |
-**exclude_item_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items> |  |
-**min_matches** | Option<**i32**> | The minimum number of matches played for an item to be included in the response. |  |[default to 20]
-**max_matches** | Option<**i32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
-**account_id** | Option<**i32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**include_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items> |  |
+**exclude_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items> |  |
+**min_matches** | Option<**u32**> | The minimum number of matches played for an item to be included in the response. |  |[default to 20]
+**max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
+**account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -429,22 +429,22 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **sort_by** | **String** | The field to sort by. | [required] |
 **sort_direction** | Option<**String**> | The direction to sort players in. |  |
-**hero_id** | Option<**i32**> | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**min_matches** | Option<**i32**> | The minimum number of matches played for a player to be included in the scoreboard. |  |[default to 20]
-**max_matches** | Option<**i32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
+**hero_id** | Option<**u32**> | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
+**min_matches** | Option<**u32**> | The minimum number of matches played for a player to be included in the scoreboard. |  |[default to 20]
+**max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**start** | Option<**i32**> | The offset to start fetching players from. |  |
-**limit** | Option<**i32**> | The maximum number of players to fetch. |  |[default to 100]
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**start** | Option<**u32**> | The offset to start fetching players from. |  |
+**limit** | Option<**u32**> | The maximum number of players to fetch. |  |[default to 100]
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -477,18 +477,18 @@ Name | Type | Description  | Required | Notes
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1755302400]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_matches** | Option<**i32**> | The maximum number of matches to analyze. |  |
-**include_item_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
-**exclude_item_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
-**account_ids** | Option<[**Vec<i32>**](i32.md)> | Comma separated list of account ids to include |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_matches** | Option<**u32**> | The maximum number of matches to analyze. |  |
+**include_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
+**exclude_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
+**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 

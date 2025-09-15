@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BuildHero {
     #[serde(rename = "author_account_id")]
-    pub author_account_id: i32,
+    pub author_account_id: u32,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
     #[serde(rename = "details")]
@@ -22,28 +22,28 @@ pub struct BuildHero {
     #[serde(rename = "development_build", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub development_build: Option<Option<bool>>,
     #[serde(rename = "hero_build_id")]
-    pub hero_build_id: i32,
+    pub hero_build_id: u32,
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "hero_id")]
-    pub hero_id: i32,
+    pub hero_id: u32,
     #[serde(rename = "language")]
-    pub language: i32,
+    pub language: u32,
     #[serde(rename = "last_updated_timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub last_updated_timestamp: Option<Option<i64>>,
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "origin_build_id")]
-    pub origin_build_id: i32,
+    pub origin_build_id: u32,
     #[serde(rename = "publish_timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub publish_timestamp: Option<Option<i64>>,
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
-    pub tags: Option<Vec<i32>>,
+    pub tags: Option<Vec<u32>>,
     #[serde(rename = "version")]
-    pub version: i32,
+    pub version: u32,
 }
 
 impl BuildHero {
-    pub fn new(author_account_id: i32, details: models::BuildHeroDetails, hero_build_id: i32, hero_id: i32, language: i32, name: String, origin_build_id: i32, version: i32) -> BuildHero {
+    pub fn new(author_account_id: u32, details: models::BuildHeroDetails, hero_build_id: u32, hero_id: u32, language: u32, name: String, origin_build_id: u32, version: u32) -> BuildHero {
         BuildHero {
             author_account_id,
             description: None,

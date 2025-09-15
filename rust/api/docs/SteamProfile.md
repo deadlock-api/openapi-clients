@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_id** | **i32** |  | 
+**account_id** | **u32** |  | 
 **avatar** | **String** |  | 
 **avatarfull** | **String** |  | 
 **avatarmedium** | **String** |  | 

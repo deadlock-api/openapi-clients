@@ -14,22 +14,22 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PlayerCard {
     #[serde(rename = "account_id")]
-    pub account_id: i32,
+    pub account_id: u32,
     /// See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "ranked_badge_level", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub ranked_badge_level: Option<Option<i32>>,
+    pub ranked_badge_level: Option<Option<u32>>,
     /// See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "ranked_rank", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub ranked_rank: Option<Option<i32>>,
+    pub ranked_rank: Option<Option<u32>>,
     /// See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "ranked_subrank", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub ranked_subrank: Option<Option<i32>>,
+    pub ranked_subrank: Option<Option<u32>>,
     #[serde(rename = "slots")]
     pub slots: Vec<models::PlayerCardSlot>,
 }
 
 impl PlayerCard {
-    pub fn new(account_id: i32, slots: Vec<models::PlayerCardSlot>) -> PlayerCard {
+    pub fn new(account_id: u32, slots: Vec<models::PlayerCardSlot>) -> PlayerCard {
         PlayerCard {
             account_id,
             ranked_badge_level: None,

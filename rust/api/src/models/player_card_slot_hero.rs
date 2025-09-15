@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 pub struct PlayerCardSlotHero {
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub id: Option<Option<i32>>,
+    pub id: Option<Option<u32>>,
     #[serde(rename = "kills", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub kills: Option<Option<i32>>,
+    pub kills: Option<Option<u32>>,
     #[serde(rename = "wins", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub wins: Option<Option<i32>>,
+    pub wins: Option<Option<u32>>,
 }
 
 impl PlayerCardSlotHero {

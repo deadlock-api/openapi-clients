@@ -27,7 +27,7 @@ pub struct LeaderboardHeroParams {
     /// The region to fetch the leaderboard for.
     pub region: String,
     /// The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: i32
+    pub hero_id: u32
 }
 
 /// struct for passing parameters to the method [`leaderboard_hero_raw`]
@@ -36,7 +36,7 @@ pub struct LeaderboardHeroRawParams {
     /// The region to fetch the leaderboard for.
     pub region: String,
     /// The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: i32
+    pub hero_id: u32
 }
 
 /// struct for passing parameters to the method [`leaderboard_raw`]
@@ -155,7 +155,7 @@ pub async fn leaderboard_hero(configuration: &configuration::Configuration, para
 }
 
 ///  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn leaderboard_hero_raw(configuration: &configuration::Configuration, params: LeaderboardHeroRawParams) -> Result<Vec<i32>, Error<LeaderboardHeroRawError>> {
+pub async fn leaderboard_hero_raw(configuration: &configuration::Configuration, params: LeaderboardHeroRawParams) -> Result<Vec<u32>, Error<LeaderboardHeroRawError>> {
 
     let uri_str = format!("{}/v1/leaderboard/{region}/{hero_id}/raw", configuration.base_path, region=crate::apis::urlencode(params.region), hero_id=params.hero_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -179,8 +179,8 @@ pub async fn leaderboard_hero_raw(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;i32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;i32&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -190,7 +190,7 @@ pub async fn leaderboard_hero_raw(configuration: &configuration::Configuration, 
 }
 
 ///  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn leaderboard_raw(configuration: &configuration::Configuration, params: LeaderboardRawParams) -> Result<Vec<i32>, Error<LeaderboardRawError>> {
+pub async fn leaderboard_raw(configuration: &configuration::Configuration, params: LeaderboardRawParams) -> Result<Vec<u32>, Error<LeaderboardRawError>> {
 
     let uri_str = format!("{}/v1/leaderboard/{region}/raw", configuration.base_path, region=crate::apis::urlencode(params.region));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -214,8 +214,8 @@ pub async fn leaderboard_raw(configuration: &configuration::Configuration, param
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;i32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;i32&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
         }
     } else {
         let content = resp.text().await?;

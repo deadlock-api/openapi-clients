@@ -15,68 +15,68 @@ use serde::{Deserialize, Serialize};
 pub struct HeroCounterStats {
     /// The number of assists by `hero_id` when facing `enemy_hero_id`.
     #[serde(rename = "assists")]
-    pub assists: i64,
+    pub assists: u64,
     /// The number of creeps killed by `hero_id` when facing `enemy_hero_id`.
     #[serde(rename = "creeps")]
-    pub creeps: i64,
+    pub creeps: u64,
     /// The number of deaths by `hero_id` when facing `enemy_hero_id`.
     #[serde(rename = "deaths")]
-    pub deaths: i64,
+    pub deaths: u64,
     /// The number of denies by `hero_id` when facing `enemy_hero_id`.
     #[serde(rename = "denies")]
-    pub denies: i64,
+    pub denies: u64,
     /// The number of assists by `enemy_hero_id` when facing `hero_id`.
     #[serde(rename = "enemy_assists")]
-    pub enemy_assists: i64,
+    pub enemy_assists: u64,
     /// The number of creeps killed by `enemy_hero_id` when facing `hero_id`.
     #[serde(rename = "enemy_creeps")]
-    pub enemy_creeps: i64,
+    pub enemy_creeps: u64,
     /// The number of deaths by `enemy_hero_id` when facing `hero_id`.
     #[serde(rename = "enemy_deaths")]
-    pub enemy_deaths: i64,
+    pub enemy_deaths: u64,
     /// The number of denies by `enemy_hero_id` when facing `hero_id`.
     #[serde(rename = "enemy_denies")]
-    pub enemy_denies: i64,
+    pub enemy_denies: u64,
     /// The ID of the opposing hero. See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "enemy_hero_id")]
-    pub enemy_hero_id: i32,
+    pub enemy_hero_id: u32,
     /// The number of kills by `enemy_hero_id` when facing `hero_id`.
     #[serde(rename = "enemy_kills")]
-    pub enemy_kills: i64,
+    pub enemy_kills: u64,
     /// The number of last hits by `enemy_hero_id` when facing `hero_id`.
     #[serde(rename = "enemy_last_hits")]
-    pub enemy_last_hits: i64,
+    pub enemy_last_hits: u64,
     /// The net worth of `enemy_hero_id` when facing `hero_id`.
     #[serde(rename = "enemy_networth")]
-    pub enemy_networth: i64,
+    pub enemy_networth: u64,
     /// The amount of objective damage dealt by `enemy_hero_id` when facing `hero_id`.
     #[serde(rename = "enemy_obj_damage")]
-    pub enemy_obj_damage: i64,
+    pub enemy_obj_damage: u64,
     /// The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "hero_id")]
-    pub hero_id: i32,
+    pub hero_id: u32,
     /// The number of kills by `hero_id` when facing `enemy_hero_id`.
     #[serde(rename = "kills")]
-    pub kills: i64,
+    pub kills: u64,
     /// The number of last hits by `hero_id` when facing `enemy_hero_id`.
     #[serde(rename = "last_hits")]
-    pub last_hits: i64,
+    pub last_hits: u64,
     /// The total number of matches played between `hero_id` and `enemy_hero_id` that meet the filter criteria.
     #[serde(rename = "matches_played")]
-    pub matches_played: i64,
+    pub matches_played: u64,
     /// The net worth of `hero_id` when facing `enemy_hero_id`.
     #[serde(rename = "networth")]
-    pub networth: i64,
+    pub networth: u64,
     /// The amount of objective damage dealt by `hero_id` when facing `enemy_hero_id`.
     #[serde(rename = "obj_damage")]
-    pub obj_damage: i64,
+    pub obj_damage: u64,
     /// The number of times `hero_id` won the match when facing `enemy_hero_id`.
     #[serde(rename = "wins")]
-    pub wins: i64,
+    pub wins: u64,
 }
 
 impl HeroCounterStats {
-    pub fn new(assists: i64, creeps: i64, deaths: i64, denies: i64, enemy_assists: i64, enemy_creeps: i64, enemy_deaths: i64, enemy_denies: i64, enemy_hero_id: i32, enemy_kills: i64, enemy_last_hits: i64, enemy_networth: i64, enemy_obj_damage: i64, hero_id: i32, kills: i64, last_hits: i64, matches_played: i64, networth: i64, obj_damage: i64, wins: i64) -> HeroCounterStats {
+    pub fn new(assists: u64, creeps: u64, deaths: u64, denies: u64, enemy_assists: u64, enemy_creeps: u64, enemy_deaths: u64, enemy_denies: u64, enemy_hero_id: u32, enemy_kills: u64, enemy_last_hits: u64, enemy_networth: u64, enemy_obj_damage: u64, hero_id: u32, kills: u64, last_hits: u64, matches_played: u64, networth: u64, obj_damage: u64, wins: u64) -> HeroCounterStats {
         HeroCounterStats {
             assists,
             creeps,

@@ -27,7 +27,7 @@ Card
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | **i32** | The players `SteamID3` | [required] |
+**account_id** | **u32** | The players `SteamID3` | [required] |
 
 ### Return type
 
@@ -57,17 +57,17 @@ Enemy Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | **i32** | The players `SteamID3` | [required] |
+**account_id** | **u32** | The players `SteamID3` | [required] |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**min_matches_played** | Option<**i64**> | Filter based on the number of matches played. |  |
-**max_matches_played** | Option<**i64**> | Filter based on the number of matches played. |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**min_matches_played** | Option<**u64**> | Filter based on the number of matches played. |  |
+**max_matches_played** | Option<**u64**> | Filter based on the number of matches played. |  |
 
 ### Return type
 
@@ -97,7 +97,7 @@ Match History
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | **i32** | The players `SteamID3` | [required] |
+**account_id** | **u32** | The players `SteamID3` | [required] |
 **force_refetch** | Option<**bool**> | Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit. |  |
 **only_stored_history** | Option<**bool**> | Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`. |  |
 
@@ -129,17 +129,17 @@ Mate Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | **i32** | The players `SteamID3` | [required] |
+**account_id** | **u32** | The players `SteamID3` | [required] |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**min_matches_played** | Option<**i64**> | Filter based on the number of matches played. |  |
-**max_matches_played** | Option<**i64**> | Filter based on the number of matches played. |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**min_matches_played** | Option<**u64**> | Filter based on the number of matches played. |  |
+**max_matches_played** | Option<**u64**> | Filter based on the number of matches played. |  |
 **same_party** | Option<**bool**> | Filter based on whether the mates were on the same party. |  |[default to true]
 
 ### Return type
@@ -170,15 +170,15 @@ Party Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | **i32** | The players `SteamID3` | [required] |
+**account_id** | **u32** | The players `SteamID3` | [required] |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 
 ### Return type
 
@@ -208,17 +208,17 @@ Hero Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_ids** | [**Vec<i32>**](i32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
+**account_ids** | [**Vec<u32>**](u32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**i64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**max_networth** | Option<**i64**> | Filter players based on their net worth. |  |
-**min_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**max_average_badge** | Option<**i32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**max_networth** | Option<**u64**> | Filter players based on their net worth. |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 
 ### Return type
 
@@ -248,7 +248,7 @@ Batch Steam Profile
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_ids** | [**Vec<i64>**](i64.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
+**account_ids** | [**Vec<u64>**](u64.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
 
 ### Return type
 

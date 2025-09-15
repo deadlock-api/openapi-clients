@@ -16,7 +16,7 @@ pub struct PlayerCardSlot {
     #[serde(rename = "hero", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub hero: Option<Option<Box<models::PlayerCardSlotHero>>>,
     #[serde(rename = "slot_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub slot_id: Option<Option<i32>>,
+    pub slot_id: Option<Option<u32>>,
     #[serde(rename = "stat", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub stat: Option<Option<Box<models::PlayerCardSlotStat>>>,
 }

@@ -18,44 +18,44 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct AbilityOrderStatsParams {
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: i32,
+    pub hero_id: u32,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their minimum number of ability upgrades over the whole match.
-    pub min_ability_upgrades: Option<i64>,
+    pub min_ability_upgrades: Option<u64>,
     /// Filter players based on their maximum number of ability upgrades over the whole match.
-    pub max_ability_upgrades: Option<i64>,
+    pub max_ability_upgrades: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// The minimum number of matches played for an ability order to be included in the response.
-    pub min_matches: Option<i32>,
+    pub min_matches: Option<u32>,
     /// Filter for matches with a specific player account ID.
-    pub account_id: Option<i32>,
+    pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`build_item_stats`]
 #[derive(Clone, Debug)]
 pub struct BuildItemStatsParams {
     /// Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: Option<i32>,
+    pub hero_id: Option<u32>,
     /// Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
     pub min_last_updated_unix_timestamp: Option<i64>,
     /// Filter builds based on their last updated time (Unix timestamp).
@@ -70,35 +70,35 @@ pub struct HeroCombStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub include_hero_ids: Option<Vec<i32>>,
+    pub include_hero_ids: Option<Vec<u32>>,
     /// Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub exclude_hero_ids: Option<Vec<i32>>,
+    pub exclude_hero_ids: Option<Vec<u32>>,
     /// The minimum number of matches played for a hero combination to be included in the response.
-    pub min_matches: Option<i32>,
+    pub min_matches: Option<u32>,
     /// The maximum number of matches played for a hero combination to be included in the response.
-    pub max_matches: Option<i32>,
+    pub max_matches: Option<u32>,
     /// The combination size to return.
-    pub comb_size: Option<i32>,
+    pub comb_size: Option<u32>,
     /// Filter for matches with a specific player account ID.
-    pub account_id: Option<i32>,
+    pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`hero_counters_stats`]
@@ -109,35 +109,35 @@ pub struct HeroCountersStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter enemy players based on their net worth.
-    pub min_enemy_networth: Option<i64>,
+    pub min_enemy_networth: Option<u64>,
     /// Filter enemy players based on their net worth.
-    pub max_enemy_networth: Option<i64>,
+    pub max_enemy_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// When `true`, only considers matchups where both `hero_id` and `enemy_hero_id` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.
     pub same_lane_filter: Option<bool>,
     /// The minimum number of matches played for a hero combination to be included in the response.
-    pub min_matches: Option<i64>,
+    pub min_matches: Option<u64>,
     /// The maximum number of matches played for a hero combination to be included in the response.
-    pub max_matches: Option<i32>,
+    pub max_matches: Option<u32>,
     /// Filter for matches with a specific player account ID.
-    pub account_id: Option<i32>,
+    pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`hero_scoreboard`]
@@ -148,31 +148,31 @@ pub struct HeroScoreboardParams {
     /// The direction to sort heroes in.
     pub sort_direction: Option<String>,
     /// Filter by min number of matches played.
-    pub min_matches: Option<i32>,
+    pub min_matches: Option<u32>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// Filter for matches with a specific player account ID.
-    pub account_id: Option<i32>,
+    pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`hero_stats`]
@@ -185,33 +185,33 @@ pub struct HeroStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// Filter players based on the number of matches they have played with a specific hero.
-    pub min_hero_matches: Option<i64>,
+    pub min_hero_matches: Option<u64>,
     /// Filter players based on the number of matches they have played with a specific hero.
-    pub max_hero_matches: Option<i64>,
+    pub max_hero_matches: Option<u64>,
     /// Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
-    pub include_item_ids: Option<Vec<i32>>,
+    pub include_item_ids: Option<Vec<u32>>,
     /// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
-    pub exclude_item_ids: Option<Vec<i32>>,
+    pub exclude_item_ids: Option<Vec<u32>>,
     /// Filter for matches with a specific player account ID.
-    pub account_id: Option<i32>,
+    pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`hero_synergies_stats`]
@@ -222,70 +222,70 @@ pub struct HeroSynergiesStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.
     pub same_lane_filter: Option<bool>,
     /// When `true`, only considers matchups where both `hero_id` and `hero_id2` were on the same party. When `false`, considers all matchups regardless of party affiliation.
     pub same_party_filter: Option<bool>,
     /// The minimum number of matches played for a hero combination to be included in the response.
-    pub min_matches: Option<i64>,
+    pub min_matches: Option<u64>,
     /// The maximum number of matches played for a hero combination to be included in the response.
-    pub max_matches: Option<i32>,
+    pub max_matches: Option<u32>,
     /// Filter for matches with a specific player account ID.
-    pub account_id: Option<i32>,
+    pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`item_permutation_stats`]
 #[derive(Clone, Debug)]
 pub struct ItemPermutationStatsParams {
     /// Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>
-    pub item_ids: Option<Vec<i32>>,
+    pub item_ids: Option<Vec<u32>>,
     /// The combination size to return.
-    pub comb_size: Option<i32>,
+    pub comb_size: Option<u32>,
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
     /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: Option<i32>,
+    pub hero_id: Option<u32>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// Filter for matches with a specific player account ID.
-    pub account_id: Option<i32>,
+    pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`item_stats`]
@@ -296,39 +296,39 @@ pub struct ItemStatsParams {
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
     /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: Option<i32>,
+    pub hero_id: Option<u32>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items>
-    pub include_item_ids: Option<Vec<i32>>,
+    pub include_item_ids: Option<Vec<u32>>,
     /// Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items>
-    pub exclude_item_ids: Option<Vec<i32>>,
+    pub exclude_item_ids: Option<Vec<u32>>,
     /// The minimum number of matches played for an item to be included in the response.
-    pub min_matches: Option<i32>,
+    pub min_matches: Option<u32>,
     /// The maximum number of matches played for a hero combination to be included in the response.
-    pub max_matches: Option<i32>,
+    pub max_matches: Option<u32>,
     /// Filter for matches with a specific player account ID.
-    pub account_id: Option<i32>,
+    pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`player_scoreboard`]
@@ -339,37 +339,37 @@ pub struct PlayerScoreboardParams {
     /// The direction to sort players in.
     pub sort_direction: Option<String>,
     /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: Option<i32>,
+    pub hero_id: Option<u32>,
     /// The minimum number of matches played for a player to be included in the scoreboard.
-    pub min_matches: Option<i32>,
+    pub min_matches: Option<u32>,
     /// The maximum number of matches played for a hero combination to be included in the response.
-    pub max_matches: Option<i32>,
+    pub max_matches: Option<u32>,
     /// Filter matches based on their start time (Unix timestamp).
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// The offset to start fetching players from.
-    pub start: Option<i32>,
+    pub start: Option<u32>,
     /// The maximum number of players to fetch.
-    pub limit: Option<i32>,
+    pub limit: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`player_stats_metrics`]
@@ -382,29 +382,29 @@ pub struct PlayerStatsMetricsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// The maximum number of matches to analyze.
-    pub max_matches: Option<i32>,
+    pub max_matches: Option<u32>,
     /// Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
-    pub include_item_ids: Option<Vec<i32>>,
+    pub include_item_ids: Option<Vec<u32>>,
     /// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
-    pub exclude_item_ids: Option<Vec<i32>>,
+    pub exclude_item_ids: Option<Vec<u32>>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<i32>>
+    pub account_ids: Option<Vec<u32>>
 }
 
 

@@ -14,21 +14,21 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MatchSaltsResponse {
     #[serde(rename = "cluster_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub cluster_id: Option<Option<i32>>,
+    pub cluster_id: Option<Option<u32>>,
     #[serde(rename = "demo_url", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub demo_url: Option<Option<String>>,
     #[serde(rename = "match_id")]
-    pub match_id: i64,
+    pub match_id: u64,
     #[serde(rename = "metadata_salt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub metadata_salt: Option<Option<i32>>,
+    pub metadata_salt: Option<Option<u32>>,
     #[serde(rename = "metadata_url", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub metadata_url: Option<Option<String>>,
     #[serde(rename = "replay_salt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub replay_salt: Option<Option<i32>>,
+    pub replay_salt: Option<Option<u32>>,
 }
 
 impl MatchSaltsResponse {
-    pub fn new(match_id: i64) -> MatchSaltsResponse {
+    pub fn new(match_id: u64) -> MatchSaltsResponse {
         MatchSaltsResponse {
             cluster_id: None,
             demo_url: None,

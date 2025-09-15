@@ -25,19 +25,19 @@ Name | Type | Description  | Required | Notes
 **min_published_unix_timestamp** | Option<**i64**> | Filter builds based on their published time (Unix timestamp). |  |
 **max_published_unix_timestamp** | Option<**i64**> | Filter builds based on their published time (Unix timestamp). |  |
 **sort_by** | Option<**String**> | The field to sort the builds by. |  |
-**start** | Option<**i32**> | The index of the first build to return. |  |
-**limit** | Option<**i32**> | The maximum number of builds to return. |  |[default to 100]
+**start** | Option<**u32**> | The index of the first build to return. |  |
+**limit** | Option<**u32**> | The maximum number of builds to return. |  |[default to 100]
 **sort_direction** | Option<**String**> | The direction to sort the builds in. |  |
 **search_name** | Option<**String**> | Search for builds with a name containing this string. |  |
 **search_description** | Option<**String**> | Search for builds with a description containing this string. |  |
 **only_latest** | Option<**bool**> | Only return the latest version of each build. |  |
-**language** | Option<**i32**> | Filter builds by language. |  |
-**build_id** | Option<**i32**> | Filter builds by ID. |  |
-**version** | Option<**i32**> | Filter builds by version. |  |
-**hero_id** | Option<**i32**> | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**tag** | Option<**i32**> | Filter builds by tag. |  |
-**rollup_category** | Option<**i32**> | Filter builds by rollup category. |  |
-**author_id** | Option<**i32**> | The author's `SteamID3` |  |
+**language** | Option<**u32**> | Filter builds by language. |  |
+**build_id** | Option<**u32**> | Filter builds by ID. |  |
+**version** | Option<**u32**> | Filter builds by version. |  |
+**hero_id** | Option<**u32**> | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
+**tag** | Option<**u32**> | Filter builds by tag. |  |
+**rollup_category** | Option<**u32**> | Filter builds by rollup category. |  |
+**author_id** | Option<**u32**> | The author's `SteamID3` |  |
 
 ### Return type
 

@@ -15,25 +15,25 @@ use serde::{Deserialize, Serialize};
 pub struct AnalyticsAbilityOrderStats {
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "abilities")]
-    pub abilities: Vec<i32>,
+    pub abilities: Vec<u32>,
     #[serde(rename = "losses")]
-    pub losses: i64,
+    pub losses: u64,
     #[serde(rename = "matches")]
-    pub matches: i64,
+    pub matches: u64,
     #[serde(rename = "players")]
-    pub players: i64,
+    pub players: u64,
     #[serde(rename = "total_assists")]
-    pub total_assists: i64,
+    pub total_assists: u64,
     #[serde(rename = "total_deaths")]
-    pub total_deaths: i64,
+    pub total_deaths: u64,
     #[serde(rename = "total_kills")]
-    pub total_kills: i64,
+    pub total_kills: u64,
     #[serde(rename = "wins")]
-    pub wins: i64,
+    pub wins: u64,
 }
 
 impl AnalyticsAbilityOrderStats {
-    pub fn new(abilities: Vec<i32>, losses: i64, matches: i64, players: i64, total_assists: i64, total_deaths: i64, total_kills: i64, wins: i64) -> AnalyticsAbilityOrderStats {
+    pub fn new(abilities: Vec<u32>, losses: u64, matches: u64, players: u64, total_assists: u64, total_deaths: u64, total_kills: u64, wins: u64) -> AnalyticsAbilityOrderStats {
         AnalyticsAbilityOrderStats {
             abilities,
             losses,

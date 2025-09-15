@@ -14,28 +14,28 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MmrHistory {
     #[serde(rename = "account_id")]
-    pub account_id: i32,
+    pub account_id: u32,
     /// Extracted from the rank the division (rank // 10)
     #[serde(rename = "division")]
-    pub division: i32,
+    pub division: u32,
     /// Extracted from the rank the division tier (rank % 10)
     #[serde(rename = "division_tier")]
-    pub division_tier: i32,
+    pub division_tier: u32,
     #[serde(rename = "match_id")]
-    pub match_id: i64,
+    pub match_id: u64,
     /// Player Score is the index for the rank array (internally used for the rank regression)
     #[serde(rename = "player_score")]
     pub player_score: f64,
     /// The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "rank")]
-    pub rank: i32,
+    pub rank: u32,
     /// Start time of the match
     #[serde(rename = "start_time")]
-    pub start_time: i32,
+    pub start_time: u32,
 }
 
 impl MmrHistory {
-    pub fn new(account_id: i32, division: i32, division_tier: i32, match_id: i64, player_score: f64, rank: i32, start_time: i32) -> MmrHistory {
+    pub fn new(account_id: u32, division: u32, division_tier: u32, match_id: u64, player_score: f64, rank: u32, start_time: u32) -> MmrHistory {
         MmrHistory {
             account_id,
             division,

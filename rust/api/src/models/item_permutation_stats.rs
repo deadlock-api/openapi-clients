@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 pub struct ItemPermutationStats {
     /// See more: <https://assets.deadlock-api.com/v2/items>
     #[serde(rename = "item_ids")]
-    pub item_ids: Vec<i32>,
+    pub item_ids: Vec<u32>,
     #[serde(rename = "losses")]
-    pub losses: i64,
+    pub losses: u64,
     #[serde(rename = "matches")]
-    pub matches: i64,
+    pub matches: u64,
     #[serde(rename = "wins")]
-    pub wins: i64,
+    pub wins: u64,
 }
 
 impl ItemPermutationStats {
-    pub fn new(item_ids: Vec<i32>, losses: i64, matches: i64, wins: i64) -> ItemPermutationStats {
+    pub fn new(item_ids: Vec<u32>, losses: u64, matches: u64, wins: u64) -> ItemPermutationStats {
         ItemPermutationStats {
             item_ids,
             losses,

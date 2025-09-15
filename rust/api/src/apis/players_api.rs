@@ -18,41 +18,41 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct CardParams {
     /// The players `SteamID3`
-    pub account_id: i32
+    pub account_id: u32
 }
 
 /// struct for passing parameters to the method [`enemy_stats`]
 #[derive(Clone, Debug)]
 pub struct EnemyStatsParams {
     /// The players `SteamID3`
-    pub account_id: i32,
+    pub account_id: u32,
     /// Filter matches based on their start time (Unix timestamp).
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// Filter based on the number of matches played.
-    pub min_matches_played: Option<i64>,
+    pub min_matches_played: Option<u64>,
     /// Filter based on the number of matches played.
-    pub max_matches_played: Option<i64>
+    pub max_matches_played: Option<u64>
 }
 
 /// struct for passing parameters to the method [`match_history`]
 #[derive(Clone, Debug)]
 pub struct MatchHistoryParams {
     /// The players `SteamID3`
-    pub account_id: i32,
+    pub account_id: u32,
     /// Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.
     pub force_refetch: Option<bool>,
     /// Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`.
@@ -63,27 +63,27 @@ pub struct MatchHistoryParams {
 #[derive(Clone, Debug)]
 pub struct MateStatsParams {
     /// The players `SteamID3`
-    pub account_id: i32,
+    pub account_id: u32,
     /// Filter matches based on their start time (Unix timestamp).
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>,
+    pub max_match_id: Option<u64>,
     /// Filter based on the number of matches played.
-    pub min_matches_played: Option<i64>,
+    pub min_matches_played: Option<u64>,
     /// Filter based on the number of matches played.
-    pub max_matches_played: Option<i64>,
+    pub max_matches_played: Option<u64>,
     /// Filter based on whether the mates were on the same party.
     pub same_party: Option<bool>
 }
@@ -92,57 +92,57 @@ pub struct MateStatsParams {
 #[derive(Clone, Debug)]
 pub struct PartyStatsParams {
     /// The players `SteamID3`
-    pub account_id: i32,
+    pub account_id: u32,
     /// Filter matches based on their start time (Unix timestamp).
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>
+    pub max_match_id: Option<u64>
 }
 
 /// struct for passing parameters to the method [`player_hero_stats`]
 #[derive(Clone, Debug)]
 pub struct PlayerHeroStatsParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
-    pub account_ids: Vec<i32>,
+    pub account_ids: Vec<u32>,
     /// Filter matches based on their start time (Unix timestamp).
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<i64>,
+    pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<i64>,
+    pub max_duration_s: Option<u64>,
     /// Filter players based on their net worth.
-    pub min_networth: Option<i64>,
+    pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
-    pub max_networth: Option<i64>,
+    pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<i32>,
+    pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<i32>,
+    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
-    pub min_match_id: Option<i64>,
+    pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>
+    pub max_match_id: Option<u64>
 }
 
 /// struct for passing parameters to the method [`steam`]
 #[derive(Clone, Debug)]
 pub struct SteamParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
-    pub account_ids: Vec<i64>
+    pub account_ids: Vec<u64>
 }
 
 /// struct for passing parameters to the method [`steam_search`]

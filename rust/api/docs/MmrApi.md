@@ -23,9 +23,9 @@ Batch Player Hero MMR
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_ids** | [**Vec<i32>**](i32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
-**hero_id** | **i32** | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
+**account_ids** | [**Vec<u32>**](u32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
+**hero_id** | **u32** | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 
 ### Return type
 
@@ -55,8 +55,8 @@ Player Hero MMR History
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | **i32** | The players `SteamID3` | [required] |
-**hero_id** | **i32** | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
+**account_id** | **u32** | The players `SteamID3` | [required] |
+**hero_id** | **u32** | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
 
 ### Return type
 
@@ -86,8 +86,8 @@ Batch Player MMR
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_ids** | [**Vec<i32>**](i32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
-**max_match_id** | Option<**i64**> | Filter matches based on their ID. |  |
+**account_ids** | [**Vec<u32>**](u32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 
 ### Return type
 
@@ -117,7 +117,7 @@ Player MMR History
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | **i32** | The players `SteamID3` | [required] |
+**account_id** | **u32** | The players `SteamID3` | [required] |
 
 ### Return type
 

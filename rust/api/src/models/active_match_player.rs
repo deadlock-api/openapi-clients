@@ -16,10 +16,10 @@ pub struct ActiveMatchPlayer {
     #[serde(rename = "abandoned", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub abandoned: Option<Option<bool>>,
     #[serde(rename = "account_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub account_id: Option<Option<i32>>,
+    pub account_id: Option<Option<u32>>,
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "hero_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub hero_id: Option<Option<i32>>,
+    pub hero_id: Option<Option<u32>>,
     #[serde(rename = "team", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub team: Option<Option<i32>>,
     #[serde(rename = "team_parsed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

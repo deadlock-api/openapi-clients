@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **abandoned** | Option<**bool**> |  | [optional]
-**account_id** | Option<**i32**> |  | [optional]
-**hero_id** | Option<**i32**> | See more: <https://assets.deadlock-api.com/v2/heroes> | [optional]
+**account_id** | Option<**u32**> |  | [optional]
+**hero_id** | Option<**u32**> | See more: <https://assets.deadlock-api.com/v2/heroes> | [optional]
 **team** | Option<**i32**> |  | [optional]
 **team_parsed** | Option<[**models::ActiveMatchTeam**](ActiveMatchTeam.md)> |  | [optional]
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **duplicate_heroes_enabled** | Option<**bool**> |  | [optional]
 **experimental_heroes_enabled** | Option<**bool**> |  | [optional]
 **is_publicly_visible** | Option<**bool**> |  | [optional]
-**min_roster_size** | Option<**i32**> |  | [optional]
+**min_roster_size** | Option<**u32**> |  | [optional]
 **randomize_lanes** | Option<**bool**> |  | [optional]
 **region_mode** | Option<[**models::RegionMode**](RegionMode.md)> |  | [optional]
 

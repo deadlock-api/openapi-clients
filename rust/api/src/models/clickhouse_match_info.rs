@@ -15,22 +15,22 @@ use serde::{Deserialize, Serialize};
 pub struct ClickhouseMatchInfo {
     /// See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "average_badge_team0", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub average_badge_team0: Option<Option<i32>>,
+    pub average_badge_team0: Option<Option<u32>>,
     /// See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "average_badge_team1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub average_badge_team1: Option<Option<i32>>,
+    pub average_badge_team1: Option<Option<u32>>,
     #[serde(rename = "duration_s")]
-    pub duration_s: i32,
+    pub duration_s: u32,
     #[serde(rename = "match_id")]
-    pub match_id: i64,
+    pub match_id: u64,
     #[serde(rename = "match_mode")]
     pub match_mode: i32,
     #[serde(rename = "start_time")]
-    pub start_time: i32,
+    pub start_time: u32,
 }
 
 impl ClickhouseMatchInfo {
-    pub fn new(duration_s: i32, match_id: i64, match_mode: i32, start_time: i32) -> ClickhouseMatchInfo {
+    pub fn new(duration_s: u32, match_id: u64, match_mode: i32, start_time: u32) -> ClickhouseMatchInfo {
         ClickhouseMatchInfo {
             average_badge_team0: None,
             average_badge_team1: None,

@@ -18,22 +18,22 @@ pub struct LeaderboardEntry {
     pub account_name: Option<Option<String>>,
     /// The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "badge_level", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub badge_level: Option<Option<i32>>,
+    pub badge_level: Option<Option<u32>>,
     /// The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
     #[serde(rename = "possible_account_ids", skip_serializing_if = "Option::is_none")]
-    pub possible_account_ids: Option<Vec<i32>>,
+    pub possible_account_ids: Option<Vec<u32>>,
     /// The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "rank", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub rank: Option<Option<i32>>,
+    pub rank: Option<Option<u32>>,
     /// The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "ranked_rank", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub ranked_rank: Option<Option<i32>>,
+    pub ranked_rank: Option<Option<u32>>,
     /// The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "ranked_subrank", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub ranked_subrank: Option<Option<i32>>,
+    pub ranked_subrank: Option<Option<u32>>,
     /// The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "top_hero_ids", skip_serializing_if = "Option::is_none")]
-    pub top_hero_ids: Option<Vec<i32>>,
+    pub top_hero_ids: Option<Vec<u32>>,
 }
 
 impl LeaderboardEntry {

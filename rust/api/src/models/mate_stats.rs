@@ -14,17 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MateStats {
     #[serde(rename = "matches")]
-    pub matches: Vec<i64>,
+    pub matches: Vec<u64>,
     #[serde(rename = "matches_played")]
-    pub matches_played: i64,
+    pub matches_played: u64,
     #[serde(rename = "mate_id")]
-    pub mate_id: i32,
+    pub mate_id: u32,
     #[serde(rename = "wins")]
-    pub wins: i64,
+    pub wins: u64,
 }
 
 impl MateStats {
-    pub fn new(matches: Vec<i64>, matches_played: i64, mate_id: i32, wins: i64) -> MateStats {
+    pub fn new(matches: Vec<u64>, matches_played: u64, mate_id: u32, wins: u64) -> MateStats {
         MateStats {
             matches,
             matches_played,

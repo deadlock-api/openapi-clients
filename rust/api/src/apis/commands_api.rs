@@ -18,7 +18,7 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct CommandResolveParams {
     /// The players `SteamID3`
-    pub account_id: i32,
+    pub account_id: u32,
     /// The players region
     pub region: Option<String>,
     /// The command template to resolve
@@ -30,7 +30,7 @@ pub struct CommandResolveParams {
 /// struct for passing parameters to the method [`variables_resolve`]
 #[derive(Clone, Debug)]
 pub struct VariablesResolveParams {
-    pub account_id: i32,
+    pub account_id: u32,
     pub region: Option<String>,
     /// Variables to resolve, separated by commas.
     pub variables: Option<String>,

@@ -15,68 +15,68 @@ use serde::{Deserialize, Serialize};
 pub struct HeroSynergyStats {
     /// The number of assists by `hero_id1` when playing with `hero_id2`.
     #[serde(rename = "assists1")]
-    pub assists1: i64,
+    pub assists1: u64,
     /// The number of assists by `hero_id2` when playing with `hero_id1`.
     #[serde(rename = "assists2")]
-    pub assists2: i64,
+    pub assists2: u64,
     /// The number of creeps killed by `hero_id1` when playing with `hero_id2`.
     #[serde(rename = "creeps1")]
-    pub creeps1: i64,
+    pub creeps1: u64,
     /// The number of creeps killed by `hero_id2` when playing with `hero_id1`.
     #[serde(rename = "creeps2")]
-    pub creeps2: i64,
+    pub creeps2: u64,
     /// The number of deaths by `hero_id1` when playing with `hero_id2`.
     #[serde(rename = "deaths1")]
-    pub deaths1: i64,
+    pub deaths1: u64,
     /// The number of deaths by `hero_id2` when playing with `hero_id1`.
     #[serde(rename = "deaths2")]
-    pub deaths2: i64,
+    pub deaths2: u64,
     /// The number of denies by `hero_id1` when playing with `hero_id2`.
     #[serde(rename = "denies1")]
-    pub denies1: i64,
+    pub denies1: u64,
     /// The number of denies by `hero_id2` when playing with `hero_id1`.
     #[serde(rename = "denies2")]
-    pub denies2: i64,
+    pub denies2: u64,
     /// The ID of the first hero in the pair.
     #[serde(rename = "hero_id1")]
-    pub hero_id1: i32,
+    pub hero_id1: u32,
     /// The ID of the second hero in the pair.
     #[serde(rename = "hero_id2")]
-    pub hero_id2: i32,
+    pub hero_id2: u32,
     /// The number of kills by `hero_id1` when playing with `hero_id2`.
     #[serde(rename = "kills1")]
-    pub kills1: i64,
+    pub kills1: u64,
     /// The number of kills by `hero_id2` when playing with `hero_id1`.
     #[serde(rename = "kills2")]
-    pub kills2: i64,
+    pub kills2: u64,
     /// The number of last hits by `hero_id1` when playing with `hero_id2`.
     #[serde(rename = "last_hits1")]
-    pub last_hits1: i64,
+    pub last_hits1: u64,
     /// The number of last hits by `hero_id2` when playing with `hero_id1`.
     #[serde(rename = "last_hits2")]
-    pub last_hits2: i64,
+    pub last_hits2: u64,
     /// The total number of matches played where `hero_id1` and `hero_id2` were on the same team, meeting the filter criteria.
     #[serde(rename = "matches_played")]
-    pub matches_played: i64,
+    pub matches_played: u64,
     /// The net worth of `hero_id1` when playing with `hero_id2`.
     #[serde(rename = "networth1")]
-    pub networth1: i64,
+    pub networth1: u64,
     /// The net worth of `hero_id2` when playing with `hero_id1`.
     #[serde(rename = "networth2")]
-    pub networth2: i64,
+    pub networth2: u64,
     /// The amount of objective damage dealt by `hero_id1` when playing with `hero_id2`.
     #[serde(rename = "obj_damage1")]
-    pub obj_damage1: i64,
+    pub obj_damage1: u64,
     /// The amount of objective damage dealt by `hero_id2` when playing with `hero_id1`.
     #[serde(rename = "obj_damage2")]
-    pub obj_damage2: i64,
+    pub obj_damage2: u64,
     /// The number of times the team won when both `hero_id1` and `hero_id2` were on the same team.
     #[serde(rename = "wins")]
-    pub wins: i64,
+    pub wins: u64,
 }
 
 impl HeroSynergyStats {
-    pub fn new(assists1: i64, assists2: i64, creeps1: i64, creeps2: i64, deaths1: i64, deaths2: i64, denies1: i64, denies2: i64, hero_id1: i32, hero_id2: i32, kills1: i64, kills2: i64, last_hits1: i64, last_hits2: i64, matches_played: i64, networth1: i64, networth2: i64, obj_damage1: i64, obj_damage2: i64, wins: i64) -> HeroSynergyStats {
+    pub fn new(assists1: u64, assists2: u64, creeps1: u64, creeps2: u64, deaths1: u64, deaths2: u64, denies1: u64, denies2: u64, hero_id1: u32, hero_id2: u32, kills1: u64, kills2: u64, last_hits1: u64, last_hits2: u64, matches_played: u64, networth1: u64, networth2: u64, obj_damage1: u64, obj_damage2: u64, wins: u64) -> HeroSynergyStats {
         HeroSynergyStats {
             assists1,
             assists2,

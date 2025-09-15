@@ -18,36 +18,36 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct HeroMmrParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
-    pub account_ids: Vec<i32>,
+    pub account_ids: Vec<u32>,
     /// The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: i32,
+    pub hero_id: u32,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>
+    pub max_match_id: Option<u64>
 }
 
 /// struct for passing parameters to the method [`hero_mmr_history`]
 #[derive(Clone, Debug)]
 pub struct HeroMmrHistoryParams {
     /// The players `SteamID3`
-    pub account_id: i32,
+    pub account_id: u32,
     /// The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: i32
+    pub hero_id: u32
 }
 
 /// struct for passing parameters to the method [`mmr`]
 #[derive(Clone, Debug)]
 pub struct MmrParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
-    pub account_ids: Vec<i32>,
+    pub account_ids: Vec<u32>,
     /// Filter matches based on their ID.
-    pub max_match_id: Option<i64>
+    pub max_match_id: Option<u64>
 }
 
 /// struct for passing parameters to the method [`mmr_history`]
 #[derive(Clone, Debug)]
 pub struct MmrHistoryParams {
     /// The players `SteamID3`
-    pub account_id: i32
+    pub account_id: u32
 }
 
 

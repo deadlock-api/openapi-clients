@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct BadgeDistribution {
     /// The badge level. See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "badge_level")]
-    pub badge_level: i32,
+    pub badge_level: u32,
     /// The total number of matches.
     #[serde(rename = "total_matches")]
-    pub total_matches: i64,
+    pub total_matches: u64,
 }
 
 impl BadgeDistribution {
-    pub fn new(badge_level: i32, total_matches: i64) -> BadgeDistribution {
+    pub fn new(badge_level: u32, total_matches: u64) -> BadgeDistribution {
         BadgeDistribution {
             badge_level,
             total_matches,

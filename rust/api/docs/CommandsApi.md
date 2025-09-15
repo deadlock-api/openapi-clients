@@ -50,7 +50,7 @@ Resolve Command
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | **i32** | The players `SteamID3` | [required] |
+**account_id** | **u32** | The players `SteamID3` | [required] |
 **region** | Option<**String**> | The players region |  |
 **template** | Option<**String**> | The command template to resolve |  |
 **hero_name** | Option<**String**> | Hero name to check for hero specific stats |  |
@@ -83,7 +83,7 @@ Resolve Variables
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | **i32** |  | [required] |
+**account_id** | **u32** |  | [required] |
 **region** | Option<**String**> |  |  |
 **variables** | Option<**String**> | Variables to resolve, separated by commas. |  |
 **hero_name** | Option<**String**> | Hero name to check for hero specific stats |  |

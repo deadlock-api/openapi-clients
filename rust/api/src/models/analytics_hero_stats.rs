@@ -14,52 +14,52 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnalyticsHeroStats {
     #[serde(rename = "bucket", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub bucket: Option<Option<i32>>,
+    pub bucket: Option<Option<u32>>,
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "hero_id")]
-    pub hero_id: i32,
+    pub hero_id: u32,
     #[serde(rename = "losses")]
-    pub losses: i64,
+    pub losses: u64,
     #[serde(rename = "matches")]
-    pub matches: i64,
+    pub matches: u64,
     #[serde(rename = "matches_per_bucket")]
-    pub matches_per_bucket: i64,
+    pub matches_per_bucket: u64,
     #[serde(rename = "players")]
-    pub players: i64,
+    pub players: u64,
     #[serde(rename = "total_assists")]
-    pub total_assists: i64,
+    pub total_assists: u64,
     #[serde(rename = "total_boss_damage")]
-    pub total_boss_damage: i64,
+    pub total_boss_damage: u64,
     #[serde(rename = "total_creep_damage")]
-    pub total_creep_damage: i64,
+    pub total_creep_damage: u64,
     #[serde(rename = "total_deaths")]
-    pub total_deaths: i64,
+    pub total_deaths: u64,
     #[serde(rename = "total_denies")]
-    pub total_denies: i64,
+    pub total_denies: u64,
     #[serde(rename = "total_kills")]
-    pub total_kills: i64,
+    pub total_kills: u64,
     #[serde(rename = "total_last_hits")]
-    pub total_last_hits: i64,
+    pub total_last_hits: u64,
     #[serde(rename = "total_max_health")]
-    pub total_max_health: i64,
+    pub total_max_health: u64,
     #[serde(rename = "total_net_worth")]
-    pub total_net_worth: i64,
+    pub total_net_worth: u64,
     #[serde(rename = "total_neutral_damage")]
-    pub total_neutral_damage: i64,
+    pub total_neutral_damage: u64,
     #[serde(rename = "total_player_damage")]
-    pub total_player_damage: i64,
+    pub total_player_damage: u64,
     #[serde(rename = "total_player_damage_taken")]
-    pub total_player_damage_taken: i64,
+    pub total_player_damage_taken: u64,
     #[serde(rename = "total_shots_hit")]
-    pub total_shots_hit: i64,
+    pub total_shots_hit: u64,
     #[serde(rename = "total_shots_missed")]
-    pub total_shots_missed: i64,
+    pub total_shots_missed: u64,
     #[serde(rename = "wins")]
-    pub wins: i64,
+    pub wins: u64,
 }
 
 impl AnalyticsHeroStats {
-    pub fn new(hero_id: i32, losses: i64, matches: i64, matches_per_bucket: i64, players: i64, total_assists: i64, total_boss_damage: i64, total_creep_damage: i64, total_deaths: i64, total_denies: i64, total_kills: i64, total_last_hits: i64, total_max_health: i64, total_net_worth: i64, total_neutral_damage: i64, total_player_damage: i64, total_player_damage_taken: i64, total_shots_hit: i64, total_shots_missed: i64, wins: i64) -> AnalyticsHeroStats {
+    pub fn new(hero_id: u32, losses: u64, matches: u64, matches_per_bucket: u64, players: u64, total_assists: u64, total_boss_damage: u64, total_creep_damage: u64, total_deaths: u64, total_denies: u64, total_kills: u64, total_last_hits: u64, total_max_health: u64, total_net_worth: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, total_shots_hit: u64, total_shots_missed: u64, wins: u64) -> AnalyticsHeroStats {
         AnalyticsHeroStats {
             bucket: None,
             hero_id,

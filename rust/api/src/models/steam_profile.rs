@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SteamProfile {
     #[serde(rename = "account_id")]
-    pub account_id: i32,
+    pub account_id: u32,
     #[serde(rename = "avatar")]
     pub avatar: String,
     #[serde(rename = "avatarfull")]
@@ -34,7 +34,7 @@ pub struct SteamProfile {
 }
 
 impl SteamProfile {
-    pub fn new(account_id: i32, avatar: String, avatarfull: String, avatarmedium: String, last_updated: String, personaname: String, profileurl: String) -> SteamProfile {
+    pub fn new(account_id: u32, avatar: String, avatarfull: String, avatarmedium: String, last_updated: String, personaname: String, profileurl: String) -> SteamProfile {
         SteamProfile {
             account_id,
             avatar,

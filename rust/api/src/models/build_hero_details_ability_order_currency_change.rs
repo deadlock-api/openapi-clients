@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BuildHeroDetailsAbilityOrderCurrencyChange {
     #[serde(rename = "ability_id")]
-    pub ability_id: i32,
+    pub ability_id: u32,
     #[serde(rename = "annotation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub annotation: Option<Option<String>>,
     #[serde(rename = "currency_type")]
@@ -24,7 +24,7 @@ pub struct BuildHeroDetailsAbilityOrderCurrencyChange {
 }
 
 impl BuildHeroDetailsAbilityOrderCurrencyChange {
-    pub fn new(ability_id: i32, currency_type: i32, delta: i32) -> BuildHeroDetailsAbilityOrderCurrencyChange {
+    pub fn new(ability_id: u32, currency_type: i32, delta: i32) -> BuildHeroDetailsAbilityOrderCurrencyChange {
         BuildHeroDetailsAbilityOrderCurrencyChange {
             ability_id,
             annotation: None,

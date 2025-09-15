@@ -23,7 +23,7 @@ pub struct CreateCustomParams {
 /// struct for passing parameters to the method [`get_custom`]
 #[derive(Clone, Debug)]
 pub struct GetCustomParams {
-    pub party_id: i64
+    pub party_id: u64
 }
 
 

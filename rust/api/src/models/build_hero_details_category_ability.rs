@@ -14,19 +14,19 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BuildHeroDetailsCategoryAbility {
     #[serde(rename = "ability_id")]
-    pub ability_id: i32,
+    pub ability_id: u32,
     #[serde(rename = "annotation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub annotation: Option<Option<String>>,
     #[serde(rename = "imbue_target_ability_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub imbue_target_ability_id: Option<Option<i32>>,
+    pub imbue_target_ability_id: Option<Option<u32>>,
     #[serde(rename = "required_flex_slots", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub required_flex_slots: Option<Option<i32>>,
+    pub required_flex_slots: Option<Option<u32>>,
     #[serde(rename = "sell_priority", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub sell_priority: Option<Option<i32>>,
+    pub sell_priority: Option<Option<u32>>,
 }
 
 impl BuildHeroDetailsCategoryAbility {
-    pub fn new(ability_id: i32) -> BuildHeroDetailsCategoryAbility {
+    pub fn new(ability_id: u32) -> BuildHeroDetailsCategoryAbility {
         BuildHeroDetailsCategoryAbility {
             ability_id,
             annotation: None,

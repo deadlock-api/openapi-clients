@@ -15,16 +15,16 @@ use serde::{Deserialize, Serialize};
 pub struct TableSize {
     /// Compressed size of the table in bytes.
     #[serde(rename = "data_compressed_bytes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub data_compressed_bytes: Option<Option<i64>>,
+    pub data_compressed_bytes: Option<Option<u64>>,
     /// Uncompressed size of the table in bytes.
     #[serde(rename = "data_uncompressed_bytes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub data_uncompressed_bytes: Option<Option<i64>>,
+    pub data_uncompressed_bytes: Option<Option<u64>>,
     /// Whether the table is a view.
     #[serde(rename = "is_view")]
     pub is_view: bool,
     /// Number of rows in the table.
     #[serde(rename = "rows", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub rows: Option<Option<i64>>,
+    pub rows: Option<Option<u64>>,
 }
 
 impl TableSize {

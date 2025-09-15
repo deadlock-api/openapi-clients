@@ -14,22 +14,22 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ItemStats {
     #[serde(rename = "bucket", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub bucket: Option<Option<i32>>,
+    pub bucket: Option<Option<u32>>,
     /// See more: <https://assets.deadlock-api.com/v2/items>
     #[serde(rename = "item_id")]
-    pub item_id: i32,
+    pub item_id: u32,
     #[serde(rename = "losses")]
-    pub losses: i64,
+    pub losses: u64,
     #[serde(rename = "matches")]
-    pub matches: i64,
+    pub matches: u64,
     #[serde(rename = "players")]
-    pub players: i64,
+    pub players: u64,
     #[serde(rename = "wins")]
-    pub wins: i64,
+    pub wins: u64,
 }
 
 impl ItemStats {
-    pub fn new(item_id: i32, losses: i64, matches: i64, players: i64, wins: i64) -> ItemStats {
+    pub fn new(item_id: u32, losses: u64, matches: u64, players: u64, wins: u64) -> ItemStats {
         ItemStats {
             bucket: None,
             item_id,

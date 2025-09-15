@@ -15,18 +15,18 @@ use serde::{Deserialize, Serialize};
 pub struct Entry {
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "hero_id")]
-    pub hero_id: i32,
+    pub hero_id: u32,
     #[serde(rename = "matches")]
-    pub matches: i64,
+    pub matches: u64,
     /// See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "rank")]
-    pub rank: i64,
+    pub rank: u64,
     #[serde(rename = "value")]
     pub value: f64,
 }
 
 impl Entry {
-    pub fn new(hero_id: i32, matches: i64, rank: i64, value: f64) -> Entry {
+    pub fn new(hero_id: u32, matches: u64, rank: u64, value: f64) -> Entry {
         Entry {
             hero_id,
             matches,

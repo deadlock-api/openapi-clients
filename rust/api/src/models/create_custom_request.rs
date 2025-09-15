@@ -25,7 +25,7 @@ pub struct CreateCustomRequest {
     #[serde(rename = "is_publicly_visible", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub is_publicly_visible: Option<Option<bool>>,
     #[serde(rename = "min_roster_size", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub min_roster_size: Option<Option<i32>>,
+    pub min_roster_size: Option<Option<u32>>,
     #[serde(rename = "randomize_lanes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub randomize_lanes: Option<Option<bool>>,
     #[serde(rename = "region_mode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

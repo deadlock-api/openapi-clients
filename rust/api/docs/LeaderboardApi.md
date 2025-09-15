@@ -54,7 +54,7 @@ Hero Leaderboard
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **region** | **String** | The region to fetch the leaderboard for. | [required] |
-**hero_id** | **i32** | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
+**hero_id** | **u32** | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
 
 ### Return type
 
@@ -74,7 +74,7 @@ No authorization required
 
 ## leaderboard_hero_raw
 
-> Vec<i32> leaderboard_hero_raw(region, hero_id)
+> Vec<u32> leaderboard_hero_raw(region, hero_id)
 Hero Leaderboard as Protobuf
 
  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -85,11 +85,11 @@ Hero Leaderboard as Protobuf
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **region** | **String** | The region to fetch the leaderboard for. | [required] |
-**hero_id** | **i32** | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
+**hero_id** | **u32** | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
 
 ### Return type
 
-**Vec<i32>**
+**Vec<u32>**
 
 ### Authorization
 
@@ -105,7 +105,7 @@ No authorization required
 
 ## leaderboard_raw
 
-> Vec<i32> leaderboard_raw(region)
+> Vec<u32> leaderboard_raw(region)
 Leaderboard as Protobuf
 
  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -119,7 +119,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-**Vec<i32>**
+**Vec<u32>**
 
 ### Authorization
 

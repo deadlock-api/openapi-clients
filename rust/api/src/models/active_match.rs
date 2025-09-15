@@ -14,35 +14,35 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ActiveMatch {
     #[serde(rename = "compat_version", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub compat_version: Option<Option<i32>>,
+    pub compat_version: Option<Option<u32>>,
     #[serde(rename = "duration_s", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub duration_s: Option<Option<i32>>,
+    pub duration_s: Option<Option<u32>>,
     #[serde(rename = "game_mode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub game_mode: Option<Option<i32>>,
     #[serde(rename = "game_mode_parsed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub game_mode_parsed: Option<Option<models::ActiveMatchGameMode>>,
     #[serde(rename = "game_mode_version", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub game_mode_version: Option<Option<i32>>,
+    pub game_mode_version: Option<Option<u32>>,
     #[serde(rename = "lobby_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub lobby_id: Option<Option<i64>>,
+    pub lobby_id: Option<Option<u64>>,
     #[serde(rename = "match_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub match_id: Option<Option<i64>>,
+    pub match_id: Option<Option<u64>>,
     #[serde(rename = "match_mode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub match_mode: Option<Option<i32>>,
     #[serde(rename = "match_mode_parsed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub match_mode_parsed: Option<Option<models::ActiveMatchMode>>,
     #[serde(rename = "match_score", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub match_score: Option<Option<i32>>,
+    pub match_score: Option<Option<u32>>,
     #[serde(rename = "net_worth_team_0", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub net_worth_team_0: Option<Option<i32>>,
+    pub net_worth_team_0: Option<Option<u32>>,
     #[serde(rename = "net_worth_team_1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub net_worth_team_1: Option<Option<i32>>,
+    pub net_worth_team_1: Option<Option<u32>>,
     #[serde(rename = "objectives_mask_team0", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub objectives_mask_team0: Option<Option<i64>>,
+    pub objectives_mask_team0: Option<Option<u64>>,
     #[serde(rename = "objectives_mask_team1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub objectives_mask_team1: Option<Option<i64>>,
+    pub objectives_mask_team1: Option<Option<u64>>,
     #[serde(rename = "open_spectator_slots", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub open_spectator_slots: Option<Option<i32>>,
+    pub open_spectator_slots: Option<Option<u32>>,
     #[serde(rename = "players")]
     pub players: Vec<models::ActiveMatchPlayer>,
     #[serde(rename = "region_mode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -50,9 +50,9 @@ pub struct ActiveMatch {
     #[serde(rename = "region_mode_parsed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub region_mode_parsed: Option<Option<models::ActiveMatchRegionMode>>,
     #[serde(rename = "spectators", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub spectators: Option<Option<i32>>,
+    pub spectators: Option<Option<u32>>,
     #[serde(rename = "start_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub start_time: Option<Option<i32>>,
+    pub start_time: Option<Option<u32>>,
     #[serde(rename = "winning_team", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub winning_team: Option<Option<i32>>,
     #[serde(rename = "winning_team_parsed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

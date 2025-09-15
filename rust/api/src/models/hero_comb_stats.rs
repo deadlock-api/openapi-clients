@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 pub struct HeroCombStats {
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "hero_ids")]
-    pub hero_ids: Vec<i32>,
+    pub hero_ids: Vec<u32>,
     #[serde(rename = "losses")]
-    pub losses: i64,
+    pub losses: u64,
     #[serde(rename = "matches")]
-    pub matches: i64,
+    pub matches: u64,
     #[serde(rename = "wins")]
-    pub wins: i64,
+    pub wins: u64,
 }
 
 impl HeroCombStats {
-    pub fn new(hero_ids: Vec<i32>, losses: i64, matches: i64, wins: i64) -> HeroCombStats {
+    pub fn new(hero_ids: Vec<u32>, losses: u64, matches: u64, wins: u64) -> HeroCombStats {
         HeroCombStats {
             hero_ids,
             losses,
