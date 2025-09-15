@@ -21,6 +21,9 @@ The clients are organized by language and API:
 -   **Go**:
     -   `go/api`: Client for the main Deadlock API.
     -   `go/assets-api`: Client for the Deadlock Assets API.
+-   **PHP**:
+    -   `php/api`: Client for the main Deadlock API.
+    -   `php/assets-api`: Client for the Deadlock Assets API.
 
 ## Installation from GitHub
 
@@ -162,6 +165,8 @@ You can regenerate the clients manually using the provided `Makefile`:
     make typescript
     make kotlin
     make java
+    make go
+    make php
     ```
 
 -   **Clean all generated clients:**
