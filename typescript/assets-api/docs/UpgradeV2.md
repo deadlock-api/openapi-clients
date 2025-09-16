@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **tooltip_sections** | [**Array&lt;UpgradeTooltipSectionV2&gt;**](UpgradeTooltipSectionV2.md) |  | [optional] [default to undefined]
 **is_active_item** | **boolean** |  | [readonly] [default to undefined]
 **shopable** | **boolean** |  | [readonly] [default to undefined]
-**cost** | **number** |  | [default to undefined]
+**cost** | **number** |  | [readonly] [default to undefined]
 
 ## Example
 

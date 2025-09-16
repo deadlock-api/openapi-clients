@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **tooltip_sections** | Option<[**Vec<models::UpgradeTooltipSectionV2>**](UpgradeTooltipSectionV2.md)> |  | [optional]
 **is_active_item** | **bool** |  | [readonly]
 **shopable** | **bool** |  | [readonly]
-**cost** | Option<**i32**> |  | 
+**cost** | Option<**i32**> |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

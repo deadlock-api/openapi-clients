@@ -13,7 +13,72 @@
 """  # noqa: E501
 
 
-# import models into model package
+if __import__("typing").TYPE_CHECKING:
+    # import models into model package
+    from deadlock-api-client.models.api_info import APIInfo
+    from deadlock-api-client.models.active_match import ActiveMatch
+    from deadlock-api-client.models.active_match_game_mode import ActiveMatchGameMode
+    from deadlock-api-client.models.active_match_mode import ActiveMatchMode
+    from deadlock-api-client.models.active_match_player import ActiveMatchPlayer
+    from deadlock-api-client.models.active_match_region_mode import ActiveMatchRegionMode
+    from deadlock-api-client.models.active_match_team import ActiveMatchTeam
+    from deadlock-api-client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
+    from deadlock-api-client.models.analytics_hero_stats import AnalyticsHeroStats
+    from deadlock-api-client.models.badge_distribution import BadgeDistribution
+    from deadlock-api-client.models.build import Build
+    from deadlock-api-client.models.build_hero import BuildHero
+    from deadlock-api-client.models.build_hero_details import BuildHeroDetails
+    from deadlock-api-client.models.build_hero_details_ability_order import BuildHeroDetailsAbilityOrder
+    from deadlock-api-client.models.build_hero_details_ability_order_currency_change import BuildHeroDetailsAbilityOrderCurrencyChange
+    from deadlock-api-client.models.build_hero_details_category import BuildHeroDetailsCategory
+    from deadlock-api-client.models.build_hero_details_category_ability import BuildHeroDetailsCategoryAbility
+    from deadlock-api-client.models.build_item_stats import BuildItemStats
+    from deadlock-api-client.models.clickhouse_match_info import ClickhouseMatchInfo
+    from deadlock-api-client.models.clickhouse_salts import ClickhouseSalts
+    from deadlock-api-client.models.create_custom_request import CreateCustomRequest
+    from deadlock-api-client.models.create_custom_response import CreateCustomResponse
+    from deadlock-api-client.models.e_sports_match import ESportsMatch
+    from deadlock-api-client.models.e_sports_match_status import ESportsMatchStatus
+    from deadlock-api-client.models.enemy_stats import EnemyStats
+    from deadlock-api-client.models.entry import Entry
+    from deadlock-api-client.models.get_custom_match_id_response import GetCustomMatchIdResponse
+    from deadlock-api-client.models.hash_map_value import HashMapValue
+    from deadlock-api-client.models.hero_comb_stats import HeroCombStats
+    from deadlock-api-client.models.hero_counter_stats import HeroCounterStats
+    from deadlock-api-client.models.hero_stats import HeroStats
+    from deadlock-api-client.models.hero_synergy_stats import HeroSynergyStats
+    from deadlock-api-client.models.item_permutation_stats import ItemPermutationStats
+    from deadlock-api-client.models.item_stats import ItemStats
+    from deadlock-api-client.models.leaderboard import Leaderboard
+    from deadlock-api-client.models.leaderboard_entry import LeaderboardEntry
+    from deadlock-api-client.models.mmr_history import MMRHistory
+    from deadlock-api-client.models.match_salts_response import MatchSaltsResponse
+    from deadlock-api-client.models.match_spectate_response import MatchSpectateResponse
+    from deadlock-api-client.models.mate_stats import MateStats
+    from deadlock-api-client.models.party_stats import PartyStats
+    from deadlock-api-client.models.patch import Patch
+    from deadlock-api-client.models.patch_category import PatchCategory
+    from deadlock-api-client.models.patch_guid import PatchGuid
+    from deadlock-api-client.models.player_card import PlayerCard
+    from deadlock-api-client.models.player_card_slot import PlayerCardSlot
+    from deadlock-api-client.models.player_card_slot_hero import PlayerCardSlotHero
+    from deadlock-api-client.models.player_card_slot_stat import PlayerCardSlotStat
+    from deadlock-api-client.models.player_match_history_entry import PlayerMatchHistoryEntry
+    from deadlock-api-client.models.region_mode import RegionMode
+    from deadlock-api-client.models.status import Status
+    from deadlock-api-client.models.status_services import StatusServices
+    from deadlock-api-client.models.steam_profile import SteamProfile
+    from deadlock-api-client.models.table_size import TableSize
+    from deadlock-api-client.models.variable_category import VariableCategory
+    from deadlock-api-client.models.variable_description import VariableDescription
+    
+else:
+    from lazy_imports import LazyModule, as_package, load
+
+    load(
+        LazyModule(
+            *as_package(__file__),
+            """# import models into model package
 from deadlock-api-client.models.api_info import APIInfo
 from deadlock-api-client.models.active_match import ActiveMatch
 from deadlock-api-client.models.active_match_game_mode import ActiveMatchGameMode
@@ -70,3 +135,9 @@ from deadlock-api-client.models.steam_profile import SteamProfile
 from deadlock-api-client.models.table_size import TableSize
 from deadlock-api-client.models.variable_category import VariableCategory
 from deadlock-api-client.models.variable_description import VariableDescription
+
+""",
+            name=__name__,
+            doc=__doc__,
+        )
+    )
