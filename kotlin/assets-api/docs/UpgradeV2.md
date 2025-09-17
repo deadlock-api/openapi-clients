@@ -12,7 +12,7 @@
 | **activation** | [**RawAbilityActivationV2**](RawAbilityActivationV2.md) |  |  |
 | **isActiveItem** | **kotlin.Boolean** |  |  [readonly] |
 | **shopable** | **kotlin.Boolean** |  |  [readonly] |
-| **cost** | **kotlin.Int** |  |  [readonly] |
+| **cost** | **kotlin.Int** |  |  |
 | **startTrained** | **kotlin.Boolean** |  |  [optional] |
 | **image** | **kotlin.String** |  |  [optional] |
 | **imageWebp** | **kotlin.String** |  |  [optional] |

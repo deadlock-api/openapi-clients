@@ -20,7 +20,6 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from uuid import UUID
 from deadlock-api-client.models.e_sports_match_status import ESportsMatchStatus
 from typing import Optional, Set
 from typing_extensions import Self
@@ -37,7 +36,7 @@ class ESportsMatch(BaseModel):
     team1_name: Optional[StrictStr] = Field(default=None, description="The name of the second team.")
     tournament_name: Optional[StrictStr] = Field(default=None, description="The name of the tournament.")
     tournament_stage: Optional[StrictStr] = Field(default=None, description="The stage of the tournament.")
-    update_id: Optional[UUID] = Field(default=None, description="If you want to update an existing match, you can provide an update id.")
+    update_id: Optional[StrictStr] = Field(default=None, description="If you want to update an existing match, you can provide an update id.")
     __properties: ClassVar[List[str]] = ["match_id", "provider", "scheduled_date", "status", "team0_name", "team1_name", "tournament_name", "tournament_stage", "update_id"]
 
     model_config = ConfigDict(

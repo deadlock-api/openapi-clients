@@ -200,7 +200,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1755302400
+		var defaultValue int64 = 1755388800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -393,7 +393,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1755302400
+		var defaultValue int64 = 1755388800
 		r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
 	if r.maxLastUpdatedUnixTimestamp != nil {
@@ -632,7 +632,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1755302400
+		var defaultValue int64 = 1755388800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -948,7 +948,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1755302400
+		var defaultValue int64 = 1755388800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -1240,7 +1240,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1755302400
+		var defaultValue int64 = 1755388800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -1518,7 +1518,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1755302400
+		var defaultValue int64 = 1755388800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -1818,7 +1818,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1755302400
+		var defaultValue int64 = 1755388800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -2133,7 +2133,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1755302400
+		var defaultValue int64 = 1755388800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -2434,7 +2434,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1755302400
+		var defaultValue int64 = 1755388800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -3035,7 +3035,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1755302400
+		var defaultValue int64 = 1755388800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {

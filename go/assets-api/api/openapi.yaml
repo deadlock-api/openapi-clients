@@ -3397,7 +3397,6 @@ components:
           type: boolean
         cost:
           nullable: true
-          readOnly: true
           type: integer
       required:
       - activation

@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **tooltip_sections** | [**List[UpgradeTooltipSectionV2]**](UpgradeTooltipSectionV2.md) |  | [optional] 
 **is_active_item** | **bool** |  | [readonly] 
 **shopable** | **bool** |  | [readonly] 
-**cost** | **int** |  | [readonly] 
+**cost** | **int** |  | 
 
 ## Example
 
