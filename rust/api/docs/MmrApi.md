@@ -16,7 +16,7 @@ Method | HTTP request | Description
 > Vec<models::MmrHistory> hero_mmr(account_ids, hero_id, max_match_id)
 Hero MMR
 
-Batch Player Hero MMR
+ Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
 ### Parameters
 
@@ -79,7 +79,7 @@ No authorization required
 > Vec<models::MmrHistory> mmr(account_ids, max_match_id)
 MMR
 
-Batch Player MMR
+ Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
 ### Parameters
 

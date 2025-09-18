@@ -451,6 +451,7 @@ type ApiBulkMetadataRequest struct {
 	isLowPriPool *bool
 	isNewPlayerPool *bool
 	accountIds *[]int32
+	heroIds *string
 	orderBy *string
 	orderDirection *string
 	limit *int32
@@ -573,6 +574,12 @@ func (r ApiBulkMetadataRequest) IsNewPlayerPool(isNewPlayerPool bool) ApiBulkMet
 // Filter matches by account IDs of players that participated in the match.
 func (r ApiBulkMetadataRequest) AccountIds(accountIds []int32) ApiBulkMetadataRequest {
 	r.accountIds = &accountIds
+	return r
+}
+
+// Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+func (r ApiBulkMetadataRequest) HeroIds(heroIds string) ApiBulkMetadataRequest {
+	r.heroIds = &heroIds
 	return r
 }
 
@@ -721,6 +728,9 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
 		}
+	}
+	if r.heroIds != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "form", "")
 	}
 	if r.orderBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", r.orderBy, "form", "")

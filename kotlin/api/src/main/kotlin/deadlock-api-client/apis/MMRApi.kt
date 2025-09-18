@@ -48,7 +48,7 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     /**
      * GET /v1/players/mmr/{hero_id}
      * Hero MMR
-     * Batch Player Hero MMR
+     *  Batch Player Hero MMR  Filters for the last 90 days if no &#x60;max_match_id&#x60; is provided. 
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
@@ -82,7 +82,7 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     /**
      * GET /v1/players/mmr/{hero_id}
      * Hero MMR
-     * Batch Player Hero MMR
+     *  Batch Player Hero MMR  Filters for the last 90 days if no &#x60;max_match_id&#x60; is provided. 
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
@@ -209,7 +209,7 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     /**
      * GET /v1/players/mmr
      * MMR
-     * Batch Player MMR
+     *  Batch Player MMR  Filters for the last 90 days if no &#x60;max_match_id&#x60; is provided. 
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return kotlin.collections.List<MMRHistory>
@@ -242,7 +242,7 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     /**
      * GET /v1/players/mmr
      * MMR
-     * Batch Player MMR
+     *  Batch Player MMR  Filters for the last 90 days if no &#x60;max_match_id&#x60; is provided. 
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return ApiResponse<kotlin.collections.List<MMRHistory>?>

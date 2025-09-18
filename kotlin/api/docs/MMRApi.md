@@ -16,7 +16,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Hero MMR
 
-Batch Player Hero MMR
+ Batch Player Hero MMR  Filters for the last 90 days if no &#x60;max_match_id&#x60; is provided. 
 
 ### Example
 ```kotlin
@@ -114,7 +114,7 @@ No authorization required
 
 MMR
 
-Batch Player MMR
+ Batch Player MMR  Filters for the last 90 days if no &#x60;max_match_id&#x60; is provided. 
 
 ### Example
 ```kotlin

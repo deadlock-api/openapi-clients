@@ -213,6 +213,7 @@ let isHighSkillRangeParties: boolean; //Filter matches based on whether they are
 let isLowPriPool: boolean; //Filter matches based on whether they are in the low priority pool. (optional) (default to undefined)
 let isNewPlayerPool: boolean; //Filter matches based on whether they are in the new player pool. (optional) (default to undefined)
 let accountIds: Array<number>; //Filter matches by account IDs of players that participated in the match. (optional) (default to undefined)
+let heroIds: string; //Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
 let orderBy: 'match_id' | 'start_time'; //The field to order the results by. (optional) (default to undefined)
 let orderDirection: 'desc' | 'asc'; //The direction to order the results by. (optional) (default to undefined)
 let limit: number; //The maximum number of matches to return. (optional) (default to 1000)
@@ -238,6 +239,7 @@ const { status, data } = await apiInstance.bulkMetadata(
     isLowPriPool,
     isNewPlayerPool,
     accountIds,
+    heroIds,
     orderBy,
     orderDirection,
     limit
@@ -268,6 +270,7 @@ const { status, data } = await apiInstance.bulkMetadata(
 | **isLowPriPool** | [**boolean**] | Filter matches based on whether they are in the low priority pool. | (optional) defaults to undefined|
 | **isNewPlayerPool** | [**boolean**] | Filter matches based on whether they are in the new player pool. | (optional) defaults to undefined|
 | **accountIds** | **Array&lt;number&gt;** | Filter matches by account IDs of players that participated in the match. | (optional) defaults to undefined|
+| **heroIds** | [**string**] | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
 | **orderBy** | [**&#39;match_id&#39; | &#39;start_time&#39;**]**Array<&#39;match_id&#39; &#124; &#39;start_time&#39;>** | The field to order the results by. | (optional) defaults to undefined|
 | **orderDirection** | [**&#39;desc&#39; | &#39;asc&#39;**]**Array<&#39;desc&#39; &#124; &#39;asc&#39;>** | The direction to order the results by. | (optional) defaults to undefined|
 | **limit** | [**number**] | The maximum number of matches to return. | (optional) defaults to 1000|

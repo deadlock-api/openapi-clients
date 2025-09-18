@@ -60,7 +60,7 @@ class MMRApi:
     ) -> List[MMRHistory]:
         """Hero MMR
 
-        Batch Player Hero MMR
+         Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -137,7 +137,7 @@ class MMRApi:
     ) -> ApiResponse[List[MMRHistory]]:
         """Hero MMR
 
-        Batch Player Hero MMR
+         Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -214,7 +214,7 @@ class MMRApi:
     ) -> RESTResponseType:
         """Hero MMR
 
-        Batch Player Hero MMR
+         Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -641,7 +641,7 @@ class MMRApi:
     ) -> List[MMRHistory]:
         """MMR
 
-        Batch Player MMR
+         Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -714,7 +714,7 @@ class MMRApi:
     ) -> ApiResponse[List[MMRHistory]]:
         """MMR
 
-        Batch Player MMR
+         Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -787,7 +787,7 @@ class MMRApi:
     ) -> RESTResponseType:
         """MMR
 
-        Batch Player MMR
+         Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]

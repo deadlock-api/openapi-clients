@@ -109,7 +109,7 @@ No authorization required
 
 ## bulk_metadata
 
-> Vec<u32> bulk_metadata(include_info, include_objectives, include_mid_boss, include_player_info, include_player_items, include_player_stats, include_player_death_details, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, order_by, order_direction, limit)
+> Vec<u32> bulk_metadata(include_info, include_objectives, include_mid_boss, include_player_info, include_player_items, include_player_stats, include_player_death_details, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, hero_ids, order_by, order_direction, limit)
 Bulk Metadata
 
  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
@@ -139,6 +139,7 @@ Name | Type | Description  | Required | Notes
 **is_low_pri_pool** | Option<**bool**> | Filter matches based on whether they are in the low priority pool. |  |
 **is_new_player_pool** | Option<**bool**> | Filter matches based on whether they are in the new player pool. |  |
 **account_ids** | Option<[**Vec<u32>**](u32.md)> | Filter matches by account IDs of players that participated in the match. |  |
+**hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **order_by** | Option<**String**> | The field to order the results by. |  |
 **order_direction** | Option<**String**> | The direction to order the results by. |  |
 **limit** | Option<**u32**> | The maximum number of matches to return. |  |[default to 1000]

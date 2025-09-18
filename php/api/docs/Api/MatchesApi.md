@@ -191,7 +191,7 @@ No authorization required
 ## `bulkMetadata()`
 
 ```php
-bulkMetadata($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $order_by, $order_direction, $limit): int[]
+bulkMetadata($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit): int[]
 ```
 
 Bulk Metadata
@@ -231,12 +231,13 @@ $is_high_skill_range_parties = True; // bool | Filter matches based on whether t
 $is_low_pri_pool = True; // bool | Filter matches based on whether they are in the low priority pool.
 $is_new_player_pool = True; // bool | Filter matches based on whether they are in the new player pool.
 $account_ids = array(56); // int[] | Filter matches by account IDs of players that participated in the match.
+$hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 $order_by = 'order_by_example'; // string | The field to order the results by.
 $order_direction = 'order_direction_example'; // string | The direction to order the results by.
 $limit = 1000; // int | The maximum number of matches to return.
 
 try {
-    $result = $apiInstance->bulkMetadata($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $order_by, $order_direction, $limit);
+    $result = $apiInstance->bulkMetadata($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MatchesApi->bulkMetadata: ', $e->getMessage(), PHP_EOL;
@@ -267,6 +268,7 @@ try {
 | **is_low_pri_pool** | **bool**| Filter matches based on whether they are in the low priority pool. | [optional] |
 | **is_new_player_pool** | **bool**| Filter matches based on whether they are in the new player pool. | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Filter matches by account IDs of players that participated in the match. | [optional] |
+| **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **order_by** | **string**| The field to order the results by. | [optional] |
 | **order_direction** | **string**| The direction to order the results by. | [optional] |
 | **limit** | **int**| The maximum number of matches to return. | [optional] [default to 1000] |

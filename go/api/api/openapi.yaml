@@ -107,7 +107,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755388800
+          default: 1755475200
           format: int64
           nullable: true
           type: integer
@@ -323,7 +323,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1755388800
+          default: 1755475200
           format: int64
           nullable: true
           type: integer
@@ -371,7 +371,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755388800
+          default: 1755475200
           format: int64
           nullable: true
           type: integer
@@ -605,7 +605,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755388800
+          default: 1755475200
           format: int64
           nullable: true
           type: integer
@@ -842,7 +842,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755388800
+          default: 1755475200
           format: int64
           nullable: true
           type: integer
@@ -1064,7 +1064,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755388800
+          default: 1755475200
           format: int64
           nullable: true
           type: integer
@@ -1327,7 +1327,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755388800
+          default: 1755475200
           format: int64
           nullable: true
           type: integer
@@ -1537,7 +1537,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755388800
+          default: 1755475200
           format: int64
           nullable: true
           type: integer
@@ -1766,7 +1766,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755388800
+          default: 1755475200
           format: int64
           nullable: true
           type: integer
@@ -2047,7 +2047,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755388800
+          default: 1755475200
           format: int64
           nullable: true
           type: integer
@@ -3563,6 +3563,15 @@ paths:
           nullable: true
           type: array
         style: form
+      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+        explode: true
+        in: query
+        name: hero_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       - description: The field to order the results by.
         explode: true
         in: query
@@ -4027,7 +4036,11 @@ paths:
       - Players
   /v1/players/mmr:
     get:
-      description: Batch Player MMR
+      description: |2
+
+        Batch Player MMR
+
+        Filters for the last 90 days if no `max_match_id` is provided.
       operationId: mmr
       parameters:
       - description: "Comma separated list of account ids, Account IDs are in `SteamID3`\
@@ -4074,7 +4087,11 @@ paths:
       - MMR
   /v1/players/mmr/{hero_id}:
     get:
-      description: Batch Player Hero MMR
+      description: |2
+
+        Batch Player Hero MMR
+
+        Filters for the last 90 days if no `max_match_id` is provided.
       operationId: hero_mmr
       parameters:
       - description: "Comma separated list of account ids, Account IDs are in `SteamID3`\

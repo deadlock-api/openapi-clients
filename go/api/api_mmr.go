@@ -51,7 +51,11 @@ func (r ApiHeroMmrRequest) Execute() ([]MMRHistory, *http.Response, error) {
 /*
 HeroMmr Hero MMR
 
+
 Batch Player Hero MMR
+
+Filters for the last 90 days if no `max_match_id` is provided.
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param heroId The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -306,7 +310,11 @@ func (r ApiMmrRequest) Execute() ([]MMRHistory, *http.Response, error) {
 /*
 Mmr MMR
 
+
 Batch Player MMR
+
+Filters for the last 90 days if no `max_match_id` is provided.
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMmrRequest

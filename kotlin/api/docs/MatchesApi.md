@@ -160,7 +160,7 @@ No authorization required
 
 <a id="bulkMetadata"></a>
 # **bulkMetadata**
-> kotlin.collections.List&lt;kotlin.Int&gt; bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, orderBy, orderDirection, limit)
+> kotlin.collections.List&lt;kotlin.Int&gt; bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit)
 
 Bulk Metadata
 
@@ -193,11 +193,12 @@ val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter m
 val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
 val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Filter matches by account IDs of players that participated in the match.
+val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 val orderBy : kotlin.String = orderBy_example // kotlin.String | The field to order the results by.
 val orderDirection : kotlin.String = orderDirection_example // kotlin.String | The direction to order the results by.
 val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, orderBy, orderDirection, limit)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MatchesApi#bulkMetadata")
@@ -229,6 +230,7 @@ try {
 | **isLowPriPool** | **kotlin.Boolean**| Filter matches based on whether they are in the low priority pool. | [optional] |
 | **isNewPlayerPool** | **kotlin.Boolean**| Filter matches based on whether they are in the new player pool. | [optional] |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Filter matches by account IDs of players that participated in the match. | [optional] |
+| **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **orderBy** | **kotlin.String**| The field to order the results by. | [optional] [enum: match_id, start_time] |
 | **orderDirection** | **kotlin.String**| The direction to order the results by. | [optional] [enum: desc, asc] |
 | Name | Type | Description  | Notes |

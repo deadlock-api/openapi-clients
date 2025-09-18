@@ -1017,6 +1017,7 @@ class MatchesApi
      * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int[]|null $account_ids Filter matches by account IDs of players that participated in the match. (optional)
+     * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  string|null $order_by The field to order the results by. (optional)
      * @param  string|null $order_direction The direction to order the results by. (optional)
      * @param  int|null $limit The maximum number of matches to return. (optional, default to 1000)
@@ -1026,9 +1027,9 @@ class MatchesApi
      * @throws \InvalidArgumentException
      * @return int[]
      */
-    public function bulkMetadata($include_info = true, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_items = null, $include_player_stats = null, $include_player_death_details = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $order_by = null, $order_direction = null, $limit = 1000, string $contentType = self::contentTypes['bulkMetadata'][0])
+    public function bulkMetadata($include_info = true, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_items = null, $include_player_stats = null, $include_player_death_details = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $hero_ids = null, $order_by = null, $order_direction = null, $limit = 1000, string $contentType = self::contentTypes['bulkMetadata'][0])
     {
-        list($response) = $this->bulkMetadataWithHttpInfo($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $order_by, $order_direction, $limit, $contentType);
+        list($response) = $this->bulkMetadataWithHttpInfo($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit, $contentType);
         return $response;
     }
 
@@ -1057,6 +1058,7 @@ class MatchesApi
      * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int[]|null $account_ids Filter matches by account IDs of players that participated in the match. (optional)
+     * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  string|null $order_by The field to order the results by. (optional)
      * @param  string|null $order_direction The direction to order the results by. (optional)
      * @param  int|null $limit The maximum number of matches to return. (optional, default to 1000)
@@ -1066,9 +1068,9 @@ class MatchesApi
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function bulkMetadataWithHttpInfo($include_info = true, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_items = null, $include_player_stats = null, $include_player_death_details = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $order_by = null, $order_direction = null, $limit = 1000, string $contentType = self::contentTypes['bulkMetadata'][0])
+    public function bulkMetadataWithHttpInfo($include_info = true, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_items = null, $include_player_stats = null, $include_player_death_details = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $hero_ids = null, $order_by = null, $order_direction = null, $limit = 1000, string $contentType = self::contentTypes['bulkMetadata'][0])
     {
-        $request = $this->bulkMetadataRequest($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $order_by, $order_direction, $limit, $contentType);
+        $request = $this->bulkMetadataRequest($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1164,6 +1166,7 @@ class MatchesApi
      * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int[]|null $account_ids Filter matches by account IDs of players that participated in the match. (optional)
+     * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  string|null $order_by The field to order the results by. (optional)
      * @param  string|null $order_direction The direction to order the results by. (optional)
      * @param  int|null $limit The maximum number of matches to return. (optional, default to 1000)
@@ -1172,9 +1175,9 @@ class MatchesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bulkMetadataAsync($include_info = true, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_items = null, $include_player_stats = null, $include_player_death_details = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $order_by = null, $order_direction = null, $limit = 1000, string $contentType = self::contentTypes['bulkMetadata'][0])
+    public function bulkMetadataAsync($include_info = true, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_items = null, $include_player_stats = null, $include_player_death_details = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $hero_ids = null, $order_by = null, $order_direction = null, $limit = 1000, string $contentType = self::contentTypes['bulkMetadata'][0])
     {
-        return $this->bulkMetadataAsyncWithHttpInfo($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $order_by, $order_direction, $limit, $contentType)
+        return $this->bulkMetadataAsyncWithHttpInfo($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1207,6 +1210,7 @@ class MatchesApi
      * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int[]|null $account_ids Filter matches by account IDs of players that participated in the match. (optional)
+     * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  string|null $order_by The field to order the results by. (optional)
      * @param  string|null $order_direction The direction to order the results by. (optional)
      * @param  int|null $limit The maximum number of matches to return. (optional, default to 1000)
@@ -1215,10 +1219,10 @@ class MatchesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bulkMetadataAsyncWithHttpInfo($include_info = true, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_items = null, $include_player_stats = null, $include_player_death_details = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $order_by = null, $order_direction = null, $limit = 1000, string $contentType = self::contentTypes['bulkMetadata'][0])
+    public function bulkMetadataAsyncWithHttpInfo($include_info = true, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_items = null, $include_player_stats = null, $include_player_death_details = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $hero_ids = null, $order_by = null, $order_direction = null, $limit = 1000, string $contentType = self::contentTypes['bulkMetadata'][0])
     {
         $returnType = 'int[]';
-        $request = $this->bulkMetadataRequest($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $order_by, $order_direction, $limit, $contentType);
+        $request = $this->bulkMetadataRequest($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1279,6 +1283,7 @@ class MatchesApi
      * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int[]|null $account_ids Filter matches by account IDs of players that participated in the match. (optional)
+     * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  string|null $order_by The field to order the results by. (optional)
      * @param  string|null $order_direction The direction to order the results by. (optional)
      * @param  int|null $limit The maximum number of matches to return. (optional, default to 1000)
@@ -1287,7 +1292,7 @@ class MatchesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function bulkMetadataRequest($include_info = true, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_items = null, $include_player_stats = null, $include_player_death_details = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $order_by = null, $order_direction = null, $limit = 1000, string $contentType = self::contentTypes['bulkMetadata'][0])
+    public function bulkMetadataRequest($include_info = true, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_items = null, $include_player_stats = null, $include_player_death_details = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $hero_ids = null, $order_by = null, $order_direction = null, $limit = 1000, string $contentType = self::contentTypes['bulkMetadata'][0])
     {
 
 
@@ -1336,6 +1341,7 @@ class MatchesApi
             throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling MatchesApi.bulkMetadata, must be bigger than or equal to 0.');
         }
         
+
 
 
 
@@ -1533,6 +1539,15 @@ class MatchesApi
             $account_ids,
             'account_ids', // param base name
             'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hero_ids,
+            'hero_ids', // param base name
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required

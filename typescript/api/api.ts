@@ -7621,7 +7621,7 @@ export type LeaderboardRawRegionEnum = typeof LeaderboardRawRegionEnum[keyof typ
 export const MMRApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Batch Player Hero MMR
+         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
          * @summary Hero MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -7705,7 +7705,7 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * Batch Player MMR
+         *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
          * @summary MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
@@ -7791,7 +7791,7 @@ export const MMRApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MMRApiAxiosParamCreator(configuration)
     return {
         /**
-         * Batch Player Hero MMR
+         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
          * @summary Hero MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -7820,7 +7820,7 @@ export const MMRApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Batch Player MMR
+         *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
          * @summary MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
@@ -7857,7 +7857,7 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
     const localVarFp = MMRApiFp(configuration)
     return {
         /**
-         * Batch Player Hero MMR
+         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
          * @summary Hero MMR
          * @param {MMRApiHeroMmrRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -7877,7 +7877,7 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.heroMmrHistory(requestParameters.accountId, requestParameters.heroId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Batch Player MMR
+         *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
          * @summary MMR
          * @param {MMRApiMmrRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -7991,7 +7991,7 @@ export interface MMRApiMmrHistoryRequest {
  */
 export class MMRApi extends BaseAPI {
     /**
-     * Batch Player Hero MMR
+     *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
      * @summary Hero MMR
      * @param {MMRApiHeroMmrRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -8015,7 +8015,7 @@ export class MMRApi extends BaseAPI {
     }
 
     /**
-     * Batch Player MMR
+     *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
      * @summary MMR
      * @param {MMRApiMmrRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -8190,13 +8190,14 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
          * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {BulkMetadataOrderByEnum} [orderBy] The field to order the results by.
          * @param {BulkMetadataOrderDirectionEnum} [orderDirection] The direction to order the results by.
          * @param {number} [limit] The maximum number of matches to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        bulkMetadata: async (includeInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        bulkMetadata: async (includeInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/matches/metadata`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8287,6 +8288,10 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
 
             if (accountIds) {
                 localVarQueryParameter['account_ids'] = accountIds;
+            }
+
+            if (heroIds !== undefined) {
+                localVarQueryParameter['hero_ids'] = heroIds;
             }
 
             if (orderBy !== undefined) {
@@ -8563,14 +8568,15 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
          * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {BulkMetadataOrderByEnum} [orderBy] The field to order the results by.
          * @param {BulkMetadataOrderDirectionEnum} [orderDirection] The direction to order the results by.
          * @param {number} [limit] The maximum number of matches to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async bulkMetadata(includeInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, orderBy, orderDirection, limit, options);
+        async bulkMetadata(includeInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.bulkMetadata']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -8688,7 +8694,7 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         bulkMetadata(requestParameters: MatchesApiBulkMetadataRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
-            return localVarFp.bulkMetadata(requestParameters.includeInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(axios, basePath));
+            return localVarFp.bulkMetadata(requestParameters.includeInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
@@ -8945,6 +8951,13 @@ export interface MatchesApiBulkMetadataRequest {
     readonly accountIds?: Array<number> | null
 
     /**
+     * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @type {string}
+     * @memberof MatchesApiBulkMetadata
+     */
+    readonly heroIds?: string | null
+
+    /**
      * The field to order the results by.
      * @type {'match_id' | 'start_time'}
      * @memberof MatchesApiBulkMetadata
@@ -9087,7 +9100,7 @@ export class MatchesApi extends BaseAPI {
      * @memberof MatchesApi
      */
     public bulkMetadata(requestParameters: MatchesApiBulkMetadataRequest = {}, options?: RawAxiosRequestConfig) {
-        return MatchesApiFp(this.configuration).bulkMetadata(requestParameters.includeInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
+        return MatchesApiFp(this.configuration).bulkMetadata(requestParameters.includeInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

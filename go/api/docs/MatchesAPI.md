@@ -219,7 +219,7 @@ No authorization required
 
 ## BulkMetadata
 
-> []int32 BulkMetadata(ctx).IncludeInfo(includeInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
+> []int32 BulkMetadata(ctx).IncludeInfo(includeInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
 
 Bulk Metadata
 
@@ -258,13 +258,14 @@ func main() {
 	isLowPriPool := true // bool | Filter matches based on whether they are in the low priority pool. (optional)
 	isNewPlayerPool := true // bool | Filter matches based on whether they are in the new player pool. (optional)
 	accountIds := []int32{int32(123)} // []int32 | Filter matches by account IDs of players that participated in the match. (optional)
+	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
 	orderBy := "orderBy_example" // string | The field to order the results by. (optional)
 	orderDirection := "orderDirection_example" // string | The direction to order the results by. (optional)
 	limit := int32(56) // int32 | The maximum number of matches to return. (optional) (default to 1000)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MatchesAPI.BulkMetadata(context.Background()).IncludeInfo(includeInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
+	resp, r, err := apiClient.MatchesAPI.BulkMetadata(context.Background()).IncludeInfo(includeInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.BulkMetadata``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -305,6 +306,7 @@ Name | Type | Description  | Notes
  **isLowPriPool** | **bool** | Filter matches based on whether they are in the low priority pool. | 
  **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | 
  **accountIds** | **[]int32** | Filter matches by account IDs of players that participated in the match. | 
+ **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
  **orderBy** | **string** | The field to order the results by. | 
  **orderDirection** | **string** | The direction to order the results by. | 
  **limit** | **int32** | The maximum number of matches to return. | [default to 1000]

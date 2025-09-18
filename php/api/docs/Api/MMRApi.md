@@ -18,7 +18,7 @@ heroMmr($account_ids, $hero_id, $max_match_id): \OpenAPI\Client\Model\MMRHistory
 
 Hero MMR
 
-Batch Player Hero MMR
+Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided.
 
 ### Example
 
@@ -136,7 +136,7 @@ mmr($account_ids, $max_match_id): \OpenAPI\Client\Model\MMRHistory[]
 
 MMR
 
-Batch Player MMR
+Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided.
 
 ### Example
 

@@ -266,7 +266,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **bulk_metadata**
-> List[int] bulk_metadata(include_info=include_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, order_by=order_by, order_direction=order_direction, limit=limit)
+> List[int] bulk_metadata(include_info=include_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, hero_ids=hero_ids, order_by=order_by, order_direction=order_direction, limit=limit)
 
 Bulk Metadata
 
@@ -320,13 +320,14 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     is_low_pri_pool = True # bool | Filter matches based on whether they are in the low priority pool. (optional)
     is_new_player_pool = True # bool | Filter matches based on whether they are in the new player pool. (optional)
     account_ids = [56] # List[int] | Filter matches by account IDs of players that participated in the match. (optional)
+    hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     order_by = 'order_by_example' # str | The field to order the results by. (optional)
     order_direction = 'order_direction_example' # str | The direction to order the results by. (optional)
     limit = 1000 # int | The maximum number of matches to return. (optional) (default to 1000)
 
     try:
         # Bulk Metadata
-        api_response = api_instance.bulk_metadata(include_info=include_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, order_by=order_by, order_direction=order_direction, limit=limit)
+        api_response = api_instance.bulk_metadata(include_info=include_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, hero_ids=hero_ids, order_by=order_by, order_direction=order_direction, limit=limit)
         print("The response of MatchesApi->bulk_metadata:\n")
         pprint(api_response)
     except Exception as e:
@@ -360,6 +361,7 @@ Name | Type | Description  | Notes
  **is_low_pri_pool** | **bool**| Filter matches based on whether they are in the low priority pool. | [optional] 
  **is_new_player_pool** | **bool**| Filter matches based on whether they are in the new player pool. | [optional] 
  **account_ids** | [**List[int]**](int.md)| Filter matches by account IDs of players that participated in the match. | [optional] 
+ **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
  **order_by** | **str**| The field to order the results by. | [optional] 
  **order_direction** | **str**| The direction to order the results by. | [optional] 
  **limit** | **int**| The maximum number of matches to return. | [optional] [default to 1000]

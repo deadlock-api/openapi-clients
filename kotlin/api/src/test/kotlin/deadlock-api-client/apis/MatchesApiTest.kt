@@ -80,10 +80,11 @@ class MatchesApiTest : ShouldSpec() {
             //val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
             //val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Filter matches by account IDs of players that participated in the match.
+            //val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
             //val orderBy : kotlin.String = orderBy_example // kotlin.String | The field to order the results by.
             //val orderDirection : kotlin.String = orderDirection_example // kotlin.String | The direction to order the results by.
             //val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, orderBy, orderDirection, limit)
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit)
             //result shouldBe ("TODO")
         }
 

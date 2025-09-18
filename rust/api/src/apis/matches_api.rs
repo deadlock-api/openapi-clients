@@ -79,6 +79,8 @@ pub struct BulkMetadataParams {
     pub is_new_player_pool: Option<bool>,
     /// Filter matches by account IDs of players that participated in the match.
     pub account_ids: Option<Vec<u32>>,
+    /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+    pub hero_ids: Option<String>,
     /// The field to order the results by.
     pub order_by: Option<String>,
     /// The direction to order the results by.
@@ -401,6 +403,9 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
+    }
+    if let Some(ref param_value) = params.hero_ids {
+        req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.order_by {
         req_builder = req_builder.query(&[("order_by", &param_value.to_string())]);

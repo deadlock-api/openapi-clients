@@ -919,6 +919,7 @@ class MatchesApi:
         is_low_pri_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the low priority pool.")] = None,
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
@@ -979,6 +980,8 @@ class MatchesApi:
         :type is_new_player_pool: bool
         :param account_ids: Filter matches by account IDs of players that participated in the match.
         :type account_ids: List[int]
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type hero_ids: str
         :param order_by: The field to order the results by.
         :type order_by: str
         :param order_direction: The direction to order the results by.
@@ -1028,6 +1031,7 @@ class MatchesApi:
             is_low_pri_pool=is_low_pri_pool,
             is_new_player_pool=is_new_player_pool,
             account_ids=account_ids,
+            hero_ids=hero_ids,
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
@@ -1076,6 +1080,7 @@ class MatchesApi:
         is_low_pri_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the low priority pool.")] = None,
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
@@ -1136,6 +1141,8 @@ class MatchesApi:
         :type is_new_player_pool: bool
         :param account_ids: Filter matches by account IDs of players that participated in the match.
         :type account_ids: List[int]
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type hero_ids: str
         :param order_by: The field to order the results by.
         :type order_by: str
         :param order_direction: The direction to order the results by.
@@ -1185,6 +1192,7 @@ class MatchesApi:
             is_low_pri_pool=is_low_pri_pool,
             is_new_player_pool=is_new_player_pool,
             account_ids=account_ids,
+            hero_ids=hero_ids,
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
@@ -1233,6 +1241,7 @@ class MatchesApi:
         is_low_pri_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the low priority pool.")] = None,
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
@@ -1293,6 +1302,8 @@ class MatchesApi:
         :type is_new_player_pool: bool
         :param account_ids: Filter matches by account IDs of players that participated in the match.
         :type account_ids: List[int]
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type hero_ids: str
         :param order_by: The field to order the results by.
         :type order_by: str
         :param order_direction: The direction to order the results by.
@@ -1342,6 +1353,7 @@ class MatchesApi:
             is_low_pri_pool=is_low_pri_pool,
             is_new_player_pool=is_new_player_pool,
             account_ids=account_ids,
+            hero_ids=hero_ids,
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
@@ -1385,6 +1397,7 @@ class MatchesApi:
         is_low_pri_pool,
         is_new_player_pool,
         account_ids,
+        hero_ids,
         order_by,
         order_direction,
         limit,
@@ -1491,6 +1504,10 @@ class MatchesApi:
         if account_ids is not None:
             
             _query_params.append(('account_ids', account_ids))
+            
+        if hero_ids is not None:
+            
+            _query_params.append(('hero_ids', hero_ids))
             
         if order_by is not None:
             

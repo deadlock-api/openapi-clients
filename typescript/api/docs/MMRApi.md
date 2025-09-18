@@ -12,7 +12,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 # **heroMmr**
 > Array<MMRHistory> heroMmr()
 
-Batch Player Hero MMR
+ Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
 ### Example
 
@@ -127,7 +127,7 @@ No authorization required
 # **mmr**
 > Array<MMRHistory> mmr()
 
-Batch Player MMR
+ Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
 ### Example
 
