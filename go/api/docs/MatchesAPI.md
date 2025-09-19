@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ActiveMatches**](MatchesAPI.md#ActiveMatches) | **Get** /v1/matches/active | Active
 [**ActiveMatchesRaw**](MatchesAPI.md#ActiveMatchesRaw) | **Get** /v1/matches/active/raw | Active as Protobuf
-[**BadgeDistribution**](MatchesAPI.md#BadgeDistribution) | **Get** /v1/matches/badge-distribution | Badge Distribution
 [**BulkMetadata**](MatchesAPI.md#BulkMetadata) | **Get** /v1/matches/metadata | Bulk Metadata
 [**Metadata**](MatchesAPI.md#Metadata) | **Get** /v1/matches/{match_id}/metadata | Metadata
 [**MetadataRaw**](MatchesAPI.md#MetadataRaw) | **Get** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf
@@ -139,78 +138,6 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## BadgeDistribution
-
-> []BadgeDistribution BadgeDistribution(ctx).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Execute()
-
-Badge Distribution
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MatchesAPI.BadgeDistribution(context.Background()).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.BadgeDistribution``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `BadgeDistribution`: []BadgeDistribution
-	fmt.Fprintf(os.Stdout, "Response from `MatchesAPI.BadgeDistribution`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiBadgeDistributionRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minMatchId** | **int64** | Filter matches based on their ID. | 
- **maxMatchId** | **int64** | Filter matches based on their ID. | 
-
-### Return type
-
-[**[]BadgeDistribution**](BadgeDistribution.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

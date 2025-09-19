@@ -21,6 +21,7 @@ import io.kotlintest.specs.ShouldSpec
 import deadlock-api-client.apis.AnalyticsApi
 import deadlock-api-client.models.AnalyticsAbilityOrderStats
 import deadlock-api-client.models.AnalyticsHeroStats
+import deadlock-api-client.models.BadgeDistribution
 import deadlock-api-client.models.BuildItemStats
 import deadlock-api-client.models.Entry
 import deadlock-api-client.models.HashMapValue
@@ -55,6 +56,22 @@ class AnalyticsApiTest : ShouldSpec() {
             //val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
             //val result : kotlin.collections.List<AnalyticsAbilityOrderStats> = apiInstance.abilityOrderStats(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds)
+            //result shouldBe ("TODO")
+        }
+
+        // to test badgeDistribution
+        should("test badgeDistribution") {
+            // uncomment below to test badgeDistribution
+            //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+            //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the high skill range.
+            //val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
+            //val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
+            //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val result : kotlin.collections.List<BadgeDistribution> = apiInstance.badgeDistribution(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId)
             //result shouldBe ("TODO")
         }
 

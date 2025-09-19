@@ -82,7 +82,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
-    min_unix_timestamp = 1755475200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -115,6 +115,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AnalyticsApi* | [**ability_order_stats**](docs/AnalyticsApi.md#ability_order_stats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
+*AnalyticsApi* | [**badge_distribution**](docs/AnalyticsApi.md#badge_distribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**build_item_stats**](docs/AnalyticsApi.md#build_item_stats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
 *AnalyticsApi* | [**hero_comb_stats**](docs/AnalyticsApi.md#hero_comb_stats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 *AnalyticsApi* | [**hero_counters_stats**](docs/AnalyticsApi.md#hero_counters_stats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
@@ -147,7 +148,6 @@ Class | Method | HTTP request | Description
 *MMRApi* | [**mmr_history**](docs/MMRApi.md#mmr_history) | **GET** /v1/players/{account_id}/mmr-history | MMR History
 *MatchesApi* | [**active_matches**](docs/MatchesApi.md#active_matches) | **GET** /v1/matches/active | Active
 *MatchesApi* | [**active_matches_raw**](docs/MatchesApi.md#active_matches_raw) | **GET** /v1/matches/active/raw | Active as Protobuf
-*MatchesApi* | [**badge_distribution**](docs/MatchesApi.md#badge_distribution) | **GET** /v1/matches/badge-distribution | Badge Distribution
 *MatchesApi* | [**bulk_metadata**](docs/MatchesApi.md#bulk_metadata) | **GET** /v1/matches/metadata | Bulk Metadata
 *MatchesApi* | [**metadata**](docs/MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata
 *MatchesApi* | [**metadata_raw**](docs/MatchesApi.md#metadata_raw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf

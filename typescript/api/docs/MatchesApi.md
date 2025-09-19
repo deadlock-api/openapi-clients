@@ -6,7 +6,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 |------------- | ------------- | -------------|
 |[**activeMatches**](#activematches) | **GET** /v1/matches/active | Active|
 |[**activeMatchesRaw**](#activematchesraw) | **GET** /v1/matches/active/raw | Active as Protobuf|
-|[**badgeDistribution**](#badgedistribution) | **GET** /v1/matches/badge-distribution | Badge Distribution|
 |[**bulkMetadata**](#bulkmetadata) | **GET** /v1/matches/metadata | Bulk Metadata|
 |[**metadata**](#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata|
 |[**metadataRaw**](#metadataraw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf|
@@ -112,68 +111,6 @@ No authorization required
 |-------------|-------------|------------------|
 |**200** |  |  -  |
 |**500** | Fetching active matches failed |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **badgeDistribution**
-> Array<BadgeDistribution> badgeDistribution()
-
- This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-
-### Example
-
-```typescript
-import {
-    MatchesApi,
-    Configuration
-} from 'deadlock-api-client';
-
-const configuration = new Configuration();
-const apiInstance = new MatchesApi(configuration);
-
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
-let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
-let minMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
-let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
-
-const { status, data } = await apiInstance.badgeDistribution(
-    minUnixTimestamp,
-    maxUnixTimestamp,
-    minMatchId,
-    maxMatchId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
-| **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
-| **minMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
-| **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
-
-
-### Return type
-
-**Array<BadgeDistribution>**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Badge Distribution |  -  |
-|**400** | Provided parameters are invalid. |  -  |
-|**500** | Failed to fetch badge distribution |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

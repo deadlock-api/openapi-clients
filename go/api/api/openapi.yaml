@@ -107,7 +107,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755475200
+          default: 1755561600
           format: int64
           nullable: true
           type: integer
@@ -296,6 +296,125 @@ paths:
       summary: Ability Order Stats
       tags:
       - Analytics
+  /v1/analytics/badge-distribution:
+    get:
+      description: "\nThis endpoint returns the player badge distribution.\n\n###\
+        \ Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key\
+        \ | - |\n| Global | - |\n    "
+      operationId: badge_distribution
+      parameters:
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1755561600
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on whether they are in the high skill range.
+        explode: true
+        in: query
+        name: is_high_skill_range_parties
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on whether they are in the low priority
+          pool.
+        explode: true
+        in: query
+        name: is_low_pri_pool
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on whether they are in the new player pool.
+        explode: true
+        in: query
+        name: is_new_player_pool
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/BadgeDistribution"
+                type: array
+          description: Badge Distribution
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch badge distribution
+      summary: Badge Distribution
+      tags:
+      - Analytics
   /v1/analytics/build-item-stats:
     get:
       description: "\nRetrieves item statistics from hero builds.\n\nResults are cached\
@@ -323,7 +442,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1755475200
+          default: 1755561600
           format: int64
           nullable: true
           type: integer
@@ -371,7 +490,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755475200
+          default: 1755561600
           format: int64
           nullable: true
           type: integer
@@ -605,7 +724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755475200
+          default: 1755561600
           format: int64
           nullable: true
           type: integer
@@ -842,7 +961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755475200
+          default: 1755561600
           format: int64
           nullable: true
           type: integer
@@ -1064,7 +1183,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755475200
+          default: 1755561600
           format: int64
           nullable: true
           type: integer
@@ -1327,7 +1446,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755475200
+          default: 1755561600
           format: int64
           nullable: true
           type: integer
@@ -1537,7 +1656,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755475200
+          default: 1755561600
           format: int64
           nullable: true
           type: integer
@@ -1766,7 +1885,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755475200
+          default: 1755561600
           format: int64
           nullable: true
           type: integer
@@ -2047,7 +2166,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1755475200
+          default: 1755561600
           format: int64
           nullable: true
           type: integer
@@ -3192,71 +3311,6 @@ paths:
         "500":
           description: Fetching active matches failed
       summary: Active as Protobuf
-      tags:
-      - Matches
-  /v1/matches/badge-distribution:
-    get:
-      description: "\nThis endpoint returns the player badge distribution.\n\n###\
-        \ Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key\
-        \ | - |\n| Global | - |\n    "
-      operationId: badge_distribution
-      parameters:
-      - description: Filter matches based on their start time (Unix timestamp).
-        explode: true
-        in: query
-        name: min_unix_timestamp
-        required: false
-        schema:
-          format: int64
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their start time (Unix timestamp).
-        explode: true
-        in: query
-        name: max_unix_timestamp
-        required: false
-        schema:
-          format: int64
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their ID.
-        explode: true
-        in: query
-        name: min_match_id
-        required: false
-        schema:
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their ID.
-        explode: true
-        in: query
-        name: max_match_id
-        required: false
-        schema:
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/BadgeDistribution"
-                type: array
-          description: Badge Distribution
-        "400":
-          description: Provided parameters are invalid.
-        "500":
-          description: Failed to fetch badge distribution
-      summary: Badge Distribution
       tags:
       - Matches
   /v1/matches/custom/create:

@@ -60,6 +60,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | Class | Method | HTTP request | Description |
 | ------------ | ------------- | ------------- | ------------- |
 | *AnalyticsApi* | [**abilityOrderStats**](docs/AnalyticsApi.md#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats |
+| *AnalyticsApi* | [**badgeDistribution**](docs/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
 | *AnalyticsApi* | [**buildItemStats**](docs/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
 | *AnalyticsApi* | [**heroCombStats**](docs/AnalyticsApi.md#herocombstats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats |
 | *AnalyticsApi* | [**heroCountersStats**](docs/AnalyticsApi.md#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats |
@@ -92,7 +93,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *MMRApi* | [**mmrHistory**](docs/MMRApi.md#mmrhistory) | **GET** /v1/players/{account_id}/mmr-history | MMR History |
 | *MatchesApi* | [**activeMatches**](docs/MatchesApi.md#activematches) | **GET** /v1/matches/active | Active |
 | *MatchesApi* | [**activeMatchesRaw**](docs/MatchesApi.md#activematchesraw) | **GET** /v1/matches/active/raw | Active as Protobuf |
-| *MatchesApi* | [**badgeDistribution**](docs/MatchesApi.md#badgedistribution) | **GET** /v1/matches/badge-distribution | Badge Distribution |
 | *MatchesApi* | [**bulkMetadata**](docs/MatchesApi.md#bulkmetadata) | **GET** /v1/matches/metadata | Bulk Metadata |
 | *MatchesApi* | [**metadata**](docs/MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata |
 | *MatchesApi* | [**metadataRaw**](docs/MatchesApi.md#metadataraw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf |

@@ -6,7 +6,6 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | ------------- | ------------- | ------------- |
 | [**activeMatches()**](MatchesApi.md#activeMatches) | **GET** /v1/matches/active | Active |
 | [**activeMatchesRaw()**](MatchesApi.md#activeMatchesRaw) | **GET** /v1/matches/active/raw | Active as Protobuf |
-| [**badgeDistribution()**](MatchesApi.md#badgeDistribution) | **GET** /v1/matches/badge-distribution | Badge Distribution |
 | [**bulkMetadata()**](MatchesApi.md#bulkMetadata) | **GET** /v1/matches/metadata | Bulk Metadata |
 | [**metadata()**](MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata |
 | [**metadataRaw()**](MatchesApi.md#metadataRaw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf |
@@ -121,68 +120,6 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `application/octet-stream`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `badgeDistribution()`
-
-```php
-badgeDistribution($min_unix_timestamp, $max_unix_timestamp, $min_match_id, $max_match_id): \OpenAPI\Client\Model\BadgeDistribution[]
-```
-
-Badge Distribution
-
-This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new OpenAPI\Client\Api\MatchesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$min_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
-$max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
-$min_match_id = 56; // int | Filter matches based on their ID.
-$max_match_id = 56; // int | Filter matches based on their ID.
-
-try {
-    $result = $apiInstance->badgeDistribution($min_unix_timestamp, $max_unix_timestamp, $min_match_id, $max_match_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling MatchesApi->badgeDistribution: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **min_match_id** | **int**| Filter matches based on their ID. | [optional] |
-| **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\BadgeDistribution[]**](../Model/BadgeDistribution.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

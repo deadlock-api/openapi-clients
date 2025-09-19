@@ -84,6 +84,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for badgeDistribution
+     *
+     * Badge Distribution.
+     *
+     */
+    public function testBadgeDistribution()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for buildItemStats
      *
      * Build Item Stats.

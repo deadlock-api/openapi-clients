@@ -6,7 +6,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | ------------- | ------------- | ------------- |
 | [**activeMatches**](MatchesApi.md#activeMatches) | **GET** /v1/matches/active | Active |
 | [**activeMatchesRaw**](MatchesApi.md#activeMatchesRaw) | **GET** /v1/matches/active/raw | Active as Protobuf |
-| [**badgeDistribution**](MatchesApi.md#badgeDistribution) | **GET** /v1/matches/badge-distribution | Badge Distribution |
 | [**bulkMetadata**](MatchesApi.md#bulkMetadata) | **GET** /v1/matches/metadata | Bulk Metadata |
 | [**metadata**](MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata |
 | [**metadataRaw**](MatchesApi.md#metadataRaw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf |
@@ -105,58 +104,6 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
-
-<a id="badgeDistribution"></a>
-# **badgeDistribution**
-> kotlin.collections.List&lt;BadgeDistribution&gt; badgeDistribution(minUnixTimestamp, maxUnixTimestamp, minMatchId, maxMatchId)
-
-Badge Distribution
-
- This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-
-### Example
-```kotlin
-// Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
-
-val apiInstance = MatchesApi()
-val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
-val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
-try {
-    val result : kotlin.collections.List<BadgeDistribution> = apiInstance.badgeDistribution(minUnixTimestamp, maxUnixTimestamp, minMatchId, maxMatchId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling MatchesApi#badgeDistribution")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling MatchesApi#badgeDistribution")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-
-### Return type
-
-[**kotlin.collections.List&lt;BadgeDistribution&gt;**](BadgeDistribution.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 <a id="bulkMetadata"></a>
 # **bulkMetadata**

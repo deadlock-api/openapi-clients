@@ -20,7 +20,6 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import deadlock-api-client.models.ActiveMatch
-import deadlock-api-client.models.BadgeDistribution
 import deadlock-api-client.models.ClickhouseMatchInfo
 import deadlock-api-client.models.MatchSaltsResponse
 import deadlock-api-client.models.MatchSpectateResponse
@@ -196,102 +195,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/matches/active/raw",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * GET /v1/matches/badge-distribution
-     * Badge Distribution
-     *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param minMatchId Filter matches based on their ID. (optional)
-     * @param maxMatchId Filter matches based on their ID. (optional)
-     * @return kotlin.collections.List<BadgeDistribution>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun badgeDistribution(minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<BadgeDistribution> {
-        val localVarResponse = badgeDistributionWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minMatchId = minMatchId, maxMatchId = maxMatchId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<BadgeDistribution>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * GET /v1/matches/badge-distribution
-     * Badge Distribution
-     *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param minMatchId Filter matches based on their ID. (optional)
-     * @param maxMatchId Filter matches based on their ID. (optional)
-     * @return ApiResponse<kotlin.collections.List<BadgeDistribution>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun badgeDistributionWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<BadgeDistribution>?> {
-        val localVariableConfig = badgeDistributionRequestConfig(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minMatchId = minMatchId, maxMatchId = maxMatchId)
-
-        return request<Unit, kotlin.collections.List<BadgeDistribution>>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation badgeDistribution
-     *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param minMatchId Filter matches based on their ID. (optional)
-     * @param maxMatchId Filter matches based on their ID. (optional)
-     * @return RequestConfig
-     */
-    fun badgeDistributionRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (minUnixTimestamp != null) {
-                    put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
-                }
-                if (maxUnixTimestamp != null) {
-                    put("max_unix_timestamp", listOf(maxUnixTimestamp.toString()))
-                }
-                if (minMatchId != null) {
-                    put("min_match_id", listOf(minMatchId.toString()))
-                }
-                if (maxMatchId != null) {
-                    put("max_match_id", listOf(maxMatchId.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/matches/badge-distribution",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

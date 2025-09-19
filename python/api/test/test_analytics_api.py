@@ -33,6 +33,13 @@ class TestAnalyticsApi(unittest.TestCase):
         """
         pass
 
+    def test_badge_distribution(self) -> None:
+        """Test case for badge_distribution
+
+        Badge Distribution
+        """
+        pass
+
     def test_build_item_stats(self) -> None:
         """Test case for build_item_stats
 

@@ -23,19 +23,6 @@ pub struct ActiveMatchesParams {
     pub account_ids: Option<Vec<u32>>
 }
 
-/// struct for passing parameters to the method [`badge_distribution`]
-#[derive(Clone, Debug)]
-pub struct BadgeDistributionParams {
-    /// Filter matches based on their start time (Unix timestamp).
-    pub min_unix_timestamp: Option<i64>,
-    /// Filter matches based on their start time (Unix timestamp).
-    pub max_unix_timestamp: Option<i64>,
-    /// Filter matches based on their ID.
-    pub min_match_id: Option<u64>,
-    /// Filter matches based on their ID.
-    pub max_match_id: Option<u64>
-}
-
 /// struct for passing parameters to the method [`bulk_metadata`]
 #[derive(Clone, Debug)]
 pub struct BulkMetadataParams {
@@ -133,15 +120,6 @@ pub enum ActiveMatchesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ActiveMatchesRawError {
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`badge_distribution`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum BadgeDistributionError {
-    Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -281,53 +259,6 @@ pub async fn active_matches_raw(configuration: &configuration::Configuration) ->
     } else {
         let content = resp.text().await?;
         let entity: Option<ActiveMatchesRawError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-///  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn badge_distribution(configuration: &configuration::Configuration, params: BadgeDistributionParams) -> Result<Vec<models::BadgeDistribution>, Error<BadgeDistributionError>> {
-
-    let uri_str = format!("{}/v1/matches/badge-distribution", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = params.min_unix_timestamp {
-        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.max_unix_timestamp {
-        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.min_match_id {
-        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.max_match_id {
-        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::BadgeDistribution&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::BadgeDistribution&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<BadgeDistributionError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

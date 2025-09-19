@@ -46,18 +46,6 @@ func Test_deadlock-api-client_MatchesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MatchesAPIService BadgeDistribution", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.MatchesAPI.BadgeDistribution(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test MatchesAPIService BulkMetadata", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

@@ -2610,6 +2610,81 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Badge Distribution
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
+         * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
+         * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        badgeDistribution: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/analytics/badge-distribution`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (minUnixTimestamp !== undefined) {
+                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
+            }
+
+            if (maxUnixTimestamp !== undefined) {
+                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
+            }
+
+            if (minDurationS !== undefined) {
+                localVarQueryParameter['min_duration_s'] = minDurationS;
+            }
+
+            if (maxDurationS !== undefined) {
+                localVarQueryParameter['max_duration_s'] = maxDurationS;
+            }
+
+            if (isHighSkillRangeParties !== undefined) {
+                localVarQueryParameter['is_high_skill_range_parties'] = isHighSkillRangeParties;
+            }
+
+            if (isLowPriPool !== undefined) {
+                localVarQueryParameter['is_low_pri_pool'] = isLowPriPool;
+            }
+
+            if (isNewPlayerPool !== undefined) {
+                localVarQueryParameter['is_new_player_pool'] = isNewPlayerPool;
+            }
+
+            if (minMatchId !== undefined) {
+                localVarQueryParameter['min_match_id'] = minMatchId;
+            }
+
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Build Item Stats
          * @param {number | null} [heroId] Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -3717,6 +3792,27 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Badge Distribution
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
+         * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
+         * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async badgeDistribution(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BadgeDistribution>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.badgeDistribution(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.badgeDistribution']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Build Item Stats
          * @param {number | null} [heroId] Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -4010,6 +4106,16 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.abilityOrderStats(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAbilityUpgrades, requestParameters.maxAbilityUpgrades, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
+         *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Badge Distribution
+         * @param {AnalyticsApiBadgeDistributionRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        badgeDistribution(requestParameters: AnalyticsApiBadgeDistributionRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<BadgeDistribution>> {
+            return localVarFp.badgeDistribution(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Build Item Stats
          * @param {AnalyticsApiBuildItemStatsRequest} requestParameters Request parameters.
@@ -4229,6 +4335,76 @@ export interface AnalyticsApiAbilityOrderStatsRequest {
      * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly accountIds?: Array<number> | null
+}
+
+/**
+ * Request parameters for badgeDistribution operation in AnalyticsApi.
+ * @export
+ * @interface AnalyticsApiBadgeDistributionRequest
+ */
+export interface AnalyticsApiBadgeDistributionRequest {
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     * @type {number}
+     * @memberof AnalyticsApiBadgeDistribution
+     */
+    readonly minUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     * @type {number}
+     * @memberof AnalyticsApiBadgeDistribution
+     */
+    readonly maxUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     * @type {number}
+     * @memberof AnalyticsApiBadgeDistribution
+     */
+    readonly minDurationS?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     * @type {number}
+     * @memberof AnalyticsApiBadgeDistribution
+     */
+    readonly maxDurationS?: number | null
+
+    /**
+     * Filter matches based on whether they are in the high skill range.
+     * @type {boolean}
+     * @memberof AnalyticsApiBadgeDistribution
+     */
+    readonly isHighSkillRangeParties?: boolean | null
+
+    /**
+     * Filter matches based on whether they are in the low priority pool.
+     * @type {boolean}
+     * @memberof AnalyticsApiBadgeDistribution
+     */
+    readonly isLowPriPool?: boolean | null
+
+    /**
+     * Filter matches based on whether they are in the new player pool.
+     * @type {boolean}
+     * @memberof AnalyticsApiBadgeDistribution
+     */
+    readonly isNewPlayerPool?: boolean | null
+
+    /**
+     * Filter matches based on their ID.
+     * @type {number}
+     * @memberof AnalyticsApiBadgeDistribution
+     */
+    readonly minMatchId?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     * @type {number}
+     * @memberof AnalyticsApiBadgeDistribution
+     */
+    readonly maxMatchId?: number | null
 }
 
 /**
@@ -5389,6 +5565,18 @@ export class AnalyticsApi extends BaseAPI {
      */
     public abilityOrderStats(requestParameters: AnalyticsApiAbilityOrderStatsRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).abilityOrderStats(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAbilityUpgrades, requestParameters.maxAbilityUpgrades, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Badge Distribution
+     * @param {AnalyticsApiBadgeDistributionRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AnalyticsApi
+     */
+    public badgeDistribution(requestParameters: AnalyticsApiBadgeDistributionRequest = {}, options?: RawAxiosRequestConfig) {
+        return AnalyticsApiFp(this.configuration).badgeDistribution(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8118,56 +8306,6 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Badge Distribution
-         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
-         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
-         * @param {number | null} [minMatchId] Filter matches based on their ID.
-         * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        badgeDistribution: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/matches/badge-distribution`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (minUnixTimestamp !== undefined) {
-                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
-            }
-
-            if (maxUnixTimestamp !== undefined) {
-                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
-            }
-
-            if (minMatchId !== undefined) {
-                localVarQueryParameter['min_match_id'] = minMatchId;
-            }
-
-            if (maxMatchId !== undefined) {
-                localVarQueryParameter['max_match_id'] = maxMatchId;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
          * @summary Bulk Metadata
          * @param {boolean} [includeInfo] Include match info in the response.
@@ -8530,22 +8668,6 @@ export const MatchesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Badge Distribution
-         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
-         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
-         * @param {number | null} [minMatchId] Filter matches based on their ID.
-         * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async badgeDistribution(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BadgeDistribution>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.badgeDistribution(minUnixTimestamp, maxUnixTimestamp, minMatchId, maxMatchId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MatchesApi.badgeDistribution']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
          *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
          * @summary Bulk Metadata
          * @param {boolean} [includeInfo] Include match info in the response.
@@ -8677,16 +8799,6 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.activeMatchesRaw(options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Badge Distribution
-         * @param {MatchesApiBadgeDistributionRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        badgeDistribution(requestParameters: MatchesApiBadgeDistributionRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<BadgeDistribution>> {
-            return localVarFp.badgeDistribution(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
-        },
-        /**
          *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
          * @summary Bulk Metadata
          * @param {MatchesApiBulkMetadataRequest} requestParameters Request parameters.
@@ -8767,41 +8879,6 @@ export interface MatchesApiActiveMatchesRequest {
      * @memberof MatchesApiActiveMatches
      */
     readonly accountIds?: Array<number> | null
-}
-
-/**
- * Request parameters for badgeDistribution operation in MatchesApi.
- * @export
- * @interface MatchesApiBadgeDistributionRequest
- */
-export interface MatchesApiBadgeDistributionRequest {
-    /**
-     * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof MatchesApiBadgeDistribution
-     */
-    readonly minUnixTimestamp?: number | null
-
-    /**
-     * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof MatchesApiBadgeDistribution
-     */
-    readonly maxUnixTimestamp?: number | null
-
-    /**
-     * Filter matches based on their ID.
-     * @type {number}
-     * @memberof MatchesApiBadgeDistribution
-     */
-    readonly minMatchId?: number | null
-
-    /**
-     * Filter matches based on their ID.
-     * @type {number}
-     * @memberof MatchesApiBadgeDistribution
-     */
-    readonly maxMatchId?: number | null
 }
 
 /**
@@ -9077,18 +9154,6 @@ export class MatchesApi extends BaseAPI {
      */
     public activeMatchesRaw(options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).activeMatchesRaw(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @summary Badge Distribution
-     * @param {MatchesApiBadgeDistributionRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof MatchesApi
-     */
-    public badgeDistribution(requestParameters: MatchesApiBadgeDistributionRequest = {}, options?: RawAxiosRequestConfig) {
-        return MatchesApiFp(this.configuration).badgeDistribution(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

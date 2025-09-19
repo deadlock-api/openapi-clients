@@ -20,7 +20,6 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock-api-client.apis.MatchesApi
 import deadlock-api-client.models.ActiveMatch
-import deadlock-api-client.models.BadgeDistribution
 import deadlock-api-client.models.ClickhouseMatchInfo
 import deadlock-api-client.models.MatchSaltsResponse
 import deadlock-api-client.models.MatchSpectateResponse
@@ -43,17 +42,6 @@ class MatchesApiTest : ShouldSpec() {
         should("test activeMatchesRaw") {
             // uncomment below to test activeMatchesRaw
             //val result : kotlin.collections.List<kotlin.Int> = apiInstance.activeMatchesRaw()
-            //result shouldBe ("TODO")
-        }
-
-        // to test badgeDistribution
-        should("test badgeDistribution") {
-            // uncomment below to test badgeDistribution
-            //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-            //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-            //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
-            //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
-            //val result : kotlin.collections.List<BadgeDistribution> = apiInstance.badgeDistribution(minUnixTimestamp, maxUnixTimestamp, minMatchId, maxMatchId)
             //result shouldBe ("TODO")
         }
 

@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**active_matches**](MatchesApi.md#active_matches) | **GET** /v1/matches/active | Active
 [**active_matches_raw**](MatchesApi.md#active_matches_raw) | **GET** /v1/matches/active/raw | Active as Protobuf
-[**badge_distribution**](MatchesApi.md#badge_distribution) | **GET** /v1/matches/badge-distribution | Badge Distribution
 [**bulk_metadata**](MatchesApi.md#bulk_metadata) | **GET** /v1/matches/metadata | Bulk Metadata
 [**metadata**](MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata
 [**metadata_raw**](MatchesApi.md#metadata_raw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf
@@ -70,39 +69,6 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## badge_distribution
-
-> Vec<models::BadgeDistribution> badge_distribution(min_unix_timestamp, max_unix_timestamp, min_match_id, max_match_id)
-Badge Distribution
-
- This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
-
-### Return type
-
-[**Vec<models::BadgeDistribution>**](BadgeDistribution.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

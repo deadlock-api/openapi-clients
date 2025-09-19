@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ability_order_stats**](AnalyticsApi.md#ability_order_stats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
+[**badge_distribution**](AnalyticsApi.md#badge_distribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 [**build_item_stats**](AnalyticsApi.md#build_item_stats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
 [**hero_comb_stats**](AnalyticsApi.md#hero_comb_stats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 [**hero_counters_stats**](AnalyticsApi.md#hero_counters_stats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
@@ -54,7 +55,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
-    min_unix_timestamp = 1755475200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -87,7 +88,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hero_id** | **int**| See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755475200]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -123,6 +124,101 @@ No authorization required
 **200** | Ability Order Stats |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **500** | Failed to fetch ability order stats |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **badge_distribution**
+> List[BadgeDistribution] badge_distribution(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id)
+
+Badge Distribution
+
+
+This endpoint returns the player badge distribution.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
+
+### Example
+
+
+```python
+import deadlock-api-client
+from deadlock-api-client.models.badge_distribution import BadgeDistribution
+from deadlock-api-client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock-api-client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock-api-client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
+    max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
+    min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
+    max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
+    is_high_skill_range_parties = True # bool | Filter matches based on whether they are in the high skill range. (optional)
+    is_low_pri_pool = True # bool | Filter matches based on whether they are in the low priority pool. (optional)
+    is_new_player_pool = True # bool | Filter matches based on whether they are in the new player pool. (optional)
+    min_match_id = 56 # int | Filter matches based on their ID. (optional)
+    max_match_id = 56 # int | Filter matches based on their ID. (optional)
+
+    try:
+        # Badge Distribution
+        api_response = api_instance.badge_distribution(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id)
+        print("The response of AnalyticsApi->badge_distribution:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AnalyticsApi->badge_distribution: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
+ **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
+ **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
+ **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
+ **is_high_skill_range_parties** | **bool**| Filter matches based on whether they are in the high skill range. | [optional] 
+ **is_low_pri_pool** | **bool**| Filter matches based on whether they are in the low priority pool. | [optional] 
+ **is_new_player_pool** | **bool**| Filter matches based on whether they are in the new player pool. | [optional] 
+ **min_match_id** | **int**| Filter matches based on their ID. | [optional] 
+ **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
+
+### Return type
+
+[**List[BadgeDistribution]**](BadgeDistribution.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Badge Distribution |  -  |
+**400** | Provided parameters are invalid. |  -  |
+**500** | Failed to fetch badge distribution |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -165,7 +261,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
     hero_id = 56 # int | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-    min_last_updated_unix_timestamp = 1755475200 # int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_last_updated_unix_timestamp = 1755561600 # int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_last_updated_unix_timestamp = 56 # int | Filter builds based on their last updated time (Unix timestamp). (optional)
 
     try:
@@ -185,7 +281,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hero_id** | **int**| Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
- **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755475200]
+ **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
  **max_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). | [optional] 
 
 ### Return type
@@ -249,7 +345,7 @@ configuration = deadlock-api-client.Configuration(
 with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
-    min_unix_timestamp = 1755475200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -283,7 +379,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755475200]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -364,7 +460,7 @@ configuration = deadlock-api-client.Configuration(
 with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
-    min_unix_timestamp = 1755475200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -398,7 +494,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755475200]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -478,7 +574,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     sort_by = 'sort_by_example' # str | The field to sort by.
     sort_direction = 'sort_direction_example' # str | The direction to sort heroes in. (optional)
     min_matches = 56 # int | Filter by min number of matches played. (optional)
-    min_unix_timestamp = 1755475200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -510,7 +606,7 @@ Name | Type | Description  | Notes
  **sort_by** | **str**| The field to sort by. | 
  **sort_direction** | **str**| The direction to sort heroes in. | [optional] 
  **min_matches** | **int**| Filter by min number of matches played. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755475200]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -583,7 +679,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
     bucket = 'bucket_example' # str | Bucket allows you to group the stats by a specific field. (optional)
-    min_unix_timestamp = 1755475200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -617,7 +713,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket allows you to group the stats by a specific field. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755475200]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -697,7 +793,7 @@ configuration = deadlock-api-client.Configuration(
 with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
-    min_unix_timestamp = 1755475200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -730,7 +826,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755475200]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -812,7 +908,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     comb_size = 2 # int | The combination size to return. (optional) (default to 2)
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     hero_id = 56 # int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-    min_unix_timestamp = 1755475200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -845,7 +941,7 @@ Name | Type | Description  | Notes
  **comb_size** | **int**| The combination size to return. | [optional] [default to 2]
  **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
  **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755475200]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -922,7 +1018,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     bucket = 'bucket_example' # str | Bucket allows you to group the stats by a specific field. (optional)
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     hero_id = 56 # int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-    min_unix_timestamp = 1755475200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -958,7 +1054,7 @@ Name | Type | Description  | Notes
  **bucket** | **str**| Bucket allows you to group the stats by a specific field. | [optional] 
  **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
  **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755475200]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -1152,7 +1248,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-    min_unix_timestamp = 1755475200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755475200)
+    min_unix_timestamp = 1755561600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1755561600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1184,7 +1280,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755475200]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1755561600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 

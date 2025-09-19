@@ -40,13 +40,6 @@ class TestMatchesApi(unittest.TestCase):
         """
         pass
 
-    def test_badge_distribution(self) -> None:
-        """Test case for badge_distribution
-
-        Badge Distribution
-        """
-        pass
-
     def test_bulk_metadata(self) -> None:
         """Test case for bulk_metadata
 

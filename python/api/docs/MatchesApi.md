@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**active_matches**](MatchesApi.md#active_matches) | **GET** /v1/matches/active | Active
 [**active_matches_raw**](MatchesApi.md#active_matches_raw) | **GET** /v1/matches/active/raw | Active as Protobuf
-[**badge_distribution**](MatchesApi.md#badge_distribution) | **GET** /v1/matches/badge-distribution | Badge Distribution
 [**bulk_metadata**](MatchesApi.md#bulk_metadata) | **GET** /v1/matches/metadata | Bulk Metadata
 [**metadata**](MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata
 [**metadata_raw**](MatchesApi.md#metadata_raw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf
@@ -177,91 +176,6 @@ No authorization required
 |-------------|-------------|------------------|
 **200** |  |  -  |
 **500** | Fetching active matches failed |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **badge_distribution**
-> List[BadgeDistribution] badge_distribution(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_match_id=min_match_id, max_match_id=max_match_id)
-
-Badge Distribution
-
-
-This endpoint returns the player badge distribution.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
-
-### Example
-
-
-```python
-import deadlock-api-client
-from deadlock-api-client.models.badge_distribution import BadgeDistribution
-from deadlock-api-client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.deadlock-api.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
-    host = "https://api.deadlock-api.com"
-)
-
-
-# Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = deadlock-api-client.MatchesApi(api_client)
-    min_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
-    max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
-    min_match_id = 56 # int | Filter matches based on their ID. (optional)
-    max_match_id = 56 # int | Filter matches based on their ID. (optional)
-
-    try:
-        # Badge Distribution
-        api_response = api_instance.badge_distribution(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_match_id=min_match_id, max_match_id=max_match_id)
-        print("The response of MatchesApi->badge_distribution:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling MatchesApi->badge_distribution: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
- **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
- **min_match_id** | **int**| Filter matches based on their ID. | [optional] 
- **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
-
-### Return type
-
-[**List[BadgeDistribution]**](BadgeDistribution.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Badge Distribution |  -  |
-**400** | Provided parameters are invalid. |  -  |
-**500** | Failed to fetch badge distribution |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
