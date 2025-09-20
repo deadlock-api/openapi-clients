@@ -8536,10 +8536,11 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
         /**
          *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Recently Fetched
+         * @param {boolean | null} [playerIngestedOnly] If true, only return matches that have been ingested by players.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        recentlyFetched: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        recentlyFetched: async (playerIngestedOnly?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/matches/recently-fetched`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8551,6 +8552,10 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (playerIngestedOnly !== undefined) {
+                localVarQueryParameter['player_ingested_only'] = playerIngestedOnly;
+            }
 
 
     
@@ -8734,11 +8739,12 @@ export const MatchesApiFp = function(configuration?: Configuration) {
         /**
          *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Recently Fetched
+         * @param {boolean | null} [playerIngestedOnly] If true, only return matches that have been ingested by players.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async recentlyFetched(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ClickhouseMatchInfo>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.recentlyFetched(options);
+        async recentlyFetched(playerIngestedOnly?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ClickhouseMatchInfo>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.recentlyFetched(playerIngestedOnly, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.recentlyFetched']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -8831,11 +8837,12 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
         /**
          *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Recently Fetched
+         * @param {MatchesApiRecentlyFetchedRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        recentlyFetched(options?: RawAxiosRequestConfig): AxiosPromise<Array<ClickhouseMatchInfo>> {
-            return localVarFp.recentlyFetched(options).then((request) => request(axios, basePath));
+        recentlyFetched(requestParameters: MatchesApiRecentlyFetchedRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<ClickhouseMatchInfo>> {
+            return localVarFp.recentlyFetched(requestParameters.playerIngestedOnly, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |     
@@ -9099,6 +9106,20 @@ export interface MatchesApiMetadataRawRequest {
 }
 
 /**
+ * Request parameters for recentlyFetched operation in MatchesApi.
+ * @export
+ * @interface MatchesApiRecentlyFetchedRequest
+ */
+export interface MatchesApiRecentlyFetchedRequest {
+    /**
+     * If true, only return matches that have been ingested by players.
+     * @type {boolean}
+     * @memberof MatchesApiRecentlyFetched
+     */
+    readonly playerIngestedOnly?: boolean | null
+}
+
+/**
  * Request parameters for salts operation in MatchesApi.
  * @export
  * @interface MatchesApiSaltsRequest
@@ -9195,12 +9216,13 @@ export class MatchesApi extends BaseAPI {
     /**
      *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @summary Recently Fetched
+     * @param {MatchesApiRecentlyFetchedRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MatchesApi
      */
-    public recentlyFetched(options?: RawAxiosRequestConfig) {
-        return MatchesApiFp(this.configuration).recentlyFetched(options).then((request) => request(this.axios, this.basePath));
+    public recentlyFetched(requestParameters: MatchesApiRecentlyFetchedRequest = {}, options?: RawAxiosRequestConfig) {
+        return MatchesApiFp(this.configuration).recentlyFetched(requestParameters.playerIngestedOnly, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

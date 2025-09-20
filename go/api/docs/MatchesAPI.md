@@ -400,7 +400,7 @@ No authorization required
 
 ## RecentlyFetched
 
-> []ClickhouseMatchInfo RecentlyFetched(ctx).Execute()
+> []ClickhouseMatchInfo RecentlyFetched(ctx).PlayerIngestedOnly(playerIngestedOnly).Execute()
 
 Recently Fetched
 
@@ -419,10 +419,11 @@ import (
 )
 
 func main() {
+	playerIngestedOnly := true // bool | If true, only return matches that have been ingested by players. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MatchesAPI.RecentlyFetched(context.Background()).Execute()
+	resp, r, err := apiClient.MatchesAPI.RecentlyFetched(context.Background()).PlayerIngestedOnly(playerIngestedOnly).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.RecentlyFetched``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -434,12 +435,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiRecentlyFetchedRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playerIngestedOnly** | **bool** | If true, only return matches that have been ingested by players. | 
 
 ### Return type
 

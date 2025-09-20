@@ -904,6 +904,13 @@ func (a *MatchesAPIService) MetadataRawExecute(r ApiMetadataRawRequest) ([]int32
 type ApiRecentlyFetchedRequest struct {
 	ctx context.Context
 	ApiService *MatchesAPIService
+	playerIngestedOnly *bool
+}
+
+// If true, only return matches that have been ingested by players.
+func (r ApiRecentlyFetchedRequest) PlayerIngestedOnly(playerIngestedOnly bool) ApiRecentlyFetchedRequest {
+	r.playerIngestedOnly = &playerIngestedOnly
+	return r
 }
 
 func (r ApiRecentlyFetchedRequest) Execute() ([]ClickhouseMatchInfo, *http.Response, error) {
@@ -955,6 +962,9 @@ func (a *MatchesAPIService) RecentlyFetchedExecute(r ApiRecentlyFetchedRequest) 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.playerIngestedOnly != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "player_ingested_only", r.playerIngestedOnly, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

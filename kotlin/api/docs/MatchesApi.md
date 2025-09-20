@@ -294,7 +294,7 @@ No authorization required
 
 <a id="recentlyFetched"></a>
 # **recentlyFetched**
-> kotlin.collections.List&lt;ClickhouseMatchInfo&gt; recentlyFetched()
+> kotlin.collections.List&lt;ClickhouseMatchInfo&gt; recentlyFetched(playerIngestedOnly)
 
 Recently Fetched
 
@@ -307,8 +307,9 @@ Recently Fetched
 //import deadlock-api-client.models.*
 
 val apiInstance = MatchesApi()
+val playerIngestedOnly : kotlin.Boolean = true // kotlin.Boolean | If true, only return matches that have been ingested by players.
 try {
-    val result : kotlin.collections.List<ClickhouseMatchInfo> = apiInstance.recentlyFetched()
+    val result : kotlin.collections.List<ClickhouseMatchInfo> = apiInstance.recentlyFetched(playerIngestedOnly)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MatchesApi#recentlyFetched")
@@ -320,7 +321,9 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **playerIngestedOnly** | **kotlin.Boolean**| If true, only return matches that have been ingested by players. | [optional] |
 
 ### Return type
 

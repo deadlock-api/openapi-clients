@@ -1811,6 +1811,7 @@ class MatchesApi:
     @validate_call
     def recently_fetched(
         self,
+        player_ingested_only: Annotated[Optional[StrictBool], Field(description="If true, only return matches that have been ingested by players.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1828,6 +1829,8 @@ class MatchesApi:
 
          This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param player_ingested_only: If true, only return matches that have been ingested by players.
+        :type player_ingested_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1851,6 +1854,7 @@ class MatchesApi:
         """ # noqa: E501
 
         _param = self._recently_fetched_serialize(
+            player_ingested_only=player_ingested_only,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1875,6 +1879,7 @@ class MatchesApi:
     @validate_call
     def recently_fetched_with_http_info(
         self,
+        player_ingested_only: Annotated[Optional[StrictBool], Field(description="If true, only return matches that have been ingested by players.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1892,6 +1897,8 @@ class MatchesApi:
 
          This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param player_ingested_only: If true, only return matches that have been ingested by players.
+        :type player_ingested_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1915,6 +1922,7 @@ class MatchesApi:
         """ # noqa: E501
 
         _param = self._recently_fetched_serialize(
+            player_ingested_only=player_ingested_only,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1939,6 +1947,7 @@ class MatchesApi:
     @validate_call
     def recently_fetched_without_preload_content(
         self,
+        player_ingested_only: Annotated[Optional[StrictBool], Field(description="If true, only return matches that have been ingested by players.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1956,6 +1965,8 @@ class MatchesApi:
 
          This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param player_ingested_only: If true, only return matches that have been ingested by players.
+        :type player_ingested_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1979,6 +1990,7 @@ class MatchesApi:
         """ # noqa: E501
 
         _param = self._recently_fetched_serialize(
+            player_ingested_only=player_ingested_only,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1998,6 +2010,7 @@ class MatchesApi:
 
     def _recently_fetched_serialize(
         self,
+        player_ingested_only,
         _request_auth,
         _content_type,
         _headers,
@@ -2020,6 +2033,10 @@ class MatchesApi:
 
         # process the path parameters
         # process the query parameters
+        if player_ingested_only is not None:
+            
+            _query_params.append(('player_ingested_only', player_ingested_only))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

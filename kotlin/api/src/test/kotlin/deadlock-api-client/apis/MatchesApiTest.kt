@@ -96,7 +96,8 @@ class MatchesApiTest : ShouldSpec() {
         // to test recentlyFetched
         should("test recentlyFetched") {
             // uncomment below to test recentlyFetched
-            //val result : kotlin.collections.List<ClickhouseMatchInfo> = apiInstance.recentlyFetched()
+            //val playerIngestedOnly : kotlin.Boolean = true // kotlin.Boolean | If true, only return matches that have been ingested by players.
+            //val result : kotlin.collections.List<ClickhouseMatchInfo> = apiInstance.recentlyFetched(playerIngestedOnly)
             //result shouldBe ("TODO")
         }
 

@@ -1846,15 +1846,16 @@ class MatchesApi
      *
      * Recently Fetched
      *
+     * @param  bool|null $player_ingested_only If true, only return matches that have been ingested by players. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recentlyFetched'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ClickhouseMatchInfo[]
      */
-    public function recentlyFetched(string $contentType = self::contentTypes['recentlyFetched'][0])
+    public function recentlyFetched($player_ingested_only = null, string $contentType = self::contentTypes['recentlyFetched'][0])
     {
-        list($response) = $this->recentlyFetchedWithHttpInfo($contentType);
+        list($response) = $this->recentlyFetchedWithHttpInfo($player_ingested_only, $contentType);
         return $response;
     }
 
@@ -1863,15 +1864,16 @@ class MatchesApi
      *
      * Recently Fetched
      *
+     * @param  bool|null $player_ingested_only If true, only return matches that have been ingested by players. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recentlyFetched'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ClickhouseMatchInfo[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function recentlyFetchedWithHttpInfo(string $contentType = self::contentTypes['recentlyFetched'][0])
+    public function recentlyFetchedWithHttpInfo($player_ingested_only = null, string $contentType = self::contentTypes['recentlyFetched'][0])
     {
-        $request = $this->recentlyFetchedRequest($contentType);
+        $request = $this->recentlyFetchedRequest($player_ingested_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1947,14 +1949,15 @@ class MatchesApi
      *
      * Recently Fetched
      *
+     * @param  bool|null $player_ingested_only If true, only return matches that have been ingested by players. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recentlyFetched'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function recentlyFetchedAsync(string $contentType = self::contentTypes['recentlyFetched'][0])
+    public function recentlyFetchedAsync($player_ingested_only = null, string $contentType = self::contentTypes['recentlyFetched'][0])
     {
-        return $this->recentlyFetchedAsyncWithHttpInfo($contentType)
+        return $this->recentlyFetchedAsyncWithHttpInfo($player_ingested_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1967,15 +1970,16 @@ class MatchesApi
      *
      * Recently Fetched
      *
+     * @param  bool|null $player_ingested_only If true, only return matches that have been ingested by players. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recentlyFetched'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function recentlyFetchedAsyncWithHttpInfo(string $contentType = self::contentTypes['recentlyFetched'][0])
+    public function recentlyFetchedAsyncWithHttpInfo($player_ingested_only = null, string $contentType = self::contentTypes['recentlyFetched'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ClickhouseMatchInfo[]';
-        $request = $this->recentlyFetchedRequest($contentType);
+        $request = $this->recentlyFetchedRequest($player_ingested_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2016,13 +2020,15 @@ class MatchesApi
     /**
      * Create request for operation 'recentlyFetched'
      *
+     * @param  bool|null $player_ingested_only If true, only return matches that have been ingested by players. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recentlyFetched'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function recentlyFetchedRequest(string $contentType = self::contentTypes['recentlyFetched'][0])
+    public function recentlyFetchedRequest($player_ingested_only = null, string $contentType = self::contentTypes['recentlyFetched'][0])
     {
+
 
 
         $resourcePath = '/v1/matches/recently-fetched';
@@ -2032,6 +2038,15 @@ class MatchesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $player_ingested_only,
+            'player_ingested_only', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
 

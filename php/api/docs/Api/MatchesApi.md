@@ -345,7 +345,7 @@ No authorization required
 ## `recentlyFetched()`
 
 ```php
-recentlyFetched(): \OpenAPI\Client\Model\ClickhouseMatchInfo[]
+recentlyFetched($player_ingested_only): \OpenAPI\Client\Model\ClickhouseMatchInfo[]
 ```
 
 Recently Fetched
@@ -365,9 +365,10 @@ $apiInstance = new OpenAPI\Client\Api\MatchesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$player_ingested_only = True; // bool | If true, only return matches that have been ingested by players.
 
 try {
-    $result = $apiInstance->recentlyFetched();
+    $result = $apiInstance->recentlyFetched($player_ingested_only);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MatchesApi->recentlyFetched: ', $e->getMessage(), PHP_EOL;
@@ -376,7 +377,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **player_ingested_only** | **bool**| If true, only return matches that have been ingested by players. | [optional] |
 
 ### Return type
 

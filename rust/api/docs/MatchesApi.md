@@ -190,14 +190,17 @@ No authorization required
 
 ## recently_fetched
 
-> Vec<models::ClickhouseMatchInfo> recently_fetched()
+> Vec<models::ClickhouseMatchInfo> recently_fetched(player_ingested_only)
 Recently Fetched
 
  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**player_ingested_only** | Option<**bool**> | If true, only return matches that have been ingested by players. |  |
 
 ### Return type
 

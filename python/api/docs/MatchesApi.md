@@ -480,7 +480,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recently_fetched**
-> List[ClickhouseMatchInfo] recently_fetched()
+> List[ClickhouseMatchInfo] recently_fetched(player_ingested_only=player_ingested_only)
 
 Recently Fetched
 
@@ -515,10 +515,11 @@ configuration = deadlock-api-client.Configuration(
 with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.MatchesApi(api_client)
+    player_ingested_only = True # bool | If true, only return matches that have been ingested by players. (optional)
 
     try:
         # Recently Fetched
-        api_response = api_instance.recently_fetched()
+        api_response = api_instance.recently_fetched(player_ingested_only=player_ingested_only)
         print("The response of MatchesApi->recently_fetched:\n")
         pprint(api_response)
     except Exception as e:
@@ -529,7 +530,10 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **player_ingested_only** | **bool**| If true, only return matches that have been ingested by players. | [optional] 
 
 ### Return type
 

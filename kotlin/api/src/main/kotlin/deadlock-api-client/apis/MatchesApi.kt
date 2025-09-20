@@ -615,6 +615,7 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * GET /v1/matches/recently-fetched
      * Recently Fetched
      *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param playerIngestedOnly If true, only return matches that have been ingested by players. (optional)
      * @return kotlin.collections.List<ClickhouseMatchInfo>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -624,8 +625,8 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun recentlyFetched() : kotlin.collections.List<ClickhouseMatchInfo> {
-        val localVarResponse = recentlyFetchedWithHttpInfo()
+    fun recentlyFetched(playerIngestedOnly: kotlin.Boolean? = null) : kotlin.collections.List<ClickhouseMatchInfo> {
+        val localVarResponse = recentlyFetchedWithHttpInfo(playerIngestedOnly = playerIngestedOnly)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ClickhouseMatchInfo>
@@ -646,14 +647,15 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * GET /v1/matches/recently-fetched
      * Recently Fetched
      *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param playerIngestedOnly If true, only return matches that have been ingested by players. (optional)
      * @return ApiResponse<kotlin.collections.List<ClickhouseMatchInfo>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun recentlyFetchedWithHttpInfo() : ApiResponse<kotlin.collections.List<ClickhouseMatchInfo>?> {
-        val localVariableConfig = recentlyFetchedRequestConfig()
+    fun recentlyFetchedWithHttpInfo(playerIngestedOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ClickhouseMatchInfo>?> {
+        val localVariableConfig = recentlyFetchedRequestConfig(playerIngestedOnly = playerIngestedOnly)
 
         return request<Unit, kotlin.collections.List<ClickhouseMatchInfo>>(
             localVariableConfig
@@ -663,11 +665,17 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     /**
      * To obtain the request config of the operation recentlyFetched
      *
+     * @param playerIngestedOnly If true, only return matches that have been ingested by players. (optional)
      * @return RequestConfig
      */
-    fun recentlyFetchedRequestConfig() : RequestConfig<Unit> {
+    fun recentlyFetchedRequestConfig(playerIngestedOnly: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (playerIngestedOnly != null) {
+                    put("player_ingested_only", listOf(playerIngestedOnly.toString()))
+                }
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 

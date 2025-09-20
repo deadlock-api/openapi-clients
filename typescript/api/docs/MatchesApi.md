@@ -368,11 +368,18 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MatchesApi(configuration);
 
-const { status, data } = await apiInstance.recentlyFetched();
+let playerIngestedOnly: boolean; //If true, only return matches that have been ingested by players. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.recentlyFetched(
+    playerIngestedOnly
+);
 ```
 
 ### Parameters
-This endpoint does not have any parameters.
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **playerIngestedOnly** | [**boolean**] | If true, only return matches that have been ingested by players. | (optional) defaults to undefined|
 
 
 ### Return type
