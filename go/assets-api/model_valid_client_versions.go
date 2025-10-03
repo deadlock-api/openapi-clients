@@ -20,6 +20,7 @@ type ValidClientVersions int32
 
 // List of ValidClientVersions
 const (
+	_5920 ValidClientVersions = 5920
 	_5902 ValidClientVersions = 5902
 	_5885 ValidClientVersions = 5885
 	_5878 ValidClientVersions = 5878
@@ -53,6 +54,7 @@ const (
 
 // All allowed values of ValidClientVersions enum
 var AllowedValidClientVersionsEnumValues = []ValidClientVersions{
+	5920,
 	5902,
 	5885,
 	5878,

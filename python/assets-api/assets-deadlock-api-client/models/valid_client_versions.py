@@ -26,6 +26,7 @@ class ValidClientVersions(int, Enum):
     """
     allowed enum values
     """
+    NUMBER_5920 = 5920
     NUMBER_5902 = 5902
     NUMBER_5885 = 5885
     NUMBER_5878 = 5878
