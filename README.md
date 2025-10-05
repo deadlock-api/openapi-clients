@@ -24,6 +24,9 @@ The clients are organized by language and API:
 -   **PHP**:
     -   `php/api`: Client for the main Deadlock API.
     -   `php/assets-api`: Client for the Deadlock Assets API.
+-   **Dart**:
+    -   `dart/api`: Client for the main Deadlock API.
+    -   `dart/assets-api`: Client for the Deadlock Assets API.
 
 ## Installation from GitHub
 
@@ -139,6 +142,27 @@ Use `go get` to install the clients:
 -   **Assets API Client:**
     ```bash
     go get github.com/deadlock-api/openapi-clients/go/assets-api
+    ```
+
+### Dart
+
+Add the clients to your `pubspec.yaml`:
+
+-   **API Client:**
+    ```yaml
+    dependencies:
+      deadlock_api_client:
+        git:
+          url: https://github.com/deadlock-api/openapi-clients.git
+          path: dart/api
+    ```
+-   **Assets API Client:**
+    ```yaml
+    dependencies:
+      assets_deadlock_api_client:
+        git:
+          url: https://github.com/deadlock-api/openapi-clients.git
+          path: dart/assets-api
     ```
 
 ## Usage
