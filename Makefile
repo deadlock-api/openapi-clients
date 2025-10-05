@@ -112,14 +112,14 @@ generate-api-dart:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p dart/api
 	@echo "--> Generating Dart client for the main API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g dart -o dart/api/ --skip-validate-spec --type-mappings=AnyType=Object --additional-properties=pubName=deadlock-api-client,pubLibrary=deadlock_api_client,pubAuthor=deadlock-api,pubAuthorEmail=contact@deadlock-api.com,pubHomepage=https://deadlock-api.com,pubRepository=https://github.com/deadlock-api/openapi-clients,pubVersion=1.0.0,nullableFields=true
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g dart -o dart/api/ --skip-validate-spec --type-mappings=AnyType=Object --additional-properties=pubName=deadlock-api-client,pubLibrary=deadlock_api_client,pubAuthor=deadlock-api,pubAuthorEmail=contact@deadlock-api.com,pubHomepage=https://deadlock-api.com,pubRepository=https://github.com/deadlock-api/openapi-clients
 	@echo "--> Main API client generated successfully in dart/api/"
 
 generate-assets-api-dart:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p dart/assets-api
 	@echo "--> Generating Dart client for the assets API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g dart -o dart/assets-api/ --skip-validate-spec --type-mappings=AnyType=Object --additional-properties=pubName=assets-deadlock-api-client,pubLibrary=assets_deadlock_api_client,pubAuthor=deadlock-api,pubAuthorEmail=contact@deadlock-api.com,pubHomepage=https://deadlock-api.com,pubRepository=https://github.com/deadlock-api/openapi-clients,pubVersion=1.0.0,nullableFields=true
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g dart -o dart/assets-api/ --skip-validate-spec --type-mappings=AnyType=Object --additional-properties=pubName=assets-deadlock-api-client,pubLibrary=assets_deadlock_api_client,pubAuthor=deadlock-api,pubAuthorEmail=contact@deadlock-api.com,pubHomepage=https://deadlock-api.com,pubRepository=https://github.com/deadlock-api/openapi-clients
 	@echo "--> Assets API client generated successfully in dart/assets-api/"
 
 jetbrains-client: | generate-api-jetbrains-client generate-assets-api-jetbrains-client
