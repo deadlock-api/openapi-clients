@@ -5,7 +5,7 @@
 
 # The default target executed when 'make' is run without arguments.
 # It depends on both individual generator targets.
-all: python typescript rust kotlin go php
+all: python typescript rust kotlin go php jetbrains-client
 
 python: generate-api-python generate-assets-api-python
 
@@ -103,8 +103,24 @@ generate-assets-api-php:
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g php -o php/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client,srcBasePath=api,licenseName=MIT,developerOrganization=deadlock-api,developerOrganizationUrl=https://deadlock-api.com
 	@echo "--> Assets API client generated successfully in php/assets-api/"
 
+jetbrains-client: generate-api-jetbrains-client generate-assets-api-jetbrains-client
+
+generate-api-jetbrains-client:
+	@echo "--> Creating directory for the main API client..."
+	@mkdir -p jetbrains-client/api
+	@echo "--> Generating Jetbrains client for the main API..."
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g jetbrains-http-client -o jetbrains-client/api/ --skip-validate-spec
+	@echo "--> Main API client generated successfully in jetbrains-client/api/"
+
+generate-assets-api-jetbrains-client:
+	@echo "--> Creating directory for the assets API client..."
+	@mkdir -p jetbrains-client/assets-api
+	@echo "--> Generating Jetbrains client for the assets API..."
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g jetbrains-http-client -o jetbrains-client/assets-api/ --skip-validate-spec
+	@echo "--> Assets API client generated successfully in jetbrains-client/assets-api/"
+
 # Target to clean up all generated directories.
 clean:
 	@echo "--> Removing generated client directories..."
-	@rm -rf python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api php/api php/assets-api
+	@rm -rf python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api php/api php/assets-api jetbrains-client/api jetbrains-client/assets-api
 	@echo "--> Cleanup complete."
