@@ -2,16 +2,16 @@
 
 All URIs are relative to *https://assets.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**getBuildTagsV2BuildTagsGet**](DefaultApi.md#getBuildTagsV2BuildTagsGet) | **GET** /v2/build-tags | Get Build Tags |
-| [**getClientVersionsV2ClientVersionsGet**](DefaultApi.md#getClientVersionsV2ClientVersionsGet) | **GET** /v2/client-versions | Get Client Versions |
-| [**getColorsV1ColorsGet**](DefaultApi.md#getColorsV1ColorsGet) | **GET** /v1/colors | Get Colors |
-| [**getIconsV1IconsGet**](DefaultApi.md#getIconsV1IconsGet) | **GET** /v1/icons | Get Icons |
-| [**getMapV1MapGet**](DefaultApi.md#getMapV1MapGet) | **GET** /v1/map | Get Map |
-| [**getRanksV2RanksGet**](DefaultApi.md#getRanksV2RanksGet) | **GET** /v2/ranks | Get Ranks |
-| [**getSoundsV1SoundsGet**](DefaultApi.md#getSoundsV1SoundsGet) | **GET** /v1/sounds | Get Sounds |
-| [**getSteamInfoV1SteamInfoGet**](DefaultApi.md#getSteamInfoV1SteamInfoGet) | **GET** /v1/steam-info | Get Steam Info |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getBuildTagsV2BuildTagsGet**](DefaultApi.md#getBuildTagsV2BuildTagsGet) | **GET** /v2/build-tags | Get Build Tags
+[**getClientVersionsV2ClientVersionsGet**](DefaultApi.md#getClientVersionsV2ClientVersionsGet) | **GET** /v2/client-versions | Get Client Versions
+[**getColorsV1ColorsGet**](DefaultApi.md#getColorsV1ColorsGet) | **GET** /v1/colors | Get Colors
+[**getIconsV1IconsGet**](DefaultApi.md#getIconsV1IconsGet) | **GET** /v1/icons | Get Icons
+[**getMapV1MapGet**](DefaultApi.md#getMapV1MapGet) | **GET** /v1/map | Get Map
+[**getRanksV2RanksGet**](DefaultApi.md#getRanksV2RanksGet) | **GET** /v2/ranks | Get Ranks
+[**getSoundsV1SoundsGet**](DefaultApi.md#getSoundsV1SoundsGet) | **GET** /v1/sounds | Get Sounds
+[**getSteamInfoV1SteamInfoGet**](DefaultApi.md#getSteamInfoV1SteamInfoGet) | **GET** /v1/steam-info | Get Steam Info
 
 
 <a id="getBuildTagsV2BuildTagsGet"></a>
@@ -42,10 +42,11 @@ try {
 ```
 
 ### Parameters
-| **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese]
+ **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
 
 ### Return type
 
@@ -128,9 +129,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
 
 ### Return type
 
@@ -172,9 +174,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
 
 ### Return type
 
@@ -216,9 +219,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
 
 ### Return type
 
@@ -261,10 +265,11 @@ try {
 ```
 
 ### Parameters
-| **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese]
+ **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
 
 ### Return type
 
@@ -306,9 +311,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
 
 ### Return type
 
@@ -350,9 +356,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
 
 ### Return type
 

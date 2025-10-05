@@ -15,11 +15,10 @@ import (
 	"fmt"
 )
 
-
 // UsageFlags struct for UsageFlags
 type UsageFlags struct {
-	ArrayOfStatsUsageFlagV2 *[]StatsUsageFlagV2
-	String *string
+	[]StatsUsageFlagV2 *[]StatsUsageFlagV2
+	string *string
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -30,48 +29,47 @@ func (dst *UsageFlags) UnmarshalJSON(data []byte) error {
 		return nil
 	}
 
-	// try to unmarshal JSON data into ArrayOfStatsUsageFlagV2
-	err = json.Unmarshal(data, &dst.ArrayOfStatsUsageFlagV2);
+	// try to unmarshal JSON data into []StatsUsageFlagV2
+	err = json.Unmarshal(data, &dst.[]StatsUsageFlagV2);
 	if err == nil {
-		jsonArrayOfStatsUsageFlagV2, _ := json.Marshal(dst.ArrayOfStatsUsageFlagV2)
-		if string(jsonArrayOfStatsUsageFlagV2) == "{}" { // empty struct
-			dst.ArrayOfStatsUsageFlagV2 = nil
+		json[]StatsUsageFlagV2, _ := json.Marshal(dst.[]StatsUsageFlagV2)
+		if string(json[]StatsUsageFlagV2) == "{}" { // empty struct
+			dst.[]StatsUsageFlagV2 = nil
 		} else {
-			return nil // data stored in dst.ArrayOfStatsUsageFlagV2, return on the first match
+			return nil // data stored in dst.[]StatsUsageFlagV2, return on the first match
 		}
 	} else {
-		dst.ArrayOfStatsUsageFlagV2 = nil
+		dst.[]StatsUsageFlagV2 = nil
 	}
 
-	// try to unmarshal JSON data into String
-	err = json.Unmarshal(data, &dst.String);
+	// try to unmarshal JSON data into string
+	err = json.Unmarshal(data, &dst.string);
 	if err == nil {
-		jsonString, _ := json.Marshal(dst.String)
-		if string(jsonString) == "{}" { // empty struct
-			dst.String = nil
+		jsonstring, _ := json.Marshal(dst.string)
+		if string(jsonstring) == "{}" { // empty struct
+			dst.string = nil
 		} else {
-			return nil // data stored in dst.String, return on the first match
+			return nil // data stored in dst.string, return on the first match
 		}
 	} else {
-		dst.String = nil
+		dst.string = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(UsageFlags)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src UsageFlags) MarshalJSON() ([]byte, error) {
-	if src.ArrayOfStatsUsageFlagV2 != nil {
-		return json.Marshal(&src.ArrayOfStatsUsageFlagV2)
+func (src *UsageFlags) MarshalJSON() ([]byte, error) {
+	if src.[]StatsUsageFlagV2 != nil {
+		return json.Marshal(&src.[]StatsUsageFlagV2)
 	}
 
-	if src.String != nil {
-		return json.Marshal(&src.String)
+	if src.string != nil {
+		return json.Marshal(&src.string)
 	}
 
 	return nil, nil // no data in anyOf schemas
 }
-
 
 type NullableUsageFlags struct {
 	value *UsageFlags

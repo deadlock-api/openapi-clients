@@ -2,12 +2,12 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**heroMmr**](MMRApi.md#heroMmr) | **GET** /v1/players/mmr/{hero_id} | Hero MMR |
-| [**heroMmrHistory**](MMRApi.md#heroMmrHistory) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History |
-| [**mmr**](MMRApi.md#mmr) | **GET** /v1/players/mmr | MMR |
-| [**mmrHistory**](MMRApi.md#mmrHistory) | **GET** /v1/players/{account_id}/mmr-history | MMR History |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**heroMmr**](MMRApi.md#heroMmr) | **GET** /v1/players/mmr/{hero_id} | Hero MMR
+[**heroMmrHistory**](MMRApi.md#heroMmrHistory) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History
+[**mmr**](MMRApi.md#mmr) | **GET** /v1/players/mmr | MMR
+[**mmrHistory**](MMRApi.md#mmrHistory) | **GET** /v1/players/{account_id}/mmr-history | MMR History
 
 
 <a id="heroMmr"></a>
@@ -41,11 +41,12 @@ try {
 ```
 
 ### Parameters
-| **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. |
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
 
 ### Return type
 
@@ -90,10 +91,11 @@ try {
 ```
 
 ### Parameters
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; |
+ **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |
 
 ### Return type
 
@@ -138,10 +140,11 @@ try {
 ```
 
 ### Parameters
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. |
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
 
 ### Return type
 
@@ -185,9 +188,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; |
 
 ### Return type
 

@@ -34,14 +34,14 @@ paths:
         name: language
         required: false
         schema:
-          $ref: "#/components/schemas/Language"
+          $ref: '#/components/schemas/Language'
         style: form
       - explode: true
         in: query
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       - explode: true
         in: query
@@ -57,14 +57,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/HeroV2"
+                  $ref: '#/components/schemas/HeroV2'
                 type: array
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Heroes
       tags:
@@ -86,27 +86,27 @@ paths:
         name: language
         required: false
         schema:
-          $ref: "#/components/schemas/Language"
+          $ref: '#/components/schemas/Language'
         style: form
       - explode: true
         in: query
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HeroV2"
+                $ref: '#/components/schemas/HeroV2'
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Hero
       tags:
@@ -128,27 +128,27 @@ paths:
         name: language
         required: false
         schema:
-          $ref: "#/components/schemas/Language"
+          $ref: '#/components/schemas/Language'
         style: form
       - explode: true
         in: query
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HeroV2"
+                $ref: '#/components/schemas/HeroV2'
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Hero By Name
       tags:
@@ -162,14 +162,14 @@ paths:
         name: language
         required: false
         schema:
-          $ref: "#/components/schemas/Language"
+          $ref: '#/components/schemas/Language'
         style: form
       - explode: true
         in: query
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -177,14 +177,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                  $ref: '#/components/schemas/get_items_v2_items_get_200_response_inner'
                 type: array
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Items
       tags:
@@ -198,34 +198,35 @@ paths:
         name: id_or_class_name
         required: true
         schema:
-          $ref: "#/components/schemas/Id_Or_Class_Name"
+          title: Id Or Class Name
+          type: string
         style: simple
       - explode: true
         in: query
         name: language
         required: false
         schema:
-          $ref: "#/components/schemas/Language"
+          $ref: '#/components/schemas/Language'
         style: form
       - explode: true
         in: query
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Response_Get_Item_V2_Items__Id_Or_Class_Name__Get"
+                $ref: '#/components/schemas/Response_Get_Item_V2_Items__Id_Or_Class_Name__Get'
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Item
       tags:
@@ -239,21 +240,21 @@ paths:
         name: type
         required: true
         schema:
-          $ref: "#/components/schemas/ItemTypeV2"
+          $ref: '#/components/schemas/ItemTypeV2'
         style: simple
       - explode: true
         in: query
         name: language
         required: false
         schema:
-          $ref: "#/components/schemas/Language"
+          $ref: '#/components/schemas/Language'
         style: form
       - explode: true
         in: query
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -261,14 +262,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                  $ref: '#/components/schemas/get_items_v2_items_get_200_response_inner'
                 type: array
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Items By Type
       tags:
@@ -290,14 +291,14 @@ paths:
         name: language
         required: false
         schema:
-          $ref: "#/components/schemas/Language"
+          $ref: '#/components/schemas/Language'
         style: form
       - explode: true
         in: query
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -305,14 +306,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                  $ref: '#/components/schemas/get_items_v2_items_get_200_response_inner'
                 type: array
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Items By Hero Id
       tags:
@@ -326,21 +327,21 @@ paths:
         name: slot_type
         required: true
         schema:
-          $ref: "#/components/schemas/ItemSlotTypeV2"
+          $ref: '#/components/schemas/ItemSlotTypeV2'
         style: simple
       - explode: true
         in: query
         name: language
         required: false
         schema:
-          $ref: "#/components/schemas/Language"
+          $ref: '#/components/schemas/Language'
         style: form
       - explode: true
         in: query
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -348,14 +349,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                  $ref: '#/components/schemas/get_items_v2_items_get_200_response_inner'
                 type: array
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Items By Slot Type
       tags:
@@ -382,14 +383,14 @@ paths:
         name: language
         required: false
         schema:
-          $ref: "#/components/schemas/Language"
+          $ref: '#/components/schemas/Language'
         style: form
       - explode: true
         in: query
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -397,14 +398,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/RankV2"
+                  $ref: '#/components/schemas/RankV2'
                 type: array
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Ranks
   /v2/build-tags:
@@ -416,14 +417,14 @@ paths:
         name: language
         required: false
         schema:
-          $ref: "#/components/schemas/Language"
+          $ref: '#/components/schemas/Language'
         style: form
       - explode: true
         in: query
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -431,14 +432,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/BuildTagV2"
+                  $ref: '#/components/schemas/BuildTagV2'
                 type: array
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Build Tags
   /v1/map:
@@ -450,20 +451,20 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MapV1"
+                $ref: '#/components/schemas/MapV1'
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Map
   /v1/colors:
@@ -475,7 +476,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -483,14 +484,14 @@ paths:
             application/json:
               schema:
                 additionalProperties:
-                  $ref: "#/components/schemas/ColorV1"
+                  $ref: '#/components/schemas/ColorV1'
                 title: Response Get Colors V1 Colors Get
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Colors
   /v1/steam-info:
@@ -502,7 +503,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -514,7 +515,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Steam Info
   /v1/icons:
@@ -526,7 +527,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -541,7 +542,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Icons
   /v1/sounds:
@@ -553,7 +554,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -567,7 +568,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Sounds
   /raw/heroes:
@@ -579,7 +580,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -591,7 +592,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Raw Heroes
       tags:
@@ -605,7 +606,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -617,7 +618,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Raw Items
       tags:
@@ -631,7 +632,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: '#/components/schemas/ValidClientVersions'
         style: form
       responses:
         "200":
@@ -643,7 +644,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HTTPValidationError"
+                $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Get Generic Data
       tags:
@@ -704,9 +705,8 @@ components:
           type: string
         properties:
           items:
-            $ref: "#/components/schemas/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty"
+            $ref: '#/components/schemas/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty'
           nullable: true
-          type: array
       title: AbilityTooltipDetailsInfoSectionPropertyBlockV2
     AbilityTooltipDetailsInfoSectionV2:
       example:
@@ -753,14 +753,12 @@ components:
           type: string
         properties_block:
           items:
-            $ref: "#/components/schemas/AbilityTooltipDetailsInfoSectionPropertyBlockV2"
+            $ref: '#/components/schemas/AbilityTooltipDetailsInfoSectionPropertyBlockV2'
           nullable: true
-          type: array
         basic_properties:
           items:
             type: string
           nullable: true
-          type: array
       title: AbilityTooltipDetailsInfoSectionV2
     AbilityTooltipDetailsV2:
       example:
@@ -839,14 +837,12 @@ components:
       properties:
         info_sections:
           items:
-            $ref: "#/components/schemas/AbilityTooltipDetailsInfoSectionV2"
+            $ref: '#/components/schemas/AbilityTooltipDetailsInfoSectionV2'
           nullable: true
-          type: array
         additional_header_properties:
           items:
             type: string
           nullable: true
-          type: array
       title: AbilityTooltipDetailsV2
     AbilityTypeV2:
       enum:
@@ -975,7 +971,7 @@ components:
           - additional_header_properties
         name: name
         id: 0
-        ability_type: innate
+        ability_type: null
         class_name: class_name
         behaviours:
         - behaviours
@@ -987,8 +983,8 @@ components:
           key:
             conditional: conditional
             usage_flags:
-            - ConditionallyApplied
-            - ConditionallyApplied
+            - null
+            - null
             prefix: prefix
             icon: icon
             can_set_token_override: true
@@ -1054,38 +1050,33 @@ components:
           items:
             type: integer
           nullable: true
-          type: array
         update_time:
           nullable: true
           type: integer
         properties:
           additionalProperties:
-            $ref: "#/components/schemas/ItemPropertyV2"
+            $ref: '#/components/schemas/ItemPropertyV2'
           nullable: true
         weapon_info:
-          $ref: "#/components/schemas/RawItemWeaponInfoV2"
+          $ref: '#/components/schemas/RawItemWeaponInfoV2'
         type:
           default: ability
-          enum:
-          - ability
           title: Type
           type: string
         behaviours:
           items:
             type: string
           nullable: true
-          type: array
         description:
-          $ref: "#/components/schemas/AbilityDescriptionV2"
+          $ref: '#/components/schemas/AbilityDescriptionV2'
         tooltip_details:
-          $ref: "#/components/schemas/AbilityTooltipDetailsV2"
+          $ref: '#/components/schemas/AbilityTooltipDetailsV2'
         upgrades:
           items:
-            $ref: "#/components/schemas/RawAbilityUpgradeV2"
+            $ref: '#/components/schemas/RawAbilityUpgradeV2'
           nullable: true
-          type: array
         ability_type:
-          $ref: "#/components/schemas/AbilityTypeV2"
+          $ref: '#/components/schemas/AbilityTypeV2'
         boss_damage_scale:
           nullable: true
           type: number
@@ -1093,9 +1084,8 @@ components:
           items:
             type: string
           nullable: true
-          type: array
         videos:
-          $ref: "#/components/schemas/AbilityVideosV2"
+          $ref: '#/components/schemas/AbilityVideosV2'
       required:
       - class_name
       - description
@@ -1209,54 +1199,64 @@ components:
       properties:
         detail:
           items:
-            $ref: "#/components/schemas/ValidationError"
+            $ref: '#/components/schemas/ValidationError'
           type: array
       title: HTTPValidationError
     HeroColorsV2:
       example:
         glow_team2:
-        - ""
-        - ""
-        - ""
+        - glow_team2
+        - glow_team2
+        - glow_team2
         glow_team1:
-        - ""
-        - ""
-        - ""
+        - glow_team1
+        - glow_team1
+        - glow_team1
         glow_enemy:
-        - ""
-        - ""
-        - ""
+        - glow_enemy
+        - glow_enemy
+        - glow_enemy
         glow_friendly:
-        - ""
-        - ""
-        - ""
+        - glow_friendly
+        - glow_friendly
+        - glow_friendly
         ui:
-        - ""
-        - ""
-        - ""
+        - ui
+        - ui
+        - ui
       properties:
         glow_enemy:
-          items: {}
+          items:
+            description: TODO default missing array inner type to string
+            type: string
           maxItems: 3
           minItems: 3
           type: array
         glow_friendly:
-          items: {}
+          items:
+            description: TODO default missing array inner type to string
+            type: string
           maxItems: 3
           minItems: 3
           type: array
         glow_team1:
-          items: {}
+          items:
+            description: TODO default missing array inner type to string
+            type: string
           maxItems: 3
           minItems: 3
           type: array
         glow_team2:
-          items: {}
+          items:
+            description: TODO default missing array inner type to string
+            type: string
           maxItems: 3
           minItems: 3
           type: array
         ui:
-          items: {}
+          items:
+            description: TODO default missing array inner type to string
+            type: string
           maxItems: 3
           minItems: 3
           type: array
@@ -1390,7 +1390,6 @@ components:
           items:
             type: string
           nullable: true
-          type: array
         required_gold:
           title: Required Gold
           type: integer
@@ -1461,11 +1460,11 @@ components:
           - display_stats
       properties:
         spirit_stats_display:
-          $ref: "#/components/schemas/RawHeroShopSpiritStatsDisplayV2"
+          $ref: '#/components/schemas/RawHeroShopSpiritStatsDisplayV2'
         vitality_stats_display:
-          $ref: "#/components/schemas/RawHeroShopVitalityStatsDisplayV2"
+          $ref: '#/components/schemas/RawHeroShopVitalityStatsDisplayV2'
         weapon_stats_display:
-          $ref: "#/components/schemas/HeroShopWeaponStatsDisplayV2"
+          $ref: '#/components/schemas/HeroShopWeaponStatsDisplayV2'
       required:
       - spirit_stats_display
       - vitality_stats_display
@@ -1497,7 +1496,6 @@ components:
           items:
             type: string
           nullable: true
-          type: array
         weapon_image:
           nullable: true
           type: string
@@ -1514,7 +1512,7 @@ components:
         value: 5
       properties:
         value:
-          $ref: "#/components/schemas/Value"
+          $ref: '#/components/schemas/Value'
         display_stat_name:
           title: Display Stat Name
           type: string
@@ -1589,47 +1587,47 @@ components:
           value: 5
       properties:
         max_move_speed:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         sprint_speed:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         crouch_speed:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         move_acceleration:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         light_melee_damage:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         heavy_melee_damage:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         max_health:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         weapon_power:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         reload_speed:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         weapon_power_scale:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         proc_build_up_rate_scale:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         stamina:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         base_health_regen:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         stamina_regen_per_second:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         ability_resource_max:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         ability_resource_regen_per_second:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         crit_damage_received_scale:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         tech_duration:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         tech_armor_damage_reduction:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         tech_range:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
         bullet_armor_damage_reduction:
-          $ref: "#/components/schemas/HeroStartingStatV2"
+          $ref: '#/components/schemas/HeroStartingStatV2'
       required:
       - ability_resource_max
       - ability_resource_regen_per_second
@@ -1673,25 +1671,25 @@ components:
         prerelease_only: true
         colors:
           glow_team2:
-          - ""
-          - ""
-          - ""
+          - glow_team2
+          - glow_team2
+          - glow_team2
           glow_team1:
-          - ""
-          - ""
-          - ""
+          - glow_team1
+          - glow_team1
+          - glow_team1
           glow_enemy:
-          - ""
-          - ""
-          - ""
+          - glow_enemy
+          - glow_enemy
+          - glow_enemy
           glow_friendly:
-          - ""
-          - ""
-          - ""
+          - glow_friendly
+          - glow_friendly
+          - glow_friendly
           ui:
-          - ""
-          - ""
-          - ""
+          - ui
+          - ui
+          - ui
         shop_stat_display:
           vitality_stats_display:
             display_stats:
@@ -1726,7 +1724,7 @@ components:
           step_sound_time_sprinting: 7.386281948385884
         gun_tag: gun_tag
         disabled: true
-        hero_type: assassin
+        hero_type: null
         level_info:
           key:
             use_standard_upgrade: true
@@ -1897,17 +1895,15 @@ components:
           title: Name
           type: string
         description:
-          $ref: "#/components/schemas/HeroDescriptionV2"
+          $ref: '#/components/schemas/HeroDescriptionV2'
         recommended_upgrades:
           items:
             type: string
           nullable: true
-          type: array
         recommended_ability_order:
           items:
             type: string
           nullable: true
-          type: array
         player_selectable:
           title: Player Selectable
           type: boolean
@@ -1927,7 +1923,6 @@ components:
           items:
             type: string
           nullable: true
-          type: array
         gun_tag:
           nullable: true
           type: string
@@ -1935,7 +1930,7 @@ components:
           nullable: true
           type: string
         hero_type:
-          $ref: "#/components/schemas/HeroTypeV2"
+          $ref: '#/components/schemas/HeroTypeV2'
         prerelease_only:
           nullable: true
           type: boolean
@@ -1949,44 +1944,44 @@ components:
           title: Skin
           type: integer
         images:
-          $ref: "#/components/schemas/HeroImagesV2"
+          $ref: '#/components/schemas/HeroImagesV2'
         items:
           additionalProperties:
             type: string
           title: Items
         starting_stats:
-          $ref: "#/components/schemas/HeroStartingStatsV2"
+          $ref: '#/components/schemas/HeroStartingStatsV2'
         item_slot_info:
           additionalProperties:
-            $ref: "#/components/schemas/RawHeroItemSlotInfoValueV2"
+            $ref: '#/components/schemas/RawHeroItemSlotInfoValueV2'
           title: Item Slot Info
         physics:
-          $ref: "#/components/schemas/HeroPhysicsV2"
+          $ref: '#/components/schemas/HeroPhysicsV2'
         colors:
-          $ref: "#/components/schemas/HeroColorsV2"
+          $ref: '#/components/schemas/HeroColorsV2'
         shop_stat_display:
-          $ref: "#/components/schemas/HeroShopStatDisplayV2"
+          $ref: '#/components/schemas/HeroShopStatDisplayV2'
         cost_bonuses:
           additionalProperties:
             items:
-              $ref: "#/components/schemas/RawHeroMapModCostBonusesV2"
+              $ref: '#/components/schemas/RawHeroMapModCostBonusesV2'
           nullable: true
         stats_display:
-          $ref: "#/components/schemas/RawHeroStatsDisplayV2"
+          $ref: '#/components/schemas/RawHeroStatsDisplayV2'
         hero_stats_ui:
-          $ref: "#/components/schemas/RawHeroStatsUIV2"
+          $ref: '#/components/schemas/RawHeroStatsUIV2'
         level_info:
           additionalProperties:
-            $ref: "#/components/schemas/HeroLevelInfoV2"
+            $ref: '#/components/schemas/HeroLevelInfoV2'
           title: Level Info
         scaling_stats:
           additionalProperties:
-            $ref: "#/components/schemas/RawHeroScalingStatV2"
+            $ref: '#/components/schemas/RawHeroScalingStatV2'
           title: Scaling Stats
         purchase_bonuses:
           additionalProperties:
             items:
-              $ref: "#/components/schemas/RawHeroPurchaseBonusV2"
+              $ref: '#/components/schemas/RawHeroPurchaseBonusV2'
           title: Purchase Bonuses
         standard_level_up_upgrades:
           additionalProperties:
@@ -2023,8 +2018,8 @@ components:
       example:
         conditional: conditional
         usage_flags:
-        - ConditionallyApplied
-        - ConditionallyApplied
+        - null
+        - null
         prefix: prefix
         icon: icon
         can_set_token_override: true
@@ -2049,7 +2044,7 @@ components:
         display_units: display_units
       properties:
         value:
-          $ref: "#/components/schemas/Value_1"
+          $ref: '#/components/schemas/Value_1'
         can_set_token_override:
           nullable: true
           type: boolean
@@ -2060,7 +2055,7 @@ components:
           nullable: true
           type: string
         usage_flags:
-          $ref: "#/components/schemas/Usage_Flags"
+          $ref: '#/components/schemas/Usage_Flags'
         negative_attribute:
           nullable: true
           type: boolean
@@ -2077,7 +2072,7 @@ components:
           nullable: true
           type: string
         scale_function:
-          $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2"
+          $ref: '#/components/schemas/RawItemPropertyScaleFunctionSubclassV2'
         prefix:
           nullable: true
           type: string
@@ -2195,56 +2190,56 @@ components:
         zipline_paths:
         - color: color
           P0_points:
-          - - ""
-            - ""
-            - ""
-          - - ""
-            - ""
-            - ""
+          - - P0_points
+            - P0_points
+            - P0_points
+          - - P0_points
+            - P0_points
+            - P0_points
           origin:
-          - ""
-          - ""
-          - ""
+          - origin
+          - origin
+          - origin
           P1_points:
-          - - ""
-            - ""
-            - ""
-          - - ""
-            - ""
-            - ""
+          - - P1_points
+            - P1_points
+            - P1_points
+          - - P1_points
+            - P1_points
+            - P1_points
           P2_points:
-          - - ""
-            - ""
-            - ""
-          - - ""
-            - ""
-            - ""
+          - - P2_points
+            - P2_points
+            - P2_points
+          - - P2_points
+            - P2_points
+            - P2_points
         - color: color
           P0_points:
-          - - ""
-            - ""
-            - ""
-          - - ""
-            - ""
-            - ""
+          - - P0_points
+            - P0_points
+            - P0_points
+          - - P0_points
+            - P0_points
+            - P0_points
           origin:
-          - ""
-          - ""
-          - ""
+          - origin
+          - origin
+          - origin
           P1_points:
-          - - ""
-            - ""
-            - ""
-          - - ""
-            - ""
-            - ""
+          - - P1_points
+            - P1_points
+            - P1_points
+          - - P1_points
+            - P1_points
+            - P1_points
           P2_points:
-          - - ""
-            - ""
-            - ""
-          - - ""
-            - ""
-            - ""
+          - - P2_points
+            - P2_points
+            - P2_points
+          - - P2_points
+            - P2_points
+            - P2_points
         images:
           minimap: minimap
           plain: plain
@@ -2320,14 +2315,14 @@ components:
           title: Radius
           type: integer
         images:
-          $ref: "#/components/schemas/MapImagesV1"
+          $ref: '#/components/schemas/MapImagesV1'
         objective_positions:
-          $ref: "#/components/schemas/ObjectivePositionsV1"
+          $ref: '#/components/schemas/ObjectivePositionsV1'
         zipline_paths:
           description: "The ziplane paths of the map. Each path is a list of P0, P1,\
             \ and P2 points, describing the cubic spline."
           items:
-            $ref: "#/components/schemas/ZiplanePathV1"
+            $ref: '#/components/schemas/ZiplanePathV1'
           type: array
       required:
       - images
@@ -2415,45 +2410,45 @@ components:
           left_relative: 6.027456183070403
       properties:
         team0_core:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team1_core:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team0_titan:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team1_titan:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team0_tier2_1:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team0_tier2_2:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team0_tier2_3:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team0_tier2_4:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team1_tier2_1:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team1_tier2_2:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team1_tier2_3:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team1_tier2_4:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team0_tier1_1:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team0_tier1_2:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team0_tier1_3:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team0_tier1_4:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team1_tier1_1:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team1_tier1_2:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team1_tier1_3:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
         team1_tier1_4:
-          $ref: "#/components/schemas/ObjectivePositionV1"
+          $ref: '#/components/schemas/ObjectivePositionV1'
       required:
       - team0_core
       - team0_tier1_1
@@ -2630,7 +2625,7 @@ components:
           title: Name
           type: string
         images:
-          $ref: "#/components/schemas/RankImagesV2"
+          $ref: '#/components/schemas/RankImagesV2'
         color:
           readOnly: true
           title: Color
@@ -2676,7 +2671,7 @@ components:
           title: Name
           type: string
         bonus:
-          $ref: "#/components/schemas/Bonus"
+          $ref: '#/components/schemas/Bonus'
         scale_stat_filter:
           nullable: true
           type: string
@@ -2701,7 +2696,7 @@ components:
       properties:
         property_upgrades:
           items:
-            $ref: "#/components/schemas/RawAbilityUpgradePropertyUpgradeV2"
+            $ref: '#/components/schemas/RawAbilityUpgradePropertyUpgradeV2'
           type: array
       title: RawAbilityUpgradeV2
     RawHeroItemSlotInfoValueV2:
@@ -2888,7 +2883,7 @@ components:
           type: string
         display_stats:
           items:
-            $ref: "#/components/schemas/RawHeroStatsUIDisplayV2"
+            $ref: '#/components/schemas/RawHeroStatsUIDisplayV2'
           type: array
       required:
       - display_stats
@@ -2917,7 +2912,6 @@ components:
           items:
             type: string
           nullable: true
-          type: array
         stat_scale:
           nullable: true
           type: number
@@ -2967,7 +2961,7 @@ components:
       properties:
         spline:
           items:
-            $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveSplineV2"
+            $ref: '#/components/schemas/RawItemWeaponInfoBulletSpeedCurveSplineV2'
           type: array
         domain_maxs:
           items:
@@ -3001,12 +2995,12 @@ components:
           - 2.027123023002322
       properties:
         bullet_speed_curve:
-          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
+          $ref: '#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2'
       title: RawItemWeaponInfoV2
     RawWeaponInfoHorizontalRecoilV2:
       properties:
         range:
-          $ref: "#/components/schemas/Range"
+          $ref: '#/components/schemas/Range'
         burst_exponent:
           nullable: true
           type: number
@@ -3110,9 +3104,9 @@ components:
           nullable: true
           type: number
         aiming_shot_spread_penalty:
-          $ref: "#/components/schemas/Aiming_Shot_Spread_Penalty"
+          $ref: '#/components/schemas/Aiming_Shot_Spread_Penalty'
         standing_shot_spread_penalty:
-          $ref: "#/components/schemas/Standing_Shot_Spread_Penalty"
+          $ref: '#/components/schemas/Standing_Shot_Spread_Penalty'
         shoot_move_speed_percent:
           nullable: true
           type: number
@@ -3162,16 +3156,16 @@ components:
           nullable: true
           type: number
         bullet_speed_curve:
-          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
+          $ref: '#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2'
         horizontal_recoil:
-          $ref: "#/components/schemas/RawWeaponInfoHorizontalRecoilV2"
+          $ref: '#/components/schemas/RawWeaponInfoHorizontalRecoilV2'
         vertical_recoil:
-          $ref: "#/components/schemas/RawWeaponInfoVerticalRecoilV2"
+          $ref: '#/components/schemas/RawWeaponInfoVerticalRecoilV2'
       title: RawWeaponInfoV2
     RawWeaponInfoVerticalRecoilV2:
       properties:
         range:
-          $ref: "#/components/schemas/Range"
+          $ref: '#/components/schemas/Range'
         burst_exponent:
           nullable: true
           type: number
@@ -3205,7 +3199,7 @@ components:
     UpgradePropertyV2:
       properties:
         value:
-          $ref: "#/components/schemas/Value_1"
+          $ref: '#/components/schemas/Value_1'
         can_set_token_override:
           nullable: true
           type: boolean
@@ -3216,7 +3210,7 @@ components:
           nullable: true
           type: string
         usage_flags:
-          $ref: "#/components/schemas/Usage_Flags"
+          $ref: '#/components/schemas/Usage_Flags'
         negative_attribute:
           nullable: true
           type: boolean
@@ -3233,7 +3227,7 @@ components:
           nullable: true
           type: string
         scale_function:
-          $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2"
+          $ref: '#/components/schemas/RawItemPropertyScaleFunctionSubclassV2'
         prefix:
           nullable: true
           type: string
@@ -3253,7 +3247,7 @@ components:
           nullable: true
           type: string
         tooltip_section:
-          $ref: "#/components/schemas/RawAbilitySectionTypeV2"
+          $ref: '#/components/schemas/RawAbilitySectionTypeV2'
         tooltip_is_elevated:
           nullable: true
           type: boolean
@@ -3270,22 +3264,18 @@ components:
           items:
             type: string
           nullable: true
-          type: array
         elevated_properties:
           items:
             type: string
           nullable: true
-          type: array
         important_properties:
           items:
             type: string
           nullable: true
-          type: array
         important_properties_with_icon:
           items:
-            $ref: "#/components/schemas/UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon"
+            $ref: '#/components/schemas/UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon'
           nullable: true
-          type: array
       title: UpgradeTooltipSectionAttributeV2
     UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon:
       properties:
@@ -3302,12 +3292,11 @@ components:
     UpgradeTooltipSectionV2:
       properties:
         section_type:
-          $ref: "#/components/schemas/RawAbilitySectionTypeV2"
+          $ref: '#/components/schemas/RawAbilitySectionTypeV2'
         section_attributes:
           items:
-            $ref: "#/components/schemas/UpgradeTooltipSectionAttributeV2"
+            $ref: '#/components/schemas/UpgradeTooltipSectionAttributeV2'
           nullable: true
-          type: array
       title: UpgradeTooltipSectionV2
     UpgradeV2:
       properties:
@@ -3336,20 +3325,17 @@ components:
           items:
             type: integer
           nullable: true
-          type: array
         update_time:
           nullable: true
           type: integer
         properties:
           additionalProperties:
-            $ref: "#/components/schemas/UpgradePropertyV2"
+            $ref: '#/components/schemas/UpgradePropertyV2'
           nullable: true
         weapon_info:
-          $ref: "#/components/schemas/RawItemWeaponInfoV2"
+          $ref: '#/components/schemas/RawItemWeaponInfoV2'
         type:
           default: upgrade
-          enum:
-          - upgrade
           title: Type
           type: string
         shop_image:
@@ -3365,28 +3351,26 @@ components:
           nullable: true
           type: string
         item_slot_type:
-          $ref: "#/components/schemas/ItemSlotTypeV2"
+          $ref: '#/components/schemas/ItemSlotTypeV2'
         item_tier:
-          $ref: "#/components/schemas/ItemTierV2"
+          $ref: '#/components/schemas/ItemTierV2'
         disabled:
           nullable: true
           type: boolean
         description:
-          $ref: "#/components/schemas/UpgradeDescriptionV2"
+          $ref: '#/components/schemas/UpgradeDescriptionV2'
         activation:
-          $ref: "#/components/schemas/RawAbilityActivationV2"
+          $ref: '#/components/schemas/RawAbilityActivationV2'
         imbue:
-          $ref: "#/components/schemas/RawAbilityImbueV2"
+          $ref: '#/components/schemas/RawAbilityImbueV2'
         component_items:
           items:
             type: string
           nullable: true
-          type: array
         tooltip_sections:
           items:
-            $ref: "#/components/schemas/UpgradeTooltipSectionV2"
+            $ref: '#/components/schemas/UpgradeTooltipSectionV2'
           nullable: true
-          type: array
         is_active_item:
           readOnly: true
           title: Is Active Item
@@ -3453,7 +3437,7 @@ components:
       properties:
         loc:
           items:
-            $ref: "#/components/schemas/ValidationError_loc_inner"
+            $ref: '#/components/schemas/ValidationError_loc_inner'
           type: array
         msg:
           title: Message
@@ -3493,20 +3477,17 @@ components:
           items:
             type: integer
           nullable: true
-          type: array
         update_time:
           nullable: true
           type: integer
         properties:
           additionalProperties:
-            $ref: "#/components/schemas/ItemPropertyV2"
+            $ref: '#/components/schemas/ItemPropertyV2'
           nullable: true
         weapon_info:
-          $ref: "#/components/schemas/RawWeaponInfoV2"
+          $ref: '#/components/schemas/RawWeaponInfoV2'
         type:
           default: weapon
-          enum:
-          - weapon
           title: Type
           type: string
       required:
@@ -3518,34 +3499,36 @@ components:
       example:
         color: color
         P0_points:
-        - - ""
-          - ""
-          - ""
-        - - ""
-          - ""
-          - ""
+        - - P0_points
+          - P0_points
+          - P0_points
+        - - P0_points
+          - P0_points
+          - P0_points
         origin:
-        - ""
-        - ""
-        - ""
+        - origin
+        - origin
+        - origin
         P1_points:
-        - - ""
-          - ""
-          - ""
-        - - ""
-          - ""
-          - ""
+        - - P1_points
+          - P1_points
+          - P1_points
+        - - P1_points
+          - P1_points
+          - P1_points
         P2_points:
-        - - ""
-          - ""
-          - ""
-        - - ""
-          - ""
-          - ""
+        - - P2_points
+          - P2_points
+          - P2_points
+        - - P2_points
+          - P2_points
+          - P2_points
       properties:
         origin:
           description: The origin of the path.
-          items: {}
+          items:
+            description: TODO default missing array inner type to string
+            type: string
           maxItems: 3
           minItems: 3
           type: array
@@ -3556,7 +3539,9 @@ components:
         P0_points:
           description: The P0 points of the path.
           items:
-            items: {}
+            items:
+              description: TODO default missing array inner type to string
+              type: string
             maxItems: 3
             minItems: 3
             type: array
@@ -3564,7 +3549,9 @@ components:
         P1_points:
           description: The P1 points of the path.
           items:
-            items: {}
+            items:
+              description: TODO default missing array inner type to string
+              type: string
             maxItems: 3
             minItems: 3
             type: array
@@ -3572,7 +3559,9 @@ components:
         P2_points:
           description: The P2 points of the path.
           items:
-            items: {}
+            items:
+              description: TODO default missing array inner type to string
+              type: string
             maxItems: 3
             minItems: 3
             type: array
@@ -3587,30 +3576,25 @@ components:
     get_items_v2_items_get_200_response_inner:
       discriminator:
         mapping:
-          ability: "#/components/schemas/AbilityV2"
-          weapon: "#/components/schemas/WeaponV2"
-          upgrade: "#/components/schemas/UpgradeV2"
+          ability: '#/components/schemas/AbilityV2'
+          weapon: '#/components/schemas/WeaponV2'
+          upgrade: '#/components/schemas/UpgradeV2'
         propertyName: type
       oneOf:
-      - $ref: "#/components/schemas/AbilityV2"
-      - $ref: "#/components/schemas/WeaponV2"
-      - $ref: "#/components/schemas/UpgradeV2"
-    Id_Or_Class_Name:
-      anyOf:
-      - type: integer
-      - type: string
-      title: Id Or Class Name
+      - $ref: '#/components/schemas/AbilityV2'
+      - $ref: '#/components/schemas/WeaponV2'
+      - $ref: '#/components/schemas/UpgradeV2'
     Response_Get_Item_V2_Items__Id_Or_Class_Name__Get:
       discriminator:
         mapping:
-          ability: "#/components/schemas/AbilityV2"
-          weapon: "#/components/schemas/WeaponV2"
-          upgrade: "#/components/schemas/UpgradeV2"
+          ability: '#/components/schemas/AbilityV2'
+          weapon: '#/components/schemas/WeaponV2'
+          upgrade: '#/components/schemas/UpgradeV2'
         propertyName: type
       oneOf:
-      - $ref: "#/components/schemas/AbilityV2"
-      - $ref: "#/components/schemas/WeaponV2"
-      - $ref: "#/components/schemas/UpgradeV2"
+      - $ref: '#/components/schemas/AbilityV2'
+      - $ref: '#/components/schemas/WeaponV2'
+      - $ref: '#/components/schemas/UpgradeV2'
       title: Response Get Item V2 Items  Id Or Class Name  Get
     Value:
       anyOf:
@@ -3626,8 +3610,7 @@ components:
     Usage_Flags:
       anyOf:
       - items:
-          $ref: "#/components/schemas/StatsUsageFlagV2"
-        type: array
+          $ref: '#/components/schemas/StatsUsageFlagV2'
       - type: string
       nullable: true
       title: Usage Flags
@@ -3640,7 +3623,6 @@ components:
       anyOf:
       - items:
           type: number
-        type: array
       - type: number
       nullable: true
       title: Range
@@ -3648,7 +3630,6 @@ components:
       anyOf:
       - items:
           type: number
-        type: array
       - type: string
       nullable: true
       title: Aiming Shot Spread Penalty
@@ -3656,7 +3637,6 @@ components:
       anyOf:
       - items:
           type: number
-        type: array
       - type: string
       nullable: true
       title: Standing Shot Spread Penalty

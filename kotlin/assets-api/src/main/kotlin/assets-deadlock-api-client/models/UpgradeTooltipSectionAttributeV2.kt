@@ -48,8 +48,5 @@ data class UpgradeTooltipSectionAttributeV2 (
     @Json(name = "important_properties_with_icon")
     val importantPropertiesWithIcon: kotlin.collections.List<UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon>? = null
 
-) {
-
-
-}
+)
 

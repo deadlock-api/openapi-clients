@@ -1,0 +1,13 @@
+## InfoApi
+
+### Health Check
+## Health Check
+GET https://api.deadlock-api.com/v1/info/health
+Accept: application/json
+Accept: text/plain
+
+### API Info
+## API Info
+GET https://api.deadlock-api.com/v1/info
+Accept: application/json
+Accept: text/plain

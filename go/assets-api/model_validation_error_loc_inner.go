@@ -15,58 +15,56 @@ import (
 	"fmt"
 )
 
-
 // ValidationErrorLocInner struct for ValidationErrorLocInner
 type ValidationErrorLocInner struct {
-	Int32 *int32
-	String *string
+	int32 *int32
+	string *string
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *ValidationErrorLocInner) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into Int32
-	err = json.Unmarshal(data, &dst.Int32);
+	// try to unmarshal JSON data into int32
+	err = json.Unmarshal(data, &dst.int32);
 	if err == nil {
-		jsonInt32, _ := json.Marshal(dst.Int32)
-		if string(jsonInt32) == "{}" { // empty struct
-			dst.Int32 = nil
+		jsonint32, _ := json.Marshal(dst.int32)
+		if string(jsonint32) == "{}" { // empty struct
+			dst.int32 = nil
 		} else {
-			return nil // data stored in dst.Int32, return on the first match
+			return nil // data stored in dst.int32, return on the first match
 		}
 	} else {
-		dst.Int32 = nil
+		dst.int32 = nil
 	}
 
-	// try to unmarshal JSON data into String
-	err = json.Unmarshal(data, &dst.String);
+	// try to unmarshal JSON data into string
+	err = json.Unmarshal(data, &dst.string);
 	if err == nil {
-		jsonString, _ := json.Marshal(dst.String)
-		if string(jsonString) == "{}" { // empty struct
-			dst.String = nil
+		jsonstring, _ := json.Marshal(dst.string)
+		if string(jsonstring) == "{}" { // empty struct
+			dst.string = nil
 		} else {
-			return nil // data stored in dst.String, return on the first match
+			return nil // data stored in dst.string, return on the first match
 		}
 	} else {
-		dst.String = nil
+		dst.string = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(ValidationErrorLocInner)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src ValidationErrorLocInner) MarshalJSON() ([]byte, error) {
-	if src.Int32 != nil {
-		return json.Marshal(&src.Int32)
+func (src *ValidationErrorLocInner) MarshalJSON() ([]byte, error) {
+	if src.int32 != nil {
+		return json.Marshal(&src.int32)
 	}
 
-	if src.String != nil {
-		return json.Marshal(&src.String)
+	if src.string != nil {
+		return json.Marshal(&src.string)
 	}
 
 	return nil, nil // no data in anyOf schemas
 }
-
 
 type NullableValidationErrorLocInner struct {
 	value *ValidationErrorLocInner

@@ -22,15 +22,15 @@ var _ MappedNullable = &ZiplanePathV1{}
 // ZiplanePathV1 struct for ZiplanePathV1
 type ZiplanePathV1 struct {
 	// The origin of the path.
-	Origin []interface{} `json:"origin"`
+	Origin []string `json:"origin"`
 	// The color of the path.
 	Color string `json:"color"`
 	// The P0 points of the path.
-	P0Points [][]interface{} `json:"P0_points"`
+	P0Points [][]string `json:"P0_points"`
 	// The P1 points of the path.
-	P1Points [][]interface{} `json:"P1_points"`
+	P1Points [][]string `json:"P1_points"`
 	// The P2 points of the path.
-	P2Points [][]interface{} `json:"P2_points"`
+	P2Points [][]string `json:"P2_points"`
 }
 
 type _ZiplanePathV1 ZiplanePathV1
@@ -39,7 +39,7 @@ type _ZiplanePathV1 ZiplanePathV1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewZiplanePathV1(origin []interface{}, color string, p0Points [][]interface{}, p1Points [][]interface{}, p2Points [][]interface{}) *ZiplanePathV1 {
+func NewZiplanePathV1(origin []string, color string, p0Points [][]string, p1Points [][]string, p2Points [][]string) *ZiplanePathV1 {
 	this := ZiplanePathV1{}
 	this.Origin = origin
 	this.Color = color
@@ -58,9 +58,9 @@ func NewZiplanePathV1WithDefaults() *ZiplanePathV1 {
 }
 
 // GetOrigin returns the Origin field value
-func (o *ZiplanePathV1) GetOrigin() []interface{} {
+func (o *ZiplanePathV1) GetOrigin() []string {
 	if o == nil {
-		var ret []interface{}
+		var ret []string
 		return ret
 	}
 
@@ -69,7 +69,7 @@ func (o *ZiplanePathV1) GetOrigin() []interface{} {
 
 // GetOriginOk returns a tuple with the Origin field value
 // and a boolean to check if the value has been set.
-func (o *ZiplanePathV1) GetOriginOk() ([]interface{}, bool) {
+func (o *ZiplanePathV1) GetOriginOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -77,7 +77,7 @@ func (o *ZiplanePathV1) GetOriginOk() ([]interface{}, bool) {
 }
 
 // SetOrigin sets field value
-func (o *ZiplanePathV1) SetOrigin(v []interface{}) {
+func (o *ZiplanePathV1) SetOrigin(v []string) {
 	o.Origin = v
 }
 
@@ -106,9 +106,9 @@ func (o *ZiplanePathV1) SetColor(v string) {
 }
 
 // GetP0Points returns the P0Points field value
-func (o *ZiplanePathV1) GetP0Points() [][]interface{} {
+func (o *ZiplanePathV1) GetP0Points() [][]string {
 	if o == nil {
-		var ret [][]interface{}
+		var ret [][]string
 		return ret
 	}
 
@@ -117,7 +117,7 @@ func (o *ZiplanePathV1) GetP0Points() [][]interface{} {
 
 // GetP0PointsOk returns a tuple with the P0Points field value
 // and a boolean to check if the value has been set.
-func (o *ZiplanePathV1) GetP0PointsOk() ([][]interface{}, bool) {
+func (o *ZiplanePathV1) GetP0PointsOk() ([][]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -125,14 +125,14 @@ func (o *ZiplanePathV1) GetP0PointsOk() ([][]interface{}, bool) {
 }
 
 // SetP0Points sets field value
-func (o *ZiplanePathV1) SetP0Points(v [][]interface{}) {
+func (o *ZiplanePathV1) SetP0Points(v [][]string) {
 	o.P0Points = v
 }
 
 // GetP1Points returns the P1Points field value
-func (o *ZiplanePathV1) GetP1Points() [][]interface{} {
+func (o *ZiplanePathV1) GetP1Points() [][]string {
 	if o == nil {
-		var ret [][]interface{}
+		var ret [][]string
 		return ret
 	}
 
@@ -141,7 +141,7 @@ func (o *ZiplanePathV1) GetP1Points() [][]interface{} {
 
 // GetP1PointsOk returns a tuple with the P1Points field value
 // and a boolean to check if the value has been set.
-func (o *ZiplanePathV1) GetP1PointsOk() ([][]interface{}, bool) {
+func (o *ZiplanePathV1) GetP1PointsOk() ([][]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -149,14 +149,14 @@ func (o *ZiplanePathV1) GetP1PointsOk() ([][]interface{}, bool) {
 }
 
 // SetP1Points sets field value
-func (o *ZiplanePathV1) SetP1Points(v [][]interface{}) {
+func (o *ZiplanePathV1) SetP1Points(v [][]string) {
 	o.P1Points = v
 }
 
 // GetP2Points returns the P2Points field value
-func (o *ZiplanePathV1) GetP2Points() [][]interface{} {
+func (o *ZiplanePathV1) GetP2Points() [][]string {
 	if o == nil {
-		var ret [][]interface{}
+		var ret [][]string
 		return ret
 	}
 
@@ -165,7 +165,7 @@ func (o *ZiplanePathV1) GetP2Points() [][]interface{} {
 
 // GetP2PointsOk returns a tuple with the P2Points field value
 // and a boolean to check if the value has been set.
-func (o *ZiplanePathV1) GetP2PointsOk() ([][]interface{}, bool) {
+func (o *ZiplanePathV1) GetP2PointsOk() ([][]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -173,7 +173,7 @@ func (o *ZiplanePathV1) GetP2PointsOk() ([][]interface{}, bool) {
 }
 
 // SetP2Points sets field value
-func (o *ZiplanePathV1) SetP2Points(v [][]interface{}) {
+func (o *ZiplanePathV1) SetP2Points(v [][]string) {
 	o.P2Points = v
 }
 

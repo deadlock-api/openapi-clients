@@ -662,7 +662,7 @@ export interface BuildHeroDetailsAbilityOrder {
      * @type {Array<BuildHeroDetailsAbilityOrderCurrencyChange>}
      * @memberof BuildHeroDetailsAbilityOrder
      */
-    'currency_changes'?: Array<BuildHeroDetailsAbilityOrderCurrencyChange> | null;
+    'currency_changes'?: Array<BuildHeroDetailsAbilityOrderCurrencyChange>;
 }
 /**
  * 
@@ -718,7 +718,7 @@ export interface BuildHeroDetailsCategory {
      * @type {Array<BuildHeroDetailsCategoryAbility>}
      * @memberof BuildHeroDetailsCategory
      */
-    'mods'?: Array<BuildHeroDetailsCategoryAbility> | null;
+    'mods'?: Array<BuildHeroDetailsCategoryAbility>;
     /**
      * 
      * @type {string}
@@ -2515,11 +2515,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatches] The minimum number of matches played for an ability order to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        abilityOrderStats: async (heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        abilityOrderStats: async (heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('abilityOrderStats', 'heroId', heroId)
             const localVarPath = `/v1/analytics/ability-order-stats`;
@@ -2742,17 +2742,17 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {Array<number> | null} [includeHeroIds] Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-         * @param {Array<number> | null} [excludeHeroIds] Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {Array<number>} [includeHeroIds] Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {Array<number>} [excludeHeroIds] Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [minMatches] The minimum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [combSize] The combination size to return.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroCombStats: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeHeroIds?: Array<number> | null, excludeHeroIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, combSize?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroCombStats: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeHeroIds?: Array<number>, excludeHeroIds?: Array<number>, minMatches?: number | null, maxMatches?: number | null, combSize?: number | null, accountId?: number | null, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/hero-comb-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2863,11 +2863,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [minMatches] The minimum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroCountersStats: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroCountersStats: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/hero-counter-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2976,11 +2976,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroScoreboard: async (sortBy: HeroScoreboardSortByEnum, sortDirection?: HeroScoreboardSortDirectionEnum, minMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroScoreboard: async (sortBy: HeroScoreboardSortByEnum, sortDirection?: HeroScoreboardSortDirectionEnum, minMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sortBy' is not null or undefined
             assertParamExists('heroScoreboard', 'sortBy', sortBy)
             const localVarPath = `/v1/analytics/scoreboards/heroes`;
@@ -3082,14 +3082,14 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minHeroMatches] Filter players based on the number of matches they have played with a specific hero.
          * @param {number | null} [maxHeroMatches] Filter players based on the number of matches they have played with a specific hero.
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroStats: async (bucket?: HeroStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroStats: async (bucket?: HeroStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, includeItemIds?: Array<number>, excludeItemIds?: Array<number>, accountId?: number | null, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/hero-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3199,11 +3199,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [minMatches] The minimum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroSynergiesStats: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, samePartyFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroSynergiesStats: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, samePartyFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/hero-synergy-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3294,7 +3294,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
         /**
          *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Item Permutation Stats
-         * @param {Array<number> | null} [itemIds] Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [itemIds] Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [combSize] The combination size to return.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -3309,11 +3309,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemPermutationStats: async (itemIds?: Array<number> | null, combSize?: number | null, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemPermutationStats: async (itemIds?: Array<number>, combSize?: number | null, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/item-permutation-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3417,16 +3417,16 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [includeItemIds] Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [excludeItemIds] Comma separated list of item ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [minMatches] The minimum number of matches played for an item to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemStats: async (bucket?: ItemStatsBucketEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemStats: async (bucket?: ItemStatsBucketEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number>, excludeItemIds?: Array<number>, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/item-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3546,11 +3546,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [start] The offset to start fetching players from.
          * @param {number | null} [limit] The maximum number of players to fetch.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerScoreboard: async (sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, heroId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        playerScoreboard: async (sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, heroId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sortBy' is not null or undefined
             assertParamExists('playerScoreboard', 'sortBy', sortBy)
             const localVarPath = `/v1/analytics/scoreboards/players`;
@@ -3663,13 +3663,13 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatches] The maximum number of matches to analyze.
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerStatsMetrics: async (heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        playerStatsMetrics: async (heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number>, excludeItemIds?: Array<number>, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/player-stats/metrics`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3781,11 +3781,11 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatches] The minimum number of matches played for an ability order to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async abilityOrderStats(heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsAbilityOrderStats>>> {
+        async abilityOrderStats(heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsAbilityOrderStats>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.abilityOrderStats(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.abilityOrderStats']?.[localVarOperationServerIndex]?.url;
@@ -3840,17 +3840,17 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {Array<number> | null} [includeHeroIds] Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-         * @param {Array<number> | null} [excludeHeroIds] Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {Array<number>} [includeHeroIds] Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {Array<number>} [excludeHeroIds] Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [minMatches] The minimum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [combSize] The combination size to return.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroCombStats(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeHeroIds?: Array<number> | null, excludeHeroIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, combSize?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroCombStats>>> {
+        async heroCombStats(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeHeroIds?: Array<number>, excludeHeroIds?: Array<number>, minMatches?: number | null, maxMatches?: number | null, combSize?: number | null, accountId?: number | null, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroCombStats>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.heroCombStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeHeroIds, excludeHeroIds, minMatches, maxMatches, combSize, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroCombStats']?.[localVarOperationServerIndex]?.url;
@@ -3875,11 +3875,11 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [minMatches] The minimum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroCountersStats(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroCounterStats>>> {
+        async heroCountersStats(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroCounterStats>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.heroCountersStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroCountersStats']?.[localVarOperationServerIndex]?.url;
@@ -3902,11 +3902,11 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroScoreboard(sortBy: HeroScoreboardSortByEnum, sortDirection?: HeroScoreboardSortDirectionEnum, minMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entry>>> {
+        async heroScoreboard(sortBy: HeroScoreboardSortByEnum, sortDirection?: HeroScoreboardSortDirectionEnum, minMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entry>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.heroScoreboard(sortBy, sortDirection, minMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroScoreboard']?.[localVarOperationServerIndex]?.url;
@@ -3928,14 +3928,14 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minHeroMatches] Filter players based on the number of matches they have played with a specific hero.
          * @param {number | null} [maxHeroMatches] Filter players based on the number of matches they have played with a specific hero.
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroStats(bucket?: HeroStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsHeroStats>>> {
+        async heroStats(bucket?: HeroStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, includeItemIds?: Array<number>, excludeItemIds?: Array<number>, accountId?: number | null, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsHeroStats>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.heroStats(bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minHeroMatches, maxHeroMatches, includeItemIds, excludeItemIds, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroStats']?.[localVarOperationServerIndex]?.url;
@@ -3959,11 +3959,11 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [minMatches] The minimum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroSynergiesStats(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, samePartyFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroSynergyStats>>> {
+        async heroSynergiesStats(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, samePartyFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroSynergyStats>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.heroSynergiesStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, samePartyFilter, minMatches, maxMatches, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroSynergiesStats']?.[localVarOperationServerIndex]?.url;
@@ -3972,7 +3972,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
         /**
          *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Item Permutation Stats
-         * @param {Array<number> | null} [itemIds] Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [itemIds] Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [combSize] The combination size to return.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -3987,11 +3987,11 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemPermutationStats(itemIds?: Array<number> | null, combSize?: number | null, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemPermutationStats>>> {
+        async itemPermutationStats(itemIds?: Array<number>, combSize?: number | null, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemPermutationStats>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemPermutationStats(itemIds, combSize, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.itemPermutationStats']?.[localVarOperationServerIndex]?.url;
@@ -4013,16 +4013,16 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [includeItemIds] Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [excludeItemIds] Comma separated list of item ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [minMatches] The minimum number of matches played for an item to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemStats(bucket?: ItemStatsBucketEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemStats>>> {
+        async itemStats(bucket?: ItemStatsBucketEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number>, excludeItemIds?: Array<number>, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemStats>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemStats(bucket, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, minMatches, maxMatches, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.itemStats']?.[localVarOperationServerIndex]?.url;
@@ -4048,11 +4048,11 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [start] The offset to start fetching players from.
          * @param {number | null} [limit] The maximum number of players to fetch.
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async playerScoreboard(sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, heroId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entry>>> {
+        async playerScoreboard(sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, heroId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entry>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.playerScoreboard(sortBy, sortDirection, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.playerScoreboard']?.[localVarOperationServerIndex]?.url;
@@ -4073,13 +4073,13 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatches] The maximum number of matches to analyze.
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async playerStatsMetrics(heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: HashMapValue; }>> {
+        async playerStatsMetrics(heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number>, excludeItemIds?: Array<number>, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.playerStatsMetrics(heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.playerStatsMetrics']?.[localVarOperationServerIndex]?.url;
@@ -4212,7 +4212,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerStatsMetrics(requestParameters: AnalyticsApiPlayerStatsMetricsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: HashMapValue; }> {
+        playerStatsMetrics(requestParameters: AnalyticsApiPlayerStatsMetricsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.playerStatsMetrics(requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.maxMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
     };
@@ -4334,7 +4334,7 @@ export interface AnalyticsApiAbilityOrderStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiAbilityOrderStats
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -4516,14 +4516,14 @@ export interface AnalyticsApiHeroCombStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiHeroCombStats
      */
-    readonly includeHeroIds?: Array<number> | null
+    readonly includeHeroIds?: Array<number>
 
     /**
      * Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      * @type {Array<number>}
      * @memberof AnalyticsApiHeroCombStats
      */
-    readonly excludeHeroIds?: Array<number> | null
+    readonly excludeHeroIds?: Array<number>
 
     /**
      * The minimum number of matches played for a hero combination to be included in the response.
@@ -4558,7 +4558,7 @@ export interface AnalyticsApiHeroCombStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiHeroCombStats
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -4684,7 +4684,7 @@ export interface AnalyticsApiHeroCountersStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiHeroCountersStats
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -4796,7 +4796,7 @@ export interface AnalyticsApiHeroScoreboardRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiHeroScoreboard
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -4901,14 +4901,14 @@ export interface AnalyticsApiHeroStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiHeroStats
      */
-    readonly includeItemIds?: Array<number> | null
+    readonly includeItemIds?: Array<number>
 
     /**
      * Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
      * @type {Array<number>}
      * @memberof AnalyticsApiHeroStats
      */
-    readonly excludeItemIds?: Array<number> | null
+    readonly excludeItemIds?: Array<number>
 
     /**
      * Filter for matches with a specific player account ID.
@@ -4922,7 +4922,7 @@ export interface AnalyticsApiHeroStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiHeroStats
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -5041,7 +5041,7 @@ export interface AnalyticsApiHeroSynergiesStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiHeroSynergiesStats
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -5055,7 +5055,7 @@ export interface AnalyticsApiItemPermutationStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiItemPermutationStats
      */
-    readonly itemIds?: Array<number> | null
+    readonly itemIds?: Array<number>
 
     /**
      * The combination size to return.
@@ -5160,7 +5160,7 @@ export interface AnalyticsApiItemPermutationStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiItemPermutationStats
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -5265,14 +5265,14 @@ export interface AnalyticsApiItemStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiItemStats
      */
-    readonly includeItemIds?: Array<number> | null
+    readonly includeItemIds?: Array<number>
 
     /**
      * Comma separated list of item ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
      * @type {Array<number>}
      * @memberof AnalyticsApiItemStats
      */
-    readonly excludeItemIds?: Array<number> | null
+    readonly excludeItemIds?: Array<number>
 
     /**
      * The minimum number of matches played for an item to be included in the response.
@@ -5300,7 +5300,7 @@ export interface AnalyticsApiItemStatsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiItemStats
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -5433,7 +5433,7 @@ export interface AnalyticsApiPlayerScoreboardRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiPlayerScoreboard
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -5531,21 +5531,21 @@ export interface AnalyticsApiPlayerStatsMetricsRequest {
      * @type {Array<number>}
      * @memberof AnalyticsApiPlayerStatsMetrics
      */
-    readonly includeItemIds?: Array<number> | null
+    readonly includeItemIds?: Array<number>
 
     /**
      * Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
      * @type {Array<number>}
      * @memberof AnalyticsApiPlayerStatsMetrics
      */
-    readonly excludeItemIds?: Array<number> | null
+    readonly excludeItemIds?: Array<number>
 
     /**
      * Comma separated list of account ids to include
      * @type {Array<number>}
      * @memberof AnalyticsApiPlayerStatsMetrics
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -8239,11 +8239,11 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          *  Returns active matches that are currently being played.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Active
          * @param {number | null} [accountId] The account ID to filter active matches by (&#x60;SteamID3&#x60;)
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        activeMatches: async (accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        activeMatches: async (accountId?: number | null, accountIds?: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/matches/active`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8315,7 +8315,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {boolean} [includePlayerItems] Include player items in the response.
          * @param {boolean} [includePlayerStats] Include player stats in the response.
          * @param {boolean} [includePlayerDeathDetails] Include player death details in the response.
-         * @param {Array<number> | null} [matchIds] Comma separated list of match ids, limited by &#x60;limit&#x60;
+         * @param {Array<number>} [matchIds] Comma separated list of match ids, limited by &#x60;limit&#x60;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -8327,7 +8327,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
          * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
-         * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
+         * @param {Array<number>} [accountIds] Filter matches by account IDs of players that participated in the match.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {BulkMetadataOrderByEnum} [orderBy] The field to order the results by.
          * @param {BulkMetadataOrderDirectionEnum} [orderDirection] The direction to order the results by.
@@ -8335,7 +8335,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        bulkMetadata: async (includeInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        bulkMetadata: async (includeInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, matchIds?: Array<number>, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number>, heroIds?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/matches/metadata`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8650,11 +8650,11 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          *  Returns active matches that are currently being played.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Active
          * @param {number | null} [accountId] The account ID to filter active matches by (&#x60;SteamID3&#x60;)
-         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number>} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async activeMatches(accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActiveMatch>>> {
+        async activeMatches(accountId?: number | null, accountIds?: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActiveMatch>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.activeMatches(accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.activeMatches']?.[localVarOperationServerIndex]?.url;
@@ -8682,7 +8682,7 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @param {boolean} [includePlayerItems] Include player items in the response.
          * @param {boolean} [includePlayerStats] Include player stats in the response.
          * @param {boolean} [includePlayerDeathDetails] Include player death details in the response.
-         * @param {Array<number> | null} [matchIds] Comma separated list of match ids, limited by &#x60;limit&#x60;
+         * @param {Array<number>} [matchIds] Comma separated list of match ids, limited by &#x60;limit&#x60;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -8694,7 +8694,7 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
          * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
-         * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
+         * @param {Array<number>} [accountIds] Filter matches by account IDs of players that participated in the match.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {BulkMetadataOrderByEnum} [orderBy] The field to order the results by.
          * @param {BulkMetadataOrderDirectionEnum} [orderDirection] The direction to order the results by.
@@ -8702,7 +8702,7 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async bulkMetadata(includeInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+        async bulkMetadata(includeInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, matchIds?: Array<number>, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number>, heroIds?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.bulkMetadata']?.[localVarOperationServerIndex]?.url;
@@ -8885,7 +8885,7 @@ export interface MatchesApiActiveMatchesRequest {
      * @type {Array<number>}
      * @memberof MatchesApiActiveMatches
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 }
 
 /**
@@ -8948,7 +8948,7 @@ export interface MatchesApiBulkMetadataRequest {
      * @type {Array<number>}
      * @memberof MatchesApiBulkMetadata
      */
-    readonly matchIds?: Array<number> | null
+    readonly matchIds?: Array<number>
 
     /**
      * Filter matches based on their start time (Unix timestamp).
@@ -9032,7 +9032,7 @@ export interface MatchesApiBulkMetadataRequest {
      * @type {Array<number>}
      * @memberof MatchesApiBulkMetadata
      */
-    readonly accountIds?: Array<number> | null
+    readonly accountIds?: Array<number>
 
     /**
      * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;

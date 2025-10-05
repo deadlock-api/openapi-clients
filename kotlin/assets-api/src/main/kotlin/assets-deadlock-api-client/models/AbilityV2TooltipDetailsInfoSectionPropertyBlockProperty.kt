@@ -51,8 +51,5 @@ data class AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty (
     @Json(name = "important_property_icon")
     val importantPropertyIcon: kotlin.String? = null
 
-) {
-
-
-}
+)
 

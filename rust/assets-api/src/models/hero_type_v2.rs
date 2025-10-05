@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -25,13 +24,13 @@ pub enum HeroTypeV2 {
 
 }
 
-impl std::fmt::Display for HeroTypeV2 {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for HeroTypeV2 {
+    fn to_string(&self) -> String {
         match self {
-            Self::Assassin => write!(f, "assassin"),
-            Self::Brawler => write!(f, "brawler"),
-            Self::Marksman => write!(f, "marksman"),
-            Self::Mystic => write!(f, "mystic"),
+            Self::Assassin => String::from("assassin"),
+            Self::Brawler => String::from("brawler"),
+            Self::Marksman => String::from("marksman"),
+            Self::Mystic => String::from("mystic"),
         }
     }
 }

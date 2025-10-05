@@ -72,7 +72,7 @@ func (a *RawAPIService) GetGenericDataRawGenericDataGetExecute(r ApiGetGenericDa
 	localVarFormParams := url.Values{}
 
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -188,7 +188,7 @@ func (a *RawAPIService) GetRawHeroesRawHeroesGetExecute(r ApiGetRawHeroesRawHero
 	localVarFormParams := url.Values{}
 
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -304,7 +304,7 @@ func (a *RawAPIService) GetRawItemsRawItemsGetExecute(r ApiGetRawItemsRawItemsGe
 	localVarFormParams := url.Values{}
 
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

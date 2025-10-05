@@ -13,7 +13,6 @@ package assets-deadlock-api-client
 import (
 	"encoding/json"
 	"fmt"
-	"gopkg.in/validator.v2"
 )
 
 // GetItemsV2ItemsGet200ResponseInner - struct for GetItemsV2ItemsGet200ResponseInner
@@ -56,11 +55,7 @@ func (dst *GetItemsV2ItemsGet200ResponseInner) UnmarshalJSON(data []byte) error 
 		if string(jsonAbilityV2) == "{}" { // empty struct
 			dst.AbilityV2 = nil
 		} else {
-			if err = validator.Validate(dst.AbilityV2); err != nil {
-				dst.AbilityV2 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.AbilityV2 = nil
@@ -73,11 +68,7 @@ func (dst *GetItemsV2ItemsGet200ResponseInner) UnmarshalJSON(data []byte) error 
 		if string(jsonUpgradeV2) == "{}" { // empty struct
 			dst.UpgradeV2 = nil
 		} else {
-			if err = validator.Validate(dst.UpgradeV2); err != nil {
-				dst.UpgradeV2 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.UpgradeV2 = nil
@@ -90,11 +81,7 @@ func (dst *GetItemsV2ItemsGet200ResponseInner) UnmarshalJSON(data []byte) error 
 		if string(jsonWeaponV2) == "{}" { // empty struct
 			dst.WeaponV2 = nil
 		} else {
-			if err = validator.Validate(dst.WeaponV2); err != nil {
-				dst.WeaponV2 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.WeaponV2 = nil
@@ -146,24 +133,6 @@ func (obj *GetItemsV2ItemsGet200ResponseInner) GetActualInstance() (interface{})
 
 	if obj.WeaponV2 != nil {
 		return obj.WeaponV2
-	}
-
-	// all schemas are nil
-	return nil
-}
-
-// Get the actual instance value
-func (obj GetItemsV2ItemsGet200ResponseInner) GetActualInstanceValue() (interface{}) {
-	if obj.AbilityV2 != nil {
-		return *obj.AbilityV2
-	}
-
-	if obj.UpgradeV2 != nil {
-		return *obj.UpgradeV2
-	}
-
-	if obj.WeaponV2 != nil {
-		return *obj.WeaponV2
 	}
 
 	// all schemas are nil

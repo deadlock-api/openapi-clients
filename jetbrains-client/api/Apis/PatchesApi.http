@@ -1,0 +1,11 @@
+## PatchesApi
+
+### Big Days
+## Big Days
+GET https://api.deadlock-api.com/v1/patches/big-days
+Accept: application/json
+
+### Notes
+## Notes
+GET https://api.deadlock-api.com/v1/patches
+Accept: application/json

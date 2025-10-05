@@ -108,14 +108,14 @@ func (a *MMRAPIService) HeroMmrExecute(r ApiHeroMmrRequest) ([]MMRHistory, *http
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "multi")
 		}
 	}
 	if r.maxMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -361,14 +361,14 @@ func (a *MMRAPIService) MmrExecute(r ApiMmrRequest) ([]MMRHistory, *http.Respons
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "multi")
 		}
 	}
 	if r.maxMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

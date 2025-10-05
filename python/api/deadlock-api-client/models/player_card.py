@@ -77,9 +77,9 @@ class PlayerCard(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in slots (list)
         _items = []
         if self.slots:
-            for _item_slots in self.slots:
-                if _item_slots:
-                    _items.append(_item_slots.to_dict())
+            for _item in self.slots:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['slots'] = _items
         # set to None if ranked_badge_level (nullable) is None
         # and model_fields_set contains the field

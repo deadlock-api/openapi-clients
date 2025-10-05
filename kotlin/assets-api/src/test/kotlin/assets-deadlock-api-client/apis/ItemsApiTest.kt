@@ -21,7 +21,6 @@ import io.kotlintest.specs.ShouldSpec
 import assets-deadlock-api-client.apis.ItemsApi
 import assets-deadlock-api-client.models.GetItemsV2ItemsGet200ResponseInner
 import assets-deadlock-api-client.models.HTTPValidationError
-import assets-deadlock-api-client.models.IdOrClassName
 import assets-deadlock-api-client.models.ItemSlotTypeV2
 import assets-deadlock-api-client.models.ItemTypeV2
 import assets-deadlock-api-client.models.Language
@@ -36,7 +35,7 @@ class ItemsApiTest : ShouldSpec() {
         // to test getItemV2ItemsIdOrClassNameGet
         should("test getItemV2ItemsIdOrClassNameGet") {
             // uncomment below to test getItemV2ItemsIdOrClassNameGet
-            //val idOrClassName : IdOrClassName =  // IdOrClassName | 
+            //val idOrClassName : kotlin.String = idOrClassName_example // kotlin.String | 
             //val language : Language =  // Language | 
             //val clientVersion : ValidClientVersions =  // ValidClientVersions | 
             //val result : ResponseGetItemV2ItemsIdOrClassNameGet = apiInstance.getItemV2ItemsIdOrClassNameGet(idOrClassName, language, clientVersion)

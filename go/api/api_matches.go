@@ -96,17 +96,17 @@ func (a *MatchesAPIService) ActiveMatchesExecute(r ApiActiveMatchesRequest) ([]A
 	localVarFormParams := url.Values{}
 
 	if r.accountId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "account_id", r.accountId, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "account_id", r.accountId, "")
 	}
 	if r.accountIds != nil {
 		t := *r.accountIds
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -503,95 +503,95 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	localVarFormParams := url.Values{}
 
 	if r.includeInfo != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_info", r.includeInfo, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_info", r.includeInfo, "")
 	} else {
 		var defaultValue bool = true
 		r.includeInfo = &defaultValue
 	}
 	if r.includeObjectives != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_objectives", r.includeObjectives, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_objectives", r.includeObjectives, "")
 	}
 	if r.includeMidBoss != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_mid_boss", r.includeMidBoss, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_mid_boss", r.includeMidBoss, "")
 	}
 	if r.includePlayerInfo != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_info", r.includePlayerInfo, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_info", r.includePlayerInfo, "")
 	}
 	if r.includePlayerItems != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_items", r.includePlayerItems, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_items", r.includePlayerItems, "")
 	}
 	if r.includePlayerStats != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_stats", r.includePlayerStats, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_stats", r.includePlayerStats, "")
 	}
 	if r.includePlayerDeathDetails != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_death_details", r.includePlayerDeathDetails, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_death_details", r.includePlayerDeathDetails, "")
 	}
 	if r.matchIds != nil {
 		t := *r.matchIds
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "match_ids", s.Index(i).Interface(), "form", "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "match_ids", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "match_ids", t, "form", "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "match_ids", t, "multi")
 		}
 	}
 	if r.minUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "")
 	}
 	if r.maxUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "")
 	}
 	if r.minDurationS != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "")
 	}
 	if r.maxDurationS != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "")
 	}
 	if r.minAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "")
 	}
 	if r.maxAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "")
 	}
 	if r.minMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "")
 	}
 	if r.maxMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "")
 	}
 	if r.isHighSkillRangeParties != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "is_high_skill_range_parties", r.isHighSkillRangeParties, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_high_skill_range_parties", r.isHighSkillRangeParties, "")
 	}
 	if r.isLowPriPool != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "is_low_pri_pool", r.isLowPriPool, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_low_pri_pool", r.isLowPriPool, "")
 	}
 	if r.isNewPlayerPool != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "is_new_player_pool", r.isNewPlayerPool, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_new_player_pool", r.isNewPlayerPool, "")
 	}
 	if r.accountIds != nil {
 		t := *r.accountIds
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "multi")
 		}
 	}
 	if r.heroIds != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", r.orderBy, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", r.orderBy, "")
 	}
 	if r.orderDirection != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "order_direction", r.orderDirection, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "order_direction", r.orderDirection, "")
 	}
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	} else {
 		var defaultValue int32 = 1000
 		r.limit = &defaultValue
@@ -722,7 +722,7 @@ func (a *MatchesAPIService) MetadataExecute(r ApiMetadataRequest) (*http.Respons
 	}
 
 	if r.isCustom != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "is_custom", r.isCustom, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_custom", r.isCustom, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -845,7 +845,7 @@ func (a *MatchesAPIService) MetadataRawExecute(r ApiMetadataRawRequest) ([]int32
 	}
 
 	if r.isCustom != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "is_custom", r.isCustom, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_custom", r.isCustom, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -963,7 +963,7 @@ func (a *MatchesAPIService) RecentlyFetchedExecute(r ApiRecentlyFetchedRequest) 
 	localVarFormParams := url.Values{}
 
 	if r.playerIngestedOnly != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "player_ingested_only", r.playerIngestedOnly, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "player_ingested_only", r.playerIngestedOnly, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

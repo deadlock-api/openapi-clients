@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**bigPatchDays**](PatchesApi.md#bigPatchDays) | **GET** /v1/patches/big-days | Big Days |
-| [**feed**](PatchesApi.md#feed) | **GET** /v1/patches | Notes |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**bigPatchDays**](PatchesApi.md#bigPatchDays) | **GET** /v1/patches/big-days | Big Days
+[**feed**](PatchesApi.md#feed) | **GET** /v1/patches | Notes
 
 
 <a id="bigPatchDays"></a>

@@ -50,8 +50,6 @@ pub mod hero_v2;
 pub use self::hero_v2::HeroV2;
 pub mod http_validation_error;
 pub use self::http_validation_error::HttpValidationError;
-pub mod id_or_class_name;
-pub use self::id_or_class_name::IdOrClassName;
 pub mod item_property_v2;
 pub use self::item_property_v2::ItemPropertyV2;
 pub mod item_slot_type_v2;

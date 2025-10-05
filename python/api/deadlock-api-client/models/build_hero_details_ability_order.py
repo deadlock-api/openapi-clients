@@ -72,15 +72,10 @@ class BuildHeroDetailsAbilityOrder(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in currency_changes (list)
         _items = []
         if self.currency_changes:
-            for _item_currency_changes in self.currency_changes:
-                if _item_currency_changes:
-                    _items.append(_item_currency_changes.to_dict())
+            for _item in self.currency_changes:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['currency_changes'] = _items
-        # set to None if currency_changes (nullable) is None
-        # and model_fields_set contains the field
-        if self.currency_changes is None and "currency_changes" in self.model_fields_set:
-            _dict['currency_changes'] = None
-
         return _dict
 
     @classmethod

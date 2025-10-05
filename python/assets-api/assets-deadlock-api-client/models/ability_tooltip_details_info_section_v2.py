@@ -75,9 +75,9 @@ class AbilityTooltipDetailsInfoSectionV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in properties_block (list)
         _items = []
         if self.properties_block:
-            for _item_properties_block in self.properties_block:
-                if _item_properties_block:
-                    _items.append(_item_properties_block.to_dict())
+            for _item in self.properties_block:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['properties_block'] = _items
         # set to None if loc_string (nullable) is None
         # and model_fields_set contains the field

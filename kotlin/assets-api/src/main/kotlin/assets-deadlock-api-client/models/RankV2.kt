@@ -44,8 +44,5 @@ data class RankV2 (
     @Json(name = "color")
     val color: kotlin.String
 
-) {
-
-
-}
+)
 

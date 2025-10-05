@@ -27,7 +27,7 @@ class TestHeroV2(unittest.TestCase):
 
     def make_instance(self, include_optional) -> HeroV2:
         """Test HeroV2
-            include_optional is a boolean, when False only required
+            include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `HeroV2`
@@ -126,19 +126,19 @@ class TestHeroV2(unittest.TestCase):
                     step_sound_time_sprinting = 1.337, ),
                 colors = assets-deadlock-api-client.models.hero_colors_v2.HeroColorsV2(
                     glow_enemy = [
-                        null
+                        ''
                         ], 
                     glow_friendly = [
-                        null
+                        ''
                         ], 
                     glow_team1 = [
-                        null
+                        ''
                         ], 
                     glow_team2 = [
-                        null
+                        ''
                         ], 
                     ui = [
-                        null
+                        ''
                         ], ),
                 shop_stat_display = assets-deadlock-api-client.models.hero_shop_stat_display_v2.HeroShopStatDisplayV2(
                     spirit_stats_display = assets-deadlock-api-client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
@@ -301,19 +301,19 @@ class TestHeroV2(unittest.TestCase):
                     step_sound_time_sprinting = 1.337, ),
                 colors = assets-deadlock-api-client.models.hero_colors_v2.HeroColorsV2(
                     glow_enemy = [
-                        null
+                        ''
                         ], 
                     glow_friendly = [
-                        null
+                        ''
                         ], 
                     glow_team1 = [
-                        null
+                        ''
                         ], 
                     glow_team2 = [
-                        null
+                        ''
                         ], 
                     ui = [
-                        null
+                        ''
                         ], ),
                 shop_stat_display = assets-deadlock-api-client.models.hero_shop_stat_display_v2.HeroShopStatDisplayV2(
                     spirit_stats_display = assets-deadlock-api-client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(

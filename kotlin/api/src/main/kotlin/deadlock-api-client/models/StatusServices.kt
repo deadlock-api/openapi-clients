@@ -42,8 +42,5 @@ data class StatusServices (
     @Json(name = "redis")
     val redis: kotlin.Boolean
 
-) {
-
-
-}
+)
 

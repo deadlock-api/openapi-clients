@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -29,15 +28,15 @@ pub enum RawAbilityActivationV2 {
 
 }
 
-impl std::fmt::Display for RawAbilityActivationV2 {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for RawAbilityActivationV2 {
+    fn to_string(&self) -> String {
         match self {
-            Self::HoldToggle => write!(f, "hold_toggle"),
-            Self::InstantCast => write!(f, "instant_cast"),
-            Self::OnButtonIsDown => write!(f, "on_button_is_down"),
-            Self::Passive => write!(f, "passive"),
-            Self::Press => write!(f, "press"),
-            Self::PressToggle => write!(f, "press_toggle"),
+            Self::HoldToggle => String::from("hold_toggle"),
+            Self::InstantCast => String::from("instant_cast"),
+            Self::OnButtonIsDown => String::from("on_button_is_down"),
+            Self::Passive => String::from("passive"),
+            Self::Press => String::from("press"),
+            Self::PressToggle => String::from("press_toggle"),
         }
     }
 }

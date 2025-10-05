@@ -44,8 +44,5 @@ data class AbilityTooltipDetailsInfoSectionV2 (
     @Json(name = "basic_properties")
     val basicProperties: kotlin.collections.List<kotlin.String>? = null
 
-) {
-
-
-}
+)
 

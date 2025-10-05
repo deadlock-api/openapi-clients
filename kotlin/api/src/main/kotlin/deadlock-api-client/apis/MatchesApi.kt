@@ -16,7 +16,7 @@
 package deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.Call
+import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
 import deadlock-api-client.models.ActiveMatch
@@ -40,7 +40,7 @@ import deadlock-api-client.infrastructure.ResponseType
 import deadlock-api-client.infrastructure.Success
 import deadlock-api-client.infrastructure.toMultiValue
 
-class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class MatchesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -49,7 +49,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/active
      * Active
      *  Returns active matches that are currently being played.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountId The account ID to filter active matches by (&#x60;SteamID3&#x60;) (optional)
@@ -82,7 +81,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/active
      * Active
      *  Returns active matches that are currently being played.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountId The account ID to filter active matches by (&#x60;SteamID3&#x60;) (optional)
@@ -133,7 +131,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/active/raw
      * Active as Protobuf
      *  Returns active matches that are currently being played, serialized as protobuf message.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetActiveMatchesResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @return kotlin.collections.List<kotlin.Int>
@@ -164,7 +161,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/active/raw
      * Active as Protobuf
      *  Returns active matches that are currently being played, serialized as protobuf message.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetActiveMatchesResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
@@ -207,16 +203,7 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
      enum class OrderByBulkMetadata(val value: kotlin.String) {
          @Json(name = "match_id") match_id("match_id"),
-         @Json(name = "start_time") start_time("start_time");
-
-        /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
+         @Json(name = "start_time") start_time("start_time")
      }
 
     /**
@@ -224,20 +211,10 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
      enum class OrderDirectionBulkMetadata(val value: kotlin.String) {
          @Json(name = "desc") desc("desc"),
-         @Json(name = "asc") asc("asc");
-
-        /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
+         @Json(name = "asc") asc("asc")
      }
 
     /**
-     * GET /v1/matches/metadata
      * Bulk Metadata
      *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
      * @param includeInfo Include match info in the response. (optional, default to true)
@@ -292,7 +269,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/metadata
      * Bulk Metadata
      *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
      * @param includeInfo Include match info in the response. (optional, default to true)
@@ -453,7 +429,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/{match_id}/metadata
      * Metadata
      *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
      * @param matchId The match ID
@@ -485,7 +460,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/{match_id}/metadata
      * Metadata
      *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
      * @param matchId The match ID
@@ -531,7 +505,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/{match_id}/metadata/raw
      * Metadata as Protobuf
      *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
      * @param matchId The match ID
@@ -564,7 +537,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/{match_id}/metadata/raw
      * Metadata as Protobuf
      *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
      * @param matchId The match ID
@@ -612,7 +584,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/recently-fetched
      * Recently Fetched
      *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param playerIngestedOnly If true, only return matches that have been ingested by players. (optional)
@@ -644,7 +615,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/recently-fetched
      * Recently Fetched
      *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param playerIngestedOnly If true, only return matches that have been ingested by players. (optional)
@@ -690,7 +660,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/{match_id}/salts
      * Salts
      *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s&lt;br&gt;From Steam: 10req/30mins | | Key | From DB: -&lt;br&gt;From Steam: 10req/min | | Global | From DB: -&lt;br&gt;From Steam: 10req/10s |     
      * @param matchId The match ID
@@ -722,7 +691,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/{match_id}/salts
      * Salts
      *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s&lt;br&gt;From Steam: 10req/30mins | | Key | From DB: -&lt;br&gt;From Steam: 10req/min | | Global | From DB: -&lt;br&gt;From Steam: 10req/10s |     
      * @param matchId The match ID
@@ -763,7 +731,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/{match_id}/live/url
      * Live Broadcast URL
      *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
      * @param matchId The match ID
@@ -795,7 +762,6 @@ class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/matches/{match_id}/live/url
      * Live Broadcast URL
      *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
      * @param matchId The match ID

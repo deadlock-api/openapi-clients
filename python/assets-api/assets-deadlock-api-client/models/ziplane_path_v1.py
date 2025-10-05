@@ -27,11 +27,11 @@ class ZiplanePathV1(BaseModel):
     """
     ZiplanePathV1
     """ # noqa: E501
-    origin: Annotated[List[Any], Field(min_length=3, max_length=3)] = Field(description="The origin of the path.")
+    origin: Annotated[List[StrictStr], Field(min_length=3, max_length=3)] = Field(description="The origin of the path.")
     color: StrictStr = Field(description="The color of the path.")
-    p0_points: List[Annotated[List[Any], Field(min_length=3, max_length=3)]] = Field(description="The P0 points of the path.", alias="P0_points")
-    p1_points: List[Annotated[List[Any], Field(min_length=3, max_length=3)]] = Field(description="The P1 points of the path.", alias="P1_points")
-    p2_points: List[Annotated[List[Any], Field(min_length=3, max_length=3)]] = Field(description="The P2 points of the path.", alias="P2_points")
+    p0_points: List[Annotated[List[StrictStr], Field(min_length=3, max_length=3)]] = Field(description="The P0 points of the path.", alias="P0_points")
+    p1_points: List[Annotated[List[StrictStr], Field(min_length=3, max_length=3)]] = Field(description="The P1 points of the path.", alias="P1_points")
+    p2_points: List[Annotated[List[StrictStr], Field(min_length=3, max_length=3)]] = Field(description="The P2 points of the path.", alias="P2_points")
     __properties: ClassVar[List[str]] = ["origin", "color", "P0_points", "P1_points", "P2_points"]
 
     model_config = ConfigDict(

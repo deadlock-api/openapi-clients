@@ -74,9 +74,9 @@ class UpgradeTooltipSectionV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in section_attributes (list)
         _items = []
         if self.section_attributes:
-            for _item_section_attributes in self.section_attributes:
-                if _item_section_attributes:
-                    _items.append(_item_section_attributes.to_dict())
+            for _item in self.section_attributes:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['section_attributes'] = _items
         # set to None if section_type (nullable) is None
         # and model_fields_set contains the field

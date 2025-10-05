@@ -51,8 +51,5 @@ data class RawHeroStatsDisplayV2 (
     @Json(name = "weapon_stats")
     val weaponStats: kotlin.collections.List<kotlin.String>
 
-) {
-
-
-}
+)
 

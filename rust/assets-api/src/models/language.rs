@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -75,38 +74,38 @@ pub enum Language {
 
 }
 
-impl std::fmt::Display for Language {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for Language {
+    fn to_string(&self) -> String {
         match self {
-            Self::Brazilian => write!(f, "brazilian"),
-            Self::Bulgarian => write!(f, "bulgarian"),
-            Self::Czech => write!(f, "czech"),
-            Self::Danish => write!(f, "danish"),
-            Self::Dutch => write!(f, "dutch"),
-            Self::English => write!(f, "english"),
-            Self::Finnish => write!(f, "finnish"),
-            Self::French => write!(f, "french"),
-            Self::German => write!(f, "german"),
-            Self::Greek => write!(f, "greek"),
-            Self::Hungarian => write!(f, "hungarian"),
-            Self::Indonesian => write!(f, "indonesian"),
-            Self::Italian => write!(f, "italian"),
-            Self::Japanese => write!(f, "japanese"),
-            Self::Koreana => write!(f, "koreana"),
-            Self::Latam => write!(f, "latam"),
-            Self::Norwegian => write!(f, "norwegian"),
-            Self::Polish => write!(f, "polish"),
-            Self::Portuguese => write!(f, "portuguese"),
-            Self::Romanian => write!(f, "romanian"),
-            Self::Russian => write!(f, "russian"),
-            Self::Schinese => write!(f, "schinese"),
-            Self::Spanish => write!(f, "spanish"),
-            Self::Swedish => write!(f, "swedish"),
-            Self::Tchinese => write!(f, "tchinese"),
-            Self::Thai => write!(f, "thai"),
-            Self::Turkish => write!(f, "turkish"),
-            Self::Ukrainian => write!(f, "ukrainian"),
-            Self::Vietnamese => write!(f, "vietnamese"),
+            Self::Brazilian => String::from("brazilian"),
+            Self::Bulgarian => String::from("bulgarian"),
+            Self::Czech => String::from("czech"),
+            Self::Danish => String::from("danish"),
+            Self::Dutch => String::from("dutch"),
+            Self::English => String::from("english"),
+            Self::Finnish => String::from("finnish"),
+            Self::French => String::from("french"),
+            Self::German => String::from("german"),
+            Self::Greek => String::from("greek"),
+            Self::Hungarian => String::from("hungarian"),
+            Self::Indonesian => String::from("indonesian"),
+            Self::Italian => String::from("italian"),
+            Self::Japanese => String::from("japanese"),
+            Self::Koreana => String::from("koreana"),
+            Self::Latam => String::from("latam"),
+            Self::Norwegian => String::from("norwegian"),
+            Self::Polish => String::from("polish"),
+            Self::Portuguese => String::from("portuguese"),
+            Self::Romanian => String::from("romanian"),
+            Self::Russian => String::from("russian"),
+            Self::Schinese => String::from("schinese"),
+            Self::Spanish => String::from("spanish"),
+            Self::Swedish => String::from("swedish"),
+            Self::Tchinese => String::from("tchinese"),
+            Self::Thai => String::from("thai"),
+            Self::Turkish => String::from("turkish"),
+            Self::Ukrainian => String::from("ukrainian"),
+            Self::Vietnamese => String::from("vietnamese"),
         }
     }
 }

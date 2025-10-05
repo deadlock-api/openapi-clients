@@ -2,12 +2,12 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**leaderboard**](LeaderboardApi.md#leaderboard) | **GET** /v1/leaderboard/{region} | Leaderboard |
-| [**leaderboardHero**](LeaderboardApi.md#leaderboardHero) | **GET** /v1/leaderboard/{region}/{hero_id} | Hero Leaderboard |
-| [**leaderboardHeroRaw**](LeaderboardApi.md#leaderboardHeroRaw) | **GET** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf |
-| [**leaderboardRaw**](LeaderboardApi.md#leaderboardRaw) | **GET** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**leaderboard**](LeaderboardApi.md#leaderboard) | **GET** /v1/leaderboard/{region} | Leaderboard
+[**leaderboardHero**](LeaderboardApi.md#leaderboardHero) | **GET** /v1/leaderboard/{region}/{hero_id} | Hero Leaderboard
+[**leaderboardHeroRaw**](LeaderboardApi.md#leaderboardHeroRaw) | **GET** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf
+[**leaderboardRaw**](LeaderboardApi.md#leaderboardRaw) | **GET** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf
 
 
 <a id="leaderboard"></a>
@@ -39,9 +39,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania]
 
 ### Return type
 
@@ -86,10 +87,11 @@ try {
 ```
 
 ### Parameters
-| **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania]
+ **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |
 
 ### Return type
 
@@ -134,10 +136,11 @@ try {
 ```
 
 ### Parameters
-| **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania]
+ **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |
 
 ### Return type
 
@@ -181,9 +184,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania]
 
 ### Return type
 

@@ -16,7 +16,7 @@
 package deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.Call
+import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
 import deadlock-api-client.models.CreateCustomRequest
@@ -39,7 +39,7 @@ import deadlock-api-client.infrastructure.ResponseType
 import deadlock-api-client.infrastructure.Success
 import deadlock-api-client.infrastructure.toMultiValue
 
-class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -48,7 +48,6 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /v1/matches/custom/create
      * Create Match
      *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to &#x60;{callback_url}/settings&#x60; with the &#x60;CsoCitadelParty&#x60; protobuf message as JSON. - **match start:** When the match starts, a POST is sent to &#x60;{callback_url}&#x60; with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
      * @param createCustomRequest 
@@ -80,7 +79,6 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * POST /v1/matches/custom/create
      * Create Match
      *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to &#x60;{callback_url}/settings&#x60; with the &#x60;CsoCitadelParty&#x60; protobuf message as JSON. - **match start:** When the match starts, a POST is sent to &#x60;{callback_url}&#x60; with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
      * @param createCustomRequest 
@@ -122,7 +120,6 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /v1/matches/custom/{party_id}/match-id
      * Get Match ID
      *  This endpoint allows you to get the match id of a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @param partyId 
@@ -154,7 +151,6 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /v1/matches/custom/{party_id}/match-id
      * Get Match ID
      *  This endpoint allows you to get the match id of a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @param partyId 

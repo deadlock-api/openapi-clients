@@ -33,22 +33,19 @@ import com.squareup.moshi.JsonClass
 data class HeroColorsV2 (
 
     @Json(name = "glow_enemy")
-    val glowEnemy: kotlin.collections.List<kotlin.Any>,
+    val glowEnemy: kotlin.collections.List<kotlin.String>,
 
     @Json(name = "glow_friendly")
-    val glowFriendly: kotlin.collections.List<kotlin.Any>,
+    val glowFriendly: kotlin.collections.List<kotlin.String>,
 
     @Json(name = "glow_team1")
-    val glowTeam1: kotlin.collections.List<kotlin.Any>,
+    val glowTeam1: kotlin.collections.List<kotlin.String>,
 
     @Json(name = "glow_team2")
-    val glowTeam2: kotlin.collections.List<kotlin.Any>,
+    val glowTeam2: kotlin.collections.List<kotlin.String>,
 
     @Json(name = "ui")
-    val ui: kotlin.collections.List<kotlin.Any>
+    val ui: kotlin.collections.List<kotlin.String>
 
-) {
-
-
-}
+)
 

@@ -16,7 +16,7 @@
 package deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.Call
+import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
 import deadlock-api-client.models.Leaderboard
@@ -37,7 +37,7 @@ import deadlock-api-client.infrastructure.ResponseType
 import deadlock-api-client.infrastructure.Success
 import deadlock-api-client.infrastructure.toMultiValue
 
-class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -53,20 +53,10 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
          @Json(name = "Asia") Asia("Asia"),
          @Json(name = "NAmerica") NAmerica("NAmerica"),
          @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania");
-
-        /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
+         @Json(name = "Oceania") Oceania("Oceania")
      }
 
     /**
-     * GET /v1/leaderboard/{region}
      * Leaderboard
      *  Returns the leaderboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
@@ -98,7 +88,6 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /v1/leaderboard/{region}
      * Leaderboard
      *  Returns the leaderboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
@@ -146,20 +135,10 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
          @Json(name = "Asia") Asia("Asia"),
          @Json(name = "NAmerica") NAmerica("NAmerica"),
          @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania");
-
-        /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
+         @Json(name = "Oceania") Oceania("Oceania")
      }
 
     /**
-     * GET /v1/leaderboard/{region}/{hero_id}
      * Hero Leaderboard
      *  Returns the leaderboard for a specific hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
@@ -192,7 +171,6 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /v1/leaderboard/{region}/{hero_id}
      * Hero Leaderboard
      *  Returns the leaderboard for a specific hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
@@ -242,20 +220,10 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
          @Json(name = "Asia") Asia("Asia"),
          @Json(name = "NAmerica") NAmerica("NAmerica"),
          @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania");
-
-        /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
+         @Json(name = "Oceania") Oceania("Oceania")
      }
 
     /**
-     * GET /v1/leaderboard/{region}/{hero_id}/raw
      * Hero Leaderboard as Protobuf
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
@@ -288,7 +256,6 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /v1/leaderboard/{region}/{hero_id}/raw
      * Hero Leaderboard as Protobuf
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
@@ -338,20 +305,10 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
          @Json(name = "Asia") Asia("Asia"),
          @Json(name = "NAmerica") NAmerica("NAmerica"),
          @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania");
-
-        /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
+         @Json(name = "Oceania") Oceania("Oceania")
      }
 
     /**
-     * GET /v1/leaderboard/{region}/raw
      * Leaderboard as Protobuf
      *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
@@ -383,7 +340,6 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * GET /v1/leaderboard/{region}/raw
      * Leaderboard as Protobuf
      *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.

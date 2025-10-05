@@ -43,8 +43,5 @@ data class BuildHeroDetailsAbilityOrderCurrencyChange (
     @Json(name = "annotation")
     val `annotation`: kotlin.String? = null
 
-) {
-
-
-}
+)
 

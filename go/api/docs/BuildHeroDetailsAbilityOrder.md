@@ -50,16 +50,6 @@ SetCurrencyChanges sets CurrencyChanges field to given value.
 
 HasCurrencyChanges returns a boolean if a field has been set.
 
-### SetCurrencyChangesNil
-
-`func (o *BuildHeroDetailsAbilityOrder) SetCurrencyChangesNil(b bool)`
-
- SetCurrencyChangesNil sets the value for CurrencyChanges to be an explicit nil
-
-### UnsetCurrencyChanges
-`func (o *BuildHeroDetailsAbilityOrder) UnsetCurrencyChanges()`
-
-UnsetCurrencyChanges ensures that no value is present for CurrencyChanges, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

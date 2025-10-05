@@ -26,7 +26,7 @@ type ItemsAPIService service
 type ApiGetItemV2ItemsIdOrClassNameGetRequest struct {
 	ctx context.Context
 	ApiService *ItemsAPIService
-	idOrClassName IdOrClassName
+	idOrClassName string
 	language *Language
 	clientVersion *ValidClientVersions
 }
@@ -52,7 +52,7 @@ GetItemV2ItemsIdOrClassNameGet Get Item
  @param idOrClassName
  @return ApiGetItemV2ItemsIdOrClassNameGetRequest
 */
-func (a *ItemsAPIService) GetItemV2ItemsIdOrClassNameGet(ctx context.Context, idOrClassName IdOrClassName) ApiGetItemV2ItemsIdOrClassNameGetRequest {
+func (a *ItemsAPIService) GetItemV2ItemsIdOrClassNameGet(ctx context.Context, idOrClassName string) ApiGetItemV2ItemsIdOrClassNameGetRequest {
 	return ApiGetItemV2ItemsIdOrClassNameGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -83,10 +83,10 @@ func (a *ItemsAPIService) GetItemV2ItemsIdOrClassNameGetExecute(r ApiGetItemV2It
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -212,10 +212,10 @@ func (a *ItemsAPIService) GetItemsByHeroIdV2ItemsByHeroIdIdGetExecute(r ApiGetIt
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -341,10 +341,10 @@ func (a *ItemsAPIService) GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetExecute(
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -470,10 +470,10 @@ func (a *ItemsAPIService) GetItemsByTypeV2ItemsByTypeTypeGetExecute(r ApiGetItem
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -595,10 +595,10 @@ func (a *ItemsAPIService) GetItemsV2ItemsGetExecute(r ApiGetItemsV2ItemsGetReque
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

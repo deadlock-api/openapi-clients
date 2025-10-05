@@ -31,7 +31,6 @@ docs/HeroTypeV2.md
 docs/HeroV2.md
 docs/HeroesApi.md
 docs/HttpValidationError.md
-docs/IdOrClassName.md
 docs/ItemPropertyV2.md
 docs/ItemSlotTypeV2.md
 docs/ItemTierV2.md
@@ -118,7 +117,6 @@ src/models/hero_starting_stats_v2.rs
 src/models/hero_type_v2.rs
 src/models/hero_v2.rs
 src/models/http_validation_error.rs
-src/models/id_or_class_name.rs
 src/models/item_property_v2.rs
 src/models/item_slot_type_v2.rs
 src/models/item_tier_v2.rs

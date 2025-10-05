@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-	idOrClassName := *openapiclient.NewIdOrClassName() // IdOrClassName | 
+	idOrClassName := "idOrClassName_example" // string | 
 	language := openapiclient.Language("brazilian") // Language |  (optional)
 	clientVersion := openapiclient.ValidClientVersions(5920) // ValidClientVersions |  (optional)
 
@@ -53,7 +53,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**idOrClassName** | [**IdOrClassName**](.md) |  | 
+**idOrClassName** | **string** |  | 
 
 ### Other Parameters
 

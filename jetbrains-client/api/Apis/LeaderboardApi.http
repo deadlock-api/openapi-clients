@@ -1,0 +1,21 @@
+## LeaderboardApi
+
+### Leaderboard
+## Leaderboard
+GET https://api.deadlock-api.com/v1/leaderboard/{{region}}
+Accept: application/json
+
+### Hero Leaderboard
+## Hero Leaderboard
+GET https://api.deadlock-api.com/v1/leaderboard/{{region}}/{{hero_id}}
+Accept: application/json
+
+### Hero Leaderboard as Protobuf
+## Hero Leaderboard as Protobuf
+GET https://api.deadlock-api.com/v1/leaderboard/{{region}}/{{hero_id}}/raw
+Accept: application/octet-stream
+
+### Leaderboard as Protobuf
+## Leaderboard as Protobuf
+GET https://api.deadlock-api.com/v1/leaderboard/{{region}}/raw
+Accept: application/octet-stream

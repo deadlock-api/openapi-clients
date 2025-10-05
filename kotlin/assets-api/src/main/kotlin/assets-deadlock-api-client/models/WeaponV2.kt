@@ -75,19 +75,7 @@ data class WeaponV2 (
     val weaponInfo: RawWeaponInfoV2? = null,
 
     @Json(name = "type")
-    val type: WeaponV2.Type? = Type.weapon
+    val type: kotlin.String? = "weapon"
 
-) {
-
-    /**
-     * 
-     *
-     * Values: weapon
-     */
-    @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.String) {
-        @Json(name = "weapon") weapon("weapon");
-    }
-
-}
+)
 

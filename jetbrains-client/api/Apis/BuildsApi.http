@@ -1,0 +1,6 @@
+## BuildsApi
+
+### Search
+## Search
+GET https://api.deadlock-api.com/v1/builds
+Accept: application/json

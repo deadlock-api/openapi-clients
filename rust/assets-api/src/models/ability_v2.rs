@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AbilityV2 {
@@ -36,7 +35,7 @@ pub struct AbilityV2 {
     #[serde(rename = "weapon_info", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub weapon_info: Option<Option<Box<models::RawItemWeaponInfoV2>>>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub r#type: Option<Type>,
+    pub r#type: Option<String>,
     #[serde(rename = "behaviours", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub behaviours: Option<Option<Vec<String>>>,
     #[serde(rename = "description")]
@@ -79,18 +78,6 @@ impl AbilityV2 {
             dependant_abilities: None,
             videos: None,
         }
-    }
-}
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
-    #[serde(rename = "ability")]
-    Ability,
-}
-
-impl Default for Type {
-    fn default() -> Type {
-        Self::Ability
     }
 }
 

@@ -107,7 +107,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -277,7 +277,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -286,7 +285,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/AnalyticsAbilityOrderStats"
+                  $ref: '#/components/schemas/AnalyticsAbilityOrderStats'
                 type: array
           description: Ability Order Stats
         "400":
@@ -310,7 +309,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -405,7 +404,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/BadgeDistribution"
+                  $ref: '#/components/schemas/BadgeDistribution'
                 type: array
           description: Badge Distribution
         "400":
@@ -442,7 +441,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -463,7 +462,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/BuildItemStats"
+                  $ref: '#/components/schemas/BuildItemStats'
                 type: array
           description: Build Item Stats
         "400":
@@ -490,7 +489,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -609,7 +608,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - description: "Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>"
@@ -622,7 +620,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - description: The minimum number of matches played for a hero combination to
@@ -685,7 +682,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -694,7 +690,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/HeroCombStats"
+                  $ref: '#/components/schemas/HeroCombStats'
                 type: array
           description: Hero Comb Stats
         "400":
@@ -724,7 +720,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -914,7 +910,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -923,7 +918,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/HeroCounterStats"
+                  $ref: '#/components/schemas/HeroCounterStats'
                 type: array
           description: Hero Counter Stats
         "400":
@@ -961,7 +956,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -1105,7 +1100,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - description: "Comma separated list of item ids to exclude (only heroes who\
@@ -1119,7 +1113,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - deprecated: true
@@ -1144,7 +1137,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -1153,7 +1145,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/AnalyticsHeroStats"
+                  $ref: '#/components/schemas/AnalyticsHeroStats'
                 type: array
           description: Hero Stats
         "400":
@@ -1183,7 +1175,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -1363,7 +1355,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -1372,7 +1363,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/HeroSynergyStats"
+                  $ref: '#/components/schemas/HeroSynergyStats'
                 type: array
           description: Hero Synergy Stats
         "400":
@@ -1402,7 +1393,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - description: The combination size to return.
@@ -1446,7 +1436,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -1577,7 +1567,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -1586,7 +1575,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/ItemPermutationStats"
+                  $ref: '#/components/schemas/ItemPermutationStats'
                 type: array
           description: Item Stats
         "400":
@@ -1656,7 +1645,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -1775,7 +1764,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - description: "Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items>"
@@ -1788,7 +1776,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - description: The minimum number of matches played for an item to be included
@@ -1838,7 +1825,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -1847,7 +1833,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/ItemStats"
+                  $ref: '#/components/schemas/ItemStats'
                 type: array
           description: Item Stats
         "400":
@@ -1885,7 +1871,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -2016,7 +2002,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - description: "Comma separated list of item ids to exclude (only heroes who\
@@ -2030,7 +2015,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - description: Comma separated list of account ids to include
@@ -2043,7 +2027,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -2051,7 +2034,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HashMap"
+                $ref: '#/components/schemas/HashMap'
           description: Hero Stats
         "400":
           description: Provided parameters are invalid.
@@ -2166,7 +2149,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1756944000
+          default: 1757030400
           format: int64
           nullable: true
           type: integer
@@ -2297,7 +2280,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -2306,7 +2288,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/Entry"
+                  $ref: '#/components/schemas/Entry'
                 type: array
           description: Hero Scoreboard
         "400":
@@ -2571,7 +2553,7 @@ paths:
         name: limit
         required: false
         schema:
-          default: 100
+          default: "100"
           format: int32
           maximum: 10000
           minimum: 1
@@ -2588,7 +2570,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -2597,7 +2578,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/Entry"
+                  $ref: '#/components/schemas/Entry'
                 type: array
           description: Player Scoreboard
         "400":
@@ -2682,7 +2663,7 @@ paths:
         name: limit
         required: false
         schema:
-          default: 100
+          default: "100"
           format: int32
           minimum: 0
           type: integer
@@ -2798,7 +2779,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/Build"
+                  $ref: '#/components/schemas/Build'
                 type: array
           description: ""
         "400":
@@ -2882,7 +2863,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/VariableDescription"
+                  $ref: '#/components/schemas/VariableDescription'
                 type: array
           description: ""
         "400":
@@ -2987,7 +2968,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ESportsMatch"
+              $ref: '#/components/schemas/ESportsMatch'
         required: true
       responses:
         "200":
@@ -3010,7 +2991,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/ESportsMatch"
+                  $ref: '#/components/schemas/ESportsMatch'
                 type: array
           description: ""
         "400":
@@ -3031,7 +3012,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/APIInfo"
+                $ref: '#/components/schemas/APIInfo'
           description: ""
         "500":
           content:
@@ -3053,7 +3034,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Status"
+                $ref: '#/components/schemas/Status'
           description: ""
         "500":
           content:
@@ -3090,7 +3071,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Leaderboard"
+                $ref: '#/components/schemas/Leaderboard'
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -3177,7 +3158,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Leaderboard"
+                $ref: '#/components/schemas/Leaderboard'
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -3268,7 +3249,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       responses:
@@ -3277,7 +3257,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/ActiveMatch"
+                  $ref: '#/components/schemas/ActiveMatch'
                 type: array
           description: ""
         "400":
@@ -3348,14 +3328,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateCustomRequest"
+              $ref: '#/components/schemas/CreateCustomRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateCustomResponse"
+                $ref: '#/components/schemas/CreateCustomResponse'
           description: Successfully fetched custom match id.
         "400":
           description: Provided parameters are invalid.
@@ -3394,7 +3374,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCustomMatchIdResponse"
+                $ref: '#/components/schemas/GetCustomMatchIdResponse'
           description: Successfully fetched custom match id.
         "400":
           description: Provided parameters are invalid.
@@ -3419,7 +3399,7 @@ paths:
         name: include_info
         required: false
         schema:
-          default: true
+          default: "true"
           type: boolean
         style: form
       - description: Include objectives in the response.
@@ -3480,7 +3460,6 @@ paths:
             format: int64
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - description: Filter matches based on their start time (Unix timestamp).
@@ -3614,7 +3593,6 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          nullable: true
           type: array
         style: form
       - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
@@ -3700,7 +3678,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/ClickhouseMatchInfo"
+                  $ref: '#/components/schemas/ClickhouseMatchInfo'
                 type: array
           description: Recently fetched match info
         "500":
@@ -3723,7 +3701,7 @@ paths:
           application/json:
             schema:
               items:
-                $ref: "#/components/schemas/ClickhouseSalts"
+                $ref: '#/components/schemas/ClickhouseSalts'
               type: array
         required: true
       responses:
@@ -3760,7 +3738,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MatchSpectateResponse"
+                $ref: '#/components/schemas/MatchSpectateResponse'
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -3893,7 +3871,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MatchSaltsResponse"
+                $ref: '#/components/schemas/MatchSaltsResponse'
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -3917,7 +3895,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/Patch"
+                  $ref: '#/components/schemas/Patch'
                 type: array
           description: ""
         "500":
@@ -4088,7 +4066,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/HeroStats"
+                  $ref: '#/components/schemas/HeroStats'
                 type: array
           description: Hero Stats
         "400":
@@ -4139,7 +4117,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/MMRHistory"
+                  $ref: '#/components/schemas/MMRHistory'
                 type: array
           description: MMR
         "400":
@@ -4200,7 +4178,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/MMRHistory"
+                  $ref: '#/components/schemas/MMRHistory'
                 type: array
           description: Hero MMR
         "400":
@@ -4238,7 +4216,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/SteamProfile"
+                  $ref: '#/components/schemas/SteamProfile'
                 type: array
           description: Steam Profiles
         "400":
@@ -4272,7 +4250,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/SteamProfile"
+                  $ref: '#/components/schemas/SteamProfile'
                 type: array
           description: Steam Profile Search
         "400":
@@ -4312,7 +4290,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/PlayerCard"
+                  $ref: '#/components/schemas/PlayerCard'
                 type: array
           description: ""
         "400":
@@ -4461,7 +4439,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/EnemyStats"
+                  $ref: '#/components/schemas/EnemyStats'
                 type: array
           description: Enemy Stats
         "400":
@@ -4523,7 +4501,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/PlayerMatchHistoryEntry"
+                  $ref: '#/components/schemas/PlayerMatchHistoryEntry'
                 type: array
           description: ""
         "400":
@@ -4681,7 +4659,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/MateStats"
+                  $ref: '#/components/schemas/MateStats'
                 type: array
           description: Mate Stats
         "400":
@@ -4712,7 +4690,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/MMRHistory"
+                  $ref: '#/components/schemas/MMRHistory'
                 type: array
           description: MMR History
         "400":
@@ -4753,7 +4731,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/MMRHistory"
+                  $ref: '#/components/schemas/MMRHistory'
                 type: array
           description: Hero MMR History
         "400":
@@ -4878,7 +4856,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/PartyStats"
+                  $ref: '#/components/schemas/PartyStats'
                 type: array
           description: Party Stats
         "400":
@@ -5002,7 +4980,7 @@ components:
           type: integer
         table_sizes:
           additionalProperties:
-            $ref: "#/components/schemas/TableSize"
+            $ref: '#/components/schemas/TableSize'
           description: The sizes of all tables in the database.
     ActiveMatch:
       example:
@@ -5011,16 +4989,16 @@ components:
         objectives_mask_team1: 0
         region_mode: 7
         winning_team_parsed: null
-        game_mode_parsed: KECitadelGameModeInvalid
-        match_mode_parsed: Invalid
+        game_mode_parsed: null
+        match_mode_parsed: null
         players:
         - account_id: 0
-          team_parsed: Team0
+          team_parsed: null
           hero_id: 0
           team: 6
           abandoned: true
         - account_id: 0
-          team_parsed: Team0
+          team_parsed: null
           hero_id: 0
           team: 6
           abandoned: true
@@ -5031,7 +5009,7 @@ components:
         net_worth_team_0: 0
         lobby_id: 0
         duration_s: 0
-        region_mode_parsed: Row
+        region_mode_parsed: null
         start_time: 0
         open_spectator_slots: 0
         match_mode: 7
@@ -5054,7 +5032,7 @@ components:
           nullable: true
           type: integer
         game_mode_parsed:
-          $ref: "#/components/schemas/ActiveMatchGameMode"
+          $ref: '#/components/schemas/ActiveMatchGameMode'
         game_mode_version:
           format: int32
           minimum: 0
@@ -5075,7 +5053,7 @@ components:
           nullable: true
           type: integer
         match_mode_parsed:
-          $ref: "#/components/schemas/ActiveMatchMode"
+          $ref: '#/components/schemas/ActiveMatchMode'
         match_score:
           format: int32
           minimum: 0
@@ -5108,14 +5086,14 @@ components:
           type: integer
         players:
           items:
-            $ref: "#/components/schemas/ActiveMatchPlayer"
+            $ref: '#/components/schemas/ActiveMatchPlayer'
           type: array
         region_mode:
           format: int32
           nullable: true
           type: integer
         region_mode_parsed:
-          $ref: "#/components/schemas/ActiveMatchRegionMode"
+          $ref: '#/components/schemas/ActiveMatchRegionMode'
         spectators:
           format: int32
           minimum: 0
@@ -5131,7 +5109,7 @@ components:
           nullable: true
           type: integer
         winning_team_parsed:
-          $ref: "#/components/schemas/ActiveMatchTeam"
+          $ref: '#/components/schemas/ActiveMatchTeam'
       required:
       - players
     ActiveMatchGameMode:
@@ -5155,7 +5133,7 @@ components:
     ActiveMatchPlayer:
       example:
         account_id: 0
-        team_parsed: Team0
+        team_parsed: null
         hero_id: 0
         team: 6
         abandoned: true
@@ -5179,7 +5157,7 @@ components:
           nullable: true
           type: integer
         team_parsed:
-          $ref: "#/components/schemas/ActiveMatchTeam"
+          $ref: '#/components/schemas/ActiveMatchTeam'
     ActiveMatchRegionMode:
       enum:
       - Row
@@ -5469,7 +5447,7 @@ components:
           development_build: true
       properties:
         hero_build:
-          $ref: "#/components/schemas/BuildHero"
+          $ref: '#/components/schemas/BuildHero'
         num_favorites:
           format: int32
           minimum: 0
@@ -5566,7 +5544,7 @@ components:
           nullable: true
           type: string
         details:
-          $ref: "#/components/schemas/BuildHeroDetails"
+          $ref: '#/components/schemas/BuildHeroDetails'
         development_build:
           nullable: true
           type: boolean
@@ -5663,10 +5641,10 @@ components:
           height: 5.637377
       properties:
         ability_order:
-          $ref: "#/components/schemas/BuildHeroDetailsAbilityOrder"
+          $ref: '#/components/schemas/BuildHeroDetailsAbilityOrder'
         mod_categories:
           items:
-            $ref: "#/components/schemas/BuildHeroDetailsCategory"
+            $ref: '#/components/schemas/BuildHeroDetailsCategory'
           type: array
       required:
       - mod_categories
@@ -5684,8 +5662,7 @@ components:
       properties:
         currency_changes:
           items:
-            $ref: "#/components/schemas/BuildHeroDetailsAbilityOrderCurrencyChange"
-          nullable: true
+            $ref: '#/components/schemas/BuildHeroDetailsAbilityOrderCurrencyChange'
           type: array
     BuildHeroDetailsAbilityOrderCurrencyChange:
       example:
@@ -5739,8 +5716,7 @@ components:
           type: number
         mods:
           items:
-            $ref: "#/components/schemas/BuildHeroDetailsCategoryAbility"
-          nullable: true
+            $ref: '#/components/schemas/BuildHeroDetailsCategoryAbility'
           type: array
         name:
           type: string
@@ -5877,7 +5853,7 @@ components:
       example:
         callback_url: callback_url
         is_publicly_visible: true
-        region_mode: row
+        region_mode: null
         cheats_enabled: true
         randomize_lanes: true
         min_roster_size: 0
@@ -5910,7 +5886,7 @@ components:
           nullable: true
           type: boolean
         region_mode:
-          $ref: "#/components/schemas/RegionMode"
+          $ref: '#/components/schemas/RegionMode'
     CreateCustomResponse:
       example:
         callback_secret: callback_secret
@@ -5941,7 +5917,7 @@ components:
         match_id: 0
         scheduled_date: 2000-01-23T04:56:07.000+00:00
         team1_name: team1_name
-        status: Live
+        status: null
       properties:
         match_id:
           description: Valve's match id of the match.
@@ -5958,7 +5934,7 @@ components:
           nullable: true
           type: string
         status:
-          $ref: "#/components/schemas/ESportsMatchStatus"
+          $ref: '#/components/schemas/ESportsMatchStatus'
         team0_name:
           description: The name of the first team.
           nullable: true
@@ -6064,7 +6040,7 @@ components:
       - match_id
     HashMap:
       additionalProperties:
-        $ref: "#/components/schemas/HashMap_value"
+        $ref: '#/components/schemas/HashMap_value'
     HeroCombStats:
       example:
         wins: 0
@@ -6659,7 +6635,7 @@ components:
         entries:
           description: The leaderboard entries.
           items:
-            $ref: "#/components/schemas/LeaderboardEntry"
+            $ref: '#/components/schemas/LeaderboardEntry'
           type: array
       required:
       - entries
@@ -6904,13 +6880,13 @@ components:
         author:
           type: string
         category:
-          $ref: "#/components/schemas/PatchCategory"
+          $ref: '#/components/schemas/PatchCategory'
         content_encoded:
           type: string
         dc_creator:
           type: string
         guid:
-          $ref: "#/components/schemas/PatchGuid"
+          $ref: '#/components/schemas/PatchGuid'
         link:
           type: string
         pub_date:
@@ -7002,7 +6978,7 @@ components:
           type: integer
         slots:
           items:
-            $ref: "#/components/schemas/PlayerCardSlot"
+            $ref: '#/components/schemas/PlayerCardSlot'
           type: array
       required:
       - account_id
@@ -7019,14 +6995,14 @@ components:
           id: 0
       properties:
         hero:
-          $ref: "#/components/schemas/PlayerCardSlotHero"
+          $ref: '#/components/schemas/PlayerCardSlotHero'
         slot_id:
           format: int32
           minimum: 0
           nullable: true
           type: integer
         stat:
-          $ref: "#/components/schemas/PlayerCardSlotStat"
+          $ref: '#/components/schemas/PlayerCardSlotStat'
     PlayerCardSlotHero:
       example:
         kills: 0
@@ -7200,7 +7176,7 @@ components:
           redis: true
       properties:
         services:
-          $ref: "#/components/schemas/StatusServices"
+          $ref: '#/components/schemas/StatusServices'
       required:
       - services
     StatusServices:
@@ -7312,10 +7288,10 @@ components:
         name: name
         description: description
         default_label: default_label
-        category: General
+        category: null
       properties:
         category:
-          $ref: "#/components/schemas/VariableCategory"
+          $ref: '#/components/schemas/VariableCategory'
         default_label:
           description: The default label for the variable.
           nullable: true

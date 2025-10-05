@@ -44,8 +44,5 @@ data class HeroCombStats (
     @Json(name = "wins")
     val wins: kotlin.Long
 
-) {
-
-
-}
+)
 

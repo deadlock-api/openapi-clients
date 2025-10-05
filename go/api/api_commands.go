@@ -219,14 +219,14 @@ func (a *CommandsAPIService) CommandResolveExecute(r ApiCommandResolveRequest) (
 	}
 
 	if r.region != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
 	}
-	parameterAddToHeaderOrQuery(localVarQueryParams, "account_id", r.accountId, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "account_id", r.accountId, "")
 	if r.template != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "template", r.template, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "template", r.template, "")
 	}
 	if r.heroName != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_name", r.heroName, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_name", r.heroName, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -369,14 +369,14 @@ func (a *CommandsAPIService) VariablesResolveExecute(r ApiVariablesResolveReques
 	}
 
 	if r.region != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
 	}
-	parameterAddToHeaderOrQuery(localVarQueryParams, "account_id", r.accountId, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "account_id", r.accountId, "")
 	if r.variables != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "variables", r.variables, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "variables", r.variables, "")
 	}
 	if r.heroName != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_name", r.heroName, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_name", r.heroName, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

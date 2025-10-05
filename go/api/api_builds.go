@@ -203,61 +203,61 @@ func (a *BuildsAPIService) SearchBuildsExecute(r ApiSearchBuildsRequest) ([]Buil
 	localVarFormParams := url.Values{}
 
 	if r.minUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "")
 	}
 	if r.maxUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "")
 	}
 	if r.minPublishedUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_published_unix_timestamp", r.minPublishedUnixTimestamp, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_published_unix_timestamp", r.minPublishedUnixTimestamp, "")
 	}
 	if r.maxPublishedUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_published_unix_timestamp", r.maxPublishedUnixTimestamp, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_published_unix_timestamp", r.maxPublishedUnixTimestamp, "")
 	}
 	if r.sortBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "")
 	}
 	if r.start != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "start", r.start, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "start", r.start, "")
 	}
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	} else {
 		var defaultValue int32 = 100
 		r.limit = &defaultValue
 	}
 	if r.sortDirection != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "")
 	}
 	if r.searchName != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "search_name", r.searchName, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "search_name", r.searchName, "")
 	}
 	if r.searchDescription != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "search_description", r.searchDescription, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "search_description", r.searchDescription, "")
 	}
 	if r.onlyLatest != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "only_latest", r.onlyLatest, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "only_latest", r.onlyLatest, "")
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	if r.buildId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "build_id", r.buildId, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "build_id", r.buildId, "")
 	}
 	if r.version != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "")
 	}
 	if r.heroId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_id", r.heroId, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_id", r.heroId, "")
 	}
 	if r.tag != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tag", r.tag, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tag", r.tag, "")
 	}
 	if r.rollupCategory != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "rollup_category", r.rollupCategory, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "rollup_category", r.rollupCategory, "")
 	}
 	if r.authorId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "author_id", r.authorId, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "author_id", r.authorId, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

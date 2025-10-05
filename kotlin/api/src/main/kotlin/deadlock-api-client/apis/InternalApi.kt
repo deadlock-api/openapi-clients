@@ -16,7 +16,7 @@
 package deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.Call
+import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
 import deadlock-api-client.models.ClickhouseSalts
@@ -37,7 +37,7 @@ import deadlock-api-client.infrastructure.ResponseType
 import deadlock-api-client.infrastructure.Success
 import deadlock-api-client.infrastructure.toMultiValue
 
-class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class InternalApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -46,7 +46,6 @@ class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * POST /v1/matches/salts
      * Match Salts Ingest
      *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - &#x60;match_id&#x60;: The match ID - &#x60;cluster_id&#x60;: The cluster ID - &#x60;metadata_salt&#x60;: The metadata salt - &#x60;replay_salt&#x60;: The replay salt - &#x60;username&#x60;: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param clickhouseSalts 
@@ -77,7 +76,6 @@ class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * POST /v1/matches/salts
      * Match Salts Ingest
      *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - &#x60;match_id&#x60;: The match ID - &#x60;cluster_id&#x60;: The cluster ID - &#x60;metadata_salt&#x60;: The metadata salt - &#x60;replay_salt&#x60;: The replay salt - &#x60;username&#x60;: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param clickhouseSalts 

@@ -53,8 +53,5 @@ data class VariableDescription (
     @Json(name = "default_label")
     val defaultLabel: kotlin.String? = null
 
-) {
-
-
-}
+)
 

@@ -27,7 +27,7 @@ class TestHeroColorsV2(unittest.TestCase):
 
     def make_instance(self, include_optional) -> HeroColorsV2:
         """Test HeroColorsV2
-            include_optional is a boolean, when False only required
+            include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `HeroColorsV2`
@@ -36,37 +36,37 @@ class TestHeroColorsV2(unittest.TestCase):
         if include_optional:
             return HeroColorsV2(
                 glow_enemy = [
-                    null
+                    ''
                     ],
                 glow_friendly = [
-                    null
+                    ''
                     ],
                 glow_team1 = [
-                    null
+                    ''
                     ],
                 glow_team2 = [
-                    null
+                    ''
                     ],
                 ui = [
-                    null
+                    ''
                     ]
             )
         else:
             return HeroColorsV2(
                 glow_enemy = [
-                    null
+                    ''
                     ],
                 glow_friendly = [
-                    null
+                    ''
                     ],
                 glow_team1 = [
-                    null
+                    ''
                     ],
                 glow_team2 = [
-                    null
+                    ''
                     ],
                 ui = [
-                    null
+                    ''
                     ],
         )
         """

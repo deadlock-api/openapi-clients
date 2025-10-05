@@ -26,10 +26,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-class UsageFlags (
+data class UsageFlags (
 
-) {
-
-
-}
+)
 

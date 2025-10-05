@@ -1,17 +1,10 @@
 # ItemTypeV2
 
 
-## Enum
+## Properties
 
-* `WEAPON` (value: `'weapon'`)
-
-* `ABILITY` (value: `'ability'`)
-
-* `UPGRADE` (value: `'upgrade'`)
-
-* `TECH` (value: `'tech'`)
-
-* `ARMOR` (value: `'armor'`)
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

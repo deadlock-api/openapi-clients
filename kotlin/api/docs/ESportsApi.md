@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**ingestMatch**](ESportsApi.md#ingestMatch) | **POST** /v1/esports/ingest/match | Ingest |
-| [**matches**](ESportsApi.md#matches) | **GET** /v1/esports/matches | List Matches |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**ingestMatch**](ESportsApi.md#ingestMatch) | **POST** /v1/esports/ingest/match | Ingest
+[**matches**](ESportsApi.md#matches) | **GET** /v1/esports/matches | List Matches
 
 
 <a id="ingestMatch"></a>
@@ -36,9 +36,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **esportsMatch** | [**ESportsMatch**](ESportsMatch.md)|  | |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **esportsMatch** | [**ESportsMatch**](ESportsMatch.md)|  |
 
 ### Return type
 

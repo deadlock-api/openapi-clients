@@ -127,8 +127,5 @@ data class HeroSynergyStats (
     @Json(name = "wins")
     val wins: kotlin.Long
 
-) {
-
-
-}
+)
 

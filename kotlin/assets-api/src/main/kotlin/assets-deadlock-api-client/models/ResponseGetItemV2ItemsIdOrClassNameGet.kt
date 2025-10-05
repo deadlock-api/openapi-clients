@@ -105,7 +105,7 @@ interface ResponseGetItemV2ItemsIdOrClassNameGet {
     @Json(name = "hero")
     val hero: kotlin.Int?
     @Json(name = "heroes")
-    val heroes: kotlin.collections.List<kotlin.Int>?
+    val heroes: kotlin.collections.List<kotlin.Any>?
     @Json(name = "update_time")
     val updateTime: kotlin.Int?
     @Json(name = "properties")
@@ -113,9 +113,9 @@ interface ResponseGetItemV2ItemsIdOrClassNameGet {
     @Json(name = "weapon_info")
     val weaponInfo: RawItemWeaponInfoV2?
     @Json(name = "type")
-    val type: ResponseGetItemV2ItemsIdOrClassNameGet.Type?
+    val type: kotlin.String?
     @Json(name = "behaviours")
-    val behaviours: kotlin.collections.List<kotlin.String>?
+    val behaviours: kotlin.collections.List<kotlin.Any>?
     @Json(name = "tooltip_details")
     val tooltipDetails: AbilityTooltipDetailsV2?
     @Json(name = "upgrades")
@@ -125,7 +125,7 @@ interface ResponseGetItemV2ItemsIdOrClassNameGet {
     @Json(name = "boss_damage_scale")
     val bossDamageScale: java.math.BigDecimal?
     @Json(name = "dependant_abilities")
-    val dependantAbilities: kotlin.collections.List<kotlin.String>?
+    val dependantAbilities: kotlin.collections.List<kotlin.Any>?
     @Json(name = "videos")
     val videos: AbilityVideosV2?
     @Json(name = "shop_image")
@@ -141,20 +141,8 @@ interface ResponseGetItemV2ItemsIdOrClassNameGet {
     @Json(name = "imbue")
     val imbue: RawAbilityImbueV2?
     @Json(name = "component_items")
-    val componentItems: kotlin.collections.List<kotlin.String>?
+    val componentItems: kotlin.collections.List<kotlin.Any>?
     @Json(name = "tooltip_sections")
     val tooltipSections: kotlin.collections.List<UpgradeTooltipSectionV2>?
-    /**
-     * 
-     *
-     * Values: ability,weapon,upgrade
-     */
-    @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.String) {
-        @Json(name = "ability") ability("ability"),
-        @Json(name = "weapon") weapon("weapon"),
-        @Json(name = "upgrade") upgrade("upgrade");
-    }
-
 }
 

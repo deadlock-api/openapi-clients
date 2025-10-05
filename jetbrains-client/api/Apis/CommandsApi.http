@@ -1,0 +1,21 @@
+## CommandsApi
+
+### Available Variables
+## Available Variables
+GET https://api.deadlock-api.com/v1/commands/variables/available
+Accept: application/json
+
+### Resolve Command
+## Resolve Command
+GET https://api.deadlock-api.com/v1/commands/resolve
+Accept: text/plain
+
+### Resolve Variables
+## Resolve Variables
+GET https://api.deadlock-api.com/v1/commands/variables/resolve
+Accept: application/json
+
+### Widget Versions
+## Widget Versions
+GET https://api.deadlock-api.com/v1/commands/widgets/versions
+Accept: application/json

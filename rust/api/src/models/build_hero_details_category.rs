@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BuildHeroDetailsCategory {
@@ -17,8 +16,8 @@ pub struct BuildHeroDetailsCategory {
     pub description: Option<Option<String>>,
     #[serde(rename = "height", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub height: Option<Option<f32>>,
-    #[serde(rename = "mods", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub mods: Option<Option<Vec<models::BuildHeroDetailsCategoryAbility>>>,
+    #[serde(rename = "mods", skip_serializing_if = "Option::is_none")]
+    pub mods: Option<Vec<models::BuildHeroDetailsCategoryAbility>>,
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "optional", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

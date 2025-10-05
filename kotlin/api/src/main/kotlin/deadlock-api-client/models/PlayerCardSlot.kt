@@ -41,8 +41,5 @@ data class PlayerCardSlot (
     @Json(name = "stat")
     val stat: PlayerCardSlotStat? = null
 
-) {
-
-
-}
+)
 

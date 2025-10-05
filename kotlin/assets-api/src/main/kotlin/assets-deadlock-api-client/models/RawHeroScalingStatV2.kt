@@ -35,8 +35,5 @@ data class RawHeroScalingStatV2 (
     @Json(name = "scale")
     val scale: java.math.BigDecimal
 
-) {
-
-
-}
+)
 

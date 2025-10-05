@@ -9,33 +9,32 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum RawAbilityImbueV2 {
     #[serde(rename = "imbue_active")]
-    ImbueActive,
+    Active,
     #[serde(rename = "imbue_active_non_ult")]
-    ImbueActiveNonUlt,
+    ActiveNonUlt,
     #[serde(rename = "imbue_modifier_value")]
-    ImbueModifierValue,
+    ModifierValue,
 
 }
 
-impl std::fmt::Display for RawAbilityImbueV2 {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for RawAbilityImbueV2 {
+    fn to_string(&self) -> String {
         match self {
-            Self::ImbueActive => write!(f, "imbue_active"),
-            Self::ImbueActiveNonUlt => write!(f, "imbue_active_non_ult"),
-            Self::ImbueModifierValue => write!(f, "imbue_modifier_value"),
+            Self::Active => String::from("imbue_active"),
+            Self::ActiveNonUlt => String::from("imbue_active_non_ult"),
+            Self::ModifierValue => String::from("imbue_modifier_value"),
         }
     }
 }
 
 impl Default for RawAbilityImbueV2 {
     fn default() -> RawAbilityImbueV2 {
-        Self::ImbueActive
+        Self::Active
     }
 }
 

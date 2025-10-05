@@ -61,8 +61,5 @@ data class CreateCustomRequest (
     @Json(name = "region_mode")
     val regionMode: RegionMode? = null
 
-) {
-
-
-}
+)
 

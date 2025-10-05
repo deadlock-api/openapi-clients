@@ -16,7 +16,7 @@
 package assets-deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.Call
+import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
 import assets-deadlock-api-client.models.BuildTagV2
@@ -43,7 +43,7 @@ import assets-deadlock-api-client.infrastructure.ResponseType
 import assets-deadlock-api-client.infrastructure.Success
 import assets-deadlock-api-client.infrastructure.toMultiValue
 
-class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -52,7 +52,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v2/build-tags
      * Get Build Tags
      * 
      * @param language  (optional)
@@ -85,7 +84,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v2/build-tags
      * Get Build Tags
      * 
      * @param language  (optional)
@@ -136,7 +134,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v2/client-versions
      * Get Client Versions
      * 
      * @return kotlin.collections.List<kotlin.Int>
@@ -167,7 +164,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v2/client-versions
      * Get Client Versions
      * 
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
@@ -206,7 +202,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/colors
      * Get Colors
      * 
      * @param clientVersion  (optional)
@@ -238,7 +233,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/colors
      * Get Colors
      * 
      * @param clientVersion  (optional)
@@ -284,7 +278,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/icons
      * Get Icons
      * 
      * @param clientVersion  (optional)
@@ -316,7 +309,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/icons
      * Get Icons
      * 
      * @param clientVersion  (optional)
@@ -362,7 +354,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/map
      * Get Map
      * 
      * @param clientVersion  (optional)
@@ -394,7 +385,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/map
      * Get Map
      * 
      * @param clientVersion  (optional)
@@ -440,7 +430,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v2/ranks
      * Get Ranks
      * 
      * @param language  (optional)
@@ -473,7 +462,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v2/ranks
      * Get Ranks
      * 
      * @param language  (optional)
@@ -524,7 +512,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/sounds
      * Get Sounds
      * 
      * @param clientVersion  (optional)
@@ -556,7 +543,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/sounds
      * Get Sounds
      * 
      * @param clientVersion  (optional)
@@ -602,7 +588,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/steam-info
      * Get Steam Info
      * 
      * @param clientVersion  (optional)
@@ -634,7 +619,6 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/steam-info
      * Get Steam Info
      * 
      * @param clientVersion  (optional)

@@ -44,8 +44,5 @@ data class RawWeaponInfoVerticalRecoilV2 (
     @Json(name = "burst_slope")
     val burstSlope: java.math.BigDecimal? = null
 
-) {
-
-
-}
+)
 

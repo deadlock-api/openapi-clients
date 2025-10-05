@@ -78,10 +78,10 @@ func (a *DefaultAPIService) GetBuildTagsV2BuildTagsGetExecute(r ApiGetBuildTagsV
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -294,7 +294,7 @@ func (a *DefaultAPIService) GetColorsV1ColorsGetExecute(r ApiGetColorsV1ColorsGe
 	localVarFormParams := url.Values{}
 
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -410,7 +410,7 @@ func (a *DefaultAPIService) GetIconsV1IconsGetExecute(r ApiGetIconsV1IconsGetReq
 	localVarFormParams := url.Values{}
 
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -526,7 +526,7 @@ func (a *DefaultAPIService) GetMapV1MapGetExecute(r ApiGetMapV1MapGetRequest) (*
 	localVarFormParams := url.Values{}
 
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -648,10 +648,10 @@ func (a *DefaultAPIService) GetRanksV2RanksGetExecute(r ApiGetRanksV2RanksGetReq
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -767,7 +767,7 @@ func (a *DefaultAPIService) GetSoundsV1SoundsGetExecute(r ApiGetSoundsV1SoundsGe
 	localVarFormParams := url.Values{}
 
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -883,7 +883,7 @@ func (a *DefaultAPIService) GetSteamInfoV1SteamInfoGetExecute(r ApiGetSteamInfoV
 	localVarFormParams := url.Values{}
 
 	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

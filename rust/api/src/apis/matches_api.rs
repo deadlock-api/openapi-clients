@@ -10,9 +10,9 @@
 
 
 use reqwest;
-use serde::{Deserialize, Serialize, de::Error as _};
+
 use crate::{apis::ResponseContent, models};
-use super::{Error, configuration, ContentType};
+use super::{Error, configuration};
 
 /// struct for passing parameters to the method [`active_matches`]
 #[derive(Clone, Debug)]
@@ -193,366 +193,378 @@ pub enum UrlError {
 
 ///  Returns active matches that are currently being played.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn active_matches(configuration: &configuration::Configuration, params: ActiveMatchesParams) -> Result<Vec<models::ActiveMatch>, Error<ActiveMatchesError>> {
+    let local_var_configuration = configuration;
 
-    let uri_str = format!("{}/v1/matches/active", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+    // unbox the parameters
+    let account_id = params.account_id;
+    let account_ids = params.account_ids;
 
-    if let Some(ref param_value) = params.account_id {
-        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/v1/matches/active", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = account_id {
+        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.account_ids {
-        req_builder = match "multi" {
-            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref local_var_str) = account_ids {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
 
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
 
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ActiveMatch&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ActiveMatch&gt;`")))),
-        }
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let content = resp.text().await?;
-        let entity: Option<ActiveMatchesError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+        let local_var_entity: Option<ActiveMatchesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
     }
 }
 
 ///  Returns active matches that are currently being played, serialized as protobuf message.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetActiveMatchesResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn active_matches_raw(configuration: &configuration::Configuration) -> Result<Vec<u32>, Error<ActiveMatchesRawError>> {
+    let local_var_configuration = configuration;
 
-    let uri_str = format!("{}/v1/matches/active/raw", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+    // unbox the parameters
 
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/v1/matches/active/raw", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
 
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
 
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
-        }
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let content = resp.text().await?;
-        let entity: Option<ActiveMatchesRawError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+        let local_var_entity: Option<ActiveMatchesRawError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
     }
 }
 
 ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
 pub async fn bulk_metadata(configuration: &configuration::Configuration, params: BulkMetadataParams) -> Result<Vec<u32>, Error<BulkMetadataError>> {
+    let local_var_configuration = configuration;
 
-    let uri_str = format!("{}/v1/matches/metadata", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+    // unbox the parameters
+    let include_info = params.include_info;
+    let include_objectives = params.include_objectives;
+    let include_mid_boss = params.include_mid_boss;
+    let include_player_info = params.include_player_info;
+    let include_player_items = params.include_player_items;
+    let include_player_stats = params.include_player_stats;
+    let include_player_death_details = params.include_player_death_details;
+    let match_ids = params.match_ids;
+    let min_unix_timestamp = params.min_unix_timestamp;
+    let max_unix_timestamp = params.max_unix_timestamp;
+    let min_duration_s = params.min_duration_s;
+    let max_duration_s = params.max_duration_s;
+    let min_average_badge = params.min_average_badge;
+    let max_average_badge = params.max_average_badge;
+    let min_match_id = params.min_match_id;
+    let max_match_id = params.max_match_id;
+    let is_high_skill_range_parties = params.is_high_skill_range_parties;
+    let is_low_pri_pool = params.is_low_pri_pool;
+    let is_new_player_pool = params.is_new_player_pool;
+    let account_ids = params.account_ids;
+    let hero_ids = params.hero_ids;
+    let order_by = params.order_by;
+    let order_direction = params.order_direction;
+    let limit = params.limit;
 
-    if let Some(ref param_value) = params.include_info {
-        req_builder = req_builder.query(&[("include_info", &param_value.to_string())]);
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/v1/matches/metadata", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = include_info {
+        local_var_req_builder = local_var_req_builder.query(&[("include_info", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.include_objectives {
-        req_builder = req_builder.query(&[("include_objectives", &param_value.to_string())]);
+    if let Some(ref local_var_str) = include_objectives {
+        local_var_req_builder = local_var_req_builder.query(&[("include_objectives", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.include_mid_boss {
-        req_builder = req_builder.query(&[("include_mid_boss", &param_value.to_string())]);
+    if let Some(ref local_var_str) = include_mid_boss {
+        local_var_req_builder = local_var_req_builder.query(&[("include_mid_boss", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.include_player_info {
-        req_builder = req_builder.query(&[("include_player_info", &param_value.to_string())]);
+    if let Some(ref local_var_str) = include_player_info {
+        local_var_req_builder = local_var_req_builder.query(&[("include_player_info", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.include_player_items {
-        req_builder = req_builder.query(&[("include_player_items", &param_value.to_string())]);
+    if let Some(ref local_var_str) = include_player_items {
+        local_var_req_builder = local_var_req_builder.query(&[("include_player_items", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.include_player_stats {
-        req_builder = req_builder.query(&[("include_player_stats", &param_value.to_string())]);
+    if let Some(ref local_var_str) = include_player_stats {
+        local_var_req_builder = local_var_req_builder.query(&[("include_player_stats", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.include_player_death_details {
-        req_builder = req_builder.query(&[("include_player_death_details", &param_value.to_string())]);
+    if let Some(ref local_var_str) = include_player_death_details {
+        local_var_req_builder = local_var_req_builder.query(&[("include_player_death_details", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.match_ids {
-        req_builder = match "multi" {
-            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("match_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => req_builder.query(&[("match_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref local_var_str) = match_ids {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("match_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("match_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref param_value) = params.min_unix_timestamp {
-        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+    if let Some(ref local_var_str) = min_unix_timestamp {
+        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.max_unix_timestamp {
-        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    if let Some(ref local_var_str) = max_unix_timestamp {
+        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.min_duration_s {
-        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
+    if let Some(ref local_var_str) = min_duration_s {
+        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.max_duration_s {
-        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
+    if let Some(ref local_var_str) = max_duration_s {
+        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.min_average_badge {
-        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
+    if let Some(ref local_var_str) = min_average_badge {
+        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.max_average_badge {
-        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
+    if let Some(ref local_var_str) = max_average_badge {
+        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.min_match_id {
-        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
+    if let Some(ref local_var_str) = min_match_id {
+        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.max_match_id {
-        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    if let Some(ref local_var_str) = max_match_id {
+        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.is_high_skill_range_parties {
-        req_builder = req_builder.query(&[("is_high_skill_range_parties", &param_value.to_string())]);
+    if let Some(ref local_var_str) = is_high_skill_range_parties {
+        local_var_req_builder = local_var_req_builder.query(&[("is_high_skill_range_parties", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.is_low_pri_pool {
-        req_builder = req_builder.query(&[("is_low_pri_pool", &param_value.to_string())]);
+    if let Some(ref local_var_str) = is_low_pri_pool {
+        local_var_req_builder = local_var_req_builder.query(&[("is_low_pri_pool", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.is_new_player_pool {
-        req_builder = req_builder.query(&[("is_new_player_pool", &param_value.to_string())]);
+    if let Some(ref local_var_str) = is_new_player_pool {
+        local_var_req_builder = local_var_req_builder.query(&[("is_new_player_pool", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.account_ids {
-        req_builder = match "multi" {
-            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref local_var_str) = account_ids {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref param_value) = params.hero_ids {
-        req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
+    if let Some(ref local_var_str) = hero_ids {
+        local_var_req_builder = local_var_req_builder.query(&[("hero_ids", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.order_by {
-        req_builder = req_builder.query(&[("order_by", &param_value.to_string())]);
+    if let Some(ref local_var_str) = order_by {
+        local_var_req_builder = local_var_req_builder.query(&[("order_by", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.order_direction {
-        req_builder = req_builder.query(&[("order_direction", &param_value.to_string())]);
+    if let Some(ref local_var_str) = order_direction {
+        local_var_req_builder = local_var_req_builder.query(&[("order_direction", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
 
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
 
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
-        }
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let content = resp.text().await?;
-        let entity: Option<BulkMetadataError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+        let local_var_entity: Option<BulkMetadataError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
     }
 }
 
 ///  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
 pub async fn metadata(configuration: &configuration::Configuration, params: MetadataParams) -> Result<(), Error<MetadataError>> {
+    let local_var_configuration = configuration;
 
-    let uri_str = format!("{}/v1/matches/{match_id}/metadata", configuration.base_path, match_id=params.match_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+    // unbox the parameters
+    let match_id = params.match_id;
+    let is_custom = params.is_custom;
 
-    if let Some(ref param_value) = params.is_custom {
-        req_builder = req_builder.query(&[("is_custom", &param_value.to_string())]);
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/v1/matches/{match_id}/metadata", local_var_configuration.base_path, match_id=match_id);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = is_custom {
+        local_var_req_builder = local_var_req_builder.query(&[("is_custom", &local_var_str.to_string())]);
     }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
 
-    let status = resp.status();
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
 
-    if !status.is_client_error() && !status.is_server_error() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let content = resp.text().await?;
-        let entity: Option<MetadataError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+        let local_var_entity: Option<MetadataError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
     }
 }
 
 ///  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
 pub async fn metadata_raw(configuration: &configuration::Configuration, params: MetadataRawParams) -> Result<Vec<u32>, Error<MetadataRawError>> {
+    let local_var_configuration = configuration;
 
-    let uri_str = format!("{}/v1/matches/{match_id}/metadata/raw", configuration.base_path, match_id=params.match_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+    // unbox the parameters
+    let match_id = params.match_id;
+    let is_custom = params.is_custom;
 
-    if let Some(ref param_value) = params.is_custom {
-        req_builder = req_builder.query(&[("is_custom", &param_value.to_string())]);
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/v1/matches/{match_id}/metadata/raw", local_var_configuration.base_path, match_id=match_id);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = is_custom {
+        local_var_req_builder = local_var_req_builder.query(&[("is_custom", &local_var_str.to_string())]);
     }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
 
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
 
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
-        }
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let content = resp.text().await?;
-        let entity: Option<MetadataRawError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+        let local_var_entity: Option<MetadataRawError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
     }
 }
 
 ///  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn recently_fetched(configuration: &configuration::Configuration, params: RecentlyFetchedParams) -> Result<Vec<models::ClickhouseMatchInfo>, Error<RecentlyFetchedError>> {
+    let local_var_configuration = configuration;
 
-    let uri_str = format!("{}/v1/matches/recently-fetched", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+    // unbox the parameters
+    let player_ingested_only = params.player_ingested_only;
 
-    if let Some(ref param_value) = params.player_ingested_only {
-        req_builder = req_builder.query(&[("player_ingested_only", &param_value.to_string())]);
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/v1/matches/recently-fetched", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = player_ingested_only {
+        local_var_req_builder = local_var_req_builder.query(&[("player_ingested_only", &local_var_str.to_string())]);
     }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
 
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
 
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ClickhouseMatchInfo&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ClickhouseMatchInfo&gt;`")))),
-        }
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let content = resp.text().await?;
-        let entity: Option<RecentlyFetchedError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+        let local_var_entity: Option<RecentlyFetchedError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
     }
 }
 
 ///  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |     
 pub async fn salts(configuration: &configuration::Configuration, params: SaltsParams) -> Result<models::MatchSaltsResponse, Error<SaltsError>> {
+    let local_var_configuration = configuration;
 
-    let uri_str = format!("{}/v1/matches/{match_id}/salts", configuration.base_path, match_id=params.match_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+    // unbox the parameters
+    let match_id = params.match_id;
 
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/v1/matches/{match_id}/salts", local_var_configuration.base_path, match_id=match_id);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
 
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
 
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MatchSaltsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MatchSaltsResponse`")))),
-        }
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let content = resp.text().await?;
-        let entity: Option<SaltsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+        let local_var_entity: Option<SaltsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
     }
 }
 
 ///  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
 pub async fn url(configuration: &configuration::Configuration, params: UrlParams) -> Result<models::MatchSpectateResponse, Error<UrlError>> {
+    let local_var_configuration = configuration;
 
-    let uri_str = format!("{}/v1/matches/{match_id}/live/url", configuration.base_path, match_id=params.match_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+    // unbox the parameters
+    let match_id = params.match_id;
 
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/v1/matches/{match_id}/live/url", local_var_configuration.base_path, match_id=match_id);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
 
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
 
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MatchSpectateResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MatchSpectateResponse`")))),
-        }
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let content = resp.text().await?;
-        let entity: Option<UrlError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+        let local_var_entity: Option<UrlError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
     }
 }
 

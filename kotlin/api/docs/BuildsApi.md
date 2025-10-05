@@ -2,9 +2,9 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**searchBuilds**](BuildsApi.md#searchBuilds) | **GET** /v1/builds | Search |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**searchBuilds**](BuildsApi.md#searchBuilds) | **GET** /v1/builds | Search
 
 
 <a id="searchBuilds"></a>
@@ -53,26 +53,27 @@ try {
 ```
 
 ### Parameters
-| **minUnixTimestamp** | **kotlin.Long**| Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp). | [optional] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp). | [optional] |
-| **minPublishedUnixTimestamp** | **kotlin.Long**| Filter builds based on their published time (Unix timestamp). | [optional] |
-| **maxPublishedUnixTimestamp** | **kotlin.Long**| Filter builds based on their published time (Unix timestamp). | [optional] |
-| **sortBy** | **kotlin.String**| The field to sort the builds by. | [optional] [enum: weekly_favorites, favorites, ignores, reports, updated_at, published_at, version] |
-| **start** | **kotlin.Int**| The index of the first build to return. | [optional] |
-| **limit** | **kotlin.Int**| The maximum number of builds to return. | [optional] [default to 100] |
-| **sortDirection** | **kotlin.String**| The direction to sort the builds in. | [optional] [enum: desc, asc] |
-| **searchName** | **kotlin.String**| Search for builds with a name containing this string. | [optional] |
-| **searchDescription** | **kotlin.String**| Search for builds with a description containing this string. | [optional] |
-| **onlyLatest** | **kotlin.Boolean**| Only return the latest version of each build. | [optional] |
-| **language** | **kotlin.Int**| Filter builds by language. | [optional] |
-| **buildId** | **kotlin.Int**| Filter builds by ID. | [optional] |
-| **version** | **kotlin.Int**| Filter builds by version. | [optional] |
-| **heroId** | **kotlin.Int**| Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **tag** | **kotlin.Int**| Filter builds by tag. | [optional] |
-| **rollupCategory** | **kotlin.Int**| Filter builds by rollup category. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **authorId** | **kotlin.Int**| The author&#39;s &#x60;SteamID3&#x60; | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **minUnixTimestamp** | **kotlin.Long**| Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp). | [optional]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp). | [optional]
+ **minPublishedUnixTimestamp** | **kotlin.Long**| Filter builds based on their published time (Unix timestamp). | [optional]
+ **maxPublishedUnixTimestamp** | **kotlin.Long**| Filter builds based on their published time (Unix timestamp). | [optional]
+ **sortBy** | **kotlin.String**| The field to sort the builds by. | [optional] [enum: weekly_favorites, favorites, ignores, reports, updated_at, published_at, version]
+ **start** | **kotlin.Int**| The index of the first build to return. | [optional]
+ **limit** | **kotlin.Int**| The maximum number of builds to return. | [optional] [default to 100]
+ **sortDirection** | **kotlin.String**| The direction to sort the builds in. | [optional] [enum: desc, asc]
+ **searchName** | **kotlin.String**| Search for builds with a name containing this string. | [optional]
+ **searchDescription** | **kotlin.String**| Search for builds with a description containing this string. | [optional]
+ **onlyLatest** | **kotlin.Boolean**| Only return the latest version of each build. | [optional]
+ **language** | **kotlin.Int**| Filter builds by language. | [optional]
+ **buildId** | **kotlin.Int**| Filter builds by ID. | [optional]
+ **version** | **kotlin.Int**| Filter builds by version. | [optional]
+ **heroId** | **kotlin.Int**| Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+ **tag** | **kotlin.Int**| Filter builds by tag. | [optional]
+ **rollupCategory** | **kotlin.Int**| Filter builds by rollup category. | [optional]
+ **authorId** | **kotlin.Int**| The author&#39;s &#x60;SteamID3&#x60; | [optional]
 
 ### Return type
 

@@ -16,168 +16,86 @@
 
 __version__ = "1.0.0"
 
-# Define package exports
-__all__ = [
-    "AnalyticsApi",
-    "BuildsApi",
-    "CommandsApi",
-    "CustomMatchesApi",
-    "ESportsApi",
-    "InfoApi",
-    "InternalApi",
-    "LeaderboardApi",
-    "MMRApi",
-    "MatchesApi",
-    "PatchesApi",
-    "PlayersApi",
-    "SQLApi",
-    "ApiResponse",
-    "ApiClient",
-    "Configuration",
-    "OpenApiException",
-    "ApiTypeError",
-    "ApiValueError",
-    "ApiKeyError",
-    "ApiAttributeError",
-    "ApiException",
-    "APIInfo",
-    "ActiveMatch",
-    "ActiveMatchGameMode",
-    "ActiveMatchMode",
-    "ActiveMatchPlayer",
-    "ActiveMatchRegionMode",
-    "ActiveMatchTeam",
-    "AnalyticsAbilityOrderStats",
-    "AnalyticsHeroStats",
-    "BadgeDistribution",
-    "Build",
-    "BuildHero",
-    "BuildHeroDetails",
-    "BuildHeroDetailsAbilityOrder",
-    "BuildHeroDetailsAbilityOrderCurrencyChange",
-    "BuildHeroDetailsCategory",
-    "BuildHeroDetailsCategoryAbility",
-    "BuildItemStats",
-    "ClickhouseMatchInfo",
-    "ClickhouseSalts",
-    "CreateCustomRequest",
-    "CreateCustomResponse",
-    "ESportsMatch",
-    "ESportsMatchStatus",
-    "EnemyStats",
-    "Entry",
-    "GetCustomMatchIdResponse",
-    "HashMapValue",
-    "HeroCombStats",
-    "HeroCounterStats",
-    "HeroStats",
-    "HeroSynergyStats",
-    "ItemPermutationStats",
-    "ItemStats",
-    "Leaderboard",
-    "LeaderboardEntry",
-    "MMRHistory",
-    "MatchSaltsResponse",
-    "MatchSpectateResponse",
-    "MateStats",
-    "PartyStats",
-    "Patch",
-    "PatchCategory",
-    "PatchGuid",
-    "PlayerCard",
-    "PlayerCardSlot",
-    "PlayerCardSlotHero",
-    "PlayerCardSlotStat",
-    "PlayerMatchHistoryEntry",
-    "RegionMode",
-    "Status",
-    "StatusServices",
-    "SteamProfile",
-    "TableSize",
-    "VariableCategory",
-    "VariableDescription",
-]
-
 # import apis into sdk package
-from deadlock-api-client.api.analytics_api import AnalyticsApi as AnalyticsApi
-from deadlock-api-client.api.builds_api import BuildsApi as BuildsApi
-from deadlock-api-client.api.commands_api import CommandsApi as CommandsApi
-from deadlock-api-client.api.custom_matches_api import CustomMatchesApi as CustomMatchesApi
-from deadlock-api-client.api.e_sports_api import ESportsApi as ESportsApi
-from deadlock-api-client.api.info_api import InfoApi as InfoApi
-from deadlock-api-client.api.internal_api import InternalApi as InternalApi
-from deadlock-api-client.api.leaderboard_api import LeaderboardApi as LeaderboardApi
-from deadlock-api-client.api.mmr_api import MMRApi as MMRApi
-from deadlock-api-client.api.matches_api import MatchesApi as MatchesApi
-from deadlock-api-client.api.patches_api import PatchesApi as PatchesApi
-from deadlock-api-client.api.players_api import PlayersApi as PlayersApi
-from deadlock-api-client.api.sql_api import SQLApi as SQLApi
+from deadlock-api-client.api.analytics_api import AnalyticsApi
+from deadlock-api-client.api.builds_api import BuildsApi
+from deadlock-api-client.api.commands_api import CommandsApi
+from deadlock-api-client.api.custom_matches_api import CustomMatchesApi
+from deadlock-api-client.api.e_sports_api import ESportsApi
+from deadlock-api-client.api.info_api import InfoApi
+from deadlock-api-client.api.internal_api import InternalApi
+from deadlock-api-client.api.leaderboard_api import LeaderboardApi
+from deadlock-api-client.api.mmr_api import MMRApi
+from deadlock-api-client.api.matches_api import MatchesApi
+from deadlock-api-client.api.patches_api import PatchesApi
+from deadlock-api-client.api.players_api import PlayersApi
+from deadlock-api-client.api.sql_api import SQLApi
 
 # import ApiClient
-from deadlock-api-client.api_response import ApiResponse as ApiResponse
-from deadlock-api-client.api_client import ApiClient as ApiClient
-from deadlock-api-client.configuration import Configuration as Configuration
-from deadlock-api-client.exceptions import OpenApiException as OpenApiException
-from deadlock-api-client.exceptions import ApiTypeError as ApiTypeError
-from deadlock-api-client.exceptions import ApiValueError as ApiValueError
-from deadlock-api-client.exceptions import ApiKeyError as ApiKeyError
-from deadlock-api-client.exceptions import ApiAttributeError as ApiAttributeError
-from deadlock-api-client.exceptions import ApiException as ApiException
+from deadlock-api-client.api_response import ApiResponse
+from deadlock-api-client.api_client import ApiClient
+from deadlock-api-client.configuration import Configuration
+from deadlock-api-client.exceptions import OpenApiException
+from deadlock-api-client.exceptions import ApiTypeError
+from deadlock-api-client.exceptions import ApiValueError
+from deadlock-api-client.exceptions import ApiKeyError
+from deadlock-api-client.exceptions import ApiAttributeError
+from deadlock-api-client.exceptions import ApiException
 
 # import models into sdk package
-from deadlock-api-client.models.api_info import APIInfo as APIInfo
-from deadlock-api-client.models.active_match import ActiveMatch as ActiveMatch
-from deadlock-api-client.models.active_match_game_mode import ActiveMatchGameMode as ActiveMatchGameMode
-from deadlock-api-client.models.active_match_mode import ActiveMatchMode as ActiveMatchMode
-from deadlock-api-client.models.active_match_player import ActiveMatchPlayer as ActiveMatchPlayer
-from deadlock-api-client.models.active_match_region_mode import ActiveMatchRegionMode as ActiveMatchRegionMode
-from deadlock-api-client.models.active_match_team import ActiveMatchTeam as ActiveMatchTeam
-from deadlock-api-client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats as AnalyticsAbilityOrderStats
-from deadlock-api-client.models.analytics_hero_stats import AnalyticsHeroStats as AnalyticsHeroStats
-from deadlock-api-client.models.badge_distribution import BadgeDistribution as BadgeDistribution
-from deadlock-api-client.models.build import Build as Build
-from deadlock-api-client.models.build_hero import BuildHero as BuildHero
-from deadlock-api-client.models.build_hero_details import BuildHeroDetails as BuildHeroDetails
-from deadlock-api-client.models.build_hero_details_ability_order import BuildHeroDetailsAbilityOrder as BuildHeroDetailsAbilityOrder
-from deadlock-api-client.models.build_hero_details_ability_order_currency_change import BuildHeroDetailsAbilityOrderCurrencyChange as BuildHeroDetailsAbilityOrderCurrencyChange
-from deadlock-api-client.models.build_hero_details_category import BuildHeroDetailsCategory as BuildHeroDetailsCategory
-from deadlock-api-client.models.build_hero_details_category_ability import BuildHeroDetailsCategoryAbility as BuildHeroDetailsCategoryAbility
-from deadlock-api-client.models.build_item_stats import BuildItemStats as BuildItemStats
-from deadlock-api-client.models.clickhouse_match_info import ClickhouseMatchInfo as ClickhouseMatchInfo
-from deadlock-api-client.models.clickhouse_salts import ClickhouseSalts as ClickhouseSalts
-from deadlock-api-client.models.create_custom_request import CreateCustomRequest as CreateCustomRequest
-from deadlock-api-client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
-from deadlock-api-client.models.e_sports_match import ESportsMatch as ESportsMatch
-from deadlock-api-client.models.e_sports_match_status import ESportsMatchStatus as ESportsMatchStatus
-from deadlock-api-client.models.enemy_stats import EnemyStats as EnemyStats
-from deadlock-api-client.models.entry import Entry as Entry
-from deadlock-api-client.models.get_custom_match_id_response import GetCustomMatchIdResponse as GetCustomMatchIdResponse
-from deadlock-api-client.models.hash_map_value import HashMapValue as HashMapValue
-from deadlock-api-client.models.hero_comb_stats import HeroCombStats as HeroCombStats
-from deadlock-api-client.models.hero_counter_stats import HeroCounterStats as HeroCounterStats
-from deadlock-api-client.models.hero_stats import HeroStats as HeroStats
-from deadlock-api-client.models.hero_synergy_stats import HeroSynergyStats as HeroSynergyStats
-from deadlock-api-client.models.item_permutation_stats import ItemPermutationStats as ItemPermutationStats
-from deadlock-api-client.models.item_stats import ItemStats as ItemStats
-from deadlock-api-client.models.leaderboard import Leaderboard as Leaderboard
-from deadlock-api-client.models.leaderboard_entry import LeaderboardEntry as LeaderboardEntry
-from deadlock-api-client.models.mmr_history import MMRHistory as MMRHistory
-from deadlock-api-client.models.match_salts_response import MatchSaltsResponse as MatchSaltsResponse
-from deadlock-api-client.models.match_spectate_response import MatchSpectateResponse as MatchSpectateResponse
-from deadlock-api-client.models.mate_stats import MateStats as MateStats
-from deadlock-api-client.models.party_stats import PartyStats as PartyStats
-from deadlock-api-client.models.patch import Patch as Patch
-from deadlock-api-client.models.patch_category import PatchCategory as PatchCategory
-from deadlock-api-client.models.patch_guid import PatchGuid as PatchGuid
-from deadlock-api-client.models.player_card import PlayerCard as PlayerCard
-from deadlock-api-client.models.player_card_slot import PlayerCardSlot as PlayerCardSlot
-from deadlock-api-client.models.player_card_slot_hero import PlayerCardSlotHero as PlayerCardSlotHero
-from deadlock-api-client.models.player_card_slot_stat import PlayerCardSlotStat as PlayerCardSlotStat
-from deadlock-api-client.models.player_match_history_entry import PlayerMatchHistoryEntry as PlayerMatchHistoryEntry
-from deadlock-api-client.models.region_mode import RegionMode as RegionMode
-from deadlock-api-client.models.status import Status as Status
-from deadlock-api-client.models.status_services import StatusServices as StatusServices
-from deadlock-api-client.models.steam_profile import SteamProfile as SteamProfile
-from deadlock-api-client.models.table_size import TableSize as TableSize
-from deadlock-api-client.models.variable_category import VariableCategory as VariableCategory
-from deadlock-api-client.models.variable_description import VariableDescription as VariableDescription
+from deadlock-api-client.models.api_info import APIInfo
+from deadlock-api-client.models.active_match import ActiveMatch
+from deadlock-api-client.models.active_match_game_mode import ActiveMatchGameMode
+from deadlock-api-client.models.active_match_mode import ActiveMatchMode
+from deadlock-api-client.models.active_match_player import ActiveMatchPlayer
+from deadlock-api-client.models.active_match_region_mode import ActiveMatchRegionMode
+from deadlock-api-client.models.active_match_team import ActiveMatchTeam
+from deadlock-api-client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
+from deadlock-api-client.models.analytics_hero_stats import AnalyticsHeroStats
+from deadlock-api-client.models.badge_distribution import BadgeDistribution
+from deadlock-api-client.models.build import Build
+from deadlock-api-client.models.build_hero import BuildHero
+from deadlock-api-client.models.build_hero_details import BuildHeroDetails
+from deadlock-api-client.models.build_hero_details_ability_order import BuildHeroDetailsAbilityOrder
+from deadlock-api-client.models.build_hero_details_ability_order_currency_change import BuildHeroDetailsAbilityOrderCurrencyChange
+from deadlock-api-client.models.build_hero_details_category import BuildHeroDetailsCategory
+from deadlock-api-client.models.build_hero_details_category_ability import BuildHeroDetailsCategoryAbility
+from deadlock-api-client.models.build_item_stats import BuildItemStats
+from deadlock-api-client.models.clickhouse_match_info import ClickhouseMatchInfo
+from deadlock-api-client.models.clickhouse_salts import ClickhouseSalts
+from deadlock-api-client.models.create_custom_request import CreateCustomRequest
+from deadlock-api-client.models.create_custom_response import CreateCustomResponse
+from deadlock-api-client.models.e_sports_match import ESportsMatch
+from deadlock-api-client.models.e_sports_match_status import ESportsMatchStatus
+from deadlock-api-client.models.enemy_stats import EnemyStats
+from deadlock-api-client.models.entry import Entry
+from deadlock-api-client.models.get_custom_match_id_response import GetCustomMatchIdResponse
+from deadlock-api-client.models.hash_map_value import HashMapValue
+from deadlock-api-client.models.hero_comb_stats import HeroCombStats
+from deadlock-api-client.models.hero_counter_stats import HeroCounterStats
+from deadlock-api-client.models.hero_stats import HeroStats
+from deadlock-api-client.models.hero_synergy_stats import HeroSynergyStats
+from deadlock-api-client.models.item_permutation_stats import ItemPermutationStats
+from deadlock-api-client.models.item_stats import ItemStats
+from deadlock-api-client.models.leaderboard import Leaderboard
+from deadlock-api-client.models.leaderboard_entry import LeaderboardEntry
+from deadlock-api-client.models.mmr_history import MMRHistory
+from deadlock-api-client.models.match_salts_response import MatchSaltsResponse
+from deadlock-api-client.models.match_spectate_response import MatchSpectateResponse
+from deadlock-api-client.models.mate_stats import MateStats
+from deadlock-api-client.models.party_stats import PartyStats
+from deadlock-api-client.models.patch import Patch
+from deadlock-api-client.models.patch_category import PatchCategory
+from deadlock-api-client.models.patch_guid import PatchGuid
+from deadlock-api-client.models.player_card import PlayerCard
+from deadlock-api-client.models.player_card_slot import PlayerCardSlot
+from deadlock-api-client.models.player_card_slot_hero import PlayerCardSlotHero
+from deadlock-api-client.models.player_card_slot_stat import PlayerCardSlotStat
+from deadlock-api-client.models.player_match_history_entry import PlayerMatchHistoryEntry
+from deadlock-api-client.models.region_mode import RegionMode
+from deadlock-api-client.models.status import Status
+from deadlock-api-client.models.status_services import StatusServices
+from deadlock-api-client.models.steam_profile import SteamProfile
+from deadlock-api-client.models.table_size import TableSize
+from deadlock-api-client.models.variable_category import VariableCategory
+from deadlock-api-client.models.variable_description import VariableDescription

@@ -35,8 +35,5 @@ data class AbilityVideosV2 (
     @Json(name = "mp4")
     val mp4: kotlin.String? = null
 
-) {
-
-
-}
+)
 

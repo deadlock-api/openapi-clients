@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GlowEnemy** | **[]interface{}** |  | 
-**GlowFriendly** | **[]interface{}** |  | 
-**GlowTeam1** | **[]interface{}** |  | 
-**GlowTeam2** | **[]interface{}** |  | 
-**Ui** | **[]interface{}** |  | 
+**GlowEnemy** | **[]string** |  | 
+**GlowFriendly** | **[]string** |  | 
+**GlowTeam1** | **[]string** |  | 
+**GlowTeam2** | **[]string** |  | 
+**Ui** | **[]string** |  | 
 
 ## Methods
 
 ### NewHeroColorsV2
 
-`func NewHeroColorsV2(glowEnemy []interface{}, glowFriendly []interface{}, glowTeam1 []interface{}, glowTeam2 []interface{}, ui []interface{}, ) *HeroColorsV2`
+`func NewHeroColorsV2(glowEnemy []string, glowFriendly []string, glowTeam1 []string, glowTeam2 []string, ui []string, ) *HeroColorsV2`
 
 NewHeroColorsV2 instantiates a new HeroColorsV2 object
 This constructor will assign default values to properties that have it defined,
@@ -31,100 +31,100 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetGlowEnemy
 
-`func (o *HeroColorsV2) GetGlowEnemy() []interface{}`
+`func (o *HeroColorsV2) GetGlowEnemy() []string`
 
 GetGlowEnemy returns the GlowEnemy field if non-nil, zero value otherwise.
 
 ### GetGlowEnemyOk
 
-`func (o *HeroColorsV2) GetGlowEnemyOk() (*[]interface{}, bool)`
+`func (o *HeroColorsV2) GetGlowEnemyOk() (*[]string, bool)`
 
 GetGlowEnemyOk returns a tuple with the GlowEnemy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlowEnemy
 
-`func (o *HeroColorsV2) SetGlowEnemy(v []interface{})`
+`func (o *HeroColorsV2) SetGlowEnemy(v []string)`
 
 SetGlowEnemy sets GlowEnemy field to given value.
 
 
 ### GetGlowFriendly
 
-`func (o *HeroColorsV2) GetGlowFriendly() []interface{}`
+`func (o *HeroColorsV2) GetGlowFriendly() []string`
 
 GetGlowFriendly returns the GlowFriendly field if non-nil, zero value otherwise.
 
 ### GetGlowFriendlyOk
 
-`func (o *HeroColorsV2) GetGlowFriendlyOk() (*[]interface{}, bool)`
+`func (o *HeroColorsV2) GetGlowFriendlyOk() (*[]string, bool)`
 
 GetGlowFriendlyOk returns a tuple with the GlowFriendly field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlowFriendly
 
-`func (o *HeroColorsV2) SetGlowFriendly(v []interface{})`
+`func (o *HeroColorsV2) SetGlowFriendly(v []string)`
 
 SetGlowFriendly sets GlowFriendly field to given value.
 
 
 ### GetGlowTeam1
 
-`func (o *HeroColorsV2) GetGlowTeam1() []interface{}`
+`func (o *HeroColorsV2) GetGlowTeam1() []string`
 
 GetGlowTeam1 returns the GlowTeam1 field if non-nil, zero value otherwise.
 
 ### GetGlowTeam1Ok
 
-`func (o *HeroColorsV2) GetGlowTeam1Ok() (*[]interface{}, bool)`
+`func (o *HeroColorsV2) GetGlowTeam1Ok() (*[]string, bool)`
 
 GetGlowTeam1Ok returns a tuple with the GlowTeam1 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlowTeam1
 
-`func (o *HeroColorsV2) SetGlowTeam1(v []interface{})`
+`func (o *HeroColorsV2) SetGlowTeam1(v []string)`
 
 SetGlowTeam1 sets GlowTeam1 field to given value.
 
 
 ### GetGlowTeam2
 
-`func (o *HeroColorsV2) GetGlowTeam2() []interface{}`
+`func (o *HeroColorsV2) GetGlowTeam2() []string`
 
 GetGlowTeam2 returns the GlowTeam2 field if non-nil, zero value otherwise.
 
 ### GetGlowTeam2Ok
 
-`func (o *HeroColorsV2) GetGlowTeam2Ok() (*[]interface{}, bool)`
+`func (o *HeroColorsV2) GetGlowTeam2Ok() (*[]string, bool)`
 
 GetGlowTeam2Ok returns a tuple with the GlowTeam2 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlowTeam2
 
-`func (o *HeroColorsV2) SetGlowTeam2(v []interface{})`
+`func (o *HeroColorsV2) SetGlowTeam2(v []string)`
 
 SetGlowTeam2 sets GlowTeam2 field to given value.
 
 
 ### GetUi
 
-`func (o *HeroColorsV2) GetUi() []interface{}`
+`func (o *HeroColorsV2) GetUi() []string`
 
 GetUi returns the Ui field if non-nil, zero value otherwise.
 
 ### GetUiOk
 
-`func (o *HeroColorsV2) GetUiOk() (*[]interface{}, bool)`
+`func (o *HeroColorsV2) GetUiOk() (*[]string, bool)`
 
 GetUiOk returns a tuple with the Ui field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUi
 
-`func (o *HeroColorsV2) SetUi(v []interface{})`
+`func (o *HeroColorsV2) SetUi(v []string)`
 
 SetUi sets Ui field to given value.
 

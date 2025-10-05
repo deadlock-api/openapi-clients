@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -23,12 +22,12 @@ pub enum RawAbilitySectionTypeV2 {
 
 }
 
-impl std::fmt::Display for RawAbilitySectionTypeV2 {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for RawAbilitySectionTypeV2 {
+    fn to_string(&self) -> String {
         match self {
-            Self::Innate => write!(f, "innate"),
-            Self::Active => write!(f, "active"),
-            Self::Passive => write!(f, "passive"),
+            Self::Innate => String::from("innate"),
+            Self::Active => String::from("active"),
+            Self::Passive => String::from("passive"),
         }
     }
 }

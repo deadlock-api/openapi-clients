@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -49,25 +48,25 @@ pub enum HeroItemTypeV2 {
 
 }
 
-impl std::fmt::Display for HeroItemTypeV2 {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for HeroItemTypeV2 {
+    fn to_string(&self) -> String {
         match self {
-            Self::WeaponPrimary => write!(f, "weapon_primary"),
-            Self::WeaponSecondary => write!(f, "weapon_secondary"),
-            Self::WeaponMelee => write!(f, "weapon_melee"),
-            Self::AbilityMantle => write!(f, "ability_mantle"),
-            Self::AbilityJump => write!(f, "ability_jump"),
-            Self::AbilitySlide => write!(f, "ability_slide"),
-            Self::AbilityZipLine => write!(f, "ability_zip_line"),
-            Self::AbilityZipLineBoost => write!(f, "ability_zip_line_boost"),
-            Self::AbilityClimbRope => write!(f, "ability_climb_rope"),
-            Self::AbilityInnate1 => write!(f, "ability_innate1"),
-            Self::AbilityInnate2 => write!(f, "ability_innate2"),
-            Self::AbilityInnate3 => write!(f, "ability_innate3"),
-            Self::Signature1 => write!(f, "signature1"),
-            Self::Signature2 => write!(f, "signature2"),
-            Self::Signature3 => write!(f, "signature3"),
-            Self::Signature4 => write!(f, "signature4"),
+            Self::WeaponPrimary => String::from("weapon_primary"),
+            Self::WeaponSecondary => String::from("weapon_secondary"),
+            Self::WeaponMelee => String::from("weapon_melee"),
+            Self::AbilityMantle => String::from("ability_mantle"),
+            Self::AbilityJump => String::from("ability_jump"),
+            Self::AbilitySlide => String::from("ability_slide"),
+            Self::AbilityZipLine => String::from("ability_zip_line"),
+            Self::AbilityZipLineBoost => String::from("ability_zip_line_boost"),
+            Self::AbilityClimbRope => String::from("ability_climb_rope"),
+            Self::AbilityInnate1 => String::from("ability_innate1"),
+            Self::AbilityInnate2 => String::from("ability_innate2"),
+            Self::AbilityInnate3 => String::from("ability_innate3"),
+            Self::Signature1 => String::from("signature1"),
+            Self::Signature2 => String::from("signature2"),
+            Self::Signature3 => String::from("signature3"),
+            Self::Signature4 => String::from("signature4"),
         }
     }
 }

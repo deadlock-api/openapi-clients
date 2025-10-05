@@ -76,9 +76,9 @@ class UpgradeTooltipSectionAttributeV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in important_properties_with_icon (list)
         _items = []
         if self.important_properties_with_icon:
-            for _item_important_properties_with_icon in self.important_properties_with_icon:
-                if _item_important_properties_with_icon:
-                    _items.append(_item_important_properties_with_icon.to_dict())
+            for _item in self.important_properties_with_icon:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['important_properties_with_icon'] = _items
         # set to None if loc_string (nullable) is None
         # and model_fields_set contains the field

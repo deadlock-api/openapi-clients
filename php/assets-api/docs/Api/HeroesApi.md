@@ -31,8 +31,8 @@ $apiInstance = new OpenAPI\Client\Api\HeroesApi(
     new GuzzleHttp\Client()
 );
 $name = 'name_example'; // string
-$language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
+$language = new \OpenAPI\Client\Model\Language(); // Language
+$client_version = new \OpenAPI\Client\Model\ValidClientVersions(); // ValidClientVersions
 
 try {
     $result = $apiInstance->getHeroByNameV2HeroesByNameNameGet($name, $language, $client_version);
@@ -47,8 +47,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **name** | **string**|  | |
-| **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
+| **language** | [**Language**](../Model/.md)|  | [optional] |
+| **client_version** | [**ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -89,8 +89,8 @@ $apiInstance = new OpenAPI\Client\Api\HeroesApi(
     new GuzzleHttp\Client()
 );
 $id = 56; // int
-$language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
+$language = new \OpenAPI\Client\Model\Language(); // Language
+$client_version = new \OpenAPI\Client\Model\ValidClientVersions(); // ValidClientVersions
 
 try {
     $result = $apiInstance->getHeroV2HeroesIdGet($id, $language, $client_version);
@@ -105,8 +105,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**|  | |
-| **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
+| **language** | [**Language**](../Model/.md)|  | [optional] |
+| **client_version** | [**ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -146,8 +146,8 @@ $apiInstance = new OpenAPI\Client\Api\HeroesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
+$language = new \OpenAPI\Client\Model\Language(); // Language
+$client_version = new \OpenAPI\Client\Model\ValidClientVersions(); // ValidClientVersions
 $only_active = True; // bool
 
 try {
@@ -162,8 +162,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
+| **language** | [**Language**](../Model/.md)|  | [optional] |
+| **client_version** | [**ValidClientVersions**](../Model/.md)|  | [optional] |
 | **only_active** | **bool**|  | [optional] |
 
 ### Return type

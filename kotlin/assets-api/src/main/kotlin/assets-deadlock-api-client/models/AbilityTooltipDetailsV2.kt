@@ -36,8 +36,5 @@ data class AbilityTooltipDetailsV2 (
     @Json(name = "additional_header_properties")
     val additionalHeaderProperties: kotlin.collections.List<kotlin.String>? = null
 
-) {
-
-
-}
+)
 

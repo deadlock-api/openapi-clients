@@ -37,8 +37,5 @@ data class BuildHeroDetails (
     @Json(name = "ability_order")
     val abilityOrder: BuildHeroDetailsAbilityOrder? = null
 
-) {
-
-
-}
+)
 

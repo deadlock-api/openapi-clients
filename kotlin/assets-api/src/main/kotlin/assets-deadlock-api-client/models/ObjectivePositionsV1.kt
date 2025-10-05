@@ -108,8 +108,5 @@ data class ObjectivePositionsV1 (
     @Json(name = "team1_tier1_2")
     val team1Tier12: ObjectivePositionV1? = null
 
-) {
-
-
-}
+)
 

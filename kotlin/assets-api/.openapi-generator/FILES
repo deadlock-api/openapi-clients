@@ -29,7 +29,6 @@ docs/HeroStartingStatsV2.md
 docs/HeroTypeV2.md
 docs/HeroV2.md
 docs/HeroesApi.md
-docs/IdOrClassName.md
 docs/ItemPropertyV2.md
 docs/ItemSlotTypeV2.md
 docs/ItemTierV2.md
@@ -134,7 +133,6 @@ src/main/kotlin/assets-deadlock-api-client/models/HeroStartingStatV2.kt
 src/main/kotlin/assets-deadlock-api-client/models/HeroStartingStatsV2.kt
 src/main/kotlin/assets-deadlock-api-client/models/HeroTypeV2.kt
 src/main/kotlin/assets-deadlock-api-client/models/HeroV2.kt
-src/main/kotlin/assets-deadlock-api-client/models/IdOrClassName.kt
 src/main/kotlin/assets-deadlock-api-client/models/ItemPropertyV2.kt
 src/main/kotlin/assets-deadlock-api-client/models/ItemSlotTypeV2.kt
 src/main/kotlin/assets-deadlock-api-client/models/ItemTierV2.kt
@@ -215,7 +213,6 @@ src/test/kotlin/assets-deadlock-api-client/models/HeroStartingStatV2Test.kt
 src/test/kotlin/assets-deadlock-api-client/models/HeroStartingStatsV2Test.kt
 src/test/kotlin/assets-deadlock-api-client/models/HeroTypeV2Test.kt
 src/test/kotlin/assets-deadlock-api-client/models/HeroV2Test.kt
-src/test/kotlin/assets-deadlock-api-client/models/IdOrClassNameTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/ItemPropertyV2Test.kt
 src/test/kotlin/assets-deadlock-api-client/models/ItemSlotTypeV2Test.kt
 src/test/kotlin/assets-deadlock-api-client/models/ItemTierV2Test.kt

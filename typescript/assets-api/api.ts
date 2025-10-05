@@ -236,7 +236,7 @@ export interface AbilityV2 {
      * @type {string}
      * @memberof AbilityV2
      */
-    'type'?: AbilityV2TypeEnum;
+    'type'?: string;
     /**
      * 
      * @type {Array<string>}
@@ -287,11 +287,6 @@ export interface AbilityV2 {
     'videos'?: AbilityVideosV2 | null;
 }
 
-export const AbilityV2TypeEnum = {
-    Ability: 'ability'
-} as const;
-
-export type AbilityV2TypeEnum = typeof AbilityV2TypeEnum[keyof typeof AbilityV2TypeEnum];
 
 /**
  * 
@@ -458,34 +453,34 @@ export interface HTTPValidationError {
 export interface HeroColorsV2 {
     /**
      * 
-     * @type {Array<any>}
+     * @type {Array<string>}
      * @memberof HeroColorsV2
      */
-    'glow_enemy': Array<any>;
+    'glow_enemy': Array<string>;
     /**
      * 
-     * @type {Array<any>}
+     * @type {Array<string>}
      * @memberof HeroColorsV2
      */
-    'glow_friendly': Array<any>;
+    'glow_friendly': Array<string>;
     /**
      * 
-     * @type {Array<any>}
+     * @type {Array<string>}
      * @memberof HeroColorsV2
      */
-    'glow_team1': Array<any>;
+    'glow_team1': Array<string>;
     /**
      * 
-     * @type {Array<any>}
+     * @type {Array<string>}
      * @memberof HeroColorsV2
      */
-    'glow_team2': Array<any>;
+    'glow_team2': Array<string>;
     /**
      * 
-     * @type {Array<any>}
+     * @type {Array<string>}
      * @memberof HeroColorsV2
      */
-    'ui': Array<any>;
+    'ui': Array<string>;
 }
 /**
  * 
@@ -1163,13 +1158,6 @@ export interface HeroV2 {
 /**
  * 
  * @export
- * @interface IdOrClassName
- */
-export interface IdOrClassName {
-}
-/**
- * 
- * @export
  * @interface ItemPropertyV2
  */
 export interface ItemPropertyV2 {
@@ -1294,7 +1282,7 @@ export type ItemSlotTypeV2 = typeof ItemSlotTypeV2[keyof typeof ItemSlotTypeV2];
 /**
  * 
  * @export
- * @enum {number}
+ * @enum {string}
  */
 
 export const ItemTierV2 = {
@@ -1817,9 +1805,9 @@ export type RawAbilityActivationV2 = typeof RawAbilityActivationV2[keyof typeof 
  */
 
 export const RawAbilityImbueV2 = {
-    ImbueActive: 'imbue_active',
-    ImbueActiveNonUlt: 'imbue_active_non_ult',
-    ImbueModifierValue: 'imbue_modifier_value'
+    Active: 'imbue_active',
+    ActiveNonUlt: 'imbue_active_non_ult',
+    ModifierValue: 'imbue_modifier_value'
 } as const;
 
 export type RawAbilityImbueV2 = typeof RawAbilityImbueV2[keyof typeof RawAbilityImbueV2];
@@ -2903,7 +2891,7 @@ export interface UpgradeV2 {
      * @type {string}
      * @memberof UpgradeV2
      */
-    'type'?: UpgradeV2TypeEnum;
+    'type'?: string;
     /**
      * 
      * @type {string}
@@ -2996,11 +2984,6 @@ export interface UpgradeV2 {
     'cost': number | null;
 }
 
-export const UpgradeV2TypeEnum = {
-    Upgrade: 'upgrade'
-} as const;
-
-export type UpgradeV2TypeEnum = typeof UpgradeV2TypeEnum[keyof typeof UpgradeV2TypeEnum];
 
 /**
  * 
@@ -3012,7 +2995,7 @@ export interface UsageFlags {
 /**
  * 
  * @export
- * @enum {number}
+ * @enum {string}
  */
 
 export const ValidClientVersions = {
@@ -3174,15 +3157,8 @@ export interface WeaponV2 {
      * @type {string}
      * @memberof WeaponV2
      */
-    'type'?: WeaponV2TypeEnum;
+    'type'?: string;
 }
-
-export const WeaponV2TypeEnum = {
-    Weapon: 'weapon'
-} as const;
-
-export type WeaponV2TypeEnum = typeof WeaponV2TypeEnum[keyof typeof WeaponV2TypeEnum];
-
 /**
  * 
  * @export
@@ -3191,10 +3167,10 @@ export type WeaponV2TypeEnum = typeof WeaponV2TypeEnum[keyof typeof WeaponV2Type
 export interface ZiplanePathV1 {
     /**
      * The origin of the path.
-     * @type {Array<any>}
+     * @type {Array<string>}
      * @memberof ZiplanePathV1
      */
-    'origin': Array<any>;
+    'origin': Array<string>;
     /**
      * The color of the path.
      * @type {string}
@@ -3203,22 +3179,22 @@ export interface ZiplanePathV1 {
     'color': string;
     /**
      * The P0 points of the path.
-     * @type {Array<Array<any>>}
+     * @type {Array<Array<string>>}
      * @memberof ZiplanePathV1
      */
-    'P0_points': Array<Array<any>>;
+    'P0_points': Array<Array<string>>;
     /**
      * The P1 points of the path.
-     * @type {Array<Array<any>>}
+     * @type {Array<Array<string>>}
      * @memberof ZiplanePathV1
      */
-    'P1_points': Array<Array<any>>;
+    'P1_points': Array<Array<string>>;
     /**
      * The P2 points of the path.
-     * @type {Array<Array<any>>}
+     * @type {Array<Array<string>>}
      * @memberof ZiplanePathV1
      */
-    'P2_points': Array<Array<any>>;
+    'P2_points': Array<Array<string>>;
 }
 
 /**
@@ -4312,13 +4288,13 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * 
          * @summary Get Item
-         * @param {IdOrClassName} idOrClassName 
+         * @param {string} idOrClassName 
          * @param {Language | null} [language] 
          * @param {ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemV2ItemsIdOrClassNameGet: async (idOrClassName: IdOrClassName, language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemV2ItemsIdOrClassNameGet: async (idOrClassName: string, language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'idOrClassName' is not null or undefined
             assertParamExists('getItemV2ItemsIdOrClassNameGet', 'idOrClassName', idOrClassName)
             const localVarPath = `/v2/items/{id_or_class_name}`
@@ -4538,13 +4514,13 @@ export const ItemsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Item
-         * @param {IdOrClassName} idOrClassName 
+         * @param {string} idOrClassName 
          * @param {Language | null} [language] 
          * @param {ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemV2ItemsIdOrClassNameGet(idOrClassName: IdOrClassName, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetItemV2ItemsIdOrClassNameGet>> {
+        async getItemV2ItemsIdOrClassNameGet(idOrClassName: string, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetItemV2ItemsIdOrClassNameGet>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemV2ItemsIdOrClassNameGet(idOrClassName, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemV2ItemsIdOrClassNameGet']?.[localVarOperationServerIndex]?.url;
@@ -4680,10 +4656,10 @@ export const ItemsApiFactory = function (configuration?: Configuration, basePath
 export interface ItemsApiGetItemV2ItemsIdOrClassNameGetRequest {
     /**
      * 
-     * @type {IdOrClassName}
+     * @type {string}
      * @memberof ItemsApiGetItemV2ItemsIdOrClassNameGet
      */
-    readonly idOrClassName: IdOrClassName
+    readonly idOrClassName: string
 
     /**
      * 

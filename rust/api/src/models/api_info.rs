@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiInfo {
@@ -20,8 +19,8 @@ pub struct ApiInfo {
     #[serde(rename = "missed_matches", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub missed_matches: Option<Option<u64>>,
     /// The sizes of all tables in the database.
-    #[serde(rename = "table_sizes", skip_serializing_if = "Option::is_none")]
-    pub table_sizes: Option<std::collections::HashMap<String, models::TableSize>>,
+    #[serde(rename = "table_sizes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub table_sizes: Option<Option<std::collections::HashMap<String, models::TableSize>>>,
 }
 
 impl ApiInfo {

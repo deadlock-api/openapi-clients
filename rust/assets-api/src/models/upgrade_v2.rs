@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UpgradeV2 {
@@ -36,7 +35,7 @@ pub struct UpgradeV2 {
     #[serde(rename = "weapon_info", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub weapon_info: Option<Option<Box<models::RawItemWeaponInfoV2>>>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub r#type: Option<Type>,
+    pub r#type: Option<String>,
     #[serde(rename = "shop_image", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub shop_image: Option<Option<String>>,
     #[serde(rename = "shop_image_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -100,18 +99,6 @@ impl UpgradeV2 {
             shopable,
             cost,
         }
-    }
-}
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
-    #[serde(rename = "upgrade")]
-    Upgrade,
-}
-
-impl Default for Type {
-    fn default() -> Type {
-        Self::Upgrade
     }
 }
 

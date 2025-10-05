@@ -47,8 +47,5 @@ data class TableSize (
     @Json(name = "rows")
     val rows: kotlin.Long? = null
 
-) {
-
-
-}
+)
 

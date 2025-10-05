@@ -1,15 +1,10 @@
 # StatsUsageFlagV2
 
 
-## Enum
+## Properties
 
-* `CONDITIONALLYAPPLIED` (value: `'ConditionallyApplied'`)
-
-* `CONDITIONALLYENEMYAPPLIED` (value: `'ConditionallyEnemyApplied'`)
-
-* `INTRINSICALLYPROVIDEDINABILITY` (value: `'IntrinsicallyProvidedInAbility'`)
-
-* `INTRINSICALLYPROVIDEDINMODIFIER` (value: `'IntrinsicallyProvidedInModifier'`)
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

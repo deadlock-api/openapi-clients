@@ -108,8 +108,5 @@ data class PlayerMatchHistoryEntry (
     @Json(name = "team_abandoned")
     val teamAbandoned: kotlin.Boolean? = null
 
-) {
-
-
-}
+)
 

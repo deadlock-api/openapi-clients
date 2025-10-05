@@ -1,15 +1,10 @@
 # HeroTypeV2
 
 
-## Enum
+## Properties
 
-* `ASSASSIN` (value: `'assassin'`)
-
-* `BRAWLER` (value: `'brawler'`)
-
-* `MARKSMAN` (value: `'marksman'`)
-
-* `MYSTIC` (value: `'mystic'`)
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

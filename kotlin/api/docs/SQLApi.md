@@ -2,11 +2,11 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**listTables**](SQLApi.md#listTables) | **GET** /v1/sql/tables | List Tables |
-| [**sql**](SQLApi.md#sql) | **GET** /v1/sql | Query |
-| [**tableSchema**](SQLApi.md#tableSchema) | **GET** /v1/sql/tables/{table}/schema | Table Schema |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**listTables**](SQLApi.md#listTables) | **GET** /v1/sql/tables | List Tables
+[**sql**](SQLApi.md#sql) | **GET** /v1/sql | Query
+[**tableSchema**](SQLApi.md#tableSchema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
 
 
 <a id="listTables"></a>
@@ -50,7 +50,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, text/plain
+ - **Accept**: application/json
 
 <a id="sql"></a>
 # **sql**
@@ -81,9 +81,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **query** | **kotlin.String**| The SQL query to execute. It must follow the Clickhouse SQL syntax. | |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **kotlin.String**| The SQL query to execute. It must follow the Clickhouse SQL syntax. |
 
 ### Return type
 
@@ -96,7 +97,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain
+ - **Accept**: Not defined
 
 <a id="tableSchema"></a>
 # **tableSchema**
@@ -127,9 +128,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **table** | **kotlin.String**| The name of the table to fetch the schema for. | |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **table** | **kotlin.String**| The name of the table to fetch the schema for. |
 
 ### Return type
 
@@ -142,5 +144,5 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, text/plain
+ - **Accept**: application/json
 

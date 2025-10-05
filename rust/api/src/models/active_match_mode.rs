@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -33,17 +32,17 @@ pub enum ActiveMatchMode {
 
 }
 
-impl std::fmt::Display for ActiveMatchMode {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for ActiveMatchMode {
+    fn to_string(&self) -> String {
         match self {
-            Self::Invalid => write!(f, "Invalid"),
-            Self::Unranked => write!(f, "Unranked"),
-            Self::PrivateLobby => write!(f, "PrivateLobby"),
-            Self::CoopBot => write!(f, "CoopBot"),
-            Self::Ranked => write!(f, "Ranked"),
-            Self::ServerTest => write!(f, "ServerTest"),
-            Self::Tutorial => write!(f, "Tutorial"),
-            Self::HeroLabs => write!(f, "HeroLabs"),
+            Self::Invalid => String::from("Invalid"),
+            Self::Unranked => String::from("Unranked"),
+            Self::PrivateLobby => String::from("PrivateLobby"),
+            Self::CoopBot => String::from("CoopBot"),
+            Self::Ranked => String::from("Ranked"),
+            Self::ServerTest => String::from("ServerTest"),
+            Self::Tutorial => String::from("Tutorial"),
+            Self::HeroLabs => String::from("HeroLabs"),
         }
     }
 }

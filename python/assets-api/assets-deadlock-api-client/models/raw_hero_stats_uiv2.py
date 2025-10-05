@@ -73,9 +73,9 @@ class RawHeroStatsUIV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in display_stats (list)
         _items = []
         if self.display_stats:
-            for _item_display_stats in self.display_stats:
-                if _item_display_stats:
-                    _items.append(_item_display_stats.to_dict())
+            for _item in self.display_stats:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['display_stats'] = _items
         return _dict
 

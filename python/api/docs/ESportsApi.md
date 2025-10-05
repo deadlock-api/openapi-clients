@@ -13,17 +13,7 @@ Method | HTTP request | Description
 
 Ingest
 
-
-To use this Endpoint you need to have special permissions.
-Please contact us if you organize E-Sports Matches and want to ingest them to us.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 1000req/h |
-| Key | - |
-| Global | 10000req/h |
-    
+ To use this Endpoint you need to have special permissions. Please contact us if you organize E-Sports Matches and want to ingest them to us.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 1000req/h | | Key | - | | Global | 10000req/h |     
 
 ### Example
 
@@ -91,14 +81,7 @@ No authorization required
 
 List Matches
 
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
+ ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Example
 

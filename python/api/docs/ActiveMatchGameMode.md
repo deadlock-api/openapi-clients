@@ -1,15 +1,10 @@
 # ActiveMatchGameMode
 
 
-## Enum
+## Properties
 
-* `KECITADELGAMEMODEINVALID` (value: `'KECitadelGameModeInvalid'`)
-
-* `KECITADELGAMEMODENORMAL` (value: `'KECitadelGameModeNormal'`)
-
-* `KECITADELGAMEMODE1V1TEST` (value: `'KECitadelGameMode1v1Test'`)
-
-* `KECITADELGAMEMODESANDBOX` (value: `'KECitadelGameModeSandbox'`)
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

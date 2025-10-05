@@ -16,7 +16,7 @@
 package assets-deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.Call
+import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
 import assets-deadlock-api-client.models.HTTPValidationError
@@ -40,7 +40,7 @@ import assets-deadlock-api-client.infrastructure.ResponseType
 import assets-deadlock-api-client.infrastructure.Success
 import assets-deadlock-api-client.infrastructure.toMultiValue
 
-class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class HeroesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -49,7 +49,6 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * GET /v2/heroes/by-name/{name}
      * Get Hero By Name
      * 
      * @param name 
@@ -83,7 +82,6 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * GET /v2/heroes/by-name/{name}
      * Get Hero By Name
      * 
      * @param name 
@@ -136,7 +134,6 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * GET /v2/heroes/{id}
      * Get Hero
      * 
      * @param id 
@@ -170,7 +167,6 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * GET /v2/heroes/{id}
      * Get Hero
      * 
      * @param id 
@@ -223,7 +219,6 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * GET /v2/heroes
      * Get Heroes
      * 
      * @param language  (optional)
@@ -257,7 +252,6 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * GET /v2/heroes
      * Get Heroes
      * 
      * @param language  (optional)

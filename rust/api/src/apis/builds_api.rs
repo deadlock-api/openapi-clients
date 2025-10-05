@@ -10,9 +10,9 @@
 
 
 use reqwest;
-use serde::{Deserialize, Serialize, de::Error as _};
+
 use crate::{apis::ResponseContent, models};
-use super::{Error, configuration, ContentType};
+use super::{Error, configuration};
 
 /// struct for passing parameters to the method [`search_builds`]
 #[derive(Clone, Debug)]
@@ -69,90 +69,104 @@ pub enum SearchBuildsError {
 
 ///  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn search_builds(configuration: &configuration::Configuration, params: SearchBuildsParams) -> Result<Vec<models::Build>, Error<SearchBuildsError>> {
+    let local_var_configuration = configuration;
 
-    let uri_str = format!("{}/v1/builds", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+    // unbox the parameters
+    let min_unix_timestamp = params.min_unix_timestamp;
+    let max_unix_timestamp = params.max_unix_timestamp;
+    let min_published_unix_timestamp = params.min_published_unix_timestamp;
+    let max_published_unix_timestamp = params.max_published_unix_timestamp;
+    let sort_by = params.sort_by;
+    let start = params.start;
+    let limit = params.limit;
+    let sort_direction = params.sort_direction;
+    let search_name = params.search_name;
+    let search_description = params.search_description;
+    let only_latest = params.only_latest;
+    let language = params.language;
+    let build_id = params.build_id;
+    let version = params.version;
+    let hero_id = params.hero_id;
+    let tag = params.tag;
+    let rollup_category = params.rollup_category;
+    let author_id = params.author_id;
 
-    if let Some(ref param_value) = params.min_unix_timestamp {
-        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/v1/builds", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = min_unix_timestamp {
+        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.max_unix_timestamp {
-        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    if let Some(ref local_var_str) = max_unix_timestamp {
+        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.min_published_unix_timestamp {
-        req_builder = req_builder.query(&[("min_published_unix_timestamp", &param_value.to_string())]);
+    if let Some(ref local_var_str) = min_published_unix_timestamp {
+        local_var_req_builder = local_var_req_builder.query(&[("min_published_unix_timestamp", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.max_published_unix_timestamp {
-        req_builder = req_builder.query(&[("max_published_unix_timestamp", &param_value.to_string())]);
+    if let Some(ref local_var_str) = max_published_unix_timestamp {
+        local_var_req_builder = local_var_req_builder.query(&[("max_published_unix_timestamp", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.sort_by {
-        req_builder = req_builder.query(&[("sort_by", &param_value.to_string())]);
+    if let Some(ref local_var_str) = sort_by {
+        local_var_req_builder = local_var_req_builder.query(&[("sort_by", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.start {
-        req_builder = req_builder.query(&[("start", &param_value.to_string())]);
+    if let Some(ref local_var_str) = start {
+        local_var_req_builder = local_var_req_builder.query(&[("start", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.sort_direction {
-        req_builder = req_builder.query(&[("sort_direction", &param_value.to_string())]);
+    if let Some(ref local_var_str) = sort_direction {
+        local_var_req_builder = local_var_req_builder.query(&[("sort_direction", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.search_name {
-        req_builder = req_builder.query(&[("search_name", &param_value.to_string())]);
+    if let Some(ref local_var_str) = search_name {
+        local_var_req_builder = local_var_req_builder.query(&[("search_name", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.search_description {
-        req_builder = req_builder.query(&[("search_description", &param_value.to_string())]);
+    if let Some(ref local_var_str) = search_description {
+        local_var_req_builder = local_var_req_builder.query(&[("search_description", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.only_latest {
-        req_builder = req_builder.query(&[("only_latest", &param_value.to_string())]);
+    if let Some(ref local_var_str) = only_latest {
+        local_var_req_builder = local_var_req_builder.query(&[("only_latest", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+    if let Some(ref local_var_str) = language {
+        local_var_req_builder = local_var_req_builder.query(&[("language", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.build_id {
-        req_builder = req_builder.query(&[("build_id", &param_value.to_string())]);
+    if let Some(ref local_var_str) = build_id {
+        local_var_req_builder = local_var_req_builder.query(&[("build_id", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.version {
-        req_builder = req_builder.query(&[("version", &param_value.to_string())]);
+    if let Some(ref local_var_str) = version {
+        local_var_req_builder = local_var_req_builder.query(&[("version", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.hero_id {
-        req_builder = req_builder.query(&[("hero_id", &param_value.to_string())]);
+    if let Some(ref local_var_str) = hero_id {
+        local_var_req_builder = local_var_req_builder.query(&[("hero_id", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.tag {
-        req_builder = req_builder.query(&[("tag", &param_value.to_string())]);
+    if let Some(ref local_var_str) = tag {
+        local_var_req_builder = local_var_req_builder.query(&[("tag", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.rollup_category {
-        req_builder = req_builder.query(&[("rollup_category", &param_value.to_string())]);
+    if let Some(ref local_var_str) = rollup_category {
+        local_var_req_builder = local_var_req_builder.query(&[("rollup_category", &local_var_str.to_string())]);
     }
-    if let Some(ref param_value) = params.author_id {
-        req_builder = req_builder.query(&[("author_id", &param_value.to_string())]);
+    if let Some(ref local_var_str) = author_id {
+        local_var_req_builder = local_var_req_builder.query(&[("author_id", &local_var_str.to_string())]);
     }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
 
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
 
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Build&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Build&gt;`")))),
-        }
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let content = resp.text().await?;
-        let entity: Option<SearchBuildsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+        let local_var_entity: Option<SearchBuildsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
     }
 }
 

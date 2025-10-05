@@ -16,7 +16,7 @@
 package deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.Call
+import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
 import deadlock-api-client.models.Patch
@@ -37,7 +37,7 @@ import deadlock-api-client.infrastructure.ResponseType
 import deadlock-api-client.infrastructure.Success
 import deadlock-api-client.infrastructure.toMultiValue
 
-class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class PatchesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -46,7 +46,6 @@ class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/patches/big-days
      * Big Days
      *  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the announcement forum post was published.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @return kotlin.collections.List<kotlin.String>
@@ -77,7 +76,6 @@ class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/patches/big-days
      * Big Days
      *  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the announcement forum post was published.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @return ApiResponse<kotlin.collections.List<kotlin.String>?>
@@ -116,7 +114,6 @@ class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/patches
      * Notes
      *  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @return kotlin.collections.List<Patch>
@@ -147,7 +144,6 @@ class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * GET /v1/patches
      * Notes
      *  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @return ApiResponse<kotlin.collections.List<Patch>?>

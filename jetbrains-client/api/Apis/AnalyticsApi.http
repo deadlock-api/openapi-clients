@@ -1,0 +1,61 @@
+## AnalyticsApi
+
+### Ability Order Stats
+## Ability Order Stats
+GET https://api.deadlock-api.com/v1/analytics/ability-order-stats
+Accept: application/json
+
+### Badge Distribution
+## Badge Distribution
+GET https://api.deadlock-api.com/v1/analytics/badge-distribution
+Accept: application/json
+
+### Build Item Stats
+## Build Item Stats
+GET https://api.deadlock-api.com/v1/analytics/build-item-stats
+Accept: application/json
+
+### Hero Comb Stats
+## Hero Comb Stats
+GET https://api.deadlock-api.com/v1/analytics/hero-comb-stats
+Accept: application/json
+
+### Hero Counter Stats
+## Hero Counter Stats
+GET https://api.deadlock-api.com/v1/analytics/hero-counter-stats
+Accept: application/json
+
+### Hero Scoreboard
+## Hero Scoreboard
+GET https://api.deadlock-api.com/v1/analytics/scoreboards/heroes
+Accept: application/json
+
+### Hero Stats
+## Hero Stats
+GET https://api.deadlock-api.com/v1/analytics/hero-stats
+Accept: application/json
+
+### Hero Synergy Stats
+## Hero Synergy Stats
+GET https://api.deadlock-api.com/v1/analytics/hero-synergy-stats
+Accept: application/json
+
+### Item Permutation Stats
+## Item Permutation Stats
+GET https://api.deadlock-api.com/v1/analytics/item-permutation-stats
+Accept: application/json
+
+### Item Stats
+## Item Stats
+GET https://api.deadlock-api.com/v1/analytics/item-stats
+Accept: application/json
+
+### Player Scoreboard
+## Player Scoreboard
+GET https://api.deadlock-api.com/v1/analytics/scoreboards/players
+Accept: application/json
+
+### Player Stats Metrics
+## Player Stats Metrics
+GET https://api.deadlock-api.com/v1/analytics/player-stats/metrics
+Accept: application/json

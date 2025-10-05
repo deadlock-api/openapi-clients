@@ -35,8 +35,5 @@ data class PatchGuid (
     @Json(name = "text")
     val text: kotlin.String
 
-) {
-
-
-}
+)
 

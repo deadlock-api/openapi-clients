@@ -43,8 +43,5 @@ data class APIInfo (
     @Json(name = "table_sizes")
     val tableSizes: kotlin.collections.Map<kotlin.String, TableSize>? = null
 
-) {
-
-
-}
+)
 

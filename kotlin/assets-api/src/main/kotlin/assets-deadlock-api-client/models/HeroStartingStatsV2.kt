@@ -112,8 +112,5 @@ data class HeroStartingStatsV2 (
     @Json(name = "bullet_armor_damage_reduction")
     val bulletArmorDamageReduction: HeroStartingStatV2? = null
 
-) {
-
-
-}
+)
 

@@ -98,8 +98,5 @@ data class ItemPropertyV2 (
     @Json(name = "icon")
     val icon: kotlin.String? = null
 
-) {
-
-
-}
+)
 

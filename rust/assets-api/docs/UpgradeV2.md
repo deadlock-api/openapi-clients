@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **update_time** | Option<**i32**> |  | [optional]
 **properties** | Option<[**std::collections::HashMap<String, models::UpgradePropertyV2>**](UpgradePropertyV2.md)> |  | [optional]
 **weapon_info** | Option<[**models::RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md)> |  | [optional]
-**r#type** | Option<**String**> |  | [optional][default to Upgrade]
+**r#type** | Option<**String**> |  | [optional][default to upgrade]
 **shop_image** | Option<**String**> |  | [optional]
 **shop_image_webp** | Option<**String**> |  | [optional]
 **shop_image_small** | Option<**String**> |  | [optional]

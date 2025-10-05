@@ -33,8 +33,5 @@ data class Leaderboard (
     @Json(name = "entries")
     val propertyEntries: kotlin.collections.List<LeaderboardEntry>
 
-) {
-
-
-}
+)
 

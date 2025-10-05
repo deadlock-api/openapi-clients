@@ -16,7 +16,7 @@
 package deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.Call
+import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
 import deadlock-api-client.models.MMRHistory
@@ -37,7 +37,7 @@ import deadlock-api-client.infrastructure.ResponseType
 import deadlock-api-client.infrastructure.Success
 import deadlock-api-client.infrastructure.toMultiValue
 
-class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class MMRApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -46,7 +46,6 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /v1/players/mmr/{hero_id}
      * Hero MMR
      *  Batch Player Hero MMR  Filters for the last 90 days if no &#x60;max_match_id&#x60; is provided. 
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -80,7 +79,6 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /v1/players/mmr/{hero_id}
      * Hero MMR
      *  Batch Player Hero MMR  Filters for the last 90 days if no &#x60;max_match_id&#x60; is provided. 
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -131,7 +129,6 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /v1/players/{account_id}/mmr-history/{hero_id}
      * Hero MMR History
      * Player Hero MMR History
      * @param accountId The players &#x60;SteamID3&#x60;
@@ -164,7 +161,6 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /v1/players/{account_id}/mmr-history/{hero_id}
      * Hero MMR History
      * Player Hero MMR History
      * @param accountId The players &#x60;SteamID3&#x60;
@@ -207,7 +203,6 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /v1/players/mmr
      * MMR
      *  Batch Player MMR  Filters for the last 90 days if no &#x60;max_match_id&#x60; is provided. 
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
@@ -240,7 +235,6 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /v1/players/mmr
      * MMR
      *  Batch Player MMR  Filters for the last 90 days if no &#x60;max_match_id&#x60; is provided. 
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
@@ -289,7 +283,6 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /v1/players/{account_id}/mmr-history
      * MMR History
      * Player MMR History
      * @param accountId The players &#x60;SteamID3&#x60;
@@ -321,7 +314,6 @@ class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /v1/players/{account_id}/mmr-history
      * MMR History
      * Player MMR History
      * @param accountId The players &#x60;SteamID3&#x60;

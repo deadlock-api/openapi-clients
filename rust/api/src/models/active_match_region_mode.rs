@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -29,15 +28,15 @@ pub enum ActiveMatchRegionMode {
 
 }
 
-impl std::fmt::Display for ActiveMatchRegionMode {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for ActiveMatchRegionMode {
+    fn to_string(&self) -> String {
         match self {
-            Self::Row => write!(f, "Row"),
-            Self::Europe => write!(f, "Europe"),
-            Self::SeAsia => write!(f, "SeAsia"),
-            Self::SAmerica => write!(f, "SAmerica"),
-            Self::Russia => write!(f, "Russia"),
-            Self::Oceania => write!(f, "Oceania"),
+            Self::Row => String::from("Row"),
+            Self::Europe => String::from("Europe"),
+            Self::SeAsia => String::from("SeAsia"),
+            Self::SAmerica => String::from("SAmerica"),
+            Self::Russia => String::from("Russia"),
+            Self::Oceania => String::from("Oceania"),
         }
     }
 }

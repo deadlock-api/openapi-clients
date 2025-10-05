@@ -19,18 +19,7 @@ Method | HTTP request | Description
 
 Active
 
-
-Returns active matches that are currently being played.
-
-Fetched from the watch tab in game, which is limited to the **top 200 matches**.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
+ Returns active matches that are currently being played.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Example
 
@@ -102,25 +91,7 @@ No authorization required
 
 Active as Protobuf
 
-
-Returns active matches that are currently being played, serialized as protobuf message.
-
-Fetched from the watch tab in game, which is limited to the **top 200 matches**.
-
-You have to decode the protobuf message.
-
-Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
-
-Relevant Protobuf Message:
-- CMsgClientToGcGetActiveMatchesResponse
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
+ Returns active matches that are currently being played, serialized as protobuf message.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetActiveMatchesResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Example
 
@@ -184,16 +155,7 @@ No authorization required
 
 Bulk Metadata
 
-
-This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 4req/s |
-| Key | - |
-| Global | 10req/s |
-    
+ This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
 
 ### Example
 
@@ -308,22 +270,7 @@ No authorization required
 
 Metadata
 
-
-This endpoint returns the match metadata for the given `match_id` parsed into JSON.
-
-Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
-
-Relevant Protobuf Messages:
-- CMsgMatchMetaData
-- CMsgMatchMetaDataContents
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |
-    
+ This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
 
 ### Example
 
@@ -394,24 +341,7 @@ No authorization required
 
 Metadata as Protobuf
 
-
-This endpoints returns the raw .meta.bz2 file for the given `match_id`.
-
-You have to decompress it and decode the protobuf message.
-
-Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
-
-Relevant Protobuf Messages:
-- CMsgMatchMetaData
-- CMsgMatchMetaDataContents
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |
-    
+ This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
 
 ### Example
 
@@ -484,16 +414,7 @@ No authorization required
 
 Recently Fetched
 
-
-This endpoint returns a list of match ids that have been fetched within the last 10 minutes.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
+ This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Example
 
@@ -562,18 +483,7 @@ No authorization required
 
 Salts
 
-
-This endpoints returns salts that can be used to fetch metadata and demofile for a match.
-
-**Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | From DB: 100req/s<br>From Steam: 10req/30mins |
-| Key | From DB: -<br>From Steam: 10req/min |
-| Global | From DB: -<br>From Steam: 10req/10s |
-    
+ This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |     
 
 ### Example
 
@@ -644,20 +554,7 @@ No authorization required
 
 Live Broadcast URL
 
-
-This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.
-
-Example Parsers:
-- [Demofile-Net](https://github.com/saul/demofile-net)
-- [Haste](https://github.com/blukai/haste/)
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 10req/30mins |
-| Key | 60req/min |
-| Global | 100req/10s |
-    
+ This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
 
 ### Example
 

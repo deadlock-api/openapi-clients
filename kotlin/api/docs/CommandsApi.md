@@ -2,12 +2,12 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**availableVariables**](CommandsApi.md#availableVariables) | **GET** /v1/commands/variables/available | Available Variables |
-| [**commandResolve**](CommandsApi.md#commandResolve) | **GET** /v1/commands/resolve | Resolve Command |
-| [**variablesResolve**](CommandsApi.md#variablesResolve) | **GET** /v1/commands/variables/resolve | Resolve Variables |
-| [**widgetVersions**](CommandsApi.md#widgetVersions) | **GET** /v1/commands/widgets/versions | Widget Versions |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**availableVariables**](CommandsApi.md#availableVariables) | **GET** /v1/commands/variables/available | Available Variables
+[**commandResolve**](CommandsApi.md#commandResolve) | **GET** /v1/commands/resolve | Resolve Command
+[**variablesResolve**](CommandsApi.md#variablesResolve) | **GET** /v1/commands/variables/resolve | Resolve Variables
+[**widgetVersions**](CommandsApi.md#widgetVersions) | **GET** /v1/commands/widgets/versions | Widget Versions
 
 
 <a id="availableVariables"></a>
@@ -85,12 +85,13 @@ try {
 ```
 
 ### Parameters
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
-| **region** | **kotlin.String**| The players region | [optional] [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
-| **template** | **kotlin.String**| The command template to resolve | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **heroName** | **kotlin.String**| Hero name to check for hero specific stats | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; |
+ **region** | **kotlin.String**| The players region | [optional] [enum: Europe, Asia, NAmerica, SAmerica, Oceania]
+ **template** | **kotlin.String**| The command template to resolve | [optional]
+ **heroName** | **kotlin.String**| Hero name to check for hero specific stats | [optional]
 
 ### Return type
 
@@ -103,7 +104,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain
+ - **Accept**: Not defined
 
 <a id="variablesResolve"></a>
 # **variablesResolve**
@@ -137,12 +138,13 @@ try {
 ```
 
 ### Parameters
-| **accountId** | **kotlin.Int**|  | |
-| **region** | **kotlin.String**|  | [optional] [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
-| **variables** | **kotlin.String**| Variables to resolve, separated by commas. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **heroName** | **kotlin.String**| Hero name to check for hero specific stats | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **kotlin.Int**|  |
+ **region** | **kotlin.String**|  | [optional] [enum: Europe, Asia, NAmerica, SAmerica, Oceania]
+ **variables** | **kotlin.String**| Variables to resolve, separated by commas. | [optional]
+ **heroName** | **kotlin.String**| Hero name to check for hero specific stats | [optional]
 
 ### Return type
 

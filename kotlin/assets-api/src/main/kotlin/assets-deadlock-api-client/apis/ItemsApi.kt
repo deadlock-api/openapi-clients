@@ -16,12 +16,11 @@
 package assets-deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.Call
+import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
 import assets-deadlock-api-client.models.GetItemsV2ItemsGet200ResponseInner
 import assets-deadlock-api-client.models.HTTPValidationError
-import assets-deadlock-api-client.models.IdOrClassName
 import assets-deadlock-api-client.models.ItemSlotTypeV2
 import assets-deadlock-api-client.models.ItemTypeV2
 import assets-deadlock-api-client.models.Language
@@ -44,7 +43,7 @@ import assets-deadlock-api-client.infrastructure.ResponseType
 import assets-deadlock-api-client.infrastructure.Success
 import assets-deadlock-api-client.infrastructure.toMultiValue
 
-class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -53,7 +52,6 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * GET /v2/items/{id_or_class_name}
      * Get Item
      * 
      * @param idOrClassName 
@@ -68,7 +66,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemV2ItemsIdOrClassNameGet(idOrClassName: IdOrClassName, language: Language? = null, clientVersion: ValidClientVersions? = null) : ResponseGetItemV2ItemsIdOrClassNameGet {
+    fun getItemV2ItemsIdOrClassNameGet(idOrClassName: kotlin.String, language: Language? = null, clientVersion: ValidClientVersions? = null) : ResponseGetItemV2ItemsIdOrClassNameGet {
         val localVarResponse = getItemV2ItemsIdOrClassNameGetWithHttpInfo(idOrClassName = idOrClassName, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -87,7 +85,6 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * GET /v2/items/{id_or_class_name}
      * Get Item
      * 
      * @param idOrClassName 
@@ -99,7 +96,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemV2ItemsIdOrClassNameGetWithHttpInfo(idOrClassName: IdOrClassName, language: Language?, clientVersion: ValidClientVersions?) : ApiResponse<ResponseGetItemV2ItemsIdOrClassNameGet?> {
+    fun getItemV2ItemsIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, language: Language?, clientVersion: ValidClientVersions?) : ApiResponse<ResponseGetItemV2ItemsIdOrClassNameGet?> {
         val localVariableConfig = getItemV2ItemsIdOrClassNameGetRequestConfig(idOrClassName = idOrClassName, language = language, clientVersion = clientVersion)
 
         return request<Unit, ResponseGetItemV2ItemsIdOrClassNameGet>(
@@ -115,7 +112,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemV2ItemsIdOrClassNameGetRequestConfig(idOrClassName: IdOrClassName, language: Language?, clientVersion: ValidClientVersions?) : RequestConfig<Unit> {
+    fun getItemV2ItemsIdOrClassNameGetRequestConfig(idOrClassName: kotlin.String, language: Language?, clientVersion: ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -140,7 +137,6 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * GET /v2/items/by-hero-id/{id}
      * Get Items By Hero Id
      * 
      * @param id 
@@ -174,7 +170,6 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * GET /v2/items/by-hero-id/{id}
      * Get Items By Hero Id
      * 
      * @param id 
@@ -227,7 +222,6 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * GET /v2/items/by-slot-type/{slot_type}
      * Get Items By Slot Type
      * 
      * @param slotType 
@@ -261,7 +255,6 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * GET /v2/items/by-slot-type/{slot_type}
      * Get Items By Slot Type
      * 
      * @param slotType 
@@ -314,7 +307,6 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * GET /v2/items/by-type/{type}
      * Get Items By Type
      * 
      * @param type 
@@ -348,7 +340,6 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * GET /v2/items/by-type/{type}
      * Get Items By Type
      * 
      * @param type 
@@ -401,7 +392,6 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * GET /v2/items
      * Get Items
      * 
      * @param language  (optional)
@@ -434,7 +424,6 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * GET /v2/items
      * Get Items
      * 
      * @param language  (optional)

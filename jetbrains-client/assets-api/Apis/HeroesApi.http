@@ -1,0 +1,16 @@
+## HeroesApi
+
+### Get Hero By Name
+## Get Hero By Name
+GET https://assets.deadlock-api.com/v2/heroes/by-name/{{name}}
+Accept: application/json
+
+### Get Hero
+## Get Hero
+GET https://assets.deadlock-api.com/v2/heroes/{{id}}
+Accept: application/json
+
+### Get Heroes
+## Get Heroes
+GET https://assets.deadlock-api.com/v2/heroes
+Accept: application/json

@@ -71,8 +71,5 @@ data class HashMapValue (
     @Json(name = "std")
     val std: kotlin.Double
 
-) {
-
-
-}
+)
 

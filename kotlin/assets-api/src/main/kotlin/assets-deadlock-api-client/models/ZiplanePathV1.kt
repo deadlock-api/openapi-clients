@@ -34,7 +34,7 @@ data class ZiplanePathV1 (
 
     /* The origin of the path. */
     @Json(name = "origin")
-    val origin: kotlin.collections.List<kotlin.Any>,
+    val origin: kotlin.collections.List<kotlin.String>,
 
     /* The color of the path. */
     @Json(name = "color")
@@ -42,18 +42,15 @@ data class ZiplanePathV1 (
 
     /* The P0 points of the path. */
     @Json(name = "P0_points")
-    val p0Points: kotlin.collections.List<kotlin.collections.List<kotlin.Any>>,
+    val p0Points: kotlin.collections.List<kotlin.collections.List<kotlin.String>>,
 
     /* The P1 points of the path. */
     @Json(name = "P1_points")
-    val p1Points: kotlin.collections.List<kotlin.collections.List<kotlin.Any>>,
+    val p1Points: kotlin.collections.List<kotlin.collections.List<kotlin.String>>,
 
     /* The P2 points of the path. */
     @Json(name = "P2_points")
-    val p2Points: kotlin.collections.List<kotlin.collections.List<kotlin.Any>>
+    val p2Points: kotlin.collections.List<kotlin.collections.List<kotlin.String>>
 
-) {
-
-
-}
+)
 

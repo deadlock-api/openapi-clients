@@ -35,8 +35,5 @@ data class PatchCategory (
     @Json(name = "text")
     val text: kotlin.String
 
-) {
-
-
-}
+)
 

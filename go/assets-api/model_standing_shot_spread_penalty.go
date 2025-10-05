@@ -15,11 +15,10 @@ import (
 	"fmt"
 )
 
-
 // StandingShotSpreadPenalty struct for StandingShotSpreadPenalty
 type StandingShotSpreadPenalty struct {
-	ArrayOfFloat32 *[]float32
-	String *string
+	[]float32 *[]float32
+	string *string
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -30,48 +29,47 @@ func (dst *StandingShotSpreadPenalty) UnmarshalJSON(data []byte) error {
 		return nil
 	}
 
-	// try to unmarshal JSON data into ArrayOfFloat32
-	err = json.Unmarshal(data, &dst.ArrayOfFloat32);
+	// try to unmarshal JSON data into []float32
+	err = json.Unmarshal(data, &dst.[]float32);
 	if err == nil {
-		jsonArrayOfFloat32, _ := json.Marshal(dst.ArrayOfFloat32)
-		if string(jsonArrayOfFloat32) == "{}" { // empty struct
-			dst.ArrayOfFloat32 = nil
+		json[]float32, _ := json.Marshal(dst.[]float32)
+		if string(json[]float32) == "{}" { // empty struct
+			dst.[]float32 = nil
 		} else {
-			return nil // data stored in dst.ArrayOfFloat32, return on the first match
+			return nil // data stored in dst.[]float32, return on the first match
 		}
 	} else {
-		dst.ArrayOfFloat32 = nil
+		dst.[]float32 = nil
 	}
 
-	// try to unmarshal JSON data into String
-	err = json.Unmarshal(data, &dst.String);
+	// try to unmarshal JSON data into string
+	err = json.Unmarshal(data, &dst.string);
 	if err == nil {
-		jsonString, _ := json.Marshal(dst.String)
-		if string(jsonString) == "{}" { // empty struct
-			dst.String = nil
+		jsonstring, _ := json.Marshal(dst.string)
+		if string(jsonstring) == "{}" { // empty struct
+			dst.string = nil
 		} else {
-			return nil // data stored in dst.String, return on the first match
+			return nil // data stored in dst.string, return on the first match
 		}
 	} else {
-		dst.String = nil
+		dst.string = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(StandingShotSpreadPenalty)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src StandingShotSpreadPenalty) MarshalJSON() ([]byte, error) {
-	if src.ArrayOfFloat32 != nil {
-		return json.Marshal(&src.ArrayOfFloat32)
+func (src *StandingShotSpreadPenalty) MarshalJSON() ([]byte, error) {
+	if src.[]float32 != nil {
+		return json.Marshal(&src.[]float32)
 	}
 
-	if src.String != nil {
-		return json.Marshal(&src.String)
+	if src.string != nil {
+		return json.Marshal(&src.string)
 	}
 
 	return nil, nil // no data in anyOf schemas
 }
-
 
 type NullableStandingShotSpreadPenalty struct {
 	value *StandingShotSpreadPenalty

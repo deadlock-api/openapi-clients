@@ -47,8 +47,5 @@ data class BuildHeroDetailsCategoryAbility (
     @Json(name = "sell_priority")
     val sellPriority: kotlin.Int? = null
 
-) {
-
-
-}
+)
 

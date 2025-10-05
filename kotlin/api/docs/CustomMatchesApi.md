@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**createCustom**](CustomMatchesApi.md#createCustom) | **POST** /v1/matches/custom/create | Create Match |
-| [**getCustom**](CustomMatchesApi.md#getCustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createCustom**](CustomMatchesApi.md#createCustom) | **POST** /v1/matches/custom/create | Create Match
+[**getCustom**](CustomMatchesApi.md#getCustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 
 
 <a id="createCustom"></a>
@@ -37,9 +37,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **createCustomRequest** | [**CreateCustomRequest**](CreateCustomRequest.md)|  | |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createCustomRequest** | [**CreateCustomRequest**](CreateCustomRequest.md)|  |
 
 ### Return type
 
@@ -83,9 +84,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **partyId** | **kotlin.Long**|  | |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **partyId** | **kotlin.Long**|  |
 
 ### Return type
 

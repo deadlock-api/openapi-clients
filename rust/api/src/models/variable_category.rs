@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -29,15 +28,15 @@ pub enum VariableCategory {
 
 }
 
-impl std::fmt::Display for VariableCategory {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for VariableCategory {
+    fn to_string(&self) -> String {
         match self {
-            Self::General => write!(f, "General"),
-            Self::Daily => write!(f, "Daily"),
-            Self::Hero => write!(f, "Hero"),
-            Self::Item => write!(f, "Item"),
-            Self::Leaderboard => write!(f, "Leaderboard"),
-            Self::Overall => write!(f, "Overall"),
+            Self::General => String::from("General"),
+            Self::Daily => String::from("Daily"),
+            Self::Hero => String::from("Hero"),
+            Self::Item => String::from("Item"),
+            Self::Leaderboard => String::from("Leaderboard"),
+            Self::Overall => String::from("Overall"),
         }
     }
 }

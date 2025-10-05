@@ -36,8 +36,5 @@ data class HeroStartingStatV2 (
     @Json(name = "display_stat_name")
     val displayStatName: kotlin.String
 
-) {
-
-
-}
+)
 

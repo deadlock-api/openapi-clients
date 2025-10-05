@@ -62,8 +62,5 @@ data class LeaderboardEntry (
     @Json(name = "top_hero_ids")
     val topHeroIds: kotlin.collections.List<kotlin.Int>? = null
 
-) {
-
-
-}
+)
 

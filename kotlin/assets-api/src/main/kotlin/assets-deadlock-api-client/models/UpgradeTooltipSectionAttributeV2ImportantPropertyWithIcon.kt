@@ -39,8 +39,5 @@ data class UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon (
     @Json(name = "localized_name")
     val localizedName: kotlin.String? = null
 
-) {
-
-
-}
+)
 

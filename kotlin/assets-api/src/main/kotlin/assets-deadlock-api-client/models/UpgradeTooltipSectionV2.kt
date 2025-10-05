@@ -37,8 +37,5 @@ data class UpgradeTooltipSectionV2 (
     @Json(name = "section_attributes")
     val sectionAttributes: kotlin.collections.List<UpgradeTooltipSectionAttributeV2>? = null
 
-) {
-
-
-}
+)
 

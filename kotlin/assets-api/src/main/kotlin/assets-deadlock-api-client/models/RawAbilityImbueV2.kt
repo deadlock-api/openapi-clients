@@ -22,20 +22,20 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: imbue_active,imbue_active_non_ult,imbue_modifier_value
+ * Values: active,active_non_ult,modifier_value
  */
 
 @JsonClass(generateAdapter = false)
 enum class RawAbilityImbueV2(val value: kotlin.String) {
 
     @Json(name = "imbue_active")
-    imbue_active("imbue_active"),
+    active("imbue_active"),
 
     @Json(name = "imbue_active_non_ult")
-    imbue_active_non_ult("imbue_active_non_ult"),
+    active_non_ult("imbue_active_non_ult"),
 
     @Json(name = "imbue_modifier_value")
-    imbue_modifier_value("imbue_modifier_value");
+    modifier_value("imbue_modifier_value");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

@@ -32,8 +32,5 @@ data class RawItemWeaponInfoV2 (
     @Json(name = "bullet_speed_curve")
     val bulletSpeedCurve: RawItemWeaponInfoBulletSpeedCurveV2? = null
 
-) {
-
-
-}
+)
 

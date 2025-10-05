@@ -36,8 +36,5 @@ data class BuildItemStats (
     @Json(name = "item_id")
     val itemId: kotlin.Long
 
-) {
-
-
-}
+)
 

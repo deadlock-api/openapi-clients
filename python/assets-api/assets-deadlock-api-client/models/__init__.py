@@ -40,7 +40,6 @@ from assets-deadlock-api-client.models.hero_starting_stat_v2 import HeroStarting
 from assets-deadlock-api-client.models.hero_starting_stats_v2 import HeroStartingStatsV2
 from assets-deadlock-api-client.models.hero_type_v2 import HeroTypeV2
 from assets-deadlock-api-client.models.hero_v2 import HeroV2
-from assets-deadlock-api-client.models.id_or_class_name import IdOrClassName
 from assets-deadlock-api-client.models.item_property_v2 import ItemPropertyV2
 from assets-deadlock-api-client.models.item_slot_type_v2 import ItemSlotTypeV2
 from assets-deadlock-api-client.models.item_tier_v2 import ItemTierV2

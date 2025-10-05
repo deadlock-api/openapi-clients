@@ -14,16 +14,7 @@ Method | HTTP request | Description
 
 List Tables
 
-
-Lists all tables in the database.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
+ Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Example
 
@@ -87,16 +78,7 @@ No authorization required
 
 Query
 
-
-Executes a SQL query on the database.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 300req/5min |
-| Key | 300req/5min |
-| Global | 600req/60s |
-    
+ Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
 
 ### Example
 
@@ -164,16 +146,7 @@ No authorization required
 
 Table Schema
 
-
-Returns the schema of a table.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
+ Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Example
 

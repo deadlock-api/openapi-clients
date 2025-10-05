@@ -27,7 +27,7 @@ class TestObjectivePositionV1(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ObjectivePositionV1:
         """Test ObjectivePositionV1
-            include_optional is a boolean, when False only required
+            include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ObjectivePositionV1`

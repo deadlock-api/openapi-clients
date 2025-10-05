@@ -44,8 +44,5 @@ data class EnemyStats (
     @Json(name = "wins")
     val wins: kotlin.Long
 
-) {
-
-
-}
+)
 

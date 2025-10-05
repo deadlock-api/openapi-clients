@@ -16,8 +16,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictInt
-from typing import Any, List, Optional
+from pydantic import StrictInt, StrictStr
+from typing import List, Optional
 from assets-deadlock-api-client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets-deadlock-api-client.models.item_slot_type_v2 import ItemSlotTypeV2
 from assets-deadlock-api-client.models.item_type_v2 import ItemTypeV2
@@ -46,7 +46,7 @@ class ItemsApi:
     @validate_call
     def get_item_v2_items_id_or_class_name_get(
         self,
-        id_or_class_name: Any,
+        id_or_class_name: StrictStr,
         language: Optional[Language] = None,
         client_version: Optional[ValidClientVersions] = None,
         _request_timeout: Union[
@@ -66,7 +66,7 @@ class ItemsApi:
 
 
         :param id_or_class_name: (required)
-        :type id_or_class_name: IdOrClassName
+        :type id_or_class_name: str
         :param language:
         :type language: Language
         :param client_version:
@@ -121,7 +121,7 @@ class ItemsApi:
     @validate_call
     def get_item_v2_items_id_or_class_name_get_with_http_info(
         self,
-        id_or_class_name: Any,
+        id_or_class_name: StrictStr,
         language: Optional[Language] = None,
         client_version: Optional[ValidClientVersions] = None,
         _request_timeout: Union[
@@ -141,7 +141,7 @@ class ItemsApi:
 
 
         :param id_or_class_name: (required)
-        :type id_or_class_name: IdOrClassName
+        :type id_or_class_name: str
         :param language:
         :type language: Language
         :param client_version:
@@ -196,7 +196,7 @@ class ItemsApi:
     @validate_call
     def get_item_v2_items_id_or_class_name_get_without_preload_content(
         self,
-        id_or_class_name: Any,
+        id_or_class_name: StrictStr,
         language: Optional[Language] = None,
         client_version: Optional[ValidClientVersions] = None,
         _request_timeout: Union[
@@ -216,7 +216,7 @@ class ItemsApi:
 
 
         :param id_or_class_name: (required)
-        :type id_or_class_name: IdOrClassName
+        :type id_or_class_name: str
         :param language:
         :type language: Language
         :param client_version:
@@ -284,9 +284,7 @@ class ItemsApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -307,12 +305,11 @@ class ItemsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
 
 
         # authentication setting
@@ -578,9 +575,7 @@ class ItemsApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -601,12 +596,11 @@ class ItemsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
 
 
         # authentication setting
@@ -872,9 +866,7 @@ class ItemsApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -895,12 +887,11 @@ class ItemsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
 
 
         # authentication setting
@@ -1166,9 +1157,7 @@ class ItemsApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1189,12 +1178,11 @@ class ItemsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
 
 
         # authentication setting
@@ -1447,9 +1435,7 @@ class ItemsApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
+        _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1468,12 +1454,11 @@ class ItemsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
 
 
         # authentication setting

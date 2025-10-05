@@ -2,9 +2,9 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**ingestSalts**](InternalApi.md#ingestSalts) | **POST** /v1/matches/salts | Match Salts Ingest |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**ingestSalts**](InternalApi.md#ingestSalts) | **POST** /v1/matches/salts | Match Salts Ingest
 
 
 <a id="ingestSalts"></a>
@@ -35,9 +35,10 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clickhouseSalts** | [**kotlin.collections.List&lt;ClickhouseSalts&gt;**](ClickhouseSalts.md)|  | |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clickhouseSalts** | [**kotlin.collections.List&lt;ClickhouseSalts&gt;**](ClickhouseSalts.md)|  |
 
 ### Return type
 

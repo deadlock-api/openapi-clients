@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -27,14 +26,14 @@ pub enum ItemTypeV2 {
 
 }
 
-impl std::fmt::Display for ItemTypeV2 {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for ItemTypeV2 {
+    fn to_string(&self) -> String {
         match self {
-            Self::Weapon => write!(f, "weapon"),
-            Self::Ability => write!(f, "ability"),
-            Self::Upgrade => write!(f, "upgrade"),
-            Self::Tech => write!(f, "tech"),
-            Self::Armor => write!(f, "armor"),
+            Self::Weapon => String::from("weapon"),
+            Self::Ability => String::from("ability"),
+            Self::Upgrade => String::from("upgrade"),
+            Self::Tech => String::from("tech"),
+            Self::Armor => String::from("armor"),
         }
     }
 }

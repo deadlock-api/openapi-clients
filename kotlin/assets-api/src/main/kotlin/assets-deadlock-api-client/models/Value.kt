@@ -25,10 +25,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-class Value (
+data class Value (
 
-) {
-
-
-}
+)
 

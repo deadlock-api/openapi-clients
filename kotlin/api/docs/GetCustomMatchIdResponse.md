@@ -2,9 +2,9 @@
 # GetCustomMatchIdResponse
 
 ## Properties
-| Name | Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-| **matchId** | **kotlin.Long** |  |  |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**matchId** | **kotlin.Long** |  | 
 
 
 

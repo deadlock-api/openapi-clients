@@ -1,0 +1,11 @@
+## InternalApi
+
+### Match Salts Ingest
+## Match Salts Ingest
+POST https://api.deadlock-api.com/v1/matches/salts
+Content-Type: application/json
+
+{
+ 
+}
+

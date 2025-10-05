@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct WeaponV2 {
@@ -36,7 +35,7 @@ pub struct WeaponV2 {
     #[serde(rename = "weapon_info", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub weapon_info: Option<Option<Box<models::RawWeaponInfoV2>>>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub r#type: Option<Type>,
+    pub r#type: Option<String>,
 }
 
 impl WeaponV2 {
@@ -55,18 +54,6 @@ impl WeaponV2 {
             weapon_info: None,
             r#type: None,
         }
-    }
-}
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
-    #[serde(rename = "weapon")]
-    Weapon,
-}
-
-impl Default for Type {
-    fn default() -> Type {
-        Self::Weapon
     }
 }
 

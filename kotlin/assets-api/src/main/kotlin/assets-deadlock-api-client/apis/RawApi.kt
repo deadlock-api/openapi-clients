@@ -16,7 +16,7 @@
 package assets-deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.Call
+import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
 import assets-deadlock-api-client.models.HTTPValidationError
@@ -38,7 +38,7 @@ import assets-deadlock-api-client.infrastructure.ResponseType
 import assets-deadlock-api-client.infrastructure.Success
 import assets-deadlock-api-client.infrastructure.toMultiValue
 
-class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class RawApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -47,7 +47,6 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /raw/generic_data
      * Get Generic Data
      * 
      * @param clientVersion  (optional)
@@ -79,7 +78,6 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /raw/generic_data
      * Get Generic Data
      * 
      * @param clientVersion  (optional)
@@ -125,7 +123,6 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /raw/heroes
      * Get Raw Heroes
      * 
      * @param clientVersion  (optional)
@@ -157,7 +154,6 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /raw/heroes
      * Get Raw Heroes
      * 
      * @param clientVersion  (optional)
@@ -203,7 +199,6 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /raw/items
      * Get Raw Items
      * 
      * @param clientVersion  (optional)
@@ -235,7 +230,6 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
     }
 
     /**
-     * GET /raw/items
      * Get Raw Items
      * 
      * @param clientVersion  (optional)

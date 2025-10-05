@@ -43,8 +43,5 @@ data class MateStats (
     @Json(name = "wins")
     val wins: kotlin.Long
 
-) {
-
-
-}
+)
 

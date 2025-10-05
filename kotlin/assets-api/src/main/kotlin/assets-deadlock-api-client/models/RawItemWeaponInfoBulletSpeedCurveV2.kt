@@ -40,8 +40,5 @@ data class RawItemWeaponInfoBulletSpeedCurveV2 (
     @Json(name = "spline")
     val spline: kotlin.collections.List<RawItemWeaponInfoBulletSpeedCurveSplineV2>? = null
 
-) {
-
-
-}
+)
 

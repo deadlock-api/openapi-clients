@@ -244,8 +244,5 @@ data class RawWeaponInfoV2 (
     @Json(name = "vertical_recoil")
     val verticalRecoil: RawWeaponInfoVerticalRecoilV2? = null
 
-) {
-
-
-}
+)
 

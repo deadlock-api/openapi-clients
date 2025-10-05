@@ -15,58 +15,56 @@ import (
 	"fmt"
 )
 
-
 // Bonus struct for Bonus
 type Bonus struct {
-	Float32 *float32
-	String *string
+	float32 *float32
+	string *string
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *Bonus) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into Float32
-	err = json.Unmarshal(data, &dst.Float32);
+	// try to unmarshal JSON data into float32
+	err = json.Unmarshal(data, &dst.float32);
 	if err == nil {
-		jsonFloat32, _ := json.Marshal(dst.Float32)
-		if string(jsonFloat32) == "{}" { // empty struct
-			dst.Float32 = nil
+		jsonfloat32, _ := json.Marshal(dst.float32)
+		if string(jsonfloat32) == "{}" { // empty struct
+			dst.float32 = nil
 		} else {
-			return nil // data stored in dst.Float32, return on the first match
+			return nil // data stored in dst.float32, return on the first match
 		}
 	} else {
-		dst.Float32 = nil
+		dst.float32 = nil
 	}
 
-	// try to unmarshal JSON data into String
-	err = json.Unmarshal(data, &dst.String);
+	// try to unmarshal JSON data into string
+	err = json.Unmarshal(data, &dst.string);
 	if err == nil {
-		jsonString, _ := json.Marshal(dst.String)
-		if string(jsonString) == "{}" { // empty struct
-			dst.String = nil
+		jsonstring, _ := json.Marshal(dst.string)
+		if string(jsonstring) == "{}" { // empty struct
+			dst.string = nil
 		} else {
-			return nil // data stored in dst.String, return on the first match
+			return nil // data stored in dst.string, return on the first match
 		}
 	} else {
-		dst.String = nil
+		dst.string = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(Bonus)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src Bonus) MarshalJSON() ([]byte, error) {
-	if src.Float32 != nil {
-		return json.Marshal(&src.Float32)
+func (src *Bonus) MarshalJSON() ([]byte, error) {
+	if src.float32 != nil {
+		return json.Marshal(&src.float32)
 	}
 
-	if src.String != nil {
-		return json.Marshal(&src.String)
+	if src.string != nil {
+		return json.Marshal(&src.string)
 	}
 
 	return nil, nil // no data in anyOf schemas
 }
-
 
 type NullableBonus struct {
 	value *Bonus

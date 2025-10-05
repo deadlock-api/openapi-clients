@@ -39,9 +39,9 @@ func NewBuildHeroDetailsAbilityOrderWithDefaults() *BuildHeroDetailsAbilityOrder
 	return &this
 }
 
-// GetCurrencyChanges returns the CurrencyChanges field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCurrencyChanges returns the CurrencyChanges field value if set, zero value otherwise.
 func (o *BuildHeroDetailsAbilityOrder) GetCurrencyChanges() []BuildHeroDetailsAbilityOrderCurrencyChange {
-	if o == nil {
+	if o == nil || IsNil(o.CurrencyChanges) {
 		var ret []BuildHeroDetailsAbilityOrderCurrencyChange
 		return ret
 	}
@@ -50,7 +50,6 @@ func (o *BuildHeroDetailsAbilityOrder) GetCurrencyChanges() []BuildHeroDetailsAb
 
 // GetCurrencyChangesOk returns a tuple with the CurrencyChanges field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BuildHeroDetailsAbilityOrder) GetCurrencyChangesOk() ([]BuildHeroDetailsAbilityOrderCurrencyChange, bool) {
 	if o == nil || IsNil(o.CurrencyChanges) {
 		return nil, false
@@ -82,7 +81,7 @@ func (o BuildHeroDetailsAbilityOrder) MarshalJSON() ([]byte, error) {
 
 func (o BuildHeroDetailsAbilityOrder) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CurrencyChanges != nil {
+	if !IsNil(o.CurrencyChanges) {
 		toSerialize["currency_changes"] = o.CurrencyChanges
 	}
 	return toSerialize, nil

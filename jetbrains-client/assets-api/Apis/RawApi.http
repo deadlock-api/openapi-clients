@@ -1,0 +1,16 @@
+## RawApi
+
+### Get Generic Data
+## Get Generic Data
+GET https://assets.deadlock-api.com/raw/generic_data
+Accept: application/json
+
+### Get Raw Heroes
+## Get Raw Heroes
+GET https://assets.deadlock-api.com/raw/heroes
+Accept: application/json
+
+### Get Raw Items
+## Get Raw Items
+GET https://assets.deadlock-api.com/raw/items
+Accept: application/json

@@ -52,8 +52,5 @@ data class Build (
     @Json(name = "rollup_category")
     val rollupCategory: kotlin.Int? = null
 
-) {
-
-
-}
+)
 

@@ -51,8 +51,5 @@ data class MatchSaltsResponse (
     @Json(name = "replay_salt")
     val replaySalt: kotlin.Int? = null
 
-) {
-
-
-}
+)
 

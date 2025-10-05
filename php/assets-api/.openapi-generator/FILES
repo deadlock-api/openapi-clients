@@ -9,7 +9,6 @@ api/Api/ItemsApi.php
 api/Api/RawApi.php
 api/ApiException.php
 api/Configuration.php
-api/FormDataProcessor.php
 api/HeaderSelector.php
 api/Model/AbilityDescriptionV2.php
 api/Model/AbilityTooltipDetailsInfoSectionPropertyBlockV2.php
@@ -37,7 +36,6 @@ api/Model/HeroStartingStatV2.php
 api/Model/HeroStartingStatsV2.php
 api/Model/HeroTypeV2.php
 api/Model/HeroV2.php
-api/Model/IdOrClassName.php
 api/Model/ItemPropertyV2.php
 api/Model/ItemSlotTypeV2.php
 api/Model/ItemTierV2.php
@@ -121,7 +119,6 @@ docs/Model/HeroStartingStatV2.md
 docs/Model/HeroStartingStatsV2.md
 docs/Model/HeroTypeV2.md
 docs/Model/HeroV2.md
-docs/Model/IdOrClassName.md
 docs/Model/ItemPropertyV2.md
 docs/Model/ItemSlotTypeV2.md
 docs/Model/ItemTierV2.md
@@ -204,7 +201,6 @@ test/Model/HeroStartingStatV2Test.php
 test/Model/HeroStartingStatsV2Test.php
 test/Model/HeroTypeV2Test.php
 test/Model/HeroV2Test.php
-test/Model/IdOrClassNameTest.php
 test/Model/ItemPropertyV2Test.php
 test/Model/ItemSlotTypeV2Test.php
 test/Model/ItemTierV2Test.php

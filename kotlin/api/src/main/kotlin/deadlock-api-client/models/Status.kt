@@ -33,8 +33,5 @@ data class Status (
     @Json(name = "services")
     val services: StatusServices
 
-) {
-
-
-}
+)
 

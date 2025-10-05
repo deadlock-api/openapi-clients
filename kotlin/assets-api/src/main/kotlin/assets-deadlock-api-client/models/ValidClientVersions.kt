@@ -28,94 +28,94 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = false)
 enum class ValidClientVersions(val value: kotlin.Int) {
 
-    @Json(name = 5920)
+    @Json(name = "5920")
     _5920(5920),
 
-    @Json(name = 5902)
+    @Json(name = "5902")
     _5902(5902),
 
-    @Json(name = 5885)
+    @Json(name = "5885")
     _5885(5885),
 
-    @Json(name = 5878)
+    @Json(name = "5878")
     _5878(5878),
 
-    @Json(name = 5869)
+    @Json(name = "5869")
     _5869(5869),
 
-    @Json(name = 5852)
+    @Json(name = "5852")
     _5852(5852),
 
-    @Json(name = 5831)
+    @Json(name = "5831")
     _5831(5831),
 
-    @Json(name = 5826)
+    @Json(name = "5826")
     _5826(5826),
 
-    @Json(name = 5818)
+    @Json(name = "5818")
     _5818(5818),
 
-    @Json(name = 5789)
+    @Json(name = "5789")
     _5789(5789),
 
-    @Json(name = 5748)
+    @Json(name = "5748")
     _5748(5748),
 
-    @Json(name = 5723)
+    @Json(name = "5723")
     _5723(5723),
 
-    @Json(name = 5712)
+    @Json(name = "5712")
     _5712(5712),
 
-    @Json(name = 5710)
+    @Json(name = "5710")
     _5710(5710),
 
-    @Json(name = 5690)
+    @Json(name = "5690")
     _5690(5690),
 
-    @Json(name = 5675)
+    @Json(name = "5675")
     _5675(5675),
 
-    @Json(name = 5668)
+    @Json(name = "5668")
     _5668(5668),
 
-    @Json(name = 5664)
+    @Json(name = "5664")
     _5664(5664),
 
-    @Json(name = 5658)
+    @Json(name = "5658")
     _5658(5658),
 
-    @Json(name = 5650)
+    @Json(name = "5650")
     _5650(5650),
 
-    @Json(name = 5636)
+    @Json(name = "5636")
     _5636(5636),
 
-    @Json(name = 5624)
+    @Json(name = "5624")
     _5624(5624),
 
-    @Json(name = 5615)
+    @Json(name = "5615")
     _5615(5615),
 
-    @Json(name = 5602)
+    @Json(name = "5602")
     _5602(5602),
 
-    @Json(name = 5583)
+    @Json(name = "5583")
     _5583(5583),
 
-    @Json(name = 5554)
+    @Json(name = "5554")
     _5554(5554),
 
-    @Json(name = 5538)
+    @Json(name = "5538")
     _5538(5538),
 
-    @Json(name = 5533)
+    @Json(name = "5533")
     _5533(5533),
 
-    @Json(name = 5529)
+    @Json(name = "5529")
     _5529(5529),
 
-    @Json(name = 5527)
+    @Json(name = "5527")
     _5527(5527);
 
     /**

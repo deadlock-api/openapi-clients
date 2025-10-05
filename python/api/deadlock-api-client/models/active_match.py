@@ -98,9 +98,9 @@ class ActiveMatch(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in players (list)
         _items = []
         if self.players:
-            for _item_players in self.players:
-                if _item_players:
-                    _items.append(_item_players.to_dict())
+            for _item in self.players:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['players'] = _items
         # set to None if compat_version (nullable) is None
         # and model_fields_set contains the field

@@ -38,7 +38,7 @@ configuration = assets-deadlock-api-client.Configuration(
 with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.ItemsApi(api_client)
-    id_or_class_name = assets-deadlock-api-client.IdOrClassName() # IdOrClassName | 
+    id_or_class_name = 'id_or_class_name_example' # str | 
     language = assets-deadlock-api-client.Language() # Language |  (optional)
     client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
 
@@ -58,7 +58,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id_or_class_name** | [**IdOrClassName**](.md)|  | 
+ **id_or_class_name** | **str**|  | 
  **language** | [**Language**](.md)|  | [optional] 
  **client_version** | [**ValidClientVersions**](.md)|  | [optional] 
 

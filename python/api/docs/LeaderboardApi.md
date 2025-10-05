@@ -15,16 +15,7 @@ Method | HTTP request | Description
 
 Leaderboard
 
-
-Returns the leaderboard.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
+ Returns the leaderboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Example
 
@@ -94,16 +85,7 @@ No authorization required
 
 Hero Leaderboard
 
-
-Returns the leaderboard for a specific hero.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
+ Returns the leaderboard for a specific hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Example
 
@@ -175,23 +157,7 @@ No authorization required
 
 Hero Leaderboard as Protobuf
 
-
-Returns the leaderboard for a specific hero, serialized as protobuf message.
-
-You have to decode the protobuf message.
-
-Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
-
-Relevant Protobuf Message:
-- CMsgClientToGcGetLeaderboardResponse
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
+ Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Example
 
@@ -262,23 +228,7 @@ No authorization required
 
 Leaderboard as Protobuf
 
-
-Returns the leaderboard, serialized as protobuf message.
-
-You have to decode the protobuf message.
-
-Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
-
-Relevant Protobuf Message:
-- CMsgClientToGcGetLeaderboardResponse
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
+ Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
 ### Example
 

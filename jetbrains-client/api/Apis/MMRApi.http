@@ -1,0 +1,21 @@
+## MMRApi
+
+### Hero MMR
+## Hero MMR
+GET https://api.deadlock-api.com/v1/players/mmr/{{hero_id}}
+Accept: application/json
+
+### Hero MMR History
+## Hero MMR History
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/mmr-history/{{hero_id}}
+Accept: application/json
+
+### MMR
+## MMR
+GET https://api.deadlock-api.com/v1/players/mmr
+Accept: application/json
+
+### MMR History
+## MMR History
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/mmr-history
+Accept: application/json

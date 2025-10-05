@@ -1,0 +1,6 @@
+.openapi-generator-ignore
+Apis/DefaultApi.http
+Apis/HeroesApi.http
+Apis/ItemsApi.http
+Apis/RawApi.http
+README.md

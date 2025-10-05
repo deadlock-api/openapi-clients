@@ -1,0 +1,18 @@
+## SQLApi
+
+### List Tables
+## List Tables
+GET https://api.deadlock-api.com/v1/sql/tables
+Accept: application/json
+Accept: text/plain
+
+### Query
+## Query
+GET https://api.deadlock-api.com/v1/sql
+Accept: text/plain
+
+### Table Schema
+## Table Schema
+GET https://api.deadlock-api.com/v1/sql/tables/{{table}}/schema
+Accept: application/json
+Accept: text/plain

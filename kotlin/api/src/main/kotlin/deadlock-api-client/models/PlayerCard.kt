@@ -51,8 +51,5 @@ data class PlayerCard (
     @Json(name = "ranked_subrank")
     val rankedSubrank: kotlin.Int? = null
 
-) {
-
-
-}
+)
 

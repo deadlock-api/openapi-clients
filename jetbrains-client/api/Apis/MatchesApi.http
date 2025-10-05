@@ -1,0 +1,40 @@
+## MatchesApi
+
+### Active
+## Active
+GET https://api.deadlock-api.com/v1/matches/active
+Accept: application/json
+
+### Active as Protobuf
+## Active as Protobuf
+GET https://api.deadlock-api.com/v1/matches/active/raw
+Accept: application/octet-stream
+
+### Bulk Metadata
+## Bulk Metadata
+GET https://api.deadlock-api.com/v1/matches/metadata
+Accept: application/octet-stream
+
+### Metadata
+## Metadata
+GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata
+
+### Metadata as Protobuf
+## Metadata as Protobuf
+GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata/raw
+Accept: application/octet-stream
+
+### Recently Fetched
+## Recently Fetched
+GET https://api.deadlock-api.com/v1/matches/recently-fetched
+Accept: application/json
+
+### Salts
+## Salts
+GET https://api.deadlock-api.com/v1/matches/{{match_id}}/salts
+Accept: application/json
+
+### Live Broadcast URL
+## Live Broadcast URL
+GET https://api.deadlock-api.com/v1/matches/{{match_id}}/live/url
+Accept: application/json

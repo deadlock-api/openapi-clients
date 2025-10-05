@@ -112,8 +112,5 @@ data class AnalyticsHeroStats (
     @Json(name = "bucket")
     val bucket: kotlin.Int? = null
 
-) {
-
-
-}
+)
 

@@ -2,20 +2,20 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**abilityOrderStats**](AnalyticsApi.md#abilityOrderStats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats |
-| [**badgeDistribution**](AnalyticsApi.md#badgeDistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
-| [**buildItemStats**](AnalyticsApi.md#buildItemStats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
-| [**heroCombStats**](AnalyticsApi.md#heroCombStats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats |
-| [**heroCountersStats**](AnalyticsApi.md#heroCountersStats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats |
-| [**heroScoreboard**](AnalyticsApi.md#heroScoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard |
-| [**heroStats**](AnalyticsApi.md#heroStats) | **GET** /v1/analytics/hero-stats | Hero Stats |
-| [**heroSynergiesStats**](AnalyticsApi.md#heroSynergiesStats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats |
-| [**itemPermutationStats**](AnalyticsApi.md#itemPermutationStats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats |
-| [**itemStats**](AnalyticsApi.md#itemStats) | **GET** /v1/analytics/item-stats | Item Stats |
-| [**playerScoreboard**](AnalyticsApi.md#playerScoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard |
-| [**playerStatsMetrics**](AnalyticsApi.md#playerStatsMetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**abilityOrderStats**](AnalyticsApi.md#abilityOrderStats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
+[**badgeDistribution**](AnalyticsApi.md#badgeDistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
+[**buildItemStats**](AnalyticsApi.md#buildItemStats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
+[**heroCombStats**](AnalyticsApi.md#heroCombStats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
+[**heroCountersStats**](AnalyticsApi.md#heroCountersStats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
+[**heroScoreboard**](AnalyticsApi.md#heroScoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard
+[**heroStats**](AnalyticsApi.md#heroStats) | **GET** /v1/analytics/hero-stats | Hero Stats
+[**heroSynergiesStats**](AnalyticsApi.md#heroSynergiesStats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats
+[**itemPermutationStats**](AnalyticsApi.md#itemPermutationStats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
+[**itemStats**](AnalyticsApi.md#itemStats) | **GET** /v1/analytics/item-stats | Item Stats
+[**playerScoreboard**](AnalyticsApi.md#playerScoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
+[**playerStatsMetrics**](AnalyticsApi.md#playerStatsMetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
 
 
 <a id="abilityOrderStats"></a>
@@ -62,24 +62,25 @@ try {
 ```
 
 ### Parameters
-| **heroId** | **kotlin.Int**| See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minAbilityUpgrades** | **kotlin.Long**| Filter players based on their minimum number of ability upgrades over the whole match. | [optional] |
-| **maxAbilityUpgrades** | **kotlin.Long**| Filter players based on their maximum number of ability upgrades over the whole match. | [optional] |
-| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **minMatches** | **kotlin.Int**| The minimum number of matches played for an ability order to be included in the response. | [optional] [default to 20] |
-| **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **heroId** | **kotlin.Int**| See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **minAbilityUpgrades** | **kotlin.Long**| Filter players based on their minimum number of ability upgrades over the whole match. | [optional]
+ **maxAbilityUpgrades** | **kotlin.Long**| Filter players based on their maximum number of ability upgrades over the whole match. | [optional]
+ **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **minMatches** | **kotlin.Int**| The minimum number of matches played for an ability order to be included in the response. | [optional] [default to 20]
+ **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional]
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
 
 ### Return type
 
@@ -131,17 +132,18 @@ try {
 ```
 
 ### Parameters
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **isHighSkillRangeParties** | **kotlin.Boolean**| Filter matches based on whether they are in the high skill range. | [optional] |
-| **isLowPriPool** | **kotlin.Boolean**| Filter matches based on whether they are in the low priority pool. | [optional] |
-| **isNewPlayerPool** | **kotlin.Boolean**| Filter matches based on whether they are in the new player pool. | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **isHighSkillRangeParties** | **kotlin.Boolean**| Filter matches based on whether they are in the high skill range. | [optional]
+ **isLowPriPool** | **kotlin.Boolean**| Filter matches based on whether they are in the low priority pool. | [optional]
+ **isNewPlayerPool** | **kotlin.Boolean**| Filter matches based on whether they are in the new player pool. | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
 
 ### Return type
 
@@ -187,11 +189,12 @@ try {
 ```
 
 ### Parameters
-| **heroId** | **kotlin.Int**| Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **maxLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **heroId** | **kotlin.Int**| Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+ **minLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). | [optional]
 
 ### Return type
 
@@ -251,25 +254,26 @@ try {
 ```
 
 ### Parameters
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **includeHeroIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **excludeHeroIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minMatches** | **kotlin.Int**| The minimum number of matches played for a hero combination to be included in the response. | [optional] [default to 20] |
-| **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] |
-| **combSize** | **kotlin.Int**| The combination size to return. | [optional] [default to 6] |
-| **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **includeHeroIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+ **excludeHeroIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+ **minMatches** | **kotlin.Int**| The minimum number of matches played for a hero combination to be included in the response. | [optional] [default to 20]
+ **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional]
+ **combSize** | **kotlin.Int**| The combination size to return. | [optional] [default to 6]
+ **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional]
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
 
 ### Return type
 
@@ -329,25 +333,26 @@ try {
 ```
 
 ### Parameters
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **minEnemyNetworth** | **kotlin.Long**| Filter enemy players based on their net worth. | [optional] |
-| **maxEnemyNetworth** | **kotlin.Long**| Filter enemy players based on their net worth. | [optional] |
-| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **sameLaneFilter** | **kotlin.Boolean**| When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. | [optional] [default to true] |
-| **minMatches** | **kotlin.Long**| The minimum number of matches played for a hero combination to be included in the response. | [optional] [default to 20L] |
-| **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] |
-| **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **minEnemyNetworth** | **kotlin.Long**| Filter enemy players based on their net worth. | [optional]
+ **maxEnemyNetworth** | **kotlin.Long**| Filter enemy players based on their net worth. | [optional]
+ **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **sameLaneFilter** | **kotlin.Boolean**| When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. | [optional] [default to true]
+ **minMatches** | **kotlin.Long**| The minimum number of matches played for a hero combination to be included in the response. | [optional] [default to 20L]
+ **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional]
+ **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional]
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
 
 ### Return type
 
@@ -405,23 +410,24 @@ try {
 ```
 
 ### Parameters
-| **sortBy** | **kotlin.String**| The field to sort by. | [enum: matches, wins, losses, winrate, max_kills_per_match, avg_kills_per_match, kills, max_deaths_per_match, avg_deaths_per_match, deaths, max_damage_taken_per_match, avg_damage_taken_per_match, damage_taken, max_assists_per_match, avg_assists_per_match, assists, max_net_worth_per_match, avg_net_worth_per_match, net_worth, max_last_hits_per_match, avg_last_hits_per_match, last_hits, max_denies_per_match, avg_denies_per_match, denies, max_player_level_per_match, avg_player_level_per_match, player_level, max_creep_kills_per_match, avg_creep_kills_per_match, creep_kills, max_neutral_kills_per_match, avg_neutral_kills_per_match, neutral_kills, max_creep_damage_per_match, avg_creep_damage_per_match, creep_damage, max_player_damage_per_match, avg_player_damage_per_match, player_damage, max_neutral_damage_per_match, avg_neutral_damage_per_match, neutral_damage, max_boss_damage_per_match, avg_boss_damage_per_match, boss_damage, max_max_health_per_match, avg_max_health_per_match, max_health, max_shots_hit_per_match, avg_shots_hit_per_match, shots_hit, max_shots_missed_per_match, avg_shots_missed_per_match, shots_missed, max_hero_bullets_hit_per_match, avg_hero_bullets_hit_per_match, hero_bullets_hit, max_hero_bullets_hit_crit_per_match, avg_hero_bullets_hit_crit_per_match, hero_bullets_hit_crit] |
-| **sortDirection** | **kotlin.String**| The direction to sort heroes in. | [optional] [enum: desc, asc] |
-| **minMatches** | **kotlin.Int**| Filter by min number of matches played. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sortBy** | **kotlin.String**| The field to sort by. | [enum: matches, wins, losses, winrate, max_kills_per_match, avg_kills_per_match, kills, max_deaths_per_match, avg_deaths_per_match, deaths, max_damage_taken_per_match, avg_damage_taken_per_match, damage_taken, max_assists_per_match, avg_assists_per_match, assists, max_net_worth_per_match, avg_net_worth_per_match, net_worth, max_last_hits_per_match, avg_last_hits_per_match, last_hits, max_denies_per_match, avg_denies_per_match, denies, max_player_level_per_match, avg_player_level_per_match, player_level, max_creep_kills_per_match, avg_creep_kills_per_match, creep_kills, max_neutral_kills_per_match, avg_neutral_kills_per_match, neutral_kills, max_creep_damage_per_match, avg_creep_damage_per_match, creep_damage, max_player_damage_per_match, avg_player_damage_per_match, player_damage, max_neutral_damage_per_match, avg_neutral_damage_per_match, neutral_damage, max_boss_damage_per_match, avg_boss_damage_per_match, boss_damage, max_max_health_per_match, avg_max_health_per_match, max_health, max_shots_hit_per_match, avg_shots_hit_per_match, shots_hit, max_shots_missed_per_match, avg_shots_missed_per_match, shots_missed, max_hero_bullets_hit_per_match, avg_hero_bullets_hit_per_match, hero_bullets_hit, max_hero_bullets_hit_crit_per_match, avg_hero_bullets_hit_crit_per_match, hero_bullets_hit_crit]
+ **sortDirection** | **kotlin.String**| The direction to sort heroes in. | [optional] [enum: desc, asc]
+ **minMatches** | **kotlin.Int**| Filter by min number of matches played. | [optional]
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional]
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
 
 ### Return type
 
@@ -481,25 +487,26 @@ try {
 ```
 
 ### Parameters
-| **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, start_time_hour, start_time_day, start_time_week, start_time_month] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **minHeroMatches** | **kotlin.Long**| Filter players based on the number of matches they have played with a specific hero. | [optional] |
-| **maxHeroMatches** | **kotlin.Long**| Filter players based on the number of matches they have played with a specific hero. | [optional] |
-| **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
-| **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
-| **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, start_time_hour, start_time_day, start_time_week, start_time_month]
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **minHeroMatches** | **kotlin.Long**| Filter players based on the number of matches they have played with a specific hero. | [optional]
+ **maxHeroMatches** | **kotlin.Long**| Filter players based on the number of matches they have played with a specific hero. | [optional]
+ **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional]
+ **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional]
+ **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional]
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
 
 ### Return type
 
@@ -558,24 +565,25 @@ try {
 ```
 
 ### Parameters
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **sameLaneFilter** | **kotlin.Boolean**| When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. | [optional] [default to true] |
-| **samePartyFilter** | **kotlin.Boolean**| When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;hero_id2&#x60; were on the same party. When &#x60;false&#x60;, considers all matchups regardless of party affiliation. | [optional] [default to true] |
-| **minMatches** | **kotlin.Long**| The minimum number of matches played for a hero combination to be included in the response. | [optional] [default to 20L] |
-| **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] |
-| **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **sameLaneFilter** | **kotlin.Boolean**| When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. | [optional] [default to true]
+ **samePartyFilter** | **kotlin.Boolean**| When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;hero_id2&#x60; were on the same party. When &#x60;false&#x60;, considers all matchups regardless of party affiliation. | [optional] [default to true]
+ **minMatches** | **kotlin.Long**| The minimum number of matches played for a hero combination to be included in the response. | [optional] [default to 20L]
+ **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional]
+ **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional]
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
 
 ### Return type
 
@@ -634,24 +642,25 @@ try {
 ```
 
 ### Parameters
-| **itemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
-| **combSize** | **kotlin.Int**| The combination size to return. | [optional] [default to 2] |
-| **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional]
+ **combSize** | **kotlin.Int**| The combination size to return. | [optional] [default to 2]
+ **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+ **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional]
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
 
 ### Return type
 
@@ -713,27 +722,28 @@ try {
 ```
 
 ### Parameters
-| **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, hero, team, start_time_hour, start_time_day, start_time_week, start_time_month, game_time_min, game_time_normalized_percentage, net_worth_by_1000, net_worth_by_2000, net_worth_by_3000, net_worth_by_5000, net_worth_by_10000] |
-| **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
-| **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
-| **minMatches** | **kotlin.Int**| The minimum number of matches played for an item to be included in the response. | [optional] [default to 20] |
-| **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] |
-| **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, hero, team, start_time_hour, start_time_day, start_time_week, start_time_month, game_time_min, game_time_normalized_percentage, net_worth_by_1000, net_worth_by_2000, net_worth_by_3000, net_worth_by_5000, net_worth_by_10000]
+ **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+ **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional]
+ **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional]
+ **minMatches** | **kotlin.Int**| The minimum number of matches played for an item to be included in the response. | [optional] [default to 20]
+ **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional]
+ **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional]
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
 
 ### Return type
 
@@ -794,26 +804,27 @@ try {
 ```
 
 ### Parameters
-| **sortBy** | **kotlin.String**| The field to sort by. | [enum: matches, wins, losses, winrate, max_kills_per_match, avg_kills_per_match, kills, max_deaths_per_match, avg_deaths_per_match, deaths, max_damage_taken_per_match, avg_damage_taken_per_match, damage_taken, max_assists_per_match, avg_assists_per_match, assists, max_net_worth_per_match, avg_net_worth_per_match, net_worth, max_last_hits_per_match, avg_last_hits_per_match, last_hits, max_denies_per_match, avg_denies_per_match, denies, max_player_level_per_match, avg_player_level_per_match, player_level, max_creep_kills_per_match, avg_creep_kills_per_match, creep_kills, max_neutral_kills_per_match, avg_neutral_kills_per_match, neutral_kills, max_creep_damage_per_match, avg_creep_damage_per_match, creep_damage, max_player_damage_per_match, avg_player_damage_per_match, player_damage, max_neutral_damage_per_match, avg_neutral_damage_per_match, neutral_damage, max_boss_damage_per_match, avg_boss_damage_per_match, boss_damage, max_max_health_per_match, avg_max_health_per_match, max_health, max_shots_hit_per_match, avg_shots_hit_per_match, shots_hit, max_shots_missed_per_match, avg_shots_missed_per_match, shots_missed, max_hero_bullets_hit_per_match, avg_hero_bullets_hit_per_match, hero_bullets_hit, max_hero_bullets_hit_crit_per_match, avg_hero_bullets_hit_crit_per_match, hero_bullets_hit_crit] |
-| **sortDirection** | **kotlin.String**| The direction to sort players in. | [optional] [enum: desc, asc] |
-| **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minMatches** | **kotlin.Int**| The minimum number of matches played for a player to be included in the scoreboard. | [optional] [default to 20] |
-| **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **start** | **kotlin.Int**| The offset to start fetching players from. | [optional] |
-| **limit** | **kotlin.Int**| The maximum number of players to fetch. | [optional] [default to 100] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sortBy** | **kotlin.String**| The field to sort by. | [enum: matches, wins, losses, winrate, max_kills_per_match, avg_kills_per_match, kills, max_deaths_per_match, avg_deaths_per_match, deaths, max_damage_taken_per_match, avg_damage_taken_per_match, damage_taken, max_assists_per_match, avg_assists_per_match, assists, max_net_worth_per_match, avg_net_worth_per_match, net_worth, max_last_hits_per_match, avg_last_hits_per_match, last_hits, max_denies_per_match, avg_denies_per_match, denies, max_player_level_per_match, avg_player_level_per_match, player_level, max_creep_kills_per_match, avg_creep_kills_per_match, creep_kills, max_neutral_kills_per_match, avg_neutral_kills_per_match, neutral_kills, max_creep_damage_per_match, avg_creep_damage_per_match, creep_damage, max_player_damage_per_match, avg_player_damage_per_match, player_damage, max_neutral_damage_per_match, avg_neutral_damage_per_match, neutral_damage, max_boss_damage_per_match, avg_boss_damage_per_match, boss_damage, max_max_health_per_match, avg_max_health_per_match, max_health, max_shots_hit_per_match, avg_shots_hit_per_match, shots_hit, max_shots_missed_per_match, avg_shots_missed_per_match, shots_missed, max_hero_bullets_hit_per_match, avg_hero_bullets_hit_per_match, hero_bullets_hit, max_hero_bullets_hit_crit_per_match, avg_hero_bullets_hit_crit_per_match, hero_bullets_hit_crit]
+ **sortDirection** | **kotlin.String**| The direction to sort players in. | [optional] [enum: desc, asc]
+ **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+ **minMatches** | **kotlin.Int**| The minimum number of matches played for a player to be included in the scoreboard. | [optional] [default to 20]
+ **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional]
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **start** | **kotlin.Int**| The offset to start fetching players from. | [optional]
+ **limit** | **kotlin.Int**| The maximum number of players to fetch. | [optional] [default to 100]
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
 
 ### Return type
 
@@ -830,7 +841,7 @@ No authorization required
 
 <a id="playerStatsMetrics"></a>
 # **playerStatsMetrics**
-> kotlin.collections.Map&lt;kotlin.String, HashMapValue&gt; playerStatsMetrics(heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, accountIds)
+> kotlin.Any playerStatsMetrics(heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, accountIds)
 
 Player Stats Metrics
 
@@ -859,7 +870,7 @@ val includeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collection
 val excludeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
 try {
-    val result : kotlin.collections.Map<kotlin.String, HashMapValue> = apiInstance.playerStatsMetrics(heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, accountIds)
+    val result : kotlin.Any = apiInstance.playerStatsMetrics(heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, accountIds)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#playerStatsMetrics")
@@ -871,27 +882,28 @@ try {
 ```
 
 ### Parameters
-| **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1756944000L] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
-| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| **maxMatches** | **kotlin.Int**| The maximum number of matches to analyze. | [optional] |
-| **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
-| **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+ **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1757030400L]
+ **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
+ **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
+ **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
+ **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
+ **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+ **maxMatches** | **kotlin.Int**| The maximum number of matches to analyze. | [optional]
+ **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional]
+ **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional]
+ **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
 
 ### Return type
 
-[**kotlin.collections.Map&lt;kotlin.String, HashMapValue&gt;**](HashMapValue.md)
+[**kotlin.Any**](kotlin.Any.md)
 
 ### Authorization
 

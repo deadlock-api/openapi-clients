@@ -9,29 +9,28 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ZiplanePathV1 {
     /// The origin of the path.
     #[serde(rename = "origin")]
-    pub origin: Vec<serde_json::Value>,
+    pub origin: Vec<String>,
     /// The color of the path.
     #[serde(rename = "color")]
     pub color: String,
     /// The P0 points of the path.
     #[serde(rename = "P0_points")]
-    pub p0_points: Vec<Vec<serde_json::Value>>,
+    pub p0_points: Vec<Vec<String>>,
     /// The P1 points of the path.
     #[serde(rename = "P1_points")]
-    pub p1_points: Vec<Vec<serde_json::Value>>,
+    pub p1_points: Vec<Vec<String>>,
     /// The P2 points of the path.
     #[serde(rename = "P2_points")]
-    pub p2_points: Vec<Vec<serde_json::Value>>,
+    pub p2_points: Vec<Vec<String>>,
 }
 
 impl ZiplanePathV1 {
-    pub fn new(origin: Vec<serde_json::Value>, color: String, p0_points: Vec<Vec<serde_json::Value>>, p1_points: Vec<Vec<serde_json::Value>>, p2_points: Vec<Vec<serde_json::Value>>) -> ZiplanePathV1 {
+    pub fn new(origin: Vec<String>, color: String, p0_points: Vec<Vec<String>>, p1_points: Vec<Vec<String>>, p2_points: Vec<Vec<String>>) -> ZiplanePathV1 {
         ZiplanePathV1 {
             origin,
             color,

@@ -9,12 +9,11 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BuildHeroDetailsAbilityOrder {
-    #[serde(rename = "currency_changes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub currency_changes: Option<Option<Vec<models::BuildHeroDetailsAbilityOrderCurrencyChange>>>,
+    #[serde(rename = "currency_changes", skip_serializing_if = "Option::is_none")]
+    pub currency_changes: Option<Vec<models::BuildHeroDetailsAbilityOrderCurrencyChange>>,
 }
 
 impl BuildHeroDetailsAbilityOrder {

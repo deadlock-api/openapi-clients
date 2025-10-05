@@ -91,7 +91,7 @@ data class AbilityV2 (
     val weaponInfo: RawItemWeaponInfoV2? = null,
 
     @Json(name = "type")
-    val type: AbilityV2.Type? = Type.ability,
+    val type: kotlin.String? = "ability",
 
     @Json(name = "behaviours")
     val behaviours: kotlin.collections.List<kotlin.String>? = null,
@@ -114,17 +114,5 @@ data class AbilityV2 (
     @Json(name = "videos")
     val videos: AbilityVideosV2? = null
 
-) {
-
-    /**
-     * 
-     *
-     * Values: ability
-     */
-    @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.String) {
-        @Json(name = "ability") ability("ability");
-    }
-
-}
+)
 

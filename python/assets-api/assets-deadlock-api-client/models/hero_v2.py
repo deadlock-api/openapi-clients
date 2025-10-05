@@ -123,13 +123,6 @@ class HeroV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of starting_stats
         if self.starting_stats:
             _dict['starting_stats'] = self.starting_stats.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each value in item_slot_info (dict)
-        _field_dict = {}
-        if self.item_slot_info:
-            for _key_item_slot_info in self.item_slot_info:
-                if self.item_slot_info[_key_item_slot_info]:
-                    _field_dict[_key_item_slot_info] = self.item_slot_info[_key_item_slot_info].to_dict()
-            _dict['item_slot_info'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of physics
         if self.physics:
             _dict['physics'] = self.physics.to_dict()
@@ -139,44 +132,12 @@ class HeroV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of shop_stat_display
         if self.shop_stat_display:
             _dict['shop_stat_display'] = self.shop_stat_display.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each value in cost_bonuses (dict of array)
-        _field_dict_of_array = {}
-        if self.cost_bonuses:
-            for _key_cost_bonuses in self.cost_bonuses:
-                if self.cost_bonuses[_key_cost_bonuses] is not None:
-                    _field_dict_of_array[_key_cost_bonuses] = [
-                        _item.to_dict() for _item in self.cost_bonuses[_key_cost_bonuses]
-                    ]
-            _dict['cost_bonuses'] = _field_dict_of_array
         # override the default output from pydantic by calling `to_dict()` of stats_display
         if self.stats_display:
             _dict['stats_display'] = self.stats_display.to_dict()
         # override the default output from pydantic by calling `to_dict()` of hero_stats_ui
         if self.hero_stats_ui:
             _dict['hero_stats_ui'] = self.hero_stats_ui.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each value in level_info (dict)
-        _field_dict = {}
-        if self.level_info:
-            for _key_level_info in self.level_info:
-                if self.level_info[_key_level_info]:
-                    _field_dict[_key_level_info] = self.level_info[_key_level_info].to_dict()
-            _dict['level_info'] = _field_dict
-        # override the default output from pydantic by calling `to_dict()` of each value in scaling_stats (dict)
-        _field_dict = {}
-        if self.scaling_stats:
-            for _key_scaling_stats in self.scaling_stats:
-                if self.scaling_stats[_key_scaling_stats]:
-                    _field_dict[_key_scaling_stats] = self.scaling_stats[_key_scaling_stats].to_dict()
-            _dict['scaling_stats'] = _field_dict
-        # override the default output from pydantic by calling `to_dict()` of each value in purchase_bonuses (dict of array)
-        _field_dict_of_array = {}
-        if self.purchase_bonuses:
-            for _key_purchase_bonuses in self.purchase_bonuses:
-                if self.purchase_bonuses[_key_purchase_bonuses] is not None:
-                    _field_dict_of_array[_key_purchase_bonuses] = [
-                        _item.to_dict() for _item in self.purchase_bonuses[_key_purchase_bonuses]
-                    ]
-            _dict['purchase_bonuses'] = _field_dict_of_array
         # set to None if recommended_upgrades (nullable) is None
         # and model_fields_set contains the field
         if self.recommended_upgrades is None and "recommended_upgrades" in self.model_fields_set:
@@ -249,48 +210,12 @@ class HeroV2(BaseModel):
             "complexity": obj.get("complexity"),
             "skin": obj.get("skin"),
             "images": HeroImagesV2.from_dict(obj["images"]) if obj.get("images") is not None else None,
-            "items": obj.get("items"),
             "starting_stats": HeroStartingStatsV2.from_dict(obj["starting_stats"]) if obj.get("starting_stats") is not None else None,
-            "item_slot_info": dict(
-                (_k, RawHeroItemSlotInfoValueV2.from_dict(_v))
-                for _k, _v in obj["item_slot_info"].items()
-            )
-            if obj.get("item_slot_info") is not None
-            else None,
             "physics": HeroPhysicsV2.from_dict(obj["physics"]) if obj.get("physics") is not None else None,
             "colors": HeroColorsV2.from_dict(obj["colors"]) if obj.get("colors") is not None else None,
             "shop_stat_display": HeroShopStatDisplayV2.from_dict(obj["shop_stat_display"]) if obj.get("shop_stat_display") is not None else None,
-            "cost_bonuses": dict(
-                (_k,
-                        [RawHeroMapModCostBonusesV2.from_dict(_item) for _item in _v]
-                        if _v is not None
-                        else None
-                )
-                for _k, _v in obj.get("cost_bonuses", {}).items()
-            ),
             "stats_display": RawHeroStatsDisplayV2.from_dict(obj["stats_display"]) if obj.get("stats_display") is not None else None,
             "hero_stats_ui": RawHeroStatsUIV2.from_dict(obj["hero_stats_ui"]) if obj.get("hero_stats_ui") is not None else None,
-            "level_info": dict(
-                (_k, HeroLevelInfoV2.from_dict(_v))
-                for _k, _v in obj["level_info"].items()
-            )
-            if obj.get("level_info") is not None
-            else None,
-            "scaling_stats": dict(
-                (_k, RawHeroScalingStatV2.from_dict(_v))
-                for _k, _v in obj["scaling_stats"].items()
-            )
-            if obj.get("scaling_stats") is not None
-            else None,
-            "purchase_bonuses": dict(
-                (_k,
-                        [RawHeroPurchaseBonusV2.from_dict(_item) for _item in _v]
-                        if _v is not None
-                        else None
-                )
-                for _k, _v in obj.get("purchase_bonuses", {}).items()
-            ),
-            "standard_level_up_upgrades": obj.get("standard_level_up_upgrades")
         })
         return _obj
 
