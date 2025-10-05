@@ -35,5 +35,8 @@ data class RawHeroShopVitalityStatsDisplayV2 (
     @Json(name = "other_display_stats")
     val otherDisplayStats: kotlin.collections.List<kotlin.String>
 
-)
+) {
+
+
+}
 

@@ -47,5 +47,8 @@ data class RawItemPropertyScaleFunctionSubclassV2 (
     @Json(name = "stat_scale")
     val statScale: java.math.BigDecimal? = null
 
-)
+) {
+
+
+}
 

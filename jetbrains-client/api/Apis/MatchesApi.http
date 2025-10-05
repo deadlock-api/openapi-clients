@@ -2,7 +2,7 @@
 
 ### Active
 ## Active
-GET https://api.deadlock-api.com/v1/matches/active
+GET https://api.deadlock-api.com/v1/matches/active?accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Active as Protobuf
@@ -12,21 +12,21 @@ Accept: application/octet-stream
 
 ### Bulk Metadata
 ## Bulk Metadata
-GET https://api.deadlock-api.com/v1/matches/metadata
+GET https://api.deadlock-api.com/v1/matches/metadata?includeInfo={{includeInfo}}&includeObjectives={{includeObjectives}}&includeMidBoss={{includeMidBoss}}&includePlayerInfo={{includePlayerInfo}}&includePlayerItems={{includePlayerItems}}&includePlayerStats={{includePlayerStats}}&includePlayerDeathDetails={{includePlayerDeathDetails}}&matchIds={{matchIds}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&accountIds={{accountIds}}&heroIds={{heroIds}}&orderBy={{orderBy}}&orderDirection={{orderDirection}}&limit={{limit}}
 Accept: application/octet-stream
 
 ### Metadata
 ## Metadata
-GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata
+GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata?isCustom={{isCustom}}
 
 ### Metadata as Protobuf
 ## Metadata as Protobuf
-GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata/raw
+GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata/raw?isCustom={{isCustom}}
 Accept: application/octet-stream
 
 ### Recently Fetched
 ## Recently Fetched
-GET https://api.deadlock-api.com/v1/matches/recently-fetched
+GET https://api.deadlock-api.com/v1/matches/recently-fetched?playerIngestedOnly={{playerIngestedOnly}}
 Accept: application/json
 
 ### Salts

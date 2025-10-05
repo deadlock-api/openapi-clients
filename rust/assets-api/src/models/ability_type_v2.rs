@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -28,15 +29,15 @@ pub enum AbilityTypeV2 {
 
 }
 
-impl ToString for AbilityTypeV2 {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for AbilityTypeV2 {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::Innate => String::from("innate"),
-            Self::Item => String::from("item"),
-            Self::Signature => String::from("signature"),
-            Self::Ultimate => String::from("ultimate"),
-            Self::Weapon => String::from("weapon"),
-            Self::Melee => String::from("melee"),
+            Self::Innate => write!(f, "innate"),
+            Self::Item => write!(f, "item"),
+            Self::Signature => write!(f, "signature"),
+            Self::Ultimate => write!(f, "ultimate"),
+            Self::Weapon => write!(f, "weapon"),
+            Self::Melee => write!(f, "melee"),
         }
     }
 }

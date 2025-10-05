@@ -49,5 +49,8 @@ data class ActiveMatchPlayer (
     @Json(name = "team_parsed")
     val teamParsed: ActiveMatchTeam? = null
 
-)
+) {
+
+
+}
 

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -27,11 +27,11 @@ class HeroColorsV2(BaseModel):
     """
     HeroColorsV2
     """ # noqa: E501
-    glow_enemy: Annotated[List[StrictStr], Field(min_length=3, max_length=3)]
-    glow_friendly: Annotated[List[StrictStr], Field(min_length=3, max_length=3)]
-    glow_team1: Annotated[List[StrictStr], Field(min_length=3, max_length=3)]
-    glow_team2: Annotated[List[StrictStr], Field(min_length=3, max_length=3)]
-    ui: Annotated[List[StrictStr], Field(min_length=3, max_length=3)]
+    glow_enemy: Annotated[List[Any], Field(min_length=3, max_length=3)]
+    glow_friendly: Annotated[List[Any], Field(min_length=3, max_length=3)]
+    glow_team1: Annotated[List[Any], Field(min_length=3, max_length=3)]
+    glow_team2: Annotated[List[Any], Field(min_length=3, max_length=3)]
+    ui: Annotated[List[Any], Field(min_length=3, max_length=3)]
     __properties: ClassVar[List[str]] = ["glow_enemy", "glow_friendly", "glow_team1", "glow_team2", "ui"]
 
     model_config = ConfigDict(

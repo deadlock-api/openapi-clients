@@ -65,5 +65,8 @@ data class Patch (
     @Json(name = "title")
     val title: kotlin.String
 
-)
+) {
+
+
+}
 

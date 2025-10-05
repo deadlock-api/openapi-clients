@@ -40,5 +40,8 @@ data class ValidationError (
     @Json(name = "type")
     val type: kotlin.String
 
-)
+) {
+
+
+}
 

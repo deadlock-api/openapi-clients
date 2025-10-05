@@ -120,7 +120,7 @@ void main() {
     //
     //  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
     //
-    //Future<Object> playerStatsMetrics({ String heroIds, int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minNetworth, int maxNetworth, int minAverageBadge, int maxAverageBadge, int minMatchId, int maxMatchId, int maxMatches, List<int> includeItemIds, List<int> excludeItemIds, List<int> accountIds }) async
+    //Future<Map<String, HashMapValue>> playerStatsMetrics({ String heroIds, int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minNetworth, int maxNetworth, int minAverageBadge, int maxAverageBadge, int minMatchId, int maxMatchId, int maxMatches, List<int> includeItemIds, List<int> excludeItemIds, List<int> accountIds }) async
     test('test playerStatsMetrics', () async {
       // TODO
     });

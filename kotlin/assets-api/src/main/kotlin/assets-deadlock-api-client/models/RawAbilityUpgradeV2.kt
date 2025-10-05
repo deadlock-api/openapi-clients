@@ -32,5 +32,8 @@ data class RawAbilityUpgradeV2 (
     @Json(name = "property_upgrades")
     val propertyUpgrades: kotlin.collections.List<RawAbilityUpgradePropertyUpgradeV2>? = null
 
-)
+) {
+
+
+}
 

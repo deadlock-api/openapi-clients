@@ -2,16 +2,16 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**card**](PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card
-[**enemyStats**](PlayersApi.md#enemyStats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
-[**matchHistory**](PlayersApi.md#matchHistory) | **GET** /v1/players/{account_id}/match-history | Match History
-[**mateStats**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
-[**partyStats**](PlayersApi.md#partyStats) | **GET** /v1/players/{account_id}/party-stats | Party Stats
-[**playerHeroStats**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats
-[**steam**](PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
-[**steamSearch**](PlayersApi.md#steamSearch) | **GET** /v1/players/steam-search | Steam Profile Search
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**card**](PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card |
+| [**enemyStats**](PlayersApi.md#enemyStats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
+| [**matchHistory**](PlayersApi.md#matchHistory) | **GET** /v1/players/{account_id}/match-history | Match History |
+| [**mateStats**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
+| [**partyStats**](PlayersApi.md#partyStats) | **GET** /v1/players/{account_id}/party-stats | Party Stats |
+| [**playerHeroStats**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
+| [**steam**](PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile |
+| [**steamSearch**](PlayersApi.md#steamSearch) | **GET** /v1/players/steam-search | Steam Profile Search |
 
 
 <a id="card"></a>
@@ -43,10 +43,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 
 ### Return type
 
@@ -100,20 +99,19 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; |
- **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
- **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
- **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
- **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
- **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
- **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
- **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
- **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
- **minMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional]
- **maxMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional]
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| **minMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **maxMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
 
 ### Return type
 
@@ -159,12 +157,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; |
- **forceRefetch** | **kotlin.Boolean**| Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. | [optional]
- **onlyStoredHistory** | **kotlin.Boolean**| Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. | [optional]
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **forceRefetch** | **kotlin.Boolean**| Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **onlyStoredHistory** | **kotlin.Boolean**| Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. | [optional] |
 
 ### Return type
 
@@ -219,21 +216,20 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; |
- **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
- **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
- **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
- **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
- **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
- **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
- **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
- **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
- **minMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional]
- **maxMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional]
- **sameParty** | **kotlin.Boolean**| Filter based on whether the mates were on the same party. | [optional] [default to true]
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| **minMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
+| **maxMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sameParty** | **kotlin.Boolean**| Filter based on whether the mates were on the same party. | [optional] [default to true] |
 
 ### Return type
 
@@ -285,18 +281,17 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; |
- **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
- **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
- **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
- **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
- **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
- **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
- **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
- **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 
 ### Return type
 
@@ -350,20 +345,19 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. |
- **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
- **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
- **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
- **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
- **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
- **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional]
- **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
- **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
- **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
- **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
+| **maxNetworth** | **kotlin.Long**| Filter players based on their net worth. | [optional] |
+| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 
 ### Return type
 
@@ -407,10 +401,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
 
 ### Return type
 
@@ -454,10 +447,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **searchQuery** | **kotlin.String**| Search query for Steam profiles. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **searchQuery** | **kotlin.String**| Search query for Steam profiles. | |
 
 ### Return type
 

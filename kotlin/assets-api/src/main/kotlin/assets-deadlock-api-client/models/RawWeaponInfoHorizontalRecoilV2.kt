@@ -36,5 +36,8 @@ data class RawWeaponInfoHorizontalRecoilV2 (
     @Json(name = "burst_exponent")
     val burstExponent: java.math.BigDecimal? = null
 
-)
+) {
+
+
+}
 

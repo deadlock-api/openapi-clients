@@ -2,7 +2,7 @@
 
 ### Hero MMR
 ## Hero MMR
-GET https://api.deadlock-api.com/v1/players/mmr/{{hero_id}}
+GET https://api.deadlock-api.com/v1/players/mmr/{{hero_id}}?accountIds={{accountIds}}&maxMatchId={{maxMatchId}}
 Accept: application/json
 
 ### Hero MMR History
@@ -12,7 +12,7 @@ Accept: application/json
 
 ### MMR
 ## MMR
-GET https://api.deadlock-api.com/v1/players/mmr
+GET https://api.deadlock-api.com/v1/players/mmr?accountIds={{accountIds}}&maxMatchId={{maxMatchId}}
 Accept: application/json
 
 ### MMR History

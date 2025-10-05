@@ -39,5 +39,8 @@ data class RawHeroMapModCostBonusesV2 (
     @Json(name = "percent_on_graph")
     val percentOnGraph: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

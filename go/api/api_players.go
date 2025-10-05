@@ -281,34 +281,34 @@ func (a *PlayersAPIService) EnemyStatsExecute(r ApiEnemyStatsRequest) ([]EnemySt
 	}
 
 	if r.minUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	}
 	if r.maxUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
 	}
 	if r.minDurationS != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
 	}
 	if r.maxDurationS != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
 	}
 	if r.minAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
 	}
 	if r.maxAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
 	}
 	if r.minMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
 	}
 	if r.maxMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
 	}
 	if r.minMatchesPlayed != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches_played", r.minMatchesPlayed, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches_played", r.minMatchesPlayed, "form", "")
 	}
 	if r.maxMatchesPlayed != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_matches_played", r.maxMatchesPlayed, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_matches_played", r.maxMatchesPlayed, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -448,10 +448,10 @@ func (a *PlayersAPIService) MatchHistoryExecute(r ApiMatchHistoryRequest) ([]Pla
 	}
 
 	if r.forceRefetch != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "force_refetch", r.forceRefetch, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "force_refetch", r.forceRefetch, "form", "")
 	}
 	if r.onlyStoredHistory != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "only_stored_history", r.onlyStoredHistory, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "only_stored_history", r.onlyStoredHistory, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -646,37 +646,37 @@ func (a *PlayersAPIService) MateStatsExecute(r ApiMateStatsRequest) ([]MateStats
 	}
 
 	if r.minUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	}
 	if r.maxUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
 	}
 	if r.minDurationS != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
 	}
 	if r.maxDurationS != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
 	}
 	if r.minAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
 	}
 	if r.maxAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
 	}
 	if r.minMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
 	}
 	if r.maxMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
 	}
 	if r.minMatchesPlayed != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches_played", r.minMatchesPlayed, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches_played", r.minMatchesPlayed, "form", "")
 	}
 	if r.maxMatchesPlayed != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_matches_played", r.maxMatchesPlayed, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_matches_played", r.maxMatchesPlayed, "form", "")
 	}
 	if r.sameParty != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "same_party", r.sameParty, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "same_party", r.sameParty, "form", "")
 	} else {
 		var defaultValue bool = true
 		r.sameParty = &defaultValue
@@ -853,28 +853,28 @@ func (a *PlayersAPIService) PartyStatsExecute(r ApiPartyStatsRequest) ([]PartySt
 	}
 
 	if r.minUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	}
 	if r.maxUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
 	}
 	if r.minDurationS != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
 	}
 	if r.maxDurationS != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
 	}
 	if r.minAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
 	}
 	if r.maxAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
 	}
 	if r.minMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
 	}
 	if r.maxMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1075,41 +1075,41 @@ func (a *PlayersAPIService) PlayerHeroStatsExecute(r ApiPlayerHeroStatsRequest) 
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
 		}
 	}
 	if r.minUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	}
 	if r.maxUnixTimestamp != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
 	}
 	if r.minDurationS != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
 	}
 	if r.maxDurationS != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
 	}
 	if r.minNetworth != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_networth", r.minNetworth, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_networth", r.minNetworth, "form", "")
 	}
 	if r.maxNetworth != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_networth", r.maxNetworth, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_networth", r.maxNetworth, "form", "")
 	}
 	if r.minAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
 	}
 	if r.maxAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
 	}
 	if r.minMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
 	}
 	if r.maxMatchId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1242,10 +1242,10 @@ func (a *PlayersAPIService) SteamExecute(r ApiSteamRequest) ([]SteamProfile, *ht
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -1368,7 +1368,7 @@ func (a *PlayersAPIService) SteamSearchExecute(r ApiSteamSearchRequest) ([]Steam
 		return localVarReturnValue, nil, reportError("searchQuery is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "search_query", r.searchQuery, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "search_query", r.searchQuery, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

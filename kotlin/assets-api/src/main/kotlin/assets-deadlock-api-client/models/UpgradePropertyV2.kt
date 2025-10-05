@@ -111,5 +111,8 @@ data class UpgradePropertyV2 (
     @Json(name = "tooltip_is_important")
     val tooltipIsImportant: kotlin.Boolean? = null
 
-)
+) {
+
+
+}
 

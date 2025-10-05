@@ -21,11 +21,11 @@ var _ MappedNullable = &HeroColorsV2{}
 
 // HeroColorsV2 struct for HeroColorsV2
 type HeroColorsV2 struct {
-	GlowEnemy []string `json:"glow_enemy"`
-	GlowFriendly []string `json:"glow_friendly"`
-	GlowTeam1 []string `json:"glow_team1"`
-	GlowTeam2 []string `json:"glow_team2"`
-	Ui []string `json:"ui"`
+	GlowEnemy []interface{} `json:"glow_enemy"`
+	GlowFriendly []interface{} `json:"glow_friendly"`
+	GlowTeam1 []interface{} `json:"glow_team1"`
+	GlowTeam2 []interface{} `json:"glow_team2"`
+	Ui []interface{} `json:"ui"`
 }
 
 type _HeroColorsV2 HeroColorsV2
@@ -34,7 +34,7 @@ type _HeroColorsV2 HeroColorsV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroColorsV2(glowEnemy []string, glowFriendly []string, glowTeam1 []string, glowTeam2 []string, ui []string) *HeroColorsV2 {
+func NewHeroColorsV2(glowEnemy []interface{}, glowFriendly []interface{}, glowTeam1 []interface{}, glowTeam2 []interface{}, ui []interface{}) *HeroColorsV2 {
 	this := HeroColorsV2{}
 	this.GlowEnemy = glowEnemy
 	this.GlowFriendly = glowFriendly
@@ -53,9 +53,9 @@ func NewHeroColorsV2WithDefaults() *HeroColorsV2 {
 }
 
 // GetGlowEnemy returns the GlowEnemy field value
-func (o *HeroColorsV2) GetGlowEnemy() []string {
+func (o *HeroColorsV2) GetGlowEnemy() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -64,7 +64,7 @@ func (o *HeroColorsV2) GetGlowEnemy() []string {
 
 // GetGlowEnemyOk returns a tuple with the GlowEnemy field value
 // and a boolean to check if the value has been set.
-func (o *HeroColorsV2) GetGlowEnemyOk() ([]string, bool) {
+func (o *HeroColorsV2) GetGlowEnemyOk() ([]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -72,14 +72,14 @@ func (o *HeroColorsV2) GetGlowEnemyOk() ([]string, bool) {
 }
 
 // SetGlowEnemy sets field value
-func (o *HeroColorsV2) SetGlowEnemy(v []string) {
+func (o *HeroColorsV2) SetGlowEnemy(v []interface{}) {
 	o.GlowEnemy = v
 }
 
 // GetGlowFriendly returns the GlowFriendly field value
-func (o *HeroColorsV2) GetGlowFriendly() []string {
+func (o *HeroColorsV2) GetGlowFriendly() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -88,7 +88,7 @@ func (o *HeroColorsV2) GetGlowFriendly() []string {
 
 // GetGlowFriendlyOk returns a tuple with the GlowFriendly field value
 // and a boolean to check if the value has been set.
-func (o *HeroColorsV2) GetGlowFriendlyOk() ([]string, bool) {
+func (o *HeroColorsV2) GetGlowFriendlyOk() ([]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,14 +96,14 @@ func (o *HeroColorsV2) GetGlowFriendlyOk() ([]string, bool) {
 }
 
 // SetGlowFriendly sets field value
-func (o *HeroColorsV2) SetGlowFriendly(v []string) {
+func (o *HeroColorsV2) SetGlowFriendly(v []interface{}) {
 	o.GlowFriendly = v
 }
 
 // GetGlowTeam1 returns the GlowTeam1 field value
-func (o *HeroColorsV2) GetGlowTeam1() []string {
+func (o *HeroColorsV2) GetGlowTeam1() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -112,7 +112,7 @@ func (o *HeroColorsV2) GetGlowTeam1() []string {
 
 // GetGlowTeam1Ok returns a tuple with the GlowTeam1 field value
 // and a boolean to check if the value has been set.
-func (o *HeroColorsV2) GetGlowTeam1Ok() ([]string, bool) {
+func (o *HeroColorsV2) GetGlowTeam1Ok() ([]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -120,14 +120,14 @@ func (o *HeroColorsV2) GetGlowTeam1Ok() ([]string, bool) {
 }
 
 // SetGlowTeam1 sets field value
-func (o *HeroColorsV2) SetGlowTeam1(v []string) {
+func (o *HeroColorsV2) SetGlowTeam1(v []interface{}) {
 	o.GlowTeam1 = v
 }
 
 // GetGlowTeam2 returns the GlowTeam2 field value
-func (o *HeroColorsV2) GetGlowTeam2() []string {
+func (o *HeroColorsV2) GetGlowTeam2() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -136,7 +136,7 @@ func (o *HeroColorsV2) GetGlowTeam2() []string {
 
 // GetGlowTeam2Ok returns a tuple with the GlowTeam2 field value
 // and a boolean to check if the value has been set.
-func (o *HeroColorsV2) GetGlowTeam2Ok() ([]string, bool) {
+func (o *HeroColorsV2) GetGlowTeam2Ok() ([]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -144,14 +144,14 @@ func (o *HeroColorsV2) GetGlowTeam2Ok() ([]string, bool) {
 }
 
 // SetGlowTeam2 sets field value
-func (o *HeroColorsV2) SetGlowTeam2(v []string) {
+func (o *HeroColorsV2) SetGlowTeam2(v []interface{}) {
 	o.GlowTeam2 = v
 }
 
 // GetUi returns the Ui field value
-func (o *HeroColorsV2) GetUi() []string {
+func (o *HeroColorsV2) GetUi() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -160,7 +160,7 @@ func (o *HeroColorsV2) GetUi() []string {
 
 // GetUiOk returns a tuple with the Ui field value
 // and a boolean to check if the value has been set.
-func (o *HeroColorsV2) GetUiOk() ([]string, bool) {
+func (o *HeroColorsV2) GetUiOk() ([]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -168,7 +168,7 @@ func (o *HeroColorsV2) GetUiOk() ([]string, bool) {
 }
 
 // SetUi sets field value
-func (o *HeroColorsV2) SetUi(v []string) {
+func (o *HeroColorsV2) SetUi(v []interface{}) {
 	o.Ui = v
 }
 

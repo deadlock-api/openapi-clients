@@ -12,7 +12,16 @@ Method | HTTP request | Description
 
 Search
 
- Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+Search for builds based on various criteria.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
 
 ### Example
 

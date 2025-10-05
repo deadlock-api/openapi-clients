@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**glow_enemy** | **List[str]** |  | 
-**glow_friendly** | **List[str]** |  | 
-**glow_team1** | **List[str]** |  | 
-**glow_team2** | **List[str]** |  | 
-**ui** | **List[str]** |  | 
+**glow_enemy** | **List[object]** |  | 
+**glow_friendly** | **List[object]** |  | 
+**glow_team1** | **List[object]** |  | 
+**glow_team2** | **List[object]** |  | 
+**ui** | **List[object]** |  | 
 
 ## Example
 

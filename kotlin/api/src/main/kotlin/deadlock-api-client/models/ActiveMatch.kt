@@ -120,5 +120,8 @@ data class ActiveMatch (
     @Json(name = "winning_team_parsed")
     val winningTeamParsed: ActiveMatchTeam? = null
 
-)
+) {
+
+
+}
 

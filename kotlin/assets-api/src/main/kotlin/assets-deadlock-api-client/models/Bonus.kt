@@ -25,7 +25,10 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class Bonus (
+class Bonus (
 
-)
+) {
+
+
+}
 

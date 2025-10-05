@@ -15,7 +15,16 @@ Method | HTTP request | Description
 
 Available Variables
 
- Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+Returns a list of available variables that can be used in the command endpoint.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
 
 ### Example
 
@@ -80,7 +89,16 @@ No authorization required
 
 Resolve Command
 
-     Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+
+    Resolves a command and returns the resolved command.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 60req/60s |
+| Key | - |
+| Global | 300req/60s |
+    
 
 ### Example
 
@@ -154,7 +172,16 @@ No authorization required
 
 Resolve Variables
 
- Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+
+Resolves variables and returns a map of variable name to resolved value.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 60req/min |
+| Key | - |
+| Global | 300req/min |
+    
 
 ### Example
 
@@ -228,7 +255,16 @@ No authorization required
 
 Widget Versions
 
- Returns a map of str->int of widget versions.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+
+Returns a map of str->int of widget versions.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+
 
 ### Example
 

@@ -25,7 +25,10 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class ValidationErrorLocInner (
+class ValidationErrorLocInner (
 
-)
+) {
+
+
+}
 

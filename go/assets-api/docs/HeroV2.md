@@ -24,19 +24,19 @@ Name | Type | Description | Notes
 **Complexity** | **int32** |  | 
 **Skin** | **int32** |  | 
 **Images** | [**HeroImagesV2**](HeroImagesV2.md) |  | 
-**Items** |  |  | 
+**Items** | **map[string]string** |  | 
 **StartingStats** | [**HeroStartingStatsV2**](HeroStartingStatsV2.md) |  | 
-**ItemSlotInfo** |  |  | 
+**ItemSlotInfo** | [**map[string]RawHeroItemSlotInfoValueV2**](RawHeroItemSlotInfoValueV2.md) |  | 
 **Physics** | [**HeroPhysicsV2**](HeroPhysicsV2.md) |  | 
 **Colors** | [**HeroColorsV2**](HeroColorsV2.md) |  | 
 **ShopStatDisplay** | [**HeroShopStatDisplayV2**](HeroShopStatDisplayV2.md) |  | 
-**CostBonuses** | Pointer to  |  | [optional] 
+**CostBonuses** | Pointer to [**map[string][]RawHeroMapModCostBonusesV2**](array.md) |  | [optional] 
 **StatsDisplay** | [**RawHeroStatsDisplayV2**](RawHeroStatsDisplayV2.md) |  | 
 **HeroStatsUi** | [**RawHeroStatsUIV2**](RawHeroStatsUIV2.md) |  | 
-**LevelInfo** |  |  | 
-**ScalingStats** |  |  | 
-**PurchaseBonuses** |  |  | 
-**StandardLevelUpUpgrades** |  |  | 
+**LevelInfo** | [**map[string]HeroLevelInfoV2**](HeroLevelInfoV2.md) |  | 
+**ScalingStats** | [**map[string]RawHeroScalingStatV2**](RawHeroScalingStatV2.md) |  | 
+**PurchaseBonuses** | [**map[string][]RawHeroPurchaseBonusV2**](array.md) |  | 
+**StandardLevelUpUpgrades** | **map[string]float32** |  | 
 
 ## Methods
 

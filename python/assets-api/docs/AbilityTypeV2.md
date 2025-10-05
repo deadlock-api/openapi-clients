@@ -1,10 +1,19 @@
 # AbilityTypeV2
 
 
-## Properties
+## Enum
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+* `INNATE` (value: `'innate'`)
+
+* `ITEM` (value: `'item'`)
+
+* `SIGNATURE` (value: `'signature'`)
+
+* `ULTIMATE` (value: `'ultimate'`)
+
+* `WEAPON` (value: `'weapon'`)
+
+* `MELEE` (value: `'melee'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

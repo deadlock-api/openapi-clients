@@ -18,6 +18,7 @@ api/Api/PlayersApi.php
 api/Api/SQLApi.php
 api/ApiException.php
 api/Configuration.php
+api/FormDataProcessor.php
 api/HeaderSelector.php
 api/Model/APIInfo.php
 api/Model/ActiveMatch.php

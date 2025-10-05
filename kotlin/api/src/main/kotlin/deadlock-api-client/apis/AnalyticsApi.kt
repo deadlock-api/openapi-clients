@@ -16,7 +16,7 @@
 package deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.OkHttpClient
+import okhttp3.Call
 import okhttp3.HttpUrl
 
 import deadlock-api-client.models.AnalyticsAbilityOrderStats
@@ -47,7 +47,7 @@ import deadlock-api-client.infrastructure.ResponseType
 import deadlock-api-client.infrastructure.Success
 import deadlock-api-client.infrastructure.toMultiValue
 
-class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -56,6 +56,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/ability-order-stats
      * Ability Order Stats
      *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -102,6 +103,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/ability-order-stats
      * Ability Order Stats
      *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -220,6 +222,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/badge-distribution
      * Badge Distribution
      *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1757030400L)
@@ -259,6 +262,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/badge-distribution
      * Badge Distribution
      *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1757030400L)
@@ -344,6 +348,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/build-item-stats
      * Build Item Stats
      *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -377,6 +382,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/build-item-stats
      * Build Item Stats
      *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -432,6 +438,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/hero-comb-stats
      * Hero Comb Stats
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1757030400L)
@@ -479,6 +486,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/hero-comb-stats
      * Hero Comb Stats
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1757030400L)
@@ -604,6 +612,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/hero-counter-stats
      * Hero Counter Stats
      *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1757030400L)
@@ -651,6 +660,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/hero-counter-stats
      * Hero Counter Stats
      *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1757030400L)
@@ -839,7 +849,16 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
          @Json(name = "hero_bullets_hit") hero_bullets_hit("hero_bullets_hit"),
          @Json(name = "max_hero_bullets_hit_crit_per_match") max_hero_bullets_hit_crit_per_match("max_hero_bullets_hit_crit_per_match"),
          @Json(name = "avg_hero_bullets_hit_crit_per_match") avg_hero_bullets_hit_crit_per_match("avg_hero_bullets_hit_crit_per_match"),
-         @Json(name = "hero_bullets_hit_crit") hero_bullets_hit_crit("hero_bullets_hit_crit")
+         @Json(name = "hero_bullets_hit_crit") hero_bullets_hit_crit("hero_bullets_hit_crit");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -847,10 +866,20 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
      enum class SortDirectionHeroScoreboard(val value: kotlin.String) {
          @Json(name = "desc") desc("desc"),
-         @Json(name = "asc") asc("asc")
+         @Json(name = "asc") asc("asc");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
+     * GET /v1/analytics/scoreboards/heroes
      * Hero Scoreboard
      *  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param sortBy The field to sort by.
@@ -896,6 +925,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/scoreboards/heroes
      * Hero Scoreboard
      *  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param sortBy The field to sort by.
@@ -1016,10 +1046,20 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
          @Json(name = "start_time_hour") start_time_hour("start_time_hour"),
          @Json(name = "start_time_day") start_time_day("start_time_day"),
          @Json(name = "start_time_week") start_time_week("start_time_week"),
-         @Json(name = "start_time_month") start_time_month("start_time_month")
+         @Json(name = "start_time_month") start_time_month("start_time_month");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
+     * GET /v1/analytics/hero-stats
      * Hero Stats
      *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
@@ -1067,6 +1107,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/hero-stats
      * Hero Stats
      *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
@@ -1192,6 +1233,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/hero-synergy-stats
      * Hero Synergy Stats
      *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (&#x60;hero_id1&#x60; and &#x60;hero_id2&#x60;) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1757030400L)
@@ -1238,6 +1280,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/hero-synergy-stats
      * Hero Synergy Stats
      *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (&#x60;hero_id1&#x60; and &#x60;hero_id2&#x60;) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1757030400L)
@@ -1358,6 +1401,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/item-permutation-stats
      * Item Permutation Stats
      *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param itemIds Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
@@ -1404,6 +1448,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/item-permutation-stats
      * Item Permutation Stats
      *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param itemIds Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
@@ -1540,10 +1585,20 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
          @Json(name = "net_worth_by_2000") net_worth_by_2000("net_worth_by_2000"),
          @Json(name = "net_worth_by_3000") net_worth_by_3000("net_worth_by_3000"),
          @Json(name = "net_worth_by_5000") net_worth_by_5000("net_worth_by_5000"),
-         @Json(name = "net_worth_by_10000") net_worth_by_10000("net_worth_by_10000")
+         @Json(name = "net_worth_by_10000") net_worth_by_10000("net_worth_by_10000");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
+     * GET /v1/analytics/item-stats
      * Item Stats
      *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
@@ -1593,6 +1648,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/item-stats
      * Item Stats
      *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
@@ -1791,7 +1847,16 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
          @Json(name = "hero_bullets_hit") hero_bullets_hit("hero_bullets_hit"),
          @Json(name = "max_hero_bullets_hit_crit_per_match") max_hero_bullets_hit_crit_per_match("max_hero_bullets_hit_crit_per_match"),
          @Json(name = "avg_hero_bullets_hit_crit_per_match") avg_hero_bullets_hit_crit_per_match("avg_hero_bullets_hit_crit_per_match"),
-         @Json(name = "hero_bullets_hit_crit") hero_bullets_hit_crit("hero_bullets_hit_crit")
+         @Json(name = "hero_bullets_hit_crit") hero_bullets_hit_crit("hero_bullets_hit_crit");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -1799,10 +1864,20 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
      enum class SortDirectionPlayerScoreboard(val value: kotlin.String) {
          @Json(name = "desc") desc("desc"),
-         @Json(name = "asc") asc("asc")
+         @Json(name = "asc") asc("asc");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
+     * GET /v1/analytics/scoreboards/players
      * Player Scoreboard
      *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param sortBy The field to sort by.
@@ -1851,6 +1926,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/scoreboards/players
      * Player Scoreboard
      *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param sortBy The field to sort by.
@@ -1979,6 +2055,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/player-stats/metrics
      * Player Stats Metrics
      *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -1996,7 +2073,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
-     * @return kotlin.Any
+     * @return kotlin.collections.Map<kotlin.String, HashMapValue>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -2005,11 +2082,11 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun playerStatsMetrics(heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1757030400L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, maxMatches: kotlin.Int? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.Any {
+    fun playerStatsMetrics(heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1757030400L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, maxMatches: kotlin.Int? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.Map<kotlin.String, HashMapValue> {
         val localVarResponse = playerStatsMetricsWithHttpInfo(heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, maxMatches = maxMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, HashMapValue>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -2024,6 +2101,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
+     * GET /v1/analytics/player-stats/metrics
      * Player Stats Metrics
      *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -2041,16 +2119,16 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<kotlin.collections.Map<kotlin.String, HashMapValue>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun playerStatsMetricsWithHttpInfo(heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, maxMatches: kotlin.Int?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?) : ApiResponse<kotlin.Any?> {
+    fun playerStatsMetricsWithHttpInfo(heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, maxMatches: kotlin.Int?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?) : ApiResponse<kotlin.collections.Map<kotlin.String, HashMapValue>?> {
         val localVariableConfig = playerStatsMetricsRequestConfig(heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, maxMatches = maxMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, accountIds = accountIds)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, kotlin.collections.Map<kotlin.String, HashMapValue>>(
             localVariableConfig
         )
     }

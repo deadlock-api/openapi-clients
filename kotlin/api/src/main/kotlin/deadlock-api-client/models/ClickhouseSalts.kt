@@ -47,5 +47,8 @@ data class ClickhouseSalts (
     @Json(name = "username")
     val username: kotlin.String? = null
 
-)
+) {
+
+
+}
 

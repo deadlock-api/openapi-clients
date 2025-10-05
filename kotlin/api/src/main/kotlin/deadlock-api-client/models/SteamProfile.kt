@@ -63,5 +63,8 @@ data class SteamProfile (
     @Json(name = "realname")
     val realname: kotlin.String? = null
 
-)
+) {
+
+
+}
 

@@ -27,7 +27,7 @@ class TestMapV1(unittest.TestCase):
 
     def make_instance(self, include_optional) -> MapV1:
         """Test MapV1
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MapV1`
@@ -70,22 +70,22 @@ class TestMapV1(unittest.TestCase):
                 zipline_paths = [
                     assets-deadlock-api-client.models.ziplane_path_v1.ZiplanePathV1(
                         origin = [
-                            ''
+                            null
                             ], 
                         color = '', 
                         p0_points = [
                             [
-                                ''
+                                null
                                 ]
                             ], 
                         p1_points = [
                             [
-                                ''
+                                null
                                 ]
                             ], 
                         p2_points = [
                             [
-                                ''
+                                null
                                 ]
                             ], )
                     ]
@@ -126,22 +126,22 @@ class TestMapV1(unittest.TestCase):
                 zipline_paths = [
                     assets-deadlock-api-client.models.ziplane_path_v1.ZiplanePathV1(
                         origin = [
-                            ''
+                            null
                             ], 
                         color = '', 
                         p0_points = [
                             [
-                                ''
+                                null
                                 ]
                             ], 
                         p1_points = [
                             [
-                                ''
+                                null
                                 ]
                             ], 
                         p2_points = [
                             [
-                                ''
+                                null
                                 ]
                             ], )
                     ],

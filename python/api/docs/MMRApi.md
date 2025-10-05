@@ -15,7 +15,11 @@ Method | HTTP request | Description
 
 Hero MMR
 
- Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+
+Batch Player Hero MMR
+
+Filters for the last 90 days if no `max_match_id` is provided.
+
 
 ### Example
 
@@ -161,7 +165,11 @@ No authorization required
 
 MMR
 
- Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+
+Batch Player MMR
+
+Filters for the last 90 days if no `max_match_id` is provided.
+
 
 ### Example
 

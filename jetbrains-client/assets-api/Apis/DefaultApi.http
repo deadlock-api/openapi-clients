@@ -2,7 +2,7 @@
 
 ### Get Build Tags
 ## Get Build Tags
-GET https://assets.deadlock-api.com/v2/build-tags
+GET https://assets.deadlock-api.com/v2/build-tags?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Client Versions
@@ -12,30 +12,30 @@ Accept: application/json
 
 ### Get Colors
 ## Get Colors
-GET https://assets.deadlock-api.com/v1/colors
+GET https://assets.deadlock-api.com/v1/colors?clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Icons
 ## Get Icons
-GET https://assets.deadlock-api.com/v1/icons
+GET https://assets.deadlock-api.com/v1/icons?clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Map
 ## Get Map
-GET https://assets.deadlock-api.com/v1/map
+GET https://assets.deadlock-api.com/v1/map?clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Ranks
 ## Get Ranks
-GET https://assets.deadlock-api.com/v2/ranks
+GET https://assets.deadlock-api.com/v2/ranks?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Sounds
 ## Get Sounds
-GET https://assets.deadlock-api.com/v1/sounds
+GET https://assets.deadlock-api.com/v1/sounds?clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Steam Info
 ## Get Steam Info
-GET https://assets.deadlock-api.com/v1/steam-info
+GET https://assets.deadlock-api.com/v1/steam-info?clientVersion={{clientVersion}}
 Accept: application/json

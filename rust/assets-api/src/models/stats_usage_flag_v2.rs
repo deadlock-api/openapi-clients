@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -24,13 +25,13 @@ pub enum StatsUsageFlagV2 {
 
 }
 
-impl ToString for StatsUsageFlagV2 {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for StatsUsageFlagV2 {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::ConditionallyApplied => String::from("ConditionallyApplied"),
-            Self::ConditionallyEnemyApplied => String::from("ConditionallyEnemyApplied"),
-            Self::IntrinsicallyProvidedInAbility => String::from("IntrinsicallyProvidedInAbility"),
-            Self::IntrinsicallyProvidedInModifier => String::from("IntrinsicallyProvidedInModifier"),
+            Self::ConditionallyApplied => write!(f, "ConditionallyApplied"),
+            Self::ConditionallyEnemyApplied => write!(f, "ConditionallyEnemyApplied"),
+            Self::IntrinsicallyProvidedInAbility => write!(f, "IntrinsicallyProvidedInAbility"),
+            Self::IntrinsicallyProvidedInModifier => write!(f, "IntrinsicallyProvidedInModifier"),
         }
     }
 }

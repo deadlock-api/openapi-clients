@@ -42,5 +42,8 @@ data class HeroShopStatDisplayV2 (
     @Json(name = "weapon_stats_display")
     val weaponStatsDisplay: HeroShopWeaponStatsDisplayV2
 
-)
+) {
+
+
+}
 

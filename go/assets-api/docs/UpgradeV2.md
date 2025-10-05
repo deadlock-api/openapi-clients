@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Hero** | Pointer to **NullableInt32** |  | [optional] 
 **Heroes** | Pointer to **[]int32** |  | [optional] 
 **UpdateTime** | Pointer to **NullableInt32** |  | [optional] 
-**Properties** | Pointer to  |  | [optional] 
+**Properties** | Pointer to [**map[string]UpgradePropertyV2**](UpgradePropertyV2.md) |  | [optional] 
 **WeaponInfo** | Pointer to [**NullableRawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] [default to "upgrade"]
 **ShopImage** | Pointer to **NullableString** |  | [optional] 

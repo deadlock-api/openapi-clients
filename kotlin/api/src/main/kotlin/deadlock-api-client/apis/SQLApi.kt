@@ -16,7 +16,7 @@
 package deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.OkHttpClient
+import okhttp3.Call
 import okhttp3.HttpUrl
 
 
@@ -36,7 +36,7 @@ import deadlock-api-client.infrastructure.ResponseType
 import deadlock-api-client.infrastructure.Success
 import deadlock-api-client.infrastructure.toMultiValue
 
-class SQLApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -45,6 +45,7 @@ class SQLApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
     }
 
     /**
+     * GET /v1/sql/tables
      * List Tables
      *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @return kotlin.collections.List<kotlin.String>
@@ -75,6 +76,7 @@ class SQLApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
     }
 
     /**
+     * GET /v1/sql/tables
      * List Tables
      *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @return ApiResponse<kotlin.collections.List<kotlin.String>?>
@@ -100,7 +102,7 @@ class SQLApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json, text/plain"
 
         return RequestConfig(
             method = RequestMethod.GET,
@@ -113,6 +115,7 @@ class SQLApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
     }
 
     /**
+     * GET /v1/sql
      * Query
      *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
@@ -144,6 +147,7 @@ class SQLApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
     }
 
     /**
+     * GET /v1/sql
      * Query
      *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
@@ -174,7 +178,8 @@ class SQLApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
                 put("query", listOf(query.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        
+        localVariableHeaders["Accept"] = "text/plain"
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/sql",
@@ -186,6 +191,7 @@ class SQLApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
     }
 
     /**
+     * GET /v1/sql/tables/{table}/schema
      * Table Schema
      *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param table The name of the table to fetch the schema for.
@@ -217,6 +223,7 @@ class SQLApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
     }
 
     /**
+     * GET /v1/sql/tables/{table}/schema
      * Table Schema
      *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param table The name of the table to fetch the schema for.
@@ -244,7 +251,7 @@ class SQLApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json, text/plain"
 
         return RequestConfig(
             method = RequestMethod.GET,

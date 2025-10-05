@@ -173,5 +173,8 @@ data class HeroV2 (
     @Json(name = "cost_bonuses")
     val costBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroMapModCostBonusesV2>>? = null
 
-)
+) {
+
+
+}
 

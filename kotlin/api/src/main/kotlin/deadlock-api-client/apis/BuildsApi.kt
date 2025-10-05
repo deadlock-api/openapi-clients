@@ -16,7 +16,7 @@
 package deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.OkHttpClient
+import okhttp3.Call
 import okhttp3.HttpUrl
 
 import deadlock-api-client.models.Build
@@ -37,7 +37,7 @@ import deadlock-api-client.infrastructure.ResponseType
 import deadlock-api-client.infrastructure.Success
 import deadlock-api-client.infrastructure.toMultiValue
 
-class BuildsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -55,7 +55,16 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
          @Json(name = "reports") reports("reports"),
          @Json(name = "updated_at") updated_at("updated_at"),
          @Json(name = "published_at") published_at("published_at"),
-         @Json(name = "version") version("version")
+         @Json(name = "version") version("version");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -63,10 +72,20 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      */
      enum class SortDirectionSearchBuilds(val value: kotlin.String) {
          @Json(name = "desc") desc("desc"),
-         @Json(name = "asc") asc("asc")
+         @Json(name = "asc") asc("asc");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
+     * GET /v1/builds
      * Search
      *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param minUnixTimestamp Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp). (optional)
@@ -115,6 +134,7 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     }
 
     /**
+     * GET /v1/builds
      * Search
      *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param minUnixTimestamp Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp). (optional)

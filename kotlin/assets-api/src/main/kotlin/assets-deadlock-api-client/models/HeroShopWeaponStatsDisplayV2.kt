@@ -47,5 +47,8 @@ data class HeroShopWeaponStatsDisplayV2 (
     @Json(name = "weapon_image_webp")
     val weaponImageWebp: kotlin.String? = null
 
-)
+) {
+
+
+}
 

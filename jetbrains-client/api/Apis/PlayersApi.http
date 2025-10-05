@@ -7,35 +7,35 @@ Accept: application/json
 
 ### Enemy Stats
 ## Enemy Stats
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/enemy-stats
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/enemy-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatchesPlayed={{minMatchesPlayed}}&maxMatchesPlayed={{maxMatchesPlayed}}
 Accept: application/json
 
 ### Match History
 ## Match History
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/match-history
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/match-history?forceRefetch={{forceRefetch}}&onlyStoredHistory={{onlyStoredHistory}}
 Accept: application/json
 
 ### Mate Stats
 ## Mate Stats
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/mate-stats
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/mate-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatchesPlayed={{minMatchesPlayed}}&maxMatchesPlayed={{maxMatchesPlayed}}&sameParty={{sameParty}}
 Accept: application/json
 
 ### Party Stats
 ## Party Stats
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/party-stats
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/party-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
 Accept: application/json
 
 ### Hero Stats
 ## Hero Stats
-GET https://api.deadlock-api.com/v1/players/hero-stats
+GET https://api.deadlock-api.com/v1/players/hero-stats?accountIds={{accountIds}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
 Accept: application/json
 
 ### Batch Steam Profile
 ## Batch Steam Profile
-GET https://api.deadlock-api.com/v1/players/steam
+GET https://api.deadlock-api.com/v1/players/steam?accountIds={{accountIds}}
 Accept: application/json
 
 ### Steam Profile Search
 ## Steam Profile Search
-GET https://api.deadlock-api.com/v1/players/steam-search
+GET https://api.deadlock-api.com/v1/players/steam-search?searchQuery={{searchQuery}}
 Accept: application/json

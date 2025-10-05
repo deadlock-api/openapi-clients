@@ -39,5 +39,8 @@ data class HeroDescriptionV2 (
     @Json(name = "playstyle")
     val playstyle: kotlin.String? = null
 
-)
+) {
+
+
+}
 

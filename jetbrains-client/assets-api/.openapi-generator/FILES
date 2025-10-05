@@ -3,4 +3,5 @@ Apis/DefaultApi.http
 Apis/HeroesApi.http
 Apis/ItemsApi.http
 Apis/RawApi.http
+Apis/http-client.template.env.json
 README.md

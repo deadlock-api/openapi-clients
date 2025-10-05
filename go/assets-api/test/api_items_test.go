@@ -54,7 +54,7 @@ func Test_assets-deadlock-api-client_ItemsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var slotType ItemSlotTypeV2
+		var slotType openapiclient.ItemSlotTypeV2
 
 		resp, httpRes, err := apiClient.ItemsAPI.GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(context.Background(), slotType).Execute()
 
@@ -68,7 +68,7 @@ func Test_assets-deadlock-api-client_ItemsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var type_ ItemTypeV2
+		var type_ openapiclient.ItemTypeV2
 
 		resp, httpRes, err := apiClient.ItemsAPI.GetItemsByTypeV2ItemsByTypeTypeGet(context.Background(), type_).Execute()
 

@@ -36,5 +36,8 @@ data class RawHeroStatsUIV2 (
     @Json(name = "display_stats")
     val displayStats: kotlin.collections.List<RawHeroStatsUIDisplayV2>
 
-)
+) {
+
+
+}
 

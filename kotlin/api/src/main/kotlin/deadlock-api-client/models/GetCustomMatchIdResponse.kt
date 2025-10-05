@@ -31,5 +31,8 @@ data class GetCustomMatchIdResponse (
     @Json(name = "match_id")
     val matchId: kotlin.Long
 
-)
+) {
+
+
+}
 

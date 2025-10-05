@@ -35,5 +35,8 @@ data class RawHeroStatsUIDisplayV2 (
     @Json(name = "stat_type")
     val statType: kotlin.String
 
-)
+) {
+
+
+}
 

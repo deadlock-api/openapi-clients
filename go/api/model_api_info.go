@@ -128,9 +128,9 @@ func (o *APIInfo) UnsetMissedMatches() {
 	o.MissedMatches.Unset()
 }
 
-// GetTableSizes returns the TableSizes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTableSizes returns the TableSizes field value if set, zero value otherwise.
 func (o *APIInfo) GetTableSizes() map[string]TableSize {
-	if o == nil {
+	if o == nil || IsNil(o.TableSizes) {
 		var ret map[string]TableSize
 		return ret
 	}
@@ -139,12 +139,11 @@ func (o *APIInfo) GetTableSizes() map[string]TableSize {
 
 // GetTableSizesOk returns a tuple with the TableSizes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *APIInfo) GetTableSizesOk() (*map[string]TableSize, bool) {
+func (o *APIInfo) GetTableSizesOk() (map[string]TableSize, bool) {
 	if o == nil || IsNil(o.TableSizes) {
-		return nil, false
+		return map[string]TableSize{}, false
 	}
-	return &o.TableSizes, true
+	return o.TableSizes, true
 }
 
 // HasTableSizes returns a boolean if a field has been set.
@@ -177,7 +176,7 @@ func (o APIInfo) ToMap() (map[string]interface{}, error) {
 	if o.MissedMatches.IsSet() {
 		toSerialize["missed_matches"] = o.MissedMatches.Get()
 	}
-	if o.TableSizes != nil {
+	if !IsNil(o.TableSizes) {
 		toSerialize["table_sizes"] = o.TableSizes
 	}
 	return toSerialize, nil

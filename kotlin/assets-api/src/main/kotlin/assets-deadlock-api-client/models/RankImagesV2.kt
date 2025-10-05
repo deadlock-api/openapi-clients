@@ -139,5 +139,8 @@ data class RankImagesV2 (
     @Json(name = "small_subrank6_webp")
     val smallSubrank6Webp: kotlin.String? = null
 
-)
+) {
+
+
+}
 

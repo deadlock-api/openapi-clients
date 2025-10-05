@@ -2,25 +2,25 @@
 
 ### Get Item
 ## Get Item
-GET https://assets.deadlock-api.com/v2/items/{{id_or_class_name}}
+GET https://assets.deadlock-api.com/v2/items/{{id_or_class_name}}?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Items By Hero Id
 ## Get Items By Hero Id
-GET https://assets.deadlock-api.com/v2/items/by-hero-id/{{id}}
+GET https://assets.deadlock-api.com/v2/items/by-hero-id/{{id}}?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Items By Slot Type
 ## Get Items By Slot Type
-GET https://assets.deadlock-api.com/v2/items/by-slot-type/{{slot_type}}
+GET https://assets.deadlock-api.com/v2/items/by-slot-type/{{slot_type}}?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Items By Type
 ## Get Items By Type
-GET https://assets.deadlock-api.com/v2/items/by-type/{{type}}
+GET https://assets.deadlock-api.com/v2/items/by-type/{{type}}?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Items
 ## Get Items
-GET https://assets.deadlock-api.com/v2/items
+GET https://assets.deadlock-api.com/v2/items?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json

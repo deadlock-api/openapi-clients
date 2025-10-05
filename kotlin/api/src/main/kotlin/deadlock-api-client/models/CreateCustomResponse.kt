@@ -40,5 +40,8 @@ data class CreateCustomResponse (
     @Json(name = "callback_secret")
     val callbackSecret: kotlin.String? = null
 
-)
+) {
+
+
+}
 

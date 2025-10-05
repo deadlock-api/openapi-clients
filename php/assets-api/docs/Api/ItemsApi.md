@@ -33,8 +33,8 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     new GuzzleHttp\Client()
 );
 $id_or_class_name = 'id_or_class_name_example'; // string
-$language = new \OpenAPI\Client\Model\Language(); // Language
-$client_version = new \OpenAPI\Client\Model\ValidClientVersions(); // ValidClientVersions
+$language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
 
 try {
     $result = $apiInstance->getItemV2ItemsIdOrClassNameGet($id_or_class_name, $language, $client_version);
@@ -49,8 +49,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_or_class_name** | **string**|  | |
-| **language** | [**Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**ValidClientVersions**](../Model/.md)|  | [optional] |
+| **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -91,8 +91,8 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     new GuzzleHttp\Client()
 );
 $id = 56; // int
-$language = new \OpenAPI\Client\Model\Language(); // Language
-$client_version = new \OpenAPI\Client\Model\ValidClientVersions(); // ValidClientVersions
+$language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
 
 try {
     $result = $apiInstance->getItemsByHeroIdV2ItemsByHeroIdIdGet($id, $language, $client_version);
@@ -107,8 +107,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**|  | |
-| **language** | [**Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**ValidClientVersions**](../Model/.md)|  | [optional] |
+| **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -148,9 +148,9 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$slot_type = new \OpenAPI\Client\Model\ItemSlotTypeV2(); // ItemSlotTypeV2
-$language = new \OpenAPI\Client\Model\Language(); // Language
-$client_version = new \OpenAPI\Client\Model\ValidClientVersions(); // ValidClientVersions
+$slot_type = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ItemSlotTypeV2(); // \OpenAPI\Client\Model\ItemSlotTypeV2
+$language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
 
 try {
     $result = $apiInstance->getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet($slot_type, $language, $client_version);
@@ -164,9 +164,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **slot_type** | [**ItemSlotTypeV2**](../Model/.md)|  | |
-| **language** | [**Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**ValidClientVersions**](../Model/.md)|  | [optional] |
+| **slot_type** | [**\OpenAPI\Client\Model\ItemSlotTypeV2**](../Model/.md)|  | |
+| **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -206,9 +206,9 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$type = new \OpenAPI\Client\Model\ItemTypeV2(); // ItemTypeV2
-$language = new \OpenAPI\Client\Model\Language(); // Language
-$client_version = new \OpenAPI\Client\Model\ValidClientVersions(); // ValidClientVersions
+$type = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ItemTypeV2(); // \OpenAPI\Client\Model\ItemTypeV2
+$language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
 
 try {
     $result = $apiInstance->getItemsByTypeV2ItemsByTypeTypeGet($type, $language, $client_version);
@@ -222,9 +222,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **type** | [**ItemTypeV2**](../Model/.md)|  | |
-| **language** | [**Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**ValidClientVersions**](../Model/.md)|  | [optional] |
+| **type** | [**\OpenAPI\Client\Model\ItemTypeV2**](../Model/.md)|  | |
+| **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -264,8 +264,8 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$language = new \OpenAPI\Client\Model\Language(); // Language
-$client_version = new \OpenAPI\Client\Model\ValidClientVersions(); // ValidClientVersions
+$language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
 
 try {
     $result = $apiInstance->getItemsV2ItemsGet($language, $client_version);
@@ -279,8 +279,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **language** | [**Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**ValidClientVersions**](../Model/.md)|  | [optional] |
+| **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 

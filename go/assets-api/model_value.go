@@ -15,56 +15,58 @@ import (
 	"fmt"
 )
 
+
 // Value struct for Value
 type Value struct {
-	float32 *float32
-	int32 *int32
+	Float32 *float32
+	Int32 *int32
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *Value) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into float32
-	err = json.Unmarshal(data, &dst.float32);
+	// try to unmarshal JSON data into Float32
+	err = json.Unmarshal(data, &dst.Float32);
 	if err == nil {
-		jsonfloat32, _ := json.Marshal(dst.float32)
-		if string(jsonfloat32) == "{}" { // empty struct
-			dst.float32 = nil
+		jsonFloat32, _ := json.Marshal(dst.Float32)
+		if string(jsonFloat32) == "{}" { // empty struct
+			dst.Float32 = nil
 		} else {
-			return nil // data stored in dst.float32, return on the first match
+			return nil // data stored in dst.Float32, return on the first match
 		}
 	} else {
-		dst.float32 = nil
+		dst.Float32 = nil
 	}
 
-	// try to unmarshal JSON data into int32
-	err = json.Unmarshal(data, &dst.int32);
+	// try to unmarshal JSON data into Int32
+	err = json.Unmarshal(data, &dst.Int32);
 	if err == nil {
-		jsonint32, _ := json.Marshal(dst.int32)
-		if string(jsonint32) == "{}" { // empty struct
-			dst.int32 = nil
+		jsonInt32, _ := json.Marshal(dst.Int32)
+		if string(jsonInt32) == "{}" { // empty struct
+			dst.Int32 = nil
 		} else {
-			return nil // data stored in dst.int32, return on the first match
+			return nil // data stored in dst.Int32, return on the first match
 		}
 	} else {
-		dst.int32 = nil
+		dst.Int32 = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(Value)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *Value) MarshalJSON() ([]byte, error) {
-	if src.float32 != nil {
-		return json.Marshal(&src.float32)
+func (src Value) MarshalJSON() ([]byte, error) {
+	if src.Float32 != nil {
+		return json.Marshal(&src.Float32)
 	}
 
-	if src.int32 != nil {
-		return json.Marshal(&src.int32)
+	if src.Int32 != nil {
+		return json.Marshal(&src.Int32)
 	}
 
 	return nil, nil // no data in anyOf schemas
 }
+
 
 type NullableValue struct {
 	value *Value

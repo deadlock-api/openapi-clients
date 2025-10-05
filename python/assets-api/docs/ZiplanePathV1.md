@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**origin** | **List[str]** | The origin of the path. | 
+**origin** | **List[object]** | The origin of the path. | 
 **color** | **str** | The color of the path. | 
-**p0_points** | **List[List[str]]** | The P0 points of the path. | 
-**p1_points** | **List[List[str]]** | The P1 points of the path. | 
-**p2_points** | **List[List[str]]** | The P2 points of the path. | 
+**p0_points** | **List[List[object]]** | The P0 points of the path. | 
+**p1_points** | **List[List[object]]** | The P1 points of the path. | 
+**p2_points** | **List[List[object]]** | The P2 points of the path. | 
 
 ## Example
 

@@ -40,5 +40,8 @@ data class PlayerCardSlotHero (
     @Json(name = "wins")
     val wins: kotlin.Int? = null
 
-)
+) {
+
+
+}
 

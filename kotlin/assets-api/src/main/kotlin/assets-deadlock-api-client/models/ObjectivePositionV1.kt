@@ -37,5 +37,8 @@ data class ObjectivePositionV1 (
     @Json(name = "top_relative")
     val topRelative: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

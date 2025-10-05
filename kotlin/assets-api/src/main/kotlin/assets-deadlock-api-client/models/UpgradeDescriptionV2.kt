@@ -39,5 +39,8 @@ data class UpgradeDescriptionV2 (
     @Json(name = "passive")
     val passive: kotlin.String? = null
 
-)
+) {
+
+
+}
 

@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -24,13 +25,13 @@ pub enum ESportsMatchStatus {
 
 }
 
-impl ToString for ESportsMatchStatus {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for ESportsMatchStatus {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::Live => String::from("Live"),
-            Self::Completed => String::from("Completed"),
-            Self::Scheduled => String::from("Scheduled"),
-            Self::Cancelled => String::from("Cancelled"),
+            Self::Live => write!(f, "Live"),
+            Self::Completed => write!(f, "Completed"),
+            Self::Scheduled => write!(f, "Scheduled"),
+            Self::Cancelled => write!(f, "Cancelled"),
         }
     }
 }

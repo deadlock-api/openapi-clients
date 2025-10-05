@@ -37,5 +37,8 @@ data class BadgeDistribution (
     @Json(name = "total_matches")
     val totalMatches: kotlin.Long
 
-)
+) {
+
+
+}
 

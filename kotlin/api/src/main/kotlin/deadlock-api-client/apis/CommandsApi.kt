@@ -16,7 +16,7 @@
 package deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.OkHttpClient
+import okhttp3.Call
 import okhttp3.HttpUrl
 
 import deadlock-api-client.models.VariableDescription
@@ -37,7 +37,7 @@ import deadlock-api-client.infrastructure.ResponseType
 import deadlock-api-client.infrastructure.Success
 import deadlock-api-client.infrastructure.toMultiValue
 
-class CommandsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -46,6 +46,7 @@ class CommandsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     }
 
     /**
+     * GET /v1/commands/variables/available
      * Available Variables
      *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @return kotlin.collections.List<VariableDescription>
@@ -76,6 +77,7 @@ class CommandsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     }
 
     /**
+     * GET /v1/commands/variables/available
      * Available Variables
      *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @return ApiResponse<kotlin.collections.List<VariableDescription>?>
@@ -121,10 +123,20 @@ class CommandsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
          @Json(name = "Asia") Asia("Asia"),
          @Json(name = "NAmerica") NAmerica("NAmerica"),
          @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania")
+         @Json(name = "Oceania") Oceania("Oceania");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
+     * GET /v1/commands/resolve
      * Resolve Command
      *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
      * @param accountId The players &#x60;SteamID3&#x60;
@@ -159,6 +171,7 @@ class CommandsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     }
 
     /**
+     * GET /v1/commands/resolve
      * Resolve Command
      *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
      * @param accountId The players &#x60;SteamID3&#x60;
@@ -204,7 +217,8 @@ class CommandsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        
+        localVariableHeaders["Accept"] = "text/plain"
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/commands/resolve",
@@ -223,10 +237,20 @@ class CommandsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
          @Json(name = "Asia") Asia("Asia"),
          @Json(name = "NAmerica") NAmerica("NAmerica"),
          @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania")
+         @Json(name = "Oceania") Oceania("Oceania");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
+     * GET /v1/commands/variables/resolve
      * Resolve Variables
      *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
      * @param accountId 
@@ -261,6 +285,7 @@ class CommandsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     }
 
     /**
+     * GET /v1/commands/variables/resolve
      * Resolve Variables
      *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
      * @param accountId 
@@ -319,6 +344,7 @@ class CommandsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     }
 
     /**
+     * GET /v1/commands/widgets/versions
      * Widget Versions
      *  Returns a map of str-&gt;int of widget versions.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return kotlin.collections.Map<kotlin.String, kotlin.Int>
@@ -349,6 +375,7 @@ class CommandsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     }
 
     /**
+     * GET /v1/commands/widgets/versions
      * Widget Versions
      *  Returns a map of str-&gt;int of widget versions.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.Int>?>

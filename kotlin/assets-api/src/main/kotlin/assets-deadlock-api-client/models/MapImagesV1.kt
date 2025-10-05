@@ -52,5 +52,8 @@ data class MapImagesV1 (
     @Json(name = "mid")
     val mid: kotlin.String
 
-)
+) {
+
+
+}
 

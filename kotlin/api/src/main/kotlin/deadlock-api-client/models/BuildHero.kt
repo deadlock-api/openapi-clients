@@ -81,5 +81,8 @@ data class BuildHero (
     @Json(name = "tags")
     val tags: kotlin.collections.List<kotlin.Int>? = null
 
-)
+) {
+
+
+}
 

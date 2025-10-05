@@ -53,5 +53,8 @@ data class ClickhouseMatchInfo (
     @Json(name = "average_badge_team1")
     val averageBadgeTeam1: kotlin.Int? = null
 
-)
+) {
+
+
+}
 

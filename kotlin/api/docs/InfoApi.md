@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**healthCheck**](InfoApi.md#healthCheck) | **GET** /v1/info/health | Health Check
-[**info**](InfoApi.md#info) | **GET** /v1/info | API Info
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**healthCheck**](InfoApi.md#healthCheck) | **GET** /v1/info/health | Health Check |
+| [**info**](InfoApi.md#info) | **GET** /v1/info | API Info |
 
 
 <a id="healthCheck"></a>
@@ -49,7 +49,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 <a id="info"></a>
 # **info**
@@ -92,5 +92,5 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 

@@ -31,5 +31,8 @@ data class RawHeroItemSlotInfoValueV2 (
     @Json(name = "max_purchases_for_tier")
     val maxPurchasesForTier: kotlin.collections.List<kotlin.Int>
 
-)
+) {
+
+
+}
 

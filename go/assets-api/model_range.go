@@ -15,10 +15,11 @@ import (
 	"fmt"
 )
 
+
 // Range struct for Range
 type Range struct {
-	[]float32 *[]float32
-	float32 *float32
+	ArrayOfFloat32 *[]float32
+	Float32 *float32
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -29,47 +30,48 @@ func (dst *Range) UnmarshalJSON(data []byte) error {
 		return nil
 	}
 
-	// try to unmarshal JSON data into []float32
-	err = json.Unmarshal(data, &dst.[]float32);
+	// try to unmarshal JSON data into ArrayOfFloat32
+	err = json.Unmarshal(data, &dst.ArrayOfFloat32);
 	if err == nil {
-		json[]float32, _ := json.Marshal(dst.[]float32)
-		if string(json[]float32) == "{}" { // empty struct
-			dst.[]float32 = nil
+		jsonArrayOfFloat32, _ := json.Marshal(dst.ArrayOfFloat32)
+		if string(jsonArrayOfFloat32) == "{}" { // empty struct
+			dst.ArrayOfFloat32 = nil
 		} else {
-			return nil // data stored in dst.[]float32, return on the first match
+			return nil // data stored in dst.ArrayOfFloat32, return on the first match
 		}
 	} else {
-		dst.[]float32 = nil
+		dst.ArrayOfFloat32 = nil
 	}
 
-	// try to unmarshal JSON data into float32
-	err = json.Unmarshal(data, &dst.float32);
+	// try to unmarshal JSON data into Float32
+	err = json.Unmarshal(data, &dst.Float32);
 	if err == nil {
-		jsonfloat32, _ := json.Marshal(dst.float32)
-		if string(jsonfloat32) == "{}" { // empty struct
-			dst.float32 = nil
+		jsonFloat32, _ := json.Marshal(dst.Float32)
+		if string(jsonFloat32) == "{}" { // empty struct
+			dst.Float32 = nil
 		} else {
-			return nil // data stored in dst.float32, return on the first match
+			return nil // data stored in dst.Float32, return on the first match
 		}
 	} else {
-		dst.float32 = nil
+		dst.Float32 = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(Range)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *Range) MarshalJSON() ([]byte, error) {
-	if src.[]float32 != nil {
-		return json.Marshal(&src.[]float32)
+func (src Range) MarshalJSON() ([]byte, error) {
+	if src.ArrayOfFloat32 != nil {
+		return json.Marshal(&src.ArrayOfFloat32)
 	}
 
-	if src.float32 != nil {
-		return json.Marshal(&src.float32)
+	if src.Float32 != nil {
+		return json.Marshal(&src.Float32)
 	}
 
 	return nil, nil // no data in anyOf schemas
 }
+
 
 type NullableRange struct {
 	value *Range

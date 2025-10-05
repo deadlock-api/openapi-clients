@@ -2,15 +2,15 @@
 
 ### Get Hero By Name
 ## Get Hero By Name
-GET https://assets.deadlock-api.com/v2/heroes/by-name/{{name}}
+GET https://assets.deadlock-api.com/v2/heroes/by-name/{{name}}?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Hero
 ## Get Hero
-GET https://assets.deadlock-api.com/v2/heroes/{{id}}
+GET https://assets.deadlock-api.com/v2/heroes/{{id}}?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json
 
 ### Get Heroes
 ## Get Heroes
-GET https://assets.deadlock-api.com/v2/heroes
+GET https://assets.deadlock-api.com/v2/heroes?language={{language}}&clientVersion={{clientVersion}}&onlyActive={{onlyActive}}
 Accept: application/json

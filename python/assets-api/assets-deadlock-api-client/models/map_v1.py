@@ -85,9 +85,9 @@ class MapV1(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in zipline_paths (list)
         _items = []
         if self.zipline_paths:
-            for _item in self.zipline_paths:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_zipline_paths in self.zipline_paths:
+                if _item_zipline_paths:
+                    _items.append(_item_zipline_paths.to_dict())
             _dict['zipline_paths'] = _items
         return _dict
 

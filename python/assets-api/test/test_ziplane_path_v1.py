@@ -27,7 +27,7 @@ class TestZiplanePathV1(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ZiplanePathV1:
         """Test ZiplanePathV1
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ZiplanePathV1`
@@ -36,44 +36,44 @@ class TestZiplanePathV1(unittest.TestCase):
         if include_optional:
             return ZiplanePathV1(
                 origin = [
-                    ''
+                    null
                     ],
                 color = '',
                 p0_points = [
                     [
-                        ''
+                        null
                         ]
                     ],
                 p1_points = [
                     [
-                        ''
+                        null
                         ]
                     ],
                 p2_points = [
                     [
-                        ''
+                        null
                         ]
                     ]
             )
         else:
             return ZiplanePathV1(
                 origin = [
-                    ''
+                    null
                     ],
                 color = '',
                 p0_points = [
                     [
-                        ''
+                        null
                         ]
                     ],
                 p1_points = [
                     [
-                        ''
+                        null
                         ]
                     ],
                 p2_points = [
                     [
-                        ''
+                        null
                         ]
                     ],
         )

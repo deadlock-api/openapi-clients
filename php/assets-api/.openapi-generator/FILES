@@ -9,6 +9,7 @@ api/Api/ItemsApi.php
 api/Api/RawApi.php
 api/ApiException.php
 api/Configuration.php
+api/FormDataProcessor.php
 api/HeaderSelector.php
 api/Model/AbilityDescriptionV2.php
 api/Model/AbilityTooltipDetailsInfoSectionPropertyBlockV2.php

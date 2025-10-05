@@ -9,23 +9,24 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HeroColorsV2 {
     #[serde(rename = "glow_enemy")]
-    pub glow_enemy: Vec<String>,
+    pub glow_enemy: Vec<serde_json::Value>,
     #[serde(rename = "glow_friendly")]
-    pub glow_friendly: Vec<String>,
+    pub glow_friendly: Vec<serde_json::Value>,
     #[serde(rename = "glow_team1")]
-    pub glow_team1: Vec<String>,
+    pub glow_team1: Vec<serde_json::Value>,
     #[serde(rename = "glow_team2")]
-    pub glow_team2: Vec<String>,
+    pub glow_team2: Vec<serde_json::Value>,
     #[serde(rename = "ui")]
-    pub ui: Vec<String>,
+    pub ui: Vec<serde_json::Value>,
 }
 
 impl HeroColorsV2 {
-    pub fn new(glow_enemy: Vec<String>, glow_friendly: Vec<String>, glow_team1: Vec<String>, glow_team2: Vec<String>, ui: Vec<String>) -> HeroColorsV2 {
+    pub fn new(glow_enemy: Vec<serde_json::Value>, glow_friendly: Vec<serde_json::Value>, glow_team1: Vec<serde_json::Value>, glow_team2: Vec<serde_json::Value>, ui: Vec<serde_json::Value>) -> HeroColorsV2 {
         HeroColorsV2 {
             glow_enemy,
             glow_friendly,

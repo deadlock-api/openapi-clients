@@ -35,5 +35,8 @@ data class MatchSpectateResponse (
     @Json(name = "lobby_id")
     val lobbyId: kotlin.Long? = null
 
-)
+) {
+
+
+}
 

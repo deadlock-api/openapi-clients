@@ -49,5 +49,8 @@ data class MapV1 (
     @Json(name = "radius")
     val radius: kotlin.Int? = 10752
 
-)
+) {
+
+
+}
 

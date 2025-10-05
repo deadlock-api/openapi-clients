@@ -10,9 +10,9 @@
 
 
 use reqwest;
-
+use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
-use super::{Error, configuration};
+use super::{Error, configuration, ContentType};
 
 /// struct for passing parameters to the method [`get_hero_by_name_v2_heroes_by_name_name_get`]
 #[derive(Clone, Debug)]
@@ -65,122 +65,125 @@ pub enum GetHeroesV2HeroesGetError {
 
 
 pub async fn get_hero_by_name_v2_heroes_by_name_name_get(configuration: &configuration::Configuration, params: GetHeroByNameV2HeroesByNameNameGetParams) -> Result<models::HeroV2, Error<GetHeroByNameV2HeroesByNameNameGetError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let name = params.name;
-    let language = params.language;
-    let client_version = params.client_version;
+    let uri_str = format!("{}/v2/heroes/by-name/{name}", configuration.base_path, name=crate::apis::urlencode(params.name));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v2/heroes/by-name/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = language {
-        local_var_req_builder = local_var_req_builder.query(&[("language", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.language {
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = client_version {
-        local_var_req_builder = local_var_req_builder.query(&[("client_version", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.client_version {
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HeroV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HeroV2`")))),
+        }
     } else {
-        let local_var_entity: Option<GetHeroByNameV2HeroesByNameNameGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<GetHeroByNameV2HeroesByNameNameGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 pub async fn get_hero_v2_heroes_id_get(configuration: &configuration::Configuration, params: GetHeroV2HeroesIdGetParams) -> Result<models::HeroV2, Error<GetHeroV2HeroesIdGetError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let id = params.id;
-    let language = params.language;
-    let client_version = params.client_version;
+    let uri_str = format!("{}/v2/heroes/{id}", configuration.base_path, id=params.id);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v2/heroes/{id}", local_var_configuration.base_path, id=id);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = language {
-        local_var_req_builder = local_var_req_builder.query(&[("language", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.language {
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = client_version {
-        local_var_req_builder = local_var_req_builder.query(&[("client_version", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.client_version {
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HeroV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HeroV2`")))),
+        }
     } else {
-        let local_var_entity: Option<GetHeroV2HeroesIdGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<GetHeroV2HeroesIdGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 pub async fn get_heroes_v2_heroes_get(configuration: &configuration::Configuration, params: GetHeroesV2HeroesGetParams) -> Result<Vec<models::HeroV2>, Error<GetHeroesV2HeroesGetError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let language = params.language;
-    let client_version = params.client_version;
-    let only_active = params.only_active;
+    let uri_str = format!("{}/v2/heroes", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v2/heroes", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = language {
-        local_var_req_builder = local_var_req_builder.query(&[("language", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.language {
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = client_version {
-        local_var_req_builder = local_var_req_builder.query(&[("client_version", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.client_version {
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = only_active {
-        local_var_req_builder = local_var_req_builder.query(&[("only_active", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.only_active {
+        req_builder = req_builder.query(&[("only_active", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::HeroV2&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::HeroV2&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<GetHeroesV2HeroesGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<GetHeroesV2HeroesGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 

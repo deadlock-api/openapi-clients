@@ -60,5 +60,8 @@ data class MMRHistory (
     @Json(name = "start_time")
     val startTime: kotlin.Int
 
-)
+) {
+
+
+}
 

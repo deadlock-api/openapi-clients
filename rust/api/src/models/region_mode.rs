@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -28,15 +29,15 @@ pub enum RegionMode {
 
 }
 
-impl ToString for RegionMode {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for RegionMode {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::Row => String::from("row"),
-            Self::Europe => String::from("europe"),
-            Self::SeAsia => String::from("se_asia"),
-            Self::SAmerica => String::from("s_america"),
-            Self::Russia => String::from("russia"),
-            Self::Oceania => String::from("oceania"),
+            Self::Row => write!(f, "row"),
+            Self::Europe => write!(f, "europe"),
+            Self::SeAsia => write!(f, "se_asia"),
+            Self::SAmerica => write!(f, "s_america"),
+            Self::Russia => write!(f, "russia"),
+            Self::Oceania => write!(f, "oceania"),
         }
     }
 }

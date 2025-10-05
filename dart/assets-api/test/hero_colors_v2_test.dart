@@ -16,27 +16,27 @@ void main() {
   // final instance = HeroColorsV2();
 
   group('test HeroColorsV2', () {
-    // List<String> glowEnemy (default value: const [])
+    // List<Object> glowEnemy (default value: const [])
     test('to test the property `glowEnemy`', () async {
       // TODO
     });
 
-    // List<String> glowFriendly (default value: const [])
+    // List<Object> glowFriendly (default value: const [])
     test('to test the property `glowFriendly`', () async {
       // TODO
     });
 
-    // List<String> glowTeam1 (default value: const [])
+    // List<Object> glowTeam1 (default value: const [])
     test('to test the property `glowTeam1`', () async {
       // TODO
     });
 
-    // List<String> glowTeam2 (default value: const [])
+    // List<Object> glowTeam2 (default value: const [])
     test('to test the property `glowTeam2`', () async {
       // TODO
     });
 
-    // List<String> ui (default value: const [])
+    // List<Object> ui (default value: const [])
     test('to test the property `ui`', () async {
       // TODO
     });

@@ -2,16 +2,16 @@
 
 All URIs are relative to *https://api.deadlock-api.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**activeMatches**](MatchesApi.md#activeMatches) | **GET** /v1/matches/active | Active
-[**activeMatchesRaw**](MatchesApi.md#activeMatchesRaw) | **GET** /v1/matches/active/raw | Active as Protobuf
-[**bulkMetadata**](MatchesApi.md#bulkMetadata) | **GET** /v1/matches/metadata | Bulk Metadata
-[**metadata**](MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata
-[**metadataRaw**](MatchesApi.md#metadataRaw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf
-[**recentlyFetched**](MatchesApi.md#recentlyFetched) | **GET** /v1/matches/recently-fetched | Recently Fetched
-[**salts**](MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts
-[**url**](MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**activeMatches**](MatchesApi.md#activeMatches) | **GET** /v1/matches/active | Active |
+| [**activeMatchesRaw**](MatchesApi.md#activeMatchesRaw) | **GET** /v1/matches/active/raw | Active as Protobuf |
+| [**bulkMetadata**](MatchesApi.md#bulkMetadata) | **GET** /v1/matches/metadata | Bulk Metadata |
+| [**metadata**](MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata |
+| [**metadataRaw**](MatchesApi.md#metadataRaw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf |
+| [**recentlyFetched**](MatchesApi.md#recentlyFetched) | **GET** /v1/matches/recently-fetched | Recently Fetched |
+| [**salts**](MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts |
+| [**url**](MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL |
 
 
 <a id="activeMatches"></a>
@@ -44,11 +44,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **kotlin.Int**| The account ID to filter active matches by (&#x60;SteamID3&#x60;) | [optional]
- **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional]
+| **accountId** | **kotlin.Int**| The account ID to filter active matches by (&#x60;SteamID3&#x60;) | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type
 
@@ -158,33 +157,32 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **includeInfo** | **kotlin.Boolean**| Include match info in the response. | [optional] [default to true]
- **includeObjectives** | **kotlin.Boolean**| Include objectives in the response. | [optional]
- **includeMidBoss** | **kotlin.Boolean**| Include midboss in the response. | [optional]
- **includePlayerInfo** | **kotlin.Boolean**| Include player info in the response. | [optional]
- **includePlayerItems** | **kotlin.Boolean**| Include player items in the response. | [optional]
- **includePlayerStats** | **kotlin.Boolean**| Include player stats in the response. | [optional]
- **includePlayerDeathDetails** | **kotlin.Boolean**| Include player death details in the response. | [optional]
- **matchIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of match ids, limited by &#x60;limit&#x60; | [optional]
- **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
- **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional]
- **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
- **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional]
- **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
- **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]
- **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
- **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional]
- **isHighSkillRangeParties** | **kotlin.Boolean**| Filter matches based on whether they are in the high skill range. | [optional]
- **isLowPriPool** | **kotlin.Boolean**| Filter matches based on whether they are in the low priority pool. | [optional]
- **isNewPlayerPool** | **kotlin.Boolean**| Filter matches based on whether they are in the new player pool. | [optional]
- **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Filter matches by account IDs of players that participated in the match. | [optional]
- **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
- **orderBy** | **kotlin.String**| The field to order the results by. | [optional] [enum: match_id, start_time]
- **orderDirection** | **kotlin.String**| The direction to order the results by. | [optional] [enum: desc, asc]
- **limit** | **kotlin.Int**| The maximum number of matches to return. | [optional] [default to 1000]
+| **includeInfo** | **kotlin.Boolean**| Include match info in the response. | [optional] [default to true] |
+| **includeObjectives** | **kotlin.Boolean**| Include objectives in the response. | [optional] |
+| **includeMidBoss** | **kotlin.Boolean**| Include midboss in the response. | [optional] |
+| **includePlayerInfo** | **kotlin.Boolean**| Include player info in the response. | [optional] |
+| **includePlayerItems** | **kotlin.Boolean**| Include player items in the response. | [optional] |
+| **includePlayerStats** | **kotlin.Boolean**| Include player stats in the response. | [optional] |
+| **includePlayerDeathDetails** | **kotlin.Boolean**| Include player death details in the response. | [optional] |
+| **matchIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of match ids, limited by &#x60;limit&#x60; | [optional] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| **isHighSkillRangeParties** | **kotlin.Boolean**| Filter matches based on whether they are in the high skill range. | [optional] |
+| **isLowPriPool** | **kotlin.Boolean**| Filter matches based on whether they are in the low priority pool. | [optional] |
+| **isNewPlayerPool** | **kotlin.Boolean**| Filter matches based on whether they are in the new player pool. | [optional] |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Filter matches by account IDs of players that participated in the match. | [optional] |
+| **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
+| **orderBy** | **kotlin.String**| The field to order the results by. | [optional] [enum: match_id, start_time] |
+| **orderDirection** | **kotlin.String**| The direction to order the results by. | [optional] [enum: desc, asc] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **kotlin.Int**| The maximum number of matches to return. | [optional] [default to 1000] |
 
 ### Return type
 
@@ -228,11 +226,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **matchId** | **kotlin.Long**| The match ID |
- **isCustom** | **kotlin.Boolean**|  | [optional]
+| **matchId** | **kotlin.Long**| The match ID | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **isCustom** | **kotlin.Boolean**|  | [optional] |
 
 ### Return type
 
@@ -277,11 +274,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **matchId** | **kotlin.Long**| The match ID |
- **isCustom** | **kotlin.Boolean**|  | [optional]
+| **matchId** | **kotlin.Long**| The match ID | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **isCustom** | **kotlin.Boolean**|  | [optional] |
 
 ### Return type
 
@@ -325,10 +321,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **playerIngestedOnly** | **kotlin.Boolean**| If true, only return matches that have been ingested by players. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **playerIngestedOnly** | **kotlin.Boolean**| If true, only return matches that have been ingested by players. | [optional] |
 
 ### Return type
 
@@ -372,10 +367,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **matchId** | **kotlin.Long**| The match ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **matchId** | **kotlin.Long**| The match ID | |
 
 ### Return type
 
@@ -419,10 +413,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **matchId** | **kotlin.Long**| The match ID |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **matchId** | **kotlin.Long**| The match ID | |
 
 ### Return type
 

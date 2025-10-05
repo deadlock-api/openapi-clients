@@ -236,7 +236,7 @@ export interface AbilityV2 {
      * @type {string}
      * @memberof AbilityV2
      */
-    'type'?: string;
+    'type'?: AbilityV2TypeEnum;
     /**
      * 
      * @type {Array<string>}
@@ -287,6 +287,11 @@ export interface AbilityV2 {
     'videos'?: AbilityVideosV2 | null;
 }
 
+export const AbilityV2TypeEnum = {
+    Ability: 'ability'
+} as const;
+
+export type AbilityV2TypeEnum = typeof AbilityV2TypeEnum[keyof typeof AbilityV2TypeEnum];
 
 /**
  * 
@@ -453,34 +458,34 @@ export interface HTTPValidationError {
 export interface HeroColorsV2 {
     /**
      * 
-     * @type {Array<string>}
+     * @type {Array<any>}
      * @memberof HeroColorsV2
      */
-    'glow_enemy': Array<string>;
+    'glow_enemy': Array<any>;
     /**
      * 
-     * @type {Array<string>}
+     * @type {Array<any>}
      * @memberof HeroColorsV2
      */
-    'glow_friendly': Array<string>;
+    'glow_friendly': Array<any>;
     /**
      * 
-     * @type {Array<string>}
+     * @type {Array<any>}
      * @memberof HeroColorsV2
      */
-    'glow_team1': Array<string>;
+    'glow_team1': Array<any>;
     /**
      * 
-     * @type {Array<string>}
+     * @type {Array<any>}
      * @memberof HeroColorsV2
      */
-    'glow_team2': Array<string>;
+    'glow_team2': Array<any>;
     /**
      * 
-     * @type {Array<string>}
+     * @type {Array<any>}
      * @memberof HeroColorsV2
      */
-    'ui': Array<string>;
+    'ui': Array<any>;
 }
 /**
  * 
@@ -1282,7 +1287,7 @@ export type ItemSlotTypeV2 = typeof ItemSlotTypeV2[keyof typeof ItemSlotTypeV2];
 /**
  * 
  * @export
- * @enum {string}
+ * @enum {number}
  */
 
 export const ItemTierV2 = {
@@ -1805,9 +1810,9 @@ export type RawAbilityActivationV2 = typeof RawAbilityActivationV2[keyof typeof 
  */
 
 export const RawAbilityImbueV2 = {
-    Active: 'imbue_active',
-    ActiveNonUlt: 'imbue_active_non_ult',
-    ModifierValue: 'imbue_modifier_value'
+    ImbueActive: 'imbue_active',
+    ImbueActiveNonUlt: 'imbue_active_non_ult',
+    ImbueModifierValue: 'imbue_modifier_value'
 } as const;
 
 export type RawAbilityImbueV2 = typeof RawAbilityImbueV2[keyof typeof RawAbilityImbueV2];
@@ -2891,7 +2896,7 @@ export interface UpgradeV2 {
      * @type {string}
      * @memberof UpgradeV2
      */
-    'type'?: string;
+    'type'?: UpgradeV2TypeEnum;
     /**
      * 
      * @type {string}
@@ -2984,6 +2989,11 @@ export interface UpgradeV2 {
     'cost': number | null;
 }
 
+export const UpgradeV2TypeEnum = {
+    Upgrade: 'upgrade'
+} as const;
+
+export type UpgradeV2TypeEnum = typeof UpgradeV2TypeEnum[keyof typeof UpgradeV2TypeEnum];
 
 /**
  * 
@@ -2995,7 +3005,7 @@ export interface UsageFlags {
 /**
  * 
  * @export
- * @enum {string}
+ * @enum {number}
  */
 
 export const ValidClientVersions = {
@@ -3157,8 +3167,15 @@ export interface WeaponV2 {
      * @type {string}
      * @memberof WeaponV2
      */
-    'type'?: string;
+    'type'?: WeaponV2TypeEnum;
 }
+
+export const WeaponV2TypeEnum = {
+    Weapon: 'weapon'
+} as const;
+
+export type WeaponV2TypeEnum = typeof WeaponV2TypeEnum[keyof typeof WeaponV2TypeEnum];
+
 /**
  * 
  * @export
@@ -3167,10 +3184,10 @@ export interface WeaponV2 {
 export interface ZiplanePathV1 {
     /**
      * The origin of the path.
-     * @type {Array<string>}
+     * @type {Array<any>}
      * @memberof ZiplanePathV1
      */
-    'origin': Array<string>;
+    'origin': Array<any>;
     /**
      * The color of the path.
      * @type {string}
@@ -3179,22 +3196,22 @@ export interface ZiplanePathV1 {
     'color': string;
     /**
      * The P0 points of the path.
-     * @type {Array<Array<string>>}
+     * @type {Array<Array<any>>}
      * @memberof ZiplanePathV1
      */
-    'P0_points': Array<Array<string>>;
+    'P0_points': Array<Array<any>>;
     /**
      * The P1 points of the path.
-     * @type {Array<Array<string>>}
+     * @type {Array<Array<any>>}
      * @memberof ZiplanePathV1
      */
-    'P1_points': Array<Array<string>>;
+    'P1_points': Array<Array<any>>;
     /**
      * The P2 points of the path.
-     * @type {Array<Array<string>>}
+     * @type {Array<Array<any>>}
      * @memberof ZiplanePathV1
      */
-    'P2_points': Array<Array<string>>;
+    'P2_points': Array<Array<any>>;
 }
 
 /**

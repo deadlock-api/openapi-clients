@@ -2,60 +2,60 @@
 
 ### Ability Order Stats
 ## Ability Order Stats
-GET https://api.deadlock-api.com/v1/analytics/ability-order-stats
+GET https://api.deadlock-api.com/v1/analytics/ability-order-stats?heroId={{heroId}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAbilityUpgrades={{minAbilityUpgrades}}&maxAbilityUpgrades={{maxAbilityUpgrades}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatches={{minMatches}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Badge Distribution
 ## Badge Distribution
-GET https://api.deadlock-api.com/v1/analytics/badge-distribution
+GET https://api.deadlock-api.com/v1/analytics/badge-distribution?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
 Accept: application/json
 
 ### Build Item Stats
 ## Build Item Stats
-GET https://api.deadlock-api.com/v1/analytics/build-item-stats
+GET https://api.deadlock-api.com/v1/analytics/build-item-stats?heroId={{heroId}}&minLastUpdatedUnixTimestamp={{minLastUpdatedUnixTimestamp}}&maxLastUpdatedUnixTimestamp={{maxLastUpdatedUnixTimestamp}}
 Accept: application/json
 
 ### Hero Comb Stats
 ## Hero Comb Stats
-GET https://api.deadlock-api.com/v1/analytics/hero-comb-stats
+GET https://api.deadlock-api.com/v1/analytics/hero-comb-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&includeHeroIds={{includeHeroIds}}&excludeHeroIds={{excludeHeroIds}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&combSize={{combSize}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Hero Counter Stats
 ## Hero Counter Stats
-GET https://api.deadlock-api.com/v1/analytics/hero-counter-stats
+GET https://api.deadlock-api.com/v1/analytics/hero-counter-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minEnemyNetworth={{minEnemyNetworth}}&maxEnemyNetworth={{maxEnemyNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&sameLaneFilter={{sameLaneFilter}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Hero Scoreboard
 ## Hero Scoreboard
-GET https://api.deadlock-api.com/v1/analytics/scoreboards/heroes
+GET https://api.deadlock-api.com/v1/analytics/scoreboards/heroes?sortBy={{sortBy}}&sortDirection={{sortDirection}}&minMatches={{minMatches}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Hero Stats
 ## Hero Stats
-GET https://api.deadlock-api.com/v1/analytics/hero-stats
+GET https://api.deadlock-api.com/v1/analytics/hero-stats?bucket={{bucket}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minHeroMatches={{minHeroMatches}}&maxHeroMatches={{maxHeroMatches}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Hero Synergy Stats
 ## Hero Synergy Stats
-GET https://api.deadlock-api.com/v1/analytics/hero-synergy-stats
+GET https://api.deadlock-api.com/v1/analytics/hero-synergy-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&sameLaneFilter={{sameLaneFilter}}&samePartyFilter={{samePartyFilter}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Item Permutation Stats
 ## Item Permutation Stats
-GET https://api.deadlock-api.com/v1/analytics/item-permutation-stats
+GET https://api.deadlock-api.com/v1/analytics/item-permutation-stats?itemIds={{itemIds}}&combSize={{combSize}}&heroIds={{heroIds}}&heroId={{heroId}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Item Stats
 ## Item Stats
-GET https://api.deadlock-api.com/v1/analytics/item-stats
+GET https://api.deadlock-api.com/v1/analytics/item-stats?bucket={{bucket}}&heroIds={{heroIds}}&heroId={{heroId}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Player Scoreboard
 ## Player Scoreboard
-GET https://api.deadlock-api.com/v1/analytics/scoreboards/players
+GET https://api.deadlock-api.com/v1/analytics/scoreboards/players?sortBy={{sortBy}}&sortDirection={{sortDirection}}&heroId={{heroId}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&start={{start}}&limit={{limit}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Player Stats Metrics
 ## Player Stats Metrics
-GET https://api.deadlock-api.com/v1/analytics/player-stats/metrics
+GET https://api.deadlock-api.com/v1/analytics/player-stats/metrics?heroIds={{heroIds}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&maxMatches={{maxMatches}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&accountIds={{accountIds}}
 Accept: application/json

@@ -7,12 +7,12 @@ Accept: application/json
 
 ### Resolve Command
 ## Resolve Command
-GET https://api.deadlock-api.com/v1/commands/resolve
+GET https://api.deadlock-api.com/v1/commands/resolve?region={{region}}&accountId={{accountId}}&template={{template}}&heroName={{heroName}}
 Accept: text/plain
 
 ### Resolve Variables
 ## Resolve Variables
-GET https://api.deadlock-api.com/v1/commands/variables/resolve
+GET https://api.deadlock-api.com/v1/commands/variables/resolve?region={{region}}&accountId={{accountId}}&variables={{variables}}&heroName={{heroName}}
 Accept: application/json
 
 ### Widget Versions

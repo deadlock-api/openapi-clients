@@ -73,5 +73,8 @@ data class ESportsMatch (
     @Json(name = "update_id")
     val updateId: java.util.UUID? = null
 
-)
+) {
+
+
+}
 

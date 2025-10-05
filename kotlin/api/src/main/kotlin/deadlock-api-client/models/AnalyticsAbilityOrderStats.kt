@@ -60,5 +60,8 @@ data class AnalyticsAbilityOrderStats (
     @Json(name = "wins")
     val wins: kotlin.Long
 
-)
+) {
+
+
+}
 

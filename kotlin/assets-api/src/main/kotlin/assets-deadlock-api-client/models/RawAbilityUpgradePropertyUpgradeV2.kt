@@ -44,5 +44,8 @@ data class RawAbilityUpgradePropertyUpgradeV2 (
     @Json(name = "upgrade_type")
     val upgradeType: kotlin.String? = null
 
-)
+) {
+
+
+}
 

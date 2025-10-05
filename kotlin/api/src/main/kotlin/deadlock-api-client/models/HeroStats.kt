@@ -141,5 +141,8 @@ data class HeroStats (
     @Json(name = "wins")
     val wins: kotlin.Long
 
-)
+) {
+
+
+}
 

@@ -47,5 +47,8 @@ data class ColorV1 (
     @Json(name = "alpha")
     val alpha: kotlin.Int
 
-)
+) {
+
+
+}
 

@@ -77,9 +77,9 @@ class BuildHeroDetailsCategory(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in mods (list)
         _items = []
         if self.mods:
-            for _item in self.mods:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_mods in self.mods:
+                if _item_mods:
+                    _items.append(_item_mods.to_dict())
             _dict['mods'] = _items
         # set to None if description (nullable) is None
         # and model_fields_set contains the field
@@ -90,6 +90,11 @@ class BuildHeroDetailsCategory(BaseModel):
         # and model_fields_set contains the field
         if self.height is None and "height" in self.model_fields_set:
             _dict['height'] = None
+
+        # set to None if mods (nullable) is None
+        # and model_fields_set contains the field
+        if self.mods is None and "mods" in self.model_fields_set:
+            _dict['mods'] = None
 
         # set to None if optional (nullable) is None
         # and model_fields_set contains the field

@@ -43,5 +43,8 @@ data class RawItemWeaponInfoBulletSpeedCurveSplineV2 (
     @Json(name = "y")
     val y: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

@@ -114,7 +114,7 @@ data class UpgradeV2 (
     val weaponInfo: RawItemWeaponInfoV2? = null,
 
     @Json(name = "type")
-    val type: kotlin.String? = "upgrade",
+    val type: UpgradeV2.Type? = Type.upgrade,
 
     @Json(name = "shop_image")
     val shopImage: kotlin.String? = null,
@@ -143,5 +143,17 @@ data class UpgradeV2 (
     @Json(name = "tooltip_sections")
     val tooltipSections: kotlin.collections.List<UpgradeTooltipSectionV2>? = null
 
-)
+) {
+
+    /**
+     * 
+     *
+     * Values: upgrade
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "upgrade") upgrade("upgrade");
+    }
+
+}
 

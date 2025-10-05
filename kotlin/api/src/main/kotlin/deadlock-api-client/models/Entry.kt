@@ -45,5 +45,8 @@ data class Entry (
     @Json(name = "value")
     val `value`: kotlin.Double
 
-)
+) {
+
+
+}
 

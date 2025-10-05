@@ -72,9 +72,9 @@ class RawAbilityUpgradeV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in property_upgrades (list)
         _items = []
         if self.property_upgrades:
-            for _item in self.property_upgrades:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_property_upgrades in self.property_upgrades:
+                if _item_property_upgrades:
+                    _items.append(_item_property_upgrades.to_dict())
             _dict['property_upgrades'] = _items
         return _dict
 

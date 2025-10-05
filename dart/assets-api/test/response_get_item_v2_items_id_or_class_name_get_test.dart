@@ -51,7 +51,7 @@ void main() {
       // TODO
     });
 
-    // List<Object> heroes (default value: const [])
+    // List<int> heroes (default value: const [])
     test('to test the property `heroes`', () async {
       // TODO
     });
@@ -71,12 +71,12 @@ void main() {
       // TODO
     });
 
-    // String type (default value: 'upgrade')
+    // String type (default value: 'ability')
     test('to test the property `type`', () async {
       // TODO
     });
 
-    // List<Object> behaviours (default value: const [])
+    // List<String> behaviours (default value: const [])
     test('to test the property `behaviours`', () async {
       // TODO
     });
@@ -106,7 +106,7 @@ void main() {
       // TODO
     });
 
-    // List<Object> dependantAbilities (default value: const [])
+    // List<String> dependantAbilities (default value: const [])
     test('to test the property `dependantAbilities`', () async {
       // TODO
     });
@@ -161,7 +161,7 @@ void main() {
       // TODO
     });
 
-    // List<Object> componentItems (default value: const [])
+    // List<String> componentItems (default value: const [])
     test('to test the property `componentItems`', () async {
       // TODO
     });

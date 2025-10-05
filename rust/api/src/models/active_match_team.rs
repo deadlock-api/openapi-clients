@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -22,12 +23,12 @@ pub enum ActiveMatchTeam {
 
 }
 
-impl ToString for ActiveMatchTeam {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for ActiveMatchTeam {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::Team0 => String::from("Team0"),
-            Self::Team1 => String::from("Team1"),
-            Self::Spectator => String::from("Spectator"),
+            Self::Team0 => write!(f, "Team0"),
+            Self::Team1 => write!(f, "Team1"),
+            Self::Spectator => write!(f, "Spectator"),
         }
     }
 }

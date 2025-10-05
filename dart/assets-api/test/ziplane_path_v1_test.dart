@@ -17,7 +17,7 @@ void main() {
 
   group('test ZiplanePathV1', () {
     // The origin of the path.
-    // List<String> origin (default value: const [])
+    // List<Object> origin (default value: const [])
     test('to test the property `origin`', () async {
       // TODO
     });
@@ -29,19 +29,19 @@ void main() {
     });
 
     // The P0 points of the path.
-    // List<List<String>> p0Points (default value: const [])
+    // List<List<Object>> p0Points (default value: const [])
     test('to test the property `p0Points`', () async {
       // TODO
     });
 
     // The P1 points of the path.
-    // List<List<String>> p1Points (default value: const [])
+    // List<List<Object>> p1Points (default value: const [])
     test('to test the property `p1Points`', () async {
       // TODO
     });
 
     // The P2 points of the path.
-    // List<List<String>> p2Points (default value: const [])
+    // List<List<Object>> p2Points (default value: const [])
     test('to test the property `p2Points`', () async {
       // TODO
     });

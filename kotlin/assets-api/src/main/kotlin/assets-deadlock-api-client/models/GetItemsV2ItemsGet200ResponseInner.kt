@@ -105,7 +105,7 @@ interface GetItemsV2ItemsGet200ResponseInner {
     @Json(name = "hero")
     val hero: kotlin.Int?
     @Json(name = "heroes")
-    val heroes: kotlin.collections.List<kotlin.Any>?
+    val heroes: kotlin.collections.List<kotlin.Int>?
     @Json(name = "update_time")
     val updateTime: kotlin.Int?
     @Json(name = "properties")
@@ -113,9 +113,9 @@ interface GetItemsV2ItemsGet200ResponseInner {
     @Json(name = "weapon_info")
     val weaponInfo: RawItemWeaponInfoV2?
     @Json(name = "type")
-    val type: kotlin.String?
+    val type: GetItemsV2ItemsGet200ResponseInner.Type?
     @Json(name = "behaviours")
-    val behaviours: kotlin.collections.List<kotlin.Any>?
+    val behaviours: kotlin.collections.List<kotlin.String>?
     @Json(name = "tooltip_details")
     val tooltipDetails: AbilityTooltipDetailsV2?
     @Json(name = "upgrades")
@@ -125,7 +125,7 @@ interface GetItemsV2ItemsGet200ResponseInner {
     @Json(name = "boss_damage_scale")
     val bossDamageScale: java.math.BigDecimal?
     @Json(name = "dependant_abilities")
-    val dependantAbilities: kotlin.collections.List<kotlin.Any>?
+    val dependantAbilities: kotlin.collections.List<kotlin.String>?
     @Json(name = "videos")
     val videos: AbilityVideosV2?
     @Json(name = "shop_image")
@@ -141,8 +141,20 @@ interface GetItemsV2ItemsGet200ResponseInner {
     @Json(name = "imbue")
     val imbue: RawAbilityImbueV2?
     @Json(name = "component_items")
-    val componentItems: kotlin.collections.List<kotlin.Any>?
+    val componentItems: kotlin.collections.List<kotlin.String>?
     @Json(name = "tooltip_sections")
     val tooltipSections: kotlin.collections.List<UpgradeTooltipSectionV2>?
+    /**
+     * 
+     *
+     * Values: ability,weapon,upgrade
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "ability") ability("ability"),
+        @Json(name = "weapon") weapon("weapon"),
+        @Json(name = "upgrade") upgrade("upgrade");
+    }
+
 }
 

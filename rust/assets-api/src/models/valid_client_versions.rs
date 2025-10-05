@@ -9,110 +9,82 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
+use serde_repr::{Serialize_repr,Deserialize_repr};
 /// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[repr(i64)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum ValidClientVersions {
-    #[serde(rename = "5920")]
-    Variant5920,
-    #[serde(rename = "5902")]
-    Variant5902,
-    #[serde(rename = "5885")]
-    Variant5885,
-    #[serde(rename = "5878")]
-    Variant5878,
-    #[serde(rename = "5869")]
-    Variant5869,
-    #[serde(rename = "5852")]
-    Variant5852,
-    #[serde(rename = "5831")]
-    Variant5831,
-    #[serde(rename = "5826")]
-    Variant5826,
-    #[serde(rename = "5818")]
-    Variant5818,
-    #[serde(rename = "5789")]
-    Variant5789,
-    #[serde(rename = "5748")]
-    Variant5748,
-    #[serde(rename = "5723")]
-    Variant5723,
-    #[serde(rename = "5712")]
-    Variant5712,
-    #[serde(rename = "5710")]
-    Variant5710,
-    #[serde(rename = "5690")]
-    Variant5690,
-    #[serde(rename = "5675")]
-    Variant5675,
-    #[serde(rename = "5668")]
-    Variant5668,
-    #[serde(rename = "5664")]
-    Variant5664,
-    #[serde(rename = "5658")]
-    Variant5658,
-    #[serde(rename = "5650")]
-    Variant5650,
-    #[serde(rename = "5636")]
-    Variant5636,
-    #[serde(rename = "5624")]
-    Variant5624,
-    #[serde(rename = "5615")]
-    Variant5615,
-    #[serde(rename = "5602")]
-    Variant5602,
-    #[serde(rename = "5583")]
-    Variant5583,
-    #[serde(rename = "5554")]
-    Variant5554,
-    #[serde(rename = "5538")]
-    Variant5538,
-    #[serde(rename = "5533")]
-    Variant5533,
-    #[serde(rename = "5529")]
-    Variant5529,
-    #[serde(rename = "5527")]
-    Variant5527,
+    Variant5920 = 5920,
+    Variant5902 = 5902,
+    Variant5885 = 5885,
+    Variant5878 = 5878,
+    Variant5869 = 5869,
+    Variant5852 = 5852,
+    Variant5831 = 5831,
+    Variant5826 = 5826,
+    Variant5818 = 5818,
+    Variant5789 = 5789,
+    Variant5748 = 5748,
+    Variant5723 = 5723,
+    Variant5712 = 5712,
+    Variant5710 = 5710,
+    Variant5690 = 5690,
+    Variant5675 = 5675,
+    Variant5668 = 5668,
+    Variant5664 = 5664,
+    Variant5658 = 5658,
+    Variant5650 = 5650,
+    Variant5636 = 5636,
+    Variant5624 = 5624,
+    Variant5615 = 5615,
+    Variant5602 = 5602,
+    Variant5583 = 5583,
+    Variant5554 = 5554,
+    Variant5538 = 5538,
+    Variant5533 = 5533,
+    Variant5529 = 5529,
+    Variant5527 = 5527,
 
 }
 
-impl ToString for ValidClientVersions {
-    fn to_string(&self) -> String {
-        match self {
-            Self::Variant5920 => String::from("5920"),
-            Self::Variant5902 => String::from("5902"),
-            Self::Variant5885 => String::from("5885"),
-            Self::Variant5878 => String::from("5878"),
-            Self::Variant5869 => String::from("5869"),
-            Self::Variant5852 => String::from("5852"),
-            Self::Variant5831 => String::from("5831"),
-            Self::Variant5826 => String::from("5826"),
-            Self::Variant5818 => String::from("5818"),
-            Self::Variant5789 => String::from("5789"),
-            Self::Variant5748 => String::from("5748"),
-            Self::Variant5723 => String::from("5723"),
-            Self::Variant5712 => String::from("5712"),
-            Self::Variant5710 => String::from("5710"),
-            Self::Variant5690 => String::from("5690"),
-            Self::Variant5675 => String::from("5675"),
-            Self::Variant5668 => String::from("5668"),
-            Self::Variant5664 => String::from("5664"),
-            Self::Variant5658 => String::from("5658"),
-            Self::Variant5650 => String::from("5650"),
-            Self::Variant5636 => String::from("5636"),
-            Self::Variant5624 => String::from("5624"),
-            Self::Variant5615 => String::from("5615"),
-            Self::Variant5602 => String::from("5602"),
-            Self::Variant5583 => String::from("5583"),
-            Self::Variant5554 => String::from("5554"),
-            Self::Variant5538 => String::from("5538"),
-            Self::Variant5533 => String::from("5533"),
-            Self::Variant5529 => String::from("5529"),
-            Self::Variant5527 => String::from("5527"),
-        }
+impl std::fmt::Display for ValidClientVersions {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", match self {
+            Self::Variant5920 => "5920",
+            Self::Variant5902 => "5902",
+            Self::Variant5885 => "5885",
+            Self::Variant5878 => "5878",
+            Self::Variant5869 => "5869",
+            Self::Variant5852 => "5852",
+            Self::Variant5831 => "5831",
+            Self::Variant5826 => "5826",
+            Self::Variant5818 => "5818",
+            Self::Variant5789 => "5789",
+            Self::Variant5748 => "5748",
+            Self::Variant5723 => "5723",
+            Self::Variant5712 => "5712",
+            Self::Variant5710 => "5710",
+            Self::Variant5690 => "5690",
+            Self::Variant5675 => "5675",
+            Self::Variant5668 => "5668",
+            Self::Variant5664 => "5664",
+            Self::Variant5658 => "5658",
+            Self::Variant5650 => "5650",
+            Self::Variant5636 => "5636",
+            Self::Variant5624 => "5624",
+            Self::Variant5615 => "5615",
+            Self::Variant5602 => "5602",
+            Self::Variant5583 => "5583",
+            Self::Variant5554 => "5554",
+            Self::Variant5538 => "5538",
+            Self::Variant5533 => "5533",
+            Self::Variant5529 => "5529",
+            Self::Variant5527 => "5527",
+        })
     }
 }
-
 impl Default for ValidClientVersions {
     fn default() -> ValidClientVersions {
         Self::Variant5920

@@ -11,18 +11,18 @@ Name | Type | Description | Notes
 **Image** | Pointer to **string** |  | [optional] 
 **ImageWebp** | Pointer to **string** |  | [optional] 
 **Hero** | Pointer to **int32** |  | [optional] 
-**Heroes** | Pointer to **[]interface{}** |  | [optional] 
+**Heroes** | Pointer to **[]int32** |  | [optional] 
 **UpdateTime** | Pointer to **int32** |  | [optional] 
-**Properties** | Pointer to  |  | [optional] 
+**Properties** | Pointer to [**map[string]UpgradePropertyV2**](UpgradePropertyV2.md) |  | [optional] 
 **WeaponInfo** | Pointer to [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] 
-**Type** | Pointer to **string** |  | [optional] [default to "upgrade"]
-**Behaviours** | Pointer to **[]interface{}** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] [default to "ability"]
+**Behaviours** | Pointer to **[]string** |  | [optional] 
 **Description** | [**UpgradeDescriptionV2**](UpgradeDescriptionV2.md) |  | 
 **TooltipDetails** | Pointer to [**AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md) |  | [optional] 
 **Upgrades** | Pointer to [**[]RawAbilityUpgradeV2**](RawAbilityUpgradeV2.md) |  | [optional] 
 **AbilityType** | Pointer to [**AbilityTypeV2**](AbilityTypeV2.md) |  | [optional] 
 **BossDamageScale** | Pointer to **float32** |  | [optional] 
-**DependantAbilities** | Pointer to **[]interface{}** |  | [optional] 
+**DependantAbilities** | Pointer to **[]string** |  | [optional] 
 **Videos** | Pointer to [**AbilityVideosV2**](AbilityVideosV2.md) |  | [optional] 
 **ShopImage** | Pointer to **string** |  | [optional] 
 **ShopImageWebp** | Pointer to **string** |  | [optional] 
@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **Disabled** | Pointer to **bool** |  | [optional] 
 **Activation** | [**RawAbilityActivationV2**](RawAbilityActivationV2.md) |  | 
 **Imbue** | Pointer to [**RawAbilityImbueV2**](RawAbilityImbueV2.md) |  | [optional] 
-**ComponentItems** | Pointer to **[]interface{}** |  | [optional] 
+**ComponentItems** | Pointer to **[]string** |  | [optional] 
 **TooltipSections** | Pointer to [**[]UpgradeTooltipSectionV2**](UpgradeTooltipSectionV2.md) |  | [optional] 
 **IsActiveItem** | **bool** |  | [readonly] 
 **Shopable** | **bool** |  | [readonly] 
@@ -220,20 +220,20 @@ HasHero returns a boolean if a field has been set.
 
 ### GetHeroes
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetHeroes() []interface{}`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetHeroes() []int32`
 
 GetHeroes returns the Heroes field if non-nil, zero value otherwise.
 
 ### GetHeroesOk
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetHeroesOk() (*[]interface{}, bool)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetHeroesOk() (*[]int32, bool)`
 
 GetHeroesOk returns a tuple with the Heroes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroes
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetHeroes(v []interface{})`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetHeroes(v []int32)`
 
 SetHeroes sets Heroes field to given value.
 
@@ -345,20 +345,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetBehaviours
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetBehaviours() []interface{}`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetBehaviours() []string`
 
 GetBehaviours returns the Behaviours field if non-nil, zero value otherwise.
 
 ### GetBehavioursOk
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetBehavioursOk() (*[]interface{}, bool)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetBehavioursOk() (*[]string, bool)`
 
 GetBehavioursOk returns a tuple with the Behaviours field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBehaviours
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetBehaviours(v []interface{})`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetBehaviours(v []string)`
 
 SetBehaviours sets Behaviours field to given value.
 
@@ -490,20 +490,20 @@ HasBossDamageScale returns a boolean if a field has been set.
 
 ### GetDependantAbilities
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetDependantAbilities() []interface{}`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetDependantAbilities() []string`
 
 GetDependantAbilities returns the DependantAbilities field if non-nil, zero value otherwise.
 
 ### GetDependantAbilitiesOk
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetDependantAbilitiesOk() (*[]interface{}, bool)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetDependantAbilitiesOk() (*[]string, bool)`
 
 GetDependantAbilitiesOk returns a tuple with the DependantAbilities field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDependantAbilities
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetDependantAbilities(v []interface{})`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetDependantAbilities(v []string)`
 
 SetDependantAbilities sets DependantAbilities field to given value.
 
@@ -750,20 +750,20 @@ HasImbue returns a boolean if a field has been set.
 
 ### GetComponentItems
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetComponentItems() []interface{}`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetComponentItems() []string`
 
 GetComponentItems returns the ComponentItems field if non-nil, zero value otherwise.
 
 ### GetComponentItemsOk
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetComponentItemsOk() (*[]interface{}, bool)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetComponentItemsOk() (*[]string, bool)`
 
 GetComponentItemsOk returns a tuple with the ComponentItems field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComponentItems
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetComponentItems(v []interface{})`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetComponentItems(v []string)`
 
 SetComponentItems sets ComponentItems field to given value.
 

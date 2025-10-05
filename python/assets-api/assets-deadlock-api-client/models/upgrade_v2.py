@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from assets-deadlock-api-client.models.item_slot_type_v2 import ItemSlotTypeV2
 from assets-deadlock-api-client.models.item_tier_v2 import ItemTierV2
@@ -63,6 +63,16 @@ class UpgradeV2(BaseModel):
     cost: Optional[StrictInt]
     __properties: ClassVar[List[str]] = ["id", "class_name", "name", "start_trained", "image", "image_webp", "hero", "heroes", "update_time", "properties", "weapon_info", "type", "shop_image", "shop_image_webp", "shop_image_small", "shop_image_small_webp", "item_slot_type", "item_tier", "disabled", "description", "activation", "imbue", "component_items", "tooltip_sections", "is_active_item", "shopable", "cost"]
 
+    @field_validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['upgrade']):
+            raise ValueError("must be one of enum values ('upgrade')")
+        return value
+
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
@@ -106,6 +116,13 @@ class UpgradeV2(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each value in properties (dict)
+        _field_dict = {}
+        if self.properties:
+            for _key_properties in self.properties:
+                if self.properties[_key_properties]:
+                    _field_dict[_key_properties] = self.properties[_key_properties].to_dict()
+            _dict['properties'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of weapon_info
         if self.weapon_info:
             _dict['weapon_info'] = self.weapon_info.to_dict()
@@ -115,9 +132,9 @@ class UpgradeV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in tooltip_sections (list)
         _items = []
         if self.tooltip_sections:
-            for _item in self.tooltip_sections:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_tooltip_sections in self.tooltip_sections:
+                if _item_tooltip_sections:
+                    _items.append(_item_tooltip_sections.to_dict())
             _dict['tooltip_sections'] = _items
         # set to None if start_trained (nullable) is None
         # and model_fields_set contains the field
@@ -230,6 +247,12 @@ class UpgradeV2(BaseModel):
             "hero": obj.get("hero"),
             "heroes": obj.get("heroes"),
             "update_time": obj.get("update_time"),
+            "properties": dict(
+                (_k, UpgradePropertyV2.from_dict(_v))
+                for _k, _v in obj["properties"].items()
+            )
+            if obj.get("properties") is not None
+            else None,
             "weapon_info": RawItemWeaponInfoV2.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None,
             "type": obj.get("type") if obj.get("type") is not None else 'upgrade',
             "shop_image": obj.get("shop_image"),

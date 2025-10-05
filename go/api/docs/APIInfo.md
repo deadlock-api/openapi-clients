@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FetchedMatchesPerDay** | Pointer to **NullableInt64** | The number of matches fetched in the last 24 hours. | [optional] 
 **MissedMatches** | Pointer to **NullableInt64** | The number of matches that have not been fetched. | [optional] 
-**TableSizes** | Pointer to  | The sizes of all tables in the database. | [optional] 
+**TableSizes** | Pointer to [**map[string]TableSize**](TableSize.md) | The sizes of all tables in the database. | [optional] 
 
 ## Methods
 
@@ -122,16 +122,6 @@ SetTableSizes sets TableSizes field to given value.
 
 HasTableSizes returns a boolean if a field has been set.
 
-### SetTableSizesNil
-
-`func (o *APIInfo) SetTableSizesNil(b bool)`
-
- SetTableSizesNil sets the value for TableSizes to be an explicit nil
-
-### UnsetTableSizes
-`func (o *APIInfo) UnsetTableSizes()`
-
-UnsetTableSizes ensures that no value is present for TableSizes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

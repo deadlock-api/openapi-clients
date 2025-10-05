@@ -8,7 +8,7 @@ Accept: text/plain
 
 ### Query
 ## Query
-GET https://api.deadlock-api.com/v1/sql
+GET https://api.deadlock-api.com/v1/sql?query={{query}}
 Accept: text/plain
 
 ### Table Schema

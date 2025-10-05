@@ -25,7 +25,10 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class Range (
+class Range (
 
-)
+) {
+
+
+}
 

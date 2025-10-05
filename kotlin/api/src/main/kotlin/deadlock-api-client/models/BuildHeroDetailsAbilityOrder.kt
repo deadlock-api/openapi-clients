@@ -32,5 +32,8 @@ data class BuildHeroDetailsAbilityOrder (
     @Json(name = "currency_changes")
     val currencyChanges: kotlin.collections.List<BuildHeroDetailsAbilityOrderCurrencyChange>? = null
 
-)
+) {
+
+
+}
 

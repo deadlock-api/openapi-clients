@@ -125,6 +125,16 @@ SetMods sets Mods field to given value.
 
 HasMods returns a boolean if a field has been set.
 
+### SetModsNil
+
+`func (o *BuildHeroDetailsCategory) SetModsNil(b bool)`
+
+ SetModsNil sets the value for Mods to be an explicit nil
+
+### UnsetMods
+`func (o *BuildHeroDetailsCategory) UnsetMods()`
+
+UnsetMods ensures that no value is present for Mods, not even an explicit nil
 ### GetName
 
 `func (o *BuildHeroDetailsCategory) GetName() string`

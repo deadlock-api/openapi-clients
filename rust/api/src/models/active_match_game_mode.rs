@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -24,13 +25,13 @@ pub enum ActiveMatchGameMode {
 
 }
 
-impl ToString for ActiveMatchGameMode {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for ActiveMatchGameMode {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::KeCitadelGameModeInvalid => String::from("KECitadelGameModeInvalid"),
-            Self::KeCitadelGameModeNormal => String::from("KECitadelGameModeNormal"),
-            Self::KeCitadelGameMode1v1Test => String::from("KECitadelGameMode1v1Test"),
-            Self::KeCitadelGameModeSandbox => String::from("KECitadelGameModeSandbox"),
+            Self::KeCitadelGameModeInvalid => write!(f, "KECitadelGameModeInvalid"),
+            Self::KeCitadelGameModeNormal => write!(f, "KECitadelGameModeNormal"),
+            Self::KeCitadelGameMode1v1Test => write!(f, "KECitadelGameMode1v1Test"),
+            Self::KeCitadelGameModeSandbox => write!(f, "KECitadelGameModeSandbox"),
         }
     }
 }

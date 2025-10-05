@@ -13,7 +13,19 @@ Method | HTTP request | Description
 
 Big Days
 
- Returns a list of dates where Deadlock's \"big\" patch days were, usually bi-weekly. The exact date is the time when the announcement forum post was published.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+Returns a list of dates where Deadlock's "big" patch days were, usually bi-weekly.
+The exact date is the time when the announcement forum post was published.
+
+This list is manually maintained, and so new patch dates may be delayed by a few hours.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
 
 ### Example
 
@@ -76,7 +88,18 @@ No authorization required
 
 Notes
 
- Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+Returns the parsed result of the RSS Feed from the official Forum.
+
+RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
 
 ### Example
 

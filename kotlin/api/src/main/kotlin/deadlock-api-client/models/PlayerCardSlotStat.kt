@@ -35,5 +35,8 @@ data class PlayerCardSlotStat (
     @Json(name = "stat_score")
     val statScore: kotlin.Int? = null
 
-)
+) {
+
+
+}
 

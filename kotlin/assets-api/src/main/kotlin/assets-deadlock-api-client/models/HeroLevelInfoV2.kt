@@ -39,5 +39,8 @@ data class HeroLevelInfoV2 (
     @Json(name = "bonus_currencies")
     val bonusCurrencies: kotlin.collections.List<kotlin.String>? = null
 
-)
+) {
+
+
+}
 

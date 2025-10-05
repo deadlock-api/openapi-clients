@@ -133,9 +133,9 @@ func (o *BuildHeroDetailsCategory) UnsetHeight() {
 	o.Height.Unset()
 }
 
-// GetMods returns the Mods field value if set, zero value otherwise.
+// GetMods returns the Mods field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BuildHeroDetailsCategory) GetMods() []BuildHeroDetailsCategoryAbility {
-	if o == nil || IsNil(o.Mods) {
+	if o == nil {
 		var ret []BuildHeroDetailsCategoryAbility
 		return ret
 	}
@@ -144,6 +144,7 @@ func (o *BuildHeroDetailsCategory) GetMods() []BuildHeroDetailsCategoryAbility {
 
 // GetModsOk returns a tuple with the Mods field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BuildHeroDetailsCategory) GetModsOk() ([]BuildHeroDetailsCategoryAbility, bool) {
 	if o == nil || IsNil(o.Mods) {
 		return nil, false
@@ -289,7 +290,7 @@ func (o BuildHeroDetailsCategory) ToMap() (map[string]interface{}, error) {
 	if o.Height.IsSet() {
 		toSerialize["height"] = o.Height.Get()
 	}
-	if !IsNil(o.Mods) {
+	if o.Mods != nil {
 		toSerialize["mods"] = o.Mods
 	}
 	toSerialize["name"] = o.Name

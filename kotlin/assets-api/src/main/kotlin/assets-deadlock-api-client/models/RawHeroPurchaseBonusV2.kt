@@ -39,5 +39,8 @@ data class RawHeroPurchaseBonusV2 (
     @Json(name = "value")
     val `value`: kotlin.String
 
-)
+) {
+
+
+}
 

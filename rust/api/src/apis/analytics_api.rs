@@ -10,9 +10,9 @@
 
 
 use reqwest;
-
+use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
-use super::{Error, configuration};
+use super::{Error, configuration, ContentType};
 
 /// struct for passing parameters to the method [`ability_order_stats`]
 #[derive(Clone, Debug)]
@@ -542,1136 +542,1006 @@ pub enum PlayerStatsMetricsError {
 
 ///  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn ability_order_stats(configuration: &configuration::Configuration, params: AbilityOrderStatsParams) -> Result<Vec<models::AnalyticsAbilityOrderStats>, Error<AbilityOrderStatsError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let hero_id = params.hero_id;
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let min_ability_upgrades = params.min_ability_upgrades;
-    let max_ability_upgrades = params.max_ability_upgrades;
-    let min_networth = params.min_networth;
-    let max_networth = params.max_networth;
-    let min_average_badge = params.min_average_badge;
-    let max_average_badge = params.max_average_badge;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
-    let min_matches = params.min_matches;
-    let account_id = params.account_id;
-    let account_ids = params.account_ids;
+    let uri_str = format!("{}/v1/analytics/ability-order-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/ability-order-stats", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("hero_id", &hero_id.to_string())]);
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    req_builder = req_builder.query(&[("hero_id", &params.hero_id.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_ability_upgrades {
-        local_var_req_builder = local_var_req_builder.query(&[("min_ability_upgrades", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_ability_upgrades {
+        req_builder = req_builder.query(&[("min_ability_upgrades", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_ability_upgrades {
-        local_var_req_builder = local_var_req_builder.query(&[("max_ability_upgrades", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_ability_upgrades {
+        req_builder = req_builder.query(&[("max_ability_upgrades", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("min_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::AnalyticsAbilityOrderStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::AnalyticsAbilityOrderStats&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<AbilityOrderStatsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<AbilityOrderStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn badge_distribution(configuration: &configuration::Configuration, params: BadgeDistributionParams) -> Result<Vec<models::BadgeDistribution>, Error<BadgeDistributionError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let is_high_skill_range_parties = params.is_high_skill_range_parties;
-    let is_low_pri_pool = params.is_low_pri_pool;
-    let is_new_player_pool = params.is_new_player_pool;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
+    let uri_str = format!("{}/v1/analytics/badge-distribution", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/badge-distribution", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = is_high_skill_range_parties {
-        local_var_req_builder = local_var_req_builder.query(&[("is_high_skill_range_parties", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.is_high_skill_range_parties {
+        req_builder = req_builder.query(&[("is_high_skill_range_parties", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = is_low_pri_pool {
-        local_var_req_builder = local_var_req_builder.query(&[("is_low_pri_pool", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.is_low_pri_pool {
+        req_builder = req_builder.query(&[("is_low_pri_pool", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = is_new_player_pool {
-        local_var_req_builder = local_var_req_builder.query(&[("is_new_player_pool", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.is_new_player_pool {
+        req_builder = req_builder.query(&[("is_new_player_pool", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::BadgeDistribution&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::BadgeDistribution&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<BadgeDistributionError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<BadgeDistributionError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn build_item_stats(configuration: &configuration::Configuration, params: BuildItemStatsParams) -> Result<Vec<models::BuildItemStats>, Error<BuildItemStatsError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let hero_id = params.hero_id;
-    let min_last_updated_unix_timestamp = params.min_last_updated_unix_timestamp;
-    let max_last_updated_unix_timestamp = params.max_last_updated_unix_timestamp;
+    let uri_str = format!("{}/v1/analytics/build-item-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/build-item-stats", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = hero_id {
-        local_var_req_builder = local_var_req_builder.query(&[("hero_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.hero_id {
+        req_builder = req_builder.query(&[("hero_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_last_updated_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_last_updated_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_last_updated_unix_timestamp {
+        req_builder = req_builder.query(&[("min_last_updated_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_last_updated_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_last_updated_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_last_updated_unix_timestamp {
+        req_builder = req_builder.query(&[("max_last_updated_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::BuildItemStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::BuildItemStats&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<BuildItemStatsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<BuildItemStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn hero_comb_stats(configuration: &configuration::Configuration, params: HeroCombStatsParams) -> Result<Vec<models::HeroCombStats>, Error<HeroCombStatsError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let min_networth = params.min_networth;
-    let max_networth = params.max_networth;
-    let min_average_badge = params.min_average_badge;
-    let max_average_badge = params.max_average_badge;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
-    let include_hero_ids = params.include_hero_ids;
-    let exclude_hero_ids = params.exclude_hero_ids;
-    let min_matches = params.min_matches;
-    let max_matches = params.max_matches;
-    let comb_size = params.comb_size;
-    let account_id = params.account_id;
-    let account_ids = params.account_ids;
+    let uri_str = format!("{}/v1/analytics/hero-comb-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/hero-comb-stats", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = include_hero_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("include_hero_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("include_hero_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.include_hero_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("include_hero_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("include_hero_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_str) = exclude_hero_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("exclude_hero_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("exclude_hero_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.exclude_hero_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_hero_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("exclude_hero_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_str) = min_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("min_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("max_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_matches {
+        req_builder = req_builder.query(&[("max_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = comb_size {
-        local_var_req_builder = local_var_req_builder.query(&[("comb_size", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.comb_size {
+        req_builder = req_builder.query(&[("comb_size", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::HeroCombStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::HeroCombStats&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<HeroCombStatsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<HeroCombStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn hero_counters_stats(configuration: &configuration::Configuration, params: HeroCountersStatsParams) -> Result<Vec<models::HeroCounterStats>, Error<HeroCountersStatsError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let min_networth = params.min_networth;
-    let max_networth = params.max_networth;
-    let min_enemy_networth = params.min_enemy_networth;
-    let max_enemy_networth = params.max_enemy_networth;
-    let min_average_badge = params.min_average_badge;
-    let max_average_badge = params.max_average_badge;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
-    let same_lane_filter = params.same_lane_filter;
-    let min_matches = params.min_matches;
-    let max_matches = params.max_matches;
-    let account_id = params.account_id;
-    let account_ids = params.account_ids;
+    let uri_str = format!("{}/v1/analytics/hero-counter-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/hero-counter-stats", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_enemy_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_enemy_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_enemy_networth {
+        req_builder = req_builder.query(&[("min_enemy_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_enemy_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_enemy_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_enemy_networth {
+        req_builder = req_builder.query(&[("max_enemy_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = same_lane_filter {
-        local_var_req_builder = local_var_req_builder.query(&[("same_lane_filter", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.same_lane_filter {
+        req_builder = req_builder.query(&[("same_lane_filter", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("min_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("max_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_matches {
+        req_builder = req_builder.query(&[("max_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::HeroCounterStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::HeroCounterStats&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<HeroCountersStatsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<HeroCountersStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn hero_scoreboard(configuration: &configuration::Configuration, params: HeroScoreboardParams) -> Result<Vec<models::Entry>, Error<HeroScoreboardError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let sort_by = params.sort_by;
-    let sort_direction = params.sort_direction;
-    let min_matches = params.min_matches;
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let min_networth = params.min_networth;
-    let max_networth = params.max_networth;
-    let min_average_badge = params.min_average_badge;
-    let max_average_badge = params.max_average_badge;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
-    let account_id = params.account_id;
-    let account_ids = params.account_ids;
+    let uri_str = format!("{}/v1/analytics/scoreboards/heroes", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/scoreboards/heroes", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("sort_by", &sort_by.to_string())]);
-    if let Some(ref local_var_str) = sort_direction {
-        local_var_req_builder = local_var_req_builder.query(&[("sort_direction", &local_var_str.to_string())]);
+    req_builder = req_builder.query(&[("sort_by", &params.sort_by.to_string())]);
+    if let Some(ref param_value) = params.sort_direction {
+        req_builder = req_builder.query(&[("sort_direction", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("min_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Entry&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Entry&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<HeroScoreboardError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<HeroScoreboardError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn hero_stats(configuration: &configuration::Configuration, params: HeroStatsParams) -> Result<Vec<models::AnalyticsHeroStats>, Error<HeroStatsError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let bucket = params.bucket;
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let min_networth = params.min_networth;
-    let max_networth = params.max_networth;
-    let min_average_badge = params.min_average_badge;
-    let max_average_badge = params.max_average_badge;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
-    let min_hero_matches = params.min_hero_matches;
-    let max_hero_matches = params.max_hero_matches;
-    let include_item_ids = params.include_item_ids;
-    let exclude_item_ids = params.exclude_item_ids;
-    let account_id = params.account_id;
-    let account_ids = params.account_ids;
+    let uri_str = format!("{}/v1/analytics/hero-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/hero-stats", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = bucket {
-        local_var_req_builder = local_var_req_builder.query(&[("bucket", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.bucket {
+        req_builder = req_builder.query(&[("bucket", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_hero_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("min_hero_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_hero_matches {
+        req_builder = req_builder.query(&[("min_hero_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_hero_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("max_hero_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_hero_matches {
+        req_builder = req_builder.query(&[("max_hero_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = include_item_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("include_item_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.include_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("include_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_str) = exclude_item_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("exclude_item_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.exclude_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("exclude_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::AnalyticsHeroStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::AnalyticsHeroStats&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<HeroStatsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<HeroStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn hero_synergies_stats(configuration: &configuration::Configuration, params: HeroSynergiesStatsParams) -> Result<Vec<models::HeroSynergyStats>, Error<HeroSynergiesStatsError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let min_networth = params.min_networth;
-    let max_networth = params.max_networth;
-    let min_average_badge = params.min_average_badge;
-    let max_average_badge = params.max_average_badge;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
-    let same_lane_filter = params.same_lane_filter;
-    let same_party_filter = params.same_party_filter;
-    let min_matches = params.min_matches;
-    let max_matches = params.max_matches;
-    let account_id = params.account_id;
-    let account_ids = params.account_ids;
+    let uri_str = format!("{}/v1/analytics/hero-synergy-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/hero-synergy-stats", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = same_lane_filter {
-        local_var_req_builder = local_var_req_builder.query(&[("same_lane_filter", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.same_lane_filter {
+        req_builder = req_builder.query(&[("same_lane_filter", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = same_party_filter {
-        local_var_req_builder = local_var_req_builder.query(&[("same_party_filter", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.same_party_filter {
+        req_builder = req_builder.query(&[("same_party_filter", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("min_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("max_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_matches {
+        req_builder = req_builder.query(&[("max_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::HeroSynergyStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::HeroSynergyStats&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<HeroSynergiesStatsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<HeroSynergiesStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn item_permutation_stats(configuration: &configuration::Configuration, params: ItemPermutationStatsParams) -> Result<Vec<models::ItemPermutationStats>, Error<ItemPermutationStatsError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let item_ids = params.item_ids;
-    let comb_size = params.comb_size;
-    let hero_ids = params.hero_ids;
-    let hero_id = params.hero_id;
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let min_networth = params.min_networth;
-    let max_networth = params.max_networth;
-    let min_average_badge = params.min_average_badge;
-    let max_average_badge = params.max_average_badge;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
-    let account_id = params.account_id;
-    let account_ids = params.account_ids;
+    let uri_str = format!("{}/v1/analytics/item-permutation-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/item-permutation-stats", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = item_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("item_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_str) = comb_size {
-        local_var_req_builder = local_var_req_builder.query(&[("comb_size", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.comb_size {
+        req_builder = req_builder.query(&[("comb_size", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = hero_ids {
-        local_var_req_builder = local_var_req_builder.query(&[("hero_ids", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.hero_ids {
+        req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = hero_id {
-        local_var_req_builder = local_var_req_builder.query(&[("hero_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.hero_id {
+        req_builder = req_builder.query(&[("hero_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ItemPermutationStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ItemPermutationStats&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<ItemPermutationStatsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ItemPermutationStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn item_stats(configuration: &configuration::Configuration, params: ItemStatsParams) -> Result<Vec<models::ItemStats>, Error<ItemStatsError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let bucket = params.bucket;
-    let hero_ids = params.hero_ids;
-    let hero_id = params.hero_id;
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let min_networth = params.min_networth;
-    let max_networth = params.max_networth;
-    let min_average_badge = params.min_average_badge;
-    let max_average_badge = params.max_average_badge;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
-    let include_item_ids = params.include_item_ids;
-    let exclude_item_ids = params.exclude_item_ids;
-    let min_matches = params.min_matches;
-    let max_matches = params.max_matches;
-    let account_id = params.account_id;
-    let account_ids = params.account_ids;
+    let uri_str = format!("{}/v1/analytics/item-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/item-stats", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = bucket {
-        local_var_req_builder = local_var_req_builder.query(&[("bucket", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.bucket {
+        req_builder = req_builder.query(&[("bucket", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = hero_ids {
-        local_var_req_builder = local_var_req_builder.query(&[("hero_ids", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.hero_ids {
+        req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = hero_id {
-        local_var_req_builder = local_var_req_builder.query(&[("hero_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.hero_id {
+        req_builder = req_builder.query(&[("hero_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = include_item_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("include_item_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.include_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("include_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_str) = exclude_item_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("exclude_item_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.exclude_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("exclude_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_str) = min_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("min_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("max_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_matches {
+        req_builder = req_builder.query(&[("max_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ItemStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ItemStats&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<ItemStatsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ItemStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn player_scoreboard(configuration: &configuration::Configuration, params: PlayerScoreboardParams) -> Result<Vec<models::Entry>, Error<PlayerScoreboardError>> {
-    let local_var_configuration = configuration;
 
-    // unbox the parameters
-    let sort_by = params.sort_by;
-    let sort_direction = params.sort_direction;
-    let hero_id = params.hero_id;
-    let min_matches = params.min_matches;
-    let max_matches = params.max_matches;
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let min_networth = params.min_networth;
-    let max_networth = params.max_networth;
-    let min_average_badge = params.min_average_badge;
-    let max_average_badge = params.max_average_badge;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
-    let start = params.start;
-    let limit = params.limit;
-    let account_ids = params.account_ids;
+    let uri_str = format!("{}/v1/analytics/scoreboards/players", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/scoreboards/players", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("sort_by", &sort_by.to_string())]);
-    if let Some(ref local_var_str) = sort_direction {
-        local_var_req_builder = local_var_req_builder.query(&[("sort_direction", &local_var_str.to_string())]);
+    req_builder = req_builder.query(&[("sort_by", &params.sort_by.to_string())]);
+    if let Some(ref param_value) = params.sort_direction {
+        req_builder = req_builder.query(&[("sort_direction", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = hero_id {
-        local_var_req_builder = local_var_req_builder.query(&[("hero_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.hero_id {
+        req_builder = req_builder.query(&[("hero_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("min_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("max_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_matches {
+        req_builder = req_builder.query(&[("max_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = start {
-        local_var_req_builder = local_var_req_builder.query(&[("start", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.start {
+        req_builder = req_builder.query(&[("start", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = account_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Entry&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Entry&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<PlayerScoreboardError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<PlayerScoreboardError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 ///  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn player_stats_metrics(configuration: &configuration::Configuration, params: PlayerStatsMetricsParams) -> Result<serde_json::Value, Error<PlayerStatsMetricsError>> {
-    let local_var_configuration = configuration;
+pub async fn player_stats_metrics(configuration: &configuration::Configuration, params: PlayerStatsMetricsParams) -> Result<std::collections::HashMap<String, models::HashMapValue>, Error<PlayerStatsMetricsError>> {
 
-    // unbox the parameters
-    let hero_ids = params.hero_ids;
-    let min_unix_timestamp = params.min_unix_timestamp;
-    let max_unix_timestamp = params.max_unix_timestamp;
-    let min_duration_s = params.min_duration_s;
-    let max_duration_s = params.max_duration_s;
-    let min_networth = params.min_networth;
-    let max_networth = params.max_networth;
-    let min_average_badge = params.min_average_badge;
-    let max_average_badge = params.max_average_badge;
-    let min_match_id = params.min_match_id;
-    let max_match_id = params.max_match_id;
-    let max_matches = params.max_matches;
-    let include_item_ids = params.include_item_ids;
-    let exclude_item_ids = params.exclude_item_ids;
-    let account_ids = params.account_ids;
+    let uri_str = format!("{}/v1/analytics/player-stats/metrics", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/v1/analytics/player-stats/metrics", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = hero_ids {
-        local_var_req_builder = local_var_req_builder.query(&[("hero_ids", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.hero_ids {
+        req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("min_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_unix_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("max_unix_timestamp", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("min_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_duration_s {
-        local_var_req_builder = local_var_req_builder.query(&[("max_duration_s", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("min_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_networth {
-        local_var_req_builder = local_var_req_builder.query(&[("max_networth", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("min_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_average_badge {
-        local_var_req_builder = local_var_req_builder.query(&[("max_average_badge", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = min_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("min_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_match_id {
-        local_var_req_builder = local_var_req_builder.query(&[("max_match_id", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = max_matches {
-        local_var_req_builder = local_var_req_builder.query(&[("max_matches", &local_var_str.to_string())]);
+    if let Some(ref param_value) = params.max_matches {
+        req_builder = req_builder.query(&[("max_matches", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = include_item_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("include_item_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.include_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("include_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_str) = exclude_item_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("exclude_item_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.exclude_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("exclude_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_str) = account_ids {
-        local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `std::collections::HashMap&lt;String, models::HashMapValue&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `std::collections::HashMap&lt;String, models::HashMapValue&gt;`")))),
+        }
     } else {
-        let local_var_entity: Option<PlayerStatsMetricsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<PlayerStatsMetricsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 

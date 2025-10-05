@@ -77,9 +77,9 @@ class BuildHeroDetails(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in mod_categories (list)
         _items = []
         if self.mod_categories:
-            for _item in self.mod_categories:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_mod_categories in self.mod_categories:
+                if _item_mod_categories:
+                    _items.append(_item_mod_categories.to_dict())
             _dict['mod_categories'] = _items
         # set to None if ability_order (nullable) is None
         # and model_fields_set contains the field

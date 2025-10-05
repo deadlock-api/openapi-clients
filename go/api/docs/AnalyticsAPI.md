@@ -1051,7 +1051,7 @@ No authorization required
 
 ## PlayerStatsMetrics
 
-> interface{} PlayerStatsMetrics(ctx).HeroIds(heroIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AccountIds(accountIds).Execute()
+> map[string]HashMapValue PlayerStatsMetrics(ctx).HeroIds(heroIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AccountIds(accountIds).Execute()
 
 Player Stats Metrics
 
@@ -1093,7 +1093,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.PlayerStatsMetrics``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PlayerStatsMetrics`: interface{}
+	// response from `PlayerStatsMetrics`: map[string]HashMapValue
 	fmt.Fprintf(os.Stdout, "Response from `AnalyticsAPI.PlayerStatsMetrics`: %v\n", resp)
 }
 ```
@@ -1127,7 +1127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**map[string]HashMapValue**](HashMapValue.md)
 
 ### Authorization
 

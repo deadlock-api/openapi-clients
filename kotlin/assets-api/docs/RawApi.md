@@ -2,11 +2,11 @@
 
 All URIs are relative to *https://assets.deadlock-api.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getGenericDataRawGenericDataGet**](RawApi.md#getGenericDataRawGenericDataGet) | **GET** /raw/generic_data | Get Generic Data
-[**getRawHeroesRawHeroesGet**](RawApi.md#getRawHeroesRawHeroesGet) | **GET** /raw/heroes | Get Raw Heroes
-[**getRawItemsRawItemsGet**](RawApi.md#getRawItemsRawItemsGet) | **GET** /raw/items | Get Raw Items
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getGenericDataRawGenericDataGet**](RawApi.md#getGenericDataRawGenericDataGet) | **GET** /raw/generic_data | Get Generic Data |
+| [**getRawHeroesRawHeroesGet**](RawApi.md#getRawHeroesRawHeroesGet) | **GET** /raw/heroes | Get Raw Heroes |
+| [**getRawItemsRawItemsGet**](RawApi.md#getRawItemsRawItemsGet) | **GET** /raw/items | Get Raw Items |
 
 
 <a id="getGenericDataRawGenericDataGet"></a>
@@ -36,10 +36,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -81,10 +80,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -126,10 +124,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 

@@ -36,5 +36,8 @@ data class AbilityTooltipDetailsInfoSectionPropertyBlockV2 (
     @Json(name = "properties")
     val properties: kotlin.collections.List<AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty>? = null
 
-)
+) {
+
+
+}
 

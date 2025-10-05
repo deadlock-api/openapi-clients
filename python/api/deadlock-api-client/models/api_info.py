@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from deadlock-api-client.models.table_size import TableSize
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,7 @@ class APIInfo(BaseModel):
     """ # noqa: E501
     fetched_matches_per_day: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The number of matches fetched in the last 24 hours.")
     missed_matches: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The number of matches that have not been fetched.")
-    table_sizes: Optional[Any] = Field(default=None, description="The sizes of all tables in the database.")
+    table_sizes: Optional[Dict[str, TableSize]] = Field(default=None, description="The sizes of all tables in the database.")
     __properties: ClassVar[List[str]] = ["fetched_matches_per_day", "missed_matches", "table_sizes"]
 
     model_config = ConfigDict(
@@ -71,6 +72,13 @@ class APIInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each value in table_sizes (dict)
+        _field_dict = {}
+        if self.table_sizes:
+            for _key_table_sizes in self.table_sizes:
+                if self.table_sizes[_key_table_sizes]:
+                    _field_dict[_key_table_sizes] = self.table_sizes[_key_table_sizes].to_dict()
+            _dict['table_sizes'] = _field_dict
         # set to None if fetched_matches_per_day (nullable) is None
         # and model_fields_set contains the field
         if self.fetched_matches_per_day is None and "fetched_matches_per_day" in self.model_fields_set:
@@ -80,11 +88,6 @@ class APIInfo(BaseModel):
         # and model_fields_set contains the field
         if self.missed_matches is None and "missed_matches" in self.model_fields_set:
             _dict['missed_matches'] = None
-
-        # set to None if table_sizes (nullable) is None
-        # and model_fields_set contains the field
-        if self.table_sizes is None and "table_sizes" in self.model_fields_set:
-            _dict['table_sizes'] = None
 
         return _dict
 
@@ -100,6 +103,12 @@ class APIInfo(BaseModel):
         _obj = cls.model_validate({
             "fetched_matches_per_day": obj.get("fetched_matches_per_day"),
             "missed_matches": obj.get("missed_matches"),
+            "table_sizes": dict(
+                (_k, TableSize.from_dict(_v))
+                for _k, _v in obj["table_sizes"].items()
+            )
+            if obj.get("table_sizes") is not None
+            else None
         })
         return _obj
 

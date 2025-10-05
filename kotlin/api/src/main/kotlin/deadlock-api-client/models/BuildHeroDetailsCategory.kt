@@ -52,5 +52,8 @@ data class BuildHeroDetailsCategory (
     @Json(name = "width")
     val width: kotlin.Float? = null
 
-)
+) {
+
+
+}
 

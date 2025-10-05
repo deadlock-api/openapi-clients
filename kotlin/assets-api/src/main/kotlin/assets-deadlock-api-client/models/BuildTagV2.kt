@@ -43,5 +43,8 @@ data class BuildTagV2 (
     @Json(name = "icon")
     val icon: kotlin.String
 
-)
+) {
+
+
+}
 

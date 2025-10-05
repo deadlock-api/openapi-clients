@@ -16,7 +16,7 @@
 package assets-deadlock-api-client.apis
 
 import java.io.IOException
-import okhttp3.OkHttpClient
+import okhttp3.Call
 import okhttp3.HttpUrl
 
 import assets-deadlock-api-client.models.GetItemsV2ItemsGet200ResponseInner
@@ -43,7 +43,7 @@ import assets-deadlock-api-client.infrastructure.ResponseType
 import assets-deadlock-api-client.infrastructure.Success
 import assets-deadlock-api-client.infrastructure.toMultiValue
 
-class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -52,6 +52,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * GET /v2/items/{id_or_class_name}
      * Get Item
      * 
      * @param idOrClassName 
@@ -85,6 +86,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * GET /v2/items/{id_or_class_name}
      * Get Item
      * 
      * @param idOrClassName 
@@ -137,6 +139,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * GET /v2/items/by-hero-id/{id}
      * Get Items By Hero Id
      * 
      * @param id 
@@ -170,6 +173,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * GET /v2/items/by-hero-id/{id}
      * Get Items By Hero Id
      * 
      * @param id 
@@ -222,6 +226,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * GET /v2/items/by-slot-type/{slot_type}
      * Get Items By Slot Type
      * 
      * @param slotType 
@@ -255,6 +260,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * GET /v2/items/by-slot-type/{slot_type}
      * Get Items By Slot Type
      * 
      * @param slotType 
@@ -307,6 +313,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * GET /v2/items/by-type/{type}
      * Get Items By Type
      * 
      * @param type 
@@ -340,6 +347,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * GET /v2/items/by-type/{type}
      * Get Items By Type
      * 
      * @param type 
@@ -392,6 +400,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * GET /v2/items
      * Get Items
      * 
      * @param language  (optional)
@@ -424,6 +433,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * GET /v2/items
      * Get Items
      * 
      * @param language  (optional)

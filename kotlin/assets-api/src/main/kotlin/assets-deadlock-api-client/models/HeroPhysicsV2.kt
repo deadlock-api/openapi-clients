@@ -55,5 +55,8 @@ data class HeroPhysicsV2 (
     @Json(name = "step_sound_time_sprinting")
     val stepSoundTimeSprinting: java.math.BigDecimal? = null
 
-)
+) {
+
+
+}
 

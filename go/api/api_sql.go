@@ -205,7 +205,7 @@ func (a *SQLAPIService) SqlExecute(r ApiSqlRequest) (string, *http.Response, err
 		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

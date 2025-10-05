@@ -95,5 +95,8 @@ data class HeroImagesV2 (
     @Json(name = "name_image")
     val nameImage: kotlin.String? = null
 
-)
+) {
+
+
+}
 

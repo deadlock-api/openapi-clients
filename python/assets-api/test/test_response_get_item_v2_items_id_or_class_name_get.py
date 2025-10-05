@@ -27,7 +27,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ResponseGetItemV2ItemsIdOrClassNameGet:
         """Test ResponseGetItemV2ItemsIdOrClassNameGet
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ResponseGetItemV2ItemsIdOrClassNameGet`
@@ -43,7 +43,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                 image_webp = '',
                 hero = 56,
                 heroes = [
-                    null
+                    56
                     ],
                 update_time = 56,
                 properties = {
@@ -91,9 +91,9 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                         domain_mins = [
                             1.337
                             ], ), ),
-                type = 'upgrade',
+                type = 'ability',
                 behaviours = [
-                    null
+                    ''
                     ],
                 description = assets-deadlock-api-client.models.upgrade_description_v2.UpgradeDescriptionV2(
                     desc = '', 
@@ -137,7 +137,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                 ability_type = 'innate',
                 boss_damage_scale = 1.337,
                 dependant_abilities = [
-                    null
+                    ''
                     ],
                 videos = assets-deadlock-api-client.models.ability_videos_v2.AbilityVideosV2(
                     webm = '', 
@@ -152,7 +152,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                 activation = 'hold_toggle',
                 imbue = 'imbue_active',
                 component_items = [
-                    null
+                    ''
                     ],
                 tooltip_sections = [
                     assets-deadlock-api-client.models.upgrade_tooltip_section_v2.UpgradeTooltipSectionV2(

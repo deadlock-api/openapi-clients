@@ -2,13 +2,13 @@
 
 All URIs are relative to *https://assets.deadlock-api.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getItemV2ItemsIdOrClassNameGet**](ItemsApi.md#getItemV2ItemsIdOrClassNameGet) | **GET** /v2/items/{id_or_class_name} | Get Item
-[**getItemsByHeroIdV2ItemsByHeroIdIdGet**](ItemsApi.md#getItemsByHeroIdV2ItemsByHeroIdIdGet) | **GET** /v2/items/by-hero-id/{id} | Get Items By Hero Id
-[**getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet**](ItemsApi.md#getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet) | **GET** /v2/items/by-slot-type/{slot_type} | Get Items By Slot Type
-[**getItemsByTypeV2ItemsByTypeTypeGet**](ItemsApi.md#getItemsByTypeV2ItemsByTypeTypeGet) | **GET** /v2/items/by-type/{type} | Get Items By Type
-[**getItemsV2ItemsGet**](ItemsApi.md#getItemsV2ItemsGet) | **GET** /v2/items | Get Items
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getItemV2ItemsIdOrClassNameGet**](ItemsApi.md#getItemV2ItemsIdOrClassNameGet) | **GET** /v2/items/{id_or_class_name} | Get Item |
+| [**getItemsByHeroIdV2ItemsByHeroIdIdGet**](ItemsApi.md#getItemsByHeroIdV2ItemsByHeroIdIdGet) | **GET** /v2/items/by-hero-id/{id} | Get Items By Hero Id |
+| [**getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet**](ItemsApi.md#getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet) | **GET** /v2/items/by-slot-type/{slot_type} | Get Items By Slot Type |
+| [**getItemsByTypeV2ItemsByTypeTypeGet**](ItemsApi.md#getItemsByTypeV2ItemsByTypeTypeGet) | **GET** /v2/items/by-type/{type} | Get Items By Type |
+| [**getItemsV2ItemsGet**](ItemsApi.md#getItemsV2ItemsGet) | **GET** /v2/items | Get Items |
 
 
 <a id="getItemV2ItemsIdOrClassNameGet"></a>
@@ -40,12 +40,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **idOrClassName** | **kotlin.String**|  |
- **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese]
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
+| **idOrClassName** | **kotlin.String**|  | |
+| **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -89,12 +88,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**|  |
- **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese]
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
+| **id** | **kotlin.Int**|  | |
+| **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -138,12 +136,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slotType** | [**ItemSlotTypeV2**](.md)|  | [enum: weapon, spirit, vitality]
- **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese]
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
+| **slotType** | [**ItemSlotTypeV2**](.md)|  | [enum: weapon, spirit, vitality] |
+| **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -187,12 +184,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **type** | [**ItemTypeV2**](.md)|  | [enum: weapon, ability, upgrade, tech, armor]
- **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese]
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
+| **type** | [**ItemTypeV2**](.md)|  | [enum: weapon, ability, upgrade, tech, armor] |
+| **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -235,11 +231,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese]
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527]
+| **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 

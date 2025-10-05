@@ -44,5 +44,8 @@ data class ItemPermutationStats (
     @Json(name = "wins")
     val wins: kotlin.Long
 
-)
+) {
+
+
+}
 
