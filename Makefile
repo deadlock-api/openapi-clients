@@ -1,13 +1,6 @@
 NPROCS = $(shell grep -c 'processor' /proc/cpuinfo)
 MAKEFLAGS += -j$(NPROCS)
 
-# Phony targets don't represent files. This ensures that make will run the
-# commands for these targets every time, regardless of whether a file with
-# that name exists.
-.PHONY: all generate-api generate-assets-api clean
-
-# The default target executed when 'make' is run without arguments.
-# It depends on both individual generator targets.
 all: | python typescript rust kotlin go php dart jetbrains-client
 
 python: | generate-api-python generate-assets-api-python
