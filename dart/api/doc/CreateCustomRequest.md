@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **callbackUrl** | **String** | If a callback url is provided, we will send a POST request to this url when the match starts. | [optional] 
 **cheatsEnabled** | **bool** |  | [optional] 
+**disableAutoReady** | **bool** | If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up. | [optional] 
 **duplicateHeroesEnabled** | **bool** |  | [optional] 
 **experimentalHeroesEnabled** | **bool** |  | [optional] 
 **isPubliclyVisible** | **bool** |  | [optional] 

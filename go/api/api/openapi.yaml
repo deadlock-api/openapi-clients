@@ -107,7 +107,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -310,7 +310,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -442,7 +442,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -490,7 +490,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -724,7 +724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -961,7 +961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -1071,7 +1071,7 @@ paths:
           type: integer
         style: form
       - description: Filter players based on the number of matches they have played
-          with a specific hero.
+          with a specific hero within the filtered time range.
         explode: true
         in: query
         name: min_hero_matches
@@ -1083,10 +1083,34 @@ paths:
           type: integer
         style: form
       - description: Filter players based on the number of matches they have played
-          with a specific hero.
+          with a specific hero within the filtered time range.
         explode: true
         in: query
         name: max_hero_matches
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on the number of matches they have played
+          with a specific hero in their entire history.
+        explode: true
+        in: query
+        name: min_hero_matches_total
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on the number of matches they have played
+          with a specific hero in their entire history.
+        explode: true
+        in: query
+        name: max_hero_matches_total
         required: false
         schema:
           format: int64
@@ -1183,7 +1207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -1446,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -1656,7 +1680,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -1885,7 +1909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -2166,7 +2190,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757030400
+          default: 1757116800
           format: int64
           nullable: true
           type: integer
@@ -3364,6 +3388,31 @@ paths:
         "500":
           description: Creating custom match failed
       summary: Create Match
+      tags:
+      - Custom Matches
+  /v1/matches/custom/{lobby_id}/ready:
+    post:
+      description: |2
+
+        This endpoint allows you to ready up for a custom match.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | API-Key ONLY |
+        | Key | 100req/30min |
+        | Global | 1000req/h |
+      operationId: ready_up
+      responses:
+        "200":
+          description: Successfully ready up.
+        "400":
+          description: Provided parameters are invalid.
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Ready up failed
+      summary: Ready Up
       tags:
       - Custom Matches
   /v1/matches/custom/{party_id}/match-id:
@@ -5879,6 +5928,7 @@ components:
         is_publicly_visible: true
         region_mode: row
         cheats_enabled: true
+        disable_auto_ready: true
         randomize_lanes: true
         min_roster_size: 0
         duplicate_heroes_enabled: true
@@ -5890,6 +5940,12 @@ components:
           nullable: true
           type: string
         cheats_enabled:
+          nullable: true
+          type: boolean
+        disable_auto_ready:
+          description: |-
+            If auto-ready is disabled, the bot will not automatically ready up.
+            You need to call the `ready` endpoint to ready up.
           nullable: true
           type: boolean
         duplicate_heroes_enabled:

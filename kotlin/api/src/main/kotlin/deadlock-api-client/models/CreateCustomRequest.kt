@@ -25,6 +25,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param callbackUrl If a callback url is provided, we will send a POST request to this url when the match starts.
  * @param cheatsEnabled 
+ * @param disableAutoReady If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
  * @param duplicateHeroesEnabled 
  * @param experimentalHeroesEnabled 
  * @param isPubliclyVisible 
@@ -42,6 +43,10 @@ data class CreateCustomRequest (
 
     @Json(name = "cheats_enabled")
     val cheatsEnabled: kotlin.Boolean? = null,
+
+    /* If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up. */
+    @Json(name = "disable_auto_ready")
+    val disableAutoReady: kotlin.Boolean? = null,
 
     @Json(name = "duplicate_heroes_enabled")
     val duplicateHeroesEnabled: kotlin.Boolean? = null,

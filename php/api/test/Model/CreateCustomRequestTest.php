@@ -98,6 +98,15 @@ class CreateCustomRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "disable_auto_ready"
+     */
+    public function testPropertyDisableAutoReady()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "duplicate_heroes_enabled"
      */
     public function testPropertyDuplicateHeroesEnabled()

@@ -2884,8 +2884,10 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero.")] = None,
-        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero.")] = None,
+        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
+        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
+        min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
+        max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -2929,10 +2931,14 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero.
+        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
         :type min_hero_matches: int
-        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero.
+        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
         :type max_hero_matches: int
+        :param min_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :type min_hero_matches_total: int
+        :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :type max_hero_matches_total: int
         :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
@@ -2977,6 +2983,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             min_hero_matches=min_hero_matches,
             max_hero_matches=max_hero_matches,
+            min_hero_matches_total=min_hero_matches_total,
+            max_hero_matches_total=max_hero_matches_total,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             account_id=account_id,
@@ -3017,8 +3025,10 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero.")] = None,
-        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero.")] = None,
+        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
+        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
+        min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
+        max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -3062,10 +3072,14 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero.
+        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
         :type min_hero_matches: int
-        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero.
+        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
         :type max_hero_matches: int
+        :param min_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :type min_hero_matches_total: int
+        :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :type max_hero_matches_total: int
         :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
@@ -3110,6 +3124,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             min_hero_matches=min_hero_matches,
             max_hero_matches=max_hero_matches,
+            min_hero_matches_total=min_hero_matches_total,
+            max_hero_matches_total=max_hero_matches_total,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             account_id=account_id,
@@ -3150,8 +3166,10 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero.")] = None,
-        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero.")] = None,
+        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
+        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
+        min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
+        max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -3195,10 +3213,14 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero.
+        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
         :type min_hero_matches: int
-        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero.
+        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
         :type max_hero_matches: int
+        :param min_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :type min_hero_matches_total: int
+        :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :type max_hero_matches_total: int
         :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
@@ -3243,6 +3265,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             min_hero_matches=min_hero_matches,
             max_hero_matches=max_hero_matches,
+            min_hero_matches_total=min_hero_matches_total,
+            max_hero_matches_total=max_hero_matches_total,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             account_id=account_id,
@@ -3280,6 +3304,8 @@ class AnalyticsApi:
         max_match_id,
         min_hero_matches,
         max_hero_matches,
+        min_hero_matches_total,
+        max_hero_matches_total,
         include_item_ids,
         exclude_item_ids,
         account_id,
@@ -3360,6 +3386,14 @@ class AnalyticsApi:
         if max_hero_matches is not None:
             
             _query_params.append(('max_hero_matches', max_hero_matches))
+            
+        if min_hero_matches_total is not None:
+            
+            _query_params.append(('min_hero_matches_total', min_hero_matches_total))
+            
+        if max_hero_matches_total is not None:
+            
+            _query_params.append(('max_hero_matches_total', max_hero_matches_total))
             
         if include_item_ids is not None:
             

@@ -200,7 +200,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -430,7 +430,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -594,7 +594,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
 	if r.maxLastUpdatedUnixTimestamp != nil {
@@ -833,7 +833,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -1149,7 +1149,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -1441,7 +1441,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -1555,6 +1555,8 @@ type ApiHeroStatsRequest struct {
 	maxMatchId *int64
 	minHeroMatches *int64
 	maxHeroMatches *int64
+	minHeroMatchesTotal *int64
+	maxHeroMatchesTotal *int64
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
 	accountId *int32
@@ -1627,15 +1629,27 @@ func (r ApiHeroStatsRequest) MaxMatchId(maxMatchId int64) ApiHeroStatsRequest {
 	return r
 }
 
-// Filter players based on the number of matches they have played with a specific hero.
+// Filter players based on the number of matches they have played with a specific hero within the filtered time range.
 func (r ApiHeroStatsRequest) MinHeroMatches(minHeroMatches int64) ApiHeroStatsRequest {
 	r.minHeroMatches = &minHeroMatches
 	return r
 }
 
-// Filter players based on the number of matches they have played with a specific hero.
+// Filter players based on the number of matches they have played with a specific hero within the filtered time range.
 func (r ApiHeroStatsRequest) MaxHeroMatches(maxHeroMatches int64) ApiHeroStatsRequest {
 	r.maxHeroMatches = &maxHeroMatches
+	return r
+}
+
+// Filter players based on the number of matches they have played with a specific hero in their entire history.
+func (r ApiHeroStatsRequest) MinHeroMatchesTotal(minHeroMatchesTotal int64) ApiHeroStatsRequest {
+	r.minHeroMatchesTotal = &minHeroMatchesTotal
+	return r
+}
+
+// Filter players based on the number of matches they have played with a specific hero in their entire history.
+func (r ApiHeroStatsRequest) MaxHeroMatchesTotal(maxHeroMatchesTotal int64) ApiHeroStatsRequest {
+	r.maxHeroMatchesTotal = &maxHeroMatchesTotal
 	return r
 }
 
@@ -1719,7 +1733,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -1754,6 +1768,12 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	}
 	if r.maxHeroMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_hero_matches", r.maxHeroMatches, "form", "")
+	}
+	if r.minHeroMatchesTotal != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_hero_matches_total", r.minHeroMatchesTotal, "form", "")
+	}
+	if r.maxHeroMatchesTotal != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_hero_matches_total", r.maxHeroMatchesTotal, "form", "")
 	}
 	if r.includeItemIds != nil {
 		t := *r.includeItemIds
@@ -2019,7 +2039,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -2334,7 +2354,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -2635,7 +2655,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {
@@ -3236,7 +3256,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1757030400
+		var defaultValue int64 = 1757116800
 		r.minUnixTimestamp = &defaultValue
 	}
 	if r.maxUnixTimestamp != nil {

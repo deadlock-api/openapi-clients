@@ -893,6 +893,12 @@ export interface CreateCustomRequest {
      */
     'cheats_enabled'?: boolean | null;
     /**
+     * If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
+     * @type {boolean}
+     * @memberof CreateCustomRequest
+     */
+    'disable_auto_ready'?: boolean | null;
+    /**
      * 
      * @type {boolean}
      * @memberof CreateCustomRequest
@@ -3080,8 +3086,10 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {number | null} [minHeroMatches] Filter players based on the number of matches they have played with a specific hero.
-         * @param {number | null} [maxHeroMatches] Filter players based on the number of matches they have played with a specific hero.
+         * @param {number | null} [minHeroMatches] Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+         * @param {number | null} [maxHeroMatches] Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+         * @param {number | null} [minHeroMatchesTotal] Filter players based on the number of matches they have played with a specific hero in their entire history.
+         * @param {number | null} [maxHeroMatchesTotal] Filter players based on the number of matches they have played with a specific hero in their entire history.
          * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
@@ -3089,7 +3097,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroStats: async (bucket?: HeroStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroStats: async (bucket?: HeroStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, minHeroMatchesTotal?: number | null, maxHeroMatchesTotal?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/hero-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3152,6 +3160,14 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (maxHeroMatches !== undefined) {
                 localVarQueryParameter['max_hero_matches'] = maxHeroMatches;
+            }
+
+            if (minHeroMatchesTotal !== undefined) {
+                localVarQueryParameter['min_hero_matches_total'] = minHeroMatchesTotal;
+            }
+
+            if (maxHeroMatchesTotal !== undefined) {
+                localVarQueryParameter['max_hero_matches_total'] = maxHeroMatchesTotal;
             }
 
             if (includeItemIds) {
@@ -3926,8 +3942,10 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {number | null} [minHeroMatches] Filter players based on the number of matches they have played with a specific hero.
-         * @param {number | null} [maxHeroMatches] Filter players based on the number of matches they have played with a specific hero.
+         * @param {number | null} [minHeroMatches] Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+         * @param {number | null} [maxHeroMatches] Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+         * @param {number | null} [minHeroMatchesTotal] Filter players based on the number of matches they have played with a specific hero in their entire history.
+         * @param {number | null} [maxHeroMatchesTotal] Filter players based on the number of matches they have played with a specific hero in their entire history.
          * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
@@ -3935,8 +3953,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroStats(bucket?: HeroStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsHeroStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.heroStats(bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minHeroMatches, maxHeroMatches, includeItemIds, excludeItemIds, accountId, accountIds, options);
+        async heroStats(bucket?: HeroStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, minHeroMatchesTotal?: number | null, maxHeroMatchesTotal?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsHeroStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroStats(bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minHeroMatches, maxHeroMatches, minHeroMatchesTotal, maxHeroMatchesTotal, includeItemIds, excludeItemIds, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -4163,7 +4181,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         heroStats(requestParameters: AnalyticsApiHeroStatsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<AnalyticsHeroStats>> {
-            return localVarFp.heroStats(requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minHeroMatches, requestParameters.maxHeroMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.heroStats(requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minHeroMatches, requestParameters.maxHeroMatches, requestParameters.minHeroMatchesTotal, requestParameters.maxHeroMatchesTotal, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
          *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -4883,18 +4901,32 @@ export interface AnalyticsApiHeroStatsRequest {
     readonly maxMatchId?: number | null
 
     /**
-     * Filter players based on the number of matches they have played with a specific hero.
+     * Filter players based on the number of matches they have played with a specific hero within the filtered time range.
      * @type {number}
      * @memberof AnalyticsApiHeroStats
      */
     readonly minHeroMatches?: number | null
 
     /**
-     * Filter players based on the number of matches they have played with a specific hero.
+     * Filter players based on the number of matches they have played with a specific hero within the filtered time range.
      * @type {number}
      * @memberof AnalyticsApiHeroStats
      */
     readonly maxHeroMatches?: number | null
+
+    /**
+     * Filter players based on the number of matches they have played with a specific hero in their entire history.
+     * @type {number}
+     * @memberof AnalyticsApiHeroStats
+     */
+    readonly minHeroMatchesTotal?: number | null
+
+    /**
+     * Filter players based on the number of matches they have played with a specific hero in their entire history.
+     * @type {number}
+     * @memberof AnalyticsApiHeroStats
+     */
+    readonly maxHeroMatchesTotal?: number | null
 
     /**
      * Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
@@ -5636,7 +5668,7 @@ export class AnalyticsApi extends BaseAPI {
      * @memberof AnalyticsApi
      */
     public heroStats(requestParameters: AnalyticsApiHeroStatsRequest = {}, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).heroStats(requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minHeroMatches, requestParameters.maxHeroMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).heroStats(requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minHeroMatches, requestParameters.maxHeroMatches, requestParameters.minHeroMatchesTotal, requestParameters.maxHeroMatchesTotal, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6759,6 +6791,36 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
                 options: localVarRequestOptions,
             };
         },
+        /**
+         *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+         * @summary Ready Up
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readyUp: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/matches/custom/{lobby_id}/ready`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -6795,6 +6857,18 @@ export const CustomMatchesApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['CustomMatchesApi.getCustom']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+         * @summary Ready Up
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async readyUp(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.readyUp(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomMatchesApi.readyUp']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -6824,6 +6898,15 @@ export const CustomMatchesApiFactory = function (configuration?: Configuration, 
          */
         getCustom(requestParameters: CustomMatchesApiGetCustomRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetCustomMatchIdResponse> {
             return localVarFp.getCustom(requestParameters.partyId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+         * @summary Ready Up
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readyUp(options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.readyUp(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -6885,6 +6968,17 @@ export class CustomMatchesApi extends BaseAPI {
      */
     public getCustom(requestParameters: CustomMatchesApiGetCustomRequest, options?: RawAxiosRequestConfig) {
         return CustomMatchesApiFp(this.configuration).getCustom(requestParameters.partyId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+     * @summary Ready Up
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomMatchesApi
+     */
+    public readyUp(options?: RawAxiosRequestConfig) {
+        return CustomMatchesApiFp(this.configuration).readyUp(options).then((request) => request(this.axios, this.basePath));
     }
 }
 

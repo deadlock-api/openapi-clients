@@ -59,6 +59,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'callback_url' => 'string',
         'cheats_enabled' => 'bool',
+        'disable_auto_ready' => 'bool',
         'duplicate_heroes_enabled' => 'bool',
         'experimental_heroes_enabled' => 'bool',
         'is_publicly_visible' => 'bool',
@@ -77,6 +78,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'callback_url' => null,
         'cheats_enabled' => null,
+        'disable_auto_ready' => null,
         'duplicate_heroes_enabled' => null,
         'experimental_heroes_enabled' => null,
         'is_publicly_visible' => null,
@@ -93,6 +95,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $openAPINullables = [
         'callback_url' => true,
         'cheats_enabled' => true,
+        'disable_auto_ready' => true,
         'duplicate_heroes_enabled' => true,
         'experimental_heroes_enabled' => true,
         'is_publicly_visible' => true,
@@ -189,6 +192,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $attributeMap = [
         'callback_url' => 'callback_url',
         'cheats_enabled' => 'cheats_enabled',
+        'disable_auto_ready' => 'disable_auto_ready',
         'duplicate_heroes_enabled' => 'duplicate_heroes_enabled',
         'experimental_heroes_enabled' => 'experimental_heroes_enabled',
         'is_publicly_visible' => 'is_publicly_visible',
@@ -205,6 +209,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $setters = [
         'callback_url' => 'setCallbackUrl',
         'cheats_enabled' => 'setCheatsEnabled',
+        'disable_auto_ready' => 'setDisableAutoReady',
         'duplicate_heroes_enabled' => 'setDuplicateHeroesEnabled',
         'experimental_heroes_enabled' => 'setExperimentalHeroesEnabled',
         'is_publicly_visible' => 'setIsPubliclyVisible',
@@ -221,6 +226,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $getters = [
         'callback_url' => 'getCallbackUrl',
         'cheats_enabled' => 'getCheatsEnabled',
+        'disable_auto_ready' => 'getDisableAutoReady',
         'duplicate_heroes_enabled' => 'getDuplicateHeroesEnabled',
         'experimental_heroes_enabled' => 'getExperimentalHeroesEnabled',
         'is_publicly_visible' => 'getIsPubliclyVisible',
@@ -288,6 +294,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $this->setIfExists('callback_url', $data ?? [], null);
         $this->setIfExists('cheats_enabled', $data ?? [], null);
+        $this->setIfExists('disable_auto_ready', $data ?? [], null);
         $this->setIfExists('duplicate_heroes_enabled', $data ?? [], null);
         $this->setIfExists('experimental_heroes_enabled', $data ?? [], null);
         $this->setIfExists('is_publicly_visible', $data ?? [], null);
@@ -406,6 +413,40 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['cheats_enabled'] = $cheats_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets disable_auto_ready
+     *
+     * @return bool|null
+     */
+    public function getDisableAutoReady()
+    {
+        return $this->container['disable_auto_ready'];
+    }
+
+    /**
+     * Sets disable_auto_ready
+     *
+     * @param bool|null $disable_auto_ready If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
+     *
+     * @return self
+     */
+    public function setDisableAutoReady($disable_auto_ready)
+    {
+        if (is_null($disable_auto_ready)) {
+            array_push($this->openAPINullablesSetToNull, 'disable_auto_ready');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('disable_auto_ready', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['disable_auto_ready'] = $disable_auto_ready;
 
         return $this;
     }

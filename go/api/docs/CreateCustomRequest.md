@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CallbackUrl** | Pointer to **NullableString** | If a callback url is provided, we will send a POST request to this url when the match starts. | [optional] 
 **CheatsEnabled** | Pointer to **NullableBool** |  | [optional] 
+**DisableAutoReady** | Pointer to **NullableBool** | If auto-ready is disabled, the bot will not automatically ready up. You need to call the &#x60;ready&#x60; endpoint to ready up. | [optional] 
 **DuplicateHeroesEnabled** | Pointer to **NullableBool** |  | [optional] 
 **ExperimentalHeroesEnabled** | Pointer to **NullableBool** |  | [optional] 
 **IsPubliclyVisible** | Pointer to **NullableBool** |  | [optional] 
@@ -102,6 +103,41 @@ HasCheatsEnabled returns a boolean if a field has been set.
 `func (o *CreateCustomRequest) UnsetCheatsEnabled()`
 
 UnsetCheatsEnabled ensures that no value is present for CheatsEnabled, not even an explicit nil
+### GetDisableAutoReady
+
+`func (o *CreateCustomRequest) GetDisableAutoReady() bool`
+
+GetDisableAutoReady returns the DisableAutoReady field if non-nil, zero value otherwise.
+
+### GetDisableAutoReadyOk
+
+`func (o *CreateCustomRequest) GetDisableAutoReadyOk() (*bool, bool)`
+
+GetDisableAutoReadyOk returns a tuple with the DisableAutoReady field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableAutoReady
+
+`func (o *CreateCustomRequest) SetDisableAutoReady(v bool)`
+
+SetDisableAutoReady sets DisableAutoReady field to given value.
+
+### HasDisableAutoReady
+
+`func (o *CreateCustomRequest) HasDisableAutoReady() bool`
+
+HasDisableAutoReady returns a boolean if a field has been set.
+
+### SetDisableAutoReadyNil
+
+`func (o *CreateCustomRequest) SetDisableAutoReadyNil(b bool)`
+
+ SetDisableAutoReadyNil sets the value for DisableAutoReady to be an explicit nil
+
+### UnsetDisableAutoReady
+`func (o *CreateCustomRequest) UnsetDisableAutoReady()`
+
+UnsetDisableAutoReady ensures that no value is present for DisableAutoReady, not even an explicit nil
 ### GetDuplicateHeroesEnabled
 
 `func (o *CreateCustomRequest) GetDuplicateHeroesEnabled() bool`

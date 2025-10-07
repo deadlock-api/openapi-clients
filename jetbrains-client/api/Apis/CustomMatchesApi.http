@@ -9,6 +9,7 @@ Accept: application/json
 {
  "callback_url": "<string>",
  "cheats_enabled": "<string>",
+ "disable_auto_ready": "<string>",
  "duplicate_heroes_enabled": "<string>",
  "experimental_heroes_enabled": "<string>",
  "is_publicly_visible": "<string>",
@@ -22,3 +23,7 @@ Accept: application/json
 ## Get Match ID
 GET https://api.deadlock-api.com/v1/matches/custom/{{party_id}}/match-id
 Accept: application/json
+
+### Ready Up
+## Ready Up
+POST https://api.deadlock-api.com/v1/matches/custom/{{lobby_id}}/ready

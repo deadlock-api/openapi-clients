@@ -27,6 +27,12 @@ void main() {
       // TODO
     });
 
+    // If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
+    // bool disableAutoReady
+    test('to test the property `disableAutoReady`', () async {
+      // TODO
+    });
+
     // bool duplicateHeroesEnabled
     test('to test the property `duplicateHeroesEnabled`', () async {
       // TODO

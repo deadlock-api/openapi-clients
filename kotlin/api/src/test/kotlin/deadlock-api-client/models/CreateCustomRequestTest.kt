@@ -38,6 +38,12 @@ class CreateCustomRequestTest : ShouldSpec() {
             //modelInstance.cheatsEnabled shouldBe ("TODO")
         }
 
+        // to test the property `disableAutoReady` - If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
+        should("test disableAutoReady") {
+            // uncomment below to test the property
+            //modelInstance.disableAutoReady shouldBe ("TODO")
+        }
+
         // to test the property `duplicateHeroesEnabled`
         should("test duplicateHeroesEnabled") {
             // uncomment below to test the property

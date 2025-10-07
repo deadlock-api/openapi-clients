@@ -94,4 +94,16 @@ class CustomMatchesApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for readyUp
+     *
+     * Ready Up.
+     *
+     */
+    public function testReadyUp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

@@ -59,6 +59,7 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**widget_versions**](docs/CommandsApi.md#widget_versions) | **GET** /v1/commands/widgets/versions | Widget Versions
 *CustomMatchesApi* | [**create_custom**](docs/CustomMatchesApi.md#create_custom) | **POST** /v1/matches/custom/create | Create Match
 *CustomMatchesApi* | [**get_custom**](docs/CustomMatchesApi.md#get_custom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
+*CustomMatchesApi* | [**ready_up**](docs/CustomMatchesApi.md#ready_up) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *ESportsApi* | [**ingest_match**](docs/ESportsApi.md#ingest_match) | **POST** /v1/esports/ingest/match | Ingest
 *ESportsApi* | [**matches**](docs/ESportsApi.md#matches) | **GET** /v1/esports/matches | List Matches
 *InfoApi* | [**health_check**](docs/InfoApi.md#health_check) | **GET** /v1/info/health | Health Check

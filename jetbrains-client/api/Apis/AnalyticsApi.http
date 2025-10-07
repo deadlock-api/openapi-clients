@@ -32,7 +32,7 @@ Accept: application/json
 
 ### Hero Stats
 ## Hero Stats
-GET https://api.deadlock-api.com/v1/analytics/hero-stats?bucket={{bucket}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minHeroMatches={{minHeroMatches}}&maxHeroMatches={{maxHeroMatches}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&accountId={{accountId}}&accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/analytics/hero-stats?bucket={{bucket}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minHeroMatches={{minHeroMatches}}&maxHeroMatches={{maxHeroMatches}}&minHeroMatchesTotal={{minHeroMatchesTotal}}&maxHeroMatchesTotal={{maxHeroMatchesTotal}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Hero Synergy Stats

@@ -48,4 +48,15 @@ func Test_deadlock-api-client_CustomMatchesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test CustomMatchesAPIService ReadyUp", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.CustomMatchesAPI.ReadyUp(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **callback_url** | **string** | If a callback url is provided, we will send a POST request to this url when the match starts. | [optional] [default to undefined]
 **cheats_enabled** | **boolean** |  | [optional] [default to undefined]
+**disable_auto_ready** | **boolean** | If auto-ready is disabled, the bot will not automatically ready up. You need to call the &#x60;ready&#x60; endpoint to ready up. | [optional] [default to undefined]
 **duplicate_heroes_enabled** | **boolean** |  | [optional] [default to undefined]
 **experimental_heroes_enabled** | **boolean** |  | [optional] [default to undefined]
 **is_publicly_visible** | **boolean** |  | [optional] [default to undefined]
@@ -22,6 +23,7 @@ import { CreateCustomRequest } from 'deadlock-api-client';
 const instance: CreateCustomRequest = {
     callback_url,
     cheats_enabled,
+    disable_auto_ready,
     duplicate_heroes_enabled,
     experimental_heroes_enabled,
     is_publicly_visible,

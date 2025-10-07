@@ -30,13 +30,14 @@ class CreateCustomRequest(BaseModel):
     """ # noqa: E501
     callback_url: Optional[StrictStr] = Field(default=None, description="If a callback url is provided, we will send a POST request to this url when the match starts.")
     cheats_enabled: Optional[StrictBool] = None
+    disable_auto_ready: Optional[StrictBool] = Field(default=None, description="If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.")
     duplicate_heroes_enabled: Optional[StrictBool] = None
     experimental_heroes_enabled: Optional[StrictBool] = None
     is_publicly_visible: Optional[StrictBool] = None
     min_roster_size: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     randomize_lanes: Optional[StrictBool] = None
     region_mode: Optional[RegionMode] = None
-    __properties: ClassVar[List[str]] = ["callback_url", "cheats_enabled", "duplicate_heroes_enabled", "experimental_heroes_enabled", "is_publicly_visible", "min_roster_size", "randomize_lanes", "region_mode"]
+    __properties: ClassVar[List[str]] = ["callback_url", "cheats_enabled", "disable_auto_ready", "duplicate_heroes_enabled", "experimental_heroes_enabled", "is_publicly_visible", "min_roster_size", "randomize_lanes", "region_mode"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +88,11 @@ class CreateCustomRequest(BaseModel):
         if self.cheats_enabled is None and "cheats_enabled" in self.model_fields_set:
             _dict['cheats_enabled'] = None
 
+        # set to None if disable_auto_ready (nullable) is None
+        # and model_fields_set contains the field
+        if self.disable_auto_ready is None and "disable_auto_ready" in self.model_fields_set:
+            _dict['disable_auto_ready'] = None
+
         # set to None if duplicate_heroes_enabled (nullable) is None
         # and model_fields_set contains the field
         if self.duplicate_heroes_enabled is None and "duplicate_heroes_enabled" in self.model_fields_set:
@@ -131,6 +137,7 @@ class CreateCustomRequest(BaseModel):
         _obj = cls.model_validate({
             "callback_url": obj.get("callback_url"),
             "cheats_enabled": obj.get("cheats_enabled"),
+            "disable_auto_ready": obj.get("disable_auto_ready"),
             "duplicate_heroes_enabled": obj.get("duplicate_heroes_enabled"),
             "experimental_heroes_enabled": obj.get("experimental_heroes_enabled"),
             "is_publicly_visible": obj.get("is_publicly_visible"),

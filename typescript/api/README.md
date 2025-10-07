@@ -70,6 +70,7 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**widgetVersions**](docs/CommandsApi.md#widgetversions) | **GET** /v1/commands/widgets/versions | Widget Versions
 *CustomMatchesApi* | [**createCustom**](docs/CustomMatchesApi.md#createcustom) | **POST** /v1/matches/custom/create | Create Match
 *CustomMatchesApi* | [**getCustom**](docs/CustomMatchesApi.md#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
+*CustomMatchesApi* | [**readyUp**](docs/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *ESportsApi* | [**ingestMatch**](docs/ESportsApi.md#ingestmatch) | **POST** /v1/esports/ingest/match | Ingest
 *ESportsApi* | [**matches**](docs/ESportsApi.md#matches) | **GET** /v1/esports/matches | List Matches
 *InfoApi* | [**healthCheck**](docs/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check

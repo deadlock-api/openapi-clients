@@ -75,7 +75,7 @@ void main() {
     //
     //  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
     //
-    //Future<List<AnalyticsHeroStats>> heroStats({ String bucket, int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minNetworth, int maxNetworth, int minAverageBadge, int maxAverageBadge, int minMatchId, int maxMatchId, int minHeroMatches, int maxHeroMatches, List<int> includeItemIds, List<int> excludeItemIds, int accountId, List<int> accountIds }) async
+    //Future<List<AnalyticsHeroStats>> heroStats({ String bucket, int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minNetworth, int maxNetworth, int minAverageBadge, int maxAverageBadge, int minMatchId, int maxMatchId, int minHeroMatches, int maxHeroMatches, int minHeroMatchesTotal, int maxHeroMatchesTotal, List<int> includeItemIds, List<int> excludeItemIds, int accountId, List<int> accountIds }) async
     test('test heroStats', () async {
       // TODO
     });

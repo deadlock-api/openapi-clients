@@ -111,6 +111,7 @@ Class | Method | HTTP request | Description
 *CommandsAPI* | [**WidgetVersions**](docs/CommandsAPI.md#widgetversions) | **Get** /v1/commands/widgets/versions | Widget Versions
 *CustomMatchesAPI* | [**CreateCustom**](docs/CustomMatchesAPI.md#createcustom) | **Post** /v1/matches/custom/create | Create Match
 *CustomMatchesAPI* | [**GetCustom**](docs/CustomMatchesAPI.md#getcustom) | **Get** /v1/matches/custom/{party_id}/match-id | Get Match ID
+*CustomMatchesAPI* | [**ReadyUp**](docs/CustomMatchesAPI.md#readyup) | **Post** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *ESportsAPI* | [**IngestMatch**](docs/ESportsAPI.md#ingestmatch) | **Post** /v1/esports/ingest/match | Ingest
 *ESportsAPI* | [**Matches**](docs/ESportsAPI.md#matches) | **Get** /v1/esports/matches | List Matches
 *InfoAPI* | [**HealthCheck**](docs/InfoAPI.md#healthcheck) | **Get** /v1/info/health | Health Check

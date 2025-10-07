@@ -40,6 +40,13 @@ class TestCustomMatchesApi(unittest.TestCase):
         """
         pass
 
+    def test_ready_up(self) -> None:
+        """Test case for ready_up
+
+        Ready Up
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -37,6 +37,7 @@ class TestCreateCustomRequest(unittest.TestCase):
             return CreateCustomRequest(
                 callback_url = '',
                 cheats_enabled = True,
+                disable_auto_ready = True,
                 duplicate_heroes_enabled = True,
                 experimental_heroes_enabled = True,
                 is_publicly_visible = True,

@@ -35,5 +35,14 @@ void main() {
       // TODO
     });
 
+    // Ready Up
+    //
+    //  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+    //
+    //Future readyUp() async
+    test('test readyUp', () async {
+      // TODO
+    });
+
   });
 }

@@ -6,6 +6,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | ------------- | ------------- | ------------- |
 | [**createCustom**](CustomMatchesApi.md#createCustom) | **POST** /v1/matches/custom/create | Create Match |
 | [**getCustom**](CustomMatchesApi.md#getCustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID |
+| [**readyUp**](CustomMatchesApi.md#readyUp) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up |
 
 
 <a id="createCustom"></a>
@@ -99,4 +100,46 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a id="readyUp"></a>
+# **readyUp**
+> readyUp()
+
+Ready Up
+
+ This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock-api-client.infrastructure.*
+//import deadlock-api-client.models.*
+
+val apiInstance = CustomMatchesApi()
+try {
+    apiInstance.readyUp()
+} catch (e: ClientException) {
+    println("4xx response calling CustomMatchesApi#readyUp")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CustomMatchesApi#readyUp")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 

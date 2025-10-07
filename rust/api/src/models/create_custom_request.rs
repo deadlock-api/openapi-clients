@@ -18,6 +18,9 @@ pub struct CreateCustomRequest {
     pub callback_url: Option<Option<String>>,
     #[serde(rename = "cheats_enabled", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub cheats_enabled: Option<Option<bool>>,
+    /// If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
+    #[serde(rename = "disable_auto_ready", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub disable_auto_ready: Option<Option<bool>>,
     #[serde(rename = "duplicate_heroes_enabled", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub duplicate_heroes_enabled: Option<Option<bool>>,
     #[serde(rename = "experimental_heroes_enabled", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -37,6 +40,7 @@ impl CreateCustomRequest {
         CreateCustomRequest {
             callback_url: None,
             cheats_enabled: None,
+            disable_auto_ready: None,
             duplicate_heroes_enabled: None,
             experimental_heroes_enabled: None,
             is_publicly_visible: None,

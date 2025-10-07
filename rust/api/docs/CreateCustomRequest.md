@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **callback_url** | Option<**String**> | If a callback url is provided, we will send a POST request to this url when the match starts. | [optional]
 **cheats_enabled** | Option<**bool**> |  | [optional]
+**disable_auto_ready** | Option<**bool**> | If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up. | [optional]
 **duplicate_heroes_enabled** | Option<**bool**> |  | [optional]
 **experimental_heroes_enabled** | Option<**bool**> |  | [optional]
 **is_publicly_visible** | Option<**bool**> |  | [optional]

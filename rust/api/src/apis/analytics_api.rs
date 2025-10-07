@@ -223,10 +223,14 @@ pub struct HeroStatsParams {
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>,
-    /// Filter players based on the number of matches they have played with a specific hero.
+    /// Filter players based on the number of matches they have played with a specific hero within the filtered time range.
     pub min_hero_matches: Option<u64>,
-    /// Filter players based on the number of matches they have played with a specific hero.
+    /// Filter players based on the number of matches they have played with a specific hero within the filtered time range.
     pub max_hero_matches: Option<u64>,
+    /// Filter players based on the number of matches they have played with a specific hero in their entire history.
+    pub min_hero_matches_total: Option<u64>,
+    /// Filter players based on the number of matches they have played with a specific hero in their entire history.
+    pub max_hero_matches_total: Option<u64>,
     /// Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
     pub include_item_ids: Option<Vec<u32>>,
     /// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
@@ -1039,6 +1043,12 @@ pub async fn hero_stats(configuration: &configuration::Configuration, params: He
     }
     if let Some(ref param_value) = params.max_hero_matches {
         req_builder = req_builder.query(&[("max_hero_matches", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_hero_matches_total {
+        req_builder = req_builder.query(&[("min_hero_matches_total", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_hero_matches_total {
+        req_builder = req_builder.query(&[("max_hero_matches_total", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.include_item_ids {
         req_builder = match "multi" {

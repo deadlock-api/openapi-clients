@@ -82,7 +82,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
-    min_unix_timestamp = 1757030400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1757030400)
+    min_unix_timestamp = 1757116800 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1757116800)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**widget_versions**](docs/CommandsApi.md#widget_versions) | **GET** /v1/commands/widgets/versions | Widget Versions
 *CustomMatchesApi* | [**create_custom**](docs/CustomMatchesApi.md#create_custom) | **POST** /v1/matches/custom/create | Create Match
 *CustomMatchesApi* | [**get_custom**](docs/CustomMatchesApi.md#get_custom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
+*CustomMatchesApi* | [**ready_up**](docs/CustomMatchesApi.md#ready_up) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *ESportsApi* | [**ingest_match**](docs/ESportsApi.md#ingest_match) | **POST** /v1/esports/ingest/match | Ingest
 *ESportsApi* | [**matches**](docs/ESportsApi.md#matches) | **GET** /v1/esports/matches | List Matches
 *InfoApi* | [**health_check**](docs/InfoApi.md#health_check) | **GET** /v1/info/health | Health Check

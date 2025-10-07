@@ -44,5 +44,11 @@ class CustomMatchesApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
+        // to test readyUp
+        should("test readyUp") {
+            // uncomment below to test readyUp
+            //apiInstance.readyUp()
+        }
+
     }
 }

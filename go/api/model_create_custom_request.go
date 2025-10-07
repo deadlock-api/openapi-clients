@@ -22,6 +22,8 @@ type CreateCustomRequest struct {
 	// If a callback url is provided, we will send a POST request to this url when the match starts.
 	CallbackUrl NullableString `json:"callback_url,omitempty"`
 	CheatsEnabled NullableBool `json:"cheats_enabled,omitempty"`
+	// If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
+	DisableAutoReady NullableBool `json:"disable_auto_ready,omitempty"`
 	DuplicateHeroesEnabled NullableBool `json:"duplicate_heroes_enabled,omitempty"`
 	ExperimentalHeroesEnabled NullableBool `json:"experimental_heroes_enabled,omitempty"`
 	IsPubliclyVisible NullableBool `json:"is_publicly_visible,omitempty"`
@@ -129,6 +131,48 @@ func (o *CreateCustomRequest) SetCheatsEnabledNil() {
 // UnsetCheatsEnabled ensures that no value is present for CheatsEnabled, not even an explicit nil
 func (o *CreateCustomRequest) UnsetCheatsEnabled() {
 	o.CheatsEnabled.Unset()
+}
+
+// GetDisableAutoReady returns the DisableAutoReady field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateCustomRequest) GetDisableAutoReady() bool {
+	if o == nil || IsNil(o.DisableAutoReady.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.DisableAutoReady.Get()
+}
+
+// GetDisableAutoReadyOk returns a tuple with the DisableAutoReady field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateCustomRequest) GetDisableAutoReadyOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DisableAutoReady.Get(), o.DisableAutoReady.IsSet()
+}
+
+// HasDisableAutoReady returns a boolean if a field has been set.
+func (o *CreateCustomRequest) HasDisableAutoReady() bool {
+	if o != nil && o.DisableAutoReady.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDisableAutoReady gets a reference to the given NullableBool and assigns it to the DisableAutoReady field.
+func (o *CreateCustomRequest) SetDisableAutoReady(v bool) {
+	o.DisableAutoReady.Set(&v)
+}
+// SetDisableAutoReadyNil sets the value for DisableAutoReady to be an explicit nil
+func (o *CreateCustomRequest) SetDisableAutoReadyNil() {
+	o.DisableAutoReady.Set(nil)
+}
+
+// UnsetDisableAutoReady ensures that no value is present for DisableAutoReady, not even an explicit nil
+func (o *CreateCustomRequest) UnsetDisableAutoReady() {
+	o.DisableAutoReady.Unset()
 }
 
 // GetDuplicateHeroesEnabled returns the DuplicateHeroesEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -398,6 +442,9 @@ func (o CreateCustomRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.CheatsEnabled.IsSet() {
 		toSerialize["cheats_enabled"] = o.CheatsEnabled.Get()
+	}
+	if o.DisableAutoReady.IsSet() {
+		toSerialize["disable_auto_ready"] = o.DisableAutoReady.Get()
 	}
 	if o.DuplicateHeroesEnabled.IsSet() {
 		toSerialize["duplicate_heroes_enabled"] = o.DuplicateHeroesEnabled.Get()
