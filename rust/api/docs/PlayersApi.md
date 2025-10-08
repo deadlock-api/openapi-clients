@@ -198,7 +198,7 @@ No authorization required
 
 ## player_hero_stats
 
-> Vec<models::HeroStats> player_hero_stats(account_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id)
+> Vec<models::HeroStats> player_hero_stats(account_ids, hero_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id)
 Hero Stats
 
  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -209,6 +209,7 @@ Hero Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_ids** | [**Vec<u32>**](u32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
+**hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |

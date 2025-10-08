@@ -107,7 +107,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -310,7 +310,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -442,7 +442,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -490,7 +490,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -724,7 +724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -961,7 +961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -1207,7 +1207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -1470,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -1680,7 +1680,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -1909,7 +1909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -2190,7 +2190,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757116800
+          default: 1757203200
           format: int64
           nullable: true
           type: integer
@@ -4013,9 +4013,18 @@ paths:
             format: int32
             minimum: 0
             type: integer
-          maxItems: 100
+          maxItems: 1000
           minItems: 1
           type: array
+        style: form
+      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+        explode: true
+        in: query
+        name: hero_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       - description: Filter matches based on their start time (Unix timestamp).
         explode: true

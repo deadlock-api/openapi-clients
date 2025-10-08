@@ -116,6 +116,8 @@ pub struct PartyStatsParams {
 pub struct PlayerHeroStatsParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
     pub account_ids: Vec<u32>,
+    /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+    pub hero_ids: Option<String>,
     /// Filter matches based on their start time (Unix timestamp).
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -508,6 +510,9 @@ pub async fn player_hero_stats(configuration: &configuration::Configuration, par
         "multi" => req_builder.query(&params.account_ids.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
         _ => req_builder.query(&[("account_ids", &params.account_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
     };
+    if let Some(ref param_value) = params.hero_ids {
+        req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }

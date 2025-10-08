@@ -66,7 +66,7 @@ void main() {
     //
     //  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
     //
-    //Future<List<HeroStats>> playerHeroStats(List<int> accountIds, { int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minNetworth, int maxNetworth, int minAverageBadge, int maxAverageBadge, int minMatchId, int maxMatchId }) async
+    //Future<List<HeroStats>> playerHeroStats(List<int> accountIds, { String heroIds, int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minNetworth, int maxNetworth, int minAverageBadge, int maxAverageBadge, int minMatchId, int maxMatchId }) async
     test('test playerHeroStats', () async {
       // TODO
     });

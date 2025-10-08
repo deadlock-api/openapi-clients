@@ -308,7 +308,7 @@ No authorization required
 
 <a id="playerHeroStats"></a>
 # **playerHeroStats**
-> kotlin.collections.List&lt;HeroStats&gt; playerHeroStats(accountIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+> kotlin.collections.List&lt;HeroStats&gt; playerHeroStats(accountIds, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
 
 Hero Stats
 
@@ -322,6 +322,7 @@ Hero Stats
 
 val apiInstance = PlayersApi()
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
 val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
 val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
@@ -333,7 +334,7 @@ val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on th
 val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 try {
-    val result : kotlin.collections.List<HeroStats> = apiInstance.playerHeroStats(accountIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+    val result : kotlin.collections.List<HeroStats> = apiInstance.playerHeroStats(accountIds, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PlayersApi#playerHeroStats")
@@ -346,6 +347,7 @@ try {
 
 ### Parameters
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
+| **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

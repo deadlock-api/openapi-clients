@@ -934,6 +934,7 @@ type ApiPlayerHeroStatsRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
 	accountIds *[]int32
+	heroIds *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
 	minDurationS *int64
@@ -949,6 +950,12 @@ type ApiPlayerHeroStatsRequest struct {
 // Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
 func (r ApiPlayerHeroStatsRequest) AccountIds(accountIds []int32) ApiPlayerHeroStatsRequest {
 	r.accountIds = &accountIds
+	return r
+}
+
+// Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+func (r ApiPlayerHeroStatsRequest) HeroIds(heroIds string) ApiPlayerHeroStatsRequest {
+	r.heroIds = &heroIds
 	return r
 }
 
@@ -1066,8 +1073,8 @@ func (a *PlayersAPIService) PlayerHeroStatsExecute(r ApiPlayerHeroStatsRequest) 
 	if len(*r.accountIds) < 1 {
 		return localVarReturnValue, nil, reportError("accountIds must have at least 1 elements")
 	}
-	if len(*r.accountIds) > 100 {
-		return localVarReturnValue, nil, reportError("accountIds must have less than 100 elements")
+	if len(*r.accountIds) > 1000 {
+		return localVarReturnValue, nil, reportError("accountIds must have less than 1000 elements")
 	}
 
 	{
@@ -1080,6 +1087,9 @@ func (a *PlayersAPIService) PlayerHeroStatsExecute(r ApiPlayerHeroStatsRequest) 
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
 		}
+	}
+	if r.heroIds != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "form", "")
 	}
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")

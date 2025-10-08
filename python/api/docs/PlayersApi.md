@@ -492,7 +492,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **player_hero_stats**
-> List[HeroStats] player_hero_stats(account_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id)
+> List[HeroStats] player_hero_stats(account_ids, hero_ids=hero_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id)
 
 Hero Stats
 
@@ -528,6 +528,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.PlayersApi(api_client)
     account_ids = [56] # List[int] | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+    hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     min_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -541,7 +542,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 
     try:
         # Hero Stats
-        api_response = api_instance.player_hero_stats(account_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id)
+        api_response = api_instance.player_hero_stats(account_ids, hero_ids=hero_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id)
         print("The response of PlayersApi->player_hero_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -556,6 +557,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_ids** | [**List[int]**](int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | 
+ **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
  **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 

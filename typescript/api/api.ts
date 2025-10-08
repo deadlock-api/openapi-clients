@@ -9860,6 +9860,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Hero Stats
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -9873,7 +9874,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerHeroStats: async (accountIds: Array<number>, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        playerHeroStats: async (accountIds: Array<number>, heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountIds' is not null or undefined
             assertParamExists('playerHeroStats', 'accountIds', accountIds)
             const localVarPath = `/v1/players/hero-stats`;
@@ -9890,6 +9891,10 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
 
             if (accountIds) {
                 localVarQueryParameter['account_ids'] = accountIds;
+            }
+
+            if (heroIds !== undefined) {
+                localVarQueryParameter['hero_ids'] = heroIds;
             }
 
             if (minUnixTimestamp !== undefined) {
@@ -10127,6 +10132,7 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Hero Stats
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -10140,8 +10146,8 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async playerHeroStats(accountIds: Array<number>, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.playerHeroStats(accountIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, options);
+        async playerHeroStats(accountIds: Array<number>, heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.playerHeroStats(accountIds, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.playerHeroStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -10240,7 +10246,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         playerHeroStats(requestParameters: PlayersApiPlayerHeroStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroStats>> {
-            return localVarFp.playerHeroStats(requestParameters.accountIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+            return localVarFp.playerHeroStats(requestParameters.accountIds, requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -10566,6 +10572,13 @@ export interface PlayersApiPlayerHeroStatsRequest {
     readonly accountIds: Array<number>
 
     /**
+     * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @type {string}
+     * @memberof PlayersApiPlayerHeroStats
+     */
+    readonly heroIds?: string | null
+
+    /**
      * Filter matches based on their start time (Unix timestamp).
      * @type {number}
      * @memberof PlayersApiPlayerHeroStats
@@ -10740,7 +10753,7 @@ export class PlayersApi extends BaseAPI {
      * @memberof PlayersApi
      */
     public playerHeroStats(requestParameters: PlayersApiPlayerHeroStatsRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).playerHeroStats(requestParameters.accountIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).playerHeroStats(requestParameters.accountIds, requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

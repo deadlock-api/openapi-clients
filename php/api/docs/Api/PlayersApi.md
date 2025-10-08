@@ -359,7 +359,7 @@ No authorization required
 ## `playerHeroStats()`
 
 ```php
-playerHeroStats($account_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id): \OpenAPI\Client\Model\HeroStats[]
+playerHeroStats($account_ids, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id): \OpenAPI\Client\Model\HeroStats[]
 ```
 
 Hero Stats
@@ -380,6 +380,7 @@ $apiInstance = new OpenAPI\Client\Api\PlayersApi(
     new GuzzleHttp\Client()
 );
 $account_ids = array(56); // int[] | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+$hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 $min_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -392,7 +393,7 @@ $min_match_id = 56; // int | Filter matches based on their ID.
 $max_match_id = 56; // int | Filter matches based on their ID.
 
 try {
-    $result = $apiInstance->playerHeroStats($account_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id);
+    $result = $apiInstance->playerHeroStats($account_ids, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlayersApi->playerHeroStats: ', $e->getMessage(), PHP_EOL;
@@ -404,6 +405,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
+| **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

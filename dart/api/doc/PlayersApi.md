@@ -297,7 +297,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **playerHeroStats**
-> List<HeroStats> playerHeroStats(accountIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+> List<HeroStats> playerHeroStats(accountIds, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
 
 Hero Stats
 
@@ -309,6 +309,7 @@ import 'package:deadlock-api-client/api.dart';
 
 final api_instance = PlayersApi();
 final accountIds = []; // List<int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+final heroIds = heroIds_example; // String | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 final minUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp).
 final maxUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp).
 final minDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -321,7 +322,7 @@ final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 
 try {
-    final result = api_instance.playerHeroStats(accountIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+    final result = api_instance.playerHeroStats(accountIds, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
     print(result);
 } catch (e) {
     print('Exception when calling PlayersApi->playerHeroStats: $e\n');
@@ -333,6 +334,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **accountIds** | [**List<int>**](int.md)| Comma separated list of account ids, Account IDs are in `SteamID3` format. | [default to const []]
+ **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
  **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 

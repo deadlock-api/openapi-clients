@@ -27,7 +27,7 @@ Accept: application/json
 
 ### Hero Stats
 ## Hero Stats
-GET https://api.deadlock-api.com/v1/players/hero-stats?accountIds={{accountIds}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
+GET https://api.deadlock-api.com/v1/players/hero-stats?accountIds={{accountIds}}&heroIds={{heroIds}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
 Accept: application/json
 
 ### Batch Steam Profile

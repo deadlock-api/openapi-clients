@@ -615,6 +615,7 @@ class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * Hero Stats
      *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -634,8 +635,8 @@ class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun playerHeroStats(accountIds: kotlin.collections.List<kotlin.Int>, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<HeroStats> {
-        val localVarResponse = playerHeroStatsWithHttpInfo(accountIds = accountIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
+    fun playerHeroStats(accountIds: kotlin.collections.List<kotlin.Int>, heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<HeroStats> {
+        val localVarResponse = playerHeroStatsWithHttpInfo(accountIds = accountIds, heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<HeroStats>
@@ -657,6 +658,7 @@ class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * Hero Stats
      *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -673,8 +675,8 @@ class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun playerHeroStatsWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<HeroStats>?> {
-        val localVariableConfig = playerHeroStatsRequestConfig(accountIds = accountIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
+    fun playerHeroStatsWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<HeroStats>?> {
+        val localVariableConfig = playerHeroStatsRequestConfig(accountIds = accountIds, heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return request<Unit, kotlin.collections.List<HeroStats>>(
             localVariableConfig
@@ -685,6 +687,7 @@ class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * To obtain the request config of the operation playerHeroStats
      *
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -697,11 +700,14 @@ class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig
      */
-    fun playerHeroStatsRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+    fun playerHeroStatsRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+                if (heroIds != null) {
+                    put("hero_ids", listOf(heroIds.toString()))
+                }
                 if (minUnixTimestamp != null) {
                     put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
                 }

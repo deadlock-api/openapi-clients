@@ -1911,7 +1911,8 @@ class PlayersApi:
     @validate_call
     def player_hero_stats(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=100, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -1941,6 +1942,8 @@ class PlayersApi:
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type hero_ids: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp).
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -1985,6 +1988,7 @@ class PlayersApi:
 
         _param = self._player_hero_stats_serialize(
             account_ids=account_ids,
+            hero_ids=hero_ids,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -2020,7 +2024,8 @@ class PlayersApi:
     @validate_call
     def player_hero_stats_with_http_info(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=100, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -2050,6 +2055,8 @@ class PlayersApi:
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type hero_ids: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp).
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -2094,6 +2101,7 @@ class PlayersApi:
 
         _param = self._player_hero_stats_serialize(
             account_ids=account_ids,
+            hero_ids=hero_ids,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -2129,7 +2137,8 @@ class PlayersApi:
     @validate_call
     def player_hero_stats_without_preload_content(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=100, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -2159,6 +2168,8 @@ class PlayersApi:
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type hero_ids: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp).
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -2203,6 +2214,7 @@ class PlayersApi:
 
         _param = self._player_hero_stats_serialize(
             account_ids=account_ids,
+            hero_ids=hero_ids,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -2234,6 +2246,7 @@ class PlayersApi:
     def _player_hero_stats_serialize(
         self,
         account_ids,
+        hero_ids,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -2270,6 +2283,10 @@ class PlayersApi:
         if account_ids is not None:
             
             _query_params.append(('account_ids', account_ids))
+            
+        if hero_ids is not None:
+            
+            _query_params.append(('hero_ids', hero_ids))
             
         if min_unix_timestamp is not None:
             
