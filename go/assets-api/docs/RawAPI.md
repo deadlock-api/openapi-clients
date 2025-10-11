@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.ValidClientVersions(5920) // ValidClientVersions |  (optional)
+	clientVersion := openapiclient.ValidClientVersions(5945) // ValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -93,7 +93,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.ValidClientVersions(5920) // ValidClientVersions |  (optional)
+	clientVersion := openapiclient.ValidClientVersions(5945) // ValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -157,7 +157,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.ValidClientVersions(5920) // ValidClientVersions |  (optional)
+	clientVersion := openapiclient.ValidClientVersions(5945) // ValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

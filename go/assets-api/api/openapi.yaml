@@ -3412,6 +3412,7 @@ components:
       title: UpgradeV2
     ValidClientVersions:
       enum:
+      - 5945
       - 5920
       - 5902
       - 5885

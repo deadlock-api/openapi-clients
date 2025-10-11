@@ -42,6 +42,8 @@ class ValidClientVersions
     /**
      * Possible values of this enum
      */
+    public const NUMBER_5945 = 5945;
+
     public const NUMBER_5920 = 5920;
 
     public const NUMBER_5902 = 5902;
@@ -109,6 +111,7 @@ class ValidClientVersions
     public static function getAllowableEnumValues()
     {
         return [
+            self::NUMBER_5945,
             self::NUMBER_5920,
             self::NUMBER_5902,
             self::NUMBER_5885,

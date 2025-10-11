@@ -16,6 +16,7 @@ use serde_repr::{Serialize_repr,Deserialize_repr};
 #[repr(i64)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum ValidClientVersions {
+    Variant5945 = 5945,
     Variant5920 = 5920,
     Variant5902 = 5902,
     Variant5885 = 5885,
@@ -52,6 +53,7 @@ pub enum ValidClientVersions {
 impl std::fmt::Display for ValidClientVersions {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", match self {
+            Self::Variant5945 => "5945",
             Self::Variant5920 => "5920",
             Self::Variant5902 => "5902",
             Self::Variant5885 => "5885",
@@ -87,7 +89,7 @@ impl std::fmt::Display for ValidClientVersions {
 }
 impl Default for ValidClientVersions {
     fn default() -> ValidClientVersions {
-        Self::Variant5920
+        Self::Variant5945
     }
 }
 

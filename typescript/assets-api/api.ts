@@ -3009,6 +3009,7 @@ export interface UsageFlags {
  */
 
 export const ValidClientVersions = {
+    NUMBER_5945: 5945,
     NUMBER_5920: 5920,
     NUMBER_5902: 5902,
     NUMBER_5885: 5885,
