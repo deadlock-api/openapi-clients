@@ -25,6 +25,12 @@ class ItemStatsTest : ShouldSpec() {
         // uncomment below to create an instance of ItemStats
         //val modelInstance = ItemStats()
 
+        // to test the property `bucket`
+        should("test bucket") {
+            // uncomment below to test the property
+            //modelInstance.bucket shouldBe ("TODO")
+        }
+
         // to test the property `itemId` - See more: <https://assets.deadlock-api.com/v2/items>
         should("test itemId") {
             // uncomment below to test the property
@@ -53,12 +59,6 @@ class ItemStatsTest : ShouldSpec() {
         should("test wins") {
             // uncomment below to test the property
             //modelInstance.wins shouldBe ("TODO")
-        }
-
-        // to test the property `bucket`
-        should("test bucket") {
-            // uncomment below to test the property
-            //modelInstance.bucket shouldBe ("TODO")
         }
 
     }

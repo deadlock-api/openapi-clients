@@ -22,16 +22,19 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param bucket 
  * @param itemId See more: <https://assets.deadlock-api.com/v2/items>
  * @param losses 
  * @param matches 
  * @param players 
  * @param wins 
- * @param bucket 
  */
 
 
 data class ItemStats (
+
+    @Json(name = "bucket")
+    val bucket: kotlin.Int,
 
     /* See more: <https://assets.deadlock-api.com/v2/items> */
     @Json(name = "item_id")
@@ -47,10 +50,7 @@ data class ItemStats (
     val players: kotlin.Long,
 
     @Json(name = "wins")
-    val wins: kotlin.Long,
-
-    @Json(name = "bucket")
-    val bucket: kotlin.Int? = null
+    val wins: kotlin.Long
 
 ) {
 

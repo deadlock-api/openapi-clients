@@ -28,16 +28,16 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = false)
 enum class ItemTierV2(val value: kotlin.Int) {
 
-    @Json(name = 1)
+    @Json(name = "1")
     _1(1),
 
-    @Json(name = 2)
+    @Json(name = "2")
     _2(2),
 
-    @Json(name = 3)
+    @Json(name = "3")
     _3(3),
 
-    @Json(name = 4)
+    @Json(name = "4")
     _4(4);
 
     /**

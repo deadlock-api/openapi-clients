@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **tooltipSections** | [**List<UpgradeTooltipSectionV2>**](UpgradeTooltipSectionV2.md) |  | [optional] [default to const []]
 **isActiveItem** | **bool** |  | [readonly] 
 **shopable** | **bool** |  | [readonly] 
-**cost** | **int** |  | 
+**cost** | **int** |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

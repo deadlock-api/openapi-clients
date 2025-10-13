@@ -42,6 +42,7 @@ import com.squareup.moshi.JsonClass
  * @param startTime 
  * @param abandonedTimeS 
  * @param teamAbandoned 
+ * @param username 
  */
 
 
@@ -106,7 +107,10 @@ data class PlayerMatchHistoryEntry (
     val abandonedTimeS: kotlin.Int? = null,
 
     @Json(name = "team_abandoned")
-    val teamAbandoned: kotlin.Boolean? = null
+    val teamAbandoned: kotlin.Boolean? = null,
+
+    @Json(name = "username")
+    val username: kotlin.String? = null
 
 ) {
 

@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **player_team** | **int** |  | 
 **start_time** | **int** |  | 
 **team_abandoned** | **bool** |  | [optional] 
+**username** | **str** |  | [optional] 
 
 ## Example
 

@@ -203,3 +203,4 @@ from assets-deadlock-api-client.models.value import Value as Value
 from assets-deadlock-api-client.models.value1 import Value1 as Value1
 from assets-deadlock-api-client.models.weapon_v2 import WeaponV2 as WeaponV2
 from assets-deadlock-api-client.models.ziplane_path_v1 import ZiplanePathV1 as ZiplanePathV1
+

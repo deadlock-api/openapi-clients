@@ -24,6 +24,7 @@
 | **startTime** | **kotlin.Int** |  |  |
 | **abandonedTimeS** | **kotlin.Int** |  |  [optional] |
 | **teamAbandoned** | **kotlin.Boolean** |  |  [optional] |
+| **username** | **kotlin.String** |  |  [optional] |
 
 
 

@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **player_team** | **i32** |  | 
 **start_time** | **u32** |  | 
 **team_abandoned** | Option<**bool**> |  | [optional]
+**username** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

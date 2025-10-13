@@ -181,3 +181,4 @@ from deadlock-api-client.models.steam_profile import SteamProfile as SteamProfil
 from deadlock-api-client.models.table_size import TableSize as TableSize
 from deadlock-api-client.models.variable_category import VariableCategory as VariableCategory
 from deadlock-api-client.models.variable_description import VariableDescription as VariableDescription
+

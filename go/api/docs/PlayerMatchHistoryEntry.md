@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **PlayerTeam** | **int32** |  | 
 **StartTime** | **int32** |  | 
 **TeamAbandoned** | Pointer to **NullableBool** |  | [optional] 
+**Username** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -474,6 +475,41 @@ HasTeamAbandoned returns a boolean if a field has been set.
 `func (o *PlayerMatchHistoryEntry) UnsetTeamAbandoned()`
 
 UnsetTeamAbandoned ensures that no value is present for TeamAbandoned, not even an explicit nil
+### GetUsername
+
+`func (o *PlayerMatchHistoryEntry) GetUsername() string`
+
+GetUsername returns the Username field if non-nil, zero value otherwise.
+
+### GetUsernameOk
+
+`func (o *PlayerMatchHistoryEntry) GetUsernameOk() (*string, bool)`
+
+GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsername
+
+`func (o *PlayerMatchHistoryEntry) SetUsername(v string)`
+
+SetUsername sets Username field to given value.
+
+### HasUsername
+
+`func (o *PlayerMatchHistoryEntry) HasUsername() bool`
+
+HasUsername returns a boolean if a field has been set.
+
+### SetUsernameNil
+
+`func (o *PlayerMatchHistoryEntry) SetUsernameNil(b bool)`
+
+ SetUsernameNil sets the value for Username to be an explicit nil
+
+### UnsetUsername
+`func (o *PlayerMatchHistoryEntry) UnsetUsername()`
+
+UnsetUsername ensures that no value is present for Username, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

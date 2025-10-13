@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bucket** | **number** |  | [optional] [default to undefined]
+**bucket** | **number** |  | [default to undefined]
 **item_id** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [default to undefined]
 **losses** | **number** |  | [default to undefined]
 **matches** | **number** |  | [default to undefined]

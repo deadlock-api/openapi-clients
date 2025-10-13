@@ -44,6 +44,7 @@ class TestItemStats(unittest.TestCase):
             )
         else:
             return ItemStats(
+                bucket = 0,
                 item_id = 0,
                 losses = 0,
                 matches = 0,

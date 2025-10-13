@@ -42,6 +42,7 @@ type PlayerMatchHistoryEntry struct {
 	PlayerTeam int32 `json:"player_team"`
 	StartTime int32 `json:"start_time"`
 	TeamAbandoned NullableBool `json:"team_abandoned,omitempty"`
+	Username NullableString `json:"username,omitempty"`
 }
 
 type _PlayerMatchHistoryEntry PlayerMatchHistoryEntry
@@ -597,6 +598,48 @@ func (o *PlayerMatchHistoryEntry) UnsetTeamAbandoned() {
 	o.TeamAbandoned.Unset()
 }
 
+// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerMatchHistoryEntry) GetUsername() string {
+	if o == nil || IsNil(o.Username.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Username.Get()
+}
+
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerMatchHistoryEntry) GetUsernameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Username.Get(), o.Username.IsSet()
+}
+
+// HasUsername returns a boolean if a field has been set.
+func (o *PlayerMatchHistoryEntry) HasUsername() bool {
+	if o != nil && o.Username.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
+func (o *PlayerMatchHistoryEntry) SetUsername(v string) {
+	o.Username.Set(&v)
+}
+// SetUsernameNil sets the value for Username to be an explicit nil
+func (o *PlayerMatchHistoryEntry) SetUsernameNil() {
+	o.Username.Set(nil)
+}
+
+// UnsetUsername ensures that no value is present for Username, not even an explicit nil
+func (o *PlayerMatchHistoryEntry) UnsetUsername() {
+	o.Username.Unset()
+}
+
 func (o PlayerMatchHistoryEntry) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -630,6 +673,9 @@ func (o PlayerMatchHistoryEntry) ToMap() (map[string]interface{}, error) {
 	toSerialize["start_time"] = o.StartTime
 	if o.TeamAbandoned.IsSet() {
 		toSerialize["team_abandoned"] = o.TeamAbandoned.Get()
+	}
+	if o.Username.IsSet() {
+		toSerialize["username"] = o.Username.Get()
 	}
 	return toSerialize, nil
 }

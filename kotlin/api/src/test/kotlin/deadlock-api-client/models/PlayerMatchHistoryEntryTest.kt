@@ -145,5 +145,11 @@ class PlayerMatchHistoryEntryTest : ShouldSpec() {
             //modelInstance.teamAbandoned shouldBe ("TODO")
         }
 
+        // to test the property `username`
+        should("test username") {
+            // uncomment below to test the property
+            //modelInstance.username shouldBe ("TODO")
+        }
+
     }
 }

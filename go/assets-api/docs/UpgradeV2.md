@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **TooltipSections** | Pointer to [**[]UpgradeTooltipSectionV2**](UpgradeTooltipSectionV2.md) |  | [optional] 
 **IsActiveItem** | **bool** |  | [readonly] 
 **Shopable** | **bool** |  | [readonly] 
-**Cost** | **NullableInt32** |  | 
+**Cost** | **NullableInt32** |  | [readonly] 
 
 ## Methods
 

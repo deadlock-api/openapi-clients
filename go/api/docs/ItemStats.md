@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bucket** | Pointer to **NullableInt32** |  | [optional] 
+**Bucket** | **int32** |  | 
 **ItemId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewItemStats
 
-`func NewItemStats(itemId int32, losses int64, matches int64, players int64, wins int64, ) *ItemStats`
+`func NewItemStats(bucket int32, itemId int32, losses int64, matches int64, players int64, wins int64, ) *ItemStats`
 
 NewItemStats instantiates a new ItemStats object
 This constructor will assign default values to properties that have it defined,
@@ -49,22 +49,7 @@ and a boolean to check if the value has been set.
 
 SetBucket sets Bucket field to given value.
 
-### HasBucket
 
-`func (o *ItemStats) HasBucket() bool`
-
-HasBucket returns a boolean if a field has been set.
-
-### SetBucketNil
-
-`func (o *ItemStats) SetBucketNil(b bool)`
-
- SetBucketNil sets the value for Bucket to be an explicit nil
-
-### UnsetBucket
-`func (o *ItemStats) UnsetBucket()`
-
-UnsetBucket ensures that no value is present for Bucket, not even an explicit nil
 ### GetItemId
 
 `func (o *ItemStats) GetItemId() int32`

@@ -23,129 +23,29 @@ import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
-/**
- * 
- * @export
- * @interface AbilityDescriptionV2
- */
 export interface AbilityDescriptionV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityDescriptionV2
-     */
     'desc'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityDescriptionV2
-     */
     'quip'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityDescriptionV2
-     */
     't1_desc'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityDescriptionV2
-     */
     't2_desc'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityDescriptionV2
-     */
     't3_desc'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityDescriptionV2
-     */
     'active'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityDescriptionV2
-     */
     'passive'?: string | null;
 }
-/**
- * 
- * @export
- * @interface AbilityTooltipDetailsInfoSectionPropertyBlockV2
- */
 export interface AbilityTooltipDetailsInfoSectionPropertyBlockV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityTooltipDetailsInfoSectionPropertyBlockV2
-     */
     'loc_string'?: string | null;
-    /**
-     * 
-     * @type {Array<AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty>}
-     * @memberof AbilityTooltipDetailsInfoSectionPropertyBlockV2
-     */
     'properties'?: Array<AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty> | null;
 }
-/**
- * 
- * @export
- * @interface AbilityTooltipDetailsInfoSectionV2
- */
 export interface AbilityTooltipDetailsInfoSectionV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityTooltipDetailsInfoSectionV2
-     */
     'loc_string'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityTooltipDetailsInfoSectionV2
-     */
     'property_upgrade_required'?: string | null;
-    /**
-     * 
-     * @type {Array<AbilityTooltipDetailsInfoSectionPropertyBlockV2>}
-     * @memberof AbilityTooltipDetailsInfoSectionV2
-     */
     'properties_block'?: Array<AbilityTooltipDetailsInfoSectionPropertyBlockV2> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof AbilityTooltipDetailsInfoSectionV2
-     */
     'basic_properties'?: Array<string> | null;
 }
-/**
- * 
- * @export
- * @interface AbilityTooltipDetailsV2
- */
 export interface AbilityTooltipDetailsV2 {
-    /**
-     * 
-     * @type {Array<AbilityTooltipDetailsInfoSectionV2>}
-     * @memberof AbilityTooltipDetailsV2
-     */
     'info_sections'?: Array<AbilityTooltipDetailsInfoSectionV2> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof AbilityTooltipDetailsV2
-     */
     'additional_header_properties'?: Array<string> | null;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const AbilityTypeV2 = {
     Innate: 'innate',
@@ -159,131 +59,26 @@ export const AbilityTypeV2 = {
 export type AbilityTypeV2 = typeof AbilityTypeV2[keyof typeof AbilityTypeV2];
 
 
-/**
- * 
- * @export
- * @interface AbilityV2
- */
 export interface AbilityV2 {
-    /**
-     * 
-     * @type {number}
-     * @memberof AbilityV2
-     */
     'id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityV2
-     */
     'class_name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityV2
-     */
     'name': string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AbilityV2
-     */
     'start_trained'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityV2
-     */
     'image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityV2
-     */
     'image_webp'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof AbilityV2
-     */
     'hero'?: number | null;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof AbilityV2
-     */
     'heroes'?: Array<number> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof AbilityV2
-     */
     'update_time'?: number | null;
-    /**
-     * 
-     * @type {{ [key: string]: ItemPropertyV2; }}
-     * @memberof AbilityV2
-     */
     'properties'?: { [key: string]: ItemPropertyV2; } | null;
-    /**
-     * 
-     * @type {RawItemWeaponInfoV2}
-     * @memberof AbilityV2
-     */
     'weapon_info'?: RawItemWeaponInfoV2 | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityV2
-     */
     'type'?: AbilityV2TypeEnum;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof AbilityV2
-     */
     'behaviours'?: Array<string> | null;
-    /**
-     * 
-     * @type {AbilityDescriptionV2}
-     * @memberof AbilityV2
-     */
     'description': AbilityDescriptionV2;
-    /**
-     * 
-     * @type {AbilityTooltipDetailsV2}
-     * @memberof AbilityV2
-     */
     'tooltip_details'?: AbilityTooltipDetailsV2 | null;
-    /**
-     * 
-     * @type {Array<RawAbilityUpgradeV2>}
-     * @memberof AbilityV2
-     */
     'upgrades'?: Array<RawAbilityUpgradeV2> | null;
-    /**
-     * 
-     * @type {AbilityTypeV2}
-     * @memberof AbilityV2
-     */
     'ability_type'?: AbilityTypeV2 | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof AbilityV2
-     */
     'boss_damage_scale'?: number | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof AbilityV2
-     */
     'dependant_abilities'?: Array<string> | null;
-    /**
-     * 
-     * @type {AbilityVideosV2}
-     * @memberof AbilityV2
-     */
     'videos'?: AbilityVideosV2 | null;
 }
 
@@ -293,339 +88,85 @@ export const AbilityV2TypeEnum = {
 
 export type AbilityV2TypeEnum = typeof AbilityV2TypeEnum[keyof typeof AbilityV2TypeEnum];
 
-/**
- * 
- * @export
- * @interface AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
- */
 export interface AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
-     */
     'requires_ability_upgrade'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
-     */
     'show_property_value'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
-     */
     'important_property'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
-     */
     'status_effect_value'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
-     */
     'status_effect_name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
-     */
     'important_property_icon'?: string | null;
 }
-/**
- * 
- * @export
- * @interface AbilityVideosV2
- */
 export interface AbilityVideosV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityVideosV2
-     */
     'webm'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof AbilityVideosV2
-     */
     'mp4'?: string | null;
 }
-/**
- * 
- * @export
- * @interface AimingShotSpreadPenalty
- */
 export interface AimingShotSpreadPenalty {
 }
-/**
- * 
- * @export
- * @interface Bonus
- */
 export interface Bonus {
 }
-/**
- * 
- * @export
- * @interface BuildTagV2
- */
 export interface BuildTagV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof BuildTagV2
-     */
     'class_name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BuildTagV2
-     */
     'label': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildTagV2
-     */
     'id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof BuildTagV2
-     */
     'icon': string;
 }
-/**
- * 
- * @export
- * @interface ColorV1
- */
 export interface ColorV1 {
     /**
      * The red value of the color.
-     * @type {number}
-     * @memberof ColorV1
      */
     'red': number;
     /**
      * The green value of the color.
-     * @type {number}
-     * @memberof ColorV1
      */
     'green': number;
     /**
      * The blue value of the color.
-     * @type {number}
-     * @memberof ColorV1
      */
     'blue': number;
     /**
      * The alpha value of the color.
-     * @type {number}
-     * @memberof ColorV1
      */
     'alpha': number;
 }
 /**
  * @type GetItemsV2ItemsGet200ResponseInner
- * @export
  */
 export type GetItemsV2ItemsGet200ResponseInner = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
 
-/**
- * 
- * @export
- * @interface HTTPValidationError
- */
 export interface HTTPValidationError {
-    /**
-     * 
-     * @type {Array<ValidationError>}
-     * @memberof HTTPValidationError
-     */
     'detail'?: Array<ValidationError>;
 }
-/**
- * 
- * @export
- * @interface HeroColorsV2
- */
 export interface HeroColorsV2 {
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof HeroColorsV2
-     */
     'glow_enemy': Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof HeroColorsV2
-     */
     'glow_friendly': Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof HeroColorsV2
-     */
     'glow_team1': Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof HeroColorsV2
-     */
     'glow_team2': Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof HeroColorsV2
-     */
     'ui': Array<any>;
 }
-/**
- * 
- * @export
- * @interface HeroDescriptionV2
- */
 export interface HeroDescriptionV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroDescriptionV2
-     */
     'lore'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroDescriptionV2
-     */
     'role'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroDescriptionV2
-     */
     'playstyle'?: string | null;
 }
-/**
- * 
- * @export
- * @interface HeroImagesV2
- */
 export interface HeroImagesV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'icon_hero_card'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'icon_hero_card_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'icon_image_small'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'icon_image_small_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'minimap_image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'minimap_image_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'selection_image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'selection_image_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'top_bar_image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'top_bar_image_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'top_bar_vertical_image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'top_bar_vertical_image_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'weapon_image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'weapon_image_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'background_image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'background_image_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroImagesV2
-     */
     'name_image'?: string | null;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const HeroItemTypeV2 = {
     WeaponPrimary: 'weapon_primary',
@@ -649,299 +190,59 @@ export const HeroItemTypeV2 = {
 export type HeroItemTypeV2 = typeof HeroItemTypeV2[keyof typeof HeroItemTypeV2];
 
 
-/**
- * 
- * @export
- * @interface HeroLevelInfoV2
- */
 export interface HeroLevelInfoV2 {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof HeroLevelInfoV2
-     */
     'use_standard_upgrade'?: boolean | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof HeroLevelInfoV2
-     */
     'bonus_currencies'?: Array<string> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroLevelInfoV2
-     */
     'required_gold': number;
 }
-/**
- * 
- * @export
- * @interface HeroPhysicsV2
- */
 export interface HeroPhysicsV2 {
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroPhysicsV2
-     */
     'collision_height': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroPhysicsV2
-     */
     'collision_radius': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroPhysicsV2
-     */
     'stealth_speed_meters_per_second': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroPhysicsV2
-     */
     'step_height': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroPhysicsV2
-     */
     'footstep_sound_travel_distance_meters'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroPhysicsV2
-     */
     'step_sound_time'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroPhysicsV2
-     */
     'step_sound_time_sprinting'?: number | null;
 }
-/**
- * 
- * @export
- * @interface HeroShopStatDisplayV2
- */
 export interface HeroShopStatDisplayV2 {
-    /**
-     * 
-     * @type {RawHeroShopSpiritStatsDisplayV2}
-     * @memberof HeroShopStatDisplayV2
-     */
     'spirit_stats_display': RawHeroShopSpiritStatsDisplayV2;
-    /**
-     * 
-     * @type {RawHeroShopVitalityStatsDisplayV2}
-     * @memberof HeroShopStatDisplayV2
-     */
     'vitality_stats_display': RawHeroShopVitalityStatsDisplayV2;
-    /**
-     * 
-     * @type {HeroShopWeaponStatsDisplayV2}
-     * @memberof HeroShopStatDisplayV2
-     */
     'weapon_stats_display': HeroShopWeaponStatsDisplayV2;
 }
-/**
- * 
- * @export
- * @interface HeroShopWeaponStatsDisplayV2
- */
 export interface HeroShopWeaponStatsDisplayV2 {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof HeroShopWeaponStatsDisplayV2
-     */
     'display_stats': Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof HeroShopWeaponStatsDisplayV2
-     */
     'other_display_stats': Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof HeroShopWeaponStatsDisplayV2
-     */
     'weapon_attributes'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroShopWeaponStatsDisplayV2
-     */
     'weapon_image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroShopWeaponStatsDisplayV2
-     */
     'weapon_image_webp'?: string | null;
 }
-/**
- * 
- * @export
- * @interface HeroStartingStatV2
- */
 export interface HeroStartingStatV2 {
-    /**
-     * 
-     * @type {Value}
-     * @memberof HeroStartingStatV2
-     */
     'value': Value;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroStartingStatV2
-     */
     'display_stat_name': string;
 }
-/**
- * 
- * @export
- * @interface HeroStartingStatsV2
- */
 export interface HeroStartingStatsV2 {
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'max_move_speed': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'sprint_speed': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'crouch_speed': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'move_acceleration': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'light_melee_damage': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'heavy_melee_damage': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'max_health': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'weapon_power': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'reload_speed': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'weapon_power_scale': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'proc_build_up_rate_scale': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'stamina': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'base_health_regen': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'stamina_regen_per_second': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'ability_resource_max': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'ability_resource_regen_per_second': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'crit_damage_received_scale': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'tech_duration': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'tech_armor_damage_reduction'?: HeroStartingStatV2 | null;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'tech_range': HeroStartingStatV2;
-    /**
-     * 
-     * @type {HeroStartingStatV2}
-     * @memberof HeroStartingStatsV2
-     */
     'bullet_armor_damage_reduction'?: HeroStartingStatV2 | null;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const HeroTypeV2 = {
     Assassin: 'assassin',
@@ -953,327 +254,62 @@ export const HeroTypeV2 = {
 export type HeroTypeV2 = typeof HeroTypeV2[keyof typeof HeroTypeV2];
 
 
-/**
- * 
- * @export
- * @interface HeroV2
- */
 export interface HeroV2 {
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroV2
-     */
     'id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroV2
-     */
     'class_name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroV2
-     */
     'name': string;
-    /**
-     * 
-     * @type {HeroDescriptionV2}
-     * @memberof HeroV2
-     */
     'description': HeroDescriptionV2;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof HeroV2
-     */
     'recommended_upgrades'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof HeroV2
-     */
     'recommended_ability_order'?: Array<string> | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof HeroV2
-     */
     'player_selectable': boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof HeroV2
-     */
     'disabled': boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof HeroV2
-     */
     'in_development': boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof HeroV2
-     */
     'needs_testing': boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof HeroV2
-     */
     'assigned_players_only': boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof HeroV2
-     */
     'tags'?: Array<string> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroV2
-     */
     'gun_tag'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroV2
-     */
     'hideout_rich_presence'?: string | null;
-    /**
-     * 
-     * @type {HeroTypeV2}
-     * @memberof HeroV2
-     */
     'hero_type'?: HeroTypeV2 | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof HeroV2
-     */
     'prerelease_only'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof HeroV2
-     */
     'limited_testing': boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroV2
-     */
     'complexity': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroV2
-     */
     'skin': number;
-    /**
-     * 
-     * @type {HeroImagesV2}
-     * @memberof HeroV2
-     */
     'images': HeroImagesV2;
-    /**
-     * 
-     * @type {{ [key: string]: string; }}
-     * @memberof HeroV2
-     */
     'items': { [key: string]: string; };
-    /**
-     * 
-     * @type {HeroStartingStatsV2}
-     * @memberof HeroV2
-     */
     'starting_stats': HeroStartingStatsV2;
-    /**
-     * 
-     * @type {{ [key: string]: RawHeroItemSlotInfoValueV2; }}
-     * @memberof HeroV2
-     */
     'item_slot_info': { [key: string]: RawHeroItemSlotInfoValueV2; };
-    /**
-     * 
-     * @type {HeroPhysicsV2}
-     * @memberof HeroV2
-     */
     'physics': HeroPhysicsV2;
-    /**
-     * 
-     * @type {HeroColorsV2}
-     * @memberof HeroV2
-     */
     'colors': HeroColorsV2;
-    /**
-     * 
-     * @type {HeroShopStatDisplayV2}
-     * @memberof HeroV2
-     */
     'shop_stat_display': HeroShopStatDisplayV2;
-    /**
-     * 
-     * @type {{ [key: string]: Array<RawHeroMapModCostBonusesV2>; }}
-     * @memberof HeroV2
-     */
     'cost_bonuses'?: { [key: string]: Array<RawHeroMapModCostBonusesV2>; } | null;
-    /**
-     * 
-     * @type {RawHeroStatsDisplayV2}
-     * @memberof HeroV2
-     */
     'stats_display': RawHeroStatsDisplayV2;
-    /**
-     * 
-     * @type {RawHeroStatsUIV2}
-     * @memberof HeroV2
-     */
     'hero_stats_ui': RawHeroStatsUIV2;
-    /**
-     * 
-     * @type {{ [key: string]: HeroLevelInfoV2; }}
-     * @memberof HeroV2
-     */
     'level_info': { [key: string]: HeroLevelInfoV2; };
-    /**
-     * 
-     * @type {{ [key: string]: RawHeroScalingStatV2; }}
-     * @memberof HeroV2
-     */
     'scaling_stats': { [key: string]: RawHeroScalingStatV2; };
-    /**
-     * 
-     * @type {{ [key: string]: Array<RawHeroPurchaseBonusV2>; }}
-     * @memberof HeroV2
-     */
     'purchase_bonuses': { [key: string]: Array<RawHeroPurchaseBonusV2>; };
-    /**
-     * 
-     * @type {{ [key: string]: number; }}
-     * @memberof HeroV2
-     */
     'standard_level_up_upgrades': { [key: string]: number; };
 }
 
 
-/**
- * 
- * @export
- * @interface ItemPropertyV2
- */
 export interface ItemPropertyV2 {
-    /**
-     * 
-     * @type {Value1}
-     * @memberof ItemPropertyV2
-     */
     'value'?: Value1 | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ItemPropertyV2
-     */
     'can_set_token_override'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'provided_property_type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'css_class'?: string | null;
-    /**
-     * 
-     * @type {UsageFlags}
-     * @memberof ItemPropertyV2
-     */
     'usage_flags'?: UsageFlags | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ItemPropertyV2
-     */
     'negative_attribute'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'disable_value'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'loc_token_override'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'display_units'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'icon_path'?: string | null;
-    /**
-     * 
-     * @type {RawItemPropertyScaleFunctionSubclassV2}
-     * @memberof ItemPropertyV2
-     */
     'scale_function'?: RawItemPropertyScaleFunctionSubclassV2 | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'prefix'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'label'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'postfix'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'postvalue_label'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'conditional'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemPropertyV2
-     */
     'icon'?: string | null;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ItemSlotTypeV2 = {
     Weapon: 'weapon',
@@ -1284,11 +320,6 @@ export const ItemSlotTypeV2 = {
 export type ItemSlotTypeV2 = typeof ItemSlotTypeV2[keyof typeof ItemSlotTypeV2];
 
 
-/**
- * 
- * @export
- * @enum {number}
- */
 
 export const ItemTierV2 = {
     NUMBER_1: 1,
@@ -1300,11 +331,6 @@ export const ItemTierV2 = {
 export type ItemTierV2 = typeof ItemTierV2[keyof typeof ItemTierV2];
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ItemTypeV2 = {
     Weapon: 'weapon',
@@ -1317,11 +343,6 @@ export const ItemTypeV2 = {
 export type ItemTypeV2 = typeof ItemTypeV2[keyof typeof ItemTypeV2];
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const Language = {
     Brazilian: 'brazilian',
@@ -1358,438 +379,113 @@ export const Language = {
 export type Language = typeof Language[keyof typeof Language];
 
 
-/**
- * 
- * @export
- * @interface MapImagesV1
- */
 export interface MapImagesV1 {
     /**
      * The minimap image of the map.
-     * @type {string}
-     * @memberof MapImagesV1
      */
     'minimap': string;
     /**
      * The minimap image of the map without background image and frame image.
-     * @type {string}
-     * @memberof MapImagesV1
      */
     'plain': string;
     /**
      * The background image of the map.
-     * @type {string}
-     * @memberof MapImagesV1
      */
     'background': string;
     /**
      * The frame image of the map.
-     * @type {string}
-     * @memberof MapImagesV1
      */
     'frame': string;
     /**
      * The mid image of the map.
-     * @type {string}
-     * @memberof MapImagesV1
      */
     'mid': string;
 }
-/**
- * 
- * @export
- * @interface MapV1
- */
 export interface MapV1 {
     /**
      * The radius of the map.
-     * @type {number}
-     * @memberof MapV1
      */
     'radius'?: number;
     /**
      * The images of the map.
-     * @type {MapImagesV1}
-     * @memberof MapV1
      */
     'images': MapImagesV1;
-    /**
-     * 
-     * @type {ObjectivePositionsV1}
-     * @memberof MapV1
-     */
     'objective_positions': ObjectivePositionsV1;
     /**
      * The ziplane paths of the map. Each path is a list of P0, P1, and P2 points, describing the cubic spline.
-     * @type {Array<ZiplanePathV1>}
-     * @memberof MapV1
      */
     'zipline_paths': Array<ZiplanePathV1>;
 }
-/**
- * 
- * @export
- * @interface ObjectivePositionV1
- */
 export interface ObjectivePositionV1 {
     /**
      * The relative margin left of the map image.
-     * @type {number}
-     * @memberof ObjectivePositionV1
      */
     'left_relative': number;
     /**
      * The relative margin top of the map image.
-     * @type {number}
-     * @memberof ObjectivePositionV1
      */
     'top_relative': number;
 }
-/**
- * 
- * @export
- * @interface ObjectivePositionsV1
- */
 export interface ObjectivePositionsV1 {
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team0_core': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team1_core': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team0_titan': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team1_titan': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team0_tier2_1': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team0_tier2_2'?: ObjectivePositionV1 | null;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team0_tier2_3': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team0_tier2_4': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team1_tier2_1': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team1_tier2_2'?: ObjectivePositionV1 | null;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team1_tier2_3': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team1_tier2_4': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team0_tier1_1': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team0_tier1_2'?: ObjectivePositionV1 | null;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team0_tier1_3': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team0_tier1_4': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team1_tier1_1': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team1_tier1_2'?: ObjectivePositionV1 | null;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team1_tier1_3': ObjectivePositionV1;
-    /**
-     * 
-     * @type {ObjectivePositionV1}
-     * @memberof ObjectivePositionsV1
-     */
     'team1_tier1_4': ObjectivePositionV1;
 }
-/**
- * 
- * @export
- * @interface Range
- */
 export interface Range {
 }
-/**
- * 
- * @export
- * @interface RankImagesV2
- */
 export interface RankImagesV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank1'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank1_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank2'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank2_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank3'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank3_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank4'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank4_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank5'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank5_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank6'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'large_subrank6_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank1'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank1_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank2'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank2_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank3'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank3_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank4'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank4_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank5'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank5_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank6'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankImagesV2
-     */
     'small_subrank6_webp'?: string | null;
 }
-/**
- * 
- * @export
- * @interface RankV2
- */
 export interface RankV2 {
-    /**
-     * 
-     * @type {number}
-     * @memberof RankV2
-     */
     'tier': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankV2
-     */
     'name': string;
-    /**
-     * 
-     * @type {RankImagesV2}
-     * @memberof RankV2
-     */
     'images': RankImagesV2;
-    /**
-     * 
-     * @type {string}
-     * @memberof RankV2
-     */
     'color': string;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const RawAbilityActivationV2 = {
     HoldToggle: 'hold_toggle',
@@ -1803,11 +499,6 @@ export const RawAbilityActivationV2 = {
 export type RawAbilityActivationV2 = typeof RawAbilityActivationV2[keyof typeof RawAbilityActivationV2];
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const RawAbilityImbueV2 = {
     ImbueActive: 'imbue_active',
@@ -1818,11 +509,6 @@ export const RawAbilityImbueV2 = {
 export type RawAbilityImbueV2 = typeof RawAbilityImbueV2[keyof typeof RawAbilityImbueV2];
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const RawAbilitySectionTypeV2 = {
     Innate: 'innate',
@@ -1833,744 +519,148 @@ export const RawAbilitySectionTypeV2 = {
 export type RawAbilitySectionTypeV2 = typeof RawAbilitySectionTypeV2[keyof typeof RawAbilitySectionTypeV2];
 
 
-/**
- * 
- * @export
- * @interface RawAbilityUpgradePropertyUpgradeV2
- */
 export interface RawAbilityUpgradePropertyUpgradeV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof RawAbilityUpgradePropertyUpgradeV2
-     */
     'name': string;
-    /**
-     * 
-     * @type {Bonus}
-     * @memberof RawAbilityUpgradePropertyUpgradeV2
-     */
     'bonus': Bonus;
-    /**
-     * 
-     * @type {string}
-     * @memberof RawAbilityUpgradePropertyUpgradeV2
-     */
     'scale_stat_filter'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RawAbilityUpgradePropertyUpgradeV2
-     */
     'upgrade_type'?: string | null;
 }
-/**
- * 
- * @export
- * @interface RawAbilityUpgradeV2
- */
 export interface RawAbilityUpgradeV2 {
-    /**
-     * 
-     * @type {Array<RawAbilityUpgradePropertyUpgradeV2>}
-     * @memberof RawAbilityUpgradeV2
-     */
     'property_upgrades'?: Array<RawAbilityUpgradePropertyUpgradeV2>;
 }
-/**
- * 
- * @export
- * @interface RawHeroItemSlotInfoValueV2
- */
 export interface RawHeroItemSlotInfoValueV2 {
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof RawHeroItemSlotInfoValueV2
-     */
     'max_purchases_for_tier': Array<number>;
 }
-/**
- * 
- * @export
- * @interface RawHeroMapModCostBonusesV2
- */
 export interface RawHeroMapModCostBonusesV2 {
-    /**
-     * 
-     * @type {number}
-     * @memberof RawHeroMapModCostBonusesV2
-     */
     'gold_threshold': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawHeroMapModCostBonusesV2
-     */
     'bonus': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawHeroMapModCostBonusesV2
-     */
     'percent_on_graph': number;
 }
-/**
- * 
- * @export
- * @interface RawHeroPurchaseBonusV2
- */
 export interface RawHeroPurchaseBonusV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof RawHeroPurchaseBonusV2
-     */
     'value_type': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawHeroPurchaseBonusV2
-     */
     'tier': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof RawHeroPurchaseBonusV2
-     */
     'value': string;
 }
-/**
- * 
- * @export
- * @interface RawHeroScalingStatV2
- */
 export interface RawHeroScalingStatV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof RawHeroScalingStatV2
-     */
     'scaling_stat': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawHeroScalingStatV2
-     */
     'scale': number;
 }
-/**
- * 
- * @export
- * @interface RawHeroShopSpiritStatsDisplayV2
- */
 export interface RawHeroShopSpiritStatsDisplayV2 {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RawHeroShopSpiritStatsDisplayV2
-     */
     'display_stats': Array<string>;
 }
-/**
- * 
- * @export
- * @interface RawHeroShopVitalityStatsDisplayV2
- */
 export interface RawHeroShopVitalityStatsDisplayV2 {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RawHeroShopVitalityStatsDisplayV2
-     */
     'display_stats': Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RawHeroShopVitalityStatsDisplayV2
-     */
     'other_display_stats': Array<string>;
 }
-/**
- * 
- * @export
- * @interface RawHeroStatsDisplayV2
- */
 export interface RawHeroStatsDisplayV2 {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RawHeroStatsDisplayV2
-     */
     'health_header_stats': Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RawHeroStatsDisplayV2
-     */
     'health_stats': Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RawHeroStatsDisplayV2
-     */
     'magic_header_stats': Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RawHeroStatsDisplayV2
-     */
     'magic_stats': Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RawHeroStatsDisplayV2
-     */
     'weapon_header_stats': Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RawHeroStatsDisplayV2
-     */
     'weapon_stats': Array<string>;
 }
-/**
- * 
- * @export
- * @interface RawHeroStatsUIDisplayV2
- */
 export interface RawHeroStatsUIDisplayV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof RawHeroStatsUIDisplayV2
-     */
     'category': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RawHeroStatsUIDisplayV2
-     */
     'stat_type': string;
 }
-/**
- * 
- * @export
- * @interface RawHeroStatsUIV2
- */
 export interface RawHeroStatsUIV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof RawHeroStatsUIV2
-     */
     'weapon_stat_display': string;
-    /**
-     * 
-     * @type {Array<RawHeroStatsUIDisplayV2>}
-     * @memberof RawHeroStatsUIV2
-     */
     'display_stats': Array<RawHeroStatsUIDisplayV2>;
 }
-/**
- * 
- * @export
- * @interface RawItemPropertyScaleFunctionSubclassV2
- */
 export interface RawItemPropertyScaleFunctionSubclassV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof RawItemPropertyScaleFunctionSubclassV2
-     */
     'class_name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RawItemPropertyScaleFunctionSubclassV2
-     */
     'subclass_name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RawItemPropertyScaleFunctionSubclassV2
-     */
     'specific_stat_scale_type'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RawItemPropertyScaleFunctionSubclassV2
-     */
     'scaling_stats'?: Array<string> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawItemPropertyScaleFunctionSubclassV2
-     */
     'stat_scale'?: number | null;
 }
-/**
- * 
- * @export
- * @interface RawItemWeaponInfoBulletSpeedCurveSplineV2
- */
 export interface RawItemWeaponInfoBulletSpeedCurveSplineV2 {
-    /**
-     * 
-     * @type {number}
-     * @memberof RawItemWeaponInfoBulletSpeedCurveSplineV2
-     */
     'slope_incoming': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawItemWeaponInfoBulletSpeedCurveSplineV2
-     */
     'slope_outgoing': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawItemWeaponInfoBulletSpeedCurveSplineV2
-     */
     'x': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawItemWeaponInfoBulletSpeedCurveSplineV2
-     */
     'y': number;
 }
-/**
- * 
- * @export
- * @interface RawItemWeaponInfoBulletSpeedCurveV2
- */
 export interface RawItemWeaponInfoBulletSpeedCurveV2 {
-    /**
-     * 
-     * @type {Array<RawItemWeaponInfoBulletSpeedCurveSplineV2>}
-     * @memberof RawItemWeaponInfoBulletSpeedCurveV2
-     */
     'spline'?: Array<RawItemWeaponInfoBulletSpeedCurveSplineV2>;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof RawItemWeaponInfoBulletSpeedCurveV2
-     */
     'domain_maxs': Array<number>;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof RawItemWeaponInfoBulletSpeedCurveV2
-     */
     'domain_mins': Array<number>;
 }
-/**
- * 
- * @export
- * @interface RawItemWeaponInfoV2
- */
 export interface RawItemWeaponInfoV2 {
-    /**
-     * 
-     * @type {RawItemWeaponInfoBulletSpeedCurveV2}
-     * @memberof RawItemWeaponInfoV2
-     */
     'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2 | null;
 }
-/**
- * 
- * @export
- * @interface RawWeaponInfoHorizontalRecoilV2
- */
 export interface RawWeaponInfoHorizontalRecoilV2 {
-    /**
-     * 
-     * @type {Range}
-     * @memberof RawWeaponInfoHorizontalRecoilV2
-     */
     'range'?: Range | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoHorizontalRecoilV2
-     */
     'burst_exponent'?: number | null;
 }
-/**
- * 
- * @export
- * @interface RawWeaponInfoV2
- */
 export interface RawWeaponInfoV2 {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof RawWeaponInfoV2
-     */
     'can_zoom'?: boolean | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'bullet_damage'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'bullet_gravity_scale'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'bullet_inherit_shooter_velocity_scale'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'bullet_lifetime'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'bullet_radius'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'bullet_radius_vs_world'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'bullet_reflect_amount'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'bullet_reflect_scale'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'bullet_whiz_distance'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'burst_shot_cooldown'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'crit_bonus_against_npcs'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'crit_bonus_end'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'crit_bonus_end_range'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'crit_bonus_start'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'crit_bonus_start_range'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'cycle_time'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'intra_burst_cycle_time'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'max_spin_cycle_time'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'damage_falloff_bias'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'damage_falloff_end_range'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'damage_falloff_end_scale'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'damage_falloff_start_range'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'damage_falloff_start_scale'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'horizontal_punch'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'range'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'recoil_recovery_delay_factor'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'recoil_recovery_speed'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'recoil_shot_index_recovery_time_factor'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'recoil_speed'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'reload_move_speed'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'scatter_yaw_scale'?: number | null;
-    /**
-     * 
-     * @type {AimingShotSpreadPenalty}
-     * @memberof RawWeaponInfoV2
-     */
     'aiming_shot_spread_penalty'?: AimingShotSpreadPenalty | null;
-    /**
-     * 
-     * @type {StandingShotSpreadPenalty}
-     * @memberof RawWeaponInfoV2
-     */
     'standing_shot_spread_penalty'?: StandingShotSpreadPenalty | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'shoot_move_speed_percent'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'shoot_spread_penalty_decay'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'shoot_spread_penalty_decay_delay'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'shoot_spread_penalty_per_shot'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'shooting_up_spread_penalty'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'vertical_punch'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'zoom_fov'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'zoom_move_speed_percent'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'bullets'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'burst_shot_count'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'clip_size'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'spread'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'standing_spread'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'low_ammo_indicator_threshold'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'recoil_seed'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoV2
-     */
     'reload_duration'?: number | null;
-    /**
-     * 
-     * @type {RawItemWeaponInfoBulletSpeedCurveV2}
-     * @memberof RawWeaponInfoV2
-     */
     'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2 | null;
-    /**
-     * 
-     * @type {RawWeaponInfoHorizontalRecoilV2}
-     * @memberof RawWeaponInfoV2
-     */
     'horizontal_recoil'?: RawWeaponInfoHorizontalRecoilV2 | null;
-    /**
-     * 
-     * @type {RawWeaponInfoVerticalRecoilV2}
-     * @memberof RawWeaponInfoV2
-     */
     'vertical_recoil'?: RawWeaponInfoVerticalRecoilV2 | null;
 }
-/**
- * 
- * @export
- * @interface RawWeaponInfoVerticalRecoilV2
- */
 export interface RawWeaponInfoVerticalRecoilV2 {
-    /**
-     * 
-     * @type {Range}
-     * @memberof RawWeaponInfoVerticalRecoilV2
-     */
     'range'?: Range | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoVerticalRecoilV2
-     */
     'burst_exponent'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoVerticalRecoilV2
-     */
     'burst_constant'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RawWeaponInfoVerticalRecoilV2
-     */
     'burst_slope'?: number | null;
 }
 /**
  * @type ResponseGetItemV2ItemsIdOrClassNameGet
- * @export
  */
 export type ResponseGetItemV2ItemsIdOrClassNameGet = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
 
-/**
- * 
- * @export
- * @interface StandingShotSpreadPenalty
- */
 export interface StandingShotSpreadPenalty {
 }
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const StatsUsageFlagV2 = {
     ConditionallyApplied: 'ConditionallyApplied',
@@ -2582,410 +672,80 @@ export const StatsUsageFlagV2 = {
 export type StatsUsageFlagV2 = typeof StatsUsageFlagV2[keyof typeof StatsUsageFlagV2];
 
 
-/**
- * 
- * @export
- * @interface UpgradeDescriptionV2
- */
 export interface UpgradeDescriptionV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeDescriptionV2
-     */
     'desc'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeDescriptionV2
-     */
     'active'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeDescriptionV2
-     */
     'passive'?: string | null;
 }
-/**
- * 
- * @export
- * @interface UpgradePropertyV2
- */
 export interface UpgradePropertyV2 {
-    /**
-     * 
-     * @type {Value1}
-     * @memberof UpgradePropertyV2
-     */
     'value'?: Value1 | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UpgradePropertyV2
-     */
     'can_set_token_override'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'provided_property_type'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'css_class'?: string | null;
-    /**
-     * 
-     * @type {UsageFlags}
-     * @memberof UpgradePropertyV2
-     */
     'usage_flags'?: UsageFlags | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UpgradePropertyV2
-     */
     'negative_attribute'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'disable_value'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'loc_token_override'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'display_units'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'icon_path'?: string | null;
-    /**
-     * 
-     * @type {RawItemPropertyScaleFunctionSubclassV2}
-     * @memberof UpgradePropertyV2
-     */
     'scale_function'?: RawItemPropertyScaleFunctionSubclassV2 | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'prefix'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'label'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'postfix'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'postvalue_label'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'conditional'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradePropertyV2
-     */
     'icon'?: string | null;
-    /**
-     * 
-     * @type {RawAbilitySectionTypeV2}
-     * @memberof UpgradePropertyV2
-     */
     'tooltip_section'?: RawAbilitySectionTypeV2 | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UpgradePropertyV2
-     */
     'tooltip_is_elevated'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UpgradePropertyV2
-     */
     'tooltip_is_important'?: boolean | null;
 }
 
 
-/**
- * 
- * @export
- * @interface UpgradeTooltipSectionAttributeV2
- */
 export interface UpgradeTooltipSectionAttributeV2 {
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeTooltipSectionAttributeV2
-     */
     'loc_string'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof UpgradeTooltipSectionAttributeV2
-     */
     'properties'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof UpgradeTooltipSectionAttributeV2
-     */
     'elevated_properties'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof UpgradeTooltipSectionAttributeV2
-     */
     'important_properties'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon>}
-     * @memberof UpgradeTooltipSectionAttributeV2
-     */
     'important_properties_with_icon'?: Array<UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon> | null;
 }
-/**
- * 
- * @export
- * @interface UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
- */
 export interface UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon {
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
-     */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
-     */
     'icon'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
-     */
     'localized_name'?: string | null;
 }
-/**
- * 
- * @export
- * @interface UpgradeTooltipSectionV2
- */
 export interface UpgradeTooltipSectionV2 {
-    /**
-     * 
-     * @type {RawAbilitySectionTypeV2}
-     * @memberof UpgradeTooltipSectionV2
-     */
     'section_type'?: RawAbilitySectionTypeV2 | null;
-    /**
-     * 
-     * @type {Array<UpgradeTooltipSectionAttributeV2>}
-     * @memberof UpgradeTooltipSectionV2
-     */
     'section_attributes'?: Array<UpgradeTooltipSectionAttributeV2> | null;
 }
 
 
-/**
- * 
- * @export
- * @interface UpgradeV2
- */
 export interface UpgradeV2 {
-    /**
-     * 
-     * @type {number}
-     * @memberof UpgradeV2
-     */
     'id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeV2
-     */
     'class_name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeV2
-     */
     'name': string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UpgradeV2
-     */
     'start_trained'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeV2
-     */
     'image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeV2
-     */
     'image_webp'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof UpgradeV2
-     */
     'hero'?: number | null;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof UpgradeV2
-     */
     'heroes'?: Array<number> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof UpgradeV2
-     */
     'update_time'?: number | null;
-    /**
-     * 
-     * @type {{ [key: string]: UpgradePropertyV2; }}
-     * @memberof UpgradeV2
-     */
     'properties'?: { [key: string]: UpgradePropertyV2; } | null;
-    /**
-     * 
-     * @type {RawItemWeaponInfoV2}
-     * @memberof UpgradeV2
-     */
     'weapon_info'?: RawItemWeaponInfoV2 | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeV2
-     */
     'type'?: UpgradeV2TypeEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeV2
-     */
     'shop_image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeV2
-     */
     'shop_image_webp'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeV2
-     */
     'shop_image_small'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpgradeV2
-     */
     'shop_image_small_webp'?: string | null;
-    /**
-     * 
-     * @type {ItemSlotTypeV2}
-     * @memberof UpgradeV2
-     */
     'item_slot_type': ItemSlotTypeV2;
-    /**
-     * 
-     * @type {ItemTierV2}
-     * @memberof UpgradeV2
-     */
     'item_tier': ItemTierV2;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UpgradeV2
-     */
     'disabled'?: boolean | null;
-    /**
-     * 
-     * @type {UpgradeDescriptionV2}
-     * @memberof UpgradeV2
-     */
     'description'?: UpgradeDescriptionV2 | null;
-    /**
-     * 
-     * @type {RawAbilityActivationV2}
-     * @memberof UpgradeV2
-     */
     'activation': RawAbilityActivationV2;
-    /**
-     * 
-     * @type {RawAbilityImbueV2}
-     * @memberof UpgradeV2
-     */
     'imbue'?: RawAbilityImbueV2 | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof UpgradeV2
-     */
     'component_items'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<UpgradeTooltipSectionV2>}
-     * @memberof UpgradeV2
-     */
     'tooltip_sections'?: Array<UpgradeTooltipSectionV2> | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UpgradeV2
-     */
     'is_active_item': boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UpgradeV2
-     */
     'shopable': boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof UpgradeV2
-     */
     'cost': number | null;
 }
 
@@ -2995,18 +755,8 @@ export const UpgradeV2TypeEnum = {
 
 export type UpgradeV2TypeEnum = typeof UpgradeV2TypeEnum[keyof typeof UpgradeV2TypeEnum];
 
-/**
- * 
- * @export
- * @interface UsageFlags
- */
 export interface UsageFlags {
 }
-/**
- * 
- * @export
- * @enum {number}
- */
 
 export const ValidClientVersions = {
     NUMBER_5945: 5945,
@@ -3045,129 +795,29 @@ export const ValidClientVersions = {
 export type ValidClientVersions = typeof ValidClientVersions[keyof typeof ValidClientVersions];
 
 
-/**
- * 
- * @export
- * @interface ValidationError
- */
 export interface ValidationError {
-    /**
-     * 
-     * @type {Array<ValidationErrorLocInner>}
-     * @memberof ValidationError
-     */
     'loc': Array<ValidationErrorLocInner>;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationError
-     */
     'msg': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidationError
-     */
     'type': string;
 }
-/**
- * 
- * @export
- * @interface ValidationErrorLocInner
- */
 export interface ValidationErrorLocInner {
 }
-/**
- * 
- * @export
- * @interface Value
- */
 export interface Value {
 }
-/**
- * 
- * @export
- * @interface Value1
- */
 export interface Value1 {
 }
-/**
- * 
- * @export
- * @interface WeaponV2
- */
 export interface WeaponV2 {
-    /**
-     * 
-     * @type {number}
-     * @memberof WeaponV2
-     */
     'id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof WeaponV2
-     */
     'class_name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WeaponV2
-     */
     'name': string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof WeaponV2
-     */
     'start_trained'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof WeaponV2
-     */
     'image'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof WeaponV2
-     */
     'image_webp'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof WeaponV2
-     */
     'hero'?: number | null;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof WeaponV2
-     */
     'heroes'?: Array<number> | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof WeaponV2
-     */
     'update_time'?: number | null;
-    /**
-     * 
-     * @type {{ [key: string]: ItemPropertyV2; }}
-     * @memberof WeaponV2
-     */
     'properties'?: { [key: string]: ItemPropertyV2; } | null;
-    /**
-     * 
-     * @type {RawWeaponInfoV2}
-     * @memberof WeaponV2
-     */
     'weapon_info'?: RawWeaponInfoV2 | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof WeaponV2
-     */
     'type'?: WeaponV2TypeEnum;
 }
 
@@ -3177,47 +827,31 @@ export const WeaponV2TypeEnum = {
 
 export type WeaponV2TypeEnum = typeof WeaponV2TypeEnum[keyof typeof WeaponV2TypeEnum];
 
-/**
- * 
- * @export
- * @interface ZiplanePathV1
- */
 export interface ZiplanePathV1 {
     /**
      * The origin of the path.
-     * @type {Array<any>}
-     * @memberof ZiplanePathV1
      */
     'origin': Array<any>;
     /**
      * The color of the path.
-     * @type {string}
-     * @memberof ZiplanePathV1
      */
     'color': string;
     /**
      * The P0 points of the path.
-     * @type {Array<Array<any>>}
-     * @memberof ZiplanePathV1
      */
     'P0_points': Array<Array<any>>;
     /**
      * The P1 points of the path.
-     * @type {Array<Array<any>>}
-     * @memberof ZiplanePathV1
      */
     'P1_points': Array<Array<any>>;
     /**
      * The P2 points of the path.
-     * @type {Array<Array<any>>}
-     * @memberof ZiplanePathV1
      */
     'P2_points': Array<Array<any>>;
 }
 
 /**
  * DefaultApi - axios parameter creator
- * @export
  */
 export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -3511,7 +1145,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * DefaultApi - functional programming interface
- * @export
  */
 export const DefaultApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration)
@@ -3626,7 +1259,6 @@ export const DefaultApiFp = function(configuration?: Configuration) {
 
 /**
  * DefaultApi - factory interface
- * @export
  */
 export const DefaultApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = DefaultApiFp(configuration)
@@ -3715,121 +1347,59 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * Request parameters for getBuildTagsV2BuildTagsGet operation in DefaultApi.
- * @export
- * @interface DefaultApiGetBuildTagsV2BuildTagsGetRequest
  */
 export interface DefaultApiGetBuildTagsV2BuildTagsGetRequest {
-    /**
-     * 
-     * @type {Language}
-     * @memberof DefaultApiGetBuildTagsV2BuildTagsGet
-     */
     readonly language?: Language | null
 
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof DefaultApiGetBuildTagsV2BuildTagsGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getColorsV1ColorsGet operation in DefaultApi.
- * @export
- * @interface DefaultApiGetColorsV1ColorsGetRequest
  */
 export interface DefaultApiGetColorsV1ColorsGetRequest {
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof DefaultApiGetColorsV1ColorsGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getIconsV1IconsGet operation in DefaultApi.
- * @export
- * @interface DefaultApiGetIconsV1IconsGetRequest
  */
 export interface DefaultApiGetIconsV1IconsGetRequest {
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof DefaultApiGetIconsV1IconsGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getMapV1MapGet operation in DefaultApi.
- * @export
- * @interface DefaultApiGetMapV1MapGetRequest
  */
 export interface DefaultApiGetMapV1MapGetRequest {
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof DefaultApiGetMapV1MapGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getRanksV2RanksGet operation in DefaultApi.
- * @export
- * @interface DefaultApiGetRanksV2RanksGetRequest
  */
 export interface DefaultApiGetRanksV2RanksGetRequest {
-    /**
-     * 
-     * @type {Language}
-     * @memberof DefaultApiGetRanksV2RanksGet
-     */
     readonly language?: Language | null
 
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof DefaultApiGetRanksV2RanksGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getSoundsV1SoundsGet operation in DefaultApi.
- * @export
- * @interface DefaultApiGetSoundsV1SoundsGetRequest
  */
 export interface DefaultApiGetSoundsV1SoundsGetRequest {
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof DefaultApiGetSoundsV1SoundsGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getSteamInfoV1SteamInfoGet operation in DefaultApi.
- * @export
- * @interface DefaultApiGetSteamInfoV1SteamInfoGetRequest
  */
 export interface DefaultApiGetSteamInfoV1SteamInfoGetRequest {
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof DefaultApiGetSteamInfoV1SteamInfoGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * DefaultApi - object-oriented interface
- * @export
- * @class DefaultApi
- * @extends {BaseAPI}
  */
 export class DefaultApi extends BaseAPI {
     /**
@@ -3838,7 +1408,6 @@ export class DefaultApi extends BaseAPI {
      * @param {DefaultApiGetBuildTagsV2BuildTagsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getBuildTagsV2BuildTagsGet(requestParameters: DefaultApiGetBuildTagsV2BuildTagsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getBuildTagsV2BuildTagsGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -3849,7 +1418,6 @@ export class DefaultApi extends BaseAPI {
      * @summary Get Client Versions
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getClientVersionsV2ClientVersionsGet(options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getClientVersionsV2ClientVersionsGet(options).then((request) => request(this.axios, this.basePath));
@@ -3861,7 +1429,6 @@ export class DefaultApi extends BaseAPI {
      * @param {DefaultApiGetColorsV1ColorsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getColorsV1ColorsGet(requestParameters: DefaultApiGetColorsV1ColorsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getColorsV1ColorsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -3873,7 +1440,6 @@ export class DefaultApi extends BaseAPI {
      * @param {DefaultApiGetIconsV1IconsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getIconsV1IconsGet(requestParameters: DefaultApiGetIconsV1IconsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getIconsV1IconsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -3885,7 +1451,6 @@ export class DefaultApi extends BaseAPI {
      * @param {DefaultApiGetMapV1MapGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getMapV1MapGet(requestParameters: DefaultApiGetMapV1MapGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getMapV1MapGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -3897,7 +1462,6 @@ export class DefaultApi extends BaseAPI {
      * @param {DefaultApiGetRanksV2RanksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getRanksV2RanksGet(requestParameters: DefaultApiGetRanksV2RanksGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getRanksV2RanksGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -3909,7 +1473,6 @@ export class DefaultApi extends BaseAPI {
      * @param {DefaultApiGetSoundsV1SoundsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getSoundsV1SoundsGet(requestParameters: DefaultApiGetSoundsV1SoundsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getSoundsV1SoundsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -3921,7 +1484,6 @@ export class DefaultApi extends BaseAPI {
      * @param {DefaultApiGetSteamInfoV1SteamInfoGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getSteamInfoV1SteamInfoGet(requestParameters: DefaultApiGetSteamInfoV1SteamInfoGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getSteamInfoV1SteamInfoGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -3932,7 +1494,6 @@ export class DefaultApi extends BaseAPI {
 
 /**
  * HeroesApi - axios parameter creator
- * @export
  */
 export const HeroesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -4074,7 +1635,6 @@ export const HeroesApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * HeroesApi - functional programming interface
- * @export
  */
 export const HeroesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = HeroesApiAxiosParamCreator(configuration)
@@ -4129,7 +1689,6 @@ export const HeroesApiFp = function(configuration?: Configuration) {
 
 /**
  * HeroesApi - factory interface
- * @export
  */
 export const HeroesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = HeroesApiFp(configuration)
@@ -4169,93 +1728,39 @@ export const HeroesApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * Request parameters for getHeroByNameV2HeroesByNameNameGet operation in HeroesApi.
- * @export
- * @interface HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest
  */
 export interface HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof HeroesApiGetHeroByNameV2HeroesByNameNameGet
-     */
     readonly name: string
 
-    /**
-     * 
-     * @type {Language}
-     * @memberof HeroesApiGetHeroByNameV2HeroesByNameNameGet
-     */
     readonly language?: Language | null
 
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof HeroesApiGetHeroByNameV2HeroesByNameNameGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getHeroV2HeroesIdGet operation in HeroesApi.
- * @export
- * @interface HeroesApiGetHeroV2HeroesIdGetRequest
  */
 export interface HeroesApiGetHeroV2HeroesIdGetRequest {
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroesApiGetHeroV2HeroesIdGet
-     */
     readonly id: number
 
-    /**
-     * 
-     * @type {Language}
-     * @memberof HeroesApiGetHeroV2HeroesIdGet
-     */
     readonly language?: Language | null
 
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof HeroesApiGetHeroV2HeroesIdGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getHeroesV2HeroesGet operation in HeroesApi.
- * @export
- * @interface HeroesApiGetHeroesV2HeroesGetRequest
  */
 export interface HeroesApiGetHeroesV2HeroesGetRequest {
-    /**
-     * 
-     * @type {Language}
-     * @memberof HeroesApiGetHeroesV2HeroesGet
-     */
     readonly language?: Language | null
 
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof HeroesApiGetHeroesV2HeroesGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 
-    /**
-     * 
-     * @type {boolean}
-     * @memberof HeroesApiGetHeroesV2HeroesGet
-     */
     readonly onlyActive?: boolean | null
 }
 
 /**
  * HeroesApi - object-oriented interface
- * @export
- * @class HeroesApi
- * @extends {BaseAPI}
  */
 export class HeroesApi extends BaseAPI {
     /**
@@ -4264,7 +1769,6 @@ export class HeroesApi extends BaseAPI {
      * @param {HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof HeroesApi
      */
     public getHeroByNameV2HeroesByNameNameGet(requestParameters: HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest, options?: RawAxiosRequestConfig) {
         return HeroesApiFp(this.configuration).getHeroByNameV2HeroesByNameNameGet(requestParameters.name, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -4276,7 +1780,6 @@ export class HeroesApi extends BaseAPI {
      * @param {HeroesApiGetHeroV2HeroesIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof HeroesApi
      */
     public getHeroV2HeroesIdGet(requestParameters: HeroesApiGetHeroV2HeroesIdGetRequest, options?: RawAxiosRequestConfig) {
         return HeroesApiFp(this.configuration).getHeroV2HeroesIdGet(requestParameters.id, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -4288,7 +1791,6 @@ export class HeroesApi extends BaseAPI {
      * @param {HeroesApiGetHeroesV2HeroesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof HeroesApi
      */
     public getHeroesV2HeroesGet(requestParameters: HeroesApiGetHeroesV2HeroesGetRequest = {}, options?: RawAxiosRequestConfig) {
         return HeroesApiFp(this.configuration).getHeroesV2HeroesGet(requestParameters.language, requestParameters.clientVersion, requestParameters.onlyActive, options).then((request) => request(this.axios, this.basePath));
@@ -4299,7 +1801,6 @@ export class HeroesApi extends BaseAPI {
 
 /**
  * ItemsApi - axios parameter creator
- * @export
  */
 export const ItemsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -4524,7 +2025,6 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * ItemsApi - functional programming interface
- * @export
  */
 export const ItemsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ItemsApiAxiosParamCreator(configuration)
@@ -4608,7 +2108,6 @@ export const ItemsApiFp = function(configuration?: Configuration) {
 
 /**
  * ItemsApi - factory interface
- * @export
  */
 export const ItemsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ItemsApiFp(configuration)
@@ -4668,142 +2167,59 @@ export const ItemsApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * Request parameters for getItemV2ItemsIdOrClassNameGet operation in ItemsApi.
- * @export
- * @interface ItemsApiGetItemV2ItemsIdOrClassNameGetRequest
  */
 export interface ItemsApiGetItemV2ItemsIdOrClassNameGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ItemsApiGetItemV2ItemsIdOrClassNameGet
-     */
     readonly idOrClassName: string
 
-    /**
-     * 
-     * @type {Language}
-     * @memberof ItemsApiGetItemV2ItemsIdOrClassNameGet
-     */
     readonly language?: Language | null
 
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof ItemsApiGetItemV2ItemsIdOrClassNameGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getItemsByHeroIdV2ItemsByHeroIdIdGet operation in ItemsApi.
- * @export
- * @interface ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest
  */
 export interface ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest {
-    /**
-     * 
-     * @type {number}
-     * @memberof ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGet
-     */
     readonly id: number
 
-    /**
-     * 
-     * @type {Language}
-     * @memberof ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGet
-     */
     readonly language?: Language | null
 
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet operation in ItemsApi.
- * @export
- * @interface ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest
  */
 export interface ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest {
-    /**
-     * 
-     * @type {ItemSlotTypeV2}
-     * @memberof ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet
-     */
     readonly slotType: ItemSlotTypeV2
 
-    /**
-     * 
-     * @type {Language}
-     * @memberof ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet
-     */
     readonly language?: Language | null
 
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getItemsByTypeV2ItemsByTypeTypeGet operation in ItemsApi.
- * @export
- * @interface ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest
  */
 export interface ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest {
-    /**
-     * 
-     * @type {ItemTypeV2}
-     * @memberof ItemsApiGetItemsByTypeV2ItemsByTypeTypeGet
-     */
     readonly type: ItemTypeV2
 
-    /**
-     * 
-     * @type {Language}
-     * @memberof ItemsApiGetItemsByTypeV2ItemsByTypeTypeGet
-     */
     readonly language?: Language | null
 
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof ItemsApiGetItemsByTypeV2ItemsByTypeTypeGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getItemsV2ItemsGet operation in ItemsApi.
- * @export
- * @interface ItemsApiGetItemsV2ItemsGetRequest
  */
 export interface ItemsApiGetItemsV2ItemsGetRequest {
-    /**
-     * 
-     * @type {Language}
-     * @memberof ItemsApiGetItemsV2ItemsGet
-     */
     readonly language?: Language | null
 
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof ItemsApiGetItemsV2ItemsGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * ItemsApi - object-oriented interface
- * @export
- * @class ItemsApi
- * @extends {BaseAPI}
  */
 export class ItemsApi extends BaseAPI {
     /**
@@ -4812,7 +2228,6 @@ export class ItemsApi extends BaseAPI {
      * @param {ItemsApiGetItemV2ItemsIdOrClassNameGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemsApi
      */
     public getItemV2ItemsIdOrClassNameGet(requestParameters: ItemsApiGetItemV2ItemsIdOrClassNameGetRequest, options?: RawAxiosRequestConfig) {
         return ItemsApiFp(this.configuration).getItemV2ItemsIdOrClassNameGet(requestParameters.idOrClassName, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -4824,7 +2239,6 @@ export class ItemsApi extends BaseAPI {
      * @param {ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemsApi
      */
     public getItemsByHeroIdV2ItemsByHeroIdIdGet(requestParameters: ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest, options?: RawAxiosRequestConfig) {
         return ItemsApiFp(this.configuration).getItemsByHeroIdV2ItemsByHeroIdIdGet(requestParameters.id, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -4836,7 +2250,6 @@ export class ItemsApi extends BaseAPI {
      * @param {ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemsApi
      */
     public getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(requestParameters: ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest, options?: RawAxiosRequestConfig) {
         return ItemsApiFp(this.configuration).getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(requestParameters.slotType, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -4848,7 +2261,6 @@ export class ItemsApi extends BaseAPI {
      * @param {ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemsApi
      */
     public getItemsByTypeV2ItemsByTypeTypeGet(requestParameters: ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest, options?: RawAxiosRequestConfig) {
         return ItemsApiFp(this.configuration).getItemsByTypeV2ItemsByTypeTypeGet(requestParameters.type, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -4860,7 +2272,6 @@ export class ItemsApi extends BaseAPI {
      * @param {ItemsApiGetItemsV2ItemsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemsApi
      */
     public getItemsV2ItemsGet(requestParameters: ItemsApiGetItemsV2ItemsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return ItemsApiFp(this.configuration).getItemsV2ItemsGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -4871,7 +2282,6 @@ export class ItemsApi extends BaseAPI {
 
 /**
  * RawApi - axios parameter creator
- * @export
  */
 export const RawApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -4985,7 +2395,6 @@ export const RawApiAxiosParamCreator = function (configuration?: Configuration) 
 
 /**
  * RawApi - functional programming interface
- * @export
  */
 export const RawApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RawApiAxiosParamCreator(configuration)
@@ -5034,7 +2443,6 @@ export const RawApiFp = function(configuration?: Configuration) {
 
 /**
  * RawApi - factory interface
- * @export
  */
 export const RawApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = RawApiFp(configuration)
@@ -5074,51 +2482,27 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
 
 /**
  * Request parameters for getGenericDataRawGenericDataGet operation in RawApi.
- * @export
- * @interface RawApiGetGenericDataRawGenericDataGetRequest
  */
 export interface RawApiGetGenericDataRawGenericDataGetRequest {
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof RawApiGetGenericDataRawGenericDataGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getRawHeroesRawHeroesGet operation in RawApi.
- * @export
- * @interface RawApiGetRawHeroesRawHeroesGetRequest
  */
 export interface RawApiGetRawHeroesRawHeroesGetRequest {
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof RawApiGetRawHeroesRawHeroesGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * Request parameters for getRawItemsRawItemsGet operation in RawApi.
- * @export
- * @interface RawApiGetRawItemsRawItemsGetRequest
  */
 export interface RawApiGetRawItemsRawItemsGetRequest {
-    /**
-     * 
-     * @type {ValidClientVersions}
-     * @memberof RawApiGetRawItemsRawItemsGet
-     */
     readonly clientVersion?: ValidClientVersions | null
 }
 
 /**
  * RawApi - object-oriented interface
- * @export
- * @class RawApi
- * @extends {BaseAPI}
  */
 export class RawApi extends BaseAPI {
     /**
@@ -5127,7 +2511,6 @@ export class RawApi extends BaseAPI {
      * @param {RawApiGetGenericDataRawGenericDataGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RawApi
      */
     public getGenericDataRawGenericDataGet(requestParameters: RawApiGetGenericDataRawGenericDataGetRequest = {}, options?: RawAxiosRequestConfig) {
         return RawApiFp(this.configuration).getGenericDataRawGenericDataGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -5139,7 +2522,6 @@ export class RawApi extends BaseAPI {
      * @param {RawApiGetRawHeroesRawHeroesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RawApi
      */
     public getRawHeroesRawHeroesGet(requestParameters: RawApiGetRawHeroesRawHeroesGetRequest = {}, options?: RawAxiosRequestConfig) {
         return RawApiFp(this.configuration).getRawHeroesRawHeroesGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
@@ -5151,7 +2533,6 @@ export class RawApi extends BaseAPI {
      * @param {RawApiGetRawItemsRawItemsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RawApi
      */
     public getRawItemsRawItemsGet(requestParameters: RawApiGetRawItemsRawItemsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return RawApiFp(this.configuration).getRawItemsRawItemsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));

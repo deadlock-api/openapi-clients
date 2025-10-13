@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bucket** | Pointer to **NullableInt32** |  | [optional] 
+**Bucket** | **int32** |  | 
 **HeroId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsHeroStats
 
-`func NewAnalyticsHeroStats(heroId int32, losses int64, matches int64, matchesPerBucket int64, players int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64, ) *AnalyticsHeroStats`
+`func NewAnalyticsHeroStats(bucket int32, heroId int32, losses int64, matches int64, matchesPerBucket int64, players int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64, ) *AnalyticsHeroStats`
 
 NewAnalyticsHeroStats instantiates a new AnalyticsHeroStats object
 This constructor will assign default values to properties that have it defined,
@@ -64,22 +64,7 @@ and a boolean to check if the value has been set.
 
 SetBucket sets Bucket field to given value.
 
-### HasBucket
 
-`func (o *AnalyticsHeroStats) HasBucket() bool`
-
-HasBucket returns a boolean if a field has been set.
-
-### SetBucketNil
-
-`func (o *AnalyticsHeroStats) SetBucketNil(b bool)`
-
- SetBucketNil sets the value for Bucket to be an explicit nil
-
-### UnsetBucket
-`func (o *AnalyticsHeroStats) UnsetBucket()`
-
-UnsetBucket ensures that no value is present for Bucket, not even an explicit nil
 ### GetHeroId
 
 `func (o *AnalyticsHeroStats) GetHeroId() int32`

@@ -37,6 +37,6 @@ Name | Type | Description | Notes
 **tooltip_sections** | [**\OpenAPI\Client\Model\UpgradeTooltipSectionV2[]**](UpgradeTooltipSectionV2.md) |  | [optional]
 **is_active_item** | **bool** |  | [readonly]
 **shopable** | **bool** |  | [readonly]
-**cost** | **int** |  |
+**cost** | **int** |  | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

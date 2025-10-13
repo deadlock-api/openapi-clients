@@ -12,7 +12,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 # import models into model package
 from deadlock-api-client.models.api_info import APIInfo
 from deadlock-api-client.models.active_match import ActiveMatch
@@ -70,3 +69,4 @@ from deadlock-api-client.models.steam_profile import SteamProfile
 from deadlock-api-client.models.table_size import TableSize
 from deadlock-api-client.models.variable_category import VariableCategory
 from deadlock-api-client.models.variable_description import VariableDescription
+

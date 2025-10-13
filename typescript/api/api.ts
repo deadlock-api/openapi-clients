@@ -23,177 +23,46 @@ import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
-/**
- * 
- * @export
- * @interface APIInfo
- */
 export interface APIInfo {
     /**
      * The number of matches fetched in the last 24 hours.
-     * @type {number}
-     * @memberof APIInfo
      */
     'fetched_matches_per_day'?: number | null;
     /**
      * The number of matches that have not been fetched.
-     * @type {number}
-     * @memberof APIInfo
      */
     'missed_matches'?: number | null;
     /**
      * The sizes of all tables in the database.
-     * @type {{ [key: string]: TableSize; }}
-     * @memberof APIInfo
      */
     'table_sizes'?: { [key: string]: TableSize; };
 }
-/**
- * 
- * @export
- * @interface ActiveMatch
- */
 export interface ActiveMatch {
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'compat_version'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'duration_s'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'game_mode'?: number | null;
-    /**
-     * 
-     * @type {ActiveMatchGameMode}
-     * @memberof ActiveMatch
-     */
     'game_mode_parsed'?: ActiveMatchGameMode | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'game_mode_version'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'lobby_id'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'match_id'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'match_mode'?: number | null;
-    /**
-     * 
-     * @type {ActiveMatchMode}
-     * @memberof ActiveMatch
-     */
     'match_mode_parsed'?: ActiveMatchMode | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'match_score'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'net_worth_team_0'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'net_worth_team_1'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'objectives_mask_team0'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'objectives_mask_team1'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'open_spectator_slots'?: number | null;
-    /**
-     * 
-     * @type {Array<ActiveMatchPlayer>}
-     * @memberof ActiveMatch
-     */
     'players': Array<ActiveMatchPlayer>;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'region_mode'?: number | null;
-    /**
-     * 
-     * @type {ActiveMatchRegionMode}
-     * @memberof ActiveMatch
-     */
     'region_mode_parsed'?: ActiveMatchRegionMode | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'spectators'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'start_time'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatch
-     */
     'winning_team'?: number | null;
-    /**
-     * 
-     * @type {ActiveMatchTeam}
-     * @memberof ActiveMatch
-     */
     'winning_team_parsed'?: ActiveMatchTeam | null;
 }
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ActiveMatchGameMode = {
     KeCitadelGameModeInvalid: 'KECitadelGameModeInvalid',
@@ -205,11 +74,6 @@ export const ActiveMatchGameMode = {
 export type ActiveMatchGameMode = typeof ActiveMatchGameMode[keyof typeof ActiveMatchGameMode];
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ActiveMatchMode = {
     Invalid: 'Invalid',
@@ -225,50 +89,18 @@ export const ActiveMatchMode = {
 export type ActiveMatchMode = typeof ActiveMatchMode[keyof typeof ActiveMatchMode];
 
 
-/**
- * 
- * @export
- * @interface ActiveMatchPlayer
- */
 export interface ActiveMatchPlayer {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ActiveMatchPlayer
-     */
     'abandoned'?: boolean | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatchPlayer
-     */
     'account_id'?: number | null;
     /**
      * See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {number}
-     * @memberof ActiveMatchPlayer
      */
     'hero_id'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ActiveMatchPlayer
-     */
     'team'?: number | null;
-    /**
-     * 
-     * @type {ActiveMatchTeam}
-     * @memberof ActiveMatchPlayer
-     */
     'team_parsed'?: ActiveMatchTeam | null;
 }
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ActiveMatchRegionMode = {
     Row: 'Row',
@@ -282,11 +114,6 @@ export const ActiveMatchRegionMode = {
 export type ActiveMatchRegionMode = typeof ActiveMatchRegionMode[keyof typeof ActiveMatchRegionMode];
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ActiveMatchTeam = {
     Team0: 'Team0',
@@ -297,739 +124,204 @@ export const ActiveMatchTeam = {
 export type ActiveMatchTeam = typeof ActiveMatchTeam[keyof typeof ActiveMatchTeam];
 
 
-/**
- * 
- * @export
- * @interface AnalyticsAbilityOrderStats
- */
 export interface AnalyticsAbilityOrderStats {
     /**
      * See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {Array<number>}
-     * @memberof AnalyticsAbilityOrderStats
      */
     'abilities': Array<number>;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsAbilityOrderStats
-     */
     'losses': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsAbilityOrderStats
-     */
     'matches': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsAbilityOrderStats
-     */
     'players': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsAbilityOrderStats
-     */
     'total_assists': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsAbilityOrderStats
-     */
     'total_deaths': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsAbilityOrderStats
-     */
     'total_kills': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsAbilityOrderStats
-     */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface AnalyticsHeroStats
- */
 export interface AnalyticsHeroStats {
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
-    'bucket'?: number | null;
+    'bucket': number;
     /**
      * See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {number}
-     * @memberof AnalyticsHeroStats
      */
     'hero_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'losses': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'matches': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'matches_per_bucket': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'players': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_assists': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_boss_damage': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_creep_damage': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_deaths': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_denies': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_kills': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_last_hits': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_max_health': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_net_worth': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_neutral_damage': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_player_damage': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_player_damage_taken': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_shots_hit': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'total_shots_missed': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface BadgeDistribution
- */
 export interface BadgeDistribution {
     /**
      * The badge level. See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof BadgeDistribution
      */
     'badge_level': number;
     /**
      * The total number of matches.
-     * @type {number}
-     * @memberof BadgeDistribution
      */
     'total_matches': number;
 }
-/**
- * 
- * @export
- * @interface Build
- */
 export interface Build {
-    /**
-     * 
-     * @type {BuildHero}
-     * @memberof Build
-     */
     'hero_build': BuildHero;
-    /**
-     * 
-     * @type {number}
-     * @memberof Build
-     */
     'num_favorites'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof Build
-     */
     'num_ignores'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof Build
-     */
     'num_reports'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof Build
-     */
     'num_weekly_favorites'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof Build
-     */
     'rollup_category'?: number | null;
 }
-/**
- * 
- * @export
- * @interface BuildHero
- */
 export interface BuildHero {
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHero
-     */
     'author_account_id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof BuildHero
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {BuildHeroDetails}
-     * @memberof BuildHero
-     */
     'details': BuildHeroDetails;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BuildHero
-     */
     'development_build'?: boolean | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHero
-     */
     'hero_build_id': number;
     /**
      * See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {number}
-     * @memberof BuildHero
      */
     'hero_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHero
-     */
     'language': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHero
-     */
     'last_updated_timestamp'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof BuildHero
-     */
     'name': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHero
-     */
     'origin_build_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHero
-     */
     'publish_timestamp'?: number | null;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof BuildHero
-     */
     'tags'?: Array<number>;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHero
-     */
     'version': number;
 }
-/**
- * 
- * @export
- * @interface BuildHeroDetails
- */
 export interface BuildHeroDetails {
-    /**
-     * 
-     * @type {BuildHeroDetailsAbilityOrder}
-     * @memberof BuildHeroDetails
-     */
     'ability_order'?: BuildHeroDetailsAbilityOrder | null;
-    /**
-     * 
-     * @type {Array<BuildHeroDetailsCategory>}
-     * @memberof BuildHeroDetails
-     */
     'mod_categories': Array<BuildHeroDetailsCategory>;
 }
-/**
- * 
- * @export
- * @interface BuildHeroDetailsAbilityOrder
- */
 export interface BuildHeroDetailsAbilityOrder {
-    /**
-     * 
-     * @type {Array<BuildHeroDetailsAbilityOrderCurrencyChange>}
-     * @memberof BuildHeroDetailsAbilityOrder
-     */
     'currency_changes'?: Array<BuildHeroDetailsAbilityOrderCurrencyChange> | null;
 }
-/**
- * 
- * @export
- * @interface BuildHeroDetailsAbilityOrderCurrencyChange
- */
 export interface BuildHeroDetailsAbilityOrderCurrencyChange {
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHeroDetailsAbilityOrderCurrencyChange
-     */
     'ability_id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof BuildHeroDetailsAbilityOrderCurrencyChange
-     */
     'annotation'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHeroDetailsAbilityOrderCurrencyChange
-     */
     'currency_type': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHeroDetailsAbilityOrderCurrencyChange
-     */
     'delta': number;
 }
-/**
- * 
- * @export
- * @interface BuildHeroDetailsCategory
- */
 export interface BuildHeroDetailsCategory {
-    /**
-     * 
-     * @type {string}
-     * @memberof BuildHeroDetailsCategory
-     */
     'description'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHeroDetailsCategory
-     */
     'height'?: number | null;
-    /**
-     * 
-     * @type {Array<BuildHeroDetailsCategoryAbility>}
-     * @memberof BuildHeroDetailsCategory
-     */
     'mods'?: Array<BuildHeroDetailsCategoryAbility> | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof BuildHeroDetailsCategory
-     */
     'name': string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BuildHeroDetailsCategory
-     */
     'optional'?: boolean | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHeroDetailsCategory
-     */
     'width'?: number | null;
 }
-/**
- * 
- * @export
- * @interface BuildHeroDetailsCategoryAbility
- */
 export interface BuildHeroDetailsCategoryAbility {
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHeroDetailsCategoryAbility
-     */
     'ability_id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof BuildHeroDetailsCategoryAbility
-     */
     'annotation'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHeroDetailsCategoryAbility
-     */
     'imbue_target_ability_id'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHeroDetailsCategoryAbility
-     */
     'required_flex_slots'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildHeroDetailsCategoryAbility
-     */
     'sell_priority'?: number | null;
 }
-/**
- * 
- * @export
- * @interface BuildItemStats
- */
 export interface BuildItemStats {
-    /**
-     * 
-     * @type {number}
-     * @memberof BuildItemStats
-     */
     'builds': number;
     /**
      * See more: <https://assets.deadlock-api.com/v2/items>
-     * @type {number}
-     * @memberof BuildItemStats
      */
     'item_id': number;
 }
-/**
- * 
- * @export
- * @interface ClickhouseMatchInfo
- */
 export interface ClickhouseMatchInfo {
     /**
      * See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof ClickhouseMatchInfo
      */
     'average_badge_team0'?: number | null;
     /**
      * See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof ClickhouseMatchInfo
      */
     'average_badge_team1'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ClickhouseMatchInfo
-     */
     'duration_s': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ClickhouseMatchInfo
-     */
     'match_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ClickhouseMatchInfo
-     */
     'match_mode': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ClickhouseMatchInfo
-     */
     'start_time': number;
 }
-/**
- * 
- * @export
- * @interface ClickhouseSalts
- */
 export interface ClickhouseSalts {
-    /**
-     * 
-     * @type {number}
-     * @memberof ClickhouseSalts
-     */
     'cluster_id'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ClickhouseSalts
-     */
     'match_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ClickhouseSalts
-     */
     'metadata_salt'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof ClickhouseSalts
-     */
     'replay_salt'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ClickhouseSalts
-     */
     'username'?: string | null;
 }
-/**
- * 
- * @export
- * @interface CreateCustomRequest
- */
 export interface CreateCustomRequest {
     /**
      * If a callback url is provided, we will send a POST request to this url when the match starts.
-     * @type {string}
-     * @memberof CreateCustomRequest
      */
     'callback_url'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CreateCustomRequest
-     */
     'cheats_enabled'?: boolean | null;
     /**
      * If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
-     * @type {boolean}
-     * @memberof CreateCustomRequest
      */
     'disable_auto_ready'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CreateCustomRequest
-     */
     'duplicate_heroes_enabled'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CreateCustomRequest
-     */
     'experimental_heroes_enabled'?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CreateCustomRequest
-     */
     'is_publicly_visible'?: boolean | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof CreateCustomRequest
-     */
     'min_roster_size'?: number | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CreateCustomRequest
-     */
     'randomize_lanes'?: boolean | null;
-    /**
-     * 
-     * @type {RegionMode}
-     * @memberof CreateCustomRequest
-     */
     'region_mode'?: RegionMode | null;
 }
 
 
-/**
- * 
- * @export
- * @interface CreateCustomResponse
- */
 export interface CreateCustomResponse {
     /**
      * If a callback url is provided, this is the secret that should be used to verify the callback. The secret is a base64 encoded random string. To verify it you should compare it with the X-Callback-Secret header. If no callback url is provided, this will be None.
-     * @type {string}
-     * @memberof CreateCustomResponse
      */
     'callback_secret'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateCustomResponse
-     */
     'party_code': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateCustomResponse
-     */
     'party_id': string;
 }
-/**
- * 
- * @export
- * @interface ESportsMatch
- */
 export interface ESportsMatch {
     /**
      * Valve\'s match id of the match.
-     * @type {number}
-     * @memberof ESportsMatch
      */
     'match_id'?: number | null;
     /**
      * The provider of the match data. Some string that identifies the source of the data.
-     * @type {string}
-     * @memberof ESportsMatch
      */
     'provider': string;
     /**
      * The scheduled date of the match.
-     * @type {string}
-     * @memberof ESportsMatch
      */
     'scheduled_date'?: string | null;
     /**
      * The status of the match, e.g. live, completed, scheduled, cancelled.
-     * @type {ESportsMatchStatus}
-     * @memberof ESportsMatch
      */
     'status'?: ESportsMatchStatus | null;
     /**
      * The name of the first team.
-     * @type {string}
-     * @memberof ESportsMatch
      */
     'team0_name'?: string | null;
     /**
      * The name of the second team.
-     * @type {string}
-     * @memberof ESportsMatch
      */
     'team1_name'?: string | null;
     /**
      * The name of the tournament.
-     * @type {string}
-     * @memberof ESportsMatch
      */
     'tournament_name'?: string | null;
     /**
      * The stage of the tournament.
-     * @type {string}
-     * @memberof ESportsMatch
      */
     'tournament_stage'?: string | null;
     /**
      * If you want to update an existing match, you can provide an update id.
-     * @type {string}
-     * @memberof ESportsMatch
      */
     'update_id'?: string | null;
 }
 
 
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const ESportsMatchStatus = {
     Live: 'Live',
@@ -1041,1261 +333,434 @@ export const ESportsMatchStatus = {
 export type ESportsMatchStatus = typeof ESportsMatchStatus[keyof typeof ESportsMatchStatus];
 
 
-/**
- * 
- * @export
- * @interface EnemyStats
- */
 export interface EnemyStats {
-    /**
-     * 
-     * @type {number}
-     * @memberof EnemyStats
-     */
     'enemy_id': number;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof EnemyStats
-     */
     'matches': Array<number>;
-    /**
-     * 
-     * @type {number}
-     * @memberof EnemyStats
-     */
     'matches_played': number;
     /**
      * The amount of matches won against the enemy.
-     * @type {number}
-     * @memberof EnemyStats
      */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface Entry
- */
 export interface Entry {
     /**
      * See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {number}
-     * @memberof Entry
      */
     'hero_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Entry
-     */
     'matches': number;
     /**
      * See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof Entry
      */
     'rank': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Entry
-     */
     'value': number;
 }
-/**
- * 
- * @export
- * @interface GetCustomMatchIdResponse
- */
 export interface GetCustomMatchIdResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof GetCustomMatchIdResponse
-     */
     'match_id': number;
 }
-/**
- * 
- * @export
- * @interface HashMapValue
- */
 export interface HashMapValue {
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'avg': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'percentile1': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'percentile10': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'percentile25': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'percentile5': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'percentile50': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'percentile75': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'percentile90': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'percentile95': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'percentile99': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HashMapValue
-     */
     'std': number;
 }
-/**
- * 
- * @export
- * @interface HeroCombStats
- */
 export interface HeroCombStats {
     /**
      * See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {Array<number>}
-     * @memberof HeroCombStats
      */
     'hero_ids': Array<number>;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroCombStats
-     */
     'losses': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroCombStats
-     */
     'matches': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroCombStats
-     */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface HeroCounterStats
- */
 export interface HeroCounterStats {
     /**
      * The number of assists by `hero_id` when facing `enemy_hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'assists': number;
     /**
      * The number of creeps killed by `hero_id` when facing `enemy_hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'creeps': number;
     /**
      * The number of deaths by `hero_id` when facing `enemy_hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'deaths': number;
     /**
      * The number of denies by `hero_id` when facing `enemy_hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'denies': number;
     /**
      * The number of assists by `enemy_hero_id` when facing `hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'enemy_assists': number;
     /**
      * The number of creeps killed by `enemy_hero_id` when facing `hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'enemy_creeps': number;
     /**
      * The number of deaths by `enemy_hero_id` when facing `hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'enemy_deaths': number;
     /**
      * The number of denies by `enemy_hero_id` when facing `hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'enemy_denies': number;
     /**
      * The ID of the opposing hero. See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'enemy_hero_id': number;
     /**
      * The number of kills by `enemy_hero_id` when facing `hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'enemy_kills': number;
     /**
      * The number of last hits by `enemy_hero_id` when facing `hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'enemy_last_hits': number;
     /**
      * The net worth of `enemy_hero_id` when facing `hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'enemy_networth': number;
     /**
      * The amount of objective damage dealt by `enemy_hero_id` when facing `hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'enemy_obj_damage': number;
     /**
      * The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'hero_id': number;
     /**
      * The number of kills by `hero_id` when facing `enemy_hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'kills': number;
     /**
      * The number of last hits by `hero_id` when facing `enemy_hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'last_hits': number;
     /**
      * The total number of matches played between `hero_id` and `enemy_hero_id` that meet the filter criteria.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'matches_played': number;
     /**
      * The net worth of `hero_id` when facing `enemy_hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'networth': number;
     /**
      * The amount of objective damage dealt by `hero_id` when facing `enemy_hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'obj_damage': number;
     /**
      * The number of times `hero_id` won the match when facing `enemy_hero_id`.
-     * @type {number}
-     * @memberof HeroCounterStats
      */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface HeroStats
- */
 export interface HeroStats {
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'account_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'accuracy': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'assists': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'assists_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'creeps_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'crit_shot_rate': number;
     /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
      * @deprecated
      */
     'damage_mitigated_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'damage_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'damage_per_soul': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'damage_taken_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'damage_taken_per_soul': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'deaths': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'deaths_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'denies_per_match': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'denies_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'ending_level': number;
     /**
      * See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {number}
-     * @memberof HeroStats
      */
     'hero_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'kills': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'kills_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'last_hits_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'last_played': number;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof HeroStats
-     */
     'matches': Array<number>;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'matches_played': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'networth_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'obj_damage_per_min': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'obj_damage_per_soul': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'time_played': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof HeroStats
-     */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface HeroSynergyStats
- */
 export interface HeroSynergyStats {
     /**
      * The number of assists by `hero_id1` when playing with `hero_id2`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'assists1': number;
     /**
      * The number of assists by `hero_id2` when playing with `hero_id1`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'assists2': number;
     /**
      * The number of creeps killed by `hero_id1` when playing with `hero_id2`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'creeps1': number;
     /**
      * The number of creeps killed by `hero_id2` when playing with `hero_id1`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'creeps2': number;
     /**
      * The number of deaths by `hero_id1` when playing with `hero_id2`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'deaths1': number;
     /**
      * The number of deaths by `hero_id2` when playing with `hero_id1`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'deaths2': number;
     /**
      * The number of denies by `hero_id1` when playing with `hero_id2`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'denies1': number;
     /**
      * The number of denies by `hero_id2` when playing with `hero_id1`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'denies2': number;
     /**
      * The ID of the first hero in the pair.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'hero_id1': number;
     /**
      * The ID of the second hero in the pair.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'hero_id2': number;
     /**
      * The number of kills by `hero_id1` when playing with `hero_id2`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'kills1': number;
     /**
      * The number of kills by `hero_id2` when playing with `hero_id1`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'kills2': number;
     /**
      * The number of last hits by `hero_id1` when playing with `hero_id2`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'last_hits1': number;
     /**
      * The number of last hits by `hero_id2` when playing with `hero_id1`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'last_hits2': number;
     /**
      * The total number of matches played where `hero_id1` and `hero_id2` were on the same team, meeting the filter criteria.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'matches_played': number;
     /**
      * The net worth of `hero_id1` when playing with `hero_id2`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'networth1': number;
     /**
      * The net worth of `hero_id2` when playing with `hero_id1`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'networth2': number;
     /**
      * The amount of objective damage dealt by `hero_id1` when playing with `hero_id2`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'obj_damage1': number;
     /**
      * The amount of objective damage dealt by `hero_id2` when playing with `hero_id1`.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'obj_damage2': number;
     /**
      * The number of times the team won when both `hero_id1` and `hero_id2` were on the same team.
-     * @type {number}
-     * @memberof HeroSynergyStats
      */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface ItemPermutationStats
- */
 export interface ItemPermutationStats {
     /**
      * See more: <https://assets.deadlock-api.com/v2/items>
-     * @type {Array<number>}
-     * @memberof ItemPermutationStats
      */
     'item_ids': Array<number>;
-    /**
-     * 
-     * @type {number}
-     * @memberof ItemPermutationStats
-     */
     'losses': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ItemPermutationStats
-     */
     'matches': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ItemPermutationStats
-     */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface ItemStats
- */
 export interface ItemStats {
-    /**
-     * 
-     * @type {number}
-     * @memberof ItemStats
-     */
-    'bucket'?: number | null;
+    'bucket': number;
     /**
      * See more: <https://assets.deadlock-api.com/v2/items>
-     * @type {number}
-     * @memberof ItemStats
      */
     'item_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ItemStats
-     */
     'losses': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ItemStats
-     */
     'matches': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ItemStats
-     */
     'players': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ItemStats
-     */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface Leaderboard
- */
 export interface Leaderboard {
     /**
      * The leaderboard entries.
-     * @type {Array<LeaderboardEntry>}
-     * @memberof Leaderboard
      */
     'entries': Array<LeaderboardEntry>;
 }
-/**
- * 
- * @export
- * @interface LeaderboardEntry
- */
 export interface LeaderboardEntry {
     /**
      * The account name of the player.
-     * @type {string}
-     * @memberof LeaderboardEntry
      */
     'account_name'?: string | null;
     /**
      * The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof LeaderboardEntry
      */
     'badge_level'?: number | null;
     /**
      * The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
-     * @type {Array<number>}
-     * @memberof LeaderboardEntry
      */
     'possible_account_ids'?: Array<number>;
     /**
      * The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof LeaderboardEntry
      */
     'rank'?: number | null;
     /**
      * The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof LeaderboardEntry
      */
     'ranked_rank'?: number | null;
     /**
      * The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof LeaderboardEntry
      */
     'ranked_subrank'?: number | null;
     /**
      * The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {Array<number>}
-     * @memberof LeaderboardEntry
      */
     'top_hero_ids'?: Array<number>;
 }
-/**
- * 
- * @export
- * @interface MMRHistory
- */
 export interface MMRHistory {
-    /**
-     * 
-     * @type {number}
-     * @memberof MMRHistory
-     */
     'account_id': number;
     /**
      * Extracted from the rank the division (rank // 10)
-     * @type {number}
-     * @memberof MMRHistory
      */
     'division': number;
     /**
      * Extracted from the rank the division tier (rank % 10)
-     * @type {number}
-     * @memberof MMRHistory
      */
     'division_tier': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof MMRHistory
-     */
     'match_id': number;
     /**
      * Player Score is the index for the rank array (internally used for the rank regression)
-     * @type {number}
-     * @memberof MMRHistory
      */
     'player_score': number;
     /**
      * The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof MMRHistory
      */
     'rank': number;
     /**
      * Start time of the match
-     * @type {number}
-     * @memberof MMRHistory
      */
     'start_time': number;
 }
-/**
- * 
- * @export
- * @interface MatchSaltsResponse
- */
 export interface MatchSaltsResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof MatchSaltsResponse
-     */
     'cluster_id'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof MatchSaltsResponse
-     */
     'demo_url'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof MatchSaltsResponse
-     */
     'match_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof MatchSaltsResponse
-     */
     'metadata_salt'?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof MatchSaltsResponse
-     */
     'metadata_url'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof MatchSaltsResponse
-     */
     'replay_salt'?: number | null;
 }
-/**
- * 
- * @export
- * @interface MatchSpectateResponse
- */
 export interface MatchSpectateResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof MatchSpectateResponse
-     */
     'broadcast_url': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof MatchSpectateResponse
-     */
     'lobby_id'?: number | null;
 }
-/**
- * 
- * @export
- * @interface MateStats
- */
 export interface MateStats {
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof MateStats
-     */
     'matches': Array<number>;
-    /**
-     * 
-     * @type {number}
-     * @memberof MateStats
-     */
     'matches_played': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof MateStats
-     */
     'mate_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof MateStats
-     */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface PartyStats
- */
 export interface PartyStats {
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof PartyStats
-     */
     'matches': Array<number>;
-    /**
-     * 
-     * @type {number}
-     * @memberof PartyStats
-     */
     'matches_played': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PartyStats
-     */
     'party_size': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PartyStats
-     */
     'wins': number;
 }
-/**
- * 
- * @export
- * @interface Patch
- */
 export interface Patch {
-    /**
-     * 
-     * @type {string}
-     * @memberof Patch
-     */
     'author': string;
-    /**
-     * 
-     * @type {PatchCategory}
-     * @memberof Patch
-     */
     'category': PatchCategory;
-    /**
-     * 
-     * @type {string}
-     * @memberof Patch
-     */
     'content_encoded': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Patch
-     */
     'dc_creator': string;
-    /**
-     * 
-     * @type {PatchGuid}
-     * @memberof Patch
-     */
     'guid': PatchGuid;
-    /**
-     * 
-     * @type {string}
-     * @memberof Patch
-     */
     'link': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Patch
-     */
     'pub_date': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Patch
-     */
     'slash_comments': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Patch
-     */
     'title': string;
 }
-/**
- * 
- * @export
- * @interface PatchCategory
- */
 export interface PatchCategory {
-    /**
-     * 
-     * @type {string}
-     * @memberof PatchCategory
-     */
     'domain': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PatchCategory
-     */
     'text': string;
 }
-/**
- * 
- * @export
- * @interface PatchGuid
- */
 export interface PatchGuid {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PatchGuid
-     */
     'is_perma_link': boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof PatchGuid
-     */
     'text': string;
 }
-/**
- * 
- * @export
- * @interface PlayerCard
- */
 export interface PlayerCard {
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerCard
-     */
     'account_id': number;
     /**
      * See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof PlayerCard
      */
     'ranked_badge_level'?: number | null;
     /**
      * See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof PlayerCard
      */
     'ranked_rank'?: number | null;
     /**
      * See more: <https://assets.deadlock-api.com/v2/ranks>
-     * @type {number}
-     * @memberof PlayerCard
      */
     'ranked_subrank'?: number | null;
-    /**
-     * 
-     * @type {Array<PlayerCardSlot>}
-     * @memberof PlayerCard
-     */
     'slots': Array<PlayerCardSlot>;
 }
-/**
- * 
- * @export
- * @interface PlayerCardSlot
- */
 export interface PlayerCardSlot {
-    /**
-     * 
-     * @type {PlayerCardSlotHero}
-     * @memberof PlayerCardSlot
-     */
     'hero'?: PlayerCardSlotHero | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerCardSlot
-     */
     'slot_id'?: number | null;
-    /**
-     * 
-     * @type {PlayerCardSlotStat}
-     * @memberof PlayerCardSlot
-     */
     'stat'?: PlayerCardSlotStat | null;
 }
-/**
- * 
- * @export
- * @interface PlayerCardSlotHero
- */
 export interface PlayerCardSlotHero {
     /**
      * See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {number}
-     * @memberof PlayerCardSlotHero
      */
     'id'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerCardSlotHero
-     */
     'kills'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerCardSlotHero
-     */
     'wins'?: number | null;
 }
-/**
- * 
- * @export
- * @interface PlayerCardSlotStat
- */
 export interface PlayerCardSlotStat {
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerCardSlotStat
-     */
     'stat_id'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerCardSlotStat
-     */
     'stat_score'?: number | null;
 }
-/**
- * 
- * @export
- * @interface PlayerMatchHistoryEntry
- */
 export interface PlayerMatchHistoryEntry {
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'abandoned_time_s'?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'account_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'denies': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'game_mode': number;
     /**
      * See more: <https://assets.deadlock-api.com/v2/heroes>
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
      */
     'hero_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'hero_level': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'last_hits': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'match_duration_s': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'match_id': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'match_mode': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'match_result': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'net_worth': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'objectives_mask_team0': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'objectives_mask_team1': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'player_assists': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'player_deaths': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'player_kills': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'player_team': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'start_time': number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PlayerMatchHistoryEntry
-     */
     'team_abandoned'?: boolean | null;
+    'username'?: string | null;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const RegionMode = {
     Row: 'row',
@@ -2309,141 +774,55 @@ export const RegionMode = {
 export type RegionMode = typeof RegionMode[keyof typeof RegionMode];
 
 
-/**
- * 
- * @export
- * @interface Status
- */
 export interface Status {
     /**
      * Status of the services.
-     * @type {StatusServices}
-     * @memberof Status
      */
     'services': StatusServices;
 }
-/**
- * 
- * @export
- * @interface StatusServices
- */
 export interface StatusServices {
     /**
      * Whether Clickhouse is reachable.
-     * @type {boolean}
-     * @memberof StatusServices
      */
     'clickhouse': boolean;
     /**
      * Whether Postgres is reachable.
-     * @type {boolean}
-     * @memberof StatusServices
      */
     'postgres': boolean;
     /**
      * Whether Redis is reachable.
-     * @type {boolean}
-     * @memberof StatusServices
      */
     'redis': boolean;
 }
-/**
- * 
- * @export
- * @interface SteamProfile
- */
 export interface SteamProfile {
-    /**
-     * 
-     * @type {number}
-     * @memberof SteamProfile
-     */
     'account_id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof SteamProfile
-     */
     'avatar': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SteamProfile
-     */
     'avatarfull': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SteamProfile
-     */
     'avatarmedium': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SteamProfile
-     */
     'countrycode'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SteamProfile
-     */
     'last_updated': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SteamProfile
-     */
     'personaname': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SteamProfile
-     */
     'profileurl': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SteamProfile
-     */
     'realname'?: string | null;
 }
-/**
- * 
- * @export
- * @interface TableSize
- */
 export interface TableSize {
     /**
      * Compressed size of the table in bytes.
-     * @type {number}
-     * @memberof TableSize
      */
     'data_compressed_bytes'?: number | null;
     /**
      * Uncompressed size of the table in bytes.
-     * @type {number}
-     * @memberof TableSize
      */
     'data_uncompressed_bytes'?: number | null;
     /**
      * Whether the table is a view.
-     * @type {boolean}
-     * @memberof TableSize
      */
     'is_view': boolean;
     /**
      * Number of rows in the table.
-     * @type {number}
-     * @memberof TableSize
      */
     'rows'?: number | null;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
 
 export const VariableCategory = {
     General: 'General',
@@ -2457,40 +836,25 @@ export const VariableCategory = {
 export type VariableCategory = typeof VariableCategory[keyof typeof VariableCategory];
 
 
-/**
- * 
- * @export
- * @interface VariableDescription
- */
 export interface VariableDescription {
     /**
      * The category of the variable.
-     * @type {VariableCategory}
-     * @memberof VariableDescription
      */
     'category': VariableCategory;
     /**
      * The default label for the variable.
-     * @type {string}
-     * @memberof VariableDescription
      */
     'default_label'?: string | null;
     /**
      * The description of the variable.
-     * @type {string}
-     * @memberof VariableDescription
      */
     'description': string;
     /**
      * Extra arguments that can be passed to the variable.
-     * @type {Array<string>}
-     * @memberof VariableDescription
      */
     'extra_args': Array<string>;
     /**
      * The name of the variable.
-     * @type {string}
-     * @memberof VariableDescription
      */
     'name': string;
 }
@@ -2499,7 +863,6 @@ export interface VariableDescription {
 
 /**
  * AnalyticsApi - axios parameter creator
- * @export
  */
 export const AnalyticsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -3774,7 +2137,6 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * AnalyticsApi - functional programming interface
- * @export
  */
 export const AnalyticsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AnalyticsApiAxiosParamCreator(configuration)
@@ -4108,7 +2470,6 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
 
 /**
  * AnalyticsApi - factory interface
- * @export
  */
 export const AnalyticsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = AnalyticsApiFp(configuration)
@@ -4238,1353 +2599,966 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
 
 /**
  * Request parameters for abilityOrderStats operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiAbilityOrderStatsRequest
  */
 export interface AnalyticsApiAbilityOrderStatsRequest {
     /**
      * See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly heroId: number
 
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their minimum number of ability upgrades over the whole match.
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly minAbilityUpgrades?: number | null
 
     /**
      * Filter players based on their maximum number of ability upgrades over the whole match.
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly maxAbilityUpgrades?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly maxMatchId?: number | null
 
     /**
      * The minimum number of matches played for an ability order to be included in the response.
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly minMatches?: number | null
 
     /**
      * Filter for matches with a specific player account ID.
-     * @type {number}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly accountId?: number | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof AnalyticsApiAbilityOrderStats
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * Request parameters for badgeDistribution operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiBadgeDistributionRequest
  */
 export interface AnalyticsApiBadgeDistributionRequest {
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiBadgeDistribution
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiBadgeDistribution
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiBadgeDistribution
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiBadgeDistribution
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter matches based on whether they are in the high skill range.
-     * @type {boolean}
-     * @memberof AnalyticsApiBadgeDistribution
      */
     readonly isHighSkillRangeParties?: boolean | null
 
     /**
      * Filter matches based on whether they are in the low priority pool.
-     * @type {boolean}
-     * @memberof AnalyticsApiBadgeDistribution
      */
     readonly isLowPriPool?: boolean | null
 
     /**
      * Filter matches based on whether they are in the new player pool.
-     * @type {boolean}
-     * @memberof AnalyticsApiBadgeDistribution
      */
     readonly isNewPlayerPool?: boolean | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiBadgeDistribution
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiBadgeDistribution
      */
     readonly maxMatchId?: number | null
 }
 
 /**
  * Request parameters for buildItemStats operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiBuildItemStatsRequest
  */
 export interface AnalyticsApiBuildItemStatsRequest {
     /**
      * Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {number}
-     * @memberof AnalyticsApiBuildItemStats
      */
     readonly heroId?: number | null
 
     /**
      * Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiBuildItemStats
      */
     readonly minLastUpdatedUnixTimestamp?: number | null
 
     /**
      * Filter builds based on their last updated time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiBuildItemStats
      */
     readonly maxLastUpdatedUnixTimestamp?: number | null
 }
 
 /**
  * Request parameters for heroCombStats operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiHeroCombStatsRequest
  */
 export interface AnalyticsApiHeroCombStatsRequest {
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly maxMatchId?: number | null
 
     /**
      * Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {Array<number>}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly includeHeroIds?: Array<number> | null
 
     /**
      * Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {Array<number>}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly excludeHeroIds?: Array<number> | null
 
     /**
      * The minimum number of matches played for a hero combination to be included in the response.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly minMatches?: number | null
 
     /**
      * The maximum number of matches played for a hero combination to be included in the response.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly maxMatches?: number | null
 
     /**
      * The combination size to return.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly combSize?: number | null
 
     /**
      * Filter for matches with a specific player account ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly accountId?: number | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof AnalyticsApiHeroCombStats
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * Request parameters for heroCountersStats operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiHeroCountersStatsRequest
  */
 export interface AnalyticsApiHeroCountersStatsRequest {
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter enemy players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly minEnemyNetworth?: number | null
 
     /**
      * Filter enemy players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly maxEnemyNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly maxMatchId?: number | null
 
     /**
      * When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane.
-     * @type {boolean}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly sameLaneFilter?: boolean | null
 
     /**
      * The minimum number of matches played for a hero combination to be included in the response.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly minMatches?: number | null
 
     /**
      * The maximum number of matches played for a hero combination to be included in the response.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly maxMatches?: number | null
 
     /**
      * Filter for matches with a specific player account ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly accountId?: number | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof AnalyticsApiHeroCountersStats
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * Request parameters for heroScoreboard operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiHeroScoreboardRequest
  */
 export interface AnalyticsApiHeroScoreboardRequest {
     /**
      * The field to sort by.
-     * @type {'matches' | 'wins' | 'losses' | 'winrate' | 'max_kills_per_match' | 'avg_kills_per_match' | 'kills' | 'max_deaths_per_match' | 'avg_deaths_per_match' | 'deaths' | 'max_damage_taken_per_match' | 'avg_damage_taken_per_match' | 'damage_taken' | 'max_assists_per_match' | 'avg_assists_per_match' | 'assists' | 'max_net_worth_per_match' | 'avg_net_worth_per_match' | 'net_worth' | 'max_last_hits_per_match' | 'avg_last_hits_per_match' | 'last_hits' | 'max_denies_per_match' | 'avg_denies_per_match' | 'denies' | 'max_player_level_per_match' | 'avg_player_level_per_match' | 'player_level' | 'max_creep_kills_per_match' | 'avg_creep_kills_per_match' | 'creep_kills' | 'max_neutral_kills_per_match' | 'avg_neutral_kills_per_match' | 'neutral_kills' | 'max_creep_damage_per_match' | 'avg_creep_damage_per_match' | 'creep_damage' | 'max_player_damage_per_match' | 'avg_player_damage_per_match' | 'player_damage' | 'max_neutral_damage_per_match' | 'avg_neutral_damage_per_match' | 'neutral_damage' | 'max_boss_damage_per_match' | 'avg_boss_damage_per_match' | 'boss_damage' | 'max_max_health_per_match' | 'avg_max_health_per_match' | 'max_health' | 'max_shots_hit_per_match' | 'avg_shots_hit_per_match' | 'shots_hit' | 'max_shots_missed_per_match' | 'avg_shots_missed_per_match' | 'shots_missed' | 'max_hero_bullets_hit_per_match' | 'avg_hero_bullets_hit_per_match' | 'hero_bullets_hit' | 'max_hero_bullets_hit_crit_per_match' | 'avg_hero_bullets_hit_crit_per_match' | 'hero_bullets_hit_crit'}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly sortBy: HeroScoreboardSortByEnum
 
     /**
      * The direction to sort heroes in.
-     * @type {'desc' | 'asc'}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly sortDirection?: HeroScoreboardSortDirectionEnum
 
     /**
      * Filter by min number of matches played.
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly minMatches?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly maxMatchId?: number | null
 
     /**
      * Filter for matches with a specific player account ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly accountId?: number | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof AnalyticsApiHeroScoreboard
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * Request parameters for heroStats operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiHeroStatsRequest
  */
 export interface AnalyticsApiHeroStatsRequest {
     /**
      * Bucket allows you to group the stats by a specific field.
-     * @type {'no_bucket' | 'start_time_hour' | 'start_time_day' | 'start_time_week' | 'start_time_month'}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly bucket?: HeroStatsBucketEnum
 
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly maxMatchId?: number | null
 
     /**
      * Filter players based on the number of matches they have played with a specific hero within the filtered time range.
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly minHeroMatches?: number | null
 
     /**
      * Filter players based on the number of matches they have played with a specific hero within the filtered time range.
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly maxHeroMatches?: number | null
 
     /**
      * Filter players based on the number of matches they have played with a specific hero in their entire history.
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly minHeroMatchesTotal?: number | null
 
     /**
      * Filter players based on the number of matches they have played with a specific hero in their entire history.
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly maxHeroMatchesTotal?: number | null
 
     /**
      * Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-     * @type {Array<number>}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly includeItemIds?: Array<number> | null
 
     /**
      * Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-     * @type {Array<number>}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly excludeItemIds?: Array<number> | null
 
     /**
      * Filter for matches with a specific player account ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly accountId?: number | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof AnalyticsApiHeroStats
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * Request parameters for heroSynergiesStats operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiHeroSynergiesStatsRequest
  */
 export interface AnalyticsApiHeroSynergiesStatsRequest {
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly maxMatchId?: number | null
 
     /**
      * When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane.
-     * @type {boolean}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly sameLaneFilter?: boolean | null
 
     /**
      * When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;hero_id2&#x60; were on the same party. When &#x60;false&#x60;, considers all matchups regardless of party affiliation.
-     * @type {boolean}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly samePartyFilter?: boolean | null
 
     /**
      * The minimum number of matches played for a hero combination to be included in the response.
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly minMatches?: number | null
 
     /**
      * The maximum number of matches played for a hero combination to be included in the response.
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly maxMatches?: number | null
 
     /**
      * Filter for matches with a specific player account ID.
-     * @type {number}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly accountId?: number | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof AnalyticsApiHeroSynergiesStats
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * Request parameters for itemPermutationStats operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiItemPermutationStatsRequest
  */
 export interface AnalyticsApiItemPermutationStatsRequest {
     /**
      * Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-     * @type {Array<number>}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly itemIds?: Array<number> | null
 
     /**
      * The combination size to return.
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly combSize?: number | null
 
     /**
      * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {string}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly heroIds?: string | null
 
     /**
      * Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly heroId?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly maxMatchId?: number | null
 
     /**
      * Filter for matches with a specific player account ID.
-     * @type {number}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly accountId?: number | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof AnalyticsApiItemPermutationStats
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * Request parameters for itemStats operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiItemStatsRequest
  */
 export interface AnalyticsApiItemStatsRequest {
     /**
      * Bucket allows you to group the stats by a specific field.
-     * @type {'no_bucket' | 'hero' | 'team' | 'start_time_hour' | 'start_time_day' | 'start_time_week' | 'start_time_month' | 'game_time_min' | 'game_time_normalized_percentage' | 'net_worth_by_1000' | 'net_worth_by_2000' | 'net_worth_by_3000' | 'net_worth_by_5000' | 'net_worth_by_10000'}
-     * @memberof AnalyticsApiItemStats
      */
     readonly bucket?: ItemStatsBucketEnum
 
     /**
      * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {string}
-     * @memberof AnalyticsApiItemStats
      */
     readonly heroIds?: string | null
 
     /**
      * Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly heroId?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly maxMatchId?: number | null
 
     /**
      * Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-     * @type {Array<number>}
-     * @memberof AnalyticsApiItemStats
      */
     readonly includeItemIds?: Array<number> | null
 
     /**
      * Comma separated list of item ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-     * @type {Array<number>}
-     * @memberof AnalyticsApiItemStats
      */
     readonly excludeItemIds?: Array<number> | null
 
     /**
      * The minimum number of matches played for an item to be included in the response.
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly minMatches?: number | null
 
     /**
      * The maximum number of matches played for a hero combination to be included in the response.
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly maxMatches?: number | null
 
     /**
      * Filter for matches with a specific player account ID.
-     * @type {number}
-     * @memberof AnalyticsApiItemStats
      */
     readonly accountId?: number | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof AnalyticsApiItemStats
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * Request parameters for playerScoreboard operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiPlayerScoreboardRequest
  */
 export interface AnalyticsApiPlayerScoreboardRequest {
     /**
      * The field to sort by.
-     * @type {'matches' | 'wins' | 'losses' | 'winrate' | 'max_kills_per_match' | 'avg_kills_per_match' | 'kills' | 'max_deaths_per_match' | 'avg_deaths_per_match' | 'deaths' | 'max_damage_taken_per_match' | 'avg_damage_taken_per_match' | 'damage_taken' | 'max_assists_per_match' | 'avg_assists_per_match' | 'assists' | 'max_net_worth_per_match' | 'avg_net_worth_per_match' | 'net_worth' | 'max_last_hits_per_match' | 'avg_last_hits_per_match' | 'last_hits' | 'max_denies_per_match' | 'avg_denies_per_match' | 'denies' | 'max_player_level_per_match' | 'avg_player_level_per_match' | 'player_level' | 'max_creep_kills_per_match' | 'avg_creep_kills_per_match' | 'creep_kills' | 'max_neutral_kills_per_match' | 'avg_neutral_kills_per_match' | 'neutral_kills' | 'max_creep_damage_per_match' | 'avg_creep_damage_per_match' | 'creep_damage' | 'max_player_damage_per_match' | 'avg_player_damage_per_match' | 'player_damage' | 'max_neutral_damage_per_match' | 'avg_neutral_damage_per_match' | 'neutral_damage' | 'max_boss_damage_per_match' | 'avg_boss_damage_per_match' | 'boss_damage' | 'max_max_health_per_match' | 'avg_max_health_per_match' | 'max_health' | 'max_shots_hit_per_match' | 'avg_shots_hit_per_match' | 'shots_hit' | 'max_shots_missed_per_match' | 'avg_shots_missed_per_match' | 'shots_missed' | 'max_hero_bullets_hit_per_match' | 'avg_hero_bullets_hit_per_match' | 'hero_bullets_hit' | 'max_hero_bullets_hit_crit_per_match' | 'avg_hero_bullets_hit_crit_per_match' | 'hero_bullets_hit_crit'}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly sortBy: PlayerScoreboardSortByEnum
 
     /**
      * The direction to sort players in.
-     * @type {'desc' | 'asc'}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly sortDirection?: PlayerScoreboardSortDirectionEnum
 
     /**
      * Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly heroId?: number | null
 
     /**
      * The minimum number of matches played for a player to be included in the scoreboard.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly minMatches?: number | null
 
     /**
      * The maximum number of matches played for a hero combination to be included in the response.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly maxMatches?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly maxMatchId?: number | null
 
     /**
      * The offset to start fetching players from.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly start?: number | null
 
     /**
      * The maximum number of players to fetch.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly limit?: number | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof AnalyticsApiPlayerScoreboard
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * Request parameters for playerStatsMetrics operation in AnalyticsApi.
- * @export
- * @interface AnalyticsApiPlayerStatsMetricsRequest
  */
 export interface AnalyticsApiPlayerStatsMetricsRequest {
     /**
      * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {string}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly heroIds?: string | null
 
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly maxMatchId?: number | null
 
     /**
      * The maximum number of matches to analyze.
-     * @type {number}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly maxMatches?: number | null
 
     /**
      * Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-     * @type {Array<number>}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly includeItemIds?: Array<number> | null
 
     /**
      * Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-     * @type {Array<number>}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly excludeItemIds?: Array<number> | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof AnalyticsApiPlayerStatsMetrics
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * AnalyticsApi - object-oriented interface
- * @export
- * @class AnalyticsApi
- * @extends {BaseAPI}
  */
 export class AnalyticsApi extends BaseAPI {
     /**
@@ -5593,7 +3567,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiAbilityOrderStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public abilityOrderStats(requestParameters: AnalyticsApiAbilityOrderStatsRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).abilityOrderStats(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAbilityUpgrades, requestParameters.maxAbilityUpgrades, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -5605,7 +3578,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiBadgeDistributionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public badgeDistribution(requestParameters: AnalyticsApiBadgeDistributionRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).badgeDistribution(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
@@ -5617,7 +3589,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiBuildItemStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public buildItemStats(requestParameters: AnalyticsApiBuildItemStatsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).buildItemStats(requestParameters.heroId, requestParameters.minLastUpdatedUnixTimestamp, requestParameters.maxLastUpdatedUnixTimestamp, options).then((request) => request(this.axios, this.basePath));
@@ -5629,7 +3600,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiHeroCombStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public heroCombStats(requestParameters: AnalyticsApiHeroCombStatsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).heroCombStats(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeHeroIds, requestParameters.excludeHeroIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.combSize, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -5641,7 +3611,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiHeroCountersStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public heroCountersStats(requestParameters: AnalyticsApiHeroCountersStatsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).heroCountersStats(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -5653,7 +3622,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiHeroScoreboardRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public heroScoreboard(requestParameters: AnalyticsApiHeroScoreboardRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).heroScoreboard(requestParameters.sortBy, requestParameters.sortDirection, requestParameters.minMatches, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -5665,7 +3633,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiHeroStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public heroStats(requestParameters: AnalyticsApiHeroStatsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).heroStats(requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minHeroMatches, requestParameters.maxHeroMatches, requestParameters.minHeroMatchesTotal, requestParameters.maxHeroMatchesTotal, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -5677,7 +3644,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiHeroSynergiesStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public heroSynergiesStats(requestParameters: AnalyticsApiHeroSynergiesStatsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).heroSynergiesStats(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.samePartyFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -5689,7 +3655,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiItemPermutationStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public itemPermutationStats(requestParameters: AnalyticsApiItemPermutationStatsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).itemPermutationStats(requestParameters.itemIds, requestParameters.combSize, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -5701,7 +3666,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiItemStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public itemStats(requestParameters: AnalyticsApiItemStatsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).itemStats(requestParameters.bucket, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -5713,7 +3677,6 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiPlayerScoreboardRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public playerScoreboard(requestParameters: AnalyticsApiPlayerScoreboardRequest, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).playerScoreboard(requestParameters.sortBy, requestParameters.sortDirection, requestParameters.heroId, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.start, requestParameters.limit, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -5725,16 +3688,12 @@ export class AnalyticsApi extends BaseAPI {
      * @param {AnalyticsApiPlayerStatsMetricsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AnalyticsApi
      */
     public playerStatsMetrics(requestParameters: AnalyticsApiPlayerStatsMetricsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).playerStatsMetrics(requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.maxMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
 export const HeroScoreboardSortByEnum = {
     Matches: 'matches',
     Wins: 'wins',
@@ -5799,17 +3758,11 @@ export const HeroScoreboardSortByEnum = {
     HeroBulletsHitCrit: 'hero_bullets_hit_crit'
 } as const;
 export type HeroScoreboardSortByEnum = typeof HeroScoreboardSortByEnum[keyof typeof HeroScoreboardSortByEnum];
-/**
- * @export
- */
 export const HeroScoreboardSortDirectionEnum = {
     Desc: 'desc',
     Asc: 'asc'
 } as const;
 export type HeroScoreboardSortDirectionEnum = typeof HeroScoreboardSortDirectionEnum[keyof typeof HeroScoreboardSortDirectionEnum];
-/**
- * @export
- */
 export const HeroStatsBucketEnum = {
     NoBucket: 'no_bucket',
     StartTimeHour: 'start_time_hour',
@@ -5818,9 +3771,6 @@ export const HeroStatsBucketEnum = {
     StartTimeMonth: 'start_time_month'
 } as const;
 export type HeroStatsBucketEnum = typeof HeroStatsBucketEnum[keyof typeof HeroStatsBucketEnum];
-/**
- * @export
- */
 export const ItemStatsBucketEnum = {
     NoBucket: 'no_bucket',
     Hero: 'hero',
@@ -5838,9 +3788,6 @@ export const ItemStatsBucketEnum = {
     NetWorthBy10000: 'net_worth_by_10000'
 } as const;
 export type ItemStatsBucketEnum = typeof ItemStatsBucketEnum[keyof typeof ItemStatsBucketEnum];
-/**
- * @export
- */
 export const PlayerScoreboardSortByEnum = {
     Matches: 'matches',
     Wins: 'wins',
@@ -5905,9 +3852,6 @@ export const PlayerScoreboardSortByEnum = {
     HeroBulletsHitCrit: 'hero_bullets_hit_crit'
 } as const;
 export type PlayerScoreboardSortByEnum = typeof PlayerScoreboardSortByEnum[keyof typeof PlayerScoreboardSortByEnum];
-/**
- * @export
- */
 export const PlayerScoreboardSortDirectionEnum = {
     Desc: 'desc',
     Asc: 'asc'
@@ -5917,7 +3861,6 @@ export type PlayerScoreboardSortDirectionEnum = typeof PlayerScoreboardSortDirec
 
 /**
  * BuildsApi - axios parameter creator
- * @export
  */
 export const BuildsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -6046,7 +3989,6 @@ export const BuildsApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * BuildsApi - functional programming interface
- * @export
  */
 export const BuildsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = BuildsApiAxiosParamCreator(configuration)
@@ -6086,7 +4028,6 @@ export const BuildsApiFp = function(configuration?: Configuration) {
 
 /**
  * BuildsApi - factory interface
- * @export
  */
 export const BuildsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = BuildsApiFp(configuration)
@@ -6106,142 +4047,101 @@ export const BuildsApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * Request parameters for searchBuilds operation in BuildsApi.
- * @export
- * @interface BuildsApiSearchBuildsRequest
  */
 export interface BuildsApiSearchBuildsRequest {
     /**
      * Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp).
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly minUnixTimestamp?: number
 
     /**
      * Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp).
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly maxUnixTimestamp?: number
 
     /**
      * Filter builds based on their published time (Unix timestamp).
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly minPublishedUnixTimestamp?: number
 
     /**
      * Filter builds based on their published time (Unix timestamp).
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly maxPublishedUnixTimestamp?: number
 
     /**
      * The field to sort the builds by.
-     * @type {'weekly_favorites' | 'favorites' | 'ignores' | 'reports' | 'updated_at' | 'published_at' | 'version'}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly sortBy?: SearchBuildsSortByEnum
 
     /**
      * The index of the first build to return.
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly start?: number
 
     /**
      * The maximum number of builds to return.
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly limit?: number
 
     /**
      * The direction to sort the builds in.
-     * @type {'desc' | 'asc'}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly sortDirection?: SearchBuildsSortDirectionEnum
 
     /**
      * Search for builds with a name containing this string.
-     * @type {string}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly searchName?: string
 
     /**
      * Search for builds with a description containing this string.
-     * @type {string}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly searchDescription?: string
 
     /**
      * Only return the latest version of each build.
-     * @type {boolean}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly onlyLatest?: boolean
 
     /**
      * Filter builds by language.
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly language?: number
 
     /**
      * Filter builds by ID.
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly buildId?: number
 
     /**
      * Filter builds by version.
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly version?: number
 
     /**
      * Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly heroId?: number
 
     /**
      * Filter builds by tag.
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly tag?: number
 
     /**
      * Filter builds by rollup category.
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly rollupCategory?: number
 
     /**
      * The author\&#39;s &#x60;SteamID3&#x60;
-     * @type {number}
-     * @memberof BuildsApiSearchBuilds
      */
     readonly authorId?: number
 }
 
 /**
  * BuildsApi - object-oriented interface
- * @export
- * @class BuildsApi
- * @extends {BaseAPI}
  */
 export class BuildsApi extends BaseAPI {
     /**
@@ -6250,16 +4150,12 @@ export class BuildsApi extends BaseAPI {
      * @param {BuildsApiSearchBuildsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof BuildsApi
      */
     public searchBuilds(requestParameters: BuildsApiSearchBuildsRequest = {}, options?: RawAxiosRequestConfig) {
         return BuildsApiFp(this.configuration).searchBuilds(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minPublishedUnixTimestamp, requestParameters.maxPublishedUnixTimestamp, requestParameters.sortBy, requestParameters.start, requestParameters.limit, requestParameters.sortDirection, requestParameters.searchName, requestParameters.searchDescription, requestParameters.onlyLatest, requestParameters.language, requestParameters.buildId, requestParameters.version, requestParameters.heroId, requestParameters.tag, requestParameters.rollupCategory, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
 export const SearchBuildsSortByEnum = {
     WeeklyFavorites: 'weekly_favorites',
     Favorites: 'favorites',
@@ -6270,9 +4166,6 @@ export const SearchBuildsSortByEnum = {
     Version: 'version'
 } as const;
 export type SearchBuildsSortByEnum = typeof SearchBuildsSortByEnum[keyof typeof SearchBuildsSortByEnum];
-/**
- * @export
- */
 export const SearchBuildsSortDirectionEnum = {
     Desc: 'desc',
     Asc: 'asc'
@@ -6282,7 +4175,6 @@ export type SearchBuildsSortDirectionEnum = typeof SearchBuildsSortDirectionEnum
 
 /**
  * CommandsApi - axios parameter creator
- * @export
  */
 export const CommandsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -6455,7 +4347,6 @@ export const CommandsApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * CommandsApi - functional programming interface
- * @export
  */
 export const CommandsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CommandsApiAxiosParamCreator(configuration)
@@ -6521,7 +4412,6 @@ export const CommandsApiFp = function(configuration?: Configuration) {
 
 /**
  * CommandsApi - factory interface
- * @export
  */
 export const CommandsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CommandsApiFp(configuration)
@@ -6569,79 +4459,50 @@ export const CommandsApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * Request parameters for commandResolve operation in CommandsApi.
- * @export
- * @interface CommandsApiCommandResolveRequest
  */
 export interface CommandsApiCommandResolveRequest {
     /**
      * The players &#x60;SteamID3&#x60;
-     * @type {number}
-     * @memberof CommandsApiCommandResolve
      */
     readonly accountId: number
 
     /**
      * The players region
-     * @type {'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'}
-     * @memberof CommandsApiCommandResolve
      */
     readonly region?: CommandResolveRegionEnum
 
     /**
      * The command template to resolve
-     * @type {string}
-     * @memberof CommandsApiCommandResolve
      */
     readonly template?: string
 
     /**
      * Hero name to check for hero specific stats
-     * @type {string}
-     * @memberof CommandsApiCommandResolve
      */
     readonly heroName?: string | null
 }
 
 /**
  * Request parameters for variablesResolve operation in CommandsApi.
- * @export
- * @interface CommandsApiVariablesResolveRequest
  */
 export interface CommandsApiVariablesResolveRequest {
-    /**
-     * 
-     * @type {number}
-     * @memberof CommandsApiVariablesResolve
-     */
     readonly accountId: number
 
-    /**
-     * 
-     * @type {'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'}
-     * @memberof CommandsApiVariablesResolve
-     */
     readonly region?: VariablesResolveRegionEnum
 
     /**
      * Variables to resolve, separated by commas.
-     * @type {string}
-     * @memberof CommandsApiVariablesResolve
      */
     readonly variables?: string
 
     /**
      * Hero name to check for hero specific stats
-     * @type {string}
-     * @memberof CommandsApiVariablesResolve
      */
     readonly heroName?: string | null
 }
 
 /**
  * CommandsApi - object-oriented interface
- * @export
- * @class CommandsApi
- * @extends {BaseAPI}
  */
 export class CommandsApi extends BaseAPI {
     /**
@@ -6649,7 +4510,6 @@ export class CommandsApi extends BaseAPI {
      * @summary Available Variables
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommandsApi
      */
     public availableVariables(options?: RawAxiosRequestConfig) {
         return CommandsApiFp(this.configuration).availableVariables(options).then((request) => request(this.axios, this.basePath));
@@ -6661,7 +4521,6 @@ export class CommandsApi extends BaseAPI {
      * @param {CommandsApiCommandResolveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommandsApi
      */
     public commandResolve(requestParameters: CommandsApiCommandResolveRequest, options?: RawAxiosRequestConfig) {
         return CommandsApiFp(this.configuration).commandResolve(requestParameters.accountId, requestParameters.region, requestParameters.template, requestParameters.heroName, options).then((request) => request(this.axios, this.basePath));
@@ -6673,7 +4532,6 @@ export class CommandsApi extends BaseAPI {
      * @param {CommandsApiVariablesResolveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommandsApi
      */
     public variablesResolve(requestParameters: CommandsApiVariablesResolveRequest, options?: RawAxiosRequestConfig) {
         return CommandsApiFp(this.configuration).variablesResolve(requestParameters.accountId, requestParameters.region, requestParameters.variables, requestParameters.heroName, options).then((request) => request(this.axios, this.basePath));
@@ -6684,16 +4542,12 @@ export class CommandsApi extends BaseAPI {
      * @summary Widget Versions
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommandsApi
      */
     public widgetVersions(options?: RawAxiosRequestConfig) {
         return CommandsApiFp(this.configuration).widgetVersions(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
 export const CommandResolveRegionEnum = {
     Europe: 'Europe',
     Asia: 'Asia',
@@ -6702,9 +4556,6 @@ export const CommandResolveRegionEnum = {
     Oceania: 'Oceania'
 } as const;
 export type CommandResolveRegionEnum = typeof CommandResolveRegionEnum[keyof typeof CommandResolveRegionEnum];
-/**
- * @export
- */
 export const VariablesResolveRegionEnum = {
     Europe: 'Europe',
     Asia: 'Asia',
@@ -6717,7 +4568,6 @@ export type VariablesResolveRegionEnum = typeof VariablesResolveRegionEnum[keyof
 
 /**
  * CustomMatchesApi - axios parameter creator
- * @export
  */
 export const CustomMatchesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -6826,7 +4676,6 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * CustomMatchesApi - functional programming interface
- * @export
  */
 export const CustomMatchesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CustomMatchesApiAxiosParamCreator(configuration)
@@ -6874,7 +4723,6 @@ export const CustomMatchesApiFp = function(configuration?: Configuration) {
 
 /**
  * CustomMatchesApi - factory interface
- * @export
  */
 export const CustomMatchesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CustomMatchesApiFp(configuration)
@@ -6913,37 +4761,20 @@ export const CustomMatchesApiFactory = function (configuration?: Configuration, 
 
 /**
  * Request parameters for createCustom operation in CustomMatchesApi.
- * @export
- * @interface CustomMatchesApiCreateCustomRequest
  */
 export interface CustomMatchesApiCreateCustomRequest {
-    /**
-     * 
-     * @type {CreateCustomRequest}
-     * @memberof CustomMatchesApiCreateCustom
-     */
     readonly createCustomRequest: CreateCustomRequest
 }
 
 /**
  * Request parameters for getCustom operation in CustomMatchesApi.
- * @export
- * @interface CustomMatchesApiGetCustomRequest
  */
 export interface CustomMatchesApiGetCustomRequest {
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomMatchesApiGetCustom
-     */
     readonly partyId: number
 }
 
 /**
  * CustomMatchesApi - object-oriented interface
- * @export
- * @class CustomMatchesApi
- * @extends {BaseAPI}
  */
 export class CustomMatchesApi extends BaseAPI {
     /**
@@ -6952,7 +4783,6 @@ export class CustomMatchesApi extends BaseAPI {
      * @param {CustomMatchesApiCreateCustomRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomMatchesApi
      */
     public createCustom(requestParameters: CustomMatchesApiCreateCustomRequest, options?: RawAxiosRequestConfig) {
         return CustomMatchesApiFp(this.configuration).createCustom(requestParameters.createCustomRequest, options).then((request) => request(this.axios, this.basePath));
@@ -6964,7 +4794,6 @@ export class CustomMatchesApi extends BaseAPI {
      * @param {CustomMatchesApiGetCustomRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomMatchesApi
      */
     public getCustom(requestParameters: CustomMatchesApiGetCustomRequest, options?: RawAxiosRequestConfig) {
         return CustomMatchesApiFp(this.configuration).getCustom(requestParameters.partyId, options).then((request) => request(this.axios, this.basePath));
@@ -6975,7 +4804,6 @@ export class CustomMatchesApi extends BaseAPI {
      * @summary Ready Up
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomMatchesApi
      */
     public readyUp(options?: RawAxiosRequestConfig) {
         return CustomMatchesApiFp(this.configuration).readyUp(options).then((request) => request(this.axios, this.basePath));
@@ -6986,7 +4814,6 @@ export class CustomMatchesApi extends BaseAPI {
 
 /**
  * ESportsApi - axios parameter creator
- * @export
  */
 export const ESportsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -7061,7 +4888,6 @@ export const ESportsApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * ESportsApi - functional programming interface
- * @export
  */
 export const ESportsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ESportsApiAxiosParamCreator(configuration)
@@ -7096,7 +4922,6 @@ export const ESportsApiFp = function(configuration?: Configuration) {
 
 /**
  * ESportsApi - factory interface
- * @export
  */
 export const ESportsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ESportsApiFp(configuration)
@@ -7125,23 +4950,13 @@ export const ESportsApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * Request parameters for ingestMatch operation in ESportsApi.
- * @export
- * @interface ESportsApiIngestMatchRequest
  */
 export interface ESportsApiIngestMatchRequest {
-    /**
-     * 
-     * @type {ESportsMatch}
-     * @memberof ESportsApiIngestMatch
-     */
     readonly eSportsMatch: ESportsMatch
 }
 
 /**
  * ESportsApi - object-oriented interface
- * @export
- * @class ESportsApi
- * @extends {BaseAPI}
  */
 export class ESportsApi extends BaseAPI {
     /**
@@ -7150,7 +4965,6 @@ export class ESportsApi extends BaseAPI {
      * @param {ESportsApiIngestMatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ESportsApi
      */
     public ingestMatch(requestParameters: ESportsApiIngestMatchRequest, options?: RawAxiosRequestConfig) {
         return ESportsApiFp(this.configuration).ingestMatch(requestParameters.eSportsMatch, options).then((request) => request(this.axios, this.basePath));
@@ -7161,7 +4975,6 @@ export class ESportsApi extends BaseAPI {
      * @summary List Matches
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ESportsApi
      */
     public matches(options?: RawAxiosRequestConfig) {
         return ESportsApiFp(this.configuration).matches(options).then((request) => request(this.axios, this.basePath));
@@ -7172,7 +4985,6 @@ export class ESportsApi extends BaseAPI {
 
 /**
  * InfoApi - axios parameter creator
- * @export
  */
 export const InfoApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -7241,7 +5053,6 @@ export const InfoApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * InfoApi - functional programming interface
- * @export
  */
 export const InfoApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InfoApiAxiosParamCreator(configuration)
@@ -7275,7 +5086,6 @@ export const InfoApiFp = function(configuration?: Configuration) {
 
 /**
  * InfoApi - factory interface
- * @export
  */
 export const InfoApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InfoApiFp(configuration)
@@ -7303,9 +5113,6 @@ export const InfoApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * InfoApi - object-oriented interface
- * @export
- * @class InfoApi
- * @extends {BaseAPI}
  */
 export class InfoApi extends BaseAPI {
     /**
@@ -7313,7 +5120,6 @@ export class InfoApi extends BaseAPI {
      * @summary Health Check
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InfoApi
      */
     public healthCheck(options?: RawAxiosRequestConfig) {
         return InfoApiFp(this.configuration).healthCheck(options).then((request) => request(this.axios, this.basePath));
@@ -7324,7 +5130,6 @@ export class InfoApi extends BaseAPI {
      * @summary API Info
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InfoApi
      */
     public info(options?: RawAxiosRequestConfig) {
         return InfoApiFp(this.configuration).info(options).then((request) => request(this.axios, this.basePath));
@@ -7335,7 +5140,6 @@ export class InfoApi extends BaseAPI {
 
 /**
  * InternalApi - axios parameter creator
- * @export
  */
 export const InternalApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -7380,7 +5184,6 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * InternalApi - functional programming interface
- * @export
  */
 export const InternalApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InternalApiAxiosParamCreator(configuration)
@@ -7403,7 +5206,6 @@ export const InternalApiFp = function(configuration?: Configuration) {
 
 /**
  * InternalApi - factory interface
- * @export
  */
 export const InternalApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InternalApiFp(configuration)
@@ -7423,23 +5225,13 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * Request parameters for ingestSalts operation in InternalApi.
- * @export
- * @interface InternalApiIngestSaltsRequest
  */
 export interface InternalApiIngestSaltsRequest {
-    /**
-     * 
-     * @type {Array<ClickhouseSalts>}
-     * @memberof InternalApiIngestSalts
-     */
     readonly clickhouseSalts: Array<ClickhouseSalts>
 }
 
 /**
  * InternalApi - object-oriented interface
- * @export
- * @class InternalApi
- * @extends {BaseAPI}
  */
 export class InternalApi extends BaseAPI {
     /**
@@ -7448,7 +5240,6 @@ export class InternalApi extends BaseAPI {
      * @param {InternalApiIngestSaltsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InternalApi
      */
     public ingestSalts(requestParameters: InternalApiIngestSaltsRequest, options?: RawAxiosRequestConfig) {
         return InternalApiFp(this.configuration).ingestSalts(requestParameters.clickhouseSalts, options).then((request) => request(this.axios, this.basePath));
@@ -7459,7 +5250,6 @@ export class InternalApi extends BaseAPI {
 
 /**
  * LeaderboardApi - axios parameter creator
- * @export
  */
 export const LeaderboardApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -7612,7 +5402,6 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * LeaderboardApi - functional programming interface
- * @export
  */
 export const LeaderboardApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = LeaderboardApiAxiosParamCreator(configuration)
@@ -7676,7 +5465,6 @@ export const LeaderboardApiFp = function(configuration?: Configuration) {
 
 /**
  * LeaderboardApi - factory interface
- * @export
  */
 export const LeaderboardApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = LeaderboardApiFp(configuration)
@@ -7726,79 +5514,56 @@ export const LeaderboardApiFactory = function (configuration?: Configuration, ba
 
 /**
  * Request parameters for leaderboard operation in LeaderboardApi.
- * @export
- * @interface LeaderboardApiLeaderboardRequest
  */
 export interface LeaderboardApiLeaderboardRequest {
     /**
      * The region to fetch the leaderboard for.
-     * @type {'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'}
-     * @memberof LeaderboardApiLeaderboard
      */
     readonly region: LeaderboardRegionEnum
 }
 
 /**
  * Request parameters for leaderboardHero operation in LeaderboardApi.
- * @export
- * @interface LeaderboardApiLeaderboardHeroRequest
  */
 export interface LeaderboardApiLeaderboardHeroRequest {
     /**
      * The region to fetch the leaderboard for.
-     * @type {'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'}
-     * @memberof LeaderboardApiLeaderboardHero
      */
     readonly region: LeaderboardHeroRegionEnum
 
     /**
      * The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {number}
-     * @memberof LeaderboardApiLeaderboardHero
      */
     readonly heroId: number
 }
 
 /**
  * Request parameters for leaderboardHeroRaw operation in LeaderboardApi.
- * @export
- * @interface LeaderboardApiLeaderboardHeroRawRequest
  */
 export interface LeaderboardApiLeaderboardHeroRawRequest {
     /**
      * The region to fetch the leaderboard for.
-     * @type {'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'}
-     * @memberof LeaderboardApiLeaderboardHeroRaw
      */
     readonly region: LeaderboardHeroRawRegionEnum
 
     /**
      * The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {number}
-     * @memberof LeaderboardApiLeaderboardHeroRaw
      */
     readonly heroId: number
 }
 
 /**
  * Request parameters for leaderboardRaw operation in LeaderboardApi.
- * @export
- * @interface LeaderboardApiLeaderboardRawRequest
  */
 export interface LeaderboardApiLeaderboardRawRequest {
     /**
      * The region to fetch the leaderboard for.
-     * @type {'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'}
-     * @memberof LeaderboardApiLeaderboardRaw
      */
     readonly region: LeaderboardRawRegionEnum
 }
 
 /**
  * LeaderboardApi - object-oriented interface
- * @export
- * @class LeaderboardApi
- * @extends {BaseAPI}
  */
 export class LeaderboardApi extends BaseAPI {
     /**
@@ -7807,7 +5572,6 @@ export class LeaderboardApi extends BaseAPI {
      * @param {LeaderboardApiLeaderboardRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LeaderboardApi
      */
     public leaderboard(requestParameters: LeaderboardApiLeaderboardRequest, options?: RawAxiosRequestConfig) {
         return LeaderboardApiFp(this.configuration).leaderboard(requestParameters.region, options).then((request) => request(this.axios, this.basePath));
@@ -7819,7 +5583,6 @@ export class LeaderboardApi extends BaseAPI {
      * @param {LeaderboardApiLeaderboardHeroRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LeaderboardApi
      */
     public leaderboardHero(requestParameters: LeaderboardApiLeaderboardHeroRequest, options?: RawAxiosRequestConfig) {
         return LeaderboardApiFp(this.configuration).leaderboardHero(requestParameters.region, requestParameters.heroId, options).then((request) => request(this.axios, this.basePath));
@@ -7831,7 +5594,6 @@ export class LeaderboardApi extends BaseAPI {
      * @param {LeaderboardApiLeaderboardHeroRawRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LeaderboardApi
      */
     public leaderboardHeroRaw(requestParameters: LeaderboardApiLeaderboardHeroRawRequest, options?: RawAxiosRequestConfig) {
         return LeaderboardApiFp(this.configuration).leaderboardHeroRaw(requestParameters.region, requestParameters.heroId, options).then((request) => request(this.axios, this.basePath));
@@ -7843,16 +5605,12 @@ export class LeaderboardApi extends BaseAPI {
      * @param {LeaderboardApiLeaderboardRawRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LeaderboardApi
      */
     public leaderboardRaw(requestParameters: LeaderboardApiLeaderboardRawRequest, options?: RawAxiosRequestConfig) {
         return LeaderboardApiFp(this.configuration).leaderboardRaw(requestParameters.region, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
 export const LeaderboardRegionEnum = {
     Europe: 'Europe',
     Asia: 'Asia',
@@ -7861,9 +5619,6 @@ export const LeaderboardRegionEnum = {
     Oceania: 'Oceania'
 } as const;
 export type LeaderboardRegionEnum = typeof LeaderboardRegionEnum[keyof typeof LeaderboardRegionEnum];
-/**
- * @export
- */
 export const LeaderboardHeroRegionEnum = {
     Europe: 'Europe',
     Asia: 'Asia',
@@ -7872,9 +5627,6 @@ export const LeaderboardHeroRegionEnum = {
     Oceania: 'Oceania'
 } as const;
 export type LeaderboardHeroRegionEnum = typeof LeaderboardHeroRegionEnum[keyof typeof LeaderboardHeroRegionEnum];
-/**
- * @export
- */
 export const LeaderboardHeroRawRegionEnum = {
     Europe: 'Europe',
     Asia: 'Asia',
@@ -7883,9 +5635,6 @@ export const LeaderboardHeroRawRegionEnum = {
     Oceania: 'Oceania'
 } as const;
 export type LeaderboardHeroRawRegionEnum = typeof LeaderboardHeroRawRegionEnum[keyof typeof LeaderboardHeroRawRegionEnum];
-/**
- * @export
- */
 export const LeaderboardRawRegionEnum = {
     Europe: 'Europe',
     Asia: 'Asia',
@@ -7898,7 +5647,6 @@ export type LeaderboardRawRegionEnum = typeof LeaderboardRawRegionEnum[keyof typ
 
 /**
  * MMRApi - axios parameter creator
- * @export
  */
 export const MMRApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -8067,7 +5815,6 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
 
 /**
  * MMRApi - functional programming interface
- * @export
  */
 export const MMRApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MMRApiAxiosParamCreator(configuration)
@@ -8133,7 +5880,6 @@ export const MMRApiFp = function(configuration?: Configuration) {
 
 /**
  * MMRApi - factory interface
- * @export
  */
 export const MMRApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MMRApiFp(configuration)
@@ -8183,93 +5929,66 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
 
 /**
  * Request parameters for heroMmr operation in MMRApi.
- * @export
- * @interface MMRApiHeroMmrRequest
  */
 export interface MMRApiHeroMmrRequest {
     /**
      * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-     * @type {Array<number>}
-     * @memberof MMRApiHeroMmr
      */
     readonly accountIds: Array<number>
 
     /**
      * The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {number}
-     * @memberof MMRApiHeroMmr
      */
     readonly heroId: number
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof MMRApiHeroMmr
      */
     readonly maxMatchId?: number | null
 }
 
 /**
  * Request parameters for heroMmrHistory operation in MMRApi.
- * @export
- * @interface MMRApiHeroMmrHistoryRequest
  */
 export interface MMRApiHeroMmrHistoryRequest {
     /**
      * The players &#x60;SteamID3&#x60;
-     * @type {number}
-     * @memberof MMRApiHeroMmrHistory
      */
     readonly accountId: number
 
     /**
      * The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {number}
-     * @memberof MMRApiHeroMmrHistory
      */
     readonly heroId: number
 }
 
 /**
  * Request parameters for mmr operation in MMRApi.
- * @export
- * @interface MMRApiMmrRequest
  */
 export interface MMRApiMmrRequest {
     /**
      * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-     * @type {Array<number>}
-     * @memberof MMRApiMmr
      */
     readonly accountIds: Array<number>
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof MMRApiMmr
      */
     readonly maxMatchId?: number | null
 }
 
 /**
  * Request parameters for mmrHistory operation in MMRApi.
- * @export
- * @interface MMRApiMmrHistoryRequest
  */
 export interface MMRApiMmrHistoryRequest {
     /**
      * The players &#x60;SteamID3&#x60;
-     * @type {number}
-     * @memberof MMRApiMmrHistory
      */
     readonly accountId: number
 }
 
 /**
  * MMRApi - object-oriented interface
- * @export
- * @class MMRApi
- * @extends {BaseAPI}
  */
 export class MMRApi extends BaseAPI {
     /**
@@ -8278,7 +5997,6 @@ export class MMRApi extends BaseAPI {
      * @param {MMRApiHeroMmrRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MMRApi
      */
     public heroMmr(requestParameters: MMRApiHeroMmrRequest, options?: RawAxiosRequestConfig) {
         return MMRApiFp(this.configuration).heroMmr(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
@@ -8290,7 +6008,6 @@ export class MMRApi extends BaseAPI {
      * @param {MMRApiHeroMmrHistoryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MMRApi
      */
     public heroMmrHistory(requestParameters: MMRApiHeroMmrHistoryRequest, options?: RawAxiosRequestConfig) {
         return MMRApiFp(this.configuration).heroMmrHistory(requestParameters.accountId, requestParameters.heroId, options).then((request) => request(this.axios, this.basePath));
@@ -8302,7 +6019,6 @@ export class MMRApi extends BaseAPI {
      * @param {MMRApiMmrRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MMRApi
      */
     public mmr(requestParameters: MMRApiMmrRequest, options?: RawAxiosRequestConfig) {
         return MMRApiFp(this.configuration).mmr(requestParameters.accountIds, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
@@ -8314,7 +6030,6 @@ export class MMRApi extends BaseAPI {
      * @param {MMRApiMmrHistoryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MMRApi
      */
     public mmrHistory(requestParameters: MMRApiMmrHistoryRequest, options?: RawAxiosRequestConfig) {
         return MMRApiFp(this.configuration).mmrHistory(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
@@ -8325,7 +6040,6 @@ export class MMRApi extends BaseAPI {
 
 /**
  * MatchesApi - axios parameter creator
- * @export
  */
 export const MatchesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -8735,7 +6449,6 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * MatchesApi - functional programming interface
- * @export
  */
 export const MatchesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MatchesApiAxiosParamCreator(configuration)
@@ -8874,7 +6587,6 @@ export const MatchesApiFp = function(configuration?: Configuration) {
 
 /**
  * MatchesApi - factory interface
- * @export
  */
 export const MatchesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MatchesApiFp(configuration)
@@ -8963,289 +6675,200 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * Request parameters for activeMatches operation in MatchesApi.
- * @export
- * @interface MatchesApiActiveMatchesRequest
  */
 export interface MatchesApiActiveMatchesRequest {
     /**
      * The account ID to filter active matches by (&#x60;SteamID3&#x60;)
-     * @type {number}
-     * @memberof MatchesApiActiveMatches
      */
     readonly accountId?: number | null
 
     /**
      * Comma separated list of account ids to include
-     * @type {Array<number>}
-     * @memberof MatchesApiActiveMatches
      */
     readonly accountIds?: Array<number> | null
 }
 
 /**
  * Request parameters for bulkMetadata operation in MatchesApi.
- * @export
- * @interface MatchesApiBulkMetadataRequest
  */
 export interface MatchesApiBulkMetadataRequest {
     /**
      * Include match info in the response.
-     * @type {boolean}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly includeInfo?: boolean
 
     /**
      * Include objectives in the response.
-     * @type {boolean}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly includeObjectives?: boolean
 
     /**
      * Include midboss in the response.
-     * @type {boolean}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly includeMidBoss?: boolean
 
     /**
      * Include player info in the response.
-     * @type {boolean}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly includePlayerInfo?: boolean
 
     /**
      * Include player items in the response.
-     * @type {boolean}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly includePlayerItems?: boolean
 
     /**
      * Include player stats in the response.
-     * @type {boolean}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly includePlayerStats?: boolean
 
     /**
      * Include player death details in the response.
-     * @type {boolean}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly includePlayerDeathDetails?: boolean
 
     /**
      * Comma separated list of match ids, limited by &#x60;limit&#x60;
-     * @type {Array<number>}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly matchIds?: Array<number> | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly maxMatchId?: number | null
 
     /**
      * Filter matches based on whether they are in the high skill range.
-     * @type {boolean}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly isHighSkillRangeParties?: boolean | null
 
     /**
      * Filter matches based on whether they are in the low priority pool.
-     * @type {boolean}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly isLowPriPool?: boolean | null
 
     /**
      * Filter matches based on whether they are in the new player pool.
-     * @type {boolean}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly isNewPlayerPool?: boolean | null
 
     /**
      * Filter matches by account IDs of players that participated in the match.
-     * @type {Array<number>}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly accountIds?: Array<number> | null
 
     /**
      * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {string}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly heroIds?: string | null
 
     /**
      * The field to order the results by.
-     * @type {'match_id' | 'start_time'}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly orderBy?: BulkMetadataOrderByEnum
 
     /**
      * The direction to order the results by.
-     * @type {'desc' | 'asc'}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly orderDirection?: BulkMetadataOrderDirectionEnum
 
     /**
      * The maximum number of matches to return.
-     * @type {number}
-     * @memberof MatchesApiBulkMetadata
      */
     readonly limit?: number
 }
 
 /**
  * Request parameters for metadata operation in MatchesApi.
- * @export
- * @interface MatchesApiMetadataRequest
  */
 export interface MatchesApiMetadataRequest {
     /**
      * The match ID
-     * @type {number}
-     * @memberof MatchesApiMetadata
      */
     readonly matchId: number
 
-    /**
-     * 
-     * @type {boolean}
-     * @memberof MatchesApiMetadata
-     */
     readonly isCustom?: boolean | null
 }
 
 /**
  * Request parameters for metadataRaw operation in MatchesApi.
- * @export
- * @interface MatchesApiMetadataRawRequest
  */
 export interface MatchesApiMetadataRawRequest {
     /**
      * The match ID
-     * @type {number}
-     * @memberof MatchesApiMetadataRaw
      */
     readonly matchId: number
 
-    /**
-     * 
-     * @type {boolean}
-     * @memberof MatchesApiMetadataRaw
-     */
     readonly isCustom?: boolean | null
 }
 
 /**
  * Request parameters for recentlyFetched operation in MatchesApi.
- * @export
- * @interface MatchesApiRecentlyFetchedRequest
  */
 export interface MatchesApiRecentlyFetchedRequest {
     /**
      * If true, only return matches that have been ingested by players.
-     * @type {boolean}
-     * @memberof MatchesApiRecentlyFetched
      */
     readonly playerIngestedOnly?: boolean | null
 }
 
 /**
  * Request parameters for salts operation in MatchesApi.
- * @export
- * @interface MatchesApiSaltsRequest
  */
 export interface MatchesApiSaltsRequest {
     /**
      * The match ID
-     * @type {number}
-     * @memberof MatchesApiSalts
      */
     readonly matchId: number
 }
 
 /**
  * Request parameters for url operation in MatchesApi.
- * @export
- * @interface MatchesApiUrlRequest
  */
 export interface MatchesApiUrlRequest {
     /**
      * The match ID
-     * @type {number}
-     * @memberof MatchesApiUrl
      */
     readonly matchId: number
 }
 
 /**
  * MatchesApi - object-oriented interface
- * @export
- * @class MatchesApi
- * @extends {BaseAPI}
  */
 export class MatchesApi extends BaseAPI {
     /**
@@ -9254,7 +6877,6 @@ export class MatchesApi extends BaseAPI {
      * @param {MatchesApiActiveMatchesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MatchesApi
      */
     public activeMatches(requestParameters: MatchesApiActiveMatchesRequest = {}, options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).activeMatches(requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -9265,7 +6887,6 @@ export class MatchesApi extends BaseAPI {
      * @summary Active as Protobuf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MatchesApi
      */
     public activeMatchesRaw(options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).activeMatchesRaw(options).then((request) => request(this.axios, this.basePath));
@@ -9277,7 +6898,6 @@ export class MatchesApi extends BaseAPI {
      * @param {MatchesApiBulkMetadataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MatchesApi
      */
     public bulkMetadata(requestParameters: MatchesApiBulkMetadataRequest = {}, options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).bulkMetadata(requestParameters.includeInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
@@ -9289,7 +6909,6 @@ export class MatchesApi extends BaseAPI {
      * @param {MatchesApiMetadataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MatchesApi
      */
     public metadata(requestParameters: MatchesApiMetadataRequest, options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).metadata(requestParameters.matchId, requestParameters.isCustom, options).then((request) => request(this.axios, this.basePath));
@@ -9301,7 +6920,6 @@ export class MatchesApi extends BaseAPI {
      * @param {MatchesApiMetadataRawRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MatchesApi
      */
     public metadataRaw(requestParameters: MatchesApiMetadataRawRequest, options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).metadataRaw(requestParameters.matchId, requestParameters.isCustom, options).then((request) => request(this.axios, this.basePath));
@@ -9313,7 +6931,6 @@ export class MatchesApi extends BaseAPI {
      * @param {MatchesApiRecentlyFetchedRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MatchesApi
      */
     public recentlyFetched(requestParameters: MatchesApiRecentlyFetchedRequest = {}, options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).recentlyFetched(requestParameters.playerIngestedOnly, options).then((request) => request(this.axios, this.basePath));
@@ -9325,7 +6942,6 @@ export class MatchesApi extends BaseAPI {
      * @param {MatchesApiSaltsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MatchesApi
      */
     public salts(requestParameters: MatchesApiSaltsRequest, options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).salts(requestParameters.matchId, options).then((request) => request(this.axios, this.basePath));
@@ -9337,24 +6953,17 @@ export class MatchesApi extends BaseAPI {
      * @param {MatchesApiUrlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MatchesApi
      */
     public url(requestParameters: MatchesApiUrlRequest, options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).url(requestParameters.matchId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
 export const BulkMetadataOrderByEnum = {
     MatchId: 'match_id',
     StartTime: 'start_time'
 } as const;
 export type BulkMetadataOrderByEnum = typeof BulkMetadataOrderByEnum[keyof typeof BulkMetadataOrderByEnum];
-/**
- * @export
- */
 export const BulkMetadataOrderDirectionEnum = {
     Desc: 'desc',
     Asc: 'asc'
@@ -9364,7 +6973,6 @@ export type BulkMetadataOrderDirectionEnum = typeof BulkMetadataOrderDirectionEn
 
 /**
  * PatchesApi - axios parameter creator
- * @export
  */
 export const PatchesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -9433,7 +7041,6 @@ export const PatchesApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * PatchesApi - functional programming interface
- * @export
  */
 export const PatchesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PatchesApiAxiosParamCreator(configuration)
@@ -9467,7 +7074,6 @@ export const PatchesApiFp = function(configuration?: Configuration) {
 
 /**
  * PatchesApi - factory interface
- * @export
  */
 export const PatchesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PatchesApiFp(configuration)
@@ -9495,9 +7101,6 @@ export const PatchesApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * PatchesApi - object-oriented interface
- * @export
- * @class PatchesApi
- * @extends {BaseAPI}
  */
 export class PatchesApi extends BaseAPI {
     /**
@@ -9505,7 +7108,6 @@ export class PatchesApi extends BaseAPI {
      * @summary Big Days
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PatchesApi
      */
     public bigPatchDays(options?: RawAxiosRequestConfig) {
         return PatchesApiFp(this.configuration).bigPatchDays(options).then((request) => request(this.axios, this.basePath));
@@ -9516,7 +7118,6 @@ export class PatchesApi extends BaseAPI {
      * @summary Notes
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PatchesApi
      */
     public feed(options?: RawAxiosRequestConfig) {
         return PatchesApiFp(this.configuration).feed(options).then((request) => request(this.axios, this.basePath));
@@ -9527,7 +7128,6 @@ export class PatchesApi extends BaseAPI {
 
 /**
  * PlayersApi - axios parameter creator
- * @export
  */
 export const PlayersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -10027,7 +7627,6 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * PlayersApi - functional programming interface
- * @export
  */
 export const PlayersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PlayersApiAxiosParamCreator(configuration)
@@ -10183,7 +7782,6 @@ export const PlayersApiFp = function(configuration?: Configuration) {
 
 /**
  * PlayersApi - factory interface
- * @export
  */
 export const PlayersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PlayersApiFp(configuration)
@@ -10273,415 +7871,296 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * Request parameters for card operation in PlayersApi.
- * @export
- * @interface PlayersApiCardRequest
  */
 export interface PlayersApiCardRequest {
     /**
      * The players &#x60;SteamID3&#x60;
-     * @type {number}
-     * @memberof PlayersApiCard
      */
     readonly accountId: number
 }
 
 /**
  * Request parameters for enemyStats operation in PlayersApi.
- * @export
- * @interface PlayersApiEnemyStatsRequest
  */
 export interface PlayersApiEnemyStatsRequest {
     /**
      * The players &#x60;SteamID3&#x60;
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly accountId: number
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly maxMatchId?: number | null
 
     /**
      * Filter based on the number of matches played.
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly minMatchesPlayed?: number | null
 
     /**
      * Filter based on the number of matches played.
-     * @type {number}
-     * @memberof PlayersApiEnemyStats
      */
     readonly maxMatchesPlayed?: number | null
 }
 
 /**
  * Request parameters for matchHistory operation in PlayersApi.
- * @export
- * @interface PlayersApiMatchHistoryRequest
  */
 export interface PlayersApiMatchHistoryRequest {
     /**
      * The players &#x60;SteamID3&#x60;
-     * @type {number}
-     * @memberof PlayersApiMatchHistory
      */
     readonly accountId: number
 
     /**
      * Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit.
-     * @type {boolean}
-     * @memberof PlayersApiMatchHistory
      */
     readonly forceRefetch?: boolean
 
     /**
      * Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;.
-     * @type {boolean}
-     * @memberof PlayersApiMatchHistory
      */
     readonly onlyStoredHistory?: boolean
 }
 
 /**
  * Request parameters for mateStats operation in PlayersApi.
- * @export
- * @interface PlayersApiMateStatsRequest
  */
 export interface PlayersApiMateStatsRequest {
     /**
      * The players &#x60;SteamID3&#x60;
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly accountId: number
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly maxMatchId?: number | null
 
     /**
      * Filter based on the number of matches played.
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly minMatchesPlayed?: number | null
 
     /**
      * Filter based on the number of matches played.
-     * @type {number}
-     * @memberof PlayersApiMateStats
      */
     readonly maxMatchesPlayed?: number | null
 
     /**
      * Filter based on whether the mates were on the same party.
-     * @type {boolean}
-     * @memberof PlayersApiMateStats
      */
     readonly sameParty?: boolean
 }
 
 /**
  * Request parameters for partyStats operation in PlayersApi.
- * @export
- * @interface PlayersApiPartyStatsRequest
  */
 export interface PlayersApiPartyStatsRequest {
     /**
      * The players &#x60;SteamID3&#x60;
-     * @type {number}
-     * @memberof PlayersApiPartyStats
      */
     readonly accountId: number
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof PlayersApiPartyStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof PlayersApiPartyStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof PlayersApiPartyStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof PlayersApiPartyStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof PlayersApiPartyStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof PlayersApiPartyStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof PlayersApiPartyStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof PlayersApiPartyStats
      */
     readonly maxMatchId?: number | null
 }
 
 /**
  * Request parameters for playerHeroStats operation in PlayersApi.
- * @export
- * @interface PlayersApiPlayerHeroStatsRequest
  */
 export interface PlayersApiPlayerHeroStatsRequest {
     /**
      * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-     * @type {Array<number>}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly accountIds: Array<number>
 
     /**
      * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @type {string}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly heroIds?: string | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly minUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their start time (Unix timestamp).
-     * @type {number}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly maxUnixTimestamp?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly minDurationS?: number | null
 
     /**
      * Filter matches based on their duration in seconds (up to 7000s).
-     * @type {number}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly maxDurationS?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly minNetworth?: number | null
 
     /**
      * Filter players based on their net worth.
-     * @type {number}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly maxNetworth?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly minAverageBadge?: number | null
 
     /**
      * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @type {number}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
-     * @type {number}
-     * @memberof PlayersApiPlayerHeroStats
      */
     readonly maxMatchId?: number | null
 }
 
 /**
  * Request parameters for steam operation in PlayersApi.
- * @export
- * @interface PlayersApiSteamRequest
  */
 export interface PlayersApiSteamRequest {
     /**
      * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-     * @type {Array<number>}
-     * @memberof PlayersApiSteam
      */
     readonly accountIds: Array<number>
 }
 
 /**
  * Request parameters for steamSearch operation in PlayersApi.
- * @export
- * @interface PlayersApiSteamSearchRequest
  */
 export interface PlayersApiSteamSearchRequest {
     /**
      * Search query for Steam profiles.
-     * @type {string}
-     * @memberof PlayersApiSteamSearch
      */
     readonly searchQuery: string
 }
 
 /**
  * PlayersApi - object-oriented interface
- * @export
- * @class PlayersApi
- * @extends {BaseAPI}
  */
 export class PlayersApi extends BaseAPI {
     /**
@@ -10690,7 +8169,6 @@ export class PlayersApi extends BaseAPI {
      * @param {PlayersApiCardRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PlayersApi
      */
     public card(requestParameters: PlayersApiCardRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).card(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
@@ -10702,7 +8180,6 @@ export class PlayersApi extends BaseAPI {
      * @param {PlayersApiEnemyStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PlayersApi
      */
     public enemyStats(requestParameters: PlayersApiEnemyStatsRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).enemyStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(this.axios, this.basePath));
@@ -10714,7 +8191,6 @@ export class PlayersApi extends BaseAPI {
      * @param {PlayersApiMatchHistoryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PlayersApi
      */
     public matchHistory(requestParameters: PlayersApiMatchHistoryRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).matchHistory(requestParameters.accountId, requestParameters.forceRefetch, requestParameters.onlyStoredHistory, options).then((request) => request(this.axios, this.basePath));
@@ -10726,7 +8202,6 @@ export class PlayersApi extends BaseAPI {
      * @param {PlayersApiMateStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PlayersApi
      */
     public mateStats(requestParameters: PlayersApiMateStatsRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).mateStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, requestParameters.sameParty, options).then((request) => request(this.axios, this.basePath));
@@ -10738,7 +8213,6 @@ export class PlayersApi extends BaseAPI {
      * @param {PlayersApiPartyStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PlayersApi
      */
     public partyStats(requestParameters: PlayersApiPartyStatsRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).partyStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
@@ -10750,7 +8224,6 @@ export class PlayersApi extends BaseAPI {
      * @param {PlayersApiPlayerHeroStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PlayersApi
      */
     public playerHeroStats(requestParameters: PlayersApiPlayerHeroStatsRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).playerHeroStats(requestParameters.accountIds, requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
@@ -10762,7 +8235,6 @@ export class PlayersApi extends BaseAPI {
      * @param {PlayersApiSteamRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PlayersApi
      */
     public steam(requestParameters: PlayersApiSteamRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).steam(requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
@@ -10774,7 +8246,6 @@ export class PlayersApi extends BaseAPI {
      * @param {PlayersApiSteamSearchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PlayersApi
      */
     public steamSearch(requestParameters: PlayersApiSteamSearchRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).steamSearch(requestParameters.searchQuery, options).then((request) => request(this.axios, this.basePath));
@@ -10785,7 +8256,6 @@ export class PlayersApi extends BaseAPI {
 
 /**
  * SQLApi - axios parameter creator
- * @export
  */
 export const SQLApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -10895,7 +8365,6 @@ export const SQLApiAxiosParamCreator = function (configuration?: Configuration) 
 
 /**
  * SQLApi - functional programming interface
- * @export
  */
 export const SQLApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SQLApiAxiosParamCreator(configuration)
@@ -10943,7 +8412,6 @@ export const SQLApiFp = function(configuration?: Configuration) {
 
 /**
  * SQLApi - factory interface
- * @export
  */
 export const SQLApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SQLApiFp(configuration)
@@ -10982,37 +8450,26 @@ export const SQLApiFactory = function (configuration?: Configuration, basePath?:
 
 /**
  * Request parameters for sql operation in SQLApi.
- * @export
- * @interface SQLApiSqlRequest
  */
 export interface SQLApiSqlRequest {
     /**
      * The SQL query to execute. It must follow the Clickhouse SQL syntax.
-     * @type {string}
-     * @memberof SQLApiSql
      */
     readonly query: string
 }
 
 /**
  * Request parameters for tableSchema operation in SQLApi.
- * @export
- * @interface SQLApiTableSchemaRequest
  */
 export interface SQLApiTableSchemaRequest {
     /**
      * The name of the table to fetch the schema for.
-     * @type {string}
-     * @memberof SQLApiTableSchema
      */
     readonly table: string
 }
 
 /**
  * SQLApi - object-oriented interface
- * @export
- * @class SQLApi
- * @extends {BaseAPI}
  */
 export class SQLApi extends BaseAPI {
     /**
@@ -11020,7 +8477,6 @@ export class SQLApi extends BaseAPI {
      * @summary List Tables
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SQLApi
      */
     public listTables(options?: RawAxiosRequestConfig) {
         return SQLApiFp(this.configuration).listTables(options).then((request) => request(this.axios, this.basePath));
@@ -11032,7 +8488,6 @@ export class SQLApi extends BaseAPI {
      * @param {SQLApiSqlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SQLApi
      */
     public sql(requestParameters: SQLApiSqlRequest, options?: RawAxiosRequestConfig) {
         return SQLApiFp(this.configuration).sql(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
@@ -11044,7 +8499,6 @@ export class SQLApi extends BaseAPI {
      * @param {SQLApiTableSchemaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SQLApi
      */
     public tableSchema(requestParameters: SQLApiTableSchemaRequest, options?: RawAxiosRequestConfig) {
         return SQLApiFp(this.configuration).tableSchema(requestParameters.table, options).then((request) => request(this.axios, this.basePath));

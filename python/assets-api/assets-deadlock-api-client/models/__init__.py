@@ -12,7 +12,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 # import models into model package
 from assets-deadlock-api-client.models.ability_description_v2 import AbilityDescriptionV2
 from assets-deadlock-api-client.models.ability_tooltip_details_info_section_property_block_v2 import AbilityTooltipDetailsInfoSectionPropertyBlockV2
@@ -90,3 +89,4 @@ from assets-deadlock-api-client.models.value import Value
 from assets-deadlock-api-client.models.value1 import Value1
 from assets-deadlock-api-client.models.weapon_v2 import WeaponV2
 from assets-deadlock-api-client.models.ziplane_path_v1 import ZiplanePathV1
+

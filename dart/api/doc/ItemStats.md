@@ -8,7 +8,7 @@ import 'package:deadlock-api-client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bucket** | **int** |  | [optional] 
+**bucket** | **int** |  | 
 **itemId** | **int** | See more: <https://assets.deadlock-api.com/v2/items> | 
 **losses** | **int** |  | 
 **matches** | **int** |  | 

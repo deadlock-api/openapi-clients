@@ -21,7 +21,7 @@ var _ MappedNullable = &ItemStats{}
 
 // ItemStats struct for ItemStats
 type ItemStats struct {
-	Bucket NullableInt32 `json:"bucket,omitempty"`
+	Bucket int32 `json:"bucket"`
 	// See more: <https://assets.deadlock-api.com/v2/items>
 	ItemId int32 `json:"item_id"`
 	Losses int64 `json:"losses"`
@@ -36,8 +36,9 @@ type _ItemStats ItemStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemStats(itemId int32, losses int64, matches int64, players int64, wins int64) *ItemStats {
+func NewItemStats(bucket int32, itemId int32, losses int64, matches int64, players int64, wins int64) *ItemStats {
 	this := ItemStats{}
+	this.Bucket = bucket
 	this.ItemId = itemId
 	this.Losses = losses
 	this.Matches = matches
@@ -54,46 +55,28 @@ func NewItemStatsWithDefaults() *ItemStats {
 	return &this
 }
 
-// GetBucket returns the Bucket field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBucket returns the Bucket field value
 func (o *ItemStats) GetBucket() int32 {
-	if o == nil || IsNil(o.Bucket.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Bucket.Get()
+
+	return o.Bucket
 }
 
-// GetBucketOk returns a tuple with the Bucket field value if set, nil otherwise
+// GetBucketOk returns a tuple with the Bucket field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ItemStats) GetBucketOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Bucket.Get(), o.Bucket.IsSet()
+	return &o.Bucket, true
 }
 
-// HasBucket returns a boolean if a field has been set.
-func (o *ItemStats) HasBucket() bool {
-	if o != nil && o.Bucket.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBucket gets a reference to the given NullableInt32 and assigns it to the Bucket field.
+// SetBucket sets field value
 func (o *ItemStats) SetBucket(v int32) {
-	o.Bucket.Set(&v)
-}
-// SetBucketNil sets the value for Bucket to be an explicit nil
-func (o *ItemStats) SetBucketNil() {
-	o.Bucket.Set(nil)
-}
-
-// UnsetBucket ensures that no value is present for Bucket, not even an explicit nil
-func (o *ItemStats) UnsetBucket() {
-	o.Bucket.Unset()
+	o.Bucket = v
 }
 
 // GetItemId returns the ItemId field value
@@ -226,9 +209,7 @@ func (o ItemStats) MarshalJSON() ([]byte, error) {
 
 func (o ItemStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Bucket.IsSet() {
-		toSerialize["bucket"] = o.Bucket.Get()
-	}
+	toSerialize["bucket"] = o.Bucket
 	toSerialize["item_id"] = o.ItemId
 	toSerialize["losses"] = o.Losses
 	toSerialize["matches"] = o.Matches
@@ -242,6 +223,7 @@ func (o *ItemStats) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"bucket",
 		"item_id",
 		"losses",
 		"matches",

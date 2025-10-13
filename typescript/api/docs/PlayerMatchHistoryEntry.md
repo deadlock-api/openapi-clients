@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **player_team** | **number** |  | [default to undefined]
 **start_time** | **number** |  | [default to undefined]
 **team_abandoned** | **boolean** |  | [optional] [default to undefined]
+**username** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -52,6 +53,7 @@ const instance: PlayerMatchHistoryEntry = {
     player_team,
     start_time,
     team_abandoned,
+    username,
 };
 ```
 

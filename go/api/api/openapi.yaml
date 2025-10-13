@@ -107,7 +107,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -310,7 +310,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -442,7 +442,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -490,7 +490,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -724,7 +724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -961,7 +961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -1207,7 +1207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -1470,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -1680,7 +1680,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -1909,7 +1909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -2190,7 +2190,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1757548800
+          default: 1757635200
           format: int64
           nullable: true
           type: integer
@@ -5337,7 +5337,6 @@ components:
         bucket:
           format: int32
           minimum: 0
-          nullable: true
           type: integer
         hero_id:
           description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
@@ -5421,6 +5420,7 @@ components:
           minimum: 0
           type: integer
       required:
+      - bucket
       - hero_id
       - losses
       - matches
@@ -6666,7 +6666,6 @@ components:
         bucket:
           format: int32
           minimum: 0
-          nullable: true
           type: integer
         item_id:
           description: "See more: <https://assets.deadlock-api.com/v2/items>"
@@ -6690,6 +6689,7 @@ components:
           minimum: 0
           type: integer
       required:
+      - bucket
       - item_id
       - losses
       - matches
@@ -7150,6 +7150,7 @@ components:
         player_kills: 0
         hero_id: 0
         team_abandoned: true
+        username: username
       properties:
         abandoned_time_s:
           format: int32
@@ -7229,6 +7230,9 @@ components:
         team_abandoned:
           nullable: true
           type: boolean
+        username:
+          nullable: true
+          type: string
       required:
       - account_id
       - denies

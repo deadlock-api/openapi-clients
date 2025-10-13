@@ -59,6 +59,7 @@ class TestAnalyticsHeroStats(unittest.TestCase):
             )
         else:
             return AnalyticsHeroStats(
+                bucket = 0,
                 hero_id = 0,
                 losses = 0,
                 matches = 0,

@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnalyticsHeroStats {
-    #[serde(rename = "bucket", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub bucket: Option<Option<u32>>,
+    #[serde(rename = "bucket")]
+    pub bucket: u32,
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     #[serde(rename = "hero_id")]
     pub hero_id: u32,
@@ -59,9 +59,9 @@ pub struct AnalyticsHeroStats {
 }
 
 impl AnalyticsHeroStats {
-    pub fn new(hero_id: u32, losses: u64, matches: u64, matches_per_bucket: u64, players: u64, total_assists: u64, total_boss_damage: u64, total_creep_damage: u64, total_deaths: u64, total_denies: u64, total_kills: u64, total_last_hits: u64, total_max_health: u64, total_net_worth: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, total_shots_hit: u64, total_shots_missed: u64, wins: u64) -> AnalyticsHeroStats {
+    pub fn new(bucket: u32, hero_id: u32, losses: u64, matches: u64, matches_per_bucket: u64, players: u64, total_assists: u64, total_boss_damage: u64, total_creep_damage: u64, total_deaths: u64, total_denies: u64, total_kills: u64, total_last_hits: u64, total_max_health: u64, total_net_worth: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, total_shots_hit: u64, total_shots_missed: u64, wins: u64) -> AnalyticsHeroStats {
         AnalyticsHeroStats {
-            bucket: None,
+            bucket,
             hero_id,
             losses,
             matches,

@@ -25,6 +25,12 @@ class AnalyticsHeroStatsTest : ShouldSpec() {
         // uncomment below to create an instance of AnalyticsHeroStats
         //val modelInstance = AnalyticsHeroStats()
 
+        // to test the property `bucket`
+        should("test bucket") {
+            // uncomment below to test the property
+            //modelInstance.bucket shouldBe ("TODO")
+        }
+
         // to test the property `heroId` - See more: <https://assets.deadlock-api.com/v2/heroes>
         should("test heroId") {
             // uncomment below to test the property
@@ -143,12 +149,6 @@ class AnalyticsHeroStatsTest : ShouldSpec() {
         should("test wins") {
             // uncomment below to test the property
             //modelInstance.wins shouldBe ("TODO")
-        }
-
-        // to test the property `bucket`
-        should("test bucket") {
-            // uncomment below to test the property
-            //modelInstance.bucket shouldBe ("TODO")
         }
 
     }

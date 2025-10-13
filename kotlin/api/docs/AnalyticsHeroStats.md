@@ -4,6 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
+| **bucket** | **kotlin.Int** |  |  |
 | **heroId** | **kotlin.Int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |  |
 | **losses** | **kotlin.Long** |  |  |
 | **matches** | **kotlin.Long** |  |  |
@@ -24,7 +25,6 @@
 | **totalShotsHit** | **kotlin.Long** |  |  |
 | **totalShotsMissed** | **kotlin.Long** |  |  |
 | **wins** | **kotlin.Long** |  |  |
-| **bucket** | **kotlin.Int** |  |  [optional] |
 
 
 

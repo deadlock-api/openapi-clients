@@ -54,6 +54,8 @@ pub struct PlayerMatchHistoryEntry {
     pub start_time: u32,
     #[serde(rename = "team_abandoned", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub team_abandoned: Option<Option<bool>>,
+    #[serde(rename = "username", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub username: Option<Option<String>>,
 }
 
 impl PlayerMatchHistoryEntry {
@@ -79,6 +81,7 @@ impl PlayerMatchHistoryEntry {
             player_team,
             start_time,
             team_abandoned: None,
+            username: None,
         }
     }
 }
