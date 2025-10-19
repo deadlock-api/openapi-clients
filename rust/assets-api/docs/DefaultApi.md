@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## get_build_tags_v2_build_tags_get
 
-> Vec<models::BuildTagV2> get_build_tags_v2_build_tags_get(language, client_version)
+> Vec<models::BuildTagV2Output> get_build_tags_v2_build_tags_get(language, client_version)
 Get Build Tags
 
 ### Parameters
@@ -26,11 +26,11 @@ Get Build Tags
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
-[**Vec<models::BuildTagV2>**](BuildTagV2.md)
+[**Vec<models::BuildTagV2Output>**](BuildTagV2-Output.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Get Colors
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -107,7 +107,7 @@ Get Icons
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -135,7 +135,7 @@ Get Map
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -155,7 +155,7 @@ No authorization required
 
 ## get_ranks_v2_ranks_get
 
-> Vec<models::RankV2> get_ranks_v2_ranks_get(language, client_version)
+> Vec<models::RankV2Output> get_ranks_v2_ranks_get(language, client_version)
 Get Ranks
 
 ### Parameters
@@ -164,11 +164,11 @@ Get Ranks
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
-[**Vec<models::RankV2>**](RankV2.md)
+[**Vec<models::RankV2Output>**](RankV2-Output.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ Get Sounds
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -220,7 +220,7 @@ Get Steam Info
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 

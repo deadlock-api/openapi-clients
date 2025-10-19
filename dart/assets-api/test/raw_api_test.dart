@@ -19,21 +19,21 @@ void main() {
   group('tests for RawApi', () {
     // Get Generic Data
     //
-    //Future<Object> getGenericDataRawGenericDataGet({ ValidClientVersions clientVersion }) async
+    //Future<Object> getGenericDataRawGenericDataGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getGenericDataRawGenericDataGet', () async {
       // TODO
     });
 
     // Get Raw Heroes
     //
-    //Future<Object> getRawHeroesRawHeroesGet({ ValidClientVersions clientVersion }) async
+    //Future<Object> getRawHeroesRawHeroesGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getRawHeroesRawHeroesGet', () async {
       // TODO
     });
 
     // Get Raw Items
     //
-    //Future<Object> getRawItemsRawItemsGet({ ValidClientVersions clientVersion }) async
+    //Future<Object> getRawItemsRawItemsGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getRawItemsRawItemsGet', () async {
       // TODO
     });

@@ -25,7 +25,7 @@ const apiInstance = new HeroesApi(configuration);
 
 let name: string; // (default to undefined)
 let language: Language; // (optional) (default to undefined)
-let clientVersion: ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getHeroByNameV2HeroesByNameNameGet(
     name,
@@ -40,7 +40,7 @@ const { status, data } = await apiInstance.getHeroByNameV2HeroesByNameNameGet(
 |------------- | ------------- | ------------- | -------------|
 | **name** | [**string**] |  | defaults to undefined|
 | **language** | **Language** |  | (optional) defaults to undefined|
-| **clientVersion** | **ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -82,7 +82,7 @@ const apiInstance = new HeroesApi(configuration);
 
 let id: number; // (default to undefined)
 let language: Language; // (optional) (default to undefined)
-let clientVersion: ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getHeroV2HeroesIdGet(
     id,
@@ -97,7 +97,7 @@ const { status, data } = await apiInstance.getHeroV2HeroesIdGet(
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**number**] |  | defaults to undefined|
 | **language** | **Language** |  | (optional) defaults to undefined|
-| **clientVersion** | **ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -138,7 +138,7 @@ const configuration = new Configuration();
 const apiInstance = new HeroesApi(configuration);
 
 let language: Language; // (optional) (default to undefined)
-let clientVersion: ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 let onlyActive: boolean; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getHeroesV2HeroesGet(
@@ -153,7 +153,7 @@ const { status, data } = await apiInstance.getHeroesV2HeroesGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **language** | **Language** |  | (optional) defaults to undefined|
-| **clientVersion** | **ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 | **onlyActive** | [**boolean**] |  | (optional) defaults to undefined|
 
 

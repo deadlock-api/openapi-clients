@@ -33,79 +33,116 @@ __all__ = [
     "ApiException",
     "AbilityDescriptionV2",
     "AbilityTooltipDetailsInfoSectionPropertyBlockV2",
-    "AbilityTooltipDetailsInfoSectionV2",
-    "AbilityTooltipDetailsV2",
+    "AbilityTooltipDetailsInfoSectionV2Input",
+    "AbilityTooltipDetailsInfoSectionV2Output",
+    "AbilityTooltipDetailsV2Input",
+    "AbilityTooltipDetailsV2Output",
     "AbilityTypeV2",
-    "AbilityV2",
+    "AbilityV2Input",
+    "AbilityV2Output",
     "AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty",
     "AbilityVideosV2",
     "AimingShotSpreadPenalty",
     "Bonus",
-    "BuildTagV2",
+    "BuildTagV2Input",
+    "BuildTagV2Output",
     "ColorV1",
+    "DeadlockAssetsApiRoutesV2ValidClientVersions",
     "GetItemsV2ItemsGet200ResponseInner",
     "HTTPValidationError",
     "HeroColorsV2",
     "HeroDescriptionV2",
     "HeroImagesV2",
     "HeroItemTypeV2",
-    "HeroLevelInfoV2",
+    "HeroLevelInfoV2Input",
+    "HeroLevelInfoV2Output",
     "HeroPhysicsV2",
-    "HeroShopStatDisplayV2",
-    "HeroShopWeaponStatsDisplayV2",
+    "HeroShopStatDisplayV2Input",
+    "HeroShopStatDisplayV2Output",
+    "HeroShopWeaponStatsDisplayV2Input",
+    "HeroShopWeaponStatsDisplayV2Output",
     "HeroStartingStatV2",
     "HeroStartingStatsV2",
     "HeroTypeV2",
     "HeroV2",
-    "ItemPropertyV2",
+    "ItemPropertyV2Input",
+    "ItemPropertyV2Output",
     "ItemSlotTypeV2",
     "ItemTierV2",
     "ItemTypeV2",
     "Language",
+    "MAimingshootspreadpenalty",
+    "MEstatsusageflags",
+    "MRange",
+    "MStandingshootspreadpenalty",
+    "MStrbonus",
+    "MStrvalue",
     "MapImagesV1",
     "MapV1",
     "ObjectivePositionV1",
     "ObjectivePositionsV1",
     "Range",
     "RankImagesV2",
-    "RankV2",
+    "RankV2Input",
+    "RankV2Output",
     "RawAbilityActivationV2",
     "RawAbilityImbueV2",
     "RawAbilitySectionTypeV2",
-    "RawAbilityUpgradePropertyUpgradeV2",
-    "RawAbilityUpgradeV2",
-    "RawHeroItemSlotInfoValueV2",
-    "RawHeroMapModCostBonusesV2",
-    "RawHeroPurchaseBonusV2",
-    "RawHeroScalingStatV2",
-    "RawHeroShopSpiritStatsDisplayV2",
-    "RawHeroShopVitalityStatsDisplayV2",
-    "RawHeroStatsDisplayV2",
-    "RawHeroStatsUIDisplayV2",
-    "RawHeroStatsUIV2",
-    "RawItemPropertyScaleFunctionSubclassV2",
-    "RawItemWeaponInfoBulletSpeedCurveSplineV2",
-    "RawItemWeaponInfoBulletSpeedCurveV2",
-    "RawItemWeaponInfoV2",
-    "RawWeaponInfoHorizontalRecoilV2",
-    "RawWeaponInfoV2",
-    "RawWeaponInfoVerticalRecoilV2",
+    "RawAbilityUpgradePropertyUpgradeV2Input",
+    "RawAbilityUpgradePropertyUpgradeV2Output",
+    "RawAbilityUpgradeV2Input",
+    "RawAbilityUpgradeV2Output",
+    "RawHeroItemSlotInfoValueV2Input",
+    "RawHeroItemSlotInfoValueV2Output",
+    "RawHeroMapModCostBonusesV2Input",
+    "RawHeroMapModCostBonusesV2Output",
+    "RawHeroPurchaseBonusV2Input",
+    "RawHeroPurchaseBonusV2Output",
+    "RawHeroScalingStatV2Input",
+    "RawHeroScalingStatV2Output",
+    "RawHeroShopSpiritStatsDisplayV2Input",
+    "RawHeroShopSpiritStatsDisplayV2Output",
+    "RawHeroShopVitalityStatsDisplayV2Input",
+    "RawHeroShopVitalityStatsDisplayV2Output",
+    "RawHeroStatsDisplayV2Input",
+    "RawHeroStatsDisplayV2Output",
+    "RawHeroStatsUIDisplayV2Input",
+    "RawHeroStatsUIDisplayV2Output",
+    "RawHeroStatsUIV2Input",
+    "RawHeroStatsUIV2Output",
+    "RawItemPropertyScaleFunctionSubclassV2Input",
+    "RawItemPropertyScaleFunctionSubclassV2Output",
+    "RawItemWeaponInfoBulletSpeedCurveSplineV2Input",
+    "RawItemWeaponInfoBulletSpeedCurveSplineV2Output",
+    "RawItemWeaponInfoBulletSpeedCurveV2Input",
+    "RawItemWeaponInfoBulletSpeedCurveV2Output",
+    "RawItemWeaponInfoV2Input",
+    "RawItemWeaponInfoV2Output",
+    "RawWeaponInfoHorizontalRecoilV2Input",
+    "RawWeaponInfoHorizontalRecoilV2Output",
+    "RawWeaponInfoV2Input",
+    "RawWeaponInfoV2Output",
+    "RawWeaponInfoVerticalRecoilV2Input",
+    "RawWeaponInfoVerticalRecoilV2Output",
     "ResponseGetItemV2ItemsIdOrClassNameGet",
     "StandingShotSpreadPenalty",
     "StatsUsageFlagV2",
     "UpgradeDescriptionV2",
-    "UpgradePropertyV2",
+    "UpgradePropertyV2Input",
+    "UpgradePropertyV2Output",
     "UpgradeTooltipSectionAttributeV2",
     "UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon",
-    "UpgradeTooltipSectionV2",
-    "UpgradeV2",
+    "UpgradeTooltipSectionV2Input",
+    "UpgradeTooltipSectionV2Output",
+    "UpgradeV2Input",
+    "UpgradeV2Output",
     "UsageFlags",
-    "ValidClientVersions",
     "ValidationError",
     "ValidationErrorLocInner",
     "Value",
     "Value1",
-    "WeaponV2",
+    "WeaponV2Input",
+    "WeaponV2Output",
     "ZiplanePathV1",
 ]
 
@@ -129,78 +166,115 @@ from assets-deadlock-api-client.exceptions import ApiException as ApiException
 # import models into sdk package
 from assets-deadlock-api-client.models.ability_description_v2 import AbilityDescriptionV2 as AbilityDescriptionV2
 from assets-deadlock-api-client.models.ability_tooltip_details_info_section_property_block_v2 import AbilityTooltipDetailsInfoSectionPropertyBlockV2 as AbilityTooltipDetailsInfoSectionPropertyBlockV2
-from assets-deadlock-api-client.models.ability_tooltip_details_info_section_v2 import AbilityTooltipDetailsInfoSectionV2 as AbilityTooltipDetailsInfoSectionV2
-from assets-deadlock-api-client.models.ability_tooltip_details_v2 import AbilityTooltipDetailsV2 as AbilityTooltipDetailsV2
+from assets-deadlock-api-client.models.ability_tooltip_details_info_section_v2_input import AbilityTooltipDetailsInfoSectionV2Input as AbilityTooltipDetailsInfoSectionV2Input
+from assets-deadlock-api-client.models.ability_tooltip_details_info_section_v2_output import AbilityTooltipDetailsInfoSectionV2Output as AbilityTooltipDetailsInfoSectionV2Output
+from assets-deadlock-api-client.models.ability_tooltip_details_v2_input import AbilityTooltipDetailsV2Input as AbilityTooltipDetailsV2Input
+from assets-deadlock-api-client.models.ability_tooltip_details_v2_output import AbilityTooltipDetailsV2Output as AbilityTooltipDetailsV2Output
 from assets-deadlock-api-client.models.ability_type_v2 import AbilityTypeV2 as AbilityTypeV2
-from assets-deadlock-api-client.models.ability_v2 import AbilityV2 as AbilityV2
+from assets-deadlock-api-client.models.ability_v2_input import AbilityV2Input as AbilityV2Input
+from assets-deadlock-api-client.models.ability_v2_output import AbilityV2Output as AbilityV2Output
 from assets-deadlock-api-client.models.ability_v2_tooltip_details_info_section_property_block_property import AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty as AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
 from assets-deadlock-api-client.models.ability_videos_v2 import AbilityVideosV2 as AbilityVideosV2
 from assets-deadlock-api-client.models.aiming_shot_spread_penalty import AimingShotSpreadPenalty as AimingShotSpreadPenalty
 from assets-deadlock-api-client.models.bonus import Bonus as Bonus
-from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2 as BuildTagV2
+from assets-deadlock-api-client.models.build_tag_v2_input import BuildTagV2Input as BuildTagV2Input
+from assets-deadlock-api-client.models.build_tag_v2_output import BuildTagV2Output as BuildTagV2Output
 from assets-deadlock-api-client.models.color_v1 import ColorV1 as ColorV1
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions as DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner as GetItemsV2ItemsGet200ResponseInner
 from assets-deadlock-api-client.models.http_validation_error import HTTPValidationError as HTTPValidationError
 from assets-deadlock-api-client.models.hero_colors_v2 import HeroColorsV2 as HeroColorsV2
 from assets-deadlock-api-client.models.hero_description_v2 import HeroDescriptionV2 as HeroDescriptionV2
 from assets-deadlock-api-client.models.hero_images_v2 import HeroImagesV2 as HeroImagesV2
 from assets-deadlock-api-client.models.hero_item_type_v2 import HeroItemTypeV2 as HeroItemTypeV2
-from assets-deadlock-api-client.models.hero_level_info_v2 import HeroLevelInfoV2 as HeroLevelInfoV2
+from assets-deadlock-api-client.models.hero_level_info_v2_input import HeroLevelInfoV2Input as HeroLevelInfoV2Input
+from assets-deadlock-api-client.models.hero_level_info_v2_output import HeroLevelInfoV2Output as HeroLevelInfoV2Output
 from assets-deadlock-api-client.models.hero_physics_v2 import HeroPhysicsV2 as HeroPhysicsV2
-from assets-deadlock-api-client.models.hero_shop_stat_display_v2 import HeroShopStatDisplayV2 as HeroShopStatDisplayV2
-from assets-deadlock-api-client.models.hero_shop_weapon_stats_display_v2 import HeroShopWeaponStatsDisplayV2 as HeroShopWeaponStatsDisplayV2
+from assets-deadlock-api-client.models.hero_shop_stat_display_v2_input import HeroShopStatDisplayV2Input as HeroShopStatDisplayV2Input
+from assets-deadlock-api-client.models.hero_shop_stat_display_v2_output import HeroShopStatDisplayV2Output as HeroShopStatDisplayV2Output
+from assets-deadlock-api-client.models.hero_shop_weapon_stats_display_v2_input import HeroShopWeaponStatsDisplayV2Input as HeroShopWeaponStatsDisplayV2Input
+from assets-deadlock-api-client.models.hero_shop_weapon_stats_display_v2_output import HeroShopWeaponStatsDisplayV2Output as HeroShopWeaponStatsDisplayV2Output
 from assets-deadlock-api-client.models.hero_starting_stat_v2 import HeroStartingStatV2 as HeroStartingStatV2
 from assets-deadlock-api-client.models.hero_starting_stats_v2 import HeroStartingStatsV2 as HeroStartingStatsV2
 from assets-deadlock-api-client.models.hero_type_v2 import HeroTypeV2 as HeroTypeV2
 from assets-deadlock-api-client.models.hero_v2 import HeroV2 as HeroV2
-from assets-deadlock-api-client.models.item_property_v2 import ItemPropertyV2 as ItemPropertyV2
+from assets-deadlock-api-client.models.item_property_v2_input import ItemPropertyV2Input as ItemPropertyV2Input
+from assets-deadlock-api-client.models.item_property_v2_output import ItemPropertyV2Output as ItemPropertyV2Output
 from assets-deadlock-api-client.models.item_slot_type_v2 import ItemSlotTypeV2 as ItemSlotTypeV2
 from assets-deadlock-api-client.models.item_tier_v2 import ItemTierV2 as ItemTierV2
 from assets-deadlock-api-client.models.item_type_v2 import ItemTypeV2 as ItemTypeV2
 from assets-deadlock-api-client.models.language import Language as Language
+from assets-deadlock-api-client.models.m_aimingshootspreadpenalty import MAimingshootspreadpenalty as MAimingshootspreadpenalty
+from assets-deadlock-api-client.models.m_estatsusageflags import MEstatsusageflags as MEstatsusageflags
+from assets-deadlock-api-client.models.m_range import MRange as MRange
+from assets-deadlock-api-client.models.m_standingshootspreadpenalty import MStandingshootspreadpenalty as MStandingshootspreadpenalty
+from assets-deadlock-api-client.models.m_strbonus import MStrbonus as MStrbonus
+from assets-deadlock-api-client.models.m_strvalue import MStrvalue as MStrvalue
 from assets-deadlock-api-client.models.map_images_v1 import MapImagesV1 as MapImagesV1
 from assets-deadlock-api-client.models.map_v1 import MapV1 as MapV1
 from assets-deadlock-api-client.models.objective_position_v1 import ObjectivePositionV1 as ObjectivePositionV1
 from assets-deadlock-api-client.models.objective_positions_v1 import ObjectivePositionsV1 as ObjectivePositionsV1
 from assets-deadlock-api-client.models.range import Range as Range
 from assets-deadlock-api-client.models.rank_images_v2 import RankImagesV2 as RankImagesV2
-from assets-deadlock-api-client.models.rank_v2 import RankV2 as RankV2
+from assets-deadlock-api-client.models.rank_v2_input import RankV2Input as RankV2Input
+from assets-deadlock-api-client.models.rank_v2_output import RankV2Output as RankV2Output
 from assets-deadlock-api-client.models.raw_ability_activation_v2 import RawAbilityActivationV2 as RawAbilityActivationV2
 from assets-deadlock-api-client.models.raw_ability_imbue_v2 import RawAbilityImbueV2 as RawAbilityImbueV2
 from assets-deadlock-api-client.models.raw_ability_section_type_v2 import RawAbilitySectionTypeV2 as RawAbilitySectionTypeV2
-from assets-deadlock-api-client.models.raw_ability_upgrade_property_upgrade_v2 import RawAbilityUpgradePropertyUpgradeV2 as RawAbilityUpgradePropertyUpgradeV2
-from assets-deadlock-api-client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2 as RawAbilityUpgradeV2
-from assets-deadlock-api-client.models.raw_hero_item_slot_info_value_v2 import RawHeroItemSlotInfoValueV2 as RawHeroItemSlotInfoValueV2
-from assets-deadlock-api-client.models.raw_hero_map_mod_cost_bonuses_v2 import RawHeroMapModCostBonusesV2 as RawHeroMapModCostBonusesV2
-from assets-deadlock-api-client.models.raw_hero_purchase_bonus_v2 import RawHeroPurchaseBonusV2 as RawHeroPurchaseBonusV2
-from assets-deadlock-api-client.models.raw_hero_scaling_stat_v2 import RawHeroScalingStatV2 as RawHeroScalingStatV2
-from assets-deadlock-api-client.models.raw_hero_shop_spirit_stats_display_v2 import RawHeroShopSpiritStatsDisplayV2 as RawHeroShopSpiritStatsDisplayV2
-from assets-deadlock-api-client.models.raw_hero_shop_vitality_stats_display_v2 import RawHeroShopVitalityStatsDisplayV2 as RawHeroShopVitalityStatsDisplayV2
-from assets-deadlock-api-client.models.raw_hero_stats_display_v2 import RawHeroStatsDisplayV2 as RawHeroStatsDisplayV2
-from assets-deadlock-api-client.models.raw_hero_stats_ui_display_v2 import RawHeroStatsUIDisplayV2 as RawHeroStatsUIDisplayV2
-from assets-deadlock-api-client.models.raw_hero_stats_uiv2 import RawHeroStatsUIV2 as RawHeroStatsUIV2
-from assets-deadlock-api-client.models.raw_item_property_scale_function_subclass_v2 import RawItemPropertyScaleFunctionSubclassV2 as RawItemPropertyScaleFunctionSubclassV2
-from assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2 import RawItemWeaponInfoBulletSpeedCurveSplineV2 as RawItemWeaponInfoBulletSpeedCurveSplineV2
-from assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_v2 import RawItemWeaponInfoBulletSpeedCurveV2 as RawItemWeaponInfoBulletSpeedCurveV2
-from assets-deadlock-api-client.models.raw_item_weapon_info_v2 import RawItemWeaponInfoV2 as RawItemWeaponInfoV2
-from assets-deadlock-api-client.models.raw_weapon_info_horizontal_recoil_v2 import RawWeaponInfoHorizontalRecoilV2 as RawWeaponInfoHorizontalRecoilV2
-from assets-deadlock-api-client.models.raw_weapon_info_v2 import RawWeaponInfoV2 as RawWeaponInfoV2
-from assets-deadlock-api-client.models.raw_weapon_info_vertical_recoil_v2 import RawWeaponInfoVerticalRecoilV2 as RawWeaponInfoVerticalRecoilV2
+from assets-deadlock-api-client.models.raw_ability_upgrade_property_upgrade_v2_input import RawAbilityUpgradePropertyUpgradeV2Input as RawAbilityUpgradePropertyUpgradeV2Input
+from assets-deadlock-api-client.models.raw_ability_upgrade_property_upgrade_v2_output import RawAbilityUpgradePropertyUpgradeV2Output as RawAbilityUpgradePropertyUpgradeV2Output
+from assets-deadlock-api-client.models.raw_ability_upgrade_v2_input import RawAbilityUpgradeV2Input as RawAbilityUpgradeV2Input
+from assets-deadlock-api-client.models.raw_ability_upgrade_v2_output import RawAbilityUpgradeV2Output as RawAbilityUpgradeV2Output
+from assets-deadlock-api-client.models.raw_hero_item_slot_info_value_v2_input import RawHeroItemSlotInfoValueV2Input as RawHeroItemSlotInfoValueV2Input
+from assets-deadlock-api-client.models.raw_hero_item_slot_info_value_v2_output import RawHeroItemSlotInfoValueV2Output as RawHeroItemSlotInfoValueV2Output
+from assets-deadlock-api-client.models.raw_hero_map_mod_cost_bonuses_v2_input import RawHeroMapModCostBonusesV2Input as RawHeroMapModCostBonusesV2Input
+from assets-deadlock-api-client.models.raw_hero_map_mod_cost_bonuses_v2_output import RawHeroMapModCostBonusesV2Output as RawHeroMapModCostBonusesV2Output
+from assets-deadlock-api-client.models.raw_hero_purchase_bonus_v2_input import RawHeroPurchaseBonusV2Input as RawHeroPurchaseBonusV2Input
+from assets-deadlock-api-client.models.raw_hero_purchase_bonus_v2_output import RawHeroPurchaseBonusV2Output as RawHeroPurchaseBonusV2Output
+from assets-deadlock-api-client.models.raw_hero_scaling_stat_v2_input import RawHeroScalingStatV2Input as RawHeroScalingStatV2Input
+from assets-deadlock-api-client.models.raw_hero_scaling_stat_v2_output import RawHeroScalingStatV2Output as RawHeroScalingStatV2Output
+from assets-deadlock-api-client.models.raw_hero_shop_spirit_stats_display_v2_input import RawHeroShopSpiritStatsDisplayV2Input as RawHeroShopSpiritStatsDisplayV2Input
+from assets-deadlock-api-client.models.raw_hero_shop_spirit_stats_display_v2_output import RawHeroShopSpiritStatsDisplayV2Output as RawHeroShopSpiritStatsDisplayV2Output
+from assets-deadlock-api-client.models.raw_hero_shop_vitality_stats_display_v2_input import RawHeroShopVitalityStatsDisplayV2Input as RawHeroShopVitalityStatsDisplayV2Input
+from assets-deadlock-api-client.models.raw_hero_shop_vitality_stats_display_v2_output import RawHeroShopVitalityStatsDisplayV2Output as RawHeroShopVitalityStatsDisplayV2Output
+from assets-deadlock-api-client.models.raw_hero_stats_display_v2_input import RawHeroStatsDisplayV2Input as RawHeroStatsDisplayV2Input
+from assets-deadlock-api-client.models.raw_hero_stats_display_v2_output import RawHeroStatsDisplayV2Output as RawHeroStatsDisplayV2Output
+from assets-deadlock-api-client.models.raw_hero_stats_ui_display_v2_input import RawHeroStatsUIDisplayV2Input as RawHeroStatsUIDisplayV2Input
+from assets-deadlock-api-client.models.raw_hero_stats_ui_display_v2_output import RawHeroStatsUIDisplayV2Output as RawHeroStatsUIDisplayV2Output
+from assets-deadlock-api-client.models.raw_hero_stats_uiv2_input import RawHeroStatsUIV2Input as RawHeroStatsUIV2Input
+from assets-deadlock-api-client.models.raw_hero_stats_uiv2_output import RawHeroStatsUIV2Output as RawHeroStatsUIV2Output
+from assets-deadlock-api-client.models.raw_item_property_scale_function_subclass_v2_input import RawItemPropertyScaleFunctionSubclassV2Input as RawItemPropertyScaleFunctionSubclassV2Input
+from assets-deadlock-api-client.models.raw_item_property_scale_function_subclass_v2_output import RawItemPropertyScaleFunctionSubclassV2Output as RawItemPropertyScaleFunctionSubclassV2Output
+from assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2_input import RawItemWeaponInfoBulletSpeedCurveSplineV2Input as RawItemWeaponInfoBulletSpeedCurveSplineV2Input
+from assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2_output import RawItemWeaponInfoBulletSpeedCurveSplineV2Output as RawItemWeaponInfoBulletSpeedCurveSplineV2Output
+from assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_v2_input import RawItemWeaponInfoBulletSpeedCurveV2Input as RawItemWeaponInfoBulletSpeedCurveV2Input
+from assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_v2_output import RawItemWeaponInfoBulletSpeedCurveV2Output as RawItemWeaponInfoBulletSpeedCurveV2Output
+from assets-deadlock-api-client.models.raw_item_weapon_info_v2_input import RawItemWeaponInfoV2Input as RawItemWeaponInfoV2Input
+from assets-deadlock-api-client.models.raw_item_weapon_info_v2_output import RawItemWeaponInfoV2Output as RawItemWeaponInfoV2Output
+from assets-deadlock-api-client.models.raw_weapon_info_horizontal_recoil_v2_input import RawWeaponInfoHorizontalRecoilV2Input as RawWeaponInfoHorizontalRecoilV2Input
+from assets-deadlock-api-client.models.raw_weapon_info_horizontal_recoil_v2_output import RawWeaponInfoHorizontalRecoilV2Output as RawWeaponInfoHorizontalRecoilV2Output
+from assets-deadlock-api-client.models.raw_weapon_info_v2_input import RawWeaponInfoV2Input as RawWeaponInfoV2Input
+from assets-deadlock-api-client.models.raw_weapon_info_v2_output import RawWeaponInfoV2Output as RawWeaponInfoV2Output
+from assets-deadlock-api-client.models.raw_weapon_info_vertical_recoil_v2_input import RawWeaponInfoVerticalRecoilV2Input as RawWeaponInfoVerticalRecoilV2Input
+from assets-deadlock-api-client.models.raw_weapon_info_vertical_recoil_v2_output import RawWeaponInfoVerticalRecoilV2Output as RawWeaponInfoVerticalRecoilV2Output
 from assets-deadlock-api-client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet as ResponseGetItemV2ItemsIdOrClassNameGet
 from assets-deadlock-api-client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty as StandingShotSpreadPenalty
 from assets-deadlock-api-client.models.stats_usage_flag_v2 import StatsUsageFlagV2 as StatsUsageFlagV2
 from assets-deadlock-api-client.models.upgrade_description_v2 import UpgradeDescriptionV2 as UpgradeDescriptionV2
-from assets-deadlock-api-client.models.upgrade_property_v2 import UpgradePropertyV2 as UpgradePropertyV2
+from assets-deadlock-api-client.models.upgrade_property_v2_input import UpgradePropertyV2Input as UpgradePropertyV2Input
+from assets-deadlock-api-client.models.upgrade_property_v2_output import UpgradePropertyV2Output as UpgradePropertyV2Output
 from assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2 import UpgradeTooltipSectionAttributeV2 as UpgradeTooltipSectionAttributeV2
 from assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon import UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon as UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
-from assets-deadlock-api-client.models.upgrade_tooltip_section_v2 import UpgradeTooltipSectionV2 as UpgradeTooltipSectionV2
-from assets-deadlock-api-client.models.upgrade_v2 import UpgradeV2 as UpgradeV2
+from assets-deadlock-api-client.models.upgrade_tooltip_section_v2_input import UpgradeTooltipSectionV2Input as UpgradeTooltipSectionV2Input
+from assets-deadlock-api-client.models.upgrade_tooltip_section_v2_output import UpgradeTooltipSectionV2Output as UpgradeTooltipSectionV2Output
+from assets-deadlock-api-client.models.upgrade_v2_input import UpgradeV2Input as UpgradeV2Input
+from assets-deadlock-api-client.models.upgrade_v2_output import UpgradeV2Output as UpgradeV2Output
 from assets-deadlock-api-client.models.usage_flags import UsageFlags as UsageFlags
-from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions as ValidClientVersions
 from assets-deadlock-api-client.models.validation_error import ValidationError as ValidationError
 from assets-deadlock-api-client.models.validation_error_loc_inner import ValidationErrorLocInner as ValidationErrorLocInner
 from assets-deadlock-api-client.models.value import Value as Value
 from assets-deadlock-api-client.models.value1 import Value1 as Value1
-from assets-deadlock-api-client.models.weapon_v2 import WeaponV2 as WeaponV2
+from assets-deadlock-api-client.models.weapon_v2_input import WeaponV2Input as WeaponV2Input
+from assets-deadlock-api-client.models.weapon_v2_output import WeaponV2Output as WeaponV2Output
 from assets-deadlock-api-client.models.ziplane_path_v1 import ZiplanePathV1 as ZiplanePathV1
 

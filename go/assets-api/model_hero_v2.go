@@ -43,16 +43,16 @@ type HeroV2 struct {
 	Images HeroImagesV2 `json:"images"`
 	Items map[string]string `json:"items"`
 	StartingStats HeroStartingStatsV2 `json:"starting_stats"`
-	ItemSlotInfo map[string]RawHeroItemSlotInfoValueV2 `json:"item_slot_info"`
+	ItemSlotInfo map[string]RawHeroItemSlotInfoValueV2Output `json:"item_slot_info"`
 	Physics HeroPhysicsV2 `json:"physics"`
 	Colors HeroColorsV2 `json:"colors"`
-	ShopStatDisplay HeroShopStatDisplayV2 `json:"shop_stat_display"`
-	CostBonuses map[string][]RawHeroMapModCostBonusesV2 `json:"cost_bonuses,omitempty"`
-	StatsDisplay RawHeroStatsDisplayV2 `json:"stats_display"`
-	HeroStatsUi RawHeroStatsUIV2 `json:"hero_stats_ui"`
-	LevelInfo map[string]HeroLevelInfoV2 `json:"level_info"`
-	ScalingStats map[string]RawHeroScalingStatV2 `json:"scaling_stats"`
-	PurchaseBonuses map[string][]RawHeroPurchaseBonusV2 `json:"purchase_bonuses"`
+	ShopStatDisplay HeroShopStatDisplayV2Output `json:"shop_stat_display"`
+	CostBonuses map[string][]RawHeroMapModCostBonusesV2Output `json:"cost_bonuses,omitempty"`
+	StatsDisplay RawHeroStatsDisplayV2Output `json:"stats_display"`
+	HeroStatsUi RawHeroStatsUIV2Output `json:"hero_stats_ui"`
+	LevelInfo map[string]HeroLevelInfoV2Output `json:"level_info"`
+	ScalingStats map[string]RawHeroScalingStatV2Output `json:"scaling_stats"`
+	PurchaseBonuses map[string][]RawHeroPurchaseBonusV2Output `json:"purchase_bonuses"`
 	StandardLevelUpUpgrades map[string]float32 `json:"standard_level_up_upgrades"`
 }
 
@@ -62,7 +62,7 @@ type _HeroV2 HeroV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroV2(id int32, className string, name string, description HeroDescriptionV2, playerSelectable bool, disabled bool, inDevelopment bool, needsTesting bool, assignedPlayersOnly bool, limitedTesting bool, complexity int32, skin int32, images HeroImagesV2, items map[string]string, startingStats HeroStartingStatsV2, itemSlotInfo map[string]RawHeroItemSlotInfoValueV2, physics HeroPhysicsV2, colors HeroColorsV2, shopStatDisplay HeroShopStatDisplayV2, statsDisplay RawHeroStatsDisplayV2, heroStatsUi RawHeroStatsUIV2, levelInfo map[string]HeroLevelInfoV2, scalingStats map[string]RawHeroScalingStatV2, purchaseBonuses map[string][]RawHeroPurchaseBonusV2, standardLevelUpUpgrades map[string]float32) *HeroV2 {
+func NewHeroV2(id int32, className string, name string, description HeroDescriptionV2, playerSelectable bool, disabled bool, inDevelopment bool, needsTesting bool, assignedPlayersOnly bool, limitedTesting bool, complexity int32, skin int32, images HeroImagesV2, items map[string]string, startingStats HeroStartingStatsV2, itemSlotInfo map[string]RawHeroItemSlotInfoValueV2Output, physics HeroPhysicsV2, colors HeroColorsV2, shopStatDisplay HeroShopStatDisplayV2Output, statsDisplay RawHeroStatsDisplayV2Output, heroStatsUi RawHeroStatsUIV2Output, levelInfo map[string]HeroLevelInfoV2Output, scalingStats map[string]RawHeroScalingStatV2Output, purchaseBonuses map[string][]RawHeroPurchaseBonusV2Output, standardLevelUpUpgrades map[string]float32) *HeroV2 {
 	this := HeroV2{}
 	this.Id = id
 	this.ClassName = className
@@ -728,9 +728,9 @@ func (o *HeroV2) SetStartingStats(v HeroStartingStatsV2) {
 }
 
 // GetItemSlotInfo returns the ItemSlotInfo field value
-func (o *HeroV2) GetItemSlotInfo() map[string]RawHeroItemSlotInfoValueV2 {
+func (o *HeroV2) GetItemSlotInfo() map[string]RawHeroItemSlotInfoValueV2Output {
 	if o == nil {
-		var ret map[string]RawHeroItemSlotInfoValueV2
+		var ret map[string]RawHeroItemSlotInfoValueV2Output
 		return ret
 	}
 
@@ -739,15 +739,15 @@ func (o *HeroV2) GetItemSlotInfo() map[string]RawHeroItemSlotInfoValueV2 {
 
 // GetItemSlotInfoOk returns a tuple with the ItemSlotInfo field value
 // and a boolean to check if the value has been set.
-func (o *HeroV2) GetItemSlotInfoOk() (map[string]RawHeroItemSlotInfoValueV2, bool) {
+func (o *HeroV2) GetItemSlotInfoOk() (map[string]RawHeroItemSlotInfoValueV2Output, bool) {
 	if o == nil {
-		return map[string]RawHeroItemSlotInfoValueV2{}, false
+		return map[string]RawHeroItemSlotInfoValueV2Output{}, false
 	}
 	return o.ItemSlotInfo, true
 }
 
 // SetItemSlotInfo sets field value
-func (o *HeroV2) SetItemSlotInfo(v map[string]RawHeroItemSlotInfoValueV2) {
+func (o *HeroV2) SetItemSlotInfo(v map[string]RawHeroItemSlotInfoValueV2Output) {
 	o.ItemSlotInfo = v
 }
 
@@ -800,9 +800,9 @@ func (o *HeroV2) SetColors(v HeroColorsV2) {
 }
 
 // GetShopStatDisplay returns the ShopStatDisplay field value
-func (o *HeroV2) GetShopStatDisplay() HeroShopStatDisplayV2 {
+func (o *HeroV2) GetShopStatDisplay() HeroShopStatDisplayV2Output {
 	if o == nil {
-		var ret HeroShopStatDisplayV2
+		var ret HeroShopStatDisplayV2Output
 		return ret
 	}
 
@@ -811,7 +811,7 @@ func (o *HeroV2) GetShopStatDisplay() HeroShopStatDisplayV2 {
 
 // GetShopStatDisplayOk returns a tuple with the ShopStatDisplay field value
 // and a boolean to check if the value has been set.
-func (o *HeroV2) GetShopStatDisplayOk() (*HeroShopStatDisplayV2, bool) {
+func (o *HeroV2) GetShopStatDisplayOk() (*HeroShopStatDisplayV2Output, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -819,14 +819,14 @@ func (o *HeroV2) GetShopStatDisplayOk() (*HeroShopStatDisplayV2, bool) {
 }
 
 // SetShopStatDisplay sets field value
-func (o *HeroV2) SetShopStatDisplay(v HeroShopStatDisplayV2) {
+func (o *HeroV2) SetShopStatDisplay(v HeroShopStatDisplayV2Output) {
 	o.ShopStatDisplay = v
 }
 
 // GetCostBonuses returns the CostBonuses field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HeroV2) GetCostBonuses() map[string][]RawHeroMapModCostBonusesV2 {
+func (o *HeroV2) GetCostBonuses() map[string][]RawHeroMapModCostBonusesV2Output {
 	if o == nil {
-		var ret map[string][]RawHeroMapModCostBonusesV2
+		var ret map[string][]RawHeroMapModCostBonusesV2Output
 		return ret
 	}
 	return o.CostBonuses
@@ -835,9 +835,9 @@ func (o *HeroV2) GetCostBonuses() map[string][]RawHeroMapModCostBonusesV2 {
 // GetCostBonusesOk returns a tuple with the CostBonuses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HeroV2) GetCostBonusesOk() (map[string][]RawHeroMapModCostBonusesV2, bool) {
+func (o *HeroV2) GetCostBonusesOk() (map[string][]RawHeroMapModCostBonusesV2Output, bool) {
 	if o == nil || IsNil(o.CostBonuses) {
-		return map[string][]RawHeroMapModCostBonusesV2{}, false
+		return map[string][]RawHeroMapModCostBonusesV2Output{}, false
 	}
 	return o.CostBonuses, true
 }
@@ -851,15 +851,15 @@ func (o *HeroV2) HasCostBonuses() bool {
 	return false
 }
 
-// SetCostBonuses gets a reference to the given map[string][]RawHeroMapModCostBonusesV2 and assigns it to the CostBonuses field.
-func (o *HeroV2) SetCostBonuses(v map[string][]RawHeroMapModCostBonusesV2) {
+// SetCostBonuses gets a reference to the given map[string][]RawHeroMapModCostBonusesV2Output and assigns it to the CostBonuses field.
+func (o *HeroV2) SetCostBonuses(v map[string][]RawHeroMapModCostBonusesV2Output) {
 	o.CostBonuses = v
 }
 
 // GetStatsDisplay returns the StatsDisplay field value
-func (o *HeroV2) GetStatsDisplay() RawHeroStatsDisplayV2 {
+func (o *HeroV2) GetStatsDisplay() RawHeroStatsDisplayV2Output {
 	if o == nil {
-		var ret RawHeroStatsDisplayV2
+		var ret RawHeroStatsDisplayV2Output
 		return ret
 	}
 
@@ -868,7 +868,7 @@ func (o *HeroV2) GetStatsDisplay() RawHeroStatsDisplayV2 {
 
 // GetStatsDisplayOk returns a tuple with the StatsDisplay field value
 // and a boolean to check if the value has been set.
-func (o *HeroV2) GetStatsDisplayOk() (*RawHeroStatsDisplayV2, bool) {
+func (o *HeroV2) GetStatsDisplayOk() (*RawHeroStatsDisplayV2Output, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -876,14 +876,14 @@ func (o *HeroV2) GetStatsDisplayOk() (*RawHeroStatsDisplayV2, bool) {
 }
 
 // SetStatsDisplay sets field value
-func (o *HeroV2) SetStatsDisplay(v RawHeroStatsDisplayV2) {
+func (o *HeroV2) SetStatsDisplay(v RawHeroStatsDisplayV2Output) {
 	o.StatsDisplay = v
 }
 
 // GetHeroStatsUi returns the HeroStatsUi field value
-func (o *HeroV2) GetHeroStatsUi() RawHeroStatsUIV2 {
+func (o *HeroV2) GetHeroStatsUi() RawHeroStatsUIV2Output {
 	if o == nil {
-		var ret RawHeroStatsUIV2
+		var ret RawHeroStatsUIV2Output
 		return ret
 	}
 
@@ -892,7 +892,7 @@ func (o *HeroV2) GetHeroStatsUi() RawHeroStatsUIV2 {
 
 // GetHeroStatsUiOk returns a tuple with the HeroStatsUi field value
 // and a boolean to check if the value has been set.
-func (o *HeroV2) GetHeroStatsUiOk() (*RawHeroStatsUIV2, bool) {
+func (o *HeroV2) GetHeroStatsUiOk() (*RawHeroStatsUIV2Output, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -900,14 +900,14 @@ func (o *HeroV2) GetHeroStatsUiOk() (*RawHeroStatsUIV2, bool) {
 }
 
 // SetHeroStatsUi sets field value
-func (o *HeroV2) SetHeroStatsUi(v RawHeroStatsUIV2) {
+func (o *HeroV2) SetHeroStatsUi(v RawHeroStatsUIV2Output) {
 	o.HeroStatsUi = v
 }
 
 // GetLevelInfo returns the LevelInfo field value
-func (o *HeroV2) GetLevelInfo() map[string]HeroLevelInfoV2 {
+func (o *HeroV2) GetLevelInfo() map[string]HeroLevelInfoV2Output {
 	if o == nil {
-		var ret map[string]HeroLevelInfoV2
+		var ret map[string]HeroLevelInfoV2Output
 		return ret
 	}
 
@@ -916,22 +916,22 @@ func (o *HeroV2) GetLevelInfo() map[string]HeroLevelInfoV2 {
 
 // GetLevelInfoOk returns a tuple with the LevelInfo field value
 // and a boolean to check if the value has been set.
-func (o *HeroV2) GetLevelInfoOk() (map[string]HeroLevelInfoV2, bool) {
+func (o *HeroV2) GetLevelInfoOk() (map[string]HeroLevelInfoV2Output, bool) {
 	if o == nil {
-		return map[string]HeroLevelInfoV2{}, false
+		return map[string]HeroLevelInfoV2Output{}, false
 	}
 	return o.LevelInfo, true
 }
 
 // SetLevelInfo sets field value
-func (o *HeroV2) SetLevelInfo(v map[string]HeroLevelInfoV2) {
+func (o *HeroV2) SetLevelInfo(v map[string]HeroLevelInfoV2Output) {
 	o.LevelInfo = v
 }
 
 // GetScalingStats returns the ScalingStats field value
-func (o *HeroV2) GetScalingStats() map[string]RawHeroScalingStatV2 {
+func (o *HeroV2) GetScalingStats() map[string]RawHeroScalingStatV2Output {
 	if o == nil {
-		var ret map[string]RawHeroScalingStatV2
+		var ret map[string]RawHeroScalingStatV2Output
 		return ret
 	}
 
@@ -940,22 +940,22 @@ func (o *HeroV2) GetScalingStats() map[string]RawHeroScalingStatV2 {
 
 // GetScalingStatsOk returns a tuple with the ScalingStats field value
 // and a boolean to check if the value has been set.
-func (o *HeroV2) GetScalingStatsOk() (map[string]RawHeroScalingStatV2, bool) {
+func (o *HeroV2) GetScalingStatsOk() (map[string]RawHeroScalingStatV2Output, bool) {
 	if o == nil {
-		return map[string]RawHeroScalingStatV2{}, false
+		return map[string]RawHeroScalingStatV2Output{}, false
 	}
 	return o.ScalingStats, true
 }
 
 // SetScalingStats sets field value
-func (o *HeroV2) SetScalingStats(v map[string]RawHeroScalingStatV2) {
+func (o *HeroV2) SetScalingStats(v map[string]RawHeroScalingStatV2Output) {
 	o.ScalingStats = v
 }
 
 // GetPurchaseBonuses returns the PurchaseBonuses field value
-func (o *HeroV2) GetPurchaseBonuses() map[string][]RawHeroPurchaseBonusV2 {
+func (o *HeroV2) GetPurchaseBonuses() map[string][]RawHeroPurchaseBonusV2Output {
 	if o == nil {
-		var ret map[string][]RawHeroPurchaseBonusV2
+		var ret map[string][]RawHeroPurchaseBonusV2Output
 		return ret
 	}
 
@@ -964,15 +964,15 @@ func (o *HeroV2) GetPurchaseBonuses() map[string][]RawHeroPurchaseBonusV2 {
 
 // GetPurchaseBonusesOk returns a tuple with the PurchaseBonuses field value
 // and a boolean to check if the value has been set.
-func (o *HeroV2) GetPurchaseBonusesOk() (map[string][]RawHeroPurchaseBonusV2, bool) {
+func (o *HeroV2) GetPurchaseBonusesOk() (map[string][]RawHeroPurchaseBonusV2Output, bool) {
 	if o == nil {
-		return map[string][]RawHeroPurchaseBonusV2{}, false
+		return map[string][]RawHeroPurchaseBonusV2Output{}, false
 	}
 	return o.PurchaseBonuses, true
 }
 
 // SetPurchaseBonuses sets field value
-func (o *HeroV2) SetPurchaseBonuses(v map[string][]RawHeroPurchaseBonusV2) {
+func (o *HeroV2) SetPurchaseBonuses(v map[string][]RawHeroPurchaseBonusV2Output) {
 	o.PurchaseBonuses = v
 }
 

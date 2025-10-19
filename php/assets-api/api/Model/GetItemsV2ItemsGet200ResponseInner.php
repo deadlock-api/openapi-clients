@@ -66,13 +66,13 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
         'hero' => 'int',
         'heroes' => 'int[]',
         'update_time' => 'int',
-        'properties' => 'array<string,\OpenAPI\Client\Model\UpgradePropertyV2>',
-        'weapon_info' => '\OpenAPI\Client\Model\RawItemWeaponInfoV2',
+        'properties' => 'array<string,\OpenAPI\Client\Model\UpgradePropertyV2Output>',
+        'weapon_info' => '\OpenAPI\Client\Model\RawItemWeaponInfoV2Output',
         'type' => 'string',
         'behaviours' => 'string[]',
         'description' => '\OpenAPI\Client\Model\UpgradeDescriptionV2',
-        'tooltip_details' => '\OpenAPI\Client\Model\AbilityTooltipDetailsV2',
-        'upgrades' => '\OpenAPI\Client\Model\RawAbilityUpgradeV2[]',
+        'tooltip_details' => '\OpenAPI\Client\Model\AbilityTooltipDetailsV2Output',
+        'upgrades' => '\OpenAPI\Client\Model\RawAbilityUpgradeV2Output[]',
         'ability_type' => '\OpenAPI\Client\Model\AbilityTypeV2',
         'boss_damage_scale' => 'float',
         'dependant_abilities' => 'string[]',
@@ -87,7 +87,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
         'activation' => '\OpenAPI\Client\Model\RawAbilityActivationV2',
         'imbue' => '\OpenAPI\Client\Model\RawAbilityImbueV2',
         'component_items' => 'string[]',
-        'tooltip_sections' => '\OpenAPI\Client\Model\UpgradeTooltipSectionV2[]',
+        'tooltip_sections' => '\OpenAPI\Client\Model\UpgradeTooltipSectionV2Output[]',
         'is_active_item' => 'bool',
         'shopable' => 'bool',
         'cost' => 'int'
@@ -825,7 +825,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
     /**
      * Gets properties
      *
-     * @return array<string,\OpenAPI\Client\Model\UpgradePropertyV2>|null
+     * @return array<string,\OpenAPI\Client\Model\UpgradePropertyV2Output>|null
      */
     public function getProperties()
     {
@@ -835,7 +835,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
     /**
      * Sets properties
      *
-     * @param array<string,\OpenAPI\Client\Model\UpgradePropertyV2>|null $properties properties
+     * @param array<string,\OpenAPI\Client\Model\UpgradePropertyV2Output>|null $properties properties
      *
      * @return self
      */
@@ -852,7 +852,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
     /**
      * Gets weapon_info
      *
-     * @return \OpenAPI\Client\Model\RawItemWeaponInfoV2|null
+     * @return \OpenAPI\Client\Model\RawItemWeaponInfoV2Output|null
      */
     public function getWeaponInfo()
     {
@@ -862,7 +862,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
     /**
      * Sets weapon_info
      *
-     * @param \OpenAPI\Client\Model\RawItemWeaponInfoV2|null $weapon_info weapon_info
+     * @param \OpenAPI\Client\Model\RawItemWeaponInfoV2Output|null $weapon_info weapon_info
      *
      * @return self
      */
@@ -970,7 +970,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
     /**
      * Gets tooltip_details
      *
-     * @return \OpenAPI\Client\Model\AbilityTooltipDetailsV2|null
+     * @return \OpenAPI\Client\Model\AbilityTooltipDetailsV2Output|null
      */
     public function getTooltipDetails()
     {
@@ -980,7 +980,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
     /**
      * Sets tooltip_details
      *
-     * @param \OpenAPI\Client\Model\AbilityTooltipDetailsV2|null $tooltip_details tooltip_details
+     * @param \OpenAPI\Client\Model\AbilityTooltipDetailsV2Output|null $tooltip_details tooltip_details
      *
      * @return self
      */
@@ -997,7 +997,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
     /**
      * Gets upgrades
      *
-     * @return \OpenAPI\Client\Model\RawAbilityUpgradeV2[]|null
+     * @return \OpenAPI\Client\Model\RawAbilityUpgradeV2Output[]|null
      */
     public function getUpgrades()
     {
@@ -1007,7 +1007,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
     /**
      * Sets upgrades
      *
-     * @param \OpenAPI\Client\Model\RawAbilityUpgradeV2[]|null $upgrades upgrades
+     * @param \OpenAPI\Client\Model\RawAbilityUpgradeV2Output[]|null $upgrades upgrades
      *
      * @return self
      */
@@ -1402,7 +1402,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
     /**
      * Gets tooltip_sections
      *
-     * @return \OpenAPI\Client\Model\UpgradeTooltipSectionV2[]|null
+     * @return \OpenAPI\Client\Model\UpgradeTooltipSectionV2Output[]|null
      */
     public function getTooltipSections()
     {
@@ -1412,7 +1412,7 @@ class GetItemsV2ItemsGet200ResponseInner implements ModelInterface, ArrayAccess,
     /**
      * Sets tooltip_sections
      *
-     * @param \OpenAPI\Client\Model\UpgradeTooltipSectionV2[]|null $tooltip_sections tooltip_sections
+     * @param \OpenAPI\Client\Model\UpgradeTooltipSectionV2Output[]|null $tooltip_sections tooltip_sections
      *
      * @return self
      */

@@ -1,0 +1,680 @@
+# AbilityV2Output
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **int32** |  | 
+**ClassName** | **string** |  | 
+**Name** | **string** |  | 
+**StartTrained** | Pointer to **NullableBool** |  | [optional] 
+**Image** | Pointer to **NullableString** |  | [optional] 
+**ImageWebp** | Pointer to **NullableString** |  | [optional] 
+**Hero** | Pointer to **NullableInt32** |  | [optional] 
+**Heroes** | Pointer to **[]int32** |  | [optional] 
+**UpdateTime** | Pointer to **NullableInt32** |  | [optional] 
+**Properties** | Pointer to [**map[string]ItemPropertyV2Output**](ItemPropertyV2Output.md) |  | [optional] 
+**WeaponInfo** | Pointer to [**NullableRawItemWeaponInfoV2Output**](RawItemWeaponInfoV2Output.md) |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] [default to "ability"]
+**Behaviours** | Pointer to **[]string** |  | [optional] 
+**Description** | [**AbilityDescriptionV2**](AbilityDescriptionV2.md) |  | 
+**TooltipDetails** | Pointer to [**NullableAbilityTooltipDetailsV2Output**](AbilityTooltipDetailsV2Output.md) |  | [optional] 
+**Upgrades** | Pointer to [**[]RawAbilityUpgradeV2Output**](RawAbilityUpgradeV2Output.md) |  | [optional] 
+**AbilityType** | Pointer to [**NullableAbilityTypeV2**](AbilityTypeV2.md) |  | [optional] 
+**BossDamageScale** | Pointer to **NullableFloat32** |  | [optional] 
+**DependantAbilities** | Pointer to **[]string** |  | [optional] 
+**Videos** | Pointer to [**NullableAbilityVideosV2**](AbilityVideosV2.md) |  | [optional] 
+
+## Methods
+
+### NewAbilityV2Output
+
+`func NewAbilityV2Output(id int32, className string, name string, description AbilityDescriptionV2, ) *AbilityV2Output`
+
+NewAbilityV2Output instantiates a new AbilityV2Output object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAbilityV2OutputWithDefaults
+
+`func NewAbilityV2OutputWithDefaults() *AbilityV2Output`
+
+NewAbilityV2OutputWithDefaults instantiates a new AbilityV2Output object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *AbilityV2Output) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *AbilityV2Output) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *AbilityV2Output) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+
+### GetClassName
+
+`func (o *AbilityV2Output) GetClassName() string`
+
+GetClassName returns the ClassName field if non-nil, zero value otherwise.
+
+### GetClassNameOk
+
+`func (o *AbilityV2Output) GetClassNameOk() (*string, bool)`
+
+GetClassNameOk returns a tuple with the ClassName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassName
+
+`func (o *AbilityV2Output) SetClassName(v string)`
+
+SetClassName sets ClassName field to given value.
+
+
+### GetName
+
+`func (o *AbilityV2Output) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *AbilityV2Output) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *AbilityV2Output) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
+### GetStartTrained
+
+`func (o *AbilityV2Output) GetStartTrained() bool`
+
+GetStartTrained returns the StartTrained field if non-nil, zero value otherwise.
+
+### GetStartTrainedOk
+
+`func (o *AbilityV2Output) GetStartTrainedOk() (*bool, bool)`
+
+GetStartTrainedOk returns a tuple with the StartTrained field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartTrained
+
+`func (o *AbilityV2Output) SetStartTrained(v bool)`
+
+SetStartTrained sets StartTrained field to given value.
+
+### HasStartTrained
+
+`func (o *AbilityV2Output) HasStartTrained() bool`
+
+HasStartTrained returns a boolean if a field has been set.
+
+### SetStartTrainedNil
+
+`func (o *AbilityV2Output) SetStartTrainedNil(b bool)`
+
+ SetStartTrainedNil sets the value for StartTrained to be an explicit nil
+
+### UnsetStartTrained
+`func (o *AbilityV2Output) UnsetStartTrained()`
+
+UnsetStartTrained ensures that no value is present for StartTrained, not even an explicit nil
+### GetImage
+
+`func (o *AbilityV2Output) GetImage() string`
+
+GetImage returns the Image field if non-nil, zero value otherwise.
+
+### GetImageOk
+
+`func (o *AbilityV2Output) GetImageOk() (*string, bool)`
+
+GetImageOk returns a tuple with the Image field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImage
+
+`func (o *AbilityV2Output) SetImage(v string)`
+
+SetImage sets Image field to given value.
+
+### HasImage
+
+`func (o *AbilityV2Output) HasImage() bool`
+
+HasImage returns a boolean if a field has been set.
+
+### SetImageNil
+
+`func (o *AbilityV2Output) SetImageNil(b bool)`
+
+ SetImageNil sets the value for Image to be an explicit nil
+
+### UnsetImage
+`func (o *AbilityV2Output) UnsetImage()`
+
+UnsetImage ensures that no value is present for Image, not even an explicit nil
+### GetImageWebp
+
+`func (o *AbilityV2Output) GetImageWebp() string`
+
+GetImageWebp returns the ImageWebp field if non-nil, zero value otherwise.
+
+### GetImageWebpOk
+
+`func (o *AbilityV2Output) GetImageWebpOk() (*string, bool)`
+
+GetImageWebpOk returns a tuple with the ImageWebp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageWebp
+
+`func (o *AbilityV2Output) SetImageWebp(v string)`
+
+SetImageWebp sets ImageWebp field to given value.
+
+### HasImageWebp
+
+`func (o *AbilityV2Output) HasImageWebp() bool`
+
+HasImageWebp returns a boolean if a field has been set.
+
+### SetImageWebpNil
+
+`func (o *AbilityV2Output) SetImageWebpNil(b bool)`
+
+ SetImageWebpNil sets the value for ImageWebp to be an explicit nil
+
+### UnsetImageWebp
+`func (o *AbilityV2Output) UnsetImageWebp()`
+
+UnsetImageWebp ensures that no value is present for ImageWebp, not even an explicit nil
+### GetHero
+
+`func (o *AbilityV2Output) GetHero() int32`
+
+GetHero returns the Hero field if non-nil, zero value otherwise.
+
+### GetHeroOk
+
+`func (o *AbilityV2Output) GetHeroOk() (*int32, bool)`
+
+GetHeroOk returns a tuple with the Hero field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHero
+
+`func (o *AbilityV2Output) SetHero(v int32)`
+
+SetHero sets Hero field to given value.
+
+### HasHero
+
+`func (o *AbilityV2Output) HasHero() bool`
+
+HasHero returns a boolean if a field has been set.
+
+### SetHeroNil
+
+`func (o *AbilityV2Output) SetHeroNil(b bool)`
+
+ SetHeroNil sets the value for Hero to be an explicit nil
+
+### UnsetHero
+`func (o *AbilityV2Output) UnsetHero()`
+
+UnsetHero ensures that no value is present for Hero, not even an explicit nil
+### GetHeroes
+
+`func (o *AbilityV2Output) GetHeroes() []int32`
+
+GetHeroes returns the Heroes field if non-nil, zero value otherwise.
+
+### GetHeroesOk
+
+`func (o *AbilityV2Output) GetHeroesOk() (*[]int32, bool)`
+
+GetHeroesOk returns a tuple with the Heroes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHeroes
+
+`func (o *AbilityV2Output) SetHeroes(v []int32)`
+
+SetHeroes sets Heroes field to given value.
+
+### HasHeroes
+
+`func (o *AbilityV2Output) HasHeroes() bool`
+
+HasHeroes returns a boolean if a field has been set.
+
+### SetHeroesNil
+
+`func (o *AbilityV2Output) SetHeroesNil(b bool)`
+
+ SetHeroesNil sets the value for Heroes to be an explicit nil
+
+### UnsetHeroes
+`func (o *AbilityV2Output) UnsetHeroes()`
+
+UnsetHeroes ensures that no value is present for Heroes, not even an explicit nil
+### GetUpdateTime
+
+`func (o *AbilityV2Output) GetUpdateTime() int32`
+
+GetUpdateTime returns the UpdateTime field if non-nil, zero value otherwise.
+
+### GetUpdateTimeOk
+
+`func (o *AbilityV2Output) GetUpdateTimeOk() (*int32, bool)`
+
+GetUpdateTimeOk returns a tuple with the UpdateTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdateTime
+
+`func (o *AbilityV2Output) SetUpdateTime(v int32)`
+
+SetUpdateTime sets UpdateTime field to given value.
+
+### HasUpdateTime
+
+`func (o *AbilityV2Output) HasUpdateTime() bool`
+
+HasUpdateTime returns a boolean if a field has been set.
+
+### SetUpdateTimeNil
+
+`func (o *AbilityV2Output) SetUpdateTimeNil(b bool)`
+
+ SetUpdateTimeNil sets the value for UpdateTime to be an explicit nil
+
+### UnsetUpdateTime
+`func (o *AbilityV2Output) UnsetUpdateTime()`
+
+UnsetUpdateTime ensures that no value is present for UpdateTime, not even an explicit nil
+### GetProperties
+
+`func (o *AbilityV2Output) GetProperties() map[string]ItemPropertyV2Output`
+
+GetProperties returns the Properties field if non-nil, zero value otherwise.
+
+### GetPropertiesOk
+
+`func (o *AbilityV2Output) GetPropertiesOk() (*map[string]ItemPropertyV2Output, bool)`
+
+GetPropertiesOk returns a tuple with the Properties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProperties
+
+`func (o *AbilityV2Output) SetProperties(v map[string]ItemPropertyV2Output)`
+
+SetProperties sets Properties field to given value.
+
+### HasProperties
+
+`func (o *AbilityV2Output) HasProperties() bool`
+
+HasProperties returns a boolean if a field has been set.
+
+### SetPropertiesNil
+
+`func (o *AbilityV2Output) SetPropertiesNil(b bool)`
+
+ SetPropertiesNil sets the value for Properties to be an explicit nil
+
+### UnsetProperties
+`func (o *AbilityV2Output) UnsetProperties()`
+
+UnsetProperties ensures that no value is present for Properties, not even an explicit nil
+### GetWeaponInfo
+
+`func (o *AbilityV2Output) GetWeaponInfo() RawItemWeaponInfoV2Output`
+
+GetWeaponInfo returns the WeaponInfo field if non-nil, zero value otherwise.
+
+### GetWeaponInfoOk
+
+`func (o *AbilityV2Output) GetWeaponInfoOk() (*RawItemWeaponInfoV2Output, bool)`
+
+GetWeaponInfoOk returns a tuple with the WeaponInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeaponInfo
+
+`func (o *AbilityV2Output) SetWeaponInfo(v RawItemWeaponInfoV2Output)`
+
+SetWeaponInfo sets WeaponInfo field to given value.
+
+### HasWeaponInfo
+
+`func (o *AbilityV2Output) HasWeaponInfo() bool`
+
+HasWeaponInfo returns a boolean if a field has been set.
+
+### SetWeaponInfoNil
+
+`func (o *AbilityV2Output) SetWeaponInfoNil(b bool)`
+
+ SetWeaponInfoNil sets the value for WeaponInfo to be an explicit nil
+
+### UnsetWeaponInfo
+`func (o *AbilityV2Output) UnsetWeaponInfo()`
+
+UnsetWeaponInfo ensures that no value is present for WeaponInfo, not even an explicit nil
+### GetType
+
+`func (o *AbilityV2Output) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *AbilityV2Output) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *AbilityV2Output) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *AbilityV2Output) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### GetBehaviours
+
+`func (o *AbilityV2Output) GetBehaviours() []string`
+
+GetBehaviours returns the Behaviours field if non-nil, zero value otherwise.
+
+### GetBehavioursOk
+
+`func (o *AbilityV2Output) GetBehavioursOk() (*[]string, bool)`
+
+GetBehavioursOk returns a tuple with the Behaviours field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBehaviours
+
+`func (o *AbilityV2Output) SetBehaviours(v []string)`
+
+SetBehaviours sets Behaviours field to given value.
+
+### HasBehaviours
+
+`func (o *AbilityV2Output) HasBehaviours() bool`
+
+HasBehaviours returns a boolean if a field has been set.
+
+### SetBehavioursNil
+
+`func (o *AbilityV2Output) SetBehavioursNil(b bool)`
+
+ SetBehavioursNil sets the value for Behaviours to be an explicit nil
+
+### UnsetBehaviours
+`func (o *AbilityV2Output) UnsetBehaviours()`
+
+UnsetBehaviours ensures that no value is present for Behaviours, not even an explicit nil
+### GetDescription
+
+`func (o *AbilityV2Output) GetDescription() AbilityDescriptionV2`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *AbilityV2Output) GetDescriptionOk() (*AbilityDescriptionV2, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *AbilityV2Output) SetDescription(v AbilityDescriptionV2)`
+
+SetDescription sets Description field to given value.
+
+
+### GetTooltipDetails
+
+`func (o *AbilityV2Output) GetTooltipDetails() AbilityTooltipDetailsV2Output`
+
+GetTooltipDetails returns the TooltipDetails field if non-nil, zero value otherwise.
+
+### GetTooltipDetailsOk
+
+`func (o *AbilityV2Output) GetTooltipDetailsOk() (*AbilityTooltipDetailsV2Output, bool)`
+
+GetTooltipDetailsOk returns a tuple with the TooltipDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTooltipDetails
+
+`func (o *AbilityV2Output) SetTooltipDetails(v AbilityTooltipDetailsV2Output)`
+
+SetTooltipDetails sets TooltipDetails field to given value.
+
+### HasTooltipDetails
+
+`func (o *AbilityV2Output) HasTooltipDetails() bool`
+
+HasTooltipDetails returns a boolean if a field has been set.
+
+### SetTooltipDetailsNil
+
+`func (o *AbilityV2Output) SetTooltipDetailsNil(b bool)`
+
+ SetTooltipDetailsNil sets the value for TooltipDetails to be an explicit nil
+
+### UnsetTooltipDetails
+`func (o *AbilityV2Output) UnsetTooltipDetails()`
+
+UnsetTooltipDetails ensures that no value is present for TooltipDetails, not even an explicit nil
+### GetUpgrades
+
+`func (o *AbilityV2Output) GetUpgrades() []RawAbilityUpgradeV2Output`
+
+GetUpgrades returns the Upgrades field if non-nil, zero value otherwise.
+
+### GetUpgradesOk
+
+`func (o *AbilityV2Output) GetUpgradesOk() (*[]RawAbilityUpgradeV2Output, bool)`
+
+GetUpgradesOk returns a tuple with the Upgrades field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpgrades
+
+`func (o *AbilityV2Output) SetUpgrades(v []RawAbilityUpgradeV2Output)`
+
+SetUpgrades sets Upgrades field to given value.
+
+### HasUpgrades
+
+`func (o *AbilityV2Output) HasUpgrades() bool`
+
+HasUpgrades returns a boolean if a field has been set.
+
+### SetUpgradesNil
+
+`func (o *AbilityV2Output) SetUpgradesNil(b bool)`
+
+ SetUpgradesNil sets the value for Upgrades to be an explicit nil
+
+### UnsetUpgrades
+`func (o *AbilityV2Output) UnsetUpgrades()`
+
+UnsetUpgrades ensures that no value is present for Upgrades, not even an explicit nil
+### GetAbilityType
+
+`func (o *AbilityV2Output) GetAbilityType() AbilityTypeV2`
+
+GetAbilityType returns the AbilityType field if non-nil, zero value otherwise.
+
+### GetAbilityTypeOk
+
+`func (o *AbilityV2Output) GetAbilityTypeOk() (*AbilityTypeV2, bool)`
+
+GetAbilityTypeOk returns a tuple with the AbilityType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAbilityType
+
+`func (o *AbilityV2Output) SetAbilityType(v AbilityTypeV2)`
+
+SetAbilityType sets AbilityType field to given value.
+
+### HasAbilityType
+
+`func (o *AbilityV2Output) HasAbilityType() bool`
+
+HasAbilityType returns a boolean if a field has been set.
+
+### SetAbilityTypeNil
+
+`func (o *AbilityV2Output) SetAbilityTypeNil(b bool)`
+
+ SetAbilityTypeNil sets the value for AbilityType to be an explicit nil
+
+### UnsetAbilityType
+`func (o *AbilityV2Output) UnsetAbilityType()`
+
+UnsetAbilityType ensures that no value is present for AbilityType, not even an explicit nil
+### GetBossDamageScale
+
+`func (o *AbilityV2Output) GetBossDamageScale() float32`
+
+GetBossDamageScale returns the BossDamageScale field if non-nil, zero value otherwise.
+
+### GetBossDamageScaleOk
+
+`func (o *AbilityV2Output) GetBossDamageScaleOk() (*float32, bool)`
+
+GetBossDamageScaleOk returns a tuple with the BossDamageScale field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBossDamageScale
+
+`func (o *AbilityV2Output) SetBossDamageScale(v float32)`
+
+SetBossDamageScale sets BossDamageScale field to given value.
+
+### HasBossDamageScale
+
+`func (o *AbilityV2Output) HasBossDamageScale() bool`
+
+HasBossDamageScale returns a boolean if a field has been set.
+
+### SetBossDamageScaleNil
+
+`func (o *AbilityV2Output) SetBossDamageScaleNil(b bool)`
+
+ SetBossDamageScaleNil sets the value for BossDamageScale to be an explicit nil
+
+### UnsetBossDamageScale
+`func (o *AbilityV2Output) UnsetBossDamageScale()`
+
+UnsetBossDamageScale ensures that no value is present for BossDamageScale, not even an explicit nil
+### GetDependantAbilities
+
+`func (o *AbilityV2Output) GetDependantAbilities() []string`
+
+GetDependantAbilities returns the DependantAbilities field if non-nil, zero value otherwise.
+
+### GetDependantAbilitiesOk
+
+`func (o *AbilityV2Output) GetDependantAbilitiesOk() (*[]string, bool)`
+
+GetDependantAbilitiesOk returns a tuple with the DependantAbilities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDependantAbilities
+
+`func (o *AbilityV2Output) SetDependantAbilities(v []string)`
+
+SetDependantAbilities sets DependantAbilities field to given value.
+
+### HasDependantAbilities
+
+`func (o *AbilityV2Output) HasDependantAbilities() bool`
+
+HasDependantAbilities returns a boolean if a field has been set.
+
+### SetDependantAbilitiesNil
+
+`func (o *AbilityV2Output) SetDependantAbilitiesNil(b bool)`
+
+ SetDependantAbilitiesNil sets the value for DependantAbilities to be an explicit nil
+
+### UnsetDependantAbilities
+`func (o *AbilityV2Output) UnsetDependantAbilities()`
+
+UnsetDependantAbilities ensures that no value is present for DependantAbilities, not even an explicit nil
+### GetVideos
+
+`func (o *AbilityV2Output) GetVideos() AbilityVideosV2`
+
+GetVideos returns the Videos field if non-nil, zero value otherwise.
+
+### GetVideosOk
+
+`func (o *AbilityV2Output) GetVideosOk() (*AbilityVideosV2, bool)`
+
+GetVideosOk returns a tuple with the Videos field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVideos
+
+`func (o *AbilityV2Output) SetVideos(v AbilityVideosV2)`
+
+SetVideos sets Videos field to given value.
+
+### HasVideos
+
+`func (o *AbilityV2Output) HasVideos() bool`
+
+HasVideos returns a boolean if a field has been set.
+
+### SetVideosNil
+
+`func (o *AbilityV2Output) SetVideosNil(b bool)`
+
+ SetVideosNil sets the value for Videos to be an explicit nil
+
+### UnsetVideos
+`func (o *AbilityV2Output) UnsetVideos()`
+
+UnsetVideos ensures that no value is present for Videos, not even an explicit nil
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

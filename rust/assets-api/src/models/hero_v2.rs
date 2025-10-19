@@ -58,31 +58,31 @@ pub struct HeroV2 {
     #[serde(rename = "starting_stats")]
     pub starting_stats: Box<models::HeroStartingStatsV2>,
     #[serde(rename = "item_slot_info")]
-    pub item_slot_info: std::collections::HashMap<String, models::RawHeroItemSlotInfoValueV2>,
+    pub item_slot_info: std::collections::HashMap<String, models::RawHeroItemSlotInfoValueV2Output>,
     #[serde(rename = "physics")]
     pub physics: Box<models::HeroPhysicsV2>,
     #[serde(rename = "colors")]
     pub colors: Box<models::HeroColorsV2>,
     #[serde(rename = "shop_stat_display")]
-    pub shop_stat_display: Box<models::HeroShopStatDisplayV2>,
+    pub shop_stat_display: Box<models::HeroShopStatDisplayV2Output>,
     #[serde(rename = "cost_bonuses", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub cost_bonuses: Option<Option<std::collections::HashMap<String, Vec<models::RawHeroMapModCostBonusesV2>>>>,
+    pub cost_bonuses: Option<Option<std::collections::HashMap<String, Vec<models::RawHeroMapModCostBonusesV2Output>>>>,
     #[serde(rename = "stats_display")]
-    pub stats_display: Box<models::RawHeroStatsDisplayV2>,
+    pub stats_display: Box<models::RawHeroStatsDisplayV2Output>,
     #[serde(rename = "hero_stats_ui")]
-    pub hero_stats_ui: Box<models::RawHeroStatsUiv2>,
+    pub hero_stats_ui: Box<models::RawHeroStatsUiv2Output>,
     #[serde(rename = "level_info")]
-    pub level_info: std::collections::HashMap<String, models::HeroLevelInfoV2>,
+    pub level_info: std::collections::HashMap<String, models::HeroLevelInfoV2Output>,
     #[serde(rename = "scaling_stats")]
-    pub scaling_stats: std::collections::HashMap<String, models::RawHeroScalingStatV2>,
+    pub scaling_stats: std::collections::HashMap<String, models::RawHeroScalingStatV2Output>,
     #[serde(rename = "purchase_bonuses")]
-    pub purchase_bonuses: std::collections::HashMap<String, Vec<models::RawHeroPurchaseBonusV2>>,
+    pub purchase_bonuses: std::collections::HashMap<String, Vec<models::RawHeroPurchaseBonusV2Output>>,
     #[serde(rename = "standard_level_up_upgrades")]
     pub standard_level_up_upgrades: std::collections::HashMap<String, f64>,
 }
 
 impl HeroV2 {
-    pub fn new(id: i32, class_name: String, name: String, description: models::HeroDescriptionV2, player_selectable: bool, disabled: bool, in_development: bool, needs_testing: bool, assigned_players_only: bool, limited_testing: bool, complexity: i32, skin: i32, images: models::HeroImagesV2, items: std::collections::HashMap<String, String>, starting_stats: models::HeroStartingStatsV2, item_slot_info: std::collections::HashMap<String, models::RawHeroItemSlotInfoValueV2>, physics: models::HeroPhysicsV2, colors: models::HeroColorsV2, shop_stat_display: models::HeroShopStatDisplayV2, stats_display: models::RawHeroStatsDisplayV2, hero_stats_ui: models::RawHeroStatsUiv2, level_info: std::collections::HashMap<String, models::HeroLevelInfoV2>, scaling_stats: std::collections::HashMap<String, models::RawHeroScalingStatV2>, purchase_bonuses: std::collections::HashMap<String, Vec<models::RawHeroPurchaseBonusV2>>, standard_level_up_upgrades: std::collections::HashMap<String, f64>) -> HeroV2 {
+    pub fn new(id: i32, class_name: String, name: String, description: models::HeroDescriptionV2, player_selectable: bool, disabled: bool, in_development: bool, needs_testing: bool, assigned_players_only: bool, limited_testing: bool, complexity: i32, skin: i32, images: models::HeroImagesV2, items: std::collections::HashMap<String, String>, starting_stats: models::HeroStartingStatsV2, item_slot_info: std::collections::HashMap<String, models::RawHeroItemSlotInfoValueV2Output>, physics: models::HeroPhysicsV2, colors: models::HeroColorsV2, shop_stat_display: models::HeroShopStatDisplayV2Output, stats_display: models::RawHeroStatsDisplayV2Output, hero_stats_ui: models::RawHeroStatsUiv2Output, level_info: std::collections::HashMap<String, models::HeroLevelInfoV2Output>, scaling_stats: std::collections::HashMap<String, models::RawHeroScalingStatV2Output>, purchase_bonuses: std::collections::HashMap<String, Vec<models::RawHeroPurchaseBonusV2Output>>, standard_level_up_upgrades: std::collections::HashMap<String, f64>) -> HeroV2 {
         HeroV2 {
             id,
             class_name,

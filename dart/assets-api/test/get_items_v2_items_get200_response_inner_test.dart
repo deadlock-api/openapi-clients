@@ -61,12 +61,12 @@ void main() {
       // TODO
     });
 
-    // Map<String, UpgradePropertyV2> properties (default value: const {})
+    // Map<String, UpgradePropertyV2Output> properties (default value: const {})
     test('to test the property `properties`', () async {
       // TODO
     });
 
-    // RawItemWeaponInfoV2 weaponInfo
+    // RawItemWeaponInfoV2Output weaponInfo
     test('to test the property `weaponInfo`', () async {
       // TODO
     });
@@ -86,12 +86,12 @@ void main() {
       // TODO
     });
 
-    // AbilityTooltipDetailsV2 tooltipDetails
+    // AbilityTooltipDetailsV2Output tooltipDetails
     test('to test the property `tooltipDetails`', () async {
       // TODO
     });
 
-    // List<RawAbilityUpgradeV2> upgrades (default value: const [])
+    // List<RawAbilityUpgradeV2Output> upgrades (default value: const [])
     test('to test the property `upgrades`', () async {
       // TODO
     });
@@ -166,7 +166,7 @@ void main() {
       // TODO
     });
 
-    // List<UpgradeTooltipSectionV2> tooltipSections (default value: const [])
+    // List<UpgradeTooltipSectionV2Output> tooltipSections (default value: const [])
     test('to test the property `tooltipSections`', () async {
       // TODO
     });

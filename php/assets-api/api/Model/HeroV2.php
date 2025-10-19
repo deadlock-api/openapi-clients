@@ -79,16 +79,16 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'images' => '\OpenAPI\Client\Model\HeroImagesV2',
         'items' => 'array<string,string>',
         'starting_stats' => '\OpenAPI\Client\Model\HeroStartingStatsV2',
-        'item_slot_info' => 'array<string,\OpenAPI\Client\Model\RawHeroItemSlotInfoValueV2>',
+        'item_slot_info' => 'array<string,\OpenAPI\Client\Model\RawHeroItemSlotInfoValueV2Output>',
         'physics' => '\OpenAPI\Client\Model\HeroPhysicsV2',
         'colors' => '\OpenAPI\Client\Model\HeroColorsV2',
-        'shop_stat_display' => '\OpenAPI\Client\Model\HeroShopStatDisplayV2',
-        'cost_bonuses' => 'array<string,\OpenAPI\Client\Model\RawHeroMapModCostBonusesV2[]>',
-        'stats_display' => '\OpenAPI\Client\Model\RawHeroStatsDisplayV2',
-        'hero_stats_ui' => '\OpenAPI\Client\Model\RawHeroStatsUIV2',
-        'level_info' => 'array<string,\OpenAPI\Client\Model\HeroLevelInfoV2>',
-        'scaling_stats' => 'array<string,\OpenAPI\Client\Model\RawHeroScalingStatV2>',
-        'purchase_bonuses' => 'array<string,\OpenAPI\Client\Model\RawHeroPurchaseBonusV2[]>',
+        'shop_stat_display' => '\OpenAPI\Client\Model\HeroShopStatDisplayV2Output',
+        'cost_bonuses' => 'array<string,\OpenAPI\Client\Model\RawHeroMapModCostBonusesV2Output[]>',
+        'stats_display' => '\OpenAPI\Client\Model\RawHeroStatsDisplayV2Output',
+        'hero_stats_ui' => '\OpenAPI\Client\Model\RawHeroStatsUIV2Output',
+        'level_info' => 'array<string,\OpenAPI\Client\Model\HeroLevelInfoV2Output>',
+        'scaling_stats' => 'array<string,\OpenAPI\Client\Model\RawHeroScalingStatV2Output>',
+        'purchase_bonuses' => 'array<string,\OpenAPI\Client\Model\RawHeroPurchaseBonusV2Output[]>',
         'standard_level_up_upgrades' => 'array<string,float>'
     ];
 
@@ -1234,7 +1234,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets item_slot_info
      *
-     * @return array<string,\OpenAPI\Client\Model\RawHeroItemSlotInfoValueV2>
+     * @return array<string,\OpenAPI\Client\Model\RawHeroItemSlotInfoValueV2Output>
      */
     public function getItemSlotInfo()
     {
@@ -1244,7 +1244,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets item_slot_info
      *
-     * @param array<string,\OpenAPI\Client\Model\RawHeroItemSlotInfoValueV2> $item_slot_info item_slot_info
+     * @param array<string,\OpenAPI\Client\Model\RawHeroItemSlotInfoValueV2Output> $item_slot_info item_slot_info
      *
      * @return self
      */
@@ -1315,7 +1315,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets shop_stat_display
      *
-     * @return \OpenAPI\Client\Model\HeroShopStatDisplayV2
+     * @return \OpenAPI\Client\Model\HeroShopStatDisplayV2Output
      */
     public function getShopStatDisplay()
     {
@@ -1325,7 +1325,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shop_stat_display
      *
-     * @param \OpenAPI\Client\Model\HeroShopStatDisplayV2 $shop_stat_display shop_stat_display
+     * @param \OpenAPI\Client\Model\HeroShopStatDisplayV2Output $shop_stat_display shop_stat_display
      *
      * @return self
      */
@@ -1342,7 +1342,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets cost_bonuses
      *
-     * @return array<string,\OpenAPI\Client\Model\RawHeroMapModCostBonusesV2[]>|null
+     * @return array<string,\OpenAPI\Client\Model\RawHeroMapModCostBonusesV2Output[]>|null
      */
     public function getCostBonuses()
     {
@@ -1352,7 +1352,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cost_bonuses
      *
-     * @param array<string,\OpenAPI\Client\Model\RawHeroMapModCostBonusesV2[]>|null $cost_bonuses cost_bonuses
+     * @param array<string,\OpenAPI\Client\Model\RawHeroMapModCostBonusesV2Output[]>|null $cost_bonuses cost_bonuses
      *
      * @return self
      */
@@ -1376,7 +1376,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets stats_display
      *
-     * @return \OpenAPI\Client\Model\RawHeroStatsDisplayV2
+     * @return \OpenAPI\Client\Model\RawHeroStatsDisplayV2Output
      */
     public function getStatsDisplay()
     {
@@ -1386,7 +1386,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets stats_display
      *
-     * @param \OpenAPI\Client\Model\RawHeroStatsDisplayV2 $stats_display stats_display
+     * @param \OpenAPI\Client\Model\RawHeroStatsDisplayV2Output $stats_display stats_display
      *
      * @return self
      */
@@ -1403,7 +1403,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets hero_stats_ui
      *
-     * @return \OpenAPI\Client\Model\RawHeroStatsUIV2
+     * @return \OpenAPI\Client\Model\RawHeroStatsUIV2Output
      */
     public function getHeroStatsUi()
     {
@@ -1413,7 +1413,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets hero_stats_ui
      *
-     * @param \OpenAPI\Client\Model\RawHeroStatsUIV2 $hero_stats_ui hero_stats_ui
+     * @param \OpenAPI\Client\Model\RawHeroStatsUIV2Output $hero_stats_ui hero_stats_ui
      *
      * @return self
      */
@@ -1430,7 +1430,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets level_info
      *
-     * @return array<string,\OpenAPI\Client\Model\HeroLevelInfoV2>
+     * @return array<string,\OpenAPI\Client\Model\HeroLevelInfoV2Output>
      */
     public function getLevelInfo()
     {
@@ -1440,7 +1440,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets level_info
      *
-     * @param array<string,\OpenAPI\Client\Model\HeroLevelInfoV2> $level_info level_info
+     * @param array<string,\OpenAPI\Client\Model\HeroLevelInfoV2Output> $level_info level_info
      *
      * @return self
      */
@@ -1457,7 +1457,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets scaling_stats
      *
-     * @return array<string,\OpenAPI\Client\Model\RawHeroScalingStatV2>
+     * @return array<string,\OpenAPI\Client\Model\RawHeroScalingStatV2Output>
      */
     public function getScalingStats()
     {
@@ -1467,7 +1467,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets scaling_stats
      *
-     * @param array<string,\OpenAPI\Client\Model\RawHeroScalingStatV2> $scaling_stats scaling_stats
+     * @param array<string,\OpenAPI\Client\Model\RawHeroScalingStatV2Output> $scaling_stats scaling_stats
      *
      * @return self
      */
@@ -1484,7 +1484,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets purchase_bonuses
      *
-     * @return array<string,\OpenAPI\Client\Model\RawHeroPurchaseBonusV2[]>
+     * @return array<string,\OpenAPI\Client\Model\RawHeroPurchaseBonusV2Output[]>
      */
     public function getPurchaseBonuses()
     {
@@ -1494,7 +1494,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets purchase_bonuses
      *
-     * @param array<string,\OpenAPI\Client\Model\RawHeroPurchaseBonusV2[]> $purchase_bonuses purchase_bonuses
+     * @param array<string,\OpenAPI\Client\Model\RawHeroPurchaseBonusV2Output[]> $purchase_bonuses purchase_bonuses
      *
      * @return self
      */

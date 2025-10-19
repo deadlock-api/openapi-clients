@@ -19,8 +19,8 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets-deadlock-api-client.apis.RawApi
+import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
 import assets-deadlock-api-client.models.HTTPValidationError
-import assets-deadlock-api-client.models.ValidClientVersions
 
 class RawApiTest : ShouldSpec() {
     init {
@@ -30,7 +30,7 @@ class RawApiTest : ShouldSpec() {
         // to test getGenericDataRawGenericDataGet
         should("test getGenericDataRawGenericDataGet") {
             // uncomment below to test getGenericDataRawGenericDataGet
-            //val clientVersion : ValidClientVersions =  // ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
             //val result : kotlin.Any = apiInstance.getGenericDataRawGenericDataGet(clientVersion)
             //result shouldBe ("TODO")
         }
@@ -38,7 +38,7 @@ class RawApiTest : ShouldSpec() {
         // to test getRawHeroesRawHeroesGet
         should("test getRawHeroesRawHeroesGet") {
             // uncomment below to test getRawHeroesRawHeroesGet
-            //val clientVersion : ValidClientVersions =  // ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
             //val result : kotlin.Any = apiInstance.getRawHeroesRawHeroesGet(clientVersion)
             //result shouldBe ("TODO")
         }
@@ -46,7 +46,7 @@ class RawApiTest : ShouldSpec() {
         // to test getRawItemsRawItemsGet
         should("test getRawItemsRawItemsGet") {
             // uncomment below to test getRawItemsRawItemsGet
-            //val clientVersion : ValidClientVersions =  // ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
             //val result : kotlin.Any = apiInstance.getRawItemsRawItemsGet(clientVersion)
             //result shouldBe ("TODO")
         }

@@ -30,16 +30,16 @@ Name | Type | Description | Notes
 **images** | [**HeroImagesV2**](HeroImagesV2.md) |  | 
 **items** | **Map<String, String>** |  | [default to const {}]
 **startingStats** | [**HeroStartingStatsV2**](HeroStartingStatsV2.md) |  | 
-**itemSlotInfo** | [**Map<String, RawHeroItemSlotInfoValueV2>**](RawHeroItemSlotInfoValueV2.md) |  | [default to const {}]
+**itemSlotInfo** | [**Map<String, RawHeroItemSlotInfoValueV2Output>**](RawHeroItemSlotInfoValueV2Output.md) |  | [default to const {}]
 **physics** | [**HeroPhysicsV2**](HeroPhysicsV2.md) |  | 
 **colors** | [**HeroColorsV2**](HeroColorsV2.md) |  | 
-**shopStatDisplay** | [**HeroShopStatDisplayV2**](HeroShopStatDisplayV2.md) |  | 
-**costBonuses** | [**Map<String, List<RawHeroMapModCostBonusesV2>>**](List.md) |  | [optional] [default to const {}]
-**statsDisplay** | [**RawHeroStatsDisplayV2**](RawHeroStatsDisplayV2.md) |  | 
-**heroStatsUi** | [**RawHeroStatsUIV2**](RawHeroStatsUIV2.md) |  | 
-**levelInfo** | [**Map<String, HeroLevelInfoV2>**](HeroLevelInfoV2.md) |  | [default to const {}]
-**scalingStats** | [**Map<String, RawHeroScalingStatV2>**](RawHeroScalingStatV2.md) |  | [default to const {}]
-**purchaseBonuses** | [**Map<String, List<RawHeroPurchaseBonusV2>>**](List.md) |  | [default to const {}]
+**shopStatDisplay** | [**HeroShopStatDisplayV2Output**](HeroShopStatDisplayV2Output.md) |  | 
+**costBonuses** | [**Map<String, List<RawHeroMapModCostBonusesV2Output>>**](List.md) |  | [optional] [default to const {}]
+**statsDisplay** | [**RawHeroStatsDisplayV2Output**](RawHeroStatsDisplayV2Output.md) |  | 
+**heroStatsUi** | [**RawHeroStatsUIV2Output**](RawHeroStatsUIV2Output.md) |  | 
+**levelInfo** | [**Map<String, HeroLevelInfoV2Output>**](HeroLevelInfoV2Output.md) |  | [default to const {}]
+**scalingStats** | [**Map<String, RawHeroScalingStatV2Output>**](RawHeroScalingStatV2Output.md) |  | [default to const {}]
+**purchaseBonuses** | [**Map<String, List<RawHeroPurchaseBonusV2Output>>**](List.md) |  | [default to const {}]
 **standardLevelUpUpgrades** | **Map<String, num>** |  | [default to const {}]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

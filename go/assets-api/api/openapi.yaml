@@ -41,7 +41,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       - explode: true
         in: query
@@ -93,7 +93,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -135,7 +135,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -169,7 +169,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -213,7 +213,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -254,7 +254,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -298,7 +298,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -341,7 +341,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -390,7 +390,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -398,7 +398,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/RankV2"
+                  $ref: "#/components/schemas/RankV2-Output"
                 type: array
           description: Successful Response
         "422":
@@ -424,7 +424,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -432,7 +432,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/BuildTagV2"
+                  $ref: "#/components/schemas/BuildTagV2-Output"
                 type: array
           description: Successful Response
         "422":
@@ -451,7 +451,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -476,7 +476,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -503,7 +503,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -527,7 +527,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -554,7 +554,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -580,7 +580,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -606,7 +606,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -632,7 +632,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -709,7 +709,7 @@ components:
           nullable: true
           type: array
       title: AbilityTooltipDetailsInfoSectionPropertyBlockV2
-    AbilityTooltipDetailsInfoSectionV2:
+    AbilityTooltipDetailsInfoSectionV2-Input:
       example:
         properties_block:
         - loc_string: loc_string
@@ -763,7 +763,74 @@ components:
           nullable: true
           type: array
       title: AbilityTooltipDetailsInfoSectionV2
-    AbilityTooltipDetailsV2:
+    AbilityTooltipDetailsInfoSectionV2-Output:
+      example:
+        properties_block:
+        - loc_string: loc_string
+          properties:
+          - important_property_icon: important_property_icon
+            show_property_value: true
+            status_effect_name: status_effect_name
+            requires_ability_upgrade: true
+            status_effect_value: status_effect_value
+            important_property: important_property
+          - important_property_icon: important_property_icon
+            show_property_value: true
+            status_effect_name: status_effect_name
+            requires_ability_upgrade: true
+            status_effect_value: status_effect_value
+            important_property: important_property
+        - loc_string: loc_string
+          properties:
+          - important_property_icon: important_property_icon
+            show_property_value: true
+            status_effect_name: status_effect_name
+            requires_ability_upgrade: true
+            status_effect_value: status_effect_value
+            important_property: important_property
+          - important_property_icon: important_property_icon
+            show_property_value: true
+            status_effect_name: status_effect_name
+            requires_ability_upgrade: true
+            status_effect_value: status_effect_value
+            important_property: important_property
+        loc_string: loc_string
+        property_upgrade_required: property_upgrade_required
+        basic_properties:
+        - basic_properties
+        - basic_properties
+      properties:
+        loc_string:
+          nullable: true
+          type: string
+        property_upgrade_required:
+          nullable: true
+          type: string
+        properties_block:
+          items:
+            $ref: "#/components/schemas/AbilityTooltipDetailsInfoSectionPropertyBlockV2"
+          nullable: true
+          type: array
+        basic_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: AbilityTooltipDetailsInfoSectionV2
+    AbilityTooltipDetailsV2-Input:
+      properties:
+        info_sections:
+          items:
+            $ref: "#/components/schemas/AbilityTooltipDetailsInfoSectionV2-Input"
+          nullable: true
+          type: array
+        additional_header_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: AbilityTooltipDetailsV2
+    AbilityTooltipDetailsV2-Output:
       example:
         info_sections:
         - properties_block:
@@ -840,7 +907,7 @@ components:
       properties:
         info_sections:
           items:
-            $ref: "#/components/schemas/AbilityTooltipDetailsInfoSectionV2"
+            $ref: "#/components/schemas/AbilityTooltipDetailsInfoSectionV2-Output"
           nullable: true
           type: array
         additional_header_properties:
@@ -859,7 +926,82 @@ components:
       - melee
       title: AbilityTypeV2
       type: string
-    AbilityV2:
+    AbilityV2-Input:
+      properties:
+        id:
+          title: Id
+          type: integer
+        class_name:
+          title: Class Name
+          type: string
+        name:
+          title: Name
+          type: string
+        start_trained:
+          nullable: true
+          type: boolean
+        image:
+          nullable: true
+          type: string
+        image_webp:
+          nullable: true
+          type: string
+        hero:
+          nullable: true
+          type: integer
+        heroes:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        update_time:
+          nullable: true
+          type: integer
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/ItemPropertyV2-Input"
+          nullable: true
+        weapon_info:
+          $ref: "#/components/schemas/RawItemWeaponInfoV2-Input"
+        type:
+          default: ability
+          enum:
+          - ability
+          title: Type
+          type: string
+        behaviours:
+          items:
+            type: string
+          nullable: true
+          type: array
+        description:
+          $ref: "#/components/schemas/AbilityDescriptionV2"
+        tooltip_details:
+          $ref: "#/components/schemas/AbilityTooltipDetailsV2-Input"
+        upgrades:
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgradeV2-Input"
+          nullable: true
+          type: array
+        ability_type:
+          $ref: "#/components/schemas/AbilityTypeV2"
+        boss_damage_scale:
+          nullable: true
+          type: number
+        dependant_abilities:
+          items:
+            type: string
+          nullable: true
+          type: array
+        videos:
+          $ref: "#/components/schemas/AbilityVideosV2"
+      required:
+      - class_name
+      - description
+      - id
+      - name
+      title: AbilityV2
+    AbilityV2-Output:
       example:
         image: image
         image_webp: image_webp
@@ -1061,10 +1203,10 @@ components:
           type: integer
         properties:
           additionalProperties:
-            $ref: "#/components/schemas/ItemPropertyV2"
+            $ref: "#/components/schemas/ItemPropertyV2-Output"
           nullable: true
         weapon_info:
-          $ref: "#/components/schemas/RawItemWeaponInfoV2"
+          $ref: "#/components/schemas/RawItemWeaponInfoV2-Output"
         type:
           default: ability
           enum:
@@ -1079,10 +1221,10 @@ components:
         description:
           $ref: "#/components/schemas/AbilityDescriptionV2"
         tooltip_details:
-          $ref: "#/components/schemas/AbilityTooltipDetailsV2"
+          $ref: "#/components/schemas/AbilityTooltipDetailsV2-Output"
         upgrades:
           items:
-            $ref: "#/components/schemas/RawAbilityUpgradeV2"
+            $ref: "#/components/schemas/RawAbilityUpgradeV2-Output"
           nullable: true
           type: array
         ability_type:
@@ -1143,7 +1285,19 @@ components:
           nullable: true
           type: string
       title: AbilityVideosV2
-    BuildTagV2:
+    BuildTagV2-Input:
+      properties:
+        class_name:
+          title: Class Name
+          type: string
+        label:
+          title: Label
+          type: string
+      required:
+      - class_name
+      - label
+      title: BuildTagV2
+    BuildTagV2-Output:
       example:
         icon: icon
         label: label
@@ -1376,7 +1530,23 @@ components:
       - signature4
       title: HeroItemTypeV2
       type: string
-    HeroLevelInfoV2:
+    HeroLevelInfoV2-Input:
+      properties:
+        m_bUseStandardUpgrade:
+          nullable: true
+          type: boolean
+        bonus_currencies:
+          items:
+            type: string
+          nullable: true
+          type: array
+        m_unRequiredGold:
+          title: M Unrequiredgold
+          type: integer
+      required:
+      - m_unRequiredGold
+      title: HeroLevelInfoV2
+    HeroLevelInfoV2-Output:
       example:
         use_standard_upgrade: true
         bonus_currencies:
@@ -1435,7 +1605,20 @@ components:
       - stealth_speed_meters_per_second
       - step_height
       title: HeroPhysicsV2
-    HeroShopStatDisplayV2:
+    HeroShopStatDisplayV2-Input:
+      properties:
+        m_eSpiritStatsDisplay:
+          $ref: "#/components/schemas/RawHeroShopSpiritStatsDisplayV2-Input"
+        m_eVitalityStatsDisplay:
+          $ref: "#/components/schemas/RawHeroShopVitalityStatsDisplayV2-Input"
+        weapon_stats_display:
+          $ref: "#/components/schemas/HeroShopWeaponStatsDisplayV2-Input"
+      required:
+      - m_eSpiritStatsDisplay
+      - m_eVitalityStatsDisplay
+      - weapon_stats_display
+      title: HeroShopStatDisplayV2
+    HeroShopStatDisplayV2-Output:
       example:
         vitality_stats_display:
           display_stats:
@@ -1462,17 +1645,42 @@ components:
           - display_stats
       properties:
         spirit_stats_display:
-          $ref: "#/components/schemas/RawHeroShopSpiritStatsDisplayV2"
+          $ref: "#/components/schemas/RawHeroShopSpiritStatsDisplayV2-Output"
         vitality_stats_display:
-          $ref: "#/components/schemas/RawHeroShopVitalityStatsDisplayV2"
+          $ref: "#/components/schemas/RawHeroShopVitalityStatsDisplayV2-Output"
         weapon_stats_display:
-          $ref: "#/components/schemas/HeroShopWeaponStatsDisplayV2"
+          $ref: "#/components/schemas/HeroShopWeaponStatsDisplayV2-Output"
       required:
       - spirit_stats_display
       - vitality_stats_display
       - weapon_stats_display
       title: HeroShopStatDisplayV2
-    HeroShopWeaponStatsDisplayV2:
+    HeroShopWeaponStatsDisplayV2-Input:
+      properties:
+        m_vecDisplayStats:
+          items:
+            type: string
+          type: array
+        m_vecOtherDisplayStats:
+          items:
+            type: string
+          type: array
+        weapon_attributes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        m_strWeaponImage:
+          nullable: true
+          type: string
+        weapon_image_webp:
+          nullable: true
+          type: string
+      required:
+      - m_vecDisplayStats
+      - m_vecOtherDisplayStats
+      title: HeroShopWeaponStatsDisplayV2
+    HeroShopWeaponStatsDisplayV2-Output:
       example:
         weapon_image_webp: weapon_image_webp
         display_stats:
@@ -1959,35 +2167,35 @@ components:
           $ref: "#/components/schemas/HeroStartingStatsV2"
         item_slot_info:
           additionalProperties:
-            $ref: "#/components/schemas/RawHeroItemSlotInfoValueV2"
+            $ref: "#/components/schemas/RawHeroItemSlotInfoValueV2-Output"
           title: Item Slot Info
         physics:
           $ref: "#/components/schemas/HeroPhysicsV2"
         colors:
           $ref: "#/components/schemas/HeroColorsV2"
         shop_stat_display:
-          $ref: "#/components/schemas/HeroShopStatDisplayV2"
+          $ref: "#/components/schemas/HeroShopStatDisplayV2-Output"
         cost_bonuses:
           additionalProperties:
             items:
-              $ref: "#/components/schemas/RawHeroMapModCostBonusesV2"
+              $ref: "#/components/schemas/RawHeroMapModCostBonusesV2-Output"
           nullable: true
         stats_display:
-          $ref: "#/components/schemas/RawHeroStatsDisplayV2"
+          $ref: "#/components/schemas/RawHeroStatsDisplayV2-Output"
         hero_stats_ui:
-          $ref: "#/components/schemas/RawHeroStatsUIV2"
+          $ref: "#/components/schemas/RawHeroStatsUIV2-Output"
         level_info:
           additionalProperties:
-            $ref: "#/components/schemas/HeroLevelInfoV2"
+            $ref: "#/components/schemas/HeroLevelInfoV2-Output"
           title: Level Info
         scaling_stats:
           additionalProperties:
-            $ref: "#/components/schemas/RawHeroScalingStatV2"
+            $ref: "#/components/schemas/RawHeroScalingStatV2-Output"
           title: Scaling Stats
         purchase_bonuses:
           additionalProperties:
             items:
-              $ref: "#/components/schemas/RawHeroPurchaseBonusV2"
+              $ref: "#/components/schemas/RawHeroPurchaseBonusV2-Output"
           title: Purchase Bonuses
         standard_level_up_upgrades:
           additionalProperties:
@@ -2020,7 +2228,55 @@ components:
       - starting_stats
       - stats_display
       title: HeroV2
-    ItemPropertyV2:
+    ItemPropertyV2-Input:
+      properties:
+        m_strValue:
+          $ref: "#/components/schemas/M_Strvalue"
+        m_bCanSetTokenOverride:
+          nullable: true
+          type: boolean
+        m_eProvidedPropertyType:
+          nullable: true
+          type: string
+        m_strCSSClass:
+          nullable: true
+          type: string
+        m_eStatsUsageFlags:
+          $ref: "#/components/schemas/M_Estatsusageflags"
+        m_bIsNegativeAttribute:
+          nullable: true
+          type: boolean
+        m_strDisableValue:
+          nullable: true
+          type: string
+        m_strLocTokenOverride:
+          nullable: true
+          type: string
+        m_eDisplayUnits:
+          nullable: true
+          type: string
+        scale_function:
+          $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2-Input"
+        prefix:
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        postfix:
+          nullable: true
+          type: string
+        postvalue_label:
+          nullable: true
+          type: string
+        conditional:
+          nullable: true
+          type: string
+        icon:
+          nullable: true
+          type: string
+      title: ItemPropertyV2
+    ItemPropertyV2-Output:
       example:
         conditional: conditional
         usage_flags:
@@ -2078,7 +2334,7 @@ components:
           nullable: true
           type: string
         scale_function:
-          $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2"
+          $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2-Output"
         prefix:
           nullable: true
           type: string
@@ -2589,7 +2845,22 @@ components:
           nullable: true
           type: string
       title: RankImagesV2
-    RankV2:
+    RankV2-Input:
+      properties:
+        tier:
+          title: Tier
+          type: integer
+        name:
+          title: Name
+          type: string
+        images:
+          $ref: "#/components/schemas/RankImagesV2"
+      required:
+      - images
+      - name
+      - tier
+      title: RankV2
+    RankV2-Output:
       example:
         images:
           small: small
@@ -2666,7 +2937,24 @@ components:
       - passive
       title: RawAbilitySectionTypeV2
       type: string
-    RawAbilityUpgradePropertyUpgradeV2:
+    RawAbilityUpgradePropertyUpgradeV2-Input:
+      properties:
+        m_strPropertyName:
+          title: M Strpropertyname
+          type: string
+        m_strBonus:
+          $ref: "#/components/schemas/M_Strbonus"
+        m_eScaleStatFilter:
+          nullable: true
+          type: string
+        m_eUpgradeType:
+          nullable: true
+          type: string
+      required:
+      - m_strBonus
+      - m_strPropertyName
+      title: RawAbilityUpgradePropertyUpgradeV2
+    RawAbilityUpgradePropertyUpgradeV2-Output:
       example:
         scale_stat_filter: scale_stat_filter
         bonus: Bonus
@@ -2688,7 +2976,14 @@ components:
       - bonus
       - name
       title: RawAbilityUpgradePropertyUpgradeV2
-    RawAbilityUpgradeV2:
+    RawAbilityUpgradeV2-Input:
+      properties:
+        m_vecPropertyUpgrades:
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgradePropertyUpgradeV2-Input"
+          type: array
+      title: RawAbilityUpgradeV2
+    RawAbilityUpgradeV2-Output:
       example:
         property_upgrades:
         - scale_stat_filter: scale_stat_filter
@@ -2702,10 +2997,19 @@ components:
       properties:
         property_upgrades:
           items:
-            $ref: "#/components/schemas/RawAbilityUpgradePropertyUpgradeV2"
+            $ref: "#/components/schemas/RawAbilityUpgradePropertyUpgradeV2-Output"
           type: array
       title: RawAbilityUpgradeV2
-    RawHeroItemSlotInfoValueV2:
+    RawHeroItemSlotInfoValueV2-Input:
+      properties:
+        m_arMaxPurchasesForTier:
+          items:
+            type: integer
+          type: array
+      required:
+      - m_arMaxPurchasesForTier
+      title: RawHeroItemSlotInfoValueV2
+    RawHeroItemSlotInfoValueV2-Output:
       example:
         max_purchases_for_tier:
         - 5
@@ -2718,7 +3022,23 @@ components:
       required:
       - max_purchases_for_tier
       title: RawHeroItemSlotInfoValueV2
-    RawHeroMapModCostBonusesV2:
+    RawHeroMapModCostBonusesV2-Input:
+      properties:
+        nGoldThreshold:
+          title: Ngoldthreshold
+          type: integer
+        flBonus:
+          title: Flbonus
+          type: number
+        flPercentOnGraph:
+          title: Flpercentongraph
+          type: number
+      required:
+      - flBonus
+      - flPercentOnGraph
+      - nGoldThreshold
+      title: RawHeroMapModCostBonusesV2
+    RawHeroMapModCostBonusesV2-Output:
       example:
         bonus: 1.0246457001441578
         gold_threshold: 1
@@ -2738,7 +3058,23 @@ components:
       - gold_threshold
       - percent_on_graph
       title: RawHeroMapModCostBonusesV2
-    RawHeroPurchaseBonusV2:
+    RawHeroPurchaseBonusV2-Input:
+      properties:
+        m_ValueType:
+          title: M Valuetype
+          type: string
+        m_nTier:
+          title: M Ntier
+          type: integer
+        m_strValue:
+          title: M Strvalue
+          type: string
+      required:
+      - m_ValueType
+      - m_nTier
+      - m_strValue
+      title: RawHeroPurchaseBonusV2
+    RawHeroPurchaseBonusV2-Output:
       example:
         value_type: value_type
         tier: 1
@@ -2758,7 +3094,19 @@ components:
       - value
       - value_type
       title: RawHeroPurchaseBonusV2
-    RawHeroScalingStatV2:
+    RawHeroScalingStatV2-Input:
+      properties:
+        eScalingStat:
+          title: Escalingstat
+          type: string
+        flScale:
+          title: Flscale
+          type: number
+      required:
+      - eScalingStat
+      - flScale
+      title: RawHeroScalingStatV2
+    RawHeroScalingStatV2-Output:
       example:
         scaling_stat: scaling_stat
         scale: 7.457744773683766
@@ -2773,7 +3121,16 @@ components:
       - scale
       - scaling_stat
       title: RawHeroScalingStatV2
-    RawHeroShopSpiritStatsDisplayV2:
+    RawHeroShopSpiritStatsDisplayV2-Input:
+      properties:
+        m_vecDisplayStats:
+          items:
+            type: string
+          type: array
+      required:
+      - m_vecDisplayStats
+      title: RawHeroShopSpiritStatsDisplayV2
+    RawHeroShopSpiritStatsDisplayV2-Output:
       example:
         display_stats:
         - display_stats
@@ -2786,7 +3143,21 @@ components:
       required:
       - display_stats
       title: RawHeroShopSpiritStatsDisplayV2
-    RawHeroShopVitalityStatsDisplayV2:
+    RawHeroShopVitalityStatsDisplayV2-Input:
+      properties:
+        m_vecDisplayStats:
+          items:
+            type: string
+          type: array
+        m_vecOtherDisplayStats:
+          items:
+            type: string
+          type: array
+      required:
+      - m_vecDisplayStats
+      - m_vecOtherDisplayStats
+      title: RawHeroShopVitalityStatsDisplayV2
+    RawHeroShopVitalityStatsDisplayV2-Output:
       example:
         display_stats:
         - display_stats
@@ -2807,7 +3178,37 @@ components:
       - display_stats
       - other_display_stats
       title: RawHeroShopVitalityStatsDisplayV2
-    RawHeroStatsDisplayV2:
+    RawHeroStatsDisplayV2-Input:
+      properties:
+        m_vecHealthHeaderStats:
+          items:
+            type: string
+          type: array
+        m_vecMagicHeaderStats:
+          items:
+            type: string
+          type: array
+        m_vecMagicStats:
+          items:
+            type: string
+          type: array
+        m_vecWeaponHeaderStats:
+          items:
+            type: string
+          type: array
+        m_vecWeaponStats:
+          items:
+            type: string
+          type: array
+      required:
+      - m_vecHealthHeaderStats
+      - m_vecHealthHeaderStats
+      - m_vecMagicHeaderStats
+      - m_vecMagicStats
+      - m_vecWeaponHeaderStats
+      - m_vecWeaponStats
+      title: RawHeroStatsDisplayV2
+    RawHeroStatsDisplayV2-Output:
       example:
         health_stats:
         - health_stats
@@ -2860,7 +3261,19 @@ components:
       - weapon_header_stats
       - weapon_stats
       title: RawHeroStatsDisplayV2
-    RawHeroStatsUIDisplayV2:
+    RawHeroStatsUIDisplayV2-Input:
+      properties:
+        m_eStatCategory:
+          title: M Estatcategory
+          type: string
+        m_eStatType:
+          title: M Estattype
+          type: string
+      required:
+      - m_eStatCategory
+      - m_eStatType
+      title: RawHeroStatsUIDisplayV2
+    RawHeroStatsUIDisplayV2-Output:
       example:
         stat_type: stat_type
         category: category
@@ -2875,7 +3288,20 @@ components:
       - category
       - stat_type
       title: RawHeroStatsUIDisplayV2
-    RawHeroStatsUIV2:
+    RawHeroStatsUIV2-Input:
+      properties:
+        m_eWeaponStatDisplay:
+          title: M Eweaponstatdisplay
+          type: string
+        m_vecDisplayStats:
+          items:
+            $ref: "#/components/schemas/RawHeroStatsUIDisplayV2-Input"
+          type: array
+      required:
+      - m_eWeaponStatDisplay
+      - m_vecDisplayStats
+      title: RawHeroStatsUIV2
+    RawHeroStatsUIV2-Output:
       example:
         display_stats:
         - stat_type: stat_type
@@ -2889,13 +3315,33 @@ components:
           type: string
         display_stats:
           items:
-            $ref: "#/components/schemas/RawHeroStatsUIDisplayV2"
+            $ref: "#/components/schemas/RawHeroStatsUIDisplayV2-Output"
           type: array
       required:
       - display_stats
       - weapon_stat_display
       title: RawHeroStatsUIV2
-    RawItemPropertyScaleFunctionSubclassV2:
+    RawItemPropertyScaleFunctionSubclassV2-Input:
+      properties:
+        _class:
+          nullable: true
+          type: string
+        _my_subclass_name:
+          nullable: true
+          type: string
+        m_eSpecificStatScaleType:
+          nullable: true
+          type: string
+        m_vecScalingStats:
+          items:
+            type: string
+          nullable: true
+          type: array
+        m_flStatScale:
+          nullable: true
+          type: number
+      title: RawItemPropertyScaleFunctionSubclassV2
+    RawItemPropertyScaleFunctionSubclassV2-Output:
       example:
         scaling_stats:
         - scaling_stats
@@ -2923,7 +3369,27 @@ components:
           nullable: true
           type: number
       title: RawItemPropertyScaleFunctionSubclassV2
-    RawItemWeaponInfoBulletSpeedCurveSplineV2:
+    RawItemWeaponInfoBulletSpeedCurveSplineV2-Input:
+      properties:
+        m_flSlopeIncoming:
+          title: M Flslopeincoming
+          type: number
+        m_flSlopeOutgoing:
+          title: M Flslopeoutgoing
+          type: number
+        x:
+          title: X
+          type: number
+        "y":
+          title: "Y"
+          type: number
+      required:
+      - m_flSlopeIncoming
+      - m_flSlopeOutgoing
+      - x
+      - "y"
+      title: RawItemWeaponInfoBulletSpeedCurveSplineV2
+    RawItemWeaponInfoBulletSpeedCurveSplineV2-Output:
       example:
         x: 9.301444243932576
         slope_outgoing: 7.061401241503109
@@ -2948,7 +3414,25 @@ components:
       - x
       - "y"
       title: RawItemWeaponInfoBulletSpeedCurveSplineV2
-    RawItemWeaponInfoBulletSpeedCurveV2:
+    RawItemWeaponInfoBulletSpeedCurveV2-Input:
+      properties:
+        m_spline:
+          items:
+            $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveSplineV2-Input"
+          type: array
+        m_vDomainMaxs:
+          items:
+            type: number
+          type: array
+        m_vDomainMins:
+          items:
+            type: number
+          type: array
+      required:
+      - m_vDomainMaxs
+      - m_vDomainMins
+      title: RawItemWeaponInfoBulletSpeedCurveV2
+    RawItemWeaponInfoBulletSpeedCurveV2-Output:
       example:
         domain_mins:
         - 4.145608029883936
@@ -2968,7 +3452,7 @@ components:
       properties:
         spline:
           items:
-            $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveSplineV2"
+            $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveSplineV2-Output"
           type: array
         domain_maxs:
           items:
@@ -2982,7 +3466,12 @@ components:
       - domain_maxs
       - domain_mins
       title: RawItemWeaponInfoBulletSpeedCurveV2
-    RawItemWeaponInfoV2:
+    RawItemWeaponInfoV2-Input:
+      properties:
+        m_BulletSpeedCurve:
+          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2-Input"
+      title: RawItemWeaponInfoV2
+    RawItemWeaponInfoV2-Output:
       example:
         bullet_speed_curve:
           domain_mins:
@@ -3002,9 +3491,17 @@ components:
           - 2.027123023002322
       properties:
         bullet_speed_curve:
-          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
+          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2-Output"
       title: RawItemWeaponInfoV2
-    RawWeaponInfoHorizontalRecoilV2:
+    RawWeaponInfoHorizontalRecoilV2-Input:
+      properties:
+        m_Range:
+          $ref: "#/components/schemas/M_Range"
+        m_flBurstExponent:
+          nullable: true
+          type: number
+      title: RawWeaponInfoHorizontalRecoilV2
+    RawWeaponInfoHorizontalRecoilV2-Output:
       properties:
         range:
           $ref: "#/components/schemas/Range"
@@ -3012,7 +3509,164 @@ components:
           nullable: true
           type: number
       title: RawWeaponInfoHorizontalRecoilV2
-    RawWeaponInfoV2:
+    RawWeaponInfoV2-Input:
+      properties:
+        m_bCanZoom:
+          nullable: true
+          type: boolean
+        m_flBulletDamage:
+          nullable: true
+          type: number
+        m_flBulletGravityScale:
+          nullable: true
+          type: number
+        m_flBulletInheritShooterVelocityScale:
+          nullable: true
+          type: number
+        m_flBulletLifetime:
+          nullable: true
+          type: number
+        m_flBulletRadius:
+          nullable: true
+          type: number
+        m_flBulletRadiusVsWorld:
+          nullable: true
+          type: number
+        m_flBulletReflectAmount:
+          nullable: true
+          type: number
+        m_flBulletReflectScale:
+          nullable: true
+          type: number
+        m_flBulletWhizDistance:
+          nullable: true
+          type: number
+        m_flBurstShotCooldown:
+          nullable: true
+          type: number
+        m_flCritBonusAgainstNpcs:
+          nullable: true
+          type: number
+        m_flCritBonusEnd:
+          nullable: true
+          type: number
+        m_flCritBonusEndRange:
+          nullable: true
+          type: number
+        m_flCritBonusStart:
+          nullable: true
+          type: number
+        m_flCritBonusStartRange:
+          nullable: true
+          type: number
+        m_flCycleTime:
+          nullable: true
+          type: number
+        m_flIntraBurstCycleTime:
+          nullable: true
+          type: number
+        m_flMaxSpinCycleTime:
+          nullable: true
+          type: number
+        m_flDamageFalloffBias:
+          nullable: true
+          type: number
+        m_flDamageFalloffEndRange:
+          nullable: true
+          type: number
+        m_flDamageFalloffEndScale:
+          nullable: true
+          type: number
+        m_flDamageFalloffStartRange:
+          nullable: true
+          type: number
+        m_flDamageFalloffStartScale:
+          nullable: true
+          type: number
+        m_flHorizontalPunch:
+          nullable: true
+          type: number
+        m_flRange:
+          nullable: true
+          type: number
+        m_flRecoilRecoveryDelayFactor:
+          nullable: true
+          type: number
+        m_flRecoilRecoverySpeed:
+          nullable: true
+          type: number
+        m_flRecoilShotIndexRecoveryTimeFactor:
+          nullable: true
+          type: number
+        m_flRecoilSpeed:
+          nullable: true
+          type: number
+        m_flReloadMoveSpeed:
+          nullable: true
+          type: number
+        m_flScatterYawScale:
+          nullable: true
+          type: number
+        m_AimingShootSpreadPenalty:
+          $ref: "#/components/schemas/M_Aimingshootspreadpenalty"
+        m_StandingShootSpreadPenalty:
+          $ref: "#/components/schemas/M_Standingshootspreadpenalty"
+        m_flShootMoveSpeedPercent:
+          nullable: true
+          type: number
+        m_flShootSpreadPenaltyDecay:
+          nullable: true
+          type: number
+        m_flShootSpreadPenaltyDecayDelay:
+          nullable: true
+          type: number
+        m_flShootSpreadPenaltyPerShot:
+          nullable: true
+          type: number
+        m_flShootingUpSpreadPenalty:
+          nullable: true
+          type: number
+        m_flVerticalPunch:
+          nullable: true
+          type: number
+        m_flZoomFov:
+          nullable: true
+          type: number
+        m_flZoomMoveSpeedPercent:
+          nullable: true
+          type: number
+        m_iBullets:
+          nullable: true
+          type: integer
+        m_iBurstShotCount:
+          nullable: true
+          type: integer
+        m_iClipSize:
+          nullable: true
+          type: integer
+        m_flSpread:
+          nullable: true
+          type: number
+        m_flStandingSpread:
+          nullable: true
+          type: number
+        m_flLowAmmoIndicatorThreshold:
+          nullable: true
+          type: number
+        m_flRecoilSeed:
+          nullable: true
+          type: number
+        m_flReloadDuration:
+          nullable: true
+          type: number
+        m_BulletSpeedCurve:
+          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2-Input"
+        m_HorizontalRecoil:
+          $ref: "#/components/schemas/RawWeaponInfoHorizontalRecoilV2-Input"
+        m_VerticalRecoil:
+          $ref: "#/components/schemas/RawWeaponInfoVerticalRecoilV2-Input"
+      title: RawWeaponInfoV2
+    RawWeaponInfoV2-Output:
       properties:
         can_zoom:
           nullable: true
@@ -3163,13 +3817,27 @@ components:
           nullable: true
           type: number
         bullet_speed_curve:
-          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
+          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2-Output"
         horizontal_recoil:
-          $ref: "#/components/schemas/RawWeaponInfoHorizontalRecoilV2"
+          $ref: "#/components/schemas/RawWeaponInfoHorizontalRecoilV2-Output"
         vertical_recoil:
-          $ref: "#/components/schemas/RawWeaponInfoVerticalRecoilV2"
+          $ref: "#/components/schemas/RawWeaponInfoVerticalRecoilV2-Output"
       title: RawWeaponInfoV2
-    RawWeaponInfoVerticalRecoilV2:
+    RawWeaponInfoVerticalRecoilV2-Input:
+      properties:
+        m_Range:
+          $ref: "#/components/schemas/M_Range"
+        m_flBurstExponent:
+          nullable: true
+          type: number
+        m_flBurstConstant:
+          nullable: true
+          type: number
+        m_flBurstSlope:
+          nullable: true
+          type: number
+      title: RawWeaponInfoVerticalRecoilV2
+    RawWeaponInfoVerticalRecoilV2-Output:
       properties:
         range:
           $ref: "#/components/schemas/Range"
@@ -3203,7 +3871,63 @@ components:
           nullable: true
           type: string
       title: UpgradeDescriptionV2
-    UpgradePropertyV2:
+    UpgradePropertyV2-Input:
+      properties:
+        m_strValue:
+          $ref: "#/components/schemas/M_Strvalue"
+        m_bCanSetTokenOverride:
+          nullable: true
+          type: boolean
+        m_eProvidedPropertyType:
+          nullable: true
+          type: string
+        m_strCSSClass:
+          nullable: true
+          type: string
+        m_eStatsUsageFlags:
+          $ref: "#/components/schemas/M_Estatsusageflags"
+        m_bIsNegativeAttribute:
+          nullable: true
+          type: boolean
+        m_strDisableValue:
+          nullable: true
+          type: string
+        m_strLocTokenOverride:
+          nullable: true
+          type: string
+        m_eDisplayUnits:
+          nullable: true
+          type: string
+        scale_function:
+          $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2-Input"
+        prefix:
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        postfix:
+          nullable: true
+          type: string
+        postvalue_label:
+          nullable: true
+          type: string
+        conditional:
+          nullable: true
+          type: string
+        icon:
+          nullable: true
+          type: string
+        tooltip_section:
+          $ref: "#/components/schemas/RawAbilitySectionTypeV2"
+        tooltip_is_elevated:
+          nullable: true
+          type: boolean
+        tooltip_is_important:
+          nullable: true
+          type: boolean
+      title: UpgradePropertyV2
+    UpgradePropertyV2-Output:
       properties:
         value:
           $ref: "#/components/schemas/Value_1"
@@ -3234,7 +3958,7 @@ components:
           nullable: true
           type: string
         scale_function:
-          $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2"
+          $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2-Output"
         prefix:
           nullable: true
           type: string
@@ -3300,7 +4024,7 @@ components:
           nullable: true
           type: string
       title: UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
-    UpgradeTooltipSectionV2:
+    UpgradeTooltipSectionV2-Input:
       properties:
         section_type:
           $ref: "#/components/schemas/RawAbilitySectionTypeV2"
@@ -3310,7 +4034,17 @@ components:
           nullable: true
           type: array
       title: UpgradeTooltipSectionV2
-    UpgradeV2:
+    UpgradeTooltipSectionV2-Output:
+      properties:
+        section_type:
+          $ref: "#/components/schemas/RawAbilitySectionTypeV2"
+        section_attributes:
+          items:
+            $ref: "#/components/schemas/UpgradeTooltipSectionAttributeV2"
+          nullable: true
+          type: array
+      title: UpgradeTooltipSectionV2
+    UpgradeV2-Input:
       properties:
         id:
           title: Id
@@ -3343,10 +4077,10 @@ components:
           type: integer
         properties:
           additionalProperties:
-            $ref: "#/components/schemas/UpgradePropertyV2"
+            $ref: "#/components/schemas/UpgradePropertyV2-Input"
           nullable: true
         weapon_info:
-          $ref: "#/components/schemas/RawItemWeaponInfoV2"
+          $ref: "#/components/schemas/RawItemWeaponInfoV2-Input"
         type:
           default: upgrade
           enum:
@@ -3385,91 +4119,18 @@ components:
           type: array
         tooltip_sections:
           items:
-            $ref: "#/components/schemas/UpgradeTooltipSectionV2"
+            $ref: "#/components/schemas/UpgradeTooltipSectionV2-Input"
           nullable: true
           type: array
-        is_active_item:
-          readOnly: true
-          title: Is Active Item
-          type: boolean
-        shopable:
-          readOnly: true
-          title: Shopable
-          type: boolean
-        cost:
-          nullable: true
-          readOnly: true
-          type: integer
       required:
       - activation
       - class_name
-      - cost
       - id
-      - is_active_item
       - item_slot_type
       - item_tier
       - name
-      - shopable
       title: UpgradeV2
-    ValidClientVersions:
-      enum:
-      - 5945
-      - 5920
-      - 5902
-      - 5885
-      - 5878
-      - 5869
-      - 5852
-      - 5831
-      - 5826
-      - 5818
-      - 5789
-      - 5748
-      - 5723
-      - 5712
-      - 5710
-      - 5690
-      - 5675
-      - 5668
-      - 5664
-      - 5658
-      - 5650
-      - 5636
-      - 5624
-      - 5615
-      - 5602
-      - 5583
-      - 5554
-      - 5538
-      - 5533
-      - 5529
-      - 5527
-      title: ValidClientVersions
-      type: integer
-    ValidationError:
-      example:
-        msg: msg
-        loc:
-        - ValidationError_loc_inner
-        - ValidationError_loc_inner
-        type: type
-      properties:
-        loc:
-          items:
-            $ref: "#/components/schemas/ValidationError_loc_inner"
-          type: array
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    WeaponV2:
+    UpgradeV2-Output:
       properties:
         id:
           title: Id
@@ -3502,10 +4163,182 @@ components:
           type: integer
         properties:
           additionalProperties:
-            $ref: "#/components/schemas/ItemPropertyV2"
+            $ref: "#/components/schemas/UpgradePropertyV2-Output"
           nullable: true
         weapon_info:
-          $ref: "#/components/schemas/RawWeaponInfoV2"
+          $ref: "#/components/schemas/RawItemWeaponInfoV2-Output"
+        type:
+          default: upgrade
+          enum:
+          - upgrade
+          title: Type
+          type: string
+        shop_image:
+          nullable: true
+          type: string
+        shop_image_webp:
+          nullable: true
+          type: string
+        shop_image_small:
+          nullable: true
+          type: string
+        shop_image_small_webp:
+          nullable: true
+          type: string
+        item_slot_type:
+          $ref: "#/components/schemas/ItemSlotTypeV2"
+        item_tier:
+          $ref: "#/components/schemas/ItemTierV2"
+        disabled:
+          nullable: true
+          type: boolean
+        description:
+          $ref: "#/components/schemas/UpgradeDescriptionV2"
+        activation:
+          $ref: "#/components/schemas/RawAbilityActivationV2"
+        imbue:
+          $ref: "#/components/schemas/RawAbilityImbueV2"
+        component_items:
+          items:
+            type: string
+          nullable: true
+          type: array
+        tooltip_sections:
+          items:
+            $ref: "#/components/schemas/UpgradeTooltipSectionV2-Output"
+          nullable: true
+          type: array
+        is_active_item:
+          readOnly: true
+          title: Is Active Item
+          type: boolean
+        shopable:
+          readOnly: true
+          title: Shopable
+          type: boolean
+        cost:
+          nullable: true
+          readOnly: true
+          type: integer
+      required:
+      - activation
+      - class_name
+      - cost
+      - id
+      - is_active_item
+      - item_slot_type
+      - item_tier
+      - name
+      - shopable
+      title: UpgradeV2
+    ValidationError:
+      example:
+        msg: msg
+        loc:
+        - ValidationError_loc_inner
+        - ValidationError_loc_inner
+        type: type
+      properties:
+        loc:
+          items:
+            $ref: "#/components/schemas/ValidationError_loc_inner"
+          type: array
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    WeaponV2-Input:
+      properties:
+        id:
+          title: Id
+          type: integer
+        class_name:
+          title: Class Name
+          type: string
+        name:
+          title: Name
+          type: string
+        start_trained:
+          nullable: true
+          type: boolean
+        image:
+          nullable: true
+          type: string
+        image_webp:
+          nullable: true
+          type: string
+        hero:
+          nullable: true
+          type: integer
+        heroes:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        update_time:
+          nullable: true
+          type: integer
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/ItemPropertyV2-Input"
+          nullable: true
+        weapon_info:
+          $ref: "#/components/schemas/RawWeaponInfoV2-Input"
+        type:
+          default: weapon
+          enum:
+          - weapon
+          title: Type
+          type: string
+      required:
+      - class_name
+      - id
+      - name
+      title: WeaponV2
+    WeaponV2-Output:
+      properties:
+        id:
+          title: Id
+          type: integer
+        class_name:
+          title: Class Name
+          type: string
+        name:
+          title: Name
+          type: string
+        start_trained:
+          nullable: true
+          type: boolean
+        image:
+          nullable: true
+          type: string
+        image_webp:
+          nullable: true
+          type: string
+        hero:
+          nullable: true
+          type: integer
+        heroes:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        update_time:
+          nullable: true
+          type: integer
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/ItemPropertyV2-Output"
+          nullable: true
+        weapon_info:
+          $ref: "#/components/schemas/RawWeaponInfoV2-Output"
         type:
           default: weapon
           enum:
@@ -3587,34 +4420,83 @@ components:
       - color
       - origin
       title: ZiplanePathV1
+    deadlock_assets_api__routes__v2__ValidClientVersions:
+      enum:
+      - 5945
+      - 5920
+      - 5902
+      - 5885
+      - 5878
+      - 5869
+      - 5852
+      - 5831
+      - 5826
+      - 5818
+      - 5789
+      - 5748
+      - 5723
+      - 5712
+      - 5710
+      - 5690
+      - 5675
+      - 5668
+      - 5664
+      - 5658
+      - 5650
+      - 5636
+      - 5624
+      - 5615
+      - 5602
+      - 5583
+      - 5554
+      - 5538
+      - 5533
+      - 5529
+      - 5527
+      title: ValidClientVersions
+      type: integer
     get_items_v2_items_get_200_response_inner:
       discriminator:
         mapping:
-          ability: "#/components/schemas/AbilityV2"
-          weapon: "#/components/schemas/WeaponV2"
-          upgrade: "#/components/schemas/UpgradeV2"
+          ability: "#/components/schemas/AbilityV2-Output"
+          weapon: "#/components/schemas/WeaponV2-Output"
+          upgrade: "#/components/schemas/UpgradeV2-Output"
         propertyName: type
       oneOf:
-      - $ref: "#/components/schemas/AbilityV2"
-      - $ref: "#/components/schemas/WeaponV2"
-      - $ref: "#/components/schemas/UpgradeV2"
+      - $ref: "#/components/schemas/AbilityV2-Output"
+      - $ref: "#/components/schemas/WeaponV2-Output"
+      - $ref: "#/components/schemas/UpgradeV2-Output"
     Response_Get_Item_V2_Items__Id_Or_Class_Name__Get:
       discriminator:
         mapping:
-          ability: "#/components/schemas/AbilityV2"
-          weapon: "#/components/schemas/WeaponV2"
-          upgrade: "#/components/schemas/UpgradeV2"
+          ability: "#/components/schemas/AbilityV2-Output"
+          weapon: "#/components/schemas/WeaponV2-Output"
+          upgrade: "#/components/schemas/UpgradeV2-Output"
         propertyName: type
       oneOf:
-      - $ref: "#/components/schemas/AbilityV2"
-      - $ref: "#/components/schemas/WeaponV2"
-      - $ref: "#/components/schemas/UpgradeV2"
+      - $ref: "#/components/schemas/AbilityV2-Output"
+      - $ref: "#/components/schemas/WeaponV2-Output"
+      - $ref: "#/components/schemas/UpgradeV2-Output"
       title: Response Get Item V2 Items  Id Or Class Name  Get
     Value:
       anyOf:
       - type: integer
       - type: number
       title: Value
+    M_Strvalue:
+      anyOf:
+      - type: string
+      - type: number
+      nullable: true
+      title: M Strvalue
+    M_Estatsusageflags:
+      anyOf:
+      - items:
+          $ref: "#/components/schemas/StatsUsageFlagV2"
+        type: array
+      - type: string
+      nullable: true
+      title: M Estatsusageflags
     Value_1:
       anyOf:
       - type: string
@@ -3629,11 +4511,24 @@ components:
       - type: string
       nullable: true
       title: Usage Flags
+    M_Strbonus:
+      anyOf:
+      - type: string
+      - type: number
+      title: M Strbonus
     Bonus:
       anyOf:
       - type: string
       - type: number
       title: Bonus
+    M_Range:
+      anyOf:
+      - items:
+          type: number
+        type: array
+      - type: number
+      nullable: true
+      title: M Range
     Range:
       anyOf:
       - items:
@@ -3642,6 +4537,22 @@ components:
       - type: number
       nullable: true
       title: Range
+    M_Aimingshootspreadpenalty:
+      anyOf:
+      - items:
+          type: number
+        type: array
+      - type: string
+      nullable: true
+      title: M Aimingshootspreadpenalty
+    M_Standingshootspreadpenalty:
+      anyOf:
+      - items:
+          type: number
+        type: array
+      - type: string
+      nullable: true
+      title: M Standingshootspreadpenalty
     Aiming_Shot_Spread_Penalty:
       anyOf:
       - items:

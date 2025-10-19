@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **getBuildTagsV2BuildTagsGet**
-> List<BuildTagV2> getBuildTagsV2BuildTagsGet(language, clientVersion)
+> List<BuildTagV2Output> getBuildTagsV2BuildTagsGet(language, clientVersion)
 
 Get Build Tags
 
@@ -30,7 +30,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = DefaultApi();
 final language = ; // Language | 
-final clientVersion = ; // ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getBuildTagsV2BuildTagsGet(language, clientVersion);
@@ -45,11 +45,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
-[**List<BuildTagV2>**](BuildTagV2.md)
+[**List<BuildTagV2Output>**](BuildTagV2Output.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ Get Colors
 import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = DefaultApi();
-final clientVersion = ; // ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getColorsV1ColorsGet(clientVersion);
@@ -123,7 +123,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -150,7 +150,7 @@ Get Icons
 import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = DefaultApi();
-final clientVersion = ; // ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getIconsV1IconsGet(clientVersion);
@@ -164,7 +164,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -191,7 +191,7 @@ Get Map
 import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = DefaultApi();
-final clientVersion = ; // ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getMapV1MapGet(clientVersion);
@@ -205,7 +205,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -223,7 +223,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRanksV2RanksGet**
-> List<RankV2> getRanksV2RanksGet(language, clientVersion)
+> List<RankV2Output> getRanksV2RanksGet(language, clientVersion)
 
 Get Ranks
 
@@ -233,7 +233,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = DefaultApi();
 final language = ; // Language | 
-final clientVersion = ; // ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getRanksV2RanksGet(language, clientVersion);
@@ -248,11 +248,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
-[**List<RankV2>**](RankV2.md)
+[**List<RankV2Output>**](RankV2Output.md)
 
 ### Authorization
 
@@ -275,7 +275,7 @@ Get Sounds
 import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = DefaultApi();
-final clientVersion = ; // ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getSoundsV1SoundsGet(clientVersion);
@@ -289,7 +289,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -316,7 +316,7 @@ Get Steam Info
 import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = DefaultApi();
-final clientVersion = ; // ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getSteamInfoV1SteamInfoGet(clientVersion);
@@ -330,7 +330,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **get_build_tags_v2_build_tags_get**
-> List[BuildTagV2] get_build_tags_v2_build_tags_get(language=language, client_version=client_version)
+> List[BuildTagV2Output] get_build_tags_v2_build_tags_get(language=language, client_version=client_version)
 
 Get Build Tags
 
@@ -24,9 +24,9 @@ Get Build Tags
 
 ```python
 import assets-deadlock-api-client
-from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2
+from assets-deadlock-api-client.models.build_tag_v2_output import BuildTagV2Output
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.models.language import Language
-from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -42,7 +42,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.DefaultApi(api_client)
     language = assets-deadlock-api-client.Language() # Language |  (optional)
-    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Build Tags
@@ -61,11 +61,11 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
-[**List[BuildTagV2]**](BuildTagV2.md)
+[**List[BuildTagV2Output]**](BuildTagV2Output.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ Get Colors
 ```python
 import assets-deadlock-api-client
 from assets-deadlock-api-client.models.color_v1 import ColorV1
-from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -172,7 +172,7 @@ configuration = assets-deadlock-api-client.Configuration(
 with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.DefaultApi(api_client)
-    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Colors
@@ -190,7 +190,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -224,7 +224,7 @@ Get Icons
 
 ```python
 import assets-deadlock-api-client
-from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -239,7 +239,7 @@ configuration = assets-deadlock-api-client.Configuration(
 with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.DefaultApi(api_client)
-    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Icons
@@ -257,7 +257,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -291,8 +291,8 @@ Get Map
 
 ```python
 import assets-deadlock-api-client
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.models.map_v1 import MapV1
-from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -307,7 +307,7 @@ configuration = assets-deadlock-api-client.Configuration(
 with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.DefaultApi(api_client)
-    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Map
@@ -325,7 +325,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -350,7 +350,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ranks_v2_ranks_get**
-> List[RankV2] get_ranks_v2_ranks_get(language=language, client_version=client_version)
+> List[RankV2Output] get_ranks_v2_ranks_get(language=language, client_version=client_version)
 
 Get Ranks
 
@@ -359,9 +359,9 @@ Get Ranks
 
 ```python
 import assets-deadlock-api-client
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.models.language import Language
-from assets-deadlock-api-client.models.rank_v2 import RankV2
-from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.models.rank_v2_output import RankV2Output
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -377,7 +377,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.DefaultApi(api_client)
     language = assets-deadlock-api-client.Language() # Language |  (optional)
-    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Ranks
@@ -396,11 +396,11 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
-[**List[RankV2]**](RankV2.md)
+[**List[RankV2Output]**](RankV2Output.md)
 
 ### Authorization
 
@@ -430,7 +430,7 @@ Get Sounds
 
 ```python
 import assets-deadlock-api-client
-from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -445,7 +445,7 @@ configuration = assets-deadlock-api-client.Configuration(
 with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.DefaultApi(api_client)
-    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Sounds
@@ -463,7 +463,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -497,7 +497,7 @@ Get Steam Info
 
 ```python
 import assets-deadlock-api-client
-from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -512,7 +512,7 @@ configuration = assets-deadlock-api-client.Configuration(
 with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.DefaultApi(api_client)
-    client_version = assets-deadlock-api-client.ValidClientVersions() # ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Steam Info
@@ -530,7 +530,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

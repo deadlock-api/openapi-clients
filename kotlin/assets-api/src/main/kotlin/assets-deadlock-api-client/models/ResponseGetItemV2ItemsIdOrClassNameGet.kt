@@ -15,21 +15,21 @@
 
 package assets-deadlock-api-client.models
 
-import assets-deadlock-api-client.models.AbilityTooltipDetailsV2
+import assets-deadlock-api-client.models.AbilityTooltipDetailsV2Output
 import assets-deadlock-api-client.models.AbilityTypeV2
-import assets-deadlock-api-client.models.AbilityV2
+import assets-deadlock-api-client.models.AbilityV2Output
 import assets-deadlock-api-client.models.AbilityVideosV2
 import assets-deadlock-api-client.models.ItemSlotTypeV2
 import assets-deadlock-api-client.models.ItemTierV2
 import assets-deadlock-api-client.models.RawAbilityActivationV2
 import assets-deadlock-api-client.models.RawAbilityImbueV2
-import assets-deadlock-api-client.models.RawAbilityUpgradeV2
-import assets-deadlock-api-client.models.RawItemWeaponInfoV2
+import assets-deadlock-api-client.models.RawAbilityUpgradeV2Output
+import assets-deadlock-api-client.models.RawItemWeaponInfoV2Output
 import assets-deadlock-api-client.models.UpgradeDescriptionV2
-import assets-deadlock-api-client.models.UpgradePropertyV2
-import assets-deadlock-api-client.models.UpgradeTooltipSectionV2
-import assets-deadlock-api-client.models.UpgradeV2
-import assets-deadlock-api-client.models.WeaponV2
+import assets-deadlock-api-client.models.UpgradePropertyV2Output
+import assets-deadlock-api-client.models.UpgradeTooltipSectionV2Output
+import assets-deadlock-api-client.models.UpgradeV2Output
+import assets-deadlock-api-client.models.WeaponV2Output
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -109,17 +109,17 @@ interface ResponseGetItemV2ItemsIdOrClassNameGet {
     @Json(name = "update_time")
     val updateTime: kotlin.Int?
     @Json(name = "properties")
-    val properties: kotlin.collections.Map<kotlin.String, UpgradePropertyV2>?
+    val properties: kotlin.collections.Map<kotlin.String, UpgradePropertyV2Output>?
     @Json(name = "weapon_info")
-    val weaponInfo: RawItemWeaponInfoV2?
+    val weaponInfo: RawItemWeaponInfoV2Output?
     @Json(name = "type")
     val type: ResponseGetItemV2ItemsIdOrClassNameGet.Type?
     @Json(name = "behaviours")
     val behaviours: kotlin.collections.List<kotlin.String>?
     @Json(name = "tooltip_details")
-    val tooltipDetails: AbilityTooltipDetailsV2?
+    val tooltipDetails: AbilityTooltipDetailsV2Output?
     @Json(name = "upgrades")
-    val upgrades: kotlin.collections.List<RawAbilityUpgradeV2>?
+    val upgrades: kotlin.collections.List<RawAbilityUpgradeV2Output>?
     @Json(name = "ability_type")
     val abilityType: AbilityTypeV2?
     @Json(name = "boss_damage_scale")
@@ -143,7 +143,7 @@ interface ResponseGetItemV2ItemsIdOrClassNameGet {
     @Json(name = "component_items")
     val componentItems: kotlin.collections.List<kotlin.String>?
     @Json(name = "tooltip_sections")
-    val tooltipSections: kotlin.collections.List<UpgradeTooltipSectionV2>?
+    val tooltipSections: kotlin.collections.List<UpgradeTooltipSectionV2Output>?
     /**
      * 
      *

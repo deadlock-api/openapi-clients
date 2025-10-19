@@ -26,7 +26,7 @@ type ApiGetBuildTagsV2BuildTagsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
 	language *Language
-	clientVersion *ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
 func (r ApiGetBuildTagsV2BuildTagsGetRequest) Language(language Language) ApiGetBuildTagsV2BuildTagsGetRequest {
@@ -34,12 +34,12 @@ func (r ApiGetBuildTagsV2BuildTagsGetRequest) Language(language Language) ApiGet
 	return r
 }
 
-func (r ApiGetBuildTagsV2BuildTagsGetRequest) ClientVersion(clientVersion ValidClientVersions) ApiGetBuildTagsV2BuildTagsGetRequest {
+func (r ApiGetBuildTagsV2BuildTagsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetBuildTagsV2BuildTagsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
 
-func (r ApiGetBuildTagsV2BuildTagsGetRequest) Execute() ([]BuildTagV2, *http.Response, error) {
+func (r ApiGetBuildTagsV2BuildTagsGetRequest) Execute() ([]BuildTagV2Output, *http.Response, error) {
 	return r.ApiService.GetBuildTagsV2BuildTagsGetExecute(r)
 }
 
@@ -57,13 +57,13 @@ func (a *DefaultAPIService) GetBuildTagsV2BuildTagsGet(ctx context.Context) ApiG
 }
 
 // Execute executes the request
-//  @return []BuildTagV2
-func (a *DefaultAPIService) GetBuildTagsV2BuildTagsGetExecute(r ApiGetBuildTagsV2BuildTagsGetRequest) ([]BuildTagV2, *http.Response, error) {
+//  @return []BuildTagV2Output
+func (a *DefaultAPIService) GetBuildTagsV2BuildTagsGetExecute(r ApiGetBuildTagsV2BuildTagsGetRequest) ([]BuildTagV2Output, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []BuildTagV2
+		localVarReturnValue  []BuildTagV2Output
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetBuildTagsV2BuildTagsGet")
@@ -247,10 +247,10 @@ func (a *DefaultAPIService) GetClientVersionsV2ClientVersionsGetExecute(r ApiGet
 type ApiGetColorsV1ColorsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
-func (r ApiGetColorsV1ColorsGetRequest) ClientVersion(clientVersion ValidClientVersions) ApiGetColorsV1ColorsGetRequest {
+func (r ApiGetColorsV1ColorsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetColorsV1ColorsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -363,10 +363,10 @@ func (a *DefaultAPIService) GetColorsV1ColorsGetExecute(r ApiGetColorsV1ColorsGe
 type ApiGetIconsV1IconsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
-func (r ApiGetIconsV1IconsGetRequest) ClientVersion(clientVersion ValidClientVersions) ApiGetIconsV1IconsGetRequest {
+func (r ApiGetIconsV1IconsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetIconsV1IconsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -479,10 +479,10 @@ func (a *DefaultAPIService) GetIconsV1IconsGetExecute(r ApiGetIconsV1IconsGetReq
 type ApiGetMapV1MapGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
-func (r ApiGetMapV1MapGetRequest) ClientVersion(clientVersion ValidClientVersions) ApiGetMapV1MapGetRequest {
+func (r ApiGetMapV1MapGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetMapV1MapGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -596,7 +596,7 @@ type ApiGetRanksV2RanksGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
 	language *Language
-	clientVersion *ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
 func (r ApiGetRanksV2RanksGetRequest) Language(language Language) ApiGetRanksV2RanksGetRequest {
@@ -604,12 +604,12 @@ func (r ApiGetRanksV2RanksGetRequest) Language(language Language) ApiGetRanksV2R
 	return r
 }
 
-func (r ApiGetRanksV2RanksGetRequest) ClientVersion(clientVersion ValidClientVersions) ApiGetRanksV2RanksGetRequest {
+func (r ApiGetRanksV2RanksGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetRanksV2RanksGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
 
-func (r ApiGetRanksV2RanksGetRequest) Execute() ([]RankV2, *http.Response, error) {
+func (r ApiGetRanksV2RanksGetRequest) Execute() ([]RankV2Output, *http.Response, error) {
 	return r.ApiService.GetRanksV2RanksGetExecute(r)
 }
 
@@ -627,13 +627,13 @@ func (a *DefaultAPIService) GetRanksV2RanksGet(ctx context.Context) ApiGetRanksV
 }
 
 // Execute executes the request
-//  @return []RankV2
-func (a *DefaultAPIService) GetRanksV2RanksGetExecute(r ApiGetRanksV2RanksGetRequest) ([]RankV2, *http.Response, error) {
+//  @return []RankV2Output
+func (a *DefaultAPIService) GetRanksV2RanksGetExecute(r ApiGetRanksV2RanksGetRequest) ([]RankV2Output, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []RankV2
+		localVarReturnValue  []RankV2Output
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetRanksV2RanksGet")
@@ -720,10 +720,10 @@ func (a *DefaultAPIService) GetRanksV2RanksGetExecute(r ApiGetRanksV2RanksGetReq
 type ApiGetSoundsV1SoundsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
-func (r ApiGetSoundsV1SoundsGetRequest) ClientVersion(clientVersion ValidClientVersions) ApiGetSoundsV1SoundsGetRequest {
+func (r ApiGetSoundsV1SoundsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetSoundsV1SoundsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -836,10 +836,10 @@ func (a *DefaultAPIService) GetSoundsV1SoundsGetExecute(r ApiGetSoundsV1SoundsGe
 type ApiGetSteamInfoV1SteamInfoGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
-func (r ApiGetSteamInfoV1SteamInfoGetRequest) ClientVersion(clientVersion ValidClientVersions) ApiGetSteamInfoV1SteamInfoGetRequest {
+func (r ApiGetSteamInfoV1SteamInfoGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetSteamInfoV1SteamInfoGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

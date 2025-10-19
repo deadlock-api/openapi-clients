@@ -19,35 +19,35 @@ void main() {
   group('tests for ItemsApi', () {
     // Get Item
     //
-    //Future<ResponseGetItemV2ItemsIdOrClassNameGet> getItemV2ItemsIdOrClassNameGet(String idOrClassName, { Language language, ValidClientVersions clientVersion }) async
+    //Future<ResponseGetItemV2ItemsIdOrClassNameGet> getItemV2ItemsIdOrClassNameGet(String idOrClassName, { Language language, DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getItemV2ItemsIdOrClassNameGet', () async {
       // TODO
     });
 
     // Get Items By Hero Id
     //
-    //Future<List<GetItemsV2ItemsGet200ResponseInner>> getItemsByHeroIdV2ItemsByHeroIdIdGet(int id, { Language language, ValidClientVersions clientVersion }) async
+    //Future<List<GetItemsV2ItemsGet200ResponseInner>> getItemsByHeroIdV2ItemsByHeroIdIdGet(int id, { Language language, DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getItemsByHeroIdV2ItemsByHeroIdIdGet', () async {
       // TODO
     });
 
     // Get Items By Slot Type
     //
-    //Future<List<GetItemsV2ItemsGet200ResponseInner>> getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(ItemSlotTypeV2 slotType, { Language language, ValidClientVersions clientVersion }) async
+    //Future<List<GetItemsV2ItemsGet200ResponseInner>> getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(ItemSlotTypeV2 slotType, { Language language, DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet', () async {
       // TODO
     });
 
     // Get Items By Type
     //
-    //Future<List<GetItemsV2ItemsGet200ResponseInner>> getItemsByTypeV2ItemsByTypeTypeGet(ItemTypeV2 type, { Language language, ValidClientVersions clientVersion }) async
+    //Future<List<GetItemsV2ItemsGet200ResponseInner>> getItemsByTypeV2ItemsByTypeTypeGet(ItemTypeV2 type, { Language language, DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getItemsByTypeV2ItemsByTypeTypeGet', () async {
       // TODO
     });
 
     // Get Items
     //
-    //Future<List<GetItemsV2ItemsGet200ResponseInner>> getItemsV2ItemsGet({ Language language, ValidClientVersions clientVersion }) async
+    //Future<List<GetItemsV2ItemsGet200ResponseInner>> getItemsV2ItemsGet({ Language language, DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getItemsV2ItemsGet', () async {
       // TODO
     });

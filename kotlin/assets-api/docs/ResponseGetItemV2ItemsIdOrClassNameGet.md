@@ -20,12 +20,12 @@
 | **hero** | **kotlin.Int** |  |  [optional] |
 | **heroes** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  [optional] |
 | **updateTime** | **kotlin.Int** |  |  [optional] |
-| **properties** | [**kotlin.collections.Map&lt;kotlin.String, UpgradePropertyV2&gt;**](UpgradePropertyV2.md) |  |  [optional] |
-| **weaponInfo** | [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  |  [optional] |
+| **properties** | [**kotlin.collections.Map&lt;kotlin.String, UpgradePropertyV2Output&gt;**](UpgradePropertyV2Output.md) |  |  [optional] |
+| **weaponInfo** | [**RawItemWeaponInfoV2Output**](RawItemWeaponInfoV2Output.md) |  |  [optional] |
 | **type** | [**inline**](#Type) |  |  [optional] |
 | **behaviours** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
-| **tooltipDetails** | [**AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md) |  |  [optional] |
-| **upgrades** | [**kotlin.collections.List&lt;RawAbilityUpgradeV2&gt;**](RawAbilityUpgradeV2.md) |  |  [optional] |
+| **tooltipDetails** | [**AbilityTooltipDetailsV2Output**](AbilityTooltipDetailsV2Output.md) |  |  [optional] |
+| **upgrades** | [**kotlin.collections.List&lt;RawAbilityUpgradeV2Output&gt;**](RawAbilityUpgradeV2Output.md) |  |  [optional] |
 | **abilityType** | [**AbilityTypeV2**](AbilityTypeV2.md) |  |  [optional] |
 | **bossDamageScale** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **dependantAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
@@ -37,7 +37,7 @@
 | **disabled** | **kotlin.Boolean** |  |  [optional] |
 | **imbue** | [**RawAbilityImbueV2**](RawAbilityImbueV2.md) |  |  [optional] |
 | **componentItems** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
-| **tooltipSections** | [**kotlin.collections.List&lt;UpgradeTooltipSectionV2&gt;**](UpgradeTooltipSectionV2.md) |  |  [optional] |
+| **tooltipSections** | [**kotlin.collections.List&lt;UpgradeTooltipSectionV2Output&gt;**](UpgradeTooltipSectionV2Output.md) |  |  [optional] |
 
 
 <a id="Type"></a>

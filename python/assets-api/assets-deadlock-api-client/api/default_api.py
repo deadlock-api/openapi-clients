@@ -18,12 +18,12 @@ from typing_extensions import Annotated
 
 from pydantic import StrictInt, StrictStr
 from typing import Any, Dict, List, Optional
-from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2
+from assets-deadlock-api-client.models.build_tag_v2_output import BuildTagV2Output
 from assets-deadlock-api-client.models.color_v1 import ColorV1
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.models.language import Language
 from assets-deadlock-api-client.models.map_v1 import MapV1
-from assets-deadlock-api-client.models.rank_v2 import RankV2
-from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
+from assets-deadlock-api-client.models.rank_v2_output import RankV2Output
 
 from assets-deadlock-api-client.api_client import ApiClient, RequestSerialized
 from assets-deadlock-api-client.api_response import ApiResponse
@@ -47,7 +47,7 @@ class DefaultApi:
     def get_build_tags_v2_build_tags_get(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -60,14 +60,14 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[BuildTagV2]:
+    ) -> List[BuildTagV2Output]:
         """Get Build Tags
 
 
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -100,7 +100,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BuildTagV2]",
+            '200': "List[BuildTagV2Output]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -118,7 +118,7 @@ class DefaultApi:
     def get_build_tags_v2_build_tags_get_with_http_info(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -131,14 +131,14 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[BuildTagV2]]:
+    ) -> ApiResponse[List[BuildTagV2Output]]:
         """Get Build Tags
 
 
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -171,7 +171,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BuildTagV2]",
+            '200': "List[BuildTagV2Output]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -189,7 +189,7 @@ class DefaultApi:
     def get_build_tags_v2_build_tags_get_without_preload_content(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -209,7 +209,7 @@ class DefaultApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -242,7 +242,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BuildTagV2]",
+            '200': "List[BuildTagV2Output]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -567,7 +567,7 @@ class DefaultApi:
     @validate_call
     def get_colors_v1_colors_get(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -585,7 +585,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -634,7 +634,7 @@ class DefaultApi:
     @validate_call
     def get_colors_v1_colors_get_with_http_info(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -652,7 +652,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -701,7 +701,7 @@ class DefaultApi:
     @validate_call
     def get_colors_v1_colors_get_without_preload_content(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -719,7 +719,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -829,7 +829,7 @@ class DefaultApi:
     @validate_call
     def get_icons_v1_icons_get(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -847,7 +847,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -896,7 +896,7 @@ class DefaultApi:
     @validate_call
     def get_icons_v1_icons_get_with_http_info(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -914,7 +914,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -963,7 +963,7 @@ class DefaultApi:
     @validate_call
     def get_icons_v1_icons_get_without_preload_content(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -981,7 +981,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1091,7 +1091,7 @@ class DefaultApi:
     @validate_call
     def get_map_v1_map_get(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1109,7 +1109,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1158,7 +1158,7 @@ class DefaultApi:
     @validate_call
     def get_map_v1_map_get_with_http_info(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1176,7 +1176,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1225,7 +1225,7 @@ class DefaultApi:
     @validate_call
     def get_map_v1_map_get_without_preload_content(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1243,7 +1243,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1354,7 +1354,7 @@ class DefaultApi:
     def get_ranks_v2_ranks_get(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1367,14 +1367,14 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[RankV2]:
+    ) -> List[RankV2Output]:
         """Get Ranks
 
 
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1407,7 +1407,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[RankV2]",
+            '200': "List[RankV2Output]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1425,7 +1425,7 @@ class DefaultApi:
     def get_ranks_v2_ranks_get_with_http_info(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1438,14 +1438,14 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[RankV2]]:
+    ) -> ApiResponse[List[RankV2Output]]:
         """Get Ranks
 
 
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1478,7 +1478,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[RankV2]",
+            '200': "List[RankV2Output]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1496,7 +1496,7 @@ class DefaultApi:
     def get_ranks_v2_ranks_get_without_preload_content(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1516,7 +1516,7 @@ class DefaultApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1549,7 +1549,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[RankV2]",
+            '200': "List[RankV2Output]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1632,7 +1632,7 @@ class DefaultApi:
     @validate_call
     def get_sounds_v1_sounds_get(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1650,7 +1650,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1699,7 +1699,7 @@ class DefaultApi:
     @validate_call
     def get_sounds_v1_sounds_get_with_http_info(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1717,7 +1717,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1766,7 +1766,7 @@ class DefaultApi:
     @validate_call
     def get_sounds_v1_sounds_get_without_preload_content(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1784,7 +1784,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1894,7 +1894,7 @@ class DefaultApi:
     @validate_call
     def get_steam_info_v1_steam_info_get(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1912,7 +1912,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1961,7 +1961,7 @@ class DefaultApi:
     @validate_call
     def get_steam_info_v1_steam_info_get_with_http_info(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1979,7 +1979,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2028,7 +2028,7 @@ class DefaultApi:
     @validate_call
     def get_steam_info_v1_steam_info_get_without_preload_content(
         self,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2046,7 +2046,7 @@ class DefaultApi:
 
 
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

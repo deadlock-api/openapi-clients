@@ -36,14 +36,24 @@ export interface AbilityTooltipDetailsInfoSectionPropertyBlockV2 {
     'loc_string'?: string | null;
     'properties'?: Array<AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty> | null;
 }
-export interface AbilityTooltipDetailsInfoSectionV2 {
+export interface AbilityTooltipDetailsInfoSectionV2Input {
     'loc_string'?: string | null;
     'property_upgrade_required'?: string | null;
     'properties_block'?: Array<AbilityTooltipDetailsInfoSectionPropertyBlockV2> | null;
     'basic_properties'?: Array<string> | null;
 }
-export interface AbilityTooltipDetailsV2 {
-    'info_sections'?: Array<AbilityTooltipDetailsInfoSectionV2> | null;
+export interface AbilityTooltipDetailsInfoSectionV2Output {
+    'loc_string'?: string | null;
+    'property_upgrade_required'?: string | null;
+    'properties_block'?: Array<AbilityTooltipDetailsInfoSectionPropertyBlockV2> | null;
+    'basic_properties'?: Array<string> | null;
+}
+export interface AbilityTooltipDetailsV2Input {
+    'info_sections'?: Array<AbilityTooltipDetailsInfoSectionV2Input> | null;
+    'additional_header_properties'?: Array<string> | null;
+}
+export interface AbilityTooltipDetailsV2Output {
+    'info_sections'?: Array<AbilityTooltipDetailsInfoSectionV2Output> | null;
     'additional_header_properties'?: Array<string> | null;
 }
 
@@ -59,7 +69,7 @@ export const AbilityTypeV2 = {
 export type AbilityTypeV2 = typeof AbilityTypeV2[keyof typeof AbilityTypeV2];
 
 
-export interface AbilityV2 {
+export interface AbilityV2Input {
     'id': number;
     'class_name': string;
     'name': string;
@@ -69,24 +79,53 @@ export interface AbilityV2 {
     'hero'?: number | null;
     'heroes'?: Array<number> | null;
     'update_time'?: number | null;
-    'properties'?: { [key: string]: ItemPropertyV2; } | null;
-    'weapon_info'?: RawItemWeaponInfoV2 | null;
-    'type'?: AbilityV2TypeEnum;
+    'properties'?: { [key: string]: ItemPropertyV2Input; } | null;
+    'weapon_info'?: RawItemWeaponInfoV2Input | null;
+    'type'?: AbilityV2InputTypeEnum;
     'behaviours'?: Array<string> | null;
     'description': AbilityDescriptionV2;
-    'tooltip_details'?: AbilityTooltipDetailsV2 | null;
-    'upgrades'?: Array<RawAbilityUpgradeV2> | null;
+    'tooltip_details'?: AbilityTooltipDetailsV2Input | null;
+    'upgrades'?: Array<RawAbilityUpgradeV2Input> | null;
     'ability_type'?: AbilityTypeV2 | null;
     'boss_damage_scale'?: number | null;
     'dependant_abilities'?: Array<string> | null;
     'videos'?: AbilityVideosV2 | null;
 }
 
-export const AbilityV2TypeEnum = {
+export const AbilityV2InputTypeEnum = {
     Ability: 'ability'
 } as const;
 
-export type AbilityV2TypeEnum = typeof AbilityV2TypeEnum[keyof typeof AbilityV2TypeEnum];
+export type AbilityV2InputTypeEnum = typeof AbilityV2InputTypeEnum[keyof typeof AbilityV2InputTypeEnum];
+
+export interface AbilityV2Output {
+    'id': number;
+    'class_name': string;
+    'name': string;
+    'start_trained'?: boolean | null;
+    'image'?: string | null;
+    'image_webp'?: string | null;
+    'hero'?: number | null;
+    'heroes'?: Array<number> | null;
+    'update_time'?: number | null;
+    'properties'?: { [key: string]: ItemPropertyV2Output; } | null;
+    'weapon_info'?: RawItemWeaponInfoV2Output | null;
+    'type'?: AbilityV2OutputTypeEnum;
+    'behaviours'?: Array<string> | null;
+    'description': AbilityDescriptionV2;
+    'tooltip_details'?: AbilityTooltipDetailsV2Output | null;
+    'upgrades'?: Array<RawAbilityUpgradeV2Output> | null;
+    'ability_type'?: AbilityTypeV2 | null;
+    'boss_damage_scale'?: number | null;
+    'dependant_abilities'?: Array<string> | null;
+    'videos'?: AbilityVideosV2 | null;
+}
+
+export const AbilityV2OutputTypeEnum = {
+    Ability: 'ability'
+} as const;
+
+export type AbilityV2OutputTypeEnum = typeof AbilityV2OutputTypeEnum[keyof typeof AbilityV2OutputTypeEnum];
 
 export interface AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty {
     'requires_ability_upgrade'?: boolean | null;
@@ -104,7 +143,11 @@ export interface AimingShotSpreadPenalty {
 }
 export interface Bonus {
 }
-export interface BuildTagV2 {
+export interface BuildTagV2Input {
+    'class_name': string;
+    'label': string;
+}
+export interface BuildTagV2Output {
     'class_name': string;
     'label': string;
     'id': number;
@@ -128,10 +171,48 @@ export interface ColorV1 {
      */
     'alpha': number;
 }
+
+export const DeadlockAssetsApiRoutesV2ValidClientVersions = {
+    NUMBER_5945: 5945,
+    NUMBER_5920: 5920,
+    NUMBER_5902: 5902,
+    NUMBER_5885: 5885,
+    NUMBER_5878: 5878,
+    NUMBER_5869: 5869,
+    NUMBER_5852: 5852,
+    NUMBER_5831: 5831,
+    NUMBER_5826: 5826,
+    NUMBER_5818: 5818,
+    NUMBER_5789: 5789,
+    NUMBER_5748: 5748,
+    NUMBER_5723: 5723,
+    NUMBER_5712: 5712,
+    NUMBER_5710: 5710,
+    NUMBER_5690: 5690,
+    NUMBER_5675: 5675,
+    NUMBER_5668: 5668,
+    NUMBER_5664: 5664,
+    NUMBER_5658: 5658,
+    NUMBER_5650: 5650,
+    NUMBER_5636: 5636,
+    NUMBER_5624: 5624,
+    NUMBER_5615: 5615,
+    NUMBER_5602: 5602,
+    NUMBER_5583: 5583,
+    NUMBER_5554: 5554,
+    NUMBER_5538: 5538,
+    NUMBER_5533: 5533,
+    NUMBER_5529: 5529,
+    NUMBER_5527: 5527
+} as const;
+
+export type DeadlockAssetsApiRoutesV2ValidClientVersions = typeof DeadlockAssetsApiRoutesV2ValidClientVersions[keyof typeof DeadlockAssetsApiRoutesV2ValidClientVersions];
+
+
 /**
  * @type GetItemsV2ItemsGet200ResponseInner
  */
-export type GetItemsV2ItemsGet200ResponseInner = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
+export type GetItemsV2ItemsGet200ResponseInner = { type: 'ability' } & AbilityV2Output | { type: 'upgrade' } & UpgradeV2Output | { type: 'weapon' } & WeaponV2Output;
 
 export interface HTTPValidationError {
     'detail'?: Array<ValidationError>;
@@ -190,7 +271,12 @@ export const HeroItemTypeV2 = {
 export type HeroItemTypeV2 = typeof HeroItemTypeV2[keyof typeof HeroItemTypeV2];
 
 
-export interface HeroLevelInfoV2 {
+export interface HeroLevelInfoV2Input {
+    'm_bUseStandardUpgrade'?: boolean | null;
+    'bonus_currencies'?: Array<string> | null;
+    'm_unRequiredGold': number;
+}
+export interface HeroLevelInfoV2Output {
     'use_standard_upgrade'?: boolean | null;
     'bonus_currencies'?: Array<string> | null;
     'required_gold': number;
@@ -204,12 +290,24 @@ export interface HeroPhysicsV2 {
     'step_sound_time'?: number | null;
     'step_sound_time_sprinting'?: number | null;
 }
-export interface HeroShopStatDisplayV2 {
-    'spirit_stats_display': RawHeroShopSpiritStatsDisplayV2;
-    'vitality_stats_display': RawHeroShopVitalityStatsDisplayV2;
-    'weapon_stats_display': HeroShopWeaponStatsDisplayV2;
+export interface HeroShopStatDisplayV2Input {
+    'm_eSpiritStatsDisplay': RawHeroShopSpiritStatsDisplayV2Input;
+    'm_eVitalityStatsDisplay': RawHeroShopVitalityStatsDisplayV2Input;
+    'weapon_stats_display': HeroShopWeaponStatsDisplayV2Input;
 }
-export interface HeroShopWeaponStatsDisplayV2 {
+export interface HeroShopStatDisplayV2Output {
+    'spirit_stats_display': RawHeroShopSpiritStatsDisplayV2Output;
+    'vitality_stats_display': RawHeroShopVitalityStatsDisplayV2Output;
+    'weapon_stats_display': HeroShopWeaponStatsDisplayV2Output;
+}
+export interface HeroShopWeaponStatsDisplayV2Input {
+    'm_vecDisplayStats': Array<string>;
+    'm_vecOtherDisplayStats': Array<string>;
+    'weapon_attributes'?: Array<string> | null;
+    'm_strWeaponImage'?: string | null;
+    'weapon_image_webp'?: string | null;
+}
+export interface HeroShopWeaponStatsDisplayV2Output {
     'display_stats': Array<string>;
     'other_display_stats': Array<string>;
     'weapon_attributes'?: Array<string> | null;
@@ -277,21 +375,39 @@ export interface HeroV2 {
     'images': HeroImagesV2;
     'items': { [key: string]: string; };
     'starting_stats': HeroStartingStatsV2;
-    'item_slot_info': { [key: string]: RawHeroItemSlotInfoValueV2; };
+    'item_slot_info': { [key: string]: RawHeroItemSlotInfoValueV2Output; };
     'physics': HeroPhysicsV2;
     'colors': HeroColorsV2;
-    'shop_stat_display': HeroShopStatDisplayV2;
-    'cost_bonuses'?: { [key: string]: Array<RawHeroMapModCostBonusesV2>; } | null;
-    'stats_display': RawHeroStatsDisplayV2;
-    'hero_stats_ui': RawHeroStatsUIV2;
-    'level_info': { [key: string]: HeroLevelInfoV2; };
-    'scaling_stats': { [key: string]: RawHeroScalingStatV2; };
-    'purchase_bonuses': { [key: string]: Array<RawHeroPurchaseBonusV2>; };
+    'shop_stat_display': HeroShopStatDisplayV2Output;
+    'cost_bonuses'?: { [key: string]: Array<RawHeroMapModCostBonusesV2Output>; } | null;
+    'stats_display': RawHeroStatsDisplayV2Output;
+    'hero_stats_ui': RawHeroStatsUIV2Output;
+    'level_info': { [key: string]: HeroLevelInfoV2Output; };
+    'scaling_stats': { [key: string]: RawHeroScalingStatV2Output; };
+    'purchase_bonuses': { [key: string]: Array<RawHeroPurchaseBonusV2Output>; };
     'standard_level_up_upgrades': { [key: string]: number; };
 }
 
 
-export interface ItemPropertyV2 {
+export interface ItemPropertyV2Input {
+    'm_strValue'?: MStrvalue | null;
+    'm_bCanSetTokenOverride'?: boolean | null;
+    'm_eProvidedPropertyType'?: string | null;
+    'm_strCSSClass'?: string | null;
+    'm_eStatsUsageFlags'?: MEstatsusageflags | null;
+    'm_bIsNegativeAttribute'?: boolean | null;
+    'm_strDisableValue'?: string | null;
+    'm_strLocTokenOverride'?: string | null;
+    'm_eDisplayUnits'?: string | null;
+    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2Input | null;
+    'prefix'?: string | null;
+    'label'?: string | null;
+    'postfix'?: string | null;
+    'postvalue_label'?: string | null;
+    'conditional'?: string | null;
+    'icon'?: string | null;
+}
+export interface ItemPropertyV2Output {
     'value'?: Value1 | null;
     'can_set_token_override'?: boolean | null;
     'provided_property_type'?: string | null;
@@ -302,7 +418,7 @@ export interface ItemPropertyV2 {
     'loc_token_override'?: string | null;
     'display_units'?: string | null;
     'icon_path'?: string | null;
-    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2 | null;
+    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2Output | null;
     'prefix'?: string | null;
     'label'?: string | null;
     'postfix'?: string | null;
@@ -379,6 +495,18 @@ export const Language = {
 export type Language = typeof Language[keyof typeof Language];
 
 
+export interface MAimingshootspreadpenalty {
+}
+export interface MEstatsusageflags {
+}
+export interface MRange {
+}
+export interface MStandingshootspreadpenalty {
+}
+export interface MStrbonus {
+}
+export interface MStrvalue {
+}
 export interface MapImagesV1 {
     /**
      * The minimap image of the map.
@@ -480,7 +608,12 @@ export interface RankImagesV2 {
     'small_subrank6'?: string | null;
     'small_subrank6_webp'?: string | null;
 }
-export interface RankV2 {
+export interface RankV2Input {
+    'tier': number;
+    'name': string;
+    'images': RankImagesV2;
+}
+export interface RankV2Output {
     'tier': number;
     'name': string;
     'images': RankImagesV2;
@@ -519,40 +652,80 @@ export const RawAbilitySectionTypeV2 = {
 export type RawAbilitySectionTypeV2 = typeof RawAbilitySectionTypeV2[keyof typeof RawAbilitySectionTypeV2];
 
 
-export interface RawAbilityUpgradePropertyUpgradeV2 {
+export interface RawAbilityUpgradePropertyUpgradeV2Input {
+    'm_strPropertyName': string;
+    'm_strBonus': MStrbonus;
+    'm_eScaleStatFilter'?: string | null;
+    'm_eUpgradeType'?: string | null;
+}
+export interface RawAbilityUpgradePropertyUpgradeV2Output {
     'name': string;
     'bonus': Bonus;
     'scale_stat_filter'?: string | null;
     'upgrade_type'?: string | null;
 }
-export interface RawAbilityUpgradeV2 {
-    'property_upgrades'?: Array<RawAbilityUpgradePropertyUpgradeV2>;
+export interface RawAbilityUpgradeV2Input {
+    'm_vecPropertyUpgrades'?: Array<RawAbilityUpgradePropertyUpgradeV2Input>;
 }
-export interface RawHeroItemSlotInfoValueV2 {
+export interface RawAbilityUpgradeV2Output {
+    'property_upgrades'?: Array<RawAbilityUpgradePropertyUpgradeV2Output>;
+}
+export interface RawHeroItemSlotInfoValueV2Input {
+    'm_arMaxPurchasesForTier': Array<number>;
+}
+export interface RawHeroItemSlotInfoValueV2Output {
     'max_purchases_for_tier': Array<number>;
 }
-export interface RawHeroMapModCostBonusesV2 {
+export interface RawHeroMapModCostBonusesV2Input {
+    'nGoldThreshold': number;
+    'flBonus': number;
+    'flPercentOnGraph': number;
+}
+export interface RawHeroMapModCostBonusesV2Output {
     'gold_threshold': number;
     'bonus': number;
     'percent_on_graph': number;
 }
-export interface RawHeroPurchaseBonusV2 {
+export interface RawHeroPurchaseBonusV2Input {
+    'm_ValueType': string;
+    'm_nTier': number;
+    'm_strValue': string;
+}
+export interface RawHeroPurchaseBonusV2Output {
     'value_type': string;
     'tier': number;
     'value': string;
 }
-export interface RawHeroScalingStatV2 {
+export interface RawHeroScalingStatV2Input {
+    'eScalingStat': string;
+    'flScale': number;
+}
+export interface RawHeroScalingStatV2Output {
     'scaling_stat': string;
     'scale': number;
 }
-export interface RawHeroShopSpiritStatsDisplayV2 {
+export interface RawHeroShopSpiritStatsDisplayV2Input {
+    'm_vecDisplayStats': Array<string>;
+}
+export interface RawHeroShopSpiritStatsDisplayV2Output {
     'display_stats': Array<string>;
 }
-export interface RawHeroShopVitalityStatsDisplayV2 {
+export interface RawHeroShopVitalityStatsDisplayV2Input {
+    'm_vecDisplayStats': Array<string>;
+    'm_vecOtherDisplayStats': Array<string>;
+}
+export interface RawHeroShopVitalityStatsDisplayV2Output {
     'display_stats': Array<string>;
     'other_display_stats': Array<string>;
 }
-export interface RawHeroStatsDisplayV2 {
+export interface RawHeroStatsDisplayV2Input {
+    'm_vecHealthHeaderStats': Array<string>;
+    'm_vecMagicHeaderStats': Array<string>;
+    'm_vecMagicStats': Array<string>;
+    'm_vecWeaponHeaderStats': Array<string>;
+    'm_vecWeaponStats': Array<string>;
+}
+export interface RawHeroStatsDisplayV2Output {
     'health_header_stats': Array<string>;
     'health_stats': Array<string>;
     'magic_header_stats': Array<string>;
@@ -560,40 +733,128 @@ export interface RawHeroStatsDisplayV2 {
     'weapon_header_stats': Array<string>;
     'weapon_stats': Array<string>;
 }
-export interface RawHeroStatsUIDisplayV2 {
+export interface RawHeroStatsUIDisplayV2Input {
+    'm_eStatCategory': string;
+    'm_eStatType': string;
+}
+export interface RawHeroStatsUIDisplayV2Output {
     'category': string;
     'stat_type': string;
 }
-export interface RawHeroStatsUIV2 {
-    'weapon_stat_display': string;
-    'display_stats': Array<RawHeroStatsUIDisplayV2>;
+export interface RawHeroStatsUIV2Input {
+    'm_eWeaponStatDisplay': string;
+    'm_vecDisplayStats': Array<RawHeroStatsUIDisplayV2Input>;
 }
-export interface RawItemPropertyScaleFunctionSubclassV2 {
+export interface RawHeroStatsUIV2Output {
+    'weapon_stat_display': string;
+    'display_stats': Array<RawHeroStatsUIDisplayV2Output>;
+}
+export interface RawItemPropertyScaleFunctionSubclassV2Input {
+    '_class'?: string | null;
+    '_my_subclass_name'?: string | null;
+    'm_eSpecificStatScaleType'?: string | null;
+    'm_vecScalingStats'?: Array<string> | null;
+    'm_flStatScale'?: number | null;
+}
+export interface RawItemPropertyScaleFunctionSubclassV2Output {
     'class_name'?: string | null;
     'subclass_name'?: string | null;
     'specific_stat_scale_type'?: string | null;
     'scaling_stats'?: Array<string> | null;
     'stat_scale'?: number | null;
 }
-export interface RawItemWeaponInfoBulletSpeedCurveSplineV2 {
+export interface RawItemWeaponInfoBulletSpeedCurveSplineV2Input {
+    'm_flSlopeIncoming': number;
+    'm_flSlopeOutgoing': number;
+    'x': number;
+    'y': number;
+}
+export interface RawItemWeaponInfoBulletSpeedCurveSplineV2Output {
     'slope_incoming': number;
     'slope_outgoing': number;
     'x': number;
     'y': number;
 }
-export interface RawItemWeaponInfoBulletSpeedCurveV2 {
-    'spline'?: Array<RawItemWeaponInfoBulletSpeedCurveSplineV2>;
+export interface RawItemWeaponInfoBulletSpeedCurveV2Input {
+    'm_spline'?: Array<RawItemWeaponInfoBulletSpeedCurveSplineV2Input>;
+    'm_vDomainMaxs': Array<number>;
+    'm_vDomainMins': Array<number>;
+}
+export interface RawItemWeaponInfoBulletSpeedCurveV2Output {
+    'spline'?: Array<RawItemWeaponInfoBulletSpeedCurveSplineV2Output>;
     'domain_maxs': Array<number>;
     'domain_mins': Array<number>;
 }
-export interface RawItemWeaponInfoV2 {
-    'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2 | null;
+export interface RawItemWeaponInfoV2Input {
+    'm_BulletSpeedCurve'?: RawItemWeaponInfoBulletSpeedCurveV2Input | null;
 }
-export interface RawWeaponInfoHorizontalRecoilV2 {
+export interface RawItemWeaponInfoV2Output {
+    'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2Output | null;
+}
+export interface RawWeaponInfoHorizontalRecoilV2Input {
+    'm_Range'?: MRange | null;
+    'm_flBurstExponent'?: number | null;
+}
+export interface RawWeaponInfoHorizontalRecoilV2Output {
     'range'?: Range | null;
     'burst_exponent'?: number | null;
 }
-export interface RawWeaponInfoV2 {
+export interface RawWeaponInfoV2Input {
+    'm_bCanZoom'?: boolean | null;
+    'm_flBulletDamage'?: number | null;
+    'm_flBulletGravityScale'?: number | null;
+    'm_flBulletInheritShooterVelocityScale'?: number | null;
+    'm_flBulletLifetime'?: number | null;
+    'm_flBulletRadius'?: number | null;
+    'm_flBulletRadiusVsWorld'?: number | null;
+    'm_flBulletReflectAmount'?: number | null;
+    'm_flBulletReflectScale'?: number | null;
+    'm_flBulletWhizDistance'?: number | null;
+    'm_flBurstShotCooldown'?: number | null;
+    'm_flCritBonusAgainstNpcs'?: number | null;
+    'm_flCritBonusEnd'?: number | null;
+    'm_flCritBonusEndRange'?: number | null;
+    'm_flCritBonusStart'?: number | null;
+    'm_flCritBonusStartRange'?: number | null;
+    'm_flCycleTime'?: number | null;
+    'm_flIntraBurstCycleTime'?: number | null;
+    'm_flMaxSpinCycleTime'?: number | null;
+    'm_flDamageFalloffBias'?: number | null;
+    'm_flDamageFalloffEndRange'?: number | null;
+    'm_flDamageFalloffEndScale'?: number | null;
+    'm_flDamageFalloffStartRange'?: number | null;
+    'm_flDamageFalloffStartScale'?: number | null;
+    'm_flHorizontalPunch'?: number | null;
+    'm_flRange'?: number | null;
+    'm_flRecoilRecoveryDelayFactor'?: number | null;
+    'm_flRecoilRecoverySpeed'?: number | null;
+    'm_flRecoilShotIndexRecoveryTimeFactor'?: number | null;
+    'm_flRecoilSpeed'?: number | null;
+    'm_flReloadMoveSpeed'?: number | null;
+    'm_flScatterYawScale'?: number | null;
+    'm_AimingShootSpreadPenalty'?: MAimingshootspreadpenalty | null;
+    'm_StandingShootSpreadPenalty'?: MStandingshootspreadpenalty | null;
+    'm_flShootMoveSpeedPercent'?: number | null;
+    'm_flShootSpreadPenaltyDecay'?: number | null;
+    'm_flShootSpreadPenaltyDecayDelay'?: number | null;
+    'm_flShootSpreadPenaltyPerShot'?: number | null;
+    'm_flShootingUpSpreadPenalty'?: number | null;
+    'm_flVerticalPunch'?: number | null;
+    'm_flZoomFov'?: number | null;
+    'm_flZoomMoveSpeedPercent'?: number | null;
+    'm_iBullets'?: number | null;
+    'm_iBurstShotCount'?: number | null;
+    'm_iClipSize'?: number | null;
+    'm_flSpread'?: number | null;
+    'm_flStandingSpread'?: number | null;
+    'm_flLowAmmoIndicatorThreshold'?: number | null;
+    'm_flRecoilSeed'?: number | null;
+    'm_flReloadDuration'?: number | null;
+    'm_BulletSpeedCurve'?: RawItemWeaponInfoBulletSpeedCurveV2Input | null;
+    'm_HorizontalRecoil'?: RawWeaponInfoHorizontalRecoilV2Input | null;
+    'm_VerticalRecoil'?: RawWeaponInfoVerticalRecoilV2Input | null;
+}
+export interface RawWeaponInfoV2Output {
     'can_zoom'?: boolean | null;
     'bullet_damage'?: number | null;
     'bullet_gravity_scale'?: number | null;
@@ -644,11 +905,17 @@ export interface RawWeaponInfoV2 {
     'low_ammo_indicator_threshold'?: number | null;
     'recoil_seed'?: number | null;
     'reload_duration'?: number | null;
-    'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2 | null;
-    'horizontal_recoil'?: RawWeaponInfoHorizontalRecoilV2 | null;
-    'vertical_recoil'?: RawWeaponInfoVerticalRecoilV2 | null;
+    'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2Output | null;
+    'horizontal_recoil'?: RawWeaponInfoHorizontalRecoilV2Output | null;
+    'vertical_recoil'?: RawWeaponInfoVerticalRecoilV2Output | null;
 }
-export interface RawWeaponInfoVerticalRecoilV2 {
+export interface RawWeaponInfoVerticalRecoilV2Input {
+    'm_Range'?: MRange | null;
+    'm_flBurstExponent'?: number | null;
+    'm_flBurstConstant'?: number | null;
+    'm_flBurstSlope'?: number | null;
+}
+export interface RawWeaponInfoVerticalRecoilV2Output {
     'range'?: Range | null;
     'burst_exponent'?: number | null;
     'burst_constant'?: number | null;
@@ -657,7 +924,7 @@ export interface RawWeaponInfoVerticalRecoilV2 {
 /**
  * @type ResponseGetItemV2ItemsIdOrClassNameGet
  */
-export type ResponseGetItemV2ItemsIdOrClassNameGet = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
+export type ResponseGetItemV2ItemsIdOrClassNameGet = { type: 'ability' } & AbilityV2Output | { type: 'upgrade' } & UpgradeV2Output | { type: 'weapon' } & WeaponV2Output;
 
 export interface StandingShotSpreadPenalty {
 }
@@ -677,7 +944,30 @@ export interface UpgradeDescriptionV2 {
     'active'?: string | null;
     'passive'?: string | null;
 }
-export interface UpgradePropertyV2 {
+export interface UpgradePropertyV2Input {
+    'm_strValue'?: MStrvalue | null;
+    'm_bCanSetTokenOverride'?: boolean | null;
+    'm_eProvidedPropertyType'?: string | null;
+    'm_strCSSClass'?: string | null;
+    'm_eStatsUsageFlags'?: MEstatsusageflags | null;
+    'm_bIsNegativeAttribute'?: boolean | null;
+    'm_strDisableValue'?: string | null;
+    'm_strLocTokenOverride'?: string | null;
+    'm_eDisplayUnits'?: string | null;
+    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2Input | null;
+    'prefix'?: string | null;
+    'label'?: string | null;
+    'postfix'?: string | null;
+    'postvalue_label'?: string | null;
+    'conditional'?: string | null;
+    'icon'?: string | null;
+    'tooltip_section'?: RawAbilitySectionTypeV2 | null;
+    'tooltip_is_elevated'?: boolean | null;
+    'tooltip_is_important'?: boolean | null;
+}
+
+
+export interface UpgradePropertyV2Output {
     'value'?: Value1 | null;
     'can_set_token_override'?: boolean | null;
     'provided_property_type'?: string | null;
@@ -688,7 +978,7 @@ export interface UpgradePropertyV2 {
     'loc_token_override'?: string | null;
     'display_units'?: string | null;
     'icon_path'?: string | null;
-    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2 | null;
+    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2Output | null;
     'prefix'?: string | null;
     'label'?: string | null;
     'postfix'?: string | null;
@@ -713,13 +1003,19 @@ export interface UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon {
     'icon'?: string | null;
     'localized_name'?: string | null;
 }
-export interface UpgradeTooltipSectionV2 {
+export interface UpgradeTooltipSectionV2Input {
     'section_type'?: RawAbilitySectionTypeV2 | null;
     'section_attributes'?: Array<UpgradeTooltipSectionAttributeV2> | null;
 }
 
 
-export interface UpgradeV2 {
+export interface UpgradeTooltipSectionV2Output {
+    'section_type'?: RawAbilitySectionTypeV2 | null;
+    'section_attributes'?: Array<UpgradeTooltipSectionAttributeV2> | null;
+}
+
+
+export interface UpgradeV2Input {
     'id': number;
     'class_name': string;
     'name': string;
@@ -729,9 +1025,9 @@ export interface UpgradeV2 {
     'hero'?: number | null;
     'heroes'?: Array<number> | null;
     'update_time'?: number | null;
-    'properties'?: { [key: string]: UpgradePropertyV2; } | null;
-    'weapon_info'?: RawItemWeaponInfoV2 | null;
-    'type'?: UpgradeV2TypeEnum;
+    'properties'?: { [key: string]: UpgradePropertyV2Input; } | null;
+    'weapon_info'?: RawItemWeaponInfoV2Input | null;
+    'type'?: UpgradeV2InputTypeEnum;
     'shop_image'?: string | null;
     'shop_image_webp'?: string | null;
     'shop_image_small'?: string | null;
@@ -743,58 +1039,53 @@ export interface UpgradeV2 {
     'activation': RawAbilityActivationV2;
     'imbue'?: RawAbilityImbueV2 | null;
     'component_items'?: Array<string> | null;
-    'tooltip_sections'?: Array<UpgradeTooltipSectionV2> | null;
+    'tooltip_sections'?: Array<UpgradeTooltipSectionV2Input> | null;
+}
+
+export const UpgradeV2InputTypeEnum = {
+    Upgrade: 'upgrade'
+} as const;
+
+export type UpgradeV2InputTypeEnum = typeof UpgradeV2InputTypeEnum[keyof typeof UpgradeV2InputTypeEnum];
+
+export interface UpgradeV2Output {
+    'id': number;
+    'class_name': string;
+    'name': string;
+    'start_trained'?: boolean | null;
+    'image'?: string | null;
+    'image_webp'?: string | null;
+    'hero'?: number | null;
+    'heroes'?: Array<number> | null;
+    'update_time'?: number | null;
+    'properties'?: { [key: string]: UpgradePropertyV2Output; } | null;
+    'weapon_info'?: RawItemWeaponInfoV2Output | null;
+    'type'?: UpgradeV2OutputTypeEnum;
+    'shop_image'?: string | null;
+    'shop_image_webp'?: string | null;
+    'shop_image_small'?: string | null;
+    'shop_image_small_webp'?: string | null;
+    'item_slot_type': ItemSlotTypeV2;
+    'item_tier': ItemTierV2;
+    'disabled'?: boolean | null;
+    'description'?: UpgradeDescriptionV2 | null;
+    'activation': RawAbilityActivationV2;
+    'imbue'?: RawAbilityImbueV2 | null;
+    'component_items'?: Array<string> | null;
+    'tooltip_sections'?: Array<UpgradeTooltipSectionV2Output> | null;
     'is_active_item': boolean;
     'shopable': boolean;
     'cost': number | null;
 }
 
-export const UpgradeV2TypeEnum = {
+export const UpgradeV2OutputTypeEnum = {
     Upgrade: 'upgrade'
 } as const;
 
-export type UpgradeV2TypeEnum = typeof UpgradeV2TypeEnum[keyof typeof UpgradeV2TypeEnum];
+export type UpgradeV2OutputTypeEnum = typeof UpgradeV2OutputTypeEnum[keyof typeof UpgradeV2OutputTypeEnum];
 
 export interface UsageFlags {
 }
-
-export const ValidClientVersions = {
-    NUMBER_5945: 5945,
-    NUMBER_5920: 5920,
-    NUMBER_5902: 5902,
-    NUMBER_5885: 5885,
-    NUMBER_5878: 5878,
-    NUMBER_5869: 5869,
-    NUMBER_5852: 5852,
-    NUMBER_5831: 5831,
-    NUMBER_5826: 5826,
-    NUMBER_5818: 5818,
-    NUMBER_5789: 5789,
-    NUMBER_5748: 5748,
-    NUMBER_5723: 5723,
-    NUMBER_5712: 5712,
-    NUMBER_5710: 5710,
-    NUMBER_5690: 5690,
-    NUMBER_5675: 5675,
-    NUMBER_5668: 5668,
-    NUMBER_5664: 5664,
-    NUMBER_5658: 5658,
-    NUMBER_5650: 5650,
-    NUMBER_5636: 5636,
-    NUMBER_5624: 5624,
-    NUMBER_5615: 5615,
-    NUMBER_5602: 5602,
-    NUMBER_5583: 5583,
-    NUMBER_5554: 5554,
-    NUMBER_5538: 5538,
-    NUMBER_5533: 5533,
-    NUMBER_5529: 5529,
-    NUMBER_5527: 5527
-} as const;
-
-export type ValidClientVersions = typeof ValidClientVersions[keyof typeof ValidClientVersions];
-
-
 export interface ValidationError {
     'loc': Array<ValidationErrorLocInner>;
     'msg': string;
@@ -806,7 +1097,7 @@ export interface Value {
 }
 export interface Value1 {
 }
-export interface WeaponV2 {
+export interface WeaponV2Input {
     'id': number;
     'class_name': string;
     'name': string;
@@ -816,16 +1107,37 @@ export interface WeaponV2 {
     'hero'?: number | null;
     'heroes'?: Array<number> | null;
     'update_time'?: number | null;
-    'properties'?: { [key: string]: ItemPropertyV2; } | null;
-    'weapon_info'?: RawWeaponInfoV2 | null;
-    'type'?: WeaponV2TypeEnum;
+    'properties'?: { [key: string]: ItemPropertyV2Input; } | null;
+    'weapon_info'?: RawWeaponInfoV2Input | null;
+    'type'?: WeaponV2InputTypeEnum;
 }
 
-export const WeaponV2TypeEnum = {
+export const WeaponV2InputTypeEnum = {
     Weapon: 'weapon'
 } as const;
 
-export type WeaponV2TypeEnum = typeof WeaponV2TypeEnum[keyof typeof WeaponV2TypeEnum];
+export type WeaponV2InputTypeEnum = typeof WeaponV2InputTypeEnum[keyof typeof WeaponV2InputTypeEnum];
+
+export interface WeaponV2Output {
+    'id': number;
+    'class_name': string;
+    'name': string;
+    'start_trained'?: boolean | null;
+    'image'?: string | null;
+    'image_webp'?: string | null;
+    'hero'?: number | null;
+    'heroes'?: Array<number> | null;
+    'update_time'?: number | null;
+    'properties'?: { [key: string]: ItemPropertyV2Output; } | null;
+    'weapon_info'?: RawWeaponInfoV2Output | null;
+    'type'?: WeaponV2OutputTypeEnum;
+}
+
+export const WeaponV2OutputTypeEnum = {
+    Weapon: 'weapon'
+} as const;
+
+export type WeaponV2OutputTypeEnum = typeof WeaponV2OutputTypeEnum[keyof typeof WeaponV2OutputTypeEnum];
 
 export interface ZiplanePathV1 {
     /**
@@ -859,11 +1171,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @summary Get Build Tags
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBuildTagsV2BuildTagsGet: async (language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getBuildTagsV2BuildTagsGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v2/build-tags`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -928,11 +1240,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Colors
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getColorsV1ColorsGet: async (clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getColorsV1ColorsGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/colors`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -963,11 +1275,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Icons
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIconsV1IconsGet: async (clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIconsV1IconsGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/icons`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -998,11 +1310,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Map
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMapV1MapGet: async (clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMapV1MapGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/map`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1034,11 +1346,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @summary Get Ranks
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRanksV2RanksGet: async (language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRanksV2RanksGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v2/ranks`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1073,11 +1385,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Sounds
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSoundsV1SoundsGet: async (clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSoundsV1SoundsGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/sounds`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1108,11 +1420,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Steam Info
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSteamInfoV1SteamInfoGet: async (clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSteamInfoV1SteamInfoGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/steam-info`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1153,11 +1465,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * 
          * @summary Get Build Tags
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getBuildTagsV2BuildTagsGet(language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BuildTagV2>>> {
+        async getBuildTagsV2BuildTagsGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BuildTagV2Output>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBuildTagsV2BuildTagsGet(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getBuildTagsV2BuildTagsGet']?.[localVarOperationServerIndex]?.url;
@@ -1178,11 +1490,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Colors
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getColorsV1ColorsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: ColorV1; }>> {
+        async getColorsV1ColorsGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: ColorV1; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getColorsV1ColorsGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getColorsV1ColorsGet']?.[localVarOperationServerIndex]?.url;
@@ -1191,11 +1503,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Icons
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getIconsV1IconsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
+        async getIconsV1IconsGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIconsV1IconsGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getIconsV1IconsGet']?.[localVarOperationServerIndex]?.url;
@@ -1204,11 +1516,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Map
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMapV1MapGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapV1>> {
+        async getMapV1MapGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapV1>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMapV1MapGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getMapV1MapGet']?.[localVarOperationServerIndex]?.url;
@@ -1218,11 +1530,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * 
          * @summary Get Ranks
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRanksV2RanksGet(language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RankV2>>> {
+        async getRanksV2RanksGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RankV2Output>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRanksV2RanksGet(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getRanksV2RanksGet']?.[localVarOperationServerIndex]?.url;
@@ -1231,11 +1543,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Sounds
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSoundsV1SoundsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+        async getSoundsV1SoundsGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSoundsV1SoundsGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getSoundsV1SoundsGet']?.[localVarOperationServerIndex]?.url;
@@ -1244,11 +1556,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Steam Info
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSteamInfoV1SteamInfoGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getSteamInfoV1SteamInfoGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSteamInfoV1SteamInfoGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getSteamInfoV1SteamInfoGet']?.[localVarOperationServerIndex]?.url;
@@ -1270,7 +1582,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBuildTagsV2BuildTagsGet(requestParameters: DefaultApiGetBuildTagsV2BuildTagsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<BuildTagV2>> {
+        getBuildTagsV2BuildTagsGet(requestParameters: DefaultApiGetBuildTagsV2BuildTagsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<BuildTagV2Output>> {
             return localVarFp.getBuildTagsV2BuildTagsGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1319,7 +1631,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRanksV2RanksGet(requestParameters: DefaultApiGetRanksV2RanksGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<RankV2>> {
+        getRanksV2RanksGet(requestParameters: DefaultApiGetRanksV2RanksGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<RankV2Output>> {
             return localVarFp.getRanksV2RanksGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1351,28 +1663,28 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
 export interface DefaultApiGetBuildTagsV2BuildTagsGetRequest {
     readonly language?: Language | null
 
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getColorsV1ColorsGet operation in DefaultApi.
  */
 export interface DefaultApiGetColorsV1ColorsGetRequest {
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getIconsV1IconsGet operation in DefaultApi.
  */
 export interface DefaultApiGetIconsV1IconsGetRequest {
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getMapV1MapGet operation in DefaultApi.
  */
 export interface DefaultApiGetMapV1MapGetRequest {
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -1381,21 +1693,21 @@ export interface DefaultApiGetMapV1MapGetRequest {
 export interface DefaultApiGetRanksV2RanksGetRequest {
     readonly language?: Language | null
 
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getSoundsV1SoundsGet operation in DefaultApi.
  */
 export interface DefaultApiGetSoundsV1SoundsGetRequest {
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getSteamInfoV1SteamInfoGet operation in DefaultApi.
  */
 export interface DefaultApiGetSteamInfoV1SteamInfoGetRequest {
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -1502,11 +1814,11 @@ export const HeroesApiAxiosParamCreator = function (configuration?: Configuratio
          * @summary Get Hero By Name
          * @param {string} name 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHeroByNameV2HeroesByNameNameGet: async (name: string, language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getHeroByNameV2HeroesByNameNameGet: async (name: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('getHeroByNameV2HeroesByNameNameGet', 'name', name)
             const localVarPath = `/v2/heroes/by-name/{name}`
@@ -1546,11 +1858,11 @@ export const HeroesApiAxiosParamCreator = function (configuration?: Configuratio
          * @summary Get Hero
          * @param {number} id 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHeroV2HeroesIdGet: async (id: number, language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getHeroV2HeroesIdGet: async (id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getHeroV2HeroesIdGet', 'id', id)
             const localVarPath = `/v2/heroes/{id}`
@@ -1589,12 +1901,12 @@ export const HeroesApiAxiosParamCreator = function (configuration?: Configuratio
          * 
          * @summary Get Heroes
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {boolean | null} [onlyActive] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHeroesV2HeroesGet: async (language?: Language | null, clientVersion?: ValidClientVersions | null, onlyActive?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getHeroesV2HeroesGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, onlyActive?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v2/heroes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1644,11 +1956,11 @@ export const HeroesApiFp = function(configuration?: Configuration) {
          * @summary Get Hero By Name
          * @param {string} name 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getHeroByNameV2HeroesByNameNameGet(name: string, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HeroV2>> {
+        async getHeroByNameV2HeroesByNameNameGet(name: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HeroV2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHeroByNameV2HeroesByNameNameGet(name, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HeroesApi.getHeroByNameV2HeroesByNameNameGet']?.[localVarOperationServerIndex]?.url;
@@ -1659,11 +1971,11 @@ export const HeroesApiFp = function(configuration?: Configuration) {
          * @summary Get Hero
          * @param {number} id 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getHeroV2HeroesIdGet(id: number, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HeroV2>> {
+        async getHeroV2HeroesIdGet(id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HeroV2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHeroV2HeroesIdGet(id, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HeroesApi.getHeroV2HeroesIdGet']?.[localVarOperationServerIndex]?.url;
@@ -1673,12 +1985,12 @@ export const HeroesApiFp = function(configuration?: Configuration) {
          * 
          * @summary Get Heroes
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {boolean | null} [onlyActive] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getHeroesV2HeroesGet(language?: Language | null, clientVersion?: ValidClientVersions | null, onlyActive?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroV2>>> {
+        async getHeroesV2HeroesGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, onlyActive?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHeroesV2HeroesGet(language, clientVersion, onlyActive, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HeroesApi.getHeroesV2HeroesGet']?.[localVarOperationServerIndex]?.url;
@@ -1734,7 +2046,7 @@ export interface HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -1745,7 +2057,7 @@ export interface HeroesApiGetHeroV2HeroesIdGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -1754,7 +2066,7 @@ export interface HeroesApiGetHeroV2HeroesIdGetRequest {
 export interface HeroesApiGetHeroesV2HeroesGetRequest {
     readonly language?: Language | null
 
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 
     readonly onlyActive?: boolean | null
 }
@@ -1809,11 +2121,11 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get Item
          * @param {string} idOrClassName 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemV2ItemsIdOrClassNameGet: async (idOrClassName: string, language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemV2ItemsIdOrClassNameGet: async (idOrClassName: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'idOrClassName' is not null or undefined
             assertParamExists('getItemV2ItemsIdOrClassNameGet', 'idOrClassName', idOrClassName)
             const localVarPath = `/v2/items/{id_or_class_name}`
@@ -1853,11 +2165,11 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get Items By Hero Id
          * @param {number} id 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsByHeroIdV2ItemsByHeroIdIdGet: async (id: number, language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemsByHeroIdV2ItemsByHeroIdIdGet: async (id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getItemsByHeroIdV2ItemsByHeroIdIdGet', 'id', id)
             const localVarPath = `/v2/items/by-hero-id/{id}`
@@ -1897,11 +2209,11 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get Items By Slot Type
          * @param {ItemSlotTypeV2} slotType 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet: async (slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet: async (slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'slotType' is not null or undefined
             assertParamExists('getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet', 'slotType', slotType)
             const localVarPath = `/v2/items/by-slot-type/{slot_type}`
@@ -1941,11 +2253,11 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get Items By Type
          * @param {ItemTypeV2} type 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsByTypeV2ItemsByTypeTypeGet: async (type: ItemTypeV2, language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemsByTypeV2ItemsByTypeTypeGet: async (type: ItemTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('getItemsByTypeV2ItemsByTypeTypeGet', 'type', type)
             const localVarPath = `/v2/items/by-type/{type}`
@@ -1984,11 +2296,11 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
          * 
          * @summary Get Items
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsV2ItemsGet: async (language?: Language | null, clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemsV2ItemsGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v2/items`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2034,11 +2346,11 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @summary Get Item
          * @param {string} idOrClassName 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemV2ItemsIdOrClassNameGet(idOrClassName: string, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetItemV2ItemsIdOrClassNameGet>> {
+        async getItemV2ItemsIdOrClassNameGet(idOrClassName: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetItemV2ItemsIdOrClassNameGet>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemV2ItemsIdOrClassNameGet(idOrClassName, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemV2ItemsIdOrClassNameGet']?.[localVarOperationServerIndex]?.url;
@@ -2049,11 +2361,11 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @summary Get Items By Hero Id
          * @param {number} id 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsByHeroIdV2ItemsByHeroIdIdGet(id: number, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsByHeroIdV2ItemsByHeroIdIdGet(id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsByHeroIdV2ItemsByHeroIdIdGet']?.[localVarOperationServerIndex]?.url;
@@ -2064,11 +2376,11 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @summary Get Items By Slot Type
          * @param {ItemSlotTypeV2} slotType 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet']?.[localVarOperationServerIndex]?.url;
@@ -2079,11 +2391,11 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @summary Get Items By Type
          * @param {ItemTypeV2} type 
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsByTypeV2ItemsByTypeTypeGet']?.[localVarOperationServerIndex]?.url;
@@ -2093,11 +2405,11 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * 
          * @summary Get Items
          * @param {Language | null} [language] 
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsV2ItemsGet(language?: Language | null, clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsV2ItemsGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsV2ItemsGet(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsV2ItemsGet']?.[localVarOperationServerIndex]?.url;
@@ -2173,7 +2485,7 @@ export interface ItemsApiGetItemV2ItemsIdOrClassNameGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -2184,7 +2496,7 @@ export interface ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -2195,7 +2507,7 @@ export interface ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -2206,7 +2518,7 @@ export interface ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -2215,7 +2527,7 @@ export interface ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest {
 export interface ItemsApiGetItemsV2ItemsGetRequest {
     readonly language?: Language | null
 
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -2288,11 +2600,11 @@ export const RawApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * 
          * @summary Get Generic Data
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGenericDataRawGenericDataGet: async (clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getGenericDataRawGenericDataGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/raw/generic_data`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2323,11 +2635,11 @@ export const RawApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * 
          * @summary Get Raw Heroes
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRawHeroesRawHeroesGet: async (clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRawHeroesRawHeroesGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/raw/heroes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2358,11 +2670,11 @@ export const RawApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * 
          * @summary Get Raw Items
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRawItemsRawItemsGet: async (clientVersion?: ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRawItemsRawItemsGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/raw/items`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2402,11 +2714,11 @@ export const RawApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Generic Data
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGenericDataRawGenericDataGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getGenericDataRawGenericDataGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGenericDataRawGenericDataGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RawApi.getGenericDataRawGenericDataGet']?.[localVarOperationServerIndex]?.url;
@@ -2415,11 +2727,11 @@ export const RawApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Raw Heroes
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRawHeroesRawHeroesGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getRawHeroesRawHeroesGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRawHeroesRawHeroesGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RawApi.getRawHeroesRawHeroesGet']?.[localVarOperationServerIndex]?.url;
@@ -2428,11 +2740,11 @@ export const RawApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Raw Items
-         * @param {ValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRawItemsRawItemsGet(clientVersion?: ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getRawItemsRawItemsGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRawItemsRawItemsGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RawApi.getRawItemsRawItemsGet']?.[localVarOperationServerIndex]?.url;
@@ -2484,21 +2796,21 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
  * Request parameters for getGenericDataRawGenericDataGet operation in RawApi.
  */
 export interface RawApiGetGenericDataRawGenericDataGetRequest {
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getRawHeroesRawHeroesGet operation in RawApi.
  */
 export interface RawApiGetRawHeroesRawHeroesGetRequest {
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getRawItemsRawItemsGet operation in RawApi.
  */
 export interface RawApiGetRawItemsRawItemsGetRequest {
-    readonly clientVersion?: ValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**

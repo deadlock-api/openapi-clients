@@ -18,12 +18,12 @@ from typing_extensions import Annotated
 
 from pydantic import StrictInt, StrictStr
 from typing import List, Optional
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets-deadlock-api-client.models.item_slot_type_v2 import ItemSlotTypeV2
 from assets-deadlock-api-client.models.item_type_v2 import ItemTypeV2
 from assets-deadlock-api-client.models.language import Language
 from assets-deadlock-api-client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet
-from assets-deadlock-api-client.models.valid_client_versions import ValidClientVersions
 
 from assets-deadlock-api-client.api_client import ApiClient, RequestSerialized
 from assets-deadlock-api-client.api_response import ApiResponse
@@ -48,7 +48,7 @@ class ItemsApi:
         self,
         id_or_class_name: StrictStr,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -70,7 +70,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -123,7 +123,7 @@ class ItemsApi:
         self,
         id_or_class_name: StrictStr,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -145,7 +145,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -198,7 +198,7 @@ class ItemsApi:
         self,
         id_or_class_name: StrictStr,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -220,7 +220,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -342,7 +342,7 @@ class ItemsApi:
         self,
         id: StrictInt,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -364,7 +364,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -417,7 +417,7 @@ class ItemsApi:
         self,
         id: StrictInt,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -439,7 +439,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -492,7 +492,7 @@ class ItemsApi:
         self,
         id: StrictInt,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -514,7 +514,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -636,7 +636,7 @@ class ItemsApi:
         self,
         slot_type: ItemSlotTypeV2,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -658,7 +658,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -711,7 +711,7 @@ class ItemsApi:
         self,
         slot_type: ItemSlotTypeV2,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -733,7 +733,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -786,7 +786,7 @@ class ItemsApi:
         self,
         slot_type: ItemSlotTypeV2,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -808,7 +808,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -930,7 +930,7 @@ class ItemsApi:
         self,
         type: ItemTypeV2,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -952,7 +952,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1005,7 +1005,7 @@ class ItemsApi:
         self,
         type: ItemTypeV2,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1027,7 +1027,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1080,7 +1080,7 @@ class ItemsApi:
         self,
         type: ItemTypeV2,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1102,7 +1102,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1223,7 +1223,7 @@ class ItemsApi:
     def get_items_v2_items_get(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1243,7 +1243,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1294,7 +1294,7 @@ class ItemsApi:
     def get_items_v2_items_get_with_http_info(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1314,7 +1314,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1365,7 +1365,7 @@ class ItemsApi:
     def get_items_v2_items_get_without_preload_content(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1385,7 +1385,7 @@ class ItemsApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

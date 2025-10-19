@@ -16,7 +16,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 
 <a id="getBuildTagsV2BuildTagsGet"></a>
 # **getBuildTagsV2BuildTagsGet**
-> kotlin.collections.List&lt;BuildTagV2&gt; getBuildTagsV2BuildTagsGet(language, clientVersion)
+> kotlin.collections.List&lt;BuildTagV2Output&gt; getBuildTagsV2BuildTagsGet(language, clientVersion)
 
 Get Build Tags
 
@@ -28,9 +28,9 @@ Get Build Tags
 
 val apiInstance = DefaultApi()
 val language : Language =  // Language | 
-val clientVersion : ValidClientVersions =  // ValidClientVersions | 
+val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 try {
-    val result : kotlin.collections.List<BuildTagV2> = apiInstance.getBuildTagsV2BuildTagsGet(language, clientVersion)
+    val result : kotlin.collections.List<BuildTagV2Output> = apiInstance.getBuildTagsV2BuildTagsGet(language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getBuildTagsV2BuildTagsGet")
@@ -45,11 +45,11 @@ try {
 | **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
-[**kotlin.collections.List&lt;BuildTagV2&gt;**](BuildTagV2.md)
+[**kotlin.collections.List&lt;BuildTagV2Output&gt;**](BuildTagV2Output.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ Get Colors
 //import assets-deadlock-api-client.models.*
 
 val apiInstance = DefaultApi()
-val clientVersion : ValidClientVersions =  // ValidClientVersions | 
+val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 try {
     val result : kotlin.collections.Map<kotlin.String, ColorV1> = apiInstance.getColorsV1ColorsGet(clientVersion)
     println(result)
@@ -130,7 +130,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -158,7 +158,7 @@ Get Icons
 //import assets-deadlock-api-client.models.*
 
 val apiInstance = DefaultApi()
-val clientVersion : ValidClientVersions =  // ValidClientVersions | 
+val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 try {
     val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getIconsV1IconsGet(clientVersion)
     println(result)
@@ -174,7 +174,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -202,7 +202,7 @@ Get Map
 //import assets-deadlock-api-client.models.*
 
 val apiInstance = DefaultApi()
-val clientVersion : ValidClientVersions =  // ValidClientVersions | 
+val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 try {
     val result : MapV1 = apiInstance.getMapV1MapGet(clientVersion)
     println(result)
@@ -218,7 +218,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -235,7 +235,7 @@ No authorization required
 
 <a id="getRanksV2RanksGet"></a>
 # **getRanksV2RanksGet**
-> kotlin.collections.List&lt;RankV2&gt; getRanksV2RanksGet(language, clientVersion)
+> kotlin.collections.List&lt;RankV2Output&gt; getRanksV2RanksGet(language, clientVersion)
 
 Get Ranks
 
@@ -247,9 +247,9 @@ Get Ranks
 
 val apiInstance = DefaultApi()
 val language : Language =  // Language | 
-val clientVersion : ValidClientVersions =  // ValidClientVersions | 
+val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 try {
-    val result : kotlin.collections.List<RankV2> = apiInstance.getRanksV2RanksGet(language, clientVersion)
+    val result : kotlin.collections.List<RankV2Output> = apiInstance.getRanksV2RanksGet(language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getRanksV2RanksGet")
@@ -264,11 +264,11 @@ try {
 | **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
-[**kotlin.collections.List&lt;RankV2&gt;**](RankV2.md)
+[**kotlin.collections.List&lt;RankV2Output&gt;**](RankV2Output.md)
 
 ### Authorization
 
@@ -292,7 +292,7 @@ Get Sounds
 //import assets-deadlock-api-client.models.*
 
 val apiInstance = DefaultApi()
-val clientVersion : ValidClientVersions =  // ValidClientVersions | 
+val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 try {
     val result : kotlin.collections.Map<kotlin.String, kotlin.Any> = apiInstance.getSoundsV1SoundsGet(clientVersion)
     println(result)
@@ -308,7 +308,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -336,7 +336,7 @@ Get Steam Info
 //import assets-deadlock-api-client.models.*
 
 val apiInstance = DefaultApi()
-val clientVersion : ValidClientVersions =  // ValidClientVersions | 
+val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 try {
     val result : kotlin.Any = apiInstance.getSteamInfoV1SteamInfoGet(clientVersion)
     println(result)
@@ -352,7 +352,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] [enum: 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 

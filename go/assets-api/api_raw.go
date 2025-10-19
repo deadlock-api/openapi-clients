@@ -25,10 +25,10 @@ type RawAPIService service
 type ApiGetGenericDataRawGenericDataGetRequest struct {
 	ctx context.Context
 	ApiService *RawAPIService
-	clientVersion *ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
-func (r ApiGetGenericDataRawGenericDataGetRequest) ClientVersion(clientVersion ValidClientVersions) ApiGetGenericDataRawGenericDataGetRequest {
+func (r ApiGetGenericDataRawGenericDataGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetGenericDataRawGenericDataGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -141,10 +141,10 @@ func (a *RawAPIService) GetGenericDataRawGenericDataGetExecute(r ApiGetGenericDa
 type ApiGetRawHeroesRawHeroesGetRequest struct {
 	ctx context.Context
 	ApiService *RawAPIService
-	clientVersion *ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
-func (r ApiGetRawHeroesRawHeroesGetRequest) ClientVersion(clientVersion ValidClientVersions) ApiGetRawHeroesRawHeroesGetRequest {
+func (r ApiGetRawHeroesRawHeroesGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetRawHeroesRawHeroesGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -257,10 +257,10 @@ func (a *RawAPIService) GetRawHeroesRawHeroesGetExecute(r ApiGetRawHeroesRawHero
 type ApiGetRawItemsRawItemsGetRequest struct {
 	ctx context.Context
 	ApiService *RawAPIService
-	clientVersion *ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
-func (r ApiGetRawItemsRawItemsGetRequest) ClientVersion(clientVersion ValidClientVersions) ApiGetRawItemsRawItemsGetRequest {
+func (r ApiGetRawItemsRawItemsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetRawItemsRawItemsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

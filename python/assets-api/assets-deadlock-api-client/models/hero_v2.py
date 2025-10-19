@@ -22,17 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets-deadlock-api-client.models.hero_colors_v2 import HeroColorsV2
 from assets-deadlock-api-client.models.hero_description_v2 import HeroDescriptionV2
 from assets-deadlock-api-client.models.hero_images_v2 import HeroImagesV2
-from assets-deadlock-api-client.models.hero_level_info_v2 import HeroLevelInfoV2
+from assets-deadlock-api-client.models.hero_level_info_v2_output import HeroLevelInfoV2Output
 from assets-deadlock-api-client.models.hero_physics_v2 import HeroPhysicsV2
-from assets-deadlock-api-client.models.hero_shop_stat_display_v2 import HeroShopStatDisplayV2
+from assets-deadlock-api-client.models.hero_shop_stat_display_v2_output import HeroShopStatDisplayV2Output
 from assets-deadlock-api-client.models.hero_starting_stats_v2 import HeroStartingStatsV2
 from assets-deadlock-api-client.models.hero_type_v2 import HeroTypeV2
-from assets-deadlock-api-client.models.raw_hero_item_slot_info_value_v2 import RawHeroItemSlotInfoValueV2
-from assets-deadlock-api-client.models.raw_hero_map_mod_cost_bonuses_v2 import RawHeroMapModCostBonusesV2
-from assets-deadlock-api-client.models.raw_hero_purchase_bonus_v2 import RawHeroPurchaseBonusV2
-from assets-deadlock-api-client.models.raw_hero_scaling_stat_v2 import RawHeroScalingStatV2
-from assets-deadlock-api-client.models.raw_hero_stats_display_v2 import RawHeroStatsDisplayV2
-from assets-deadlock-api-client.models.raw_hero_stats_uiv2 import RawHeroStatsUIV2
+from assets-deadlock-api-client.models.raw_hero_item_slot_info_value_v2_output import RawHeroItemSlotInfoValueV2Output
+from assets-deadlock-api-client.models.raw_hero_map_mod_cost_bonuses_v2_output import RawHeroMapModCostBonusesV2Output
+from assets-deadlock-api-client.models.raw_hero_purchase_bonus_v2_output import RawHeroPurchaseBonusV2Output
+from assets-deadlock-api-client.models.raw_hero_scaling_stat_v2_output import RawHeroScalingStatV2Output
+from assets-deadlock-api-client.models.raw_hero_stats_display_v2_output import RawHeroStatsDisplayV2Output
+from assets-deadlock-api-client.models.raw_hero_stats_uiv2_output import RawHeroStatsUIV2Output
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -62,16 +62,16 @@ class HeroV2(BaseModel):
     images: HeroImagesV2
     items: Dict[str, StrictStr]
     starting_stats: HeroStartingStatsV2
-    item_slot_info: Dict[str, RawHeroItemSlotInfoValueV2]
+    item_slot_info: Dict[str, RawHeroItemSlotInfoValueV2Output]
     physics: HeroPhysicsV2
     colors: HeroColorsV2
-    shop_stat_display: HeroShopStatDisplayV2
-    cost_bonuses: Optional[Dict[str, List[RawHeroMapModCostBonusesV2]]] = None
-    stats_display: RawHeroStatsDisplayV2
-    hero_stats_ui: RawHeroStatsUIV2
-    level_info: Dict[str, HeroLevelInfoV2]
-    scaling_stats: Dict[str, RawHeroScalingStatV2]
-    purchase_bonuses: Dict[str, List[RawHeroPurchaseBonusV2]]
+    shop_stat_display: HeroShopStatDisplayV2Output
+    cost_bonuses: Optional[Dict[str, List[RawHeroMapModCostBonusesV2Output]]] = None
+    stats_display: RawHeroStatsDisplayV2Output
+    hero_stats_ui: RawHeroStatsUIV2Output
+    level_info: Dict[str, HeroLevelInfoV2Output]
+    scaling_stats: Dict[str, RawHeroScalingStatV2Output]
+    purchase_bonuses: Dict[str, List[RawHeroPurchaseBonusV2Output]]
     standard_level_up_upgrades: Dict[str, Union[StrictFloat, StrictInt]]
     __properties: ClassVar[List[str]] = ["id", "class_name", "name", "description", "recommended_upgrades", "recommended_ability_order", "player_selectable", "disabled", "in_development", "needs_testing", "assigned_players_only", "tags", "gun_tag", "hideout_rich_presence", "hero_type", "prerelease_only", "limited_testing", "complexity", "skin", "images", "items", "starting_stats", "item_slot_info", "physics", "colors", "shop_stat_display", "cost_bonuses", "stats_display", "hero_stats_ui", "level_info", "scaling_stats", "purchase_bonuses", "standard_level_up_upgrades"]
 
@@ -252,39 +252,39 @@ class HeroV2(BaseModel):
             "items": obj.get("items"),
             "starting_stats": HeroStartingStatsV2.from_dict(obj["starting_stats"]) if obj.get("starting_stats") is not None else None,
             "item_slot_info": dict(
-                (_k, RawHeroItemSlotInfoValueV2.from_dict(_v))
+                (_k, RawHeroItemSlotInfoValueV2Output.from_dict(_v))
                 for _k, _v in obj["item_slot_info"].items()
             )
             if obj.get("item_slot_info") is not None
             else None,
             "physics": HeroPhysicsV2.from_dict(obj["physics"]) if obj.get("physics") is not None else None,
             "colors": HeroColorsV2.from_dict(obj["colors"]) if obj.get("colors") is not None else None,
-            "shop_stat_display": HeroShopStatDisplayV2.from_dict(obj["shop_stat_display"]) if obj.get("shop_stat_display") is not None else None,
+            "shop_stat_display": HeroShopStatDisplayV2Output.from_dict(obj["shop_stat_display"]) if obj.get("shop_stat_display") is not None else None,
             "cost_bonuses": dict(
                 (_k,
-                        [RawHeroMapModCostBonusesV2.from_dict(_item) for _item in _v]
+                        [RawHeroMapModCostBonusesV2Output.from_dict(_item) for _item in _v]
                         if _v is not None
                         else None
                 )
                 for _k, _v in obj.get("cost_bonuses", {}).items()
             ),
-            "stats_display": RawHeroStatsDisplayV2.from_dict(obj["stats_display"]) if obj.get("stats_display") is not None else None,
-            "hero_stats_ui": RawHeroStatsUIV2.from_dict(obj["hero_stats_ui"]) if obj.get("hero_stats_ui") is not None else None,
+            "stats_display": RawHeroStatsDisplayV2Output.from_dict(obj["stats_display"]) if obj.get("stats_display") is not None else None,
+            "hero_stats_ui": RawHeroStatsUIV2Output.from_dict(obj["hero_stats_ui"]) if obj.get("hero_stats_ui") is not None else None,
             "level_info": dict(
-                (_k, HeroLevelInfoV2.from_dict(_v))
+                (_k, HeroLevelInfoV2Output.from_dict(_v))
                 for _k, _v in obj["level_info"].items()
             )
             if obj.get("level_info") is not None
             else None,
             "scaling_stats": dict(
-                (_k, RawHeroScalingStatV2.from_dict(_v))
+                (_k, RawHeroScalingStatV2Output.from_dict(_v))
                 for _k, _v in obj["scaling_stats"].items()
             )
             if obj.get("scaling_stats") is not None
             else None,
             "purchase_bonuses": dict(
                 (_k,
-                        [RawHeroPurchaseBonusV2.from_dict(_item) for _item in _v]
+                        [RawHeroPurchaseBonusV2Output.from_dict(_item) for _item in _v]
                         if _v is not None
                         else None
                 )

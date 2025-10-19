@@ -26,23 +26,23 @@ Name | Type | Description | Notes
 **Images** | [**HeroImagesV2**](HeroImagesV2.md) |  | 
 **Items** | **map[string]string** |  | 
 **StartingStats** | [**HeroStartingStatsV2**](HeroStartingStatsV2.md) |  | 
-**ItemSlotInfo** | [**map[string]RawHeroItemSlotInfoValueV2**](RawHeroItemSlotInfoValueV2.md) |  | 
+**ItemSlotInfo** | [**map[string]RawHeroItemSlotInfoValueV2Output**](RawHeroItemSlotInfoValueV2Output.md) |  | 
 **Physics** | [**HeroPhysicsV2**](HeroPhysicsV2.md) |  | 
 **Colors** | [**HeroColorsV2**](HeroColorsV2.md) |  | 
-**ShopStatDisplay** | [**HeroShopStatDisplayV2**](HeroShopStatDisplayV2.md) |  | 
-**CostBonuses** | Pointer to [**map[string][]RawHeroMapModCostBonusesV2**](array.md) |  | [optional] 
-**StatsDisplay** | [**RawHeroStatsDisplayV2**](RawHeroStatsDisplayV2.md) |  | 
-**HeroStatsUi** | [**RawHeroStatsUIV2**](RawHeroStatsUIV2.md) |  | 
-**LevelInfo** | [**map[string]HeroLevelInfoV2**](HeroLevelInfoV2.md) |  | 
-**ScalingStats** | [**map[string]RawHeroScalingStatV2**](RawHeroScalingStatV2.md) |  | 
-**PurchaseBonuses** | [**map[string][]RawHeroPurchaseBonusV2**](array.md) |  | 
+**ShopStatDisplay** | [**HeroShopStatDisplayV2Output**](HeroShopStatDisplayV2Output.md) |  | 
+**CostBonuses** | Pointer to [**map[string][]RawHeroMapModCostBonusesV2Output**](array.md) |  | [optional] 
+**StatsDisplay** | [**RawHeroStatsDisplayV2Output**](RawHeroStatsDisplayV2Output.md) |  | 
+**HeroStatsUi** | [**RawHeroStatsUIV2Output**](RawHeroStatsUIV2Output.md) |  | 
+**LevelInfo** | [**map[string]HeroLevelInfoV2Output**](HeroLevelInfoV2Output.md) |  | 
+**ScalingStats** | [**map[string]RawHeroScalingStatV2Output**](RawHeroScalingStatV2Output.md) |  | 
+**PurchaseBonuses** | [**map[string][]RawHeroPurchaseBonusV2Output**](array.md) |  | 
 **StandardLevelUpUpgrades** | **map[string]float32** |  | 
 
 ## Methods
 
 ### NewHeroV2
 
-`func NewHeroV2(id int32, className string, name string, description HeroDescriptionV2, playerSelectable bool, disabled bool, inDevelopment bool, needsTesting bool, assignedPlayersOnly bool, limitedTesting bool, complexity int32, skin int32, images HeroImagesV2, items map[string]string, startingStats HeroStartingStatsV2, itemSlotInfo map[string]RawHeroItemSlotInfoValueV2, physics HeroPhysicsV2, colors HeroColorsV2, shopStatDisplay HeroShopStatDisplayV2, statsDisplay RawHeroStatsDisplayV2, heroStatsUi RawHeroStatsUIV2, levelInfo map[string]HeroLevelInfoV2, scalingStats map[string]RawHeroScalingStatV2, purchaseBonuses map[string][]RawHeroPurchaseBonusV2, standardLevelUpUpgrades map[string]float32, ) *HeroV2`
+`func NewHeroV2(id int32, className string, name string, description HeroDescriptionV2, playerSelectable bool, disabled bool, inDevelopment bool, needsTesting bool, assignedPlayersOnly bool, limitedTesting bool, complexity int32, skin int32, images HeroImagesV2, items map[string]string, startingStats HeroStartingStatsV2, itemSlotInfo map[string]RawHeroItemSlotInfoValueV2Output, physics HeroPhysicsV2, colors HeroColorsV2, shopStatDisplay HeroShopStatDisplayV2Output, statsDisplay RawHeroStatsDisplayV2Output, heroStatsUi RawHeroStatsUIV2Output, levelInfo map[string]HeroLevelInfoV2Output, scalingStats map[string]RawHeroScalingStatV2Output, purchaseBonuses map[string][]RawHeroPurchaseBonusV2Output, standardLevelUpUpgrades map[string]float32, ) *HeroV2`
 
 NewHeroV2 instantiates a new HeroV2 object
 This constructor will assign default values to properties that have it defined,
@@ -604,20 +604,20 @@ SetStartingStats sets StartingStats field to given value.
 
 ### GetItemSlotInfo
 
-`func (o *HeroV2) GetItemSlotInfo() map[string]RawHeroItemSlotInfoValueV2`
+`func (o *HeroV2) GetItemSlotInfo() map[string]RawHeroItemSlotInfoValueV2Output`
 
 GetItemSlotInfo returns the ItemSlotInfo field if non-nil, zero value otherwise.
 
 ### GetItemSlotInfoOk
 
-`func (o *HeroV2) GetItemSlotInfoOk() (*map[string]RawHeroItemSlotInfoValueV2, bool)`
+`func (o *HeroV2) GetItemSlotInfoOk() (*map[string]RawHeroItemSlotInfoValueV2Output, bool)`
 
 GetItemSlotInfoOk returns a tuple with the ItemSlotInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemSlotInfo
 
-`func (o *HeroV2) SetItemSlotInfo(v map[string]RawHeroItemSlotInfoValueV2)`
+`func (o *HeroV2) SetItemSlotInfo(v map[string]RawHeroItemSlotInfoValueV2Output)`
 
 SetItemSlotInfo sets ItemSlotInfo field to given value.
 
@@ -664,40 +664,40 @@ SetColors sets Colors field to given value.
 
 ### GetShopStatDisplay
 
-`func (o *HeroV2) GetShopStatDisplay() HeroShopStatDisplayV2`
+`func (o *HeroV2) GetShopStatDisplay() HeroShopStatDisplayV2Output`
 
 GetShopStatDisplay returns the ShopStatDisplay field if non-nil, zero value otherwise.
 
 ### GetShopStatDisplayOk
 
-`func (o *HeroV2) GetShopStatDisplayOk() (*HeroShopStatDisplayV2, bool)`
+`func (o *HeroV2) GetShopStatDisplayOk() (*HeroShopStatDisplayV2Output, bool)`
 
 GetShopStatDisplayOk returns a tuple with the ShopStatDisplay field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetShopStatDisplay
 
-`func (o *HeroV2) SetShopStatDisplay(v HeroShopStatDisplayV2)`
+`func (o *HeroV2) SetShopStatDisplay(v HeroShopStatDisplayV2Output)`
 
 SetShopStatDisplay sets ShopStatDisplay field to given value.
 
 
 ### GetCostBonuses
 
-`func (o *HeroV2) GetCostBonuses() map[string][]RawHeroMapModCostBonusesV2`
+`func (o *HeroV2) GetCostBonuses() map[string][]RawHeroMapModCostBonusesV2Output`
 
 GetCostBonuses returns the CostBonuses field if non-nil, zero value otherwise.
 
 ### GetCostBonusesOk
 
-`func (o *HeroV2) GetCostBonusesOk() (*map[string][]RawHeroMapModCostBonusesV2, bool)`
+`func (o *HeroV2) GetCostBonusesOk() (*map[string][]RawHeroMapModCostBonusesV2Output, bool)`
 
 GetCostBonusesOk returns a tuple with the CostBonuses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCostBonuses
 
-`func (o *HeroV2) SetCostBonuses(v map[string][]RawHeroMapModCostBonusesV2)`
+`func (o *HeroV2) SetCostBonuses(v map[string][]RawHeroMapModCostBonusesV2Output)`
 
 SetCostBonuses sets CostBonuses field to given value.
 
@@ -719,100 +719,100 @@ HasCostBonuses returns a boolean if a field has been set.
 UnsetCostBonuses ensures that no value is present for CostBonuses, not even an explicit nil
 ### GetStatsDisplay
 
-`func (o *HeroV2) GetStatsDisplay() RawHeroStatsDisplayV2`
+`func (o *HeroV2) GetStatsDisplay() RawHeroStatsDisplayV2Output`
 
 GetStatsDisplay returns the StatsDisplay field if non-nil, zero value otherwise.
 
 ### GetStatsDisplayOk
 
-`func (o *HeroV2) GetStatsDisplayOk() (*RawHeroStatsDisplayV2, bool)`
+`func (o *HeroV2) GetStatsDisplayOk() (*RawHeroStatsDisplayV2Output, bool)`
 
 GetStatsDisplayOk returns a tuple with the StatsDisplay field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatsDisplay
 
-`func (o *HeroV2) SetStatsDisplay(v RawHeroStatsDisplayV2)`
+`func (o *HeroV2) SetStatsDisplay(v RawHeroStatsDisplayV2Output)`
 
 SetStatsDisplay sets StatsDisplay field to given value.
 
 
 ### GetHeroStatsUi
 
-`func (o *HeroV2) GetHeroStatsUi() RawHeroStatsUIV2`
+`func (o *HeroV2) GetHeroStatsUi() RawHeroStatsUIV2Output`
 
 GetHeroStatsUi returns the HeroStatsUi field if non-nil, zero value otherwise.
 
 ### GetHeroStatsUiOk
 
-`func (o *HeroV2) GetHeroStatsUiOk() (*RawHeroStatsUIV2, bool)`
+`func (o *HeroV2) GetHeroStatsUiOk() (*RawHeroStatsUIV2Output, bool)`
 
 GetHeroStatsUiOk returns a tuple with the HeroStatsUi field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroStatsUi
 
-`func (o *HeroV2) SetHeroStatsUi(v RawHeroStatsUIV2)`
+`func (o *HeroV2) SetHeroStatsUi(v RawHeroStatsUIV2Output)`
 
 SetHeroStatsUi sets HeroStatsUi field to given value.
 
 
 ### GetLevelInfo
 
-`func (o *HeroV2) GetLevelInfo() map[string]HeroLevelInfoV2`
+`func (o *HeroV2) GetLevelInfo() map[string]HeroLevelInfoV2Output`
 
 GetLevelInfo returns the LevelInfo field if non-nil, zero value otherwise.
 
 ### GetLevelInfoOk
 
-`func (o *HeroV2) GetLevelInfoOk() (*map[string]HeroLevelInfoV2, bool)`
+`func (o *HeroV2) GetLevelInfoOk() (*map[string]HeroLevelInfoV2Output, bool)`
 
 GetLevelInfoOk returns a tuple with the LevelInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLevelInfo
 
-`func (o *HeroV2) SetLevelInfo(v map[string]HeroLevelInfoV2)`
+`func (o *HeroV2) SetLevelInfo(v map[string]HeroLevelInfoV2Output)`
 
 SetLevelInfo sets LevelInfo field to given value.
 
 
 ### GetScalingStats
 
-`func (o *HeroV2) GetScalingStats() map[string]RawHeroScalingStatV2`
+`func (o *HeroV2) GetScalingStats() map[string]RawHeroScalingStatV2Output`
 
 GetScalingStats returns the ScalingStats field if non-nil, zero value otherwise.
 
 ### GetScalingStatsOk
 
-`func (o *HeroV2) GetScalingStatsOk() (*map[string]RawHeroScalingStatV2, bool)`
+`func (o *HeroV2) GetScalingStatsOk() (*map[string]RawHeroScalingStatV2Output, bool)`
 
 GetScalingStatsOk returns a tuple with the ScalingStats field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScalingStats
 
-`func (o *HeroV2) SetScalingStats(v map[string]RawHeroScalingStatV2)`
+`func (o *HeroV2) SetScalingStats(v map[string]RawHeroScalingStatV2Output)`
 
 SetScalingStats sets ScalingStats field to given value.
 
 
 ### GetPurchaseBonuses
 
-`func (o *HeroV2) GetPurchaseBonuses() map[string][]RawHeroPurchaseBonusV2`
+`func (o *HeroV2) GetPurchaseBonuses() map[string][]RawHeroPurchaseBonusV2Output`
 
 GetPurchaseBonuses returns the PurchaseBonuses field if non-nil, zero value otherwise.
 
 ### GetPurchaseBonusesOk
 
-`func (o *HeroV2) GetPurchaseBonusesOk() (*map[string][]RawHeroPurchaseBonusV2, bool)`
+`func (o *HeroV2) GetPurchaseBonusesOk() (*map[string][]RawHeroPurchaseBonusV2Output, bool)`
 
 GetPurchaseBonusesOk returns a tuple with the PurchaseBonuses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPurchaseBonuses
 
-`func (o *HeroV2) SetPurchaseBonuses(v map[string][]RawHeroPurchaseBonusV2)`
+`func (o *HeroV2) SetPurchaseBonuses(v map[string][]RawHeroPurchaseBonusV2Output)`
 
 SetPurchaseBonuses sets PurchaseBonuses field to given value.
 

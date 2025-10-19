@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum ResponseGetItemV2ItemsIdOrClassNameGet {
     #[serde(rename="ability")]
-    Ability(Box<models::AbilityV2>),
+    Ability(Box<models::AbilityV2Output>),
     #[serde(rename="weapon")]
-    Weapon(Box<models::WeaponV2>),
+    Weapon(Box<models::WeaponV2Output>),
     #[serde(rename="upgrade")]
-    Upgrade(Box<models::UpgradeV2>),
+    Upgrade(Box<models::UpgradeV2Output>),
 }
 
 impl Default for ResponseGetItemV2ItemsIdOrClassNameGet {

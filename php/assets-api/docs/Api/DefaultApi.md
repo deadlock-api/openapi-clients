@@ -17,7 +17,7 @@ All URIs are relative to https://assets.deadlock-api.com, except if the operatio
 ## `getBuildTagsV2BuildTagsGet()`
 
 ```php
-getBuildTagsV2BuildTagsGet($language, $client_version): \OpenAPI\Client\Model\BuildTagV2[]
+getBuildTagsV2BuildTagsGet($language, $client_version): \OpenAPI\Client\Model\BuildTagV2Output[]
 ```
 
 Get Build Tags
@@ -36,7 +36,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getBuildTagsV2BuildTagsGet($language, $client_version);
@@ -51,11 +51,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BuildTagV2[]**](../Model/BuildTagV2.md)
+[**\OpenAPI\Client\Model\BuildTagV2Output[]**](../Model/BuildTagV2Output.md)
 
 ### Authorization
 
@@ -142,7 +142,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getColorsV1ColorsGet($client_version);
@@ -156,7 +156,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -196,7 +196,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getIconsV1IconsGet($client_version);
@@ -210,7 +210,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +250,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getMapV1MapGet($client_version);
@@ -264,7 +264,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -286,7 +286,7 @@ No authorization required
 ## `getRanksV2RanksGet()`
 
 ```php
-getRanksV2RanksGet($language, $client_version): \OpenAPI\Client\Model\RankV2[]
+getRanksV2RanksGet($language, $client_version): \OpenAPI\Client\Model\RankV2Output[]
 ```
 
 Get Ranks
@@ -305,7 +305,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getRanksV2RanksGet($language, $client_version);
@@ -320,11 +320,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RankV2[]**](../Model/RankV2.md)
+[**\OpenAPI\Client\Model\RankV2Output[]**](../Model/RankV2Output.md)
 
 ### Authorization
 
@@ -360,7 +360,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getSoundsV1SoundsGet($client_version);
@@ -374,7 +374,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -414,7 +414,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ValidClientVersions(); // \OpenAPI\Client\Model\ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getSteamInfoV1SteamInfoGet($client_version);
@@ -428,7 +428,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPI\Client\Model\ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
