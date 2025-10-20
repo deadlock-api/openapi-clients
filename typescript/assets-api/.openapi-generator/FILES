@@ -22,7 +22,7 @@ docs/Bonus.md
 docs/BuildTagV2Input.md
 docs/BuildTagV2Output.md
 docs/ColorV1.md
-docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md
+docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
 docs/DefaultApi.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/HTTPValidationError.md
