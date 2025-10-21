@@ -34,10 +34,6 @@ pub struct EnemyStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
@@ -72,10 +68,6 @@ pub struct MateStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
@@ -83,9 +75,7 @@ pub struct MateStatsParams {
     /// Filter based on the number of matches played.
     pub min_matches_played: Option<u64>,
     /// Filter based on the number of matches played.
-    pub max_matches_played: Option<u64>,
-    /// Filter based on whether the mates were on the same party.
-    pub same_party: Option<bool>
+    pub max_matches_played: Option<u64>
 }
 
 /// struct for passing parameters to the method [`party_stats`]
@@ -101,10 +91,6 @@ pub struct PartyStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-    pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
@@ -285,12 +271,6 @@ pub async fn enemy_stats(configuration: &configuration::Configuration, params: E
     if let Some(ref param_value) = params.max_duration_s {
         req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = params.min_average_badge {
-        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.max_average_badge {
-        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = params.min_match_id {
         req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
@@ -391,12 +371,6 @@ pub async fn mate_stats(configuration: &configuration::Configuration, params: Ma
     if let Some(ref param_value) = params.max_duration_s {
         req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = params.min_average_badge {
-        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.max_average_badge {
-        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = params.min_match_id {
         req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
     }
@@ -408,9 +382,6 @@ pub async fn mate_stats(configuration: &configuration::Configuration, params: Ma
     }
     if let Some(ref param_value) = params.max_matches_played {
         req_builder = req_builder.query(&[("max_matches_played", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.same_party {
-        req_builder = req_builder.query(&[("same_party", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -458,12 +429,6 @@ pub async fn party_stats(configuration: &configuration::Configuration, params: P
     }
     if let Some(ref param_value) = params.max_duration_s {
         req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.min_average_badge {
-        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.max_average_badge {
-        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_match_id {
         req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);

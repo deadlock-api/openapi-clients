@@ -63,7 +63,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enemyStats**
-> List<EnemyStats> enemyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)
+> List<EnemyStats> enemyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)
 
 Enemy Stats
 
@@ -79,15 +79,13 @@ final minUnixTimestamp = 789; // int | Filter matches based on their start time 
 final maxUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp).
 final minDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final minMatchesPlayed = 789; // int | Filter based on the number of matches played.
 final maxMatchesPlayed = 789; // int | Filter based on the number of matches played.
 
 try {
-    final result = api_instance.enemyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
+    final result = api_instance.enemyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
     print(result);
 } catch (e) {
     print('Exception when calling PlayersApi->enemyStats: $e\n');
@@ -103,8 +101,6 @@ Name | Type | Description  | Notes
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **minMatchesPlayed** | **int**| Filter based on the number of matches played. | [optional] 
@@ -173,7 +169,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mateStats**
-> List<MateStats> mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty)
+> List<MateStats> mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)
 
 Mate Stats
 
@@ -189,16 +185,13 @@ final minUnixTimestamp = 789; // int | Filter matches based on their start time 
 final maxUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp).
 final minDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final minMatchesPlayed = 789; // int | Filter based on the number of matches played.
 final maxMatchesPlayed = 789; // int | Filter based on the number of matches played.
-final sameParty = true; // bool | Filter based on whether the mates were on the same party.
 
 try {
-    final result = api_instance.mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
+    final result = api_instance.mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
     print(result);
 } catch (e) {
     print('Exception when calling PlayersApi->mateStats: $e\n');
@@ -214,13 +207,10 @@ Name | Type | Description  | Notes
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **minMatchesPlayed** | **int**| Filter based on the number of matches played. | [optional] 
  **maxMatchesPlayed** | **int**| Filter based on the number of matches played. | [optional] 
- **sameParty** | **bool**| Filter based on whether the mates were on the same party. | [optional] [default to true]
 
 ### Return type
 
@@ -238,7 +228,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **partyStats**
-> List<PartyStats> partyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+> List<PartyStats> partyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId)
 
 Party Stats
 
@@ -254,13 +244,11 @@ final minUnixTimestamp = 789; // int | Filter matches based on their start time 
 final maxUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp).
 final minDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 
 try {
-    final result = api_instance.partyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+    final result = api_instance.partyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId);
     print(result);
 } catch (e) {
     print('Exception when calling PlayersApi->partyStats: $e\n');
@@ -276,8 +264,6 @@ Name | Type | Description  | Notes
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
 

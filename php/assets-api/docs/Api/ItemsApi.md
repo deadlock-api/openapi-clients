@@ -34,7 +34,7 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 );
 $id_or_class_name = 'id_or_class_name_example'; // string
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getItemV2ItemsIdOrClassNameGet($id_or_class_name, $language, $client_version);
@@ -50,7 +50,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id_or_class_name** | **string**|  | |
 | **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -92,7 +92,7 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 );
 $id = 56; // int
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getItemsByHeroIdV2ItemsByHeroIdIdGet($id, $language, $client_version);
@@ -108,7 +108,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**|  | |
 | **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -150,7 +150,7 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 );
 $slot_type = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ItemSlotTypeV2(); // \OpenAPI\Client\Model\ItemSlotTypeV2
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet($slot_type, $language, $client_version);
@@ -166,7 +166,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **slot_type** | [**\OpenAPI\Client\Model\ItemSlotTypeV2**](../Model/.md)|  | |
 | **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -208,7 +208,7 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 );
 $type = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ItemTypeV2(); // \OpenAPI\Client\Model\ItemTypeV2
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getItemsByTypeV2ItemsByTypeTypeGet($type, $language, $client_version);
@@ -224,7 +224,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **type** | [**\OpenAPI\Client\Model\ItemTypeV2**](../Model/.md)|  | |
 | **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +265,7 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getItemsV2ItemsGet($language, $client_version);
@@ -280,7 +280,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 

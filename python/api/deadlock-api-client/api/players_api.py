@@ -322,8 +322,6 @@ class PlayersApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
@@ -355,10 +353,6 @@ class PlayersApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
@@ -395,8 +389,6 @@ class PlayersApi:
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
             max_duration_s=max_duration_s,
-            min_average_badge=min_average_badge,
-            max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             min_matches_played=min_matches_played,
@@ -431,8 +423,6 @@ class PlayersApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
@@ -464,10 +454,6 @@ class PlayersApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
@@ -504,8 +490,6 @@ class PlayersApi:
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
             max_duration_s=max_duration_s,
-            min_average_badge=min_average_badge,
-            max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             min_matches_played=min_matches_played,
@@ -540,8 +524,6 @@ class PlayersApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
@@ -573,10 +555,6 @@ class PlayersApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
@@ -613,8 +591,6 @@ class PlayersApi:
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
             max_duration_s=max_duration_s,
-            min_average_badge=min_average_badge,
-            max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             min_matches_played=min_matches_played,
@@ -644,8 +620,6 @@ class PlayersApi:
         max_unix_timestamp,
         min_duration_s,
         max_duration_s,
-        min_average_badge,
-        max_average_badge,
         min_match_id,
         max_match_id,
         min_matches_played,
@@ -689,14 +663,6 @@ class PlayersApi:
         if max_duration_s is not None:
             
             _query_params.append(('max_duration_s', max_duration_s))
-            
-        if min_average_badge is not None:
-            
-            _query_params.append(('min_average_badge', min_average_badge))
-            
-        if max_average_badge is not None:
-            
-            _query_params.append(('max_average_badge', max_average_badge))
             
         if min_match_id is not None:
             
@@ -1061,13 +1027,10 @@ class PlayersApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
         max_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
-        same_party: Annotated[Optional[StrictBool], Field(description="Filter based on whether the mates were on the same party.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1095,10 +1058,6 @@ class PlayersApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
@@ -1107,8 +1066,6 @@ class PlayersApi:
         :type min_matches_played: int
         :param max_matches_played: Filter based on the number of matches played.
         :type max_matches_played: int
-        :param same_party: Filter based on whether the mates were on the same party.
-        :type same_party: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1137,13 +1094,10 @@ class PlayersApi:
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
             max_duration_s=max_duration_s,
-            min_average_badge=min_average_badge,
-            max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             min_matches_played=min_matches_played,
             max_matches_played=max_matches_played,
-            same_party=same_party,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1174,13 +1128,10 @@ class PlayersApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
         max_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
-        same_party: Annotated[Optional[StrictBool], Field(description="Filter based on whether the mates were on the same party.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1208,10 +1159,6 @@ class PlayersApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
@@ -1220,8 +1167,6 @@ class PlayersApi:
         :type min_matches_played: int
         :param max_matches_played: Filter based on the number of matches played.
         :type max_matches_played: int
-        :param same_party: Filter based on whether the mates were on the same party.
-        :type same_party: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1250,13 +1195,10 @@ class PlayersApi:
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
             max_duration_s=max_duration_s,
-            min_average_badge=min_average_badge,
-            max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             min_matches_played=min_matches_played,
             max_matches_played=max_matches_played,
-            same_party=same_party,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1287,13 +1229,10 @@ class PlayersApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
         max_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
-        same_party: Annotated[Optional[StrictBool], Field(description="Filter based on whether the mates were on the same party.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1321,10 +1260,6 @@ class PlayersApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
@@ -1333,8 +1268,6 @@ class PlayersApi:
         :type min_matches_played: int
         :param max_matches_played: Filter based on the number of matches played.
         :type max_matches_played: int
-        :param same_party: Filter based on whether the mates were on the same party.
-        :type same_party: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1363,13 +1296,10 @@ class PlayersApi:
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
             max_duration_s=max_duration_s,
-            min_average_badge=min_average_badge,
-            max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             min_matches_played=min_matches_played,
             max_matches_played=max_matches_played,
-            same_party=same_party,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1395,13 +1325,10 @@ class PlayersApi:
         max_unix_timestamp,
         min_duration_s,
         max_duration_s,
-        min_average_badge,
-        max_average_badge,
         min_match_id,
         max_match_id,
         min_matches_played,
         max_matches_played,
-        same_party,
         _request_auth,
         _content_type,
         _headers,
@@ -1442,14 +1369,6 @@ class PlayersApi:
             
             _query_params.append(('max_duration_s', max_duration_s))
             
-        if min_average_badge is not None:
-            
-            _query_params.append(('min_average_badge', min_average_badge))
-            
-        if max_average_badge is not None:
-            
-            _query_params.append(('max_average_badge', max_average_badge))
-            
         if min_match_id is not None:
             
             _query_params.append(('min_match_id', min_match_id))
@@ -1465,10 +1384,6 @@ class PlayersApi:
         if max_matches_played is not None:
             
             _query_params.append(('max_matches_played', max_matches_played))
-            
-        if same_party is not None:
-            
-            _query_params.append(('same_party', same_party))
             
         # process the header parameters
         # process the form parameters
@@ -1514,8 +1429,6 @@ class PlayersApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -1545,10 +1458,6 @@ class PlayersApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
@@ -1581,8 +1490,6 @@ class PlayersApi:
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
             max_duration_s=max_duration_s,
-            min_average_badge=min_average_badge,
-            max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             _request_auth=_request_auth,
@@ -1615,8 +1522,6 @@ class PlayersApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -1646,10 +1551,6 @@ class PlayersApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
@@ -1682,8 +1583,6 @@ class PlayersApi:
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
             max_duration_s=max_duration_s,
-            min_average_badge=min_average_badge,
-            max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             _request_auth=_request_auth,
@@ -1716,8 +1615,6 @@ class PlayersApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -1747,10 +1644,6 @@ class PlayersApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-        :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
@@ -1783,8 +1676,6 @@ class PlayersApi:
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
             max_duration_s=max_duration_s,
-            min_average_badge=min_average_badge,
-            max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             _request_auth=_request_auth,
@@ -1812,8 +1703,6 @@ class PlayersApi:
         max_unix_timestamp,
         min_duration_s,
         max_duration_s,
-        min_average_badge,
-        max_average_badge,
         min_match_id,
         max_match_id,
         _request_auth,
@@ -1855,14 +1744,6 @@ class PlayersApi:
         if max_duration_s is not None:
             
             _query_params.append(('max_duration_s', max_duration_s))
-            
-        if min_average_badge is not None:
-            
-            _query_params.append(('min_average_badge', min_average_badge))
-            
-        if max_average_badge is not None:
-            
-            _query_params.append(('max_average_badge', max_average_badge))
             
         if min_match_id is not None:
             

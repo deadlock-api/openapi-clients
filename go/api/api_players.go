@@ -157,8 +157,6 @@ type ApiEnemyStatsRequest struct {
 	maxUnixTimestamp *int64
 	minDurationS *int64
 	maxDurationS *int64
-	minAverageBadge *int32
-	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
 	minMatchesPlayed *int64
@@ -186,18 +184,6 @@ func (r ApiEnemyStatsRequest) MinDurationS(minDurationS int64) ApiEnemyStatsRequ
 // Filter matches based on their duration in seconds (up to 7000s).
 func (r ApiEnemyStatsRequest) MaxDurationS(maxDurationS int64) ApiEnemyStatsRequest {
 	r.maxDurationS = &maxDurationS
-	return r
-}
-
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-func (r ApiEnemyStatsRequest) MinAverageBadge(minAverageBadge int32) ApiEnemyStatsRequest {
-	r.minAverageBadge = &minAverageBadge
-	return r
-}
-
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-func (r ApiEnemyStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiEnemyStatsRequest {
-	r.maxAverageBadge = &maxAverageBadge
 	return r
 }
 
@@ -291,12 +277,6 @@ func (a *PlayersAPIService) EnemyStatsExecute(r ApiEnemyStatsRequest) ([]EnemySt
 	}
 	if r.maxDurationS != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
-	}
-	if r.minAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
-	}
-	if r.maxAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
 	}
 	if r.minMatchId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
@@ -515,13 +495,10 @@ type ApiMateStatsRequest struct {
 	maxUnixTimestamp *int64
 	minDurationS *int64
 	maxDurationS *int64
-	minAverageBadge *int32
-	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
 	minMatchesPlayed *int64
 	maxMatchesPlayed *int64
-	sameParty *bool
 }
 
 // Filter matches based on their start time (Unix timestamp).
@@ -548,18 +525,6 @@ func (r ApiMateStatsRequest) MaxDurationS(maxDurationS int64) ApiMateStatsReques
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-func (r ApiMateStatsRequest) MinAverageBadge(minAverageBadge int32) ApiMateStatsRequest {
-	r.minAverageBadge = &minAverageBadge
-	return r
-}
-
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-func (r ApiMateStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiMateStatsRequest {
-	r.maxAverageBadge = &maxAverageBadge
-	return r
-}
-
 // Filter matches based on their ID.
 func (r ApiMateStatsRequest) MinMatchId(minMatchId int64) ApiMateStatsRequest {
 	r.minMatchId = &minMatchId
@@ -581,12 +546,6 @@ func (r ApiMateStatsRequest) MinMatchesPlayed(minMatchesPlayed int64) ApiMateSta
 // Filter based on the number of matches played.
 func (r ApiMateStatsRequest) MaxMatchesPlayed(maxMatchesPlayed int64) ApiMateStatsRequest {
 	r.maxMatchesPlayed = &maxMatchesPlayed
-	return r
-}
-
-// Filter based on whether the mates were on the same party.
-func (r ApiMateStatsRequest) SameParty(sameParty bool) ApiMateStatsRequest {
-	r.sameParty = &sameParty
 	return r
 }
 
@@ -657,12 +616,6 @@ func (a *PlayersAPIService) MateStatsExecute(r ApiMateStatsRequest) ([]MateStats
 	if r.maxDurationS != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
 	}
-	if r.minAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
-	}
-	if r.maxAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
-	}
 	if r.minMatchId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
 	}
@@ -674,12 +627,6 @@ func (a *PlayersAPIService) MateStatsExecute(r ApiMateStatsRequest) ([]MateStats
 	}
 	if r.maxMatchesPlayed != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_matches_played", r.maxMatchesPlayed, "form", "")
-	}
-	if r.sameParty != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "same_party", r.sameParty, "form", "")
-	} else {
-		var defaultValue bool = true
-		r.sameParty = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -743,8 +690,6 @@ type ApiPartyStatsRequest struct {
 	maxUnixTimestamp *int64
 	minDurationS *int64
 	maxDurationS *int64
-	minAverageBadge *int32
-	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
 }
@@ -770,18 +715,6 @@ func (r ApiPartyStatsRequest) MinDurationS(minDurationS int64) ApiPartyStatsRequ
 // Filter matches based on their duration in seconds (up to 7000s).
 func (r ApiPartyStatsRequest) MaxDurationS(maxDurationS int64) ApiPartyStatsRequest {
 	r.maxDurationS = &maxDurationS
-	return r
-}
-
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-func (r ApiPartyStatsRequest) MinAverageBadge(minAverageBadge int32) ApiPartyStatsRequest {
-	r.minAverageBadge = &minAverageBadge
-	return r
-}
-
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-func (r ApiPartyStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiPartyStatsRequest {
-	r.maxAverageBadge = &maxAverageBadge
 	return r
 }
 
@@ -863,12 +796,6 @@ func (a *PlayersAPIService) PartyStatsExecute(r ApiPartyStatsRequest) ([]PartySt
 	}
 	if r.maxDurationS != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
-	}
-	if r.minAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
-	}
-	if r.maxAverageBadge != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
 	}
 	if r.minMatchId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")

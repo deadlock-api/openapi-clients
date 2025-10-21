@@ -7173,8 +7173,6 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatchesPlayed] Filter based on the number of matches played.
@@ -7182,7 +7180,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        enemyStats: async (accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        enemyStats: async (accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('enemyStats', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/enemy-stats`
@@ -7212,14 +7210,6 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
 
             if (maxDurationS !== undefined) {
                 localVarQueryParameter['max_duration_s'] = maxDurationS;
-            }
-
-            if (minAverageBadge !== undefined) {
-                localVarQueryParameter['min_average_badge'] = minAverageBadge;
-            }
-
-            if (maxAverageBadge !== undefined) {
-                localVarQueryParameter['max_average_badge'] = maxAverageBadge;
             }
 
             if (minMatchId !== undefined) {
@@ -7301,17 +7291,14 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatchesPlayed] Filter based on the number of matches played.
          * @param {number | null} [maxMatchesPlayed] Filter based on the number of matches played.
-         * @param {boolean} [sameParty] Filter based on whether the mates were on the same party.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mateStats: async (accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, sameParty?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        mateStats: async (accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('mateStats', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/mate-stats`
@@ -7343,14 +7330,6 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['max_duration_s'] = maxDurationS;
             }
 
-            if (minAverageBadge !== undefined) {
-                localVarQueryParameter['min_average_badge'] = minAverageBadge;
-            }
-
-            if (maxAverageBadge !== undefined) {
-                localVarQueryParameter['max_average_badge'] = maxAverageBadge;
-            }
-
             if (minMatchId !== undefined) {
                 localVarQueryParameter['min_match_id'] = minMatchId;
             }
@@ -7365,10 +7344,6 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
 
             if (maxMatchesPlayed !== undefined) {
                 localVarQueryParameter['max_matches_played'] = maxMatchesPlayed;
-            }
-
-            if (sameParty !== undefined) {
-                localVarQueryParameter['same_party'] = sameParty;
             }
 
 
@@ -7390,14 +7365,12 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        partyStats: async (accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        partyStats: async (accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('partyStats', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/party-stats`
@@ -7427,14 +7400,6 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
 
             if (maxDurationS !== undefined) {
                 localVarQueryParameter['max_duration_s'] = maxDurationS;
-            }
-
-            if (minAverageBadge !== undefined) {
-                localVarQueryParameter['min_average_badge'] = minAverageBadge;
-            }
-
-            if (maxAverageBadge !== undefined) {
-                localVarQueryParameter['max_average_badge'] = maxAverageBadge;
             }
 
             if (minMatchId !== undefined) {
@@ -7652,8 +7617,6 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatchesPlayed] Filter based on the number of matches played.
@@ -7661,8 +7624,8 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async enemyStats(accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EnemyStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enemyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, options);
+        async enemyStats(accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EnemyStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enemyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.enemyStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7690,18 +7653,15 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatchesPlayed] Filter based on the number of matches played.
          * @param {number | null} [maxMatchesPlayed] Filter based on the number of matches played.
-         * @param {boolean} [sameParty] Filter based on whether the mates were on the same party.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async mateStats(accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, sameParty?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MateStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty, options);
+        async mateStats(accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MateStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.mateStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7714,15 +7674,13 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async partyStats(accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PartyStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.partyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, options);
+        async partyStats(accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PartyStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.partyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.partyStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7804,7 +7762,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         enemyStats(requestParameters: PlayersApiEnemyStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<EnemyStats>> {
-            return localVarFp.enemyStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(axios, basePath));
+            return localVarFp.enemyStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 5req/h | | Key | 50req/min & 1000req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 2000req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
@@ -7824,7 +7782,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         mateStats(requestParameters: PlayersApiMateStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<MateStats>> {
-            return localVarFp.mateStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, requestParameters.sameParty, options).then((request) => request(axios, basePath));
+            return localVarFp.mateStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -7834,7 +7792,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         partyStats(requestParameters: PlayersApiPartyStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PartyStats>> {
-            return localVarFp.partyStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+            return localVarFp.partyStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -7909,16 +7867,6 @@ export interface PlayersApiEnemyStatsRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     */
-    readonly minAverageBadge?: number | null
-
-    /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     */
-    readonly maxAverageBadge?: number | null
-
-    /**
      * Filter matches based on their ID.
      */
     readonly minMatchId?: number | null
@@ -7989,16 +7937,6 @@ export interface PlayersApiMateStatsRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     */
-    readonly minAverageBadge?: number | null
-
-    /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     */
-    readonly maxAverageBadge?: number | null
-
-    /**
      * Filter matches based on their ID.
      */
     readonly minMatchId?: number | null
@@ -8017,11 +7955,6 @@ export interface PlayersApiMateStatsRequest {
      * Filter based on the number of matches played.
      */
     readonly maxMatchesPlayed?: number | null
-
-    /**
-     * Filter based on whether the mates were on the same party.
-     */
-    readonly sameParty?: boolean
 }
 
 /**
@@ -8052,16 +7985,6 @@ export interface PlayersApiPartyStatsRequest {
      * Filter matches based on their duration in seconds (up to 7000s).
      */
     readonly maxDurationS?: number | null
-
-    /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     */
-    readonly minAverageBadge?: number | null
-
-    /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     */
-    readonly maxAverageBadge?: number | null
 
     /**
      * Filter matches based on their ID.
@@ -8182,7 +8105,7 @@ export class PlayersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public enemyStats(requestParameters: PlayersApiEnemyStatsRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).enemyStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).enemyStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8204,7 +8127,7 @@ export class PlayersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public mateStats(requestParameters: PlayersApiMateStatsRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).mateStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, requestParameters.sameParty, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).mateStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8215,7 +8138,7 @@ export class PlayersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public partyStats(requestParameters: PlayersApiPartyStatsRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).partyStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).partyStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

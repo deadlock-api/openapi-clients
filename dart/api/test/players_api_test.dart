@@ -30,7 +30,7 @@ void main() {
     //
     //  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
     //
-    //Future<List<EnemyStats>> enemyStats(int accountId, { int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minAverageBadge, int maxAverageBadge, int minMatchId, int maxMatchId, int minMatchesPlayed, int maxMatchesPlayed }) async
+    //Future<List<EnemyStats>> enemyStats(int accountId, { int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minMatchId, int maxMatchId, int minMatchesPlayed, int maxMatchesPlayed }) async
     test('test enemyStats', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     //  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
     //
-    //Future<List<MateStats>> mateStats(int accountId, { int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minAverageBadge, int maxAverageBadge, int minMatchId, int maxMatchId, int minMatchesPlayed, int maxMatchesPlayed, bool sameParty }) async
+    //Future<List<MateStats>> mateStats(int accountId, { int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minMatchId, int maxMatchId, int minMatchesPlayed, int maxMatchesPlayed }) async
     test('test mateStats', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     //  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
     //
-    //Future<List<PartyStats>> partyStats(int accountId, { int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minAverageBadge, int maxAverageBadge, int minMatchId, int maxMatchId }) async
+    //Future<List<PartyStats>> partyStats(int accountId, { int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minMatchId, int maxMatchId }) async
     test('test partyStats', () async {
       // TODO
     });

@@ -28,7 +28,7 @@ type ApiGetItemV2ItemsIdOrClassNameGetRequest struct {
 	ApiService *ItemsAPIService
 	idOrClassName string
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
 func (r ApiGetItemV2ItemsIdOrClassNameGetRequest) Language(language Language) ApiGetItemV2ItemsIdOrClassNameGetRequest {
@@ -36,7 +36,7 @@ func (r ApiGetItemV2ItemsIdOrClassNameGetRequest) Language(language Language) Ap
 	return r
 }
 
-func (r ApiGetItemV2ItemsIdOrClassNameGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetItemV2ItemsIdOrClassNameGetRequest {
+func (r ApiGetItemV2ItemsIdOrClassNameGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetItemV2ItemsIdOrClassNameGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -157,7 +157,7 @@ type ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest struct {
 	ApiService *ItemsAPIService
 	id int32
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
 func (r ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest) Language(language Language) ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest {
@@ -165,7 +165,7 @@ func (r ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest) Language(language Langua
 	return r
 }
 
-func (r ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest {
+func (r ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -286,7 +286,7 @@ type ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest struct {
 	ApiService *ItemsAPIService
 	slotType ItemSlotTypeV2
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
 func (r ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest) Language(language Language) ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest {
@@ -294,7 +294,7 @@ func (r ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest) Language(langu
 	return r
 }
 
-func (r ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest {
+func (r ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -415,7 +415,7 @@ type ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest struct {
 	ApiService *ItemsAPIService
 	type_ ItemTypeV2
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
 func (r ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest) Language(language Language) ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest {
@@ -423,7 +423,7 @@ func (r ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest) Language(language Language
 	return r
 }
 
-func (r ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest {
+func (r ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -543,7 +543,7 @@ type ApiGetItemsV2ItemsGetRequest struct {
 	ctx context.Context
 	ApiService *ItemsAPIService
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
 func (r ApiGetItemsV2ItemsGetRequest) Language(language Language) ApiGetItemsV2ItemsGetRequest {
@@ -551,7 +551,7 @@ func (r ApiGetItemsV2ItemsGetRequest) Language(language Language) ApiGetItemsV2I
 	return r
 }
 
-func (r ApiGetItemsV2ItemsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetItemsV2ItemsGetRequest {
+func (r ApiGetItemsV2ItemsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetItemsV2ItemsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

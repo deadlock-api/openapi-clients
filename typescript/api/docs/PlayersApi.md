@@ -88,8 +88,6 @@ let minUnixTimestamp: number; //Filter matches based on their start time (Unix t
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
-let minAverageBadge: number; //Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
-let maxAverageBadge: number; //Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
 let minMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let minMatchesPlayed: number; //Filter based on the number of matches played. (optional) (default to undefined)
@@ -101,8 +99,6 @@ const { status, data } = await apiInstance.enemyStats(
     maxUnixTimestamp,
     minDurationS,
     maxDurationS,
-    minAverageBadge,
-    maxAverageBadge,
     minMatchId,
     maxMatchId,
     minMatchesPlayed,
@@ -119,8 +115,6 @@ const { status, data } = await apiInstance.enemyStats(
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
-| **minAverageBadge** | [**number**] | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
-| **maxAverageBadge** | [**number**] | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
 | **minMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **minMatchesPlayed** | [**number**] | Filter based on the number of matches played. | (optional) defaults to undefined|
@@ -231,13 +225,10 @@ let minUnixTimestamp: number; //Filter matches based on their start time (Unix t
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
-let minAverageBadge: number; //Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
-let maxAverageBadge: number; //Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
 let minMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let minMatchesPlayed: number; //Filter based on the number of matches played. (optional) (default to undefined)
 let maxMatchesPlayed: number; //Filter based on the number of matches played. (optional) (default to undefined)
-let sameParty: boolean; //Filter based on whether the mates were on the same party. (optional) (default to true)
 
 const { status, data } = await apiInstance.mateStats(
     accountId,
@@ -245,13 +236,10 @@ const { status, data } = await apiInstance.mateStats(
     maxUnixTimestamp,
     minDurationS,
     maxDurationS,
-    minAverageBadge,
-    maxAverageBadge,
     minMatchId,
     maxMatchId,
     minMatchesPlayed,
-    maxMatchesPlayed,
-    sameParty
+    maxMatchesPlayed
 );
 ```
 
@@ -264,13 +252,10 @@ const { status, data } = await apiInstance.mateStats(
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
-| **minAverageBadge** | [**number**] | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
-| **maxAverageBadge** | [**number**] | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
 | **minMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **minMatchesPlayed** | [**number**] | Filter based on the number of matches played. | (optional) defaults to undefined|
 | **maxMatchesPlayed** | [**number**] | Filter based on the number of matches played. | (optional) defaults to undefined|
-| **sameParty** | [**boolean**] | Filter based on whether the mates were on the same party. | (optional) defaults to true|
 
 
 ### Return type
@@ -317,8 +302,6 @@ let minUnixTimestamp: number; //Filter matches based on their start time (Unix t
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
-let minAverageBadge: number; //Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
-let maxAverageBadge: number; //Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
 let minMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 
@@ -328,8 +311,6 @@ const { status, data } = await apiInstance.partyStats(
     maxUnixTimestamp,
     minDurationS,
     maxDurationS,
-    minAverageBadge,
-    maxAverageBadge,
     minMatchId,
     maxMatchId
 );
@@ -344,8 +325,6 @@ const { status, data } = await apiInstance.partyStats(
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
-| **minAverageBadge** | [**number**] | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
-| **maxAverageBadge** | [**number**] | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
 | **minMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 

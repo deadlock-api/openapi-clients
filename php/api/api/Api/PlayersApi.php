@@ -427,8 +427,6 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
@@ -439,9 +437,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EnemyStats[]
      */
-    public function enemyStats($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
+    public function enemyStats($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
     {
-        list($response) = $this->enemyStatsWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
+        list($response) = $this->enemyStatsWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
         return $response;
     }
 
@@ -455,8 +453,6 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
@@ -467,9 +463,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EnemyStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function enemyStatsWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
+    public function enemyStatsWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
     {
-        $request = $this->enemyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
+        $request = $this->enemyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -550,8 +546,6 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
@@ -561,9 +555,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enemyStatsAsync($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
+    public function enemyStatsAsync($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
     {
-        return $this->enemyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType)
+        return $this->enemyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -581,8 +575,6 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
@@ -592,10 +584,10 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enemyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
+    public function enemyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EnemyStats[]';
-        $request = $this->enemyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
+        $request = $this->enemyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -641,8 +633,6 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
@@ -652,7 +642,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function enemyStatsRequest($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
+    public function enemyStatsRequest($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
     {
 
         // verify the required parameter 'account_id' is set
@@ -679,20 +669,6 @@ class PlayersApi
         }
         if ($max_duration_s !== null && $max_duration_s < 0) {
             throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling PlayersApi.enemyStats, must be bigger than or equal to 0.');
-        }
-        
-        if ($min_average_badge !== null && $min_average_badge > 116) {
-            throw new \InvalidArgumentException('invalid value for "$min_average_badge" when calling PlayersApi.enemyStats, must be smaller than or equal to 116.');
-        }
-        if ($min_average_badge !== null && $min_average_badge < 0) {
-            throw new \InvalidArgumentException('invalid value for "$min_average_badge" when calling PlayersApi.enemyStats, must be bigger than or equal to 0.');
-        }
-        
-        if ($max_average_badge !== null && $max_average_badge > 116) {
-            throw new \InvalidArgumentException('invalid value for "$max_average_badge" when calling PlayersApi.enemyStats, must be smaller than or equal to 116.');
-        }
-        if ($max_average_badge !== null && $max_average_badge < 0) {
-            throw new \InvalidArgumentException('invalid value for "$max_average_badge" when calling PlayersApi.enemyStats, must be bigger than or equal to 0.');
         }
         
         if ($min_match_id !== null && $min_match_id < 0) {
@@ -750,24 +726,6 @@ class PlayersApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $max_duration_s,
             'max_duration_s', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $min_average_badge,
-            'min_average_badge', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $max_average_badge,
-            'max_average_badge', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode
@@ -1185,22 +1143,19 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
-     * @param  bool|null $same_party Filter based on whether the mates were on the same party. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MateStats[]
      */
-    public function mateStats($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStats($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
     {
-        list($response) = $this->mateStatsWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
+        list($response) = $this->mateStatsWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
         return $response;
     }
 
@@ -1214,22 +1169,19 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
-     * @param  bool|null $same_party Filter based on whether the mates were on the same party. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MateStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function mateStatsWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
     {
-        $request = $this->mateStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
+        $request = $this->mateStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1310,21 +1262,18 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
-     * @param  bool|null $same_party Filter based on whether the mates were on the same party. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mateStatsAsync($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsAsync($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
     {
-        return $this->mateStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType)
+        return $this->mateStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1342,22 +1291,19 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
-     * @param  bool|null $same_party Filter based on whether the mates were on the same party. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mateStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MateStats[]';
-        $request = $this->mateStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
+        $request = $this->mateStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1403,19 +1349,16 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
-     * @param  bool|null $same_party Filter based on whether the mates were on the same party. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function mateStatsRequest($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsRequest($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
     {
 
         // verify the required parameter 'account_id' is set
@@ -1444,20 +1387,6 @@ class PlayersApi
             throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling PlayersApi.mateStats, must be bigger than or equal to 0.');
         }
         
-        if ($min_average_badge !== null && $min_average_badge > 116) {
-            throw new \InvalidArgumentException('invalid value for "$min_average_badge" when calling PlayersApi.mateStats, must be smaller than or equal to 116.');
-        }
-        if ($min_average_badge !== null && $min_average_badge < 0) {
-            throw new \InvalidArgumentException('invalid value for "$min_average_badge" when calling PlayersApi.mateStats, must be bigger than or equal to 0.');
-        }
-        
-        if ($max_average_badge !== null && $max_average_badge > 116) {
-            throw new \InvalidArgumentException('invalid value for "$max_average_badge" when calling PlayersApi.mateStats, must be smaller than or equal to 116.');
-        }
-        if ($max_average_badge !== null && $max_average_badge < 0) {
-            throw new \InvalidArgumentException('invalid value for "$max_average_badge" when calling PlayersApi.mateStats, must be bigger than or equal to 0.');
-        }
-        
         if ($min_match_id !== null && $min_match_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$min_match_id" when calling PlayersApi.mateStats, must be bigger than or equal to 0.');
         }
@@ -1474,7 +1403,6 @@ class PlayersApi
             throw new \InvalidArgumentException('invalid value for "$max_matches_played" when calling PlayersApi.mateStats, must be bigger than or equal to 0.');
         }
         
-
 
         $resourcePath = '/v1/players/{account_id}/mate-stats';
         $formParams = [];
@@ -1521,24 +1449,6 @@ class PlayersApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $min_average_badge,
-            'min_average_badge', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $max_average_badge,
-            'max_average_badge', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $min_match_id,
             'min_match_id', // param base name
             'integer', // openApiType
@@ -1569,15 +1479,6 @@ class PlayersApi
             $max_matches_played,
             'max_matches_played', // param base name
             'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $same_party,
-            'same_party', // param base name
-            'boolean', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1657,8 +1558,6 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['partyStats'] to see the possible values for this operation
@@ -1667,9 +1566,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PartyStats[]
      */
-    public function partyStats($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
+    public function partyStats($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
     {
-        list($response) = $this->partyStatsWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
+        list($response) = $this->partyStatsWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
         return $response;
     }
 
@@ -1683,8 +1582,6 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['partyStats'] to see the possible values for this operation
@@ -1693,9 +1590,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PartyStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function partyStatsWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
+    public function partyStatsWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
     {
-        $request = $this->partyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
+        $request = $this->partyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1776,8 +1673,6 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['partyStats'] to see the possible values for this operation
@@ -1785,9 +1680,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function partyStatsAsync($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
+    public function partyStatsAsync($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
     {
-        return $this->partyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType)
+        return $this->partyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1805,8 +1700,6 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['partyStats'] to see the possible values for this operation
@@ -1814,10 +1707,10 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function partyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
+    public function partyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PartyStats[]';
-        $request = $this->partyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
+        $request = $this->partyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1863,8 +1756,6 @@ class PlayersApi
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['partyStats'] to see the possible values for this operation
@@ -1872,7 +1763,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function partyStatsRequest($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
+    public function partyStatsRequest($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
     {
 
         // verify the required parameter 'account_id' is set
@@ -1899,20 +1790,6 @@ class PlayersApi
         }
         if ($max_duration_s !== null && $max_duration_s < 0) {
             throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling PlayersApi.partyStats, must be bigger than or equal to 0.');
-        }
-        
-        if ($min_average_badge !== null && $min_average_badge > 116) {
-            throw new \InvalidArgumentException('invalid value for "$min_average_badge" when calling PlayersApi.partyStats, must be smaller than or equal to 116.');
-        }
-        if ($min_average_badge !== null && $min_average_badge < 0) {
-            throw new \InvalidArgumentException('invalid value for "$min_average_badge" when calling PlayersApi.partyStats, must be bigger than or equal to 0.');
-        }
-        
-        if ($max_average_badge !== null && $max_average_badge > 116) {
-            throw new \InvalidArgumentException('invalid value for "$max_average_badge" when calling PlayersApi.partyStats, must be smaller than or equal to 116.');
-        }
-        if ($max_average_badge !== null && $max_average_badge < 0) {
-            throw new \InvalidArgumentException('invalid value for "$max_average_badge" when calling PlayersApi.partyStats, must be bigger than or equal to 0.');
         }
         
         if ($min_match_id !== null && $min_match_id < 0) {
@@ -1962,24 +1839,6 @@ class PlayersApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $max_duration_s,
             'max_duration_s', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $min_average_badge,
-            'min_average_badge', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $max_average_badge,
-            'max_average_badge', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode

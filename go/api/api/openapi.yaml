@@ -107,7 +107,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -310,7 +310,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -442,7 +442,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -490,7 +490,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -724,7 +724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -961,7 +961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -1207,7 +1207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -1470,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -1680,7 +1680,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -1909,7 +1909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -2190,7 +2190,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758240000
+          default: 1758326400
           format: int64
           nullable: true
           type: integer
@@ -4443,32 +4443,6 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Filter matches based on the average badge level (0-116) of *both*\
-          \ teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
-        explode: true
-        in: query
-        name: min_average_badge
-        required: false
-        schema:
-          format: int32
-          maximum: 116
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: "Filter matches based on the average badge level (0-116) of *both*\
-          \ teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
-        explode: true
-        in: query
-        name: max_average_badge
-        required: false
-        schema:
-          format: int32
-          maximum: 116
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
       - description: Filter matches based on their ID.
         explode: true
         in: query
@@ -4654,32 +4628,6 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Filter matches based on the average badge level (0-116) of *both*\
-          \ teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
-        explode: true
-        in: query
-        name: min_average_badge
-        required: false
-        schema:
-          format: int32
-          maximum: 116
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: "Filter matches based on the average badge level (0-116) of *both*\
-          \ teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
-        explode: true
-        in: query
-        name: max_average_badge
-        required: false
-        schema:
-          format: int32
-          maximum: 116
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
       - description: Filter matches based on their ID.
         explode: true
         in: query
@@ -4723,15 +4671,6 @@ paths:
           minimum: 0
           nullable: true
           type: integer
-        style: form
-      - description: Filter based on whether the mates were on the same party.
-        explode: true
-        in: query
-        name: same_party
-        required: false
-        schema:
-          default: true
-          type: boolean
         style: form
       responses:
         "200":
@@ -4878,32 +4817,6 @@ paths:
         schema:
           format: int64
           maximum: 7000
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: "Filter matches based on the average badge level (0-116) of *both*\
-          \ teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
-        explode: true
-        in: query
-        name: min_average_badge
-        required: false
-        schema:
-          format: int32
-          maximum: 116
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: "Filter matches based on the average badge level (0-116) of *both*\
-          \ teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
-        explode: true
-        in: query
-        name: max_average_badge
-        required: false
-        schema:
-          format: int32
-          maximum: 116
           minimum: 0
           nullable: true
           type: integer

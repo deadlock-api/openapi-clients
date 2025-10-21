@@ -7,7 +7,7 @@ Accept: application/json
 
 ### Enemy Stats
 ## Enemy Stats
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/enemy-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatchesPlayed={{minMatchesPlayed}}&maxMatchesPlayed={{maxMatchesPlayed}}
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/enemy-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatchesPlayed={{minMatchesPlayed}}&maxMatchesPlayed={{maxMatchesPlayed}}
 Accept: application/json
 
 ### Match History
@@ -17,12 +17,12 @@ Accept: application/json
 
 ### Mate Stats
 ## Mate Stats
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/mate-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatchesPlayed={{minMatchesPlayed}}&maxMatchesPlayed={{maxMatchesPlayed}}&sameParty={{sameParty}}
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/mate-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatchesPlayed={{minMatchesPlayed}}&maxMatchesPlayed={{maxMatchesPlayed}}
 Accept: application/json
 
 ### Party Stats
 ## Party Stats
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/party-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/party-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
 Accept: application/json
 
 ### Hero Stats
