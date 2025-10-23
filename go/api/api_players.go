@@ -499,6 +499,7 @@ type ApiMateStatsRequest struct {
 	maxMatchId *int64
 	minMatchesPlayed *int64
 	maxMatchesPlayed *int64
+	sameParty *bool
 }
 
 // Filter matches based on their start time (Unix timestamp).
@@ -546,6 +547,12 @@ func (r ApiMateStatsRequest) MinMatchesPlayed(minMatchesPlayed int64) ApiMateSta
 // Filter based on the number of matches played.
 func (r ApiMateStatsRequest) MaxMatchesPlayed(maxMatchesPlayed int64) ApiMateStatsRequest {
 	r.maxMatchesPlayed = &maxMatchesPlayed
+	return r
+}
+
+// Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
+func (r ApiMateStatsRequest) SameParty(sameParty bool) ApiMateStatsRequest {
+	r.sameParty = &sameParty
 	return r
 }
 
@@ -627,6 +634,12 @@ func (a *PlayersAPIService) MateStatsExecute(r ApiMateStatsRequest) ([]MateStats
 	}
 	if r.maxMatchesPlayed != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_matches_played", r.maxMatchesPlayed, "form", "")
+	}
+	if r.sameParty != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "same_party", r.sameParty, "form", "")
+	} else {
+		var defaultValue bool = true
+		r.sameParty = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

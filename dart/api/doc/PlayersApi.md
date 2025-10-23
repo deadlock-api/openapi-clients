@@ -169,7 +169,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mateStats**
-> List<MateStats> mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)
+> List<MateStats> mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty)
 
 Mate Stats
 
@@ -189,9 +189,10 @@ final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final minMatchesPlayed = 789; // int | Filter based on the number of matches played.
 final maxMatchesPlayed = 789; // int | Filter based on the number of matches played.
+final sameParty = true; // bool | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
 
 try {
-    final result = api_instance.mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
+    final result = api_instance.mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
     print(result);
 } catch (e) {
     print('Exception when calling PlayersApi->mateStats: $e\n');
@@ -211,6 +212,7 @@ Name | Type | Description  | Notes
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **minMatchesPlayed** | **int**| Filter based on the number of matches played. | [optional] 
  **maxMatchesPlayed** | **int**| Filter based on the number of matches played. | [optional] 
+ **sameParty** | **bool**| Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | [optional] [default to true]
 
 ### Return type
 

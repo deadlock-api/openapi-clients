@@ -107,7 +107,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -310,7 +310,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -442,7 +442,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -490,7 +490,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -724,7 +724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -961,7 +961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -1207,7 +1207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -1470,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -1680,7 +1680,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -1909,7 +1909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -2190,7 +2190,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758412800
+          default: 1758499200
           format: int64
           nullable: true
           type: integer
@@ -4671,6 +4671,17 @@ paths:
           minimum: 0
           nullable: true
           type: integer
+        style: form
+      - description: |-
+          Filter based on whether the mates were on the same party.
+          **Careful:** this will require us to use the match metadata, which can have missing matches.
+        explode: true
+        in: query
+        name: same_party
+        required: false
+        schema:
+          default: true
+          type: boolean
         style: form
       responses:
         "200":

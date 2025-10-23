@@ -117,7 +117,7 @@ No authorization required
 
 ## mate_stats
 
-> Vec<models::MateStats> mate_stats(account_id, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_match_id, max_match_id, min_matches_played, max_matches_played)
+> Vec<models::MateStats> mate_stats(account_id, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_match_id, max_match_id, min_matches_played, max_matches_played, same_party)
 Mate Stats
 
  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -136,6 +136,7 @@ Name | Type | Description  | Required | Notes
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **min_matches_played** | Option<**u64**> | Filter based on the number of matches played. |  |
 **max_matches_played** | Option<**u64**> | Filter based on the number of matches played. |  |
+**same_party** | Option<**bool**> | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. |  |[default to true]
 
 ### Return type
 

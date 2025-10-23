@@ -247,7 +247,7 @@ No authorization required
 
 ## MateStats
 
-> []MateStats MateStats(ctx, accountId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).Execute()
+> []MateStats MateStats(ctx, accountId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).SameParty(sameParty).Execute()
 
 Mate Stats
 
@@ -275,10 +275,11 @@ func main() {
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minMatchesPlayed := int64(789) // int64 | Filter based on the number of matches played. (optional)
 	maxMatchesPlayed := int64(789) // int64 | Filter based on the number of matches played. (optional)
+	sameParty := true // bool | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.MateStats(context.Background(), accountId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).Execute()
+	resp, r, err := apiClient.PlayersAPI.MateStats(context.Background(), accountId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).SameParty(sameParty).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.MateStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -312,6 +313,7 @@ Name | Type | Description  | Notes
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minMatchesPlayed** | **int64** | Filter based on the number of matches played. | 
  **maxMatchesPlayed** | **int64** | Filter based on the number of matches played. | 
+ **sameParty** | **bool** | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | [default to true]
 
 ### Return type
 

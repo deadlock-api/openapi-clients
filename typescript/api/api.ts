@@ -7295,10 +7295,11 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatchesPlayed] Filter based on the number of matches played.
          * @param {number | null} [maxMatchesPlayed] Filter based on the number of matches played.
+         * @param {boolean} [sameParty] Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mateStats: async (accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        mateStats: async (accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, sameParty?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('mateStats', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/mate-stats`
@@ -7344,6 +7345,10 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
 
             if (maxMatchesPlayed !== undefined) {
                 localVarQueryParameter['max_matches_played'] = maxMatchesPlayed;
+            }
+
+            if (sameParty !== undefined) {
+                localVarQueryParameter['same_party'] = sameParty;
             }
 
 
@@ -7657,11 +7662,12 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatchesPlayed] Filter based on the number of matches played.
          * @param {number | null} [maxMatchesPlayed] Filter based on the number of matches played.
+         * @param {boolean} [sameParty] Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async mateStats(accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MateStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, options);
+        async mateStats(accountId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, sameParty?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MateStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.mateStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7782,7 +7788,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         mateStats(requestParameters: PlayersApiMateStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<MateStats>> {
-            return localVarFp.mateStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(axios, basePath));
+            return localVarFp.mateStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, requestParameters.sameParty, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -7955,6 +7961,11 @@ export interface PlayersApiMateStatsRequest {
      * Filter based on the number of matches played.
      */
     readonly maxMatchesPlayed?: number | null
+
+    /**
+     * Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
+     */
+    readonly sameParty?: boolean
 }
 
 /**
@@ -8127,7 +8138,7 @@ export class PlayersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public mateStats(requestParameters: PlayersApiMateStatsRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).mateStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).mateStats(requestParameters.accountId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, requestParameters.sameParty, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

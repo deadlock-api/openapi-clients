@@ -48,7 +48,7 @@ void main() {
     //
     //  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
     //
-    //Future<List<MateStats>> mateStats(int accountId, { int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minMatchId, int maxMatchId, int minMatchesPlayed, int maxMatchesPlayed }) async
+    //Future<List<MateStats>> mateStats(int accountId, { int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, int minMatchId, int maxMatchId, int minMatchesPlayed, int maxMatchesPlayed, bool sameParty }) async
     test('test mateStats', () async {
       // TODO
     });

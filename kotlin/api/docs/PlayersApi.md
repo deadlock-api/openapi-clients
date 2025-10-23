@@ -174,7 +174,7 @@ No authorization required
 
 <a id="mateStats"></a>
 # **mateStats**
-> kotlin.collections.List&lt;MateStats&gt; mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)
+> kotlin.collections.List&lt;MateStats&gt; mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty)
 
 Mate Stats
 
@@ -196,8 +196,9 @@ val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on thei
 val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 val minMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
 val maxMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
+val sameParty : kotlin.Boolean = true // kotlin.Boolean | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
 try {
-    val result : kotlin.collections.List<MateStats> = apiInstance.mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)
+    val result : kotlin.collections.List<MateStats> = apiInstance.mateStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PlayersApi#mateStats")
@@ -217,9 +218,10 @@ try {
 | **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **minMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
+| **maxMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **maxMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
+| **sameParty** | **kotlin.Boolean**| Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | [optional] [default to true] |
 
 ### Return type
 

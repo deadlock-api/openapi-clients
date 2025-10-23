@@ -1031,6 +1031,7 @@ class PlayersApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
         max_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
+        same_party: Annotated[Optional[StrictBool], Field(description="Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1066,6 +1067,8 @@ class PlayersApi:
         :type min_matches_played: int
         :param max_matches_played: Filter based on the number of matches played.
         :type max_matches_played: int
+        :param same_party: Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
+        :type same_party: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1098,6 +1101,7 @@ class PlayersApi:
             max_match_id=max_match_id,
             min_matches_played=min_matches_played,
             max_matches_played=max_matches_played,
+            same_party=same_party,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1132,6 +1136,7 @@ class PlayersApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
         max_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
+        same_party: Annotated[Optional[StrictBool], Field(description="Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1167,6 +1172,8 @@ class PlayersApi:
         :type min_matches_played: int
         :param max_matches_played: Filter based on the number of matches played.
         :type max_matches_played: int
+        :param same_party: Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
+        :type same_party: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1199,6 +1206,7 @@ class PlayersApi:
             max_match_id=max_match_id,
             min_matches_played=min_matches_played,
             max_matches_played=max_matches_played,
+            same_party=same_party,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1233,6 +1241,7 @@ class PlayersApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
         max_matches_played: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter based on the number of matches played.")] = None,
+        same_party: Annotated[Optional[StrictBool], Field(description="Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1268,6 +1277,8 @@ class PlayersApi:
         :type min_matches_played: int
         :param max_matches_played: Filter based on the number of matches played.
         :type max_matches_played: int
+        :param same_party: Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
+        :type same_party: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1300,6 +1311,7 @@ class PlayersApi:
             max_match_id=max_match_id,
             min_matches_played=min_matches_played,
             max_matches_played=max_matches_played,
+            same_party=same_party,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1329,6 +1341,7 @@ class PlayersApi:
         max_match_id,
         min_matches_played,
         max_matches_played,
+        same_party,
         _request_auth,
         _content_type,
         _headers,
@@ -1384,6 +1397,10 @@ class PlayersApi:
         if max_matches_played is not None:
             
             _query_params.append(('max_matches_played', max_matches_played))
+            
+        if same_party is not None:
+            
+            _query_params.append(('same_party', same_party))
             
         # process the header parameters
         # process the form parameters

@@ -32,7 +32,7 @@ $apiInstance = new OpenAPI\Client\Api\HeroesApi(
 );
 $name = 'name_example'; // string
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
 
 try {
     $result = $apiInstance->getHeroByNameV2HeroesByNameNameGet($name, $language, $client_version);
@@ -48,7 +48,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **name** | **string**|  | |
 | **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -90,7 +90,7 @@ $apiInstance = new OpenAPI\Client\Api\HeroesApi(
 );
 $id = 56; // int
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
 
 try {
     $result = $apiInstance->getHeroV2HeroesIdGet($id, $language, $client_version);
@@ -106,7 +106,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**|  | |
 | **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -147,7 +147,7 @@ $apiInstance = new OpenAPI\Client\Api\HeroesApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
 $only_active = True; // bool
 
 try {
@@ -163,7 +163,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **language** | [**\OpenAPI\Client\Model\Language**](../Model/.md)|  | [optional] |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions**](../Model/.md)|  | [optional] |
 | **only_active** | **bool**|  | [optional] |
 
 ### Return type

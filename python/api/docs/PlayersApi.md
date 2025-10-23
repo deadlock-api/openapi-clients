@@ -292,7 +292,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mate_stats**
-> List[MateStats] mate_stats(account_id, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played)
+> List[MateStats] mate_stats(account_id, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played, same_party=same_party)
 
 Mate Stats
 
@@ -336,10 +336,11 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     max_match_id = 56 # int | Filter matches based on their ID. (optional)
     min_matches_played = 56 # int | Filter based on the number of matches played. (optional)
     max_matches_played = 56 # int | Filter based on the number of matches played. (optional)
+    same_party = True # bool | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional) (default to True)
 
     try:
         # Mate Stats
-        api_response = api_instance.mate_stats(account_id, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played)
+        api_response = api_instance.mate_stats(account_id, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played, same_party=same_party)
         print("The response of PlayersApi->mate_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -362,6 +363,7 @@ Name | Type | Description  | Notes
  **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
  **min_matches_played** | **int**| Filter based on the number of matches played. | [optional] 
  **max_matches_played** | **int**| Filter based on the number of matches played. | [optional] 
+ **same_party** | **bool**| Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | [optional] [default to True]
 
 ### Return type
 

@@ -205,7 +205,7 @@ No authorization required
 ## `mateStats()`
 
 ```php
-mateStats($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played): \OpenAPI\Client\Model\MateStats[]
+mateStats($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party): \OpenAPI\Client\Model\MateStats[]
 ```
 
 Mate Stats
@@ -234,9 +234,10 @@ $min_match_id = 56; // int | Filter matches based on their ID.
 $max_match_id = 56; // int | Filter matches based on their ID.
 $min_matches_played = 56; // int | Filter based on the number of matches played.
 $max_matches_played = 56; // int | Filter based on the number of matches played.
+$same_party = true; // bool | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
 
 try {
-    $result = $apiInstance->mateStats($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played);
+    $result = $apiInstance->mateStats($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlayersApi->mateStats: ', $e->getMessage(), PHP_EOL;
@@ -256,6 +257,7 @@ try {
 | **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **min_matches_played** | **int**| Filter based on the number of matches played. | [optional] |
 | **max_matches_played** | **int**| Filter based on the number of matches played. | [optional] |
+| **same_party** | **bool**| Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | [optional] [default to true] |
 
 ### Return type
 
