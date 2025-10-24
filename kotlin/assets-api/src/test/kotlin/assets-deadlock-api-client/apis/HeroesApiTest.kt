@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets-deadlock-api-client.apis.HeroesApi
-import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesRawValidClientVersions
+import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
 import assets-deadlock-api-client.models.HTTPValidationError
 import assets-deadlock-api-client.models.HeroV2
 import assets-deadlock-api-client.models.Language
@@ -34,7 +34,7 @@ class HeroesApiTest : ShouldSpec() {
             // uncomment below to test getHeroByNameV2HeroesByNameNameGet
             //val name : kotlin.String = name_example // kotlin.String | 
             //val language : Language =  // Language | 
-            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
             //val result : HeroV2 = apiInstance.getHeroByNameV2HeroesByNameNameGet(name, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -44,7 +44,7 @@ class HeroesApiTest : ShouldSpec() {
             // uncomment below to test getHeroV2HeroesIdGet
             //val id : kotlin.Int = 56 // kotlin.Int | 
             //val language : Language =  // Language | 
-            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
             //val result : HeroV2 = apiInstance.getHeroV2HeroesIdGet(id, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -53,7 +53,7 @@ class HeroesApiTest : ShouldSpec() {
         should("test getHeroesV2HeroesGet") {
             // uncomment below to test getHeroesV2HeroesGet
             //val language : Language =  // Language | 
-            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
             //val onlyActive : kotlin.Boolean = true // kotlin.Boolean | 
             //val result : kotlin.collections.List<HeroV2> = apiInstance.getHeroesV2HeroesGet(language, clientVersion, onlyActive)
             //result shouldBe ("TODO")

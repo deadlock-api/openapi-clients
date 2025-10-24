@@ -31,7 +31,7 @@ assets-deadlock-api-client/models/bonus.py
 assets-deadlock-api-client/models/build_tag_v2_input.py
 assets-deadlock-api-client/models/build_tag_v2_output.py
 assets-deadlock-api-client/models/color_v1.py
-assets-deadlock-api-client/models/deadlock_assets_api_routes_raw_valid_client_versions.py
+assets-deadlock-api-client/models/deadlock_assets_api_routes_v2_valid_client_versions.py
 assets-deadlock-api-client/models/get_items_v2_items_get200_response_inner.py
 assets-deadlock-api-client/models/hero_colors_v2.py
 assets-deadlock-api-client/models/hero_description_v2.py
@@ -146,7 +146,7 @@ docs/Bonus.md
 docs/BuildTagV2Input.md
 docs/BuildTagV2Output.md
 docs/ColorV1.md
-docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md
 docs/DefaultApi.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/HTTPValidationError.md
@@ -270,7 +270,7 @@ test/test_bonus.py
 test/test_build_tag_v2_input.py
 test/test_build_tag_v2_output.py
 test/test_color_v1.py
-test/test_deadlock_assets_api_routes_raw_valid_client_versions.py
+test/test_deadlock_assets_api_routes_v2_valid_client_versions.py
 test/test_default_api.py
 test/test_get_items_v2_items_get200_response_inner.py
 test/test_hero_colors_v2.py

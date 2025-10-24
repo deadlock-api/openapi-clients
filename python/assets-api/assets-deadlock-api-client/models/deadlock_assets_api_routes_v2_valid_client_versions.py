@@ -18,9 +18,9 @@ from enum import Enum
 from typing_extensions import Self
 
 
-class DeadlockAssetsApiRoutesRawValidClientVersions(int, Enum):
+class DeadlockAssetsApiRoutesV2ValidClientVersions(int, Enum):
     """
-    DeadlockAssetsApiRoutesRawValidClientVersions
+    DeadlockAssetsApiRoutesV2ValidClientVersions
     """
 
     """
@@ -60,7 +60,7 @@ class DeadlockAssetsApiRoutesRawValidClientVersions(int, Enum):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of DeadlockAssetsApiRoutesRawValidClientVersions from a JSON string"""
+        """Create an instance of DeadlockAssetsApiRoutesV2ValidClientVersions from a JSON string"""
         return cls(json.loads(json_str))
 
 
