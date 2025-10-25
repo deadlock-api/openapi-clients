@@ -26,7 +26,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 final api_instance = HeroesApi();
 final name = name_example; // String | 
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getHeroByNameV2HeroesByNameNameGet(name, language, clientVersion);
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -71,7 +71,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 final api_instance = HeroesApi();
 final id = 56; // int | 
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getHeroV2HeroesIdGet(id, language, clientVersion);
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -115,7 +115,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = HeroesApi();
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 final onlyActive = true; // bool | 
 
 try {
@@ -131,7 +131,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
  **onlyActive** | **bool**|  | [optional] 
 
 ### Return type

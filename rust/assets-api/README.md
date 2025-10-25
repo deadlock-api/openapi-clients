@@ -79,7 +79,7 @@ Class | Method | HTTP request | Description
  - [BuildTagV2Input](docs/BuildTagV2Input.md)
  - [BuildTagV2Output](docs/BuildTagV2Output.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesV2ValidClientVersions](docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [HeroColorsV2](docs/HeroColorsV2.md)
  - [HeroDescriptionV2](docs/HeroDescriptionV2.md)

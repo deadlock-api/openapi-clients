@@ -19,7 +19,7 @@ use super::{Error, configuration, ContentType};
 pub struct GetItemV2ItemsIdOrClassNameGetParams {
     pub id_or_class_name: String,
     pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV1ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_items_by_hero_id_v2_items_by_hero_id_id_get`]
@@ -27,7 +27,7 @@ pub struct GetItemV2ItemsIdOrClassNameGetParams {
 pub struct GetItemsByHeroIdV2ItemsByHeroIdIdGetParams {
     pub id: i32,
     pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV1ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_items_by_slot_type_v2_items_by_slot_type_slot_type_get`]
@@ -35,7 +35,7 @@ pub struct GetItemsByHeroIdV2ItemsByHeroIdIdGetParams {
 pub struct GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetParams {
     pub slot_type: models::ItemSlotTypeV2,
     pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV1ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_items_by_type_v2_items_by_type_type_get`]
@@ -43,14 +43,14 @@ pub struct GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetParams {
 pub struct GetItemsByTypeV2ItemsByTypeTypeGetParams {
     pub r#type: models::ItemTypeV2,
     pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV1ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_items_v2_items_get`]
 #[derive(Clone, Debug)]
 pub struct GetItemsV2ItemsGetParams {
     pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV1ValidClientVersions>
 }
 
 
