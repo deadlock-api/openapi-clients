@@ -138,7 +138,7 @@ class HeroesApi
      *
      * @param  string $name name (required)
      * @param  \OpenAPI\Client\Model\Language|null $language language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroByNameV2HeroesByNameNameGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -158,7 +158,7 @@ class HeroesApi
      *
      * @param  string $name (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroByNameV2HeroesByNameNameGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -259,7 +259,7 @@ class HeroesApi
      *
      * @param  string $name (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroByNameV2HeroesByNameNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -282,7 +282,7 @@ class HeroesApi
      *
      * @param  string $name (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroByNameV2HeroesByNameNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -334,7 +334,7 @@ class HeroesApi
      *
      * @param  string $name (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroByNameV2HeroesByNameNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -373,7 +373,7 @@ class HeroesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesV1ValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesV2ValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -450,7 +450,7 @@ class HeroesApi
      *
      * @param  int $id id (required)
      * @param  \OpenAPI\Client\Model\Language|null $language language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroV2HeroesIdGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -470,7 +470,7 @@ class HeroesApi
      *
      * @param  int $id (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroV2HeroesIdGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -571,7 +571,7 @@ class HeroesApi
      *
      * @param  int $id (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroV2HeroesIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -594,7 +594,7 @@ class HeroesApi
      *
      * @param  int $id (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroV2HeroesIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -646,7 +646,7 @@ class HeroesApi
      *
      * @param  int $id (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroV2HeroesIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -685,7 +685,7 @@ class HeroesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesV1ValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesV2ValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -761,7 +761,7 @@ class HeroesApi
      * Get Heroes
      *
      * @param  \OpenAPI\Client\Model\Language|null $language language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version client_version (optional)
      * @param  bool|null $only_active only_active (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroesV2HeroesGet'] to see the possible values for this operation
      *
@@ -781,7 +781,7 @@ class HeroesApi
      * Get Heroes
      *
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  bool|null $only_active (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroesV2HeroesGet'] to see the possible values for this operation
      *
@@ -882,7 +882,7 @@ class HeroesApi
      * Get Heroes
      *
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  bool|null $only_active (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroesV2HeroesGet'] to see the possible values for this operation
      *
@@ -905,7 +905,7 @@ class HeroesApi
      * Get Heroes
      *
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  bool|null $only_active (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroesV2HeroesGet'] to see the possible values for this operation
      *
@@ -957,7 +957,7 @@ class HeroesApi
      * Create request for operation 'getHeroesV2HeroesGet'
      *
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  bool|null $only_active (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHeroesV2HeroesGet'] to see the possible values for this operation
      *
@@ -991,7 +991,7 @@ class HeroesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesV1ValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesV2ValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required

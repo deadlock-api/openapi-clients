@@ -29,6 +29,10 @@ servers:
 tags:
 - description: |2
 
+    Endpoints related to data privacy management
+  name: Data Privacy
+- description: |2
+
     Comprehensive match data endpoints for retrieving detailed information about games.
     Provides access to active matches, match metadata, replay salts, and more.
   name: Matches
@@ -107,7 +111,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -310,7 +314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -442,7 +446,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -490,7 +494,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -724,7 +728,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -961,7 +965,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -1207,7 +1211,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -1470,7 +1474,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -1680,7 +1684,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -1909,7 +1913,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -2190,7 +2194,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1758672000
+          default: 1758758400
           format: int64
           nullable: true
           type: integer
@@ -3000,6 +3004,51 @@ paths:
       summary: Widget Versions
       tags:
       - Commands
+  /v1/data-privacy/request-deletion:
+    post:
+      description: "\nEndpoint to request deletion of personal data.\n    "
+      operationId: request_deletion
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataPrivacyRequest"
+        required: true
+      responses:
+        "200":
+          description: ""
+        "500":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: ""
+      summary: Request Data Deletion
+      tags:
+      - Data Privacy
+  /v1/data-privacy/request-tracking:
+    post:
+      description: "\nEndpoint to request tracking of personal data.\n\nUse this to\
+        \ opt back into data tracking after previously requesting deletion.\n    "
+      operationId: request_tracking
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataPrivacyRequest"
+        required: true
+      responses:
+        "200":
+          description: ""
+        "500":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: ""
+      summary: Request Data Tracking
+      tags:
+      - Data Privacy
   /v1/esports/ingest/match:
     post:
       description: "\nTo use this Endpoint you need to have special permissions.\n\
@@ -5920,6 +5969,22 @@ components:
       required:
       - party_code
       - party_id
+    DataPrivacyRequest:
+      example:
+        steam_id: 0
+        open_id_params:
+          key: open_id_params
+      properties:
+        open_id_params:
+          additionalProperties:
+            type: string
+        steam_id:
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - open_id_params
+      - steam_id
     ESportsMatch:
       example:
         team0_name: team0_name

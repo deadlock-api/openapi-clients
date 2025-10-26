@@ -20,7 +20,7 @@ Get Generic Data
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -48,7 +48,7 @@ Get Raw Heroes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -76,7 +76,7 @@ Get Raw Items
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 

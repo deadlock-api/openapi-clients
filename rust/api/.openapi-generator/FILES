@@ -29,6 +29,8 @@ docs/CommandsApi.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
+docs/DataPrivacyApi.md
+docs/DataPrivacyRequest.md
 docs/ESportsApi.md
 docs/ESportsMatch.md
 docs/ESportsMatchStatus.md
@@ -78,6 +80,7 @@ src/apis/builds_api.rs
 src/apis/commands_api.rs
 src/apis/configuration.rs
 src/apis/custom_matches_api.rs
+src/apis/data_privacy_api.rs
 src/apis/e_sports_api.rs
 src/apis/info_api.rs
 src/apis/internal_api.rs
@@ -111,6 +114,7 @@ src/models/clickhouse_match_info.rs
 src/models/clickhouse_salts.rs
 src/models/create_custom_request.rs
 src/models/create_custom_response.rs
+src/models/data_privacy_request.rs
 src/models/e_sports_match.rs
 src/models/e_sports_match_status.rs
 src/models/enemy_stats.rs

@@ -79,6 +79,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *CustomMatchesApi* | [**createCustom**](docs/CustomMatchesApi.md#createcustom) | **POST** /v1/matches/custom/create | Create Match |
 | *CustomMatchesApi* | [**getCustom**](docs/CustomMatchesApi.md#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID |
 | *CustomMatchesApi* | [**readyUp**](docs/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up |
+| *DataPrivacyApi* | [**requestDeletion**](docs/DataPrivacyApi.md#requestdeletion) | **POST** /v1/data-privacy/request-deletion | Request Data Deletion |
+| *DataPrivacyApi* | [**requestTracking**](docs/DataPrivacyApi.md#requesttracking) | **POST** /v1/data-privacy/request-tracking | Request Data Tracking |
 | *ESportsApi* | [**ingestMatch**](docs/ESportsApi.md#ingestmatch) | **POST** /v1/esports/ingest/match | Ingest |
 | *ESportsApi* | [**matches**](docs/ESportsApi.md#matches) | **GET** /v1/esports/matches | List Matches |
 | *InfoApi* | [**healthCheck**](docs/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check |
@@ -140,6 +142,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock-api-client.models.ClickhouseSalts](docs/ClickhouseSalts.md)
  - [deadlock-api-client.models.CreateCustomRequest](docs/CreateCustomRequest.md)
  - [deadlock-api-client.models.CreateCustomResponse](docs/CreateCustomResponse.md)
+ - [deadlock-api-client.models.DataPrivacyRequest](docs/DataPrivacyRequest.md)
  - [deadlock-api-client.models.ESportsMatch](docs/ESportsMatch.md)
  - [deadlock-api-client.models.ESportsMatchStatus](docs/ESportsMatchStatus.md)
  - [deadlock-api-client.models.EnemyStats](docs/EnemyStats.md)

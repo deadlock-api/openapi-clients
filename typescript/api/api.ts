@@ -282,6 +282,10 @@ export interface CreateCustomResponse {
     'party_code': string;
     'party_id': string;
 }
+export interface DataPrivacyRequest {
+    'open_id_params': { [key: string]: string; };
+    'steam_id': number;
+}
 export interface ESportsMatch {
     /**
      * Valve\'s match id of the match.
@@ -4807,6 +4811,193 @@ export class CustomMatchesApi extends BaseAPI {
      */
     public readyUp(options?: RawAxiosRequestConfig) {
         return CustomMatchesApiFp(this.configuration).readyUp(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * DataPrivacyApi - axios parameter creator
+ */
+export const DataPrivacyApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         *  Endpoint to request deletion of personal data.     
+         * @summary Request Data Deletion
+         * @param {DataPrivacyRequest} dataPrivacyRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestDeletion: async (dataPrivacyRequest: DataPrivacyRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'dataPrivacyRequest' is not null or undefined
+            assertParamExists('requestDeletion', 'dataPrivacyRequest', dataPrivacyRequest)
+            const localVarPath = `/v1/data-privacy/request-deletion`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(dataPrivacyRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Endpoint to request tracking of personal data.  Use this to opt back into data tracking after previously requesting deletion.     
+         * @summary Request Data Tracking
+         * @param {DataPrivacyRequest} dataPrivacyRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestTracking: async (dataPrivacyRequest: DataPrivacyRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'dataPrivacyRequest' is not null or undefined
+            assertParamExists('requestTracking', 'dataPrivacyRequest', dataPrivacyRequest)
+            const localVarPath = `/v1/data-privacy/request-tracking`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(dataPrivacyRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * DataPrivacyApi - functional programming interface
+ */
+export const DataPrivacyApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = DataPrivacyApiAxiosParamCreator(configuration)
+    return {
+        /**
+         *  Endpoint to request deletion of personal data.     
+         * @summary Request Data Deletion
+         * @param {DataPrivacyRequest} dataPrivacyRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async requestDeletion(dataPrivacyRequest: DataPrivacyRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestDeletion(dataPrivacyRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataPrivacyApi.requestDeletion']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Endpoint to request tracking of personal data.  Use this to opt back into data tracking after previously requesting deletion.     
+         * @summary Request Data Tracking
+         * @param {DataPrivacyRequest} dataPrivacyRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async requestTracking(dataPrivacyRequest: DataPrivacyRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestTracking(dataPrivacyRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataPrivacyApi.requestTracking']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * DataPrivacyApi - factory interface
+ */
+export const DataPrivacyApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = DataPrivacyApiFp(configuration)
+    return {
+        /**
+         *  Endpoint to request deletion of personal data.     
+         * @summary Request Data Deletion
+         * @param {DataPrivacyApiRequestDeletionRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestDeletion(requestParameters: DataPrivacyApiRequestDeletionRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.requestDeletion(requestParameters.dataPrivacyRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Endpoint to request tracking of personal data.  Use this to opt back into data tracking after previously requesting deletion.     
+         * @summary Request Data Tracking
+         * @param {DataPrivacyApiRequestTrackingRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestTracking(requestParameters: DataPrivacyApiRequestTrackingRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.requestTracking(requestParameters.dataPrivacyRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for requestDeletion operation in DataPrivacyApi.
+ */
+export interface DataPrivacyApiRequestDeletionRequest {
+    readonly dataPrivacyRequest: DataPrivacyRequest
+}
+
+/**
+ * Request parameters for requestTracking operation in DataPrivacyApi.
+ */
+export interface DataPrivacyApiRequestTrackingRequest {
+    readonly dataPrivacyRequest: DataPrivacyRequest
+}
+
+/**
+ * DataPrivacyApi - object-oriented interface
+ */
+export class DataPrivacyApi extends BaseAPI {
+    /**
+     *  Endpoint to request deletion of personal data.     
+     * @summary Request Data Deletion
+     * @param {DataPrivacyApiRequestDeletionRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public requestDeletion(requestParameters: DataPrivacyApiRequestDeletionRequest, options?: RawAxiosRequestConfig) {
+        return DataPrivacyApiFp(this.configuration).requestDeletion(requestParameters.dataPrivacyRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Endpoint to request tracking of personal data.  Use this to opt back into data tracking after previously requesting deletion.     
+     * @summary Request Data Tracking
+     * @param {DataPrivacyApiRequestTrackingRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public requestTracking(requestParameters: DataPrivacyApiRequestTrackingRequest, options?: RawAxiosRequestConfig) {
+        return DataPrivacyApiFp(this.configuration).requestTracking(requestParameters.dataPrivacyRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

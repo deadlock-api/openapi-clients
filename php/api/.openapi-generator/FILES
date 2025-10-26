@@ -7,6 +7,7 @@ api/Api/AnalyticsApi.php
 api/Api/BuildsApi.php
 api/Api/CommandsApi.php
 api/Api/CustomMatchesApi.php
+api/Api/DataPrivacyApi.php
 api/Api/ESportsApi.php
 api/Api/InfoApi.php
 api/Api/InternalApi.php
@@ -42,6 +43,7 @@ api/Model/ClickhouseMatchInfo.php
 api/Model/ClickhouseSalts.php
 api/Model/CreateCustomRequest.php
 api/Model/CreateCustomResponse.php
+api/Model/DataPrivacyRequest.php
 api/Model/ESportsMatch.php
 api/Model/ESportsMatchStatus.php
 api/Model/EnemyStats.php
@@ -83,6 +85,7 @@ docs/Api/AnalyticsApi.md
 docs/Api/BuildsApi.md
 docs/Api/CommandsApi.md
 docs/Api/CustomMatchesApi.md
+docs/Api/DataPrivacyApi.md
 docs/Api/ESportsApi.md
 docs/Api/InfoApi.md
 docs/Api/InternalApi.md
@@ -114,6 +117,7 @@ docs/Model/ClickhouseMatchInfo.md
 docs/Model/ClickhouseSalts.md
 docs/Model/CreateCustomRequest.md
 docs/Model/CreateCustomResponse.md
+docs/Model/DataPrivacyRequest.md
 docs/Model/ESportsMatch.md
 docs/Model/ESportsMatchStatus.md
 docs/Model/EnemyStats.md
@@ -154,6 +158,7 @@ test/Api/AnalyticsApiTest.php
 test/Api/BuildsApiTest.php
 test/Api/CommandsApiTest.php
 test/Api/CustomMatchesApiTest.php
+test/Api/DataPrivacyApiTest.php
 test/Api/ESportsApiTest.php
 test/Api/InfoApiTest.php
 test/Api/InternalApiTest.php
@@ -185,6 +190,7 @@ test/Model/ClickhouseMatchInfoTest.php
 test/Model/ClickhouseSaltsTest.php
 test/Model/CreateCustomRequestTest.php
 test/Model/CreateCustomResponseTest.php
+test/Model/DataPrivacyRequestTest.php
 test/Model/ESportsMatchStatusTest.php
 test/Model/ESportsMatchTest.php
 test/Model/EnemyStatsTest.php

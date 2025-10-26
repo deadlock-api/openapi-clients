@@ -108,6 +108,8 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**createCustom**](doc//CustomMatchesApi.md#createcustom) | **POST** /v1/matches/custom/create | Create Match
 *CustomMatchesApi* | [**getCustom**](doc//CustomMatchesApi.md#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 *CustomMatchesApi* | [**readyUp**](doc//CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
+*DataPrivacyApi* | [**requestDeletion**](doc//DataPrivacyApi.md#requestdeletion) | **POST** /v1/data-privacy/request-deletion | Request Data Deletion
+*DataPrivacyApi* | [**requestTracking**](doc//DataPrivacyApi.md#requesttracking) | **POST** /v1/data-privacy/request-tracking | Request Data Tracking
 *ESportsApi* | [**ingestMatch**](doc//ESportsApi.md#ingestmatch) | **POST** /v1/esports/ingest/match | Ingest
 *ESportsApi* | [**matches**](doc//ESportsApi.md#matches) | **GET** /v1/esports/matches | List Matches
 *InfoApi* | [**healthCheck**](doc//InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check
@@ -168,6 +170,7 @@ Class | Method | HTTP request | Description
  - [ClickhouseSalts](doc//ClickhouseSalts.md)
  - [CreateCustomRequest](doc//CreateCustomRequest.md)
  - [CreateCustomResponse](doc//CreateCustomResponse.md)
+ - [DataPrivacyRequest](doc//DataPrivacyRequest.md)
  - [ESportsMatch](doc//ESportsMatch.md)
  - [ESportsMatchStatus](doc//ESportsMatchStatus.md)
  - [EnemyStats](doc//EnemyStats.md)

@@ -22,6 +22,7 @@ __all__ = [
     "BuildsApi",
     "CommandsApi",
     "CustomMatchesApi",
+    "DataPrivacyApi",
     "ESportsApi",
     "InfoApi",
     "InternalApi",
@@ -62,6 +63,7 @@ __all__ = [
     "ClickhouseSalts",
     "CreateCustomRequest",
     "CreateCustomResponse",
+    "DataPrivacyRequest",
     "ESportsMatch",
     "ESportsMatchStatus",
     "EnemyStats",
@@ -103,6 +105,7 @@ from deadlock-api-client.api.analytics_api import AnalyticsApi as AnalyticsApi
 from deadlock-api-client.api.builds_api import BuildsApi as BuildsApi
 from deadlock-api-client.api.commands_api import CommandsApi as CommandsApi
 from deadlock-api-client.api.custom_matches_api import CustomMatchesApi as CustomMatchesApi
+from deadlock-api-client.api.data_privacy_api import DataPrivacyApi as DataPrivacyApi
 from deadlock-api-client.api.e_sports_api import ESportsApi as ESportsApi
 from deadlock-api-client.api.info_api import InfoApi as InfoApi
 from deadlock-api-client.api.internal_api import InternalApi as InternalApi
@@ -147,6 +150,7 @@ from deadlock-api-client.models.clickhouse_match_info import ClickhouseMatchInfo
 from deadlock-api-client.models.clickhouse_salts import ClickhouseSalts as ClickhouseSalts
 from deadlock-api-client.models.create_custom_request import CreateCustomRequest as CreateCustomRequest
 from deadlock-api-client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
+from deadlock-api-client.models.data_privacy_request import DataPrivacyRequest as DataPrivacyRequest
 from deadlock-api-client.models.e_sports_match import ESportsMatch as ESportsMatch
 from deadlock-api-client.models.e_sports_match_status import ESportsMatchStatus as ESportsMatchStatus
 from deadlock-api-client.models.enemy_stats import EnemyStats as EnemyStats

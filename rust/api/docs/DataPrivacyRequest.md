@@ -1,13 +1,11 @@
-# assets-deadlock-api-client.model.DeadlockAssetsApiRoutesV1ValidClientVersions
-
-## Load the model package
-```dart
-import 'package:assets-deadlock-api-client/api.dart';
-```
+# DataPrivacyRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**open_id_params** | **std::collections::HashMap<String, String>** |  | 
+**steam_id** | **u32** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

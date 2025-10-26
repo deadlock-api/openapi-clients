@@ -22,11 +22,14 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: _5945,_5920,_5902,_5885,_5878,_5869,_5852,_5831,_5826,_5818,_5789,_5748,_5723,_5712,_5710,_5690,_5675,_5668,_5664,_5658,_5650,_5636,_5624,_5615,_5602,_5583,_5554,_5538,_5533,_5529,_5527
+ * Values: _5959,_5945,_5920,_5902,_5885,_5878,_5869,_5852,_5831,_5826,_5818,_5789,_5748,_5723,_5712,_5710,_5690,_5675,_5668,_5664,_5658,_5650,_5636,_5624,_5615,_5602,_5583,_5554,_5538,_5533,_5529,_5527
  */
 
 @JsonClass(generateAdapter = false)
-enum class DeadlockAssetsApiRoutesV1ValidClientVersions(val value: kotlin.Int) {
+enum class DeadlockAssetsApiRoutesV2ValidClientVersions(val value: kotlin.Int) {
+
+    @Json(name = "5959")
+    _5959(5959),
 
     @Json(name = "5945")
     _5945(5945),
@@ -134,12 +137,12 @@ enum class DeadlockAssetsApiRoutesV1ValidClientVersions(val value: kotlin.Int) {
         /**
          * Converts the provided [data] to a [String] on success, null otherwise.
          */
-        fun encode(data: kotlin.Any?): kotlin.String? = if (data is DeadlockAssetsApiRoutesV1ValidClientVersions) "$data" else null
+        fun encode(data: kotlin.Any?): kotlin.String? = if (data is DeadlockAssetsApiRoutesV2ValidClientVersions) "$data" else null
 
         /**
-         * Returns a valid [DeadlockAssetsApiRoutesV1ValidClientVersions] for [data], null otherwise.
+         * Returns a valid [DeadlockAssetsApiRoutesV2ValidClientVersions] for [data], null otherwise.
          */
-        fun decode(data: kotlin.Any?): DeadlockAssetsApiRoutesV1ValidClientVersions? = data?.let {
+        fun decode(data: kotlin.Any?): DeadlockAssetsApiRoutesV2ValidClientVersions? = data?.let {
           val normalizedData = "$it".lowercase()
           values().firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()

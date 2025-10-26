@@ -1,7 +1,9 @@
-# DeadlockAssetsApiRoutesV1ValidClientVersions
+# DeadlockAssetsApiRoutesV2ValidClientVersions
 
 
 ## Enum
+
+* `NUMBER_5959` (value: `5959`)
 
 * `NUMBER_5945` (value: `5945`)
 

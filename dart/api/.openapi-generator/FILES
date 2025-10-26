@@ -29,6 +29,8 @@ doc/CommandsApi.md
 doc/CreateCustomRequest.md
 doc/CreateCustomResponse.md
 doc/CustomMatchesApi.md
+doc/DataPrivacyApi.md
+doc/DataPrivacyRequest.md
 doc/ESportsApi.md
 doc/ESportsMatch.md
 doc/ESportsMatchStatus.md
@@ -78,6 +80,7 @@ lib/api/analytics_api.dart
 lib/api/builds_api.dart
 lib/api/commands_api.dart
 lib/api/custom_matches_api.dart
+lib/api/data_privacy_api.dart
 lib/api/e_sports_api.dart
 lib/api/info_api.dart
 lib/api/internal_api.dart
@@ -117,6 +120,7 @@ lib/model/clickhouse_match_info.dart
 lib/model/clickhouse_salts.dart
 lib/model/create_custom_request.dart
 lib/model/create_custom_response.dart
+lib/model/data_privacy_request.dart
 lib/model/e_sports_match.dart
 lib/model/e_sports_match_status.dart
 lib/model/enemy_stats.dart
@@ -178,6 +182,8 @@ test/commands_api_test.dart
 test/create_custom_request_test.dart
 test/create_custom_response_test.dart
 test/custom_matches_api_test.dart
+test/data_privacy_api_test.dart
+test/data_privacy_request_test.dart
 test/e_sports_api_test.dart
 test/e_sports_match_status_test.dart
 test/e_sports_match_test.dart

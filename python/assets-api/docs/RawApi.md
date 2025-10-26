@@ -19,7 +19,7 @@ Get Generic Data
 
 ```python
 import assets-deadlock-api-client
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -34,7 +34,7 @@ configuration = assets-deadlock-api-client.Configuration(
 with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.RawApi(api_client)
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Generic Data
@@ -52,7 +52,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -86,7 +86,7 @@ Get Raw Heroes
 
 ```python
 import assets-deadlock-api-client
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -101,7 +101,7 @@ configuration = assets-deadlock-api-client.Configuration(
 with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.RawApi(api_client)
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Raw Heroes
@@ -119,7 +119,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -153,7 +153,7 @@ Get Raw Items
 
 ```python
 import assets-deadlock-api-client
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -168,7 +168,7 @@ configuration = assets-deadlock-api-client.Configuration(
 with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.RawApi(api_client)
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Raw Items
@@ -186,7 +186,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

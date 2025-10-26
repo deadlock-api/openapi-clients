@@ -1,9 +1,10 @@
-# DeadlockAssetsApiRoutesV1ValidClientVersions
+# DeadlockAssetsApiRoutesV2ValidClientVersions
 
 ## Enum Variants
 
 | Name | Value |
 |---- | -----|
+| Variant5959 | 5959 |
 | Variant5945 | 5945 |
 | Variant5920 | 5920 |
 | Variant5902 | 5902 |

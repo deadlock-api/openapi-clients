@@ -32,6 +32,8 @@ docs/CommandsApi.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
+docs/DataPrivacyApi.md
+docs/DataPrivacyRequest.md
 docs/ESportsApi.md
 docs/ESportsMatch.md
 docs/ESportsMatchStatus.md

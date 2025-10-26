@@ -42,6 +42,8 @@ pub mod create_custom_request;
 pub use self::create_custom_request::CreateCustomRequest;
 pub mod create_custom_response;
 pub use self::create_custom_response::CreateCustomResponse;
+pub mod data_privacy_request;
+pub use self::data_privacy_request::DataPrivacyRequest;
 pub mod e_sports_match;
 pub use self::e_sports_match::ESportsMatch;
 pub mod e_sports_match_status;
