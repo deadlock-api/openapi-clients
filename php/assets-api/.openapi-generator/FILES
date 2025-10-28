@@ -27,7 +27,7 @@ api/Model/Bonus.php
 api/Model/BuildTagV2Input.php
 api/Model/BuildTagV2Output.php
 api/Model/ColorV1.php
-api/Model/DeadlockAssetsApiRoutesV2ValidClientVersions.php
+api/Model/DeadlockAssetsApiRoutesRawValidClientVersions.php
 api/Model/GetItemsV2ItemsGet200ResponseInner.php
 api/Model/HTTPValidationError.php
 api/Model/HeroColorsV2.php
@@ -147,7 +147,7 @@ docs/Model/Bonus.md
 docs/Model/BuildTagV2Input.md
 docs/Model/BuildTagV2Output.md
 docs/Model/ColorV1.md
-docs/Model/DeadlockAssetsApiRoutesV2ValidClientVersions.md
+docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md
 docs/Model/GetItemsV2ItemsGet200ResponseInner.md
 docs/Model/HTTPValidationError.md
 docs/Model/HeroColorsV2.md
@@ -266,7 +266,7 @@ test/Model/BonusTest.php
 test/Model/BuildTagV2InputTest.php
 test/Model/BuildTagV2OutputTest.php
 test/Model/ColorV1Test.php
-test/Model/DeadlockAssetsApiRoutesV2ValidClientVersionsTest.php
+test/Model/DeadlockAssetsApiRoutesRawValidClientVersionsTest.php
 test/Model/GetItemsV2ItemsGet200ResponseInnerTest.php
 test/Model/HTTPValidationErrorTest.php
 test/Model/HeroColorsV2Test.php

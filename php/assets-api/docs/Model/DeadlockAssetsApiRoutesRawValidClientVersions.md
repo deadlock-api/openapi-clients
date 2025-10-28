@@ -1,4 +1,4 @@
-# # DeadlockAssetsApiRoutesV2ValidClientVersions
+# # DeadlockAssetsApiRoutesRawValidClientVersions
 
 ## Properties
 
