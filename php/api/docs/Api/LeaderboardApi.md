@@ -1,5 +1,7 @@
 # OpenAPI\Client\LeaderboardApi
 
+Endpoints for retrieving global and hero-specific leaderboards. Supports filtering by region and provides data in both JSON and protobuf formats.
+
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

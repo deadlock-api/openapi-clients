@@ -82,10 +82,12 @@ Class | Method | HTTP request | Description
 *LeaderboardApi* | [**leaderboardHero**](docs/LeaderboardApi.md#leaderboardhero) | **GET** /v1/leaderboard/{region}/{hero_id} | Hero Leaderboard
 *LeaderboardApi* | [**leaderboardHeroRaw**](docs/LeaderboardApi.md#leaderboardheroraw) | **GET** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf
 *LeaderboardApi* | [**leaderboardRaw**](docs/LeaderboardApi.md#leaderboardraw) | **GET** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf
-*MMRApi* | [**heroMmr**](docs/MMRApi.md#herommr) | **GET** /v1/players/mmr/{hero_id} | Hero MMR
+*MMRApi* | [**heroMmr**](docs/MMRApi.md#herommr) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution
 *MMRApi* | [**heroMmrHistory**](docs/MMRApi.md#herommrhistory) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History
-*MMRApi* | [**mmr**](docs/MMRApi.md#mmr) | **GET** /v1/players/mmr | MMR
+*MMRApi* | [**heroMmr_0**](docs/MMRApi.md#herommr_0) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR
+*MMRApi* | [**mmr**](docs/MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR
 *MMRApi* | [**mmrHistory**](docs/MMRApi.md#mmrhistory) | **GET** /v1/players/{account_id}/mmr-history | MMR History
+*MMRApi* | [**mmr_0**](docs/MMRApi.md#mmr_0) | **GET** /v1/players/mmr/distribution | MMR Distribution
 *MatchesApi* | [**activeMatches**](docs/MatchesApi.md#activematches) | **GET** /v1/matches/active | Active
 *MatchesApi* | [**activeMatchesRaw**](docs/MatchesApi.md#activematchesraw) | **GET** /v1/matches/active/raw | Active as Protobuf
 *MatchesApi* | [**bulkMetadata**](docs/MatchesApi.md#bulkmetadata) | **GET** /v1/matches/metadata | Bulk Metadata
@@ -134,6 +136,7 @@ Class | Method | HTTP request | Description
  - [CreateCustomRequest](docs/CreateCustomRequest.md)
  - [CreateCustomResponse](docs/CreateCustomResponse.md)
  - [DataPrivacyRequest](docs/DataPrivacyRequest.md)
+ - [DistributionEntry](docs/DistributionEntry.md)
  - [ESportsMatch](docs/ESportsMatch.md)
  - [ESportsMatchStatus](docs/ESportsMatchStatus.md)
  - [EnemyStats](docs/EnemyStats.md)

@@ -638,8 +638,9 @@ func (a *PlayersAPIService) MateStatsExecute(r ApiMateStatsRequest) ([]MateStats
 	if r.sameParty != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "same_party", r.sameParty, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.sameParty = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "same_party", defaultValue, "form", "")
+        r.sameParty = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

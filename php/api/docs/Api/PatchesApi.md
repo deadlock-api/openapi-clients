@@ -1,5 +1,7 @@
 # OpenAPI\Client\PatchesApi
 
+Endpoints that return data about game patches.
+
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

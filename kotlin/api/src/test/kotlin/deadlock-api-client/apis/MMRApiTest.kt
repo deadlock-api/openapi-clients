@@ -19,6 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock-api-client.apis.MMRApi
+import deadlock-api-client.models.DistributionEntry
 import deadlock-api-client.models.MMRHistory
 
 class MMRApiTest : ShouldSpec() {
@@ -30,9 +31,16 @@ class MMRApiTest : ShouldSpec() {
         should("test heroMmr") {
             // uncomment below to test heroMmr
             //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
-            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+            //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+            //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the high skill range.
+            //val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
+            //val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
+            //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
-            //val result : kotlin.collections.List<MMRHistory> = apiInstance.heroMmr(heroId, accountIds, maxMatchId)
+            //val result : kotlin.collections.List<DistributionEntry> = apiInstance.heroMmr(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId)
             //result shouldBe ("TODO")
         }
 
@@ -42,6 +50,16 @@ class MMRApiTest : ShouldSpec() {
             //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
             //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
             //val result : kotlin.collections.List<MMRHistory> = apiInstance.heroMmrHistory(accountId, heroId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test heroMmr_0
+        should("test heroMmr_0") {
+            // uncomment below to test heroMmr_0
+            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+            //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val result : kotlin.collections.List<MMRHistory> = apiInstance.heroMmr_0(heroId, accountIds, maxMatchId)
             //result shouldBe ("TODO")
         }
 
@@ -59,6 +77,22 @@ class MMRApiTest : ShouldSpec() {
             // uncomment below to test mmrHistory
             //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
             //val result : kotlin.collections.List<MMRHistory> = apiInstance.mmrHistory(accountId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test mmr_0
+        should("test mmr_0") {
+            // uncomment below to test mmr_0
+            //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+            //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the high skill range.
+            //val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
+            //val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
+            //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val result : kotlin.collections.List<DistributionEntry> = apiInstance.mmr_0(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId)
             //result shouldBe ("TODO")
         }
 

@@ -1,5 +1,7 @@
 # OpenAPI\Client\CommandsApi
 
+Integration endpoints for the [Deadlock Streamkit](https://streamkit.deadlock-api.com/). Provides functionality to resolve dynamic command templates and variables for streaming overlays and chat commands. Includes endpoints to retrieve available variables, resolve specific variables or command templates, and get widget version information.
+
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

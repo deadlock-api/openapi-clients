@@ -48,6 +48,7 @@ deadlock-api-client/models/clickhouse_salts.py
 deadlock-api-client/models/create_custom_request.py
 deadlock-api-client/models/create_custom_response.py
 deadlock-api-client/models/data_privacy_request.py
+deadlock-api-client/models/distribution_entry.py
 deadlock-api-client/models/e_sports_match.py
 deadlock-api-client/models/e_sports_match_status.py
 deadlock-api-client/models/enemy_stats.py
@@ -112,6 +113,7 @@ docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
 docs/DataPrivacyApi.md
 docs/DataPrivacyRequest.md
+docs/DistributionEntry.md
 docs/ESportsApi.md
 docs/ESportsMatch.md
 docs/ESportsMatchStatus.md
@@ -190,6 +192,7 @@ test/test_create_custom_response.py
 test/test_custom_matches_api.py
 test/test_data_privacy_api.py
 test/test_data_privacy_request.py
+test/test_distribution_entry.py
 test/test_e_sports_api.py
 test/test_e_sports_match.py
 test/test_e_sports_match_status.py

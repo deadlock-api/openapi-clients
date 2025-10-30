@@ -223,8 +223,9 @@ func (a *BuildsAPIService) SearchBuildsExecute(r ApiSearchBuildsRequest) ([]Buil
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
-		var defaultValue int32 = 100
-		r.limit = &defaultValue
+        var defaultValue int32 = 100
+        parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
+        r.limit = &defaultValue
 	}
 	if r.sortDirection != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")

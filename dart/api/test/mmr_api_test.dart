@@ -17,11 +17,11 @@ void main() {
   // final instance = MMRApi();
 
   group('tests for MMRApi', () {
-    // Hero MMR
+    // Hero MMR Distribution
     //
-    //  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+    //  Player Hero MMR Distribution 
     //
-    //Future<List<MMRHistory>> heroMmr(List<int> accountIds, int heroId, { int maxMatchId }) async
+    //Future<List<DistributionEntry>> heroMmr(int heroId, { int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, bool isHighSkillRangeParties, bool isLowPriPool, bool isNewPlayerPool, int minMatchId, int maxMatchId }) async
     test('test heroMmr', () async {
       // TODO
     });
@@ -35,7 +35,16 @@ void main() {
       // TODO
     });
 
-    // MMR
+    // Batch Hero MMR
+    //
+    //  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+    //
+    //Future<List<MMRHistory>> heroMmr_0(List<int> accountIds, int heroId, { int maxMatchId }) async
+    test('test heroMmr_0', () async {
+      // TODO
+    });
+
+    // Batch MMR
     //
     //  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
     //
@@ -50,6 +59,15 @@ void main() {
     //
     //Future<List<MMRHistory>> mmrHistory(int accountId) async
     test('test mmrHistory', () async {
+      // TODO
+    });
+
+    // MMR Distribution
+    //
+    //  Player MMR Distribution 
+    //
+    //Future<List<DistributionEntry>> mmr_0({ int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, bool isHighSkillRangeParties, bool isLowPriPool, bool isNewPlayerPool, int minMatchId, int maxMatchId }) async
+    test('test mmr_0', () async {
       // TODO
     });
 

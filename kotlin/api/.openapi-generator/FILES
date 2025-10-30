@@ -29,6 +29,7 @@ docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
 docs/DataPrivacyApi.md
 docs/DataPrivacyRequest.md
+docs/DistributionEntry.md
 docs/ESportsApi.md
 docs/ESportsMatch.md
 docs/ESportsMatchStatus.md
@@ -131,6 +132,7 @@ src/main/kotlin/deadlock-api-client/models/ClickhouseSalts.kt
 src/main/kotlin/deadlock-api-client/models/CreateCustomRequest.kt
 src/main/kotlin/deadlock-api-client/models/CreateCustomResponse.kt
 src/main/kotlin/deadlock-api-client/models/DataPrivacyRequest.kt
+src/main/kotlin/deadlock-api-client/models/DistributionEntry.kt
 src/main/kotlin/deadlock-api-client/models/ESportsMatch.kt
 src/main/kotlin/deadlock-api-client/models/ESportsMatchStatus.kt
 src/main/kotlin/deadlock-api-client/models/EnemyStats.kt
@@ -202,6 +204,7 @@ src/test/kotlin/deadlock-api-client/models/ClickhouseSaltsTest.kt
 src/test/kotlin/deadlock-api-client/models/CreateCustomRequestTest.kt
 src/test/kotlin/deadlock-api-client/models/CreateCustomResponseTest.kt
 src/test/kotlin/deadlock-api-client/models/DataPrivacyRequestTest.kt
+src/test/kotlin/deadlock-api-client/models/DistributionEntryTest.kt
 src/test/kotlin/deadlock-api-client/models/ESportsMatchStatusTest.kt
 src/test/kotlin/deadlock-api-client/models/ESportsMatchTest.kt
 src/test/kotlin/deadlock-api-client/models/EnemyStatsTest.kt

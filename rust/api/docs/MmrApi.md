@@ -4,17 +4,58 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**hero_mmr**](MmrApi.md#hero_mmr) | **GET** /v1/players/mmr/{hero_id} | Hero MMR
+[**hero_mmr**](MmrApi.md#hero_mmr) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution
+[**hero_mmr_0**](MmrApi.md#hero_mmr_0) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR
 [**hero_mmr_history**](MmrApi.md#hero_mmr_history) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History
-[**mmr**](MmrApi.md#mmr) | **GET** /v1/players/mmr | MMR
+[**mmr**](MmrApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR
+[**mmr_0**](MmrApi.md#mmr_0) | **GET** /v1/players/mmr/distribution | MMR Distribution
 [**mmr_history**](MmrApi.md#mmr_history) | **GET** /v1/players/{account_id}/mmr-history | MMR History
 
 
 
 ## hero_mmr
 
-> Vec<models::MmrHistory> hero_mmr(account_ids, hero_id, max_match_id)
-Hero MMR
+> Vec<models::DistributionEntry> hero_mmr(hero_id, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, min_match_id, max_match_id)
+Hero MMR Distribution
+
+ Player Hero MMR Distribution 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**hero_id** | **u32** | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1759104000]
+**max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**is_high_skill_range_parties** | Option<**bool**> | Filter matches based on whether they are in the high skill range. |  |
+**is_low_pri_pool** | Option<**bool**> | Filter matches based on whether they are in the low priority pool. |  |
+**is_new_player_pool** | Option<**bool**> | Filter matches based on whether they are in the new player pool. |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+
+### Return type
+
+[**Vec<models::DistributionEntry>**](DistributionEntry.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## hero_mmr_0
+
+> Vec<models::MmrHistory> hero_mmr_0(account_ids, hero_id, max_match_id)
+Batch Hero MMR
 
  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
@@ -77,7 +118,7 @@ No authorization required
 ## mmr
 
 > Vec<models::MmrHistory> mmr(account_ids, max_match_id)
-MMR
+Batch MMR
 
  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
 
@@ -92,6 +133,44 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**Vec<models::MmrHistory>**](MMRHistory.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## mmr_0
+
+> Vec<models::DistributionEntry> mmr_0(min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, min_match_id, max_match_id)
+MMR Distribution
+
+ Player MMR Distribution 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1759104000]
+**max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**is_high_skill_range_parties** | Option<**bool**> | Filter matches based on whether they are in the high skill range. |  |
+**is_low_pri_pool** | Option<**bool**> | Filter matches based on whether they are in the low priority pool. |  |
+**is_new_player_pool** | Option<**bool**> | Filter matches based on whether they are in the new player pool. |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+
+### Return type
+
+[**Vec<models::DistributionEntry>**](DistributionEntry.md)
 
 ### Authorization
 

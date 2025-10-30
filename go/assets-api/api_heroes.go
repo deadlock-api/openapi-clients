@@ -28,7 +28,7 @@ type ApiGetHeroByNameV2HeroesByNameNameGetRequest struct {
 	ApiService *HeroesAPIService
 	name string
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
 func (r ApiGetHeroByNameV2HeroesByNameNameGetRequest) Language(language Language) ApiGetHeroByNameV2HeroesByNameNameGetRequest {
@@ -36,7 +36,7 @@ func (r ApiGetHeroByNameV2HeroesByNameNameGetRequest) Language(language Language
 	return r
 }
 
-func (r ApiGetHeroByNameV2HeroesByNameNameGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetHeroByNameV2HeroesByNameNameGetRequest {
+func (r ApiGetHeroByNameV2HeroesByNameNameGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetHeroByNameV2HeroesByNameNameGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -157,7 +157,7 @@ type ApiGetHeroV2HeroesIdGetRequest struct {
 	ApiService *HeroesAPIService
 	id int32
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
 func (r ApiGetHeroV2HeroesIdGetRequest) Language(language Language) ApiGetHeroV2HeroesIdGetRequest {
@@ -165,7 +165,7 @@ func (r ApiGetHeroV2HeroesIdGetRequest) Language(language Language) ApiGetHeroV2
 	return r
 }
 
-func (r ApiGetHeroV2HeroesIdGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetHeroV2HeroesIdGetRequest {
+func (r ApiGetHeroV2HeroesIdGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetHeroV2HeroesIdGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -285,7 +285,7 @@ type ApiGetHeroesV2HeroesGetRequest struct {
 	ctx context.Context
 	ApiService *HeroesAPIService
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 	onlyActive *bool
 }
 
@@ -294,7 +294,7 @@ func (r ApiGetHeroesV2HeroesGetRequest) Language(language Language) ApiGetHeroes
 	return r
 }
 
-func (r ApiGetHeroesV2HeroesGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetHeroesV2HeroesGetRequest {
+func (r ApiGetHeroesV2HeroesGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetHeroesV2HeroesGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

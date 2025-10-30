@@ -44,6 +44,7 @@ api/Model/ClickhouseSalts.php
 api/Model/CreateCustomRequest.php
 api/Model/CreateCustomResponse.php
 api/Model/DataPrivacyRequest.php
+api/Model/DistributionEntry.php
 api/Model/ESportsMatch.php
 api/Model/ESportsMatchStatus.php
 api/Model/EnemyStats.php
@@ -118,6 +119,7 @@ docs/Model/ClickhouseSalts.md
 docs/Model/CreateCustomRequest.md
 docs/Model/CreateCustomResponse.md
 docs/Model/DataPrivacyRequest.md
+docs/Model/DistributionEntry.md
 docs/Model/ESportsMatch.md
 docs/Model/ESportsMatchStatus.md
 docs/Model/EnemyStats.md
@@ -191,6 +193,7 @@ test/Model/ClickhouseSaltsTest.php
 test/Model/CreateCustomRequestTest.php
 test/Model/CreateCustomResponseTest.php
 test/Model/DataPrivacyRequestTest.php
+test/Model/DistributionEntryTest.php
 test/Model/ESportsMatchStatusTest.php
 test/Model/ESportsMatchTest.php
 test/Model/EnemyStatsTest.php

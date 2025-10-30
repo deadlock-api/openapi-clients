@@ -64,6 +64,7 @@ __all__ = [
     "CreateCustomRequest",
     "CreateCustomResponse",
     "DataPrivacyRequest",
+    "DistributionEntry",
     "ESportsMatch",
     "ESportsMatchStatus",
     "EnemyStats",
@@ -151,6 +152,7 @@ from deadlock-api-client.models.clickhouse_salts import ClickhouseSalts as Click
 from deadlock-api-client.models.create_custom_request import CreateCustomRequest as CreateCustomRequest
 from deadlock-api-client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
 from deadlock-api-client.models.data_privacy_request import DataPrivacyRequest as DataPrivacyRequest
+from deadlock-api-client.models.distribution_entry import DistributionEntry as DistributionEntry
 from deadlock-api-client.models.e_sports_match import ESportsMatch as ESportsMatch
 from deadlock-api-client.models.e_sports_match_status import ESportsMatchStatus as ESportsMatchStatus
 from deadlock-api-client.models.enemy_stats import EnemyStats as EnemyStats

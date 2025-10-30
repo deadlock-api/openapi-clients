@@ -47,7 +47,7 @@ __all__ = [
     "BuildTagV2Input",
     "BuildTagV2Output",
     "ColorV1",
-    "DeadlockAssetsApiRoutesV1ValidClientVersions",
+    "DeadlockAssetsApiRoutesV2ValidClientVersions",
     "GetItemsV2ItemsGet200ResponseInner",
     "HTTPValidationError",
     "HeroColorsV2",
@@ -180,7 +180,7 @@ from assets-deadlock-api-client.models.bonus import Bonus as Bonus
 from assets-deadlock-api-client.models.build_tag_v2_input import BuildTagV2Input as BuildTagV2Input
 from assets-deadlock-api-client.models.build_tag_v2_output import BuildTagV2Output as BuildTagV2Output
 from assets-deadlock-api-client.models.color_v1 import ColorV1 as ColorV1
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions as DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions as DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner as GetItemsV2ItemsGet200ResponseInner
 from assets-deadlock-api-client.models.http_validation_error import HTTPValidationError as HTTPValidationError
 from assets-deadlock-api-client.models.hero_colors_v2 import HeroColorsV2 as HeroColorsV2

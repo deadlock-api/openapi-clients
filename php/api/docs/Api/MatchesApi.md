@@ -1,5 +1,7 @@
 # OpenAPI\Client\MatchesApi
 
+Comprehensive match data endpoints for retrieving detailed information about games. Provides access to active matches, match metadata, replay salts, and more.
+
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

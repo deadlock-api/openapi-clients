@@ -1,5 +1,7 @@
 # OpenAPI\Client\BuildsApi
 
+Search and retrieve hero builds with comprehensive filtering options.
+
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

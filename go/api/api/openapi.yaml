@@ -111,7 +111,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -314,7 +314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -446,7 +446,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -494,7 +494,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -728,7 +728,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -965,7 +965,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -1211,7 +1211,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -1474,7 +1474,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -1684,7 +1684,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -1913,7 +1913,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -2194,7 +2194,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759017600
+          default: 1759104000
           format: int64
           nullable: true
           type: integer
@@ -4253,7 +4253,255 @@ paths:
           description: Provided parameters are invalid.
         "500":
           description: Failed to fetch mmr
-      summary: MMR
+      summary: Batch MMR
+      tags:
+      - MMR
+  /v1/players/mmr/distribution:
+    get:
+      description: |2
+
+        Player MMR Distribution
+      operationId: mmr
+      parameters:
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1759104000
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on whether they are in the high skill range.
+        explode: true
+        in: query
+        name: is_high_skill_range_parties
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on whether they are in the low priority
+          pool.
+        explode: true
+        in: query
+        name: is_low_pri_pool
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on whether they are in the new player pool.
+        explode: true
+        in: query
+        name: is_new_player_pool
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/DistributionEntry"
+                type: array
+          description: MMR
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch mmr
+      summary: MMR Distribution
+      tags:
+      - MMR
+  /v1/players/mmr/distribution/{hero_id}:
+    get:
+      description: |2
+
+        Player Hero MMR Distribution
+      operationId: hero_mmr
+      parameters:
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1759104000
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on whether they are in the high skill range.
+        explode: true
+        in: query
+        name: is_high_skill_range_parties
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on whether they are in the low priority
+          pool.
+        explode: true
+        in: query
+        name: is_low_pri_pool
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on whether they are in the new player pool.
+        explode: true
+        in: query
+        name: is_new_player_pool
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>"
+        explode: false
+        in: path
+        name: hero_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/DistributionEntry"
+                type: array
+          description: Hero MMR
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch hero mmr
+      summary: Hero MMR Distribution
       tags:
       - MMR
   /v1/players/mmr/{hero_id}:
@@ -4314,7 +4562,7 @@ paths:
           description: Provided parameters are invalid.
         "500":
           description: Failed to fetch hero mmr
-      summary: Hero MMR
+      summary: Batch Hero MMR
       tags:
       - MMR
   /v1/players/steam:
@@ -5985,6 +6233,22 @@ components:
       required:
       - open_id_params
       - steam_id
+    DistributionEntry:
+      example:
+        players: 0
+        rank: 0
+      properties:
+        players:
+          format: int64
+          minimum: 0
+          type: integer
+        rank:
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - players
+      - rank
     ESportsMatch:
       example:
         team0_name: team0_name

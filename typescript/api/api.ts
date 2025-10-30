@@ -286,6 +286,10 @@ export interface DataPrivacyRequest {
     'open_id_params': { [key: string]: string; };
     'steam_id': number;
 }
+export interface DistributionEntry {
+    'players': number;
+    'rank': number;
+}
 export interface ESportsMatch {
     /**
      * Valve\'s match id of the match.
@@ -5842,20 +5846,25 @@ export type LeaderboardRawRegionEnum = typeof LeaderboardRawRegionEnum[keyof typ
 export const MMRApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
-         * @summary Hero MMR
-         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         *  Player Hero MMR Distribution 
+         * @summary Hero MMR Distribution
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
+         * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
+         * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroMmr: async (accountIds: Array<number>, heroId: number, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountIds' is not null or undefined
-            assertParamExists('heroMmr', 'accountIds', accountIds)
+        heroMmr: async (heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('heroMmr', 'heroId', heroId)
-            const localVarPath = `/v1/players/mmr/{hero_id}`
+            const localVarPath = `/v1/players/mmr/distribution/{hero_id}`
                 .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5868,8 +5877,36 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            if (accountIds) {
-                localVarQueryParameter['account_ids'] = accountIds;
+            if (minUnixTimestamp !== undefined) {
+                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
+            }
+
+            if (maxUnixTimestamp !== undefined) {
+                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
+            }
+
+            if (minDurationS !== undefined) {
+                localVarQueryParameter['min_duration_s'] = minDurationS;
+            }
+
+            if (maxDurationS !== undefined) {
+                localVarQueryParameter['max_duration_s'] = maxDurationS;
+            }
+
+            if (isHighSkillRangeParties !== undefined) {
+                localVarQueryParameter['is_high_skill_range_parties'] = isHighSkillRangeParties;
+            }
+
+            if (isLowPriPool !== undefined) {
+                localVarQueryParameter['is_low_pri_pool'] = isLowPriPool;
+            }
+
+            if (isNewPlayerPool !== undefined) {
+                localVarQueryParameter['is_new_player_pool'] = isNewPlayerPool;
+            }
+
+            if (minMatchId !== undefined) {
+                localVarQueryParameter['min_match_id'] = minMatchId;
             }
 
             if (maxMatchId !== undefined) {
@@ -5926,8 +5963,54 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
+         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         * @summary Batch Hero MMR
+         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        heroMmr_1: async (accountIds: Array<number>, heroId: number, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountIds' is not null or undefined
+            assertParamExists('heroMmr_1', 'accountIds', accountIds)
+            // verify required parameter 'heroId' is not null or undefined
+            assertParamExists('heroMmr_1', 'heroId', heroId)
+            const localVarPath = `/v1/players/mmr/{hero_id}`
+                .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (accountIds) {
+                localVarQueryParameter['account_ids'] = accountIds;
+            }
+
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
-         * @summary MMR
+         * @summary Batch MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
@@ -6001,6 +6084,81 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
                 options: localVarRequestOptions,
             };
         },
+        /**
+         *  Player MMR Distribution 
+         * @summary MMR Distribution
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
+         * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
+         * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mmr_2: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/players/mmr/distribution`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (minUnixTimestamp !== undefined) {
+                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
+            }
+
+            if (maxUnixTimestamp !== undefined) {
+                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
+            }
+
+            if (minDurationS !== undefined) {
+                localVarQueryParameter['min_duration_s'] = minDurationS;
+            }
+
+            if (maxDurationS !== undefined) {
+                localVarQueryParameter['max_duration_s'] = maxDurationS;
+            }
+
+            if (isHighSkillRangeParties !== undefined) {
+                localVarQueryParameter['is_high_skill_range_parties'] = isHighSkillRangeParties;
+            }
+
+            if (isLowPriPool !== undefined) {
+                localVarQueryParameter['is_low_pri_pool'] = isLowPriPool;
+            }
+
+            if (isNewPlayerPool !== undefined) {
+                localVarQueryParameter['is_new_player_pool'] = isNewPlayerPool;
+            }
+
+            if (minMatchId !== undefined) {
+                localVarQueryParameter['min_match_id'] = minMatchId;
+            }
+
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -6011,16 +6169,23 @@ export const MMRApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MMRApiAxiosParamCreator(configuration)
     return {
         /**
-         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
-         * @summary Hero MMR
-         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         *  Player Hero MMR Distribution 
+         * @summary Hero MMR Distribution
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
+         * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
+         * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroMmr(accountIds: Array<number>, heroId: number, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MMRHistory>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.heroMmr(accountIds, heroId, maxMatchId, options);
+        async heroMmr(heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DistributionEntry>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroMmr(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MMRApi.heroMmr']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -6040,8 +6205,23 @@ export const MMRApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         * @summary Batch Hero MMR
+         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async heroMmr_1(accountIds: Array<number>, heroId: number, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MMRHistory>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroMmr_1(accountIds, heroId, maxMatchId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MMRApi.heroMmr_1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
-         * @summary MMR
+         * @summary Batch MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
@@ -6066,6 +6246,27 @@ export const MMRApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['MMRApi.mmrHistory']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         *  Player MMR Distribution 
+         * @summary MMR Distribution
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
+         * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
+         * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async mmr_2(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DistributionEntry>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mmr_2(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MMRApi.mmr_2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -6076,14 +6277,14 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
     const localVarFp = MMRApiFp(configuration)
     return {
         /**
-         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
-         * @summary Hero MMR
+         *  Player Hero MMR Distribution 
+         * @summary Hero MMR Distribution
          * @param {MMRApiHeroMmrRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroMmr(requestParameters: MMRApiHeroMmrRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<MMRHistory>> {
-            return localVarFp.heroMmr(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        heroMmr(requestParameters: MMRApiHeroMmrRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<DistributionEntry>> {
+            return localVarFp.heroMmr(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
          * Player Hero MMR History
@@ -6096,8 +6297,18 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.heroMmrHistory(requestParameters.accountId, requestParameters.heroId, options).then((request) => request(axios, basePath));
         },
         /**
+         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         * @summary Batch Hero MMR
+         * @param {MMRApiHeroMmr0Request} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        heroMmr_1(requestParameters: MMRApiHeroMmr0Request, options?: RawAxiosRequestConfig): AxiosPromise<Array<MMRHistory>> {
+            return localVarFp.heroMmr_1(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
-         * @summary MMR
+         * @summary Batch MMR
          * @param {MMRApiMmrRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6115,6 +6326,16 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
         mmrHistory(requestParameters: MMRApiMmrHistoryRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<MMRHistory>> {
             return localVarFp.mmrHistory(requestParameters.accountId, options).then((request) => request(axios, basePath));
         },
+        /**
+         *  Player MMR Distribution 
+         * @summary MMR Distribution
+         * @param {MMRApiMmr0Request} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mmr_2(requestParameters: MMRApiMmr0Request = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<DistributionEntry>> {
+            return localVarFp.mmr_2(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -6123,14 +6344,49 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
  */
 export interface MMRApiHeroMmrRequest {
     /**
-     * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-     */
-    readonly accountIds: Array<number>
-
-    /**
      * The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      */
     readonly heroId: number
+
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     */
+    readonly minUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null
+
+    /**
+     * Filter matches based on whether they are in the high skill range.
+     */
+    readonly isHighSkillRangeParties?: boolean | null
+
+    /**
+     * Filter matches based on whether they are in the low priority pool.
+     */
+    readonly isLowPriPool?: boolean | null
+
+    /**
+     * Filter matches based on whether they are in the new player pool.
+     */
+    readonly isNewPlayerPool?: boolean | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null
 
     /**
      * Filter matches based on their ID.
@@ -6151,6 +6407,26 @@ export interface MMRApiHeroMmrHistoryRequest {
      * The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      */
     readonly heroId: number
+}
+
+/**
+ * Request parameters for heroMmr_1 operation in MMRApi.
+ */
+export interface MMRApiHeroMmr0Request {
+    /**
+     * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     */
+    readonly accountIds: Array<number>
+
+    /**
+     * The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     */
+    readonly heroId: number
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null
 }
 
 /**
@@ -6179,18 +6455,68 @@ export interface MMRApiMmrHistoryRequest {
 }
 
 /**
+ * Request parameters for mmr_2 operation in MMRApi.
+ */
+export interface MMRApiMmr0Request {
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     */
+    readonly minUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null
+
+    /**
+     * Filter matches based on whether they are in the high skill range.
+     */
+    readonly isHighSkillRangeParties?: boolean | null
+
+    /**
+     * Filter matches based on whether they are in the low priority pool.
+     */
+    readonly isLowPriPool?: boolean | null
+
+    /**
+     * Filter matches based on whether they are in the new player pool.
+     */
+    readonly isNewPlayerPool?: boolean | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null
+}
+
+/**
  * MMRApi - object-oriented interface
  */
 export class MMRApi extends BaseAPI {
     /**
-     *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
-     * @summary Hero MMR
+     *  Player Hero MMR Distribution 
+     * @summary Hero MMR Distribution
      * @param {MMRApiHeroMmrRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public heroMmr(requestParameters: MMRApiHeroMmrRequest, options?: RawAxiosRequestConfig) {
-        return MMRApiFp(this.configuration).heroMmr(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+        return MMRApiFp(this.configuration).heroMmr(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6205,8 +6531,19 @@ export class MMRApi extends BaseAPI {
     }
 
     /**
+     *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+     * @summary Batch Hero MMR
+     * @param {MMRApiHeroMmr0Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public heroMmr_1(requestParameters: MMRApiHeroMmr0Request, options?: RawAxiosRequestConfig) {
+        return MMRApiFp(this.configuration).heroMmr_1(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
-     * @summary MMR
+     * @summary Batch MMR
      * @param {MMRApiMmrRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6224,6 +6561,17 @@ export class MMRApi extends BaseAPI {
      */
     public mmrHistory(requestParameters: MMRApiMmrHistoryRequest, options?: RawAxiosRequestConfig) {
         return MMRApiFp(this.configuration).mmrHistory(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Player MMR Distribution 
+     * @summary MMR Distribution
+     * @param {MMRApiMmr0Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public mmr_2(requestParameters: MMRApiMmr0Request = {}, options?: RawAxiosRequestConfig) {
+        return MMRApiFp(this.configuration).mmr_2(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

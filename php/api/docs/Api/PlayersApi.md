@@ -1,5 +1,7 @@
 # OpenAPI\Client\PlayersApi
 
+Player related endpoints
+
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

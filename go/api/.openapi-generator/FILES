@@ -47,6 +47,7 @@ docs/CreateCustomResponse.md
 docs/CustomMatchesAPI.md
 docs/DataPrivacyAPI.md
 docs/DataPrivacyRequest.md
+docs/DistributionEntry.md
 docs/ESportsAPI.md
 docs/ESportsMatch.md
 docs/ESportsMatchStatus.md
@@ -116,6 +117,7 @@ model_clickhouse_salts.go
 model_create_custom_request.go
 model_create_custom_response.go
 model_data_privacy_request.go
+model_distribution_entry.go
 model_e_sports_match.go
 model_e_sports_match_status.go
 model_enemy_stats.go

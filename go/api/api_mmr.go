@@ -27,14 +27,63 @@ type MMRAPIService service
 type ApiHeroMmrRequest struct {
 	ctx context.Context
 	ApiService *MMRAPIService
-	accountIds *[]int32
 	heroId int32
+	minUnixTimestamp *int64
+	maxUnixTimestamp *int64
+	minDurationS *int64
+	maxDurationS *int64
+	isHighSkillRangeParties *bool
+	isLowPriPool *bool
+	isNewPlayerPool *bool
+	minMatchId *int64
 	maxMatchId *int64
 }
 
-// Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-func (r ApiHeroMmrRequest) AccountIds(accountIds []int32) ApiHeroMmrRequest {
-	r.accountIds = &accountIds
+// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+func (r ApiHeroMmrRequest) MinUnixTimestamp(minUnixTimestamp int64) ApiHeroMmrRequest {
+	r.minUnixTimestamp = &minUnixTimestamp
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp).
+func (r ApiHeroMmrRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiHeroMmrRequest {
+	r.maxUnixTimestamp = &maxUnixTimestamp
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiHeroMmrRequest) MinDurationS(minDurationS int64) ApiHeroMmrRequest {
+	r.minDurationS = &minDurationS
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiHeroMmrRequest) MaxDurationS(maxDurationS int64) ApiHeroMmrRequest {
+	r.maxDurationS = &maxDurationS
+	return r
+}
+
+// Filter matches based on whether they are in the high skill range.
+func (r ApiHeroMmrRequest) IsHighSkillRangeParties(isHighSkillRangeParties bool) ApiHeroMmrRequest {
+	r.isHighSkillRangeParties = &isHighSkillRangeParties
+	return r
+}
+
+// Filter matches based on whether they are in the low priority pool.
+func (r ApiHeroMmrRequest) IsLowPriPool(isLowPriPool bool) ApiHeroMmrRequest {
+	r.isLowPriPool = &isLowPriPool
+	return r
+}
+
+// Filter matches based on whether they are in the new player pool.
+func (r ApiHeroMmrRequest) IsNewPlayerPool(isNewPlayerPool bool) ApiHeroMmrRequest {
+	r.isNewPlayerPool = &isNewPlayerPool
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiHeroMmrRequest) MinMatchId(minMatchId int64) ApiHeroMmrRequest {
+	r.minMatchId = &minMatchId
 	return r
 }
 
@@ -44,17 +93,15 @@ func (r ApiHeroMmrRequest) MaxMatchId(maxMatchId int64) ApiHeroMmrRequest {
 	return r
 }
 
-func (r ApiHeroMmrRequest) Execute() ([]MMRHistory, *http.Response, error) {
+func (r ApiHeroMmrRequest) Execute() ([]DistributionEntry, *http.Response, error) {
 	return r.ApiService.HeroMmrExecute(r)
 }
 
 /*
-HeroMmr Hero MMR
+HeroMmr Hero MMR Distribution
 
 
-Batch Player Hero MMR
-
-Filters for the last 90 days if no `max_match_id` is provided.
+Player Hero MMR Distribution
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -70,13 +117,13 @@ func (a *MMRAPIService) HeroMmr(ctx context.Context, heroId int32) ApiHeroMmrReq
 }
 
 // Execute executes the request
-//  @return []MMRHistory
-func (a *MMRAPIService) HeroMmrExecute(r ApiHeroMmrRequest) ([]MMRHistory, *http.Response, error) {
+//  @return []DistributionEntry
+func (a *MMRAPIService) HeroMmrExecute(r ApiHeroMmrRequest) ([]DistributionEntry, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []MMRHistory
+		localVarReturnValue  []DistributionEntry
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MMRAPIService.HeroMmr")
@@ -84,35 +131,43 @@ func (a *MMRAPIService) HeroMmrExecute(r ApiHeroMmrRequest) ([]MMRHistory, *http
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/players/mmr/{hero_id}"
+	localVarPath := localBasePath + "/v1/players/mmr/distribution/{hero_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"hero_id"+"}", url.PathEscape(parameterValueToString(r.heroId, "heroId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.accountIds == nil {
-		return localVarReturnValue, nil, reportError("accountIds is required and must be specified")
-	}
-	if len(*r.accountIds) < 1 {
-		return localVarReturnValue, nil, reportError("accountIds must have at least 1 elements")
-	}
-	if len(*r.accountIds) > 1000 {
-		return localVarReturnValue, nil, reportError("accountIds must have less than 1000 elements")
-	}
 	if r.heroId < 0 {
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
 	}
 
-	{
-		t := *r.accountIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
-		}
+	if r.minUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+	} else {
+        var defaultValue int64 = 1759104000
+        parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
+        r.minUnixTimestamp = &defaultValue
+	}
+	if r.maxUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+	}
+	if r.minDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
+	}
+	if r.maxDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
+	}
+	if r.isHighSkillRangeParties != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_high_skill_range_parties", r.isHighSkillRangeParties, "form", "")
+	}
+	if r.isLowPriPool != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_low_pri_pool", r.isLowPriPool, "form", "")
+	}
+	if r.isNewPlayerPool != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_new_player_pool", r.isNewPlayerPool, "form", "")
+	}
+	if r.minMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
 	}
 	if r.maxMatchId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
@@ -284,6 +339,153 @@ func (a *MMRAPIService) HeroMmrHistoryExecute(r ApiHeroMmrHistoryRequest) ([]MMR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiHeroMmr_0Request struct {
+	ctx context.Context
+	ApiService *MMRAPIService
+	accountIds *[]int32
+	heroId int32
+	maxMatchId *int64
+}
+
+// Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+func (r ApiHeroMmr_0Request) AccountIds(accountIds []int32) ApiHeroMmr_0Request {
+	r.accountIds = &accountIds
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiHeroMmr_0Request) MaxMatchId(maxMatchId int64) ApiHeroMmr_0Request {
+	r.maxMatchId = &maxMatchId
+	return r
+}
+
+func (r ApiHeroMmr_0Request) Execute() ([]MMRHistory, *http.Response, error) {
+	return r.ApiService.HeroMmr_1Execute(r)
+}
+
+/*
+HeroMmr_0 Batch Hero MMR
+
+
+Batch Player Hero MMR
+
+Filters for the last 90 days if no `max_match_id` is provided.
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param heroId The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+ @return ApiHeroMmr_0Request
+*/
+func (a *MMRAPIService) HeroMmr_1(ctx context.Context, heroId int32) ApiHeroMmr_0Request {
+	return ApiHeroMmr_0Request{
+		ApiService: a,
+		ctx: ctx,
+		heroId: heroId,
+	}
+}
+
+// Execute executes the request
+//  @return []MMRHistory
+func (a *MMRAPIService) HeroMmr_1Execute(r ApiHeroMmr_0Request) ([]MMRHistory, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []MMRHistory
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MMRAPIService.HeroMmr_1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/mmr/{hero_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"hero_id"+"}", url.PathEscape(parameterValueToString(r.heroId, "heroId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.accountIds == nil {
+		return localVarReturnValue, nil, reportError("accountIds is required and must be specified")
+	}
+	if len(*r.accountIds) < 1 {
+		return localVarReturnValue, nil, reportError("accountIds must have at least 1 elements")
+	}
+	if len(*r.accountIds) > 1000 {
+		return localVarReturnValue, nil, reportError("accountIds must have less than 1000 elements")
+	}
+	if r.heroId < 0 {
+		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
+	}
+
+	{
+		t := *r.accountIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+		}
+	}
+	if r.maxMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiMmrRequest struct {
 	ctx context.Context
 	ApiService *MMRAPIService
@@ -308,7 +510,7 @@ func (r ApiMmrRequest) Execute() ([]MMRHistory, *http.Response, error) {
 }
 
 /*
-Mmr MMR
+Mmr Batch MMR
 
 
 Batch Player MMR
@@ -476,6 +678,201 @@ func (a *MMRAPIService) MmrHistoryExecute(r ApiMmrHistoryRequest) ([]MMRHistory,
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
 	}
 
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiMmr_0Request struct {
+	ctx context.Context
+	ApiService *MMRAPIService
+	minUnixTimestamp *int64
+	maxUnixTimestamp *int64
+	minDurationS *int64
+	maxDurationS *int64
+	isHighSkillRangeParties *bool
+	isLowPriPool *bool
+	isNewPlayerPool *bool
+	minMatchId *int64
+	maxMatchId *int64
+}
+
+// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+func (r ApiMmr_0Request) MinUnixTimestamp(minUnixTimestamp int64) ApiMmr_0Request {
+	r.minUnixTimestamp = &minUnixTimestamp
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp).
+func (r ApiMmr_0Request) MaxUnixTimestamp(maxUnixTimestamp int64) ApiMmr_0Request {
+	r.maxUnixTimestamp = &maxUnixTimestamp
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiMmr_0Request) MinDurationS(minDurationS int64) ApiMmr_0Request {
+	r.minDurationS = &minDurationS
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiMmr_0Request) MaxDurationS(maxDurationS int64) ApiMmr_0Request {
+	r.maxDurationS = &maxDurationS
+	return r
+}
+
+// Filter matches based on whether they are in the high skill range.
+func (r ApiMmr_0Request) IsHighSkillRangeParties(isHighSkillRangeParties bool) ApiMmr_0Request {
+	r.isHighSkillRangeParties = &isHighSkillRangeParties
+	return r
+}
+
+// Filter matches based on whether they are in the low priority pool.
+func (r ApiMmr_0Request) IsLowPriPool(isLowPriPool bool) ApiMmr_0Request {
+	r.isLowPriPool = &isLowPriPool
+	return r
+}
+
+// Filter matches based on whether they are in the new player pool.
+func (r ApiMmr_0Request) IsNewPlayerPool(isNewPlayerPool bool) ApiMmr_0Request {
+	r.isNewPlayerPool = &isNewPlayerPool
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiMmr_0Request) MinMatchId(minMatchId int64) ApiMmr_0Request {
+	r.minMatchId = &minMatchId
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiMmr_0Request) MaxMatchId(maxMatchId int64) ApiMmr_0Request {
+	r.maxMatchId = &maxMatchId
+	return r
+}
+
+func (r ApiMmr_0Request) Execute() ([]DistributionEntry, *http.Response, error) {
+	return r.ApiService.Mmr_2Execute(r)
+}
+
+/*
+Mmr_0 MMR Distribution
+
+
+Player MMR Distribution
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiMmr_0Request
+*/
+func (a *MMRAPIService) Mmr_2(ctx context.Context) ApiMmr_0Request {
+	return ApiMmr_0Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []DistributionEntry
+func (a *MMRAPIService) Mmr_2Execute(r ApiMmr_0Request) ([]DistributionEntry, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []DistributionEntry
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MMRAPIService.Mmr_2")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/mmr/distribution"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.minUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+	} else {
+        var defaultValue int64 = 1759104000
+        parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
+        r.minUnixTimestamp = &defaultValue
+	}
+	if r.maxUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+	}
+	if r.minDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
+	}
+	if r.maxDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
+	}
+	if r.isHighSkillRangeParties != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_high_skill_range_parties", r.isHighSkillRangeParties, "form", "")
+	}
+	if r.isLowPriPool != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_low_pri_pool", r.isLowPriPool, "form", "")
+	}
+	if r.isNewPlayerPool != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_new_player_pool", r.isNewPlayerPool, "form", "")
+	}
+	if r.minMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
+	}
+	if r.maxMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

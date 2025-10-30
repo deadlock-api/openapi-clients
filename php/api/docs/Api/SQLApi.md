@@ -1,5 +1,7 @@
 # OpenAPI\Client\SQLApi
 
+Database exploration endpoints for direct SQL access. Provides functionality to execute custom SQL queries with rate limiting protection, list available tables, and inspect table schemas.
+
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

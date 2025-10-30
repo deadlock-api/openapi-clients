@@ -1,5 +1,4 @@
 /* tslint:disable */
-/* eslint-disable */
 /**
  * Deadlock API
  *  ## Support the Deadlock API  Whether you\'re building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.  Your sponsorship helps keep this resource open, free and future-proof for everyone. By supporting the Deadlock API, you will enable continued development, new features and reliable access for developers, analysts and streamers worldwide.  Help us continue to provide the data you need - sponsor the Deadlock API today!  **-> You can Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or [GitHub](https://github.com/sponsors/raimannma)**  ## Disclaimer _deadlock-api.com is not endorsed by Valve and does not reflect the views or opinions of Valve or anyone officially involved in producing or managing Valve properties. Valve and all associated properties are trademarks or registered trademarks of Valve Corporation_         
@@ -12,12 +11,24 @@
  * Do not edit the class manually.
  */
 
+interface AWSv4Configuration {
+  options?: {
+    region?: string
+    service?: string
+  }
+  credentials?: {
+    accessKeyId?: string
+    secretAccessKey?: string,
+    sessionToken?: string
+  }
+}
 
 export interface ConfigurationParameters {
     apiKey?: string | Promise<string> | ((name: string) => string) | ((name: string) => Promise<string>);
     username?: string;
     password?: string;
     accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
+    awsv4?: AWSv4Configuration;
     basePath?: string;
     serverIndex?: number;
     baseOptions?: any;
@@ -45,6 +56,17 @@ export class Configuration {
      */
     accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
     /**
+     * parameter for aws4 signature security
+     * @param {Object} AWS4Signature - AWS4 Signature security
+     * @param {string} options.region - aws region
+     * @param {string} options.service - name of the service.
+     * @param {string} credentials.accessKeyId - aws access key id
+     * @param {string} credentials.secretAccessKey - aws access key
+     * @param {string} credentials.sessionToken - aws session token
+     * @memberof Configuration
+     */
+    awsv4?: AWSv4Configuration;
+    /**
      * override base path
      */
     basePath?: string;
@@ -70,6 +92,7 @@ export class Configuration {
         this.username = param.username;
         this.password = param.password;
         this.accessToken = param.accessToken;
+        this.awsv4 = param.awsv4;
         this.basePath = param.basePath;
         this.serverIndex = param.serverIndex;
         this.baseOptions = {

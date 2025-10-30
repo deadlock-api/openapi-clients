@@ -19,7 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
+import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
 import assets-deadlock-api-client.models.HTTPValidationError
 import assets-deadlock-api-client.models.HeroV2
 import assets-deadlock-api-client.models.Language
@@ -64,7 +64,7 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getHeroByNameV2HeroesByNameNameGet(name: kotlin.String, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : HeroV2 {
+    fun getHeroByNameV2HeroesByNameNameGet(name: kotlin.String, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions? = null) : HeroV2 {
         val localVarResponse = getHeroByNameV2HeroesByNameNameGetWithHttpInfo(name = name, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -95,7 +95,7 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getHeroByNameV2HeroesByNameNameGetWithHttpInfo(name: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<HeroV2?> {
+    fun getHeroByNameV2HeroesByNameNameGetWithHttpInfo(name: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : ApiResponse<HeroV2?> {
         val localVariableConfig = getHeroByNameV2HeroesByNameNameGetRequestConfig(name = name, language = language, clientVersion = clientVersion)
 
         return request<Unit, HeroV2>(
@@ -111,7 +111,7 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getHeroByNameV2HeroesByNameNameGetRequestConfig(name: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+    fun getHeroByNameV2HeroesByNameNameGetRequestConfig(name: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -151,7 +151,7 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getHeroV2HeroesIdGet(id: kotlin.Int, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : HeroV2 {
+    fun getHeroV2HeroesIdGet(id: kotlin.Int, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions? = null) : HeroV2 {
         val localVarResponse = getHeroV2HeroesIdGetWithHttpInfo(id = id, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -182,7 +182,7 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getHeroV2HeroesIdGetWithHttpInfo(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<HeroV2?> {
+    fun getHeroV2HeroesIdGetWithHttpInfo(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : ApiResponse<HeroV2?> {
         val localVariableConfig = getHeroV2HeroesIdGetRequestConfig(id = id, language = language, clientVersion = clientVersion)
 
         return request<Unit, HeroV2>(
@@ -198,7 +198,7 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getHeroV2HeroesIdGetRequestConfig(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+    fun getHeroV2HeroesIdGetRequestConfig(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -238,7 +238,7 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getHeroesV2HeroesGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null, onlyActive: kotlin.Boolean? = null) : kotlin.collections.List<HeroV2> {
+    fun getHeroesV2HeroesGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions? = null, onlyActive: kotlin.Boolean? = null) : kotlin.collections.List<HeroV2> {
         val localVarResponse = getHeroesV2HeroesGetWithHttpInfo(language = language, clientVersion = clientVersion, onlyActive = onlyActive)
 
         return when (localVarResponse.responseType) {
@@ -269,7 +269,7 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getHeroesV2HeroesGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?, onlyActive: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<HeroV2>?> {
+    fun getHeroesV2HeroesGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?, onlyActive: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<HeroV2>?> {
         val localVariableConfig = getHeroesV2HeroesGetRequestConfig(language = language, clientVersion = clientVersion, onlyActive = onlyActive)
 
         return request<Unit, kotlin.collections.List<HeroV2>>(
@@ -285,7 +285,7 @@ class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param onlyActive  (optional)
      * @return RequestConfig
      */
-    fun getHeroesV2HeroesGetRequestConfig(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?, onlyActive: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getHeroesV2HeroesGetRequestConfig(language: Language?, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?, onlyActive: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

@@ -505,8 +505,9 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	if r.includeInfo != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_info", r.includeInfo, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.includeInfo = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "include_info", defaultValue, "form", "")
+        r.includeInfo = &defaultValue
 	}
 	if r.includeObjectives != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_objectives", r.includeObjectives, "form", "")
@@ -593,8 +594,9 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
-		var defaultValue int32 = 1000
-		r.limit = &defaultValue
+        var defaultValue int32 = 1000
+        parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
+        r.limit = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
