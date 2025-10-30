@@ -18,44 +18,44 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct GetBuildTagsV2BuildTagsGetParams {
     pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_colors_v1_colors_get`]
 #[derive(Clone, Debug)]
 pub struct GetColorsV1ColorsGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_icons_v1_icons_get`]
 #[derive(Clone, Debug)]
 pub struct GetIconsV1IconsGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_map_v1_map_get`]
 #[derive(Clone, Debug)]
 pub struct GetMapV1MapGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_ranks_v2_ranks_get`]
 #[derive(Clone, Debug)]
 pub struct GetRanksV2RanksGetParams {
     pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_sounds_v1_sounds_get`]
 #[derive(Clone, Debug)]
 pub struct GetSoundsV1SoundsGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_steam_info_v1_steam_info_get`]
 #[derive(Clone, Debug)]
 pub struct GetSteamInfoV1SteamInfoGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
 }
 
 
