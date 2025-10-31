@@ -28,7 +28,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 final api_instance = ItemsApi();
 final idOrClassName = idOrClassName_example; // String | 
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getItemV2ItemsIdOrClassNameGet(idOrClassName, language, clientVersion);
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idOrClassName** | **String**|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -73,7 +73,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 final api_instance = ItemsApi();
 final id = 56; // int | 
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion);
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -118,7 +118,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 final api_instance = ItemsApi();
 final slotType = ; // ItemSlotTypeV2 | 
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion);
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **slotType** | [**ItemSlotTypeV2**](.md)|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -163,7 +163,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 final api_instance = ItemsApi();
 final type = ; // ItemTypeV2 | 
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion);
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | [**ItemTypeV2**](.md)|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -207,7 +207,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = ItemsApi();
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getItemsV2ItemsGet(language, clientVersion);
@@ -222,7 +222,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
