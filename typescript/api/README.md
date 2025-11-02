@@ -71,6 +71,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**createCustom**](docs/CustomMatchesApi.md#createcustom) | **POST** /v1/matches/custom/create | Create Match
 *CustomMatchesApi* | [**getCustom**](docs/CustomMatchesApi.md#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 *CustomMatchesApi* | [**readyUp**](docs/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
+*CustomMatchesApi* | [**unready**](docs/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
 *DataPrivacyApi* | [**requestDeletion**](docs/DataPrivacyApi.md#requestdeletion) | **POST** /v1/data-privacy/request-deletion | Request Data Deletion
 *DataPrivacyApi* | [**requestTracking**](docs/DataPrivacyApi.md#requesttracking) | **POST** /v1/data-privacy/request-tracking | Request Data Tracking
 *ESportsApi* | [**ingestMatch**](docs/ESportsApi.md#ingestmatch) | **POST** /v1/esports/ingest/match | Ingest

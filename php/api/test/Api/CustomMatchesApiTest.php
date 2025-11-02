@@ -106,4 +106,16 @@ class CustomMatchesApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for unready
+     *
+     * Unready.
+     *
+     */
+    public function testUnready()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

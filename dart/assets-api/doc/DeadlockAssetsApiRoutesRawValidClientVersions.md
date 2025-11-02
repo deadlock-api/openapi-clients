@@ -1,4 +1,4 @@
-# assets-deadlock-api-client.model.DeadlockAssetsApiRoutesV1ValidClientVersions
+# assets-deadlock-api-client.model.DeadlockAssetsApiRoutesRawValidClientVersions
 
 ## Load the model package
 ```dart

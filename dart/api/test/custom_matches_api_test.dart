@@ -44,5 +44,14 @@ void main() {
       // TODO
     });
 
+    // Unready
+    //
+    //  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+    //
+    //Future unready() async
+    test('test unready', () async {
+      // TODO
+    });
+
   });
 }

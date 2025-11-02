@@ -27,3 +27,7 @@ Accept: application/json
 ### Ready Up
 ## Ready Up
 POST https://api.deadlock-api.com/v1/matches/custom/{{lobby_id}}/ready
+
+### Unready
+## Unready
+POST https://api.deadlock-api.com/v1/matches/custom/{{lobby_id}}/unready

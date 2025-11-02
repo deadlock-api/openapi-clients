@@ -47,6 +47,13 @@ class TestCustomMatchesApi(unittest.TestCase):
         """
         pass
 
+    def test_unready(self) -> None:
+        """Test case for unready
+
+        Unready
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

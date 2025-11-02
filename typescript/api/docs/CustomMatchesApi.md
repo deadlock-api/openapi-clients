@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**createCustom**](#createcustom) | **POST** /v1/matches/custom/create | Create Match|
 |[**getCustom**](#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID|
 |[**readyUp**](#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up|
+|[**unready**](#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready|
 
 # **createCustom**
 > CreateCustomResponse createCustom(createCustomRequest)
@@ -161,6 +162,53 @@ No authorization required
 |**400** | Provided parameters are invalid. |  -  |
 |**429** | Rate limit exceeded |  -  |
 |**500** | Ready up failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **unready**
+> unready()
+
+ This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+
+### Example
+
+```typescript
+import {
+    CustomMatchesApi,
+    Configuration
+} from 'deadlock-api-client';
+
+const configuration = new Configuration();
+const apiInstance = new CustomMatchesApi(configuration);
+
+const { status, data } = await apiInstance.unready();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successfully unready. |  -  |
+|**400** | Provided parameters are invalid. |  -  |
+|**429** | Rate limit exceeded |  -  |
+|**500** | Unready failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -69,7 +69,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
 
 try {
     $result = $apiInstance->getBuildTagsV2BuildTagsGet($language, $client_version);
@@ -124,7 +124,7 @@ Class | Method | HTTP request | Description
 - [BuildTagV2Input](docs/Model/BuildTagV2Input.md)
 - [BuildTagV2Output](docs/Model/BuildTagV2Output.md)
 - [ColorV1](docs/Model/ColorV1.md)
-- [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
+- [DeadlockAssetsApiRoutesRawValidClientVersions](docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md)
 - [GetItemsV2ItemsGet200ResponseInner](docs/Model/GetItemsV2ItemsGet200ResponseInner.md)
 - [HTTPValidationError](docs/Model/HTTPValidationError.md)
 - [HeroColorsV2](docs/Model/HeroColorsV2.md)

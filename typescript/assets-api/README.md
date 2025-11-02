@@ -90,7 +90,7 @@ Class | Method | HTTP request | Description
  - [BuildTagV2Input](docs/BuildTagV2Input.md)
  - [BuildTagV2Output](docs/BuildTagV2Output.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HeroColorsV2](docs/HeroColorsV2.md)

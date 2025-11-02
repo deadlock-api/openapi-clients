@@ -4679,6 +4679,36 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
                 options: localVarRequestOptions,
             };
         },
+        /**
+         *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+         * @summary Unready
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        unready: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/matches/custom/{lobby_id}/unready`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -4726,6 +4756,18 @@ export const CustomMatchesApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['CustomMatchesApi.readyUp']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+         * @summary Unready
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async unready(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.unready(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomMatchesApi.unready']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -4763,6 +4805,15 @@ export const CustomMatchesApiFactory = function (configuration?: Configuration, 
          */
         readyUp(options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.readyUp(options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+         * @summary Unready
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        unready(options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.unready(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -4815,6 +4866,16 @@ export class CustomMatchesApi extends BaseAPI {
      */
     public readyUp(options?: RawAxiosRequestConfig) {
         return CustomMatchesApiFp(this.configuration).readyUp(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+     * @summary Unready
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unready(options?: RawAxiosRequestConfig) {
+        return CustomMatchesApiFp(this.configuration).unready(options).then((request) => request(this.axios, this.basePath));
     }
 }
 

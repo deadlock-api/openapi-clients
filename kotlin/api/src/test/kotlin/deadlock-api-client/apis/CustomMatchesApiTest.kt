@@ -50,5 +50,11 @@ class CustomMatchesApiTest : ShouldSpec() {
             //apiInstance.readyUp()
         }
 
+        // to test unready
+        should("test unready") {
+            // uncomment below to test unready
+            //apiInstance.unready()
+        }
+
     }
 }

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateCustom**](CustomMatchesAPI.md#CreateCustom) | **Post** /v1/matches/custom/create | Create Match
 [**GetCustom**](CustomMatchesAPI.md#GetCustom) | **Get** /v1/matches/custom/{party_id}/match-id | Get Match ID
 [**ReadyUp**](CustomMatchesAPI.md#ReadyUp) | **Post** /v1/matches/custom/{lobby_id}/ready | Ready Up
+[**Unready**](CustomMatchesAPI.md#Unready) | **Post** /v1/matches/custom/{lobby_id}/unready | Unready
 
 
 
@@ -185,6 +186,65 @@ This endpoint does not need any parameter.
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiReadyUpRequest struct via the builder pattern
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Unready
+
+> Unready(ctx).Execute()
+
+Unready
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CustomMatchesAPI.Unready(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomMatchesAPI.Unready``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUnreadyRequest struct via the builder pattern
 
 
 ### Return type

@@ -69,7 +69,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1759276800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1759363200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -120,6 +120,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**createCustom**](docs/Api/CustomMatchesApi.md#createcustom) | **POST** /v1/matches/custom/create | Create Match
 *CustomMatchesApi* | [**getCustom**](docs/Api/CustomMatchesApi.md#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 *CustomMatchesApi* | [**readyUp**](docs/Api/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
+*CustomMatchesApi* | [**unready**](docs/Api/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
 *DataPrivacyApi* | [**requestDeletion**](docs/Api/DataPrivacyApi.md#requestdeletion) | **POST** /v1/data-privacy/request-deletion | Request Data Deletion
 *DataPrivacyApi* | [**requestTracking**](docs/Api/DataPrivacyApi.md#requesttracking) | **POST** /v1/data-privacy/request-tracking | Request Data Tracking
 *ESportsApi* | [**ingestMatch**](docs/Api/ESportsApi.md#ingestmatch) | **POST** /v1/esports/ingest/match | Ingest

@@ -19,7 +19,7 @@ doc/Bonus.md
 doc/BuildTagV2Input.md
 doc/BuildTagV2Output.md
 doc/ColorV1.md
-doc/DeadlockAssetsApiRoutesV1ValidClientVersions.md
+doc/DeadlockAssetsApiRoutesRawValidClientVersions.md
 doc/DefaultApi.md
 doc/GetItemsV2ItemsGet200ResponseInner.md
 doc/HTTPValidationError.md
@@ -150,7 +150,7 @@ lib/model/bonus.dart
 lib/model/build_tag_v2_input.dart
 lib/model/build_tag_v2_output.dart
 lib/model/color_v1.dart
-lib/model/deadlock_assets_api_routes_v1_valid_client_versions.dart
+lib/model/deadlock_assets_api_routes_raw_valid_client_versions.dart
 lib/model/get_items_v2_items_get200_response_inner.dart
 lib/model/hero_colors_v2.dart
 lib/model/hero_description_v2.dart
@@ -264,7 +264,7 @@ test/bonus_test.dart
 test/build_tag_v2_input_test.dart
 test/build_tag_v2_output_test.dart
 test/color_v1_test.dart
-test/deadlock_assets_api_routes_v1_valid_client_versions_test.dart
+test/deadlock_assets_api_routes_raw_valid_client_versions_test.dart
 test/default_api_test.dart
 test/get_items_v2_items_get200_response_inner_test.dart
 test/hero_colors_v2_test.dart

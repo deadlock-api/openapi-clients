@@ -111,7 +111,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -314,7 +314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -446,7 +446,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -494,7 +494,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -728,7 +728,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -965,7 +965,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -1211,7 +1211,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -1474,7 +1474,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -1684,7 +1684,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -1913,7 +1913,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -2194,7 +2194,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -3464,6 +3464,31 @@ paths:
       summary: Ready Up
       tags:
       - Custom Matches
+  /v1/matches/custom/{lobby_id}/unready:
+    post:
+      description: |2
+
+        This endpoint allows you to unready for a custom match.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | API-Key ONLY |
+        | Key | 100req/30min |
+        | Global | 1000req/h |
+      operationId: unready
+      responses:
+        "200":
+          description: Successfully unready.
+        "400":
+          description: Provided parameters are invalid.
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Unready failed
+      summary: Unready
+      tags:
+      - Custom Matches
   /v1/matches/custom/{party_id}/match-id:
     get:
       description: |2
@@ -4270,7 +4295,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
@@ -4389,7 +4414,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759276800
+          default: 1759363200
           format: int64
           nullable: true
           type: integer
