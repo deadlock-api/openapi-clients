@@ -37,7 +37,7 @@ void main() {
 
     // Batch Hero MMR
     //
-    //  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+    //  Batch Player Hero MMR 
     //
     //Future<List<MMRHistory>> heroMmr_0(List<int> accountIds, int heroId, { int maxMatchId }) async
     test('test heroMmr_0', () async {
@@ -46,7 +46,7 @@ void main() {
 
     // Batch MMR
     //
-    //  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+    //  Batch Player MMR 
     //
     //Future<List<MMRHistory>> mmr(List<int> accountIds, { int maxMatchId }) async
     test('test mmr', () async {

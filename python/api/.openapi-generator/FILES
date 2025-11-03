@@ -10,7 +10,6 @@ deadlock-api-client/api/analytics_api.py
 deadlock-api-client/api/builds_api.py
 deadlock-api-client/api/commands_api.py
 deadlock-api-client/api/custom_matches_api.py
-deadlock-api-client/api/data_privacy_api.py
 deadlock-api-client/api/e_sports_api.py
 deadlock-api-client/api/info_api.py
 deadlock-api-client/api/internal_api.py
@@ -47,7 +46,6 @@ deadlock-api-client/models/clickhouse_match_info.py
 deadlock-api-client/models/clickhouse_salts.py
 deadlock-api-client/models/create_custom_request.py
 deadlock-api-client/models/create_custom_response.py
-deadlock-api-client/models/data_privacy_request.py
 deadlock-api-client/models/distribution_entry.py
 deadlock-api-client/models/e_sports_match.py
 deadlock-api-client/models/e_sports_match_status.py
@@ -71,10 +69,6 @@ deadlock-api-client/models/party_stats.py
 deadlock-api-client/models/patch.py
 deadlock-api-client/models/patch_category.py
 deadlock-api-client/models/patch_guid.py
-deadlock-api-client/models/player_card.py
-deadlock-api-client/models/player_card_slot.py
-deadlock-api-client/models/player_card_slot_hero.py
-deadlock-api-client/models/player_card_slot_stat.py
 deadlock-api-client/models/player_match_history_entry.py
 deadlock-api-client/models/region_mode.py
 deadlock-api-client/models/status.py
@@ -111,8 +105,6 @@ docs/CommandsApi.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
-docs/DataPrivacyApi.md
-docs/DataPrivacyRequest.md
 docs/DistributionEntry.md
 docs/ESportsApi.md
 docs/ESportsMatch.md
@@ -143,10 +135,6 @@ docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesApi.md
-docs/PlayerCard.md
-docs/PlayerCardSlot.md
-docs/PlayerCardSlotHero.md
-docs/PlayerCardSlotStat.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayersApi.md
 docs/RegionMode.md
@@ -190,8 +178,6 @@ test/test_commands_api.py
 test/test_create_custom_request.py
 test/test_create_custom_response.py
 test/test_custom_matches_api.py
-test/test_data_privacy_api.py
-test/test_data_privacy_request.py
 test/test_distribution_entry.py
 test/test_e_sports_api.py
 test/test_e_sports_match.py
@@ -222,10 +208,6 @@ test/test_patch.py
 test/test_patch_category.py
 test/test_patch_guid.py
 test/test_patches_api.py
-test/test_player_card.py
-test/test_player_card_slot.py
-test/test_player_card_slot_hero.py
-test/test_player_card_slot_stat.py
 test/test_player_match_history_entry.py
 test/test_players_api.py
 test/test_region_mode.py

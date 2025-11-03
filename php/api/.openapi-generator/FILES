@@ -7,7 +7,6 @@ api/Api/AnalyticsApi.php
 api/Api/BuildsApi.php
 api/Api/CommandsApi.php
 api/Api/CustomMatchesApi.php
-api/Api/DataPrivacyApi.php
 api/Api/ESportsApi.php
 api/Api/InfoApi.php
 api/Api/InternalApi.php
@@ -43,7 +42,6 @@ api/Model/ClickhouseMatchInfo.php
 api/Model/ClickhouseSalts.php
 api/Model/CreateCustomRequest.php
 api/Model/CreateCustomResponse.php
-api/Model/DataPrivacyRequest.php
 api/Model/DistributionEntry.php
 api/Model/ESportsMatch.php
 api/Model/ESportsMatchStatus.php
@@ -68,10 +66,6 @@ api/Model/PartyStats.php
 api/Model/Patch.php
 api/Model/PatchCategory.php
 api/Model/PatchGuid.php
-api/Model/PlayerCard.php
-api/Model/PlayerCardSlot.php
-api/Model/PlayerCardSlotHero.php
-api/Model/PlayerCardSlotStat.php
 api/Model/PlayerMatchHistoryEntry.php
 api/Model/RegionMode.php
 api/Model/Status.php
@@ -86,7 +80,6 @@ docs/Api/AnalyticsApi.md
 docs/Api/BuildsApi.md
 docs/Api/CommandsApi.md
 docs/Api/CustomMatchesApi.md
-docs/Api/DataPrivacyApi.md
 docs/Api/ESportsApi.md
 docs/Api/InfoApi.md
 docs/Api/InternalApi.md
@@ -118,7 +111,6 @@ docs/Model/ClickhouseMatchInfo.md
 docs/Model/ClickhouseSalts.md
 docs/Model/CreateCustomRequest.md
 docs/Model/CreateCustomResponse.md
-docs/Model/DataPrivacyRequest.md
 docs/Model/DistributionEntry.md
 docs/Model/ESportsMatch.md
 docs/Model/ESportsMatchStatus.md
@@ -142,10 +134,6 @@ docs/Model/PartyStats.md
 docs/Model/Patch.md
 docs/Model/PatchCategory.md
 docs/Model/PatchGuid.md
-docs/Model/PlayerCard.md
-docs/Model/PlayerCardSlot.md
-docs/Model/PlayerCardSlotHero.md
-docs/Model/PlayerCardSlotStat.md
 docs/Model/PlayerMatchHistoryEntry.md
 docs/Model/RegionMode.md
 docs/Model/Status.md
@@ -160,7 +148,6 @@ test/Api/AnalyticsApiTest.php
 test/Api/BuildsApiTest.php
 test/Api/CommandsApiTest.php
 test/Api/CustomMatchesApiTest.php
-test/Api/DataPrivacyApiTest.php
 test/Api/ESportsApiTest.php
 test/Api/InfoApiTest.php
 test/Api/InternalApiTest.php
@@ -192,7 +179,6 @@ test/Model/ClickhouseMatchInfoTest.php
 test/Model/ClickhouseSaltsTest.php
 test/Model/CreateCustomRequestTest.php
 test/Model/CreateCustomResponseTest.php
-test/Model/DataPrivacyRequestTest.php
 test/Model/DistributionEntryTest.php
 test/Model/ESportsMatchStatusTest.php
 test/Model/ESportsMatchTest.php
@@ -216,10 +202,6 @@ test/Model/PartyStatsTest.php
 test/Model/PatchCategoryTest.php
 test/Model/PatchGuidTest.php
 test/Model/PatchTest.php
-test/Model/PlayerCardSlotHeroTest.php
-test/Model/PlayerCardSlotStatTest.php
-test/Model/PlayerCardSlotTest.php
-test/Model/PlayerCardTest.php
 test/Model/PlayerMatchHistoryEntryTest.php
 test/Model/RegionModeTest.php
 test/Model/StatusServicesTest.php

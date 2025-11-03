@@ -29,8 +29,6 @@ doc/CommandsApi.md
 doc/CreateCustomRequest.md
 doc/CreateCustomResponse.md
 doc/CustomMatchesApi.md
-doc/DataPrivacyApi.md
-doc/DataPrivacyRequest.md
 doc/DistributionEntry.md
 doc/ESportsApi.md
 doc/ESportsMatch.md
@@ -61,10 +59,6 @@ doc/PartyStats.md
 doc/PatchCategory.md
 doc/PatchGuid.md
 doc/PatchesApi.md
-doc/PlayerCard.md
-doc/PlayerCardSlot.md
-doc/PlayerCardSlotHero.md
-doc/PlayerCardSlotStat.md
 doc/PlayerMatchHistoryEntry.md
 doc/PlayersApi.md
 doc/RegionMode.md
@@ -81,7 +75,6 @@ lib/api/analytics_api.dart
 lib/api/builds_api.dart
 lib/api/commands_api.dart
 lib/api/custom_matches_api.dart
-lib/api/data_privacy_api.dart
 lib/api/e_sports_api.dart
 lib/api/info_api.dart
 lib/api/internal_api.dart
@@ -121,7 +114,6 @@ lib/model/clickhouse_match_info.dart
 lib/model/clickhouse_salts.dart
 lib/model/create_custom_request.dart
 lib/model/create_custom_response.dart
-lib/model/data_privacy_request.dart
 lib/model/distribution_entry.dart
 lib/model/e_sports_match.dart
 lib/model/e_sports_match_status.dart
@@ -145,10 +137,6 @@ lib/model/model_patch.dart
 lib/model/party_stats.dart
 lib/model/patch_category.dart
 lib/model/patch_guid.dart
-lib/model/player_card.dart
-lib/model/player_card_slot.dart
-lib/model/player_card_slot_hero.dart
-lib/model/player_card_slot_stat.dart
 lib/model/player_match_history_entry.dart
 lib/model/region_mode.dart
 lib/model/status.dart
@@ -184,8 +172,6 @@ test/commands_api_test.dart
 test/create_custom_request_test.dart
 test/create_custom_response_test.dart
 test/custom_matches_api_test.dart
-test/data_privacy_api_test.dart
-test/data_privacy_request_test.dart
 test/distribution_entry_test.dart
 test/e_sports_api_test.dart
 test/e_sports_match_status_test.dart
@@ -216,10 +202,6 @@ test/party_stats_test.dart
 test/patch_category_test.dart
 test/patch_guid_test.dart
 test/patches_api_test.dart
-test/player_card_slot_hero_test.dart
-test/player_card_slot_stat_test.dart
-test/player_card_slot_test.dart
-test/player_card_test.dart
 test/player_match_history_entry_test.dart
 test/players_api_test.dart
 test/region_mode_test.dart

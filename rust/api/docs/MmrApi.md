@@ -26,7 +26,7 @@ Hero MMR Distribution
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_id** | **u32** | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1759363200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1759449600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -57,7 +57,7 @@ No authorization required
 > Vec<models::MmrHistory> hero_mmr_0(account_ids, hero_id, max_match_id)
 Batch Hero MMR
 
- Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+ Batch Player Hero MMR 
 
 ### Parameters
 
@@ -120,7 +120,7 @@ No authorization required
 > Vec<models::MmrHistory> mmr(account_ids, max_match_id)
 Batch MMR
 
- Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+ Batch Player MMR 
 
 ### Parameters
 
@@ -158,7 +158,7 @@ MMR Distribution
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1759363200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1759449600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |

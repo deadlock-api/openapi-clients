@@ -4,7 +4,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**card**](PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card |
 | [**enemyStats**](PlayersApi.md#enemyStats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
 | [**matchHistory**](PlayersApi.md#matchHistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | [**mateStats**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
@@ -13,52 +12,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**steam**](PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile |
 | [**steamSearch**](PlayersApi.md#steamSearch) | **GET** /v1/players/steam-search | Steam Profile Search |
 
-
-<a id="card"></a>
-# **card**
-> kotlin.collections.List&lt;PlayerCard&gt; card(accountId)
-
-Card
-
- This endpoint returns the player card for the given &#x60;account_id&#x60;.  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min &amp; 800req/h | | Global | 200req/min |     
-
-### Example
-```kotlin
-// Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
-
-val apiInstance = PlayersApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-try {
-    val result : kotlin.collections.List<PlayerCard> = apiInstance.card(accountId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling PlayersApi#card")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling PlayersApi#card")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
-
-### Return type
-
-[**kotlin.collections.List&lt;PlayerCard&gt;**](PlayerCard.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 <a id="enemyStats"></a>
 # **enemyStats**

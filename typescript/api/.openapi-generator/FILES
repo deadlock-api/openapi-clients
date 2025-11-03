@@ -32,8 +32,6 @@ docs/CommandsApi.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
-docs/DataPrivacyApi.md
-docs/DataPrivacyRequest.md
 docs/DistributionEntry.md
 docs/ESportsApi.md
 docs/ESportsMatch.md
@@ -64,10 +62,6 @@ docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesApi.md
-docs/PlayerCard.md
-docs/PlayerCardSlot.md
-docs/PlayerCardSlotHero.md
-docs/PlayerCardSlotStat.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayersApi.md
 docs/RegionMode.md

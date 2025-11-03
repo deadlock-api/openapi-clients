@@ -72,18 +72,6 @@ class PlayersApiTest extends TestCase
     }
 
     /**
-     * Test case for card
-     *
-     * Card.
-     *
-     */
-    public function testCard()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for enemyStats
      *
      * Enemy Stats.

@@ -3,7 +3,6 @@ Apis/AnalyticsApi.http
 Apis/BuildsApi.http
 Apis/CommandsApi.http
 Apis/CustomMatchesApi.http
-Apis/DataPrivacyApi.http
 Apis/ESportsApi.http
 Apis/InfoApi.http
 Apis/InternalApi.http

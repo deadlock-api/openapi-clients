@@ -14,13 +14,6 @@ use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
-/// struct for passing parameters to the method [`card`]
-#[derive(Clone, Debug)]
-pub struct CardParams {
-    /// The players `SteamID3`
-    pub account_id: u32
-}
-
 /// struct for passing parameters to the method [`enemy_stats`]
 #[derive(Clone, Debug)]
 pub struct EnemyStatsParams {
@@ -143,16 +136,6 @@ pub struct SteamSearchParams {
 }
 
 
-/// struct for typed errors of method [`card`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum CardError {
-    Status400(),
-    Status429(),
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`enemy_stats`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -219,41 +202,6 @@ pub enum SteamSearchError {
     UnknownValue(serde_json::Value),
 }
 
-
-///  This endpoint returns the player card for the given `account_id`.  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-pub async fn card(configuration: &configuration::Configuration, params: CardParams) -> Result<Vec<models::PlayerCard>, Error<CardError>> {
-
-    let uri_str = format!("{}/v1/players/{account_id}/card", configuration.base_path, account_id=params.account_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::PlayerCard&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::PlayerCard&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<CardError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
 
 ///  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn enemy_stats(configuration: &configuration::Configuration, params: EnemyStatsParams) -> Result<Vec<models::EnemyStats>, Error<EnemyStatsError>> {

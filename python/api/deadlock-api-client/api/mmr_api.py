@@ -480,7 +480,7 @@ class MMRApi:
     ) -> List[MMRHistory]:
         """Batch Hero MMR
 
-         Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         Batch Player Hero MMR 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -557,7 +557,7 @@ class MMRApi:
     ) -> ApiResponse[List[MMRHistory]]:
         """Batch Hero MMR
 
-         Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         Batch Player Hero MMR 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -634,7 +634,7 @@ class MMRApi:
     ) -> RESTResponseType:
         """Batch Hero MMR
 
-         Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         Batch Player Hero MMR 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -1061,7 +1061,7 @@ class MMRApi:
     ) -> List[MMRHistory]:
         """Batch MMR
 
-         Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         Batch Player MMR 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -1134,7 +1134,7 @@ class MMRApi:
     ) -> ApiResponse[List[MMRHistory]]:
         """Batch MMR
 
-         Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         Batch Player MMR 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -1207,7 +1207,7 @@ class MMRApi:
     ) -> RESTResponseType:
         """Batch MMR
 
-         Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         Batch Player MMR 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]

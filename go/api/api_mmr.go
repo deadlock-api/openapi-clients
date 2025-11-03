@@ -144,7 +144,7 @@ func (a *MMRAPIService) HeroMmrExecute(r ApiHeroMmrRequest) ([]DistributionEntry
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1759363200
+        var defaultValue int64 = 1759449600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -369,8 +369,6 @@ HeroMmr_0 Batch Hero MMR
 
 Batch Player Hero MMR
 
-Filters for the last 90 days if no `max_match_id` is provided.
-
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param heroId The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -514,8 +512,6 @@ Mmr Batch MMR
 
 
 Batch Player MMR
-
-Filters for the last 90 days if no `max_match_id` is provided.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -845,7 +841,7 @@ func (a *MMRAPIService) Mmr_2Execute(r ApiMmr_0Request) ([]DistributionEntry, *h
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1759363200
+        var defaultValue int64 = 1759449600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}

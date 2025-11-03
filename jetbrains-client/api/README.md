@@ -35,8 +35,6 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**getCustom**](Apis/CustomMatchesApi.http#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 *CustomMatchesApi* | [**readyUp**](Apis/CustomMatchesApi.http#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**unready**](Apis/CustomMatchesApi.http#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
-*DataPrivacyApi* | [**requestDeletion**](Apis/DataPrivacyApi.http#requestdeletion) | **POST** /v1/data-privacy/request-deletion | Request Data Deletion
-*DataPrivacyApi* | [**requestTracking**](Apis/DataPrivacyApi.http#requesttracking) | **POST** /v1/data-privacy/request-tracking | Request Data Tracking
 *ESportsApi* | [**ingestMatch**](Apis/ESportsApi.http#ingestmatch) | **POST** /v1/esports/ingest/match | Ingest
 *ESportsApi* | [**matches**](Apis/ESportsApi.http#matches) | **GET** /v1/esports/matches | List Matches
 *InfoApi* | [**healthCheck**](Apis/InfoApi.http#healthcheck) | **GET** /v1/info/health | Health Check
@@ -62,7 +60,6 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**url**](Apis/MatchesApi.http#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
 *PatchesApi* | [**bigPatchDays**](Apis/PatchesApi.http#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](Apis/PatchesApi.http#feed) | **GET** /v1/patches | Notes
-*PlayersApi* | [**card**](Apis/PlayersApi.http#card) | **GET** /v1/players/{account_id}/card | Card
 *PlayersApi* | [**enemyStats**](Apis/PlayersApi.http#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
 *PlayersApi* | [**matchHistory**](Apis/PlayersApi.http#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mateStats**](Apis/PlayersApi.http#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats

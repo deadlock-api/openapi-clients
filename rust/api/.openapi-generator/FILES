@@ -29,8 +29,6 @@ docs/CommandsApi.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
-docs/DataPrivacyApi.md
-docs/DataPrivacyRequest.md
 docs/DistributionEntry.md
 docs/ESportsApi.md
 docs/ESportsMatch.md
@@ -61,10 +59,6 @@ docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesApi.md
-docs/PlayerCard.md
-docs/PlayerCardSlot.md
-docs/PlayerCardSlotHero.md
-docs/PlayerCardSlotStat.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayersApi.md
 docs/RegionMode.md
@@ -81,7 +75,6 @@ src/apis/builds_api.rs
 src/apis/commands_api.rs
 src/apis/configuration.rs
 src/apis/custom_matches_api.rs
-src/apis/data_privacy_api.rs
 src/apis/e_sports_api.rs
 src/apis/info_api.rs
 src/apis/internal_api.rs
@@ -115,7 +108,6 @@ src/models/clickhouse_match_info.rs
 src/models/clickhouse_salts.rs
 src/models/create_custom_request.rs
 src/models/create_custom_response.rs
-src/models/data_privacy_request.rs
 src/models/distribution_entry.rs
 src/models/e_sports_match.rs
 src/models/e_sports_match_status.rs
@@ -140,10 +132,6 @@ src/models/party_stats.rs
 src/models/patch.rs
 src/models/patch_category.rs
 src/models/patch_guid.rs
-src/models/player_card.rs
-src/models/player_card_slot.rs
-src/models/player_card_slot_hero.rs
-src/models/player_card_slot_stat.rs
 src/models/player_match_history_entry.rs
 src/models/region_mode.rs
 src/models/status.rs

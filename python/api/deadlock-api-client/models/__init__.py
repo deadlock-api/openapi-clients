@@ -35,7 +35,6 @@ from deadlock-api-client.models.clickhouse_match_info import ClickhouseMatchInfo
 from deadlock-api-client.models.clickhouse_salts import ClickhouseSalts
 from deadlock-api-client.models.create_custom_request import CreateCustomRequest
 from deadlock-api-client.models.create_custom_response import CreateCustomResponse
-from deadlock-api-client.models.data_privacy_request import DataPrivacyRequest
 from deadlock-api-client.models.distribution_entry import DistributionEntry
 from deadlock-api-client.models.e_sports_match import ESportsMatch
 from deadlock-api-client.models.e_sports_match_status import ESportsMatchStatus
@@ -59,10 +58,6 @@ from deadlock-api-client.models.party_stats import PartyStats
 from deadlock-api-client.models.patch import Patch
 from deadlock-api-client.models.patch_category import PatchCategory
 from deadlock-api-client.models.patch_guid import PatchGuid
-from deadlock-api-client.models.player_card import PlayerCard
-from deadlock-api-client.models.player_card_slot import PlayerCardSlot
-from deadlock-api-client.models.player_card_slot_hero import PlayerCardSlotHero
-from deadlock-api-client.models.player_card_slot_stat import PlayerCardSlotStat
 from deadlock-api-client.models.player_match_history_entry import PlayerMatchHistoryEntry
 from deadlock-api-client.models.region_mode import RegionMode
 from deadlock-api-client.models.status import Status

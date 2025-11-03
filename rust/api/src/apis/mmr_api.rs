@@ -216,7 +216,7 @@ pub async fn hero_mmr(configuration: &configuration::Configuration, params: Hero
     }
 }
 
-///  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+///  Batch Player Hero MMR 
 pub async fn hero_mmr_0(configuration: &configuration::Configuration, params: HeroMmr0Params) -> Result<Vec<models::MmrHistory>, Error<HeroMmr0Error>> {
 
     let uri_str = format!("{}/v1/players/mmr/{hero_id}", configuration.base_path, hero_id=params.hero_id);
@@ -293,7 +293,7 @@ pub async fn hero_mmr_history(configuration: &configuration::Configuration, para
     }
 }
 
-///  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+///  Batch Player MMR 
 pub async fn mmr(configuration: &configuration::Configuration, params: MmrParams) -> Result<Vec<models::MmrHistory>, Error<MmrError>> {
 
     let uri_str = format!("{}/v1/players/mmr", configuration.base_path);

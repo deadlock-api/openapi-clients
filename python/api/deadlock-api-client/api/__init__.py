@@ -5,7 +5,6 @@ from deadlock-api-client.api.analytics_api import AnalyticsApi
 from deadlock-api-client.api.builds_api import BuildsApi
 from deadlock-api-client.api.commands_api import CommandsApi
 from deadlock-api-client.api.custom_matches_api import CustomMatchesApi
-from deadlock-api-client.api.data_privacy_api import DataPrivacyApi
 from deadlock-api-client.api.e_sports_api import ESportsApi
 from deadlock-api-client.api.info_api import InfoApi
 from deadlock-api-client.api.internal_api import InternalApi

@@ -29,10 +29,6 @@ servers:
 tags:
 - description: |2
 
-    Endpoints related to data privacy management
-  name: Data Privacy
-- description: |2
-
     Comprehensive match data endpoints for retrieving detailed information about games.
     Provides access to active matches, match metadata, replay salts, and more.
   name: Matches
@@ -111,7 +107,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -314,7 +310,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -446,7 +442,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -494,7 +490,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -728,7 +724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -965,7 +961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -1211,7 +1207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -1474,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -1684,7 +1680,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -1913,7 +1909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -2194,7 +2190,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -3004,51 +3000,6 @@ paths:
       summary: Widget Versions
       tags:
       - Commands
-  /v1/data-privacy/request-deletion:
-    post:
-      description: "\nEndpoint to request deletion of personal data.\n    "
-      operationId: request_deletion
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/DataPrivacyRequest"
-        required: true
-      responses:
-        "200":
-          description: ""
-        "500":
-          content:
-            text/plain:
-              schema:
-                type: string
-          description: ""
-      summary: Request Data Deletion
-      tags:
-      - Data Privacy
-  /v1/data-privacy/request-tracking:
-    post:
-      description: "\nEndpoint to request tracking of personal data.\n\nUse this to\
-        \ opt back into data tracking after previously requesting deletion.\n    "
-      operationId: request_tracking
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/DataPrivacyRequest"
-        required: true
-      responses:
-        "200":
-          description: ""
-        "500":
-          content:
-            text/plain:
-              schema:
-                type: string
-          description: ""
-      summary: Request Data Tracking
-      tags:
-      - Data Privacy
   /v1/esports/ingest/match:
     post:
       description: "\nTo use this Endpoint you need to have special permissions.\n\
@@ -4235,8 +4186,6 @@ paths:
       description: |2
 
         Batch Player MMR
-
-        Filters for the last 90 days if no `max_match_id` is provided.
       operationId: mmr
       parameters:
       - description: "Comma separated list of account ids, Account IDs are in `SteamID3`\
@@ -4295,7 +4244,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -4414,7 +4363,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759363200
+          default: 1759449600
           format: int64
           nullable: true
           type: integer
@@ -4534,8 +4483,6 @@ paths:
       description: |2
 
         Batch Player Hero MMR
-
-        Filters for the last 90 days if no `max_match_id` is provided.
       operationId: hero_mmr
       parameters:
       - description: "Comma separated list of account ids, Account IDs are in `SteamID3`\
@@ -4662,46 +4609,6 @@ paths:
         "500":
           description: Failed to fetch steam profiles.
       summary: Steam Profile Search
-      tags:
-      - Players
-  /v1/players/{account_id}/card:
-    get:
-      description: "\nThis endpoint returns the player card for the given `account_id`.\n\
-        \nYou have to be friend with one of the bots to use this endpoint.\nOn first\
-        \ use this endpoint will return an error with a list of invite links to add\
-        \ the bot as friend.\nFrom then on you can use this endpoint.\n\nProtobuf\
-        \ definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
-        \nRelevant Protobuf Messages:\n- CMsgClientToGcGetProfileCard\n- CMsgCitadelProfileCard\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 5req/min |\n\
-        | Key | 20req/min & 800req/h |\n| Global | 200req/min |\n    "
-      operationId: card
-      parameters:
-      - description: The players `SteamID3`
-        explode: false
-        in: path
-        name: account_id
-        required: true
-        schema:
-          format: int32
-          minimum: 0
-          type: integer
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/PlayerCard"
-                type: array
-          description: ""
-        "400":
-          description: Provided parameters are invalid.
-        "429":
-          description: Rate limit exceeded
-        "500":
-          description: Fetching match history failed
-      summary: Card
       tags:
       - Players
   /v1/players/{account_id}/enemy-stats:
@@ -6242,22 +6149,6 @@ components:
       required:
       - party_code
       - party_id
-    DataPrivacyRequest:
-      example:
-        steam_id: 0
-        open_id_params:
-          key: open_id_params
-      properties:
-        open_id_params:
-          additionalProperties:
-            type: string
-        steam_id:
-          format: int32
-          minimum: 0
-          type: integer
-      required:
-      - open_id_params
-      - steam_id
     DistributionEntry:
       example:
         players: 0
@@ -7297,115 +7188,6 @@ components:
       required:
       - is_perma_link
       - text
-    PlayerCard:
-      example:
-        slots:
-        - stat:
-            stat_score: 0
-            stat_id: 3
-          slot_id: 0
-          hero:
-            kills: 0
-            wins: 0
-            id: 0
-        - stat:
-            stat_score: 0
-            stat_id: 3
-          slot_id: 0
-          hero:
-            kills: 0
-            wins: 0
-            id: 0
-        account_id: 0
-        ranked_rank: 0
-        ranked_badge_level: 0
-        ranked_subrank: 0
-      properties:
-        account_id:
-          format: int32
-          minimum: 0
-          type: integer
-        ranked_badge_level:
-          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
-          format: int32
-          minimum: 0
-          nullable: true
-          type: integer
-        ranked_rank:
-          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
-          format: int32
-          minimum: 0
-          nullable: true
-          type: integer
-        ranked_subrank:
-          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
-          format: int32
-          minimum: 0
-          nullable: true
-          type: integer
-        slots:
-          items:
-            $ref: "#/components/schemas/PlayerCardSlot"
-          type: array
-      required:
-      - account_id
-      - slots
-    PlayerCardSlot:
-      example:
-        stat:
-          stat_score: 0
-          stat_id: 3
-        slot_id: 0
-        hero:
-          kills: 0
-          wins: 0
-          id: 0
-      properties:
-        hero:
-          $ref: "#/components/schemas/PlayerCardSlotHero"
-        slot_id:
-          format: int32
-          minimum: 0
-          nullable: true
-          type: integer
-        stat:
-          $ref: "#/components/schemas/PlayerCardSlotStat"
-    PlayerCardSlotHero:
-      example:
-        kills: 0
-        wins: 0
-        id: 0
-      properties:
-        id:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
-          format: int32
-          minimum: 0
-          nullable: true
-          type: integer
-        kills:
-          format: int32
-          minimum: 0
-          nullable: true
-          type: integer
-        wins:
-          format: int32
-          minimum: 0
-          nullable: true
-          type: integer
-    PlayerCardSlotStat:
-      example:
-        stat_score: 0
-        stat_id: 3
-      properties:
-        stat_id:
-          format: int32
-          nullable: true
-          type: integer
-        stat_score:
-          format: int32
-          minimum: 0
-          nullable: true
-          type: integer
     PlayerMatchHistoryEntry:
       example:
         objectives_mask_team0: 0

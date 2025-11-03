@@ -17,7 +17,7 @@ docs/Bonus.md
 docs/BuildTagV2Input.md
 docs/BuildTagV2Output.md
 docs/ColorV1.md
-docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
 docs/DefaultApi.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/HTTPValidationError.md
@@ -160,7 +160,7 @@ src/main/kotlin/assets-deadlock-api-client/models/Bonus.kt
 src/main/kotlin/assets-deadlock-api-client/models/BuildTagV2Input.kt
 src/main/kotlin/assets-deadlock-api-client/models/BuildTagV2Output.kt
 src/main/kotlin/assets-deadlock-api-client/models/ColorV1.kt
-src/main/kotlin/assets-deadlock-api-client/models/DeadlockAssetsApiRoutesRawValidClientVersions.kt
+src/main/kotlin/assets-deadlock-api-client/models/DeadlockAssetsApiRoutesV1ValidClientVersions.kt
 src/main/kotlin/assets-deadlock-api-client/models/GetItemsV2ItemsGet200ResponseInner.kt
 src/main/kotlin/assets-deadlock-api-client/models/HTTPValidationError.kt
 src/main/kotlin/assets-deadlock-api-client/models/HeroColorsV2.kt
@@ -277,7 +277,7 @@ src/test/kotlin/assets-deadlock-api-client/models/BonusTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/BuildTagV2InputTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/BuildTagV2OutputTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/ColorV1Test.kt
-src/test/kotlin/assets-deadlock-api-client/models/DeadlockAssetsApiRoutesRawValidClientVersionsTest.kt
+src/test/kotlin/assets-deadlock-api-client/models/DeadlockAssetsApiRoutesV1ValidClientVersionsTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/GetItemsV2ItemsGet200ResponseInnerTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/HTTPValidationErrorTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/HeroColorsV2Test.kt

@@ -9,7 +9,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**card**](PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card
 [**enemyStats**](PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
 [**matchHistory**](PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History
 [**mateStats**](PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
@@ -18,49 +17,6 @@ Method | HTTP request | Description
 [**steam**](PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 [**steamSearch**](PlayersApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
 
-
-# **card**
-> List<PlayerCard> card(accountId)
-
-Card
-
- This endpoint returns the player card for the given `account_id`.  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-
-### Example
-```dart
-import 'package:deadlock-api-client/api.dart';
-
-final api_instance = PlayersApi();
-final accountId = 56; // int | The players `SteamID3`
-
-try {
-    final result = api_instance.card(accountId);
-    print(result);
-} catch (e) {
-    print('Exception when calling PlayersApi->card: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **int**| The players `SteamID3` | 
-
-### Return type
-
-[**List<PlayerCard>**](PlayerCard.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enemyStats**
 > List<EnemyStats> enemyStats(accountId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)

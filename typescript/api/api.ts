@@ -282,10 +282,6 @@ export interface CreateCustomResponse {
     'party_code': string;
     'party_id': string;
 }
-export interface DataPrivacyRequest {
-    'open_id_params': { [key: string]: string; };
-    'steam_id': number;
-}
 export interface DistributionEntry {
     'players': number;
     'rank': number;
@@ -709,39 +705,6 @@ export interface PatchCategory {
 export interface PatchGuid {
     'is_perma_link': boolean;
     'text': string;
-}
-export interface PlayerCard {
-    'account_id': number;
-    /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
-     */
-    'ranked_badge_level'?: number | null;
-    /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
-     */
-    'ranked_rank'?: number | null;
-    /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
-     */
-    'ranked_subrank'?: number | null;
-    'slots': Array<PlayerCardSlot>;
-}
-export interface PlayerCardSlot {
-    'hero'?: PlayerCardSlotHero | null;
-    'slot_id'?: number | null;
-    'stat'?: PlayerCardSlotStat | null;
-}
-export interface PlayerCardSlotHero {
-    /**
-     * See more: <https://assets.deadlock-api.com/v2/heroes>
-     */
-    'id'?: number | null;
-    'kills'?: number | null;
-    'wins'?: number | null;
-}
-export interface PlayerCardSlotStat {
-    'stat_id'?: number | null;
-    'stat_score'?: number | null;
 }
 export interface PlayerMatchHistoryEntry {
     'abandoned_time_s'?: number | null;
@@ -4882,193 +4845,6 @@ export class CustomMatchesApi extends BaseAPI {
 
 
 /**
- * DataPrivacyApi - axios parameter creator
- */
-export const DataPrivacyApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         *  Endpoint to request deletion of personal data.     
-         * @summary Request Data Deletion
-         * @param {DataPrivacyRequest} dataPrivacyRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        requestDeletion: async (dataPrivacyRequest: DataPrivacyRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'dataPrivacyRequest' is not null or undefined
-            assertParamExists('requestDeletion', 'dataPrivacyRequest', dataPrivacyRequest)
-            const localVarPath = `/v1/data-privacy/request-deletion`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(dataPrivacyRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         *  Endpoint to request tracking of personal data.  Use this to opt back into data tracking after previously requesting deletion.     
-         * @summary Request Data Tracking
-         * @param {DataPrivacyRequest} dataPrivacyRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        requestTracking: async (dataPrivacyRequest: DataPrivacyRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'dataPrivacyRequest' is not null or undefined
-            assertParamExists('requestTracking', 'dataPrivacyRequest', dataPrivacyRequest)
-            const localVarPath = `/v1/data-privacy/request-tracking`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(dataPrivacyRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * DataPrivacyApi - functional programming interface
- */
-export const DataPrivacyApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = DataPrivacyApiAxiosParamCreator(configuration)
-    return {
-        /**
-         *  Endpoint to request deletion of personal data.     
-         * @summary Request Data Deletion
-         * @param {DataPrivacyRequest} dataPrivacyRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async requestDeletion(dataPrivacyRequest: DataPrivacyRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.requestDeletion(dataPrivacyRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataPrivacyApi.requestDeletion']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         *  Endpoint to request tracking of personal data.  Use this to opt back into data tracking after previously requesting deletion.     
-         * @summary Request Data Tracking
-         * @param {DataPrivacyRequest} dataPrivacyRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async requestTracking(dataPrivacyRequest: DataPrivacyRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.requestTracking(dataPrivacyRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataPrivacyApi.requestTracking']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-    }
-};
-
-/**
- * DataPrivacyApi - factory interface
- */
-export const DataPrivacyApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = DataPrivacyApiFp(configuration)
-    return {
-        /**
-         *  Endpoint to request deletion of personal data.     
-         * @summary Request Data Deletion
-         * @param {DataPrivacyApiRequestDeletionRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        requestDeletion(requestParameters: DataPrivacyApiRequestDeletionRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.requestDeletion(requestParameters.dataPrivacyRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *  Endpoint to request tracking of personal data.  Use this to opt back into data tracking after previously requesting deletion.     
-         * @summary Request Data Tracking
-         * @param {DataPrivacyApiRequestTrackingRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        requestTracking(requestParameters: DataPrivacyApiRequestTrackingRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.requestTracking(requestParameters.dataPrivacyRequest, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * Request parameters for requestDeletion operation in DataPrivacyApi.
- */
-export interface DataPrivacyApiRequestDeletionRequest {
-    readonly dataPrivacyRequest: DataPrivacyRequest
-}
-
-/**
- * Request parameters for requestTracking operation in DataPrivacyApi.
- */
-export interface DataPrivacyApiRequestTrackingRequest {
-    readonly dataPrivacyRequest: DataPrivacyRequest
-}
-
-/**
- * DataPrivacyApi - object-oriented interface
- */
-export class DataPrivacyApi extends BaseAPI {
-    /**
-     *  Endpoint to request deletion of personal data.     
-     * @summary Request Data Deletion
-     * @param {DataPrivacyApiRequestDeletionRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public requestDeletion(requestParameters: DataPrivacyApiRequestDeletionRequest, options?: RawAxiosRequestConfig) {
-        return DataPrivacyApiFp(this.configuration).requestDeletion(requestParameters.dataPrivacyRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     *  Endpoint to request tracking of personal data.  Use this to opt back into data tracking after previously requesting deletion.     
-     * @summary Request Data Tracking
-     * @param {DataPrivacyApiRequestTrackingRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public requestTracking(requestParameters: DataPrivacyApiRequestTrackingRequest, options?: RawAxiosRequestConfig) {
-        return DataPrivacyApiFp(this.configuration).requestTracking(requestParameters.dataPrivacyRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-
-/**
  * ESportsApi - axios parameter creator
  */
 export const ESportsApiAxiosParamCreator = function (configuration?: Configuration) {
@@ -6024,7 +5800,7 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         *  Batch Player Hero MMR 
          * @summary Batch Hero MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -6070,7 +5846,7 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         *  Batch Player MMR 
          * @summary Batch MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
@@ -6266,7 +6042,7 @@ export const MMRApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         *  Batch Player Hero MMR 
          * @summary Batch Hero MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -6281,7 +6057,7 @@ export const MMRApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         *  Batch Player MMR 
          * @summary Batch MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
@@ -6358,7 +6134,7 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.heroMmrHistory(requestParameters.accountId, requestParameters.heroId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         *  Batch Player Hero MMR 
          * @summary Batch Hero MMR
          * @param {MMRApiHeroMmr0Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -6368,7 +6144,7 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.heroMmr_1(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+         *  Batch Player MMR 
          * @summary Batch MMR
          * @param {MMRApiMmrRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -6592,7 +6368,7 @@ export class MMRApi extends BaseAPI {
     }
 
     /**
-     *  Batch Player Hero MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+     *  Batch Player Hero MMR 
      * @summary Batch Hero MMR
      * @param {MMRApiHeroMmr0Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -6603,7 +6379,7 @@ export class MMRApi extends BaseAPI {
     }
 
     /**
-     *  Batch Player MMR  Filters for the last 90 days if no `max_match_id` is provided. 
+     *  Batch Player MMR 
      * @summary Batch MMR
      * @param {MMRApiMmrRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -7732,40 +7508,6 @@ export class PatchesApi extends BaseAPI {
 export const PlayersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         *  This endpoint returns the player card for the given `account_id`.  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-         * @summary Card
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        card: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('card', 'accountId', accountId)
-            const localVarPath = `/v1/players/{account_id}/card`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Enemy Stats
          * @param {number} accountId The players &#x60;SteamID3&#x60;
@@ -8202,19 +7944,6 @@ export const PlayersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PlayersApiAxiosParamCreator(configuration)
     return {
         /**
-         *  This endpoint returns the player card for the given `account_id`.  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-         * @summary Card
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async card(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerCard>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.card(accountId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.card']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
          *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Enemy Stats
          * @param {number} accountId The players &#x60;SteamID3&#x60;
@@ -8351,16 +8080,6 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = PlayersApiFp(configuration)
     return {
         /**
-         *  This endpoint returns the player card for the given `account_id`.  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-         * @summary Card
-         * @param {PlayersApiCardRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        card(requestParameters: PlayersApiCardRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerCard>> {
-            return localVarFp.card(requestParameters.accountId, options).then((request) => request(axios, basePath));
-        },
-        /**
          *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Enemy Stats
          * @param {PlayersApiEnemyStatsRequest} requestParameters Request parameters.
@@ -8432,16 +8151,6 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
         },
     };
 };
-
-/**
- * Request parameters for card operation in PlayersApi.
- */
-export interface PlayersApiCardRequest {
-    /**
-     * The players &#x60;SteamID3&#x60;
-     */
-    readonly accountId: number
-}
 
 /**
  * Request parameters for enemyStats operation in PlayersApi.
@@ -8697,17 +8406,6 @@ export interface PlayersApiSteamSearchRequest {
  * PlayersApi - object-oriented interface
  */
 export class PlayersApi extends BaseAPI {
-    /**
-     *  This endpoint returns the player card for the given `account_id`.  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-     * @summary Card
-     * @param {PlayersApiCardRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public card(requestParameters: PlayersApiCardRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).card(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @summary Enemy Stats

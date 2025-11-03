@@ -4,7 +4,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Card**](PlayersAPI.md#Card) | **Get** /v1/players/{account_id}/card | Card
 [**EnemyStats**](PlayersAPI.md#EnemyStats) | **Get** /v1/players/{account_id}/enemy-stats | Enemy Stats
 [**MatchHistory**](PlayersAPI.md#MatchHistory) | **Get** /v1/players/{account_id}/match-history | Match History
 [**MateStats**](PlayersAPI.md#MateStats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
@@ -13,76 +12,6 @@ Method | HTTP request | Description
 [**Steam**](PlayersAPI.md#Steam) | **Get** /v1/players/steam | Batch Steam Profile
 [**SteamSearch**](PlayersAPI.md#SteamSearch) | **Get** /v1/players/steam-search | Steam Profile Search
 
-
-
-## Card
-
-> []PlayerCard Card(ctx, accountId).Execute()
-
-Card
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.Card(context.Background(), accountId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.Card``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `Card`: []PlayerCard
-	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.Card`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCardRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**[]PlayerCard**](PlayerCard.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## EnemyStats
