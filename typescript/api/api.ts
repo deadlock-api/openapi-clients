@@ -29,13 +29,13 @@ export interface APIInfo {
      */
     'fetched_matches_per_day'?: number | null;
     /**
-     * The number of matches that have not been fetched.
-     */
-    'missed_matches'?: number | null;
-    /**
      * The sizes of all tables in the database.
      */
     'table_sizes'?: { [key: string]: TableSize; };
+    /**
+     * The number of matches ingested by users in the last 24 hours.
+     */
+    'user_ingested_matches_last24h'?: number | null;
 }
 export interface ActiveMatch {
     'compat_version'?: number | null;

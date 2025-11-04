@@ -89,18 +89,18 @@ class APIInfoTest extends TestCase
     }
 
     /**
-     * Test attribute "missed_matches"
+     * Test attribute "table_sizes"
      */
-    public function testPropertyMissedMatches()
+    public function testPropertyTableSizes()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "table_sizes"
+     * Test attribute "user_ingested_matches_last24h"
      */
-    public function testPropertyTableSizes()
+    public function testPropertyUserIngestedMatchesLast24h()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

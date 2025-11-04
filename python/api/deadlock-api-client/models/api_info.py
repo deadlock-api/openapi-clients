@@ -29,9 +29,9 @@ class APIInfo(BaseModel):
     APIInfo
     """ # noqa: E501
     fetched_matches_per_day: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The number of matches fetched in the last 24 hours.")
-    missed_matches: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The number of matches that have not been fetched.")
     table_sizes: Optional[Dict[str, TableSize]] = Field(default=None, description="The sizes of all tables in the database.")
-    __properties: ClassVar[List[str]] = ["fetched_matches_per_day", "missed_matches", "table_sizes"]
+    user_ingested_matches_last24h: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The number of matches ingested by users in the last 24 hours.")
+    __properties: ClassVar[List[str]] = ["fetched_matches_per_day", "table_sizes", "user_ingested_matches_last24h"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,10 +84,10 @@ class APIInfo(BaseModel):
         if self.fetched_matches_per_day is None and "fetched_matches_per_day" in self.model_fields_set:
             _dict['fetched_matches_per_day'] = None
 
-        # set to None if missed_matches (nullable) is None
+        # set to None if user_ingested_matches_last24h (nullable) is None
         # and model_fields_set contains the field
-        if self.missed_matches is None and "missed_matches" in self.model_fields_set:
-            _dict['missed_matches'] = None
+        if self.user_ingested_matches_last24h is None and "user_ingested_matches_last24h" in self.model_fields_set:
+            _dict['user_ingested_matches_last24h'] = None
 
         return _dict
 
@@ -102,13 +102,13 @@ class APIInfo(BaseModel):
 
         _obj = cls.model_validate({
             "fetched_matches_per_day": obj.get("fetched_matches_per_day"),
-            "missed_matches": obj.get("missed_matches"),
             "table_sizes": dict(
                 (_k, TableSize.from_dict(_v))
                 for _k, _v in obj["table_sizes"].items()
             )
             if obj.get("table_sizes") is not None
-            else None
+            else None,
+            "user_ingested_matches_last24h": obj.get("user_ingested_matches_last24h")
         })
         return _obj
 

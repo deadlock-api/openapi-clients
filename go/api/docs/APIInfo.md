@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FetchedMatchesPerDay** | Pointer to **NullableInt64** | The number of matches fetched in the last 24 hours. | [optional] 
-**MissedMatches** | Pointer to **NullableInt64** | The number of matches that have not been fetched. | [optional] 
 **TableSizes** | Pointer to [**map[string]TableSize**](TableSize.md) | The sizes of all tables in the database. | [optional] 
+**UserIngestedMatchesLast24h** | Pointer to **NullableInt64** | The number of matches ingested by users in the last 24 hours. | [optional] 
 
 ## Methods
 
@@ -62,41 +62,6 @@ HasFetchedMatchesPerDay returns a boolean if a field has been set.
 `func (o *APIInfo) UnsetFetchedMatchesPerDay()`
 
 UnsetFetchedMatchesPerDay ensures that no value is present for FetchedMatchesPerDay, not even an explicit nil
-### GetMissedMatches
-
-`func (o *APIInfo) GetMissedMatches() int64`
-
-GetMissedMatches returns the MissedMatches field if non-nil, zero value otherwise.
-
-### GetMissedMatchesOk
-
-`func (o *APIInfo) GetMissedMatchesOk() (*int64, bool)`
-
-GetMissedMatchesOk returns a tuple with the MissedMatches field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMissedMatches
-
-`func (o *APIInfo) SetMissedMatches(v int64)`
-
-SetMissedMatches sets MissedMatches field to given value.
-
-### HasMissedMatches
-
-`func (o *APIInfo) HasMissedMatches() bool`
-
-HasMissedMatches returns a boolean if a field has been set.
-
-### SetMissedMatchesNil
-
-`func (o *APIInfo) SetMissedMatchesNil(b bool)`
-
- SetMissedMatchesNil sets the value for MissedMatches to be an explicit nil
-
-### UnsetMissedMatches
-`func (o *APIInfo) UnsetMissedMatches()`
-
-UnsetMissedMatches ensures that no value is present for MissedMatches, not even an explicit nil
 ### GetTableSizes
 
 `func (o *APIInfo) GetTableSizes() map[string]TableSize`
@@ -122,6 +87,41 @@ SetTableSizes sets TableSizes field to given value.
 
 HasTableSizes returns a boolean if a field has been set.
 
+### GetUserIngestedMatchesLast24h
+
+`func (o *APIInfo) GetUserIngestedMatchesLast24h() int64`
+
+GetUserIngestedMatchesLast24h returns the UserIngestedMatchesLast24h field if non-nil, zero value otherwise.
+
+### GetUserIngestedMatchesLast24hOk
+
+`func (o *APIInfo) GetUserIngestedMatchesLast24hOk() (*int64, bool)`
+
+GetUserIngestedMatchesLast24hOk returns a tuple with the UserIngestedMatchesLast24h field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserIngestedMatchesLast24h
+
+`func (o *APIInfo) SetUserIngestedMatchesLast24h(v int64)`
+
+SetUserIngestedMatchesLast24h sets UserIngestedMatchesLast24h field to given value.
+
+### HasUserIngestedMatchesLast24h
+
+`func (o *APIInfo) HasUserIngestedMatchesLast24h() bool`
+
+HasUserIngestedMatchesLast24h returns a boolean if a field has been set.
+
+### SetUserIngestedMatchesLast24hNil
+
+`func (o *APIInfo) SetUserIngestedMatchesLast24hNil(b bool)`
+
+ SetUserIngestedMatchesLast24hNil sets the value for UserIngestedMatchesLast24h to be an explicit nil
+
+### UnsetUserIngestedMatchesLast24h
+`func (o *APIInfo) UnsetUserIngestedMatchesLast24h()`
+
+UnsetUserIngestedMatchesLast24h ensures that no value is present for UserIngestedMatchesLast24h, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

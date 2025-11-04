@@ -32,16 +32,16 @@ class APIInfoTest : ShouldSpec() {
             //modelInstance.fetchedMatchesPerDay shouldBe ("TODO")
         }
 
-        // to test the property `missedMatches` - The number of matches that have not been fetched.
-        should("test missedMatches") {
-            // uncomment below to test the property
-            //modelInstance.missedMatches shouldBe ("TODO")
-        }
-
         // to test the property `tableSizes` - The sizes of all tables in the database.
         should("test tableSizes") {
             // uncomment below to test the property
             //modelInstance.tableSizes shouldBe ("TODO")
+        }
+
+        // to test the property `userIngestedMatchesLast24h` - The number of matches ingested by users in the last 24 hours.
+        should("test userIngestedMatchesLast24h") {
+            // uncomment below to test the property
+            //modelInstance.userIngestedMatchesLast24h shouldBe ("TODO")
         }
 
     }

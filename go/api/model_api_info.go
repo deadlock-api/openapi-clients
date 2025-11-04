@@ -21,10 +21,10 @@ var _ MappedNullable = &APIInfo{}
 type APIInfo struct {
 	// The number of matches fetched in the last 24 hours.
 	FetchedMatchesPerDay NullableInt64 `json:"fetched_matches_per_day,omitempty"`
-	// The number of matches that have not been fetched.
-	MissedMatches NullableInt64 `json:"missed_matches,omitempty"`
 	// The sizes of all tables in the database.
 	TableSizes map[string]TableSize `json:"table_sizes,omitempty"`
+	// The number of matches ingested by users in the last 24 hours.
+	UserIngestedMatchesLast24h NullableInt64 `json:"user_ingested_matches_last24h,omitempty"`
 }
 
 // NewAPIInfo instantiates a new APIInfo object
@@ -86,48 +86,6 @@ func (o *APIInfo) UnsetFetchedMatchesPerDay() {
 	o.FetchedMatchesPerDay.Unset()
 }
 
-// GetMissedMatches returns the MissedMatches field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *APIInfo) GetMissedMatches() int64 {
-	if o == nil || IsNil(o.MissedMatches.Get()) {
-		var ret int64
-		return ret
-	}
-	return *o.MissedMatches.Get()
-}
-
-// GetMissedMatchesOk returns a tuple with the MissedMatches field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *APIInfo) GetMissedMatchesOk() (*int64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.MissedMatches.Get(), o.MissedMatches.IsSet()
-}
-
-// HasMissedMatches returns a boolean if a field has been set.
-func (o *APIInfo) HasMissedMatches() bool {
-	if o != nil && o.MissedMatches.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMissedMatches gets a reference to the given NullableInt64 and assigns it to the MissedMatches field.
-func (o *APIInfo) SetMissedMatches(v int64) {
-	o.MissedMatches.Set(&v)
-}
-// SetMissedMatchesNil sets the value for MissedMatches to be an explicit nil
-func (o *APIInfo) SetMissedMatchesNil() {
-	o.MissedMatches.Set(nil)
-}
-
-// UnsetMissedMatches ensures that no value is present for MissedMatches, not even an explicit nil
-func (o *APIInfo) UnsetMissedMatches() {
-	o.MissedMatches.Unset()
-}
-
 // GetTableSizes returns the TableSizes field value if set, zero value otherwise.
 func (o *APIInfo) GetTableSizes() map[string]TableSize {
 	if o == nil || IsNil(o.TableSizes) {
@@ -160,6 +118,48 @@ func (o *APIInfo) SetTableSizes(v map[string]TableSize) {
 	o.TableSizes = v
 }
 
+// GetUserIngestedMatchesLast24h returns the UserIngestedMatchesLast24h field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *APIInfo) GetUserIngestedMatchesLast24h() int64 {
+	if o == nil || IsNil(o.UserIngestedMatchesLast24h.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.UserIngestedMatchesLast24h.Get()
+}
+
+// GetUserIngestedMatchesLast24hOk returns a tuple with the UserIngestedMatchesLast24h field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *APIInfo) GetUserIngestedMatchesLast24hOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UserIngestedMatchesLast24h.Get(), o.UserIngestedMatchesLast24h.IsSet()
+}
+
+// HasUserIngestedMatchesLast24h returns a boolean if a field has been set.
+func (o *APIInfo) HasUserIngestedMatchesLast24h() bool {
+	if o != nil && o.UserIngestedMatchesLast24h.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUserIngestedMatchesLast24h gets a reference to the given NullableInt64 and assigns it to the UserIngestedMatchesLast24h field.
+func (o *APIInfo) SetUserIngestedMatchesLast24h(v int64) {
+	o.UserIngestedMatchesLast24h.Set(&v)
+}
+// SetUserIngestedMatchesLast24hNil sets the value for UserIngestedMatchesLast24h to be an explicit nil
+func (o *APIInfo) SetUserIngestedMatchesLast24hNil() {
+	o.UserIngestedMatchesLast24h.Set(nil)
+}
+
+// UnsetUserIngestedMatchesLast24h ensures that no value is present for UserIngestedMatchesLast24h, not even an explicit nil
+func (o *APIInfo) UnsetUserIngestedMatchesLast24h() {
+	o.UserIngestedMatchesLast24h.Unset()
+}
+
 func (o APIInfo) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -173,11 +173,11 @@ func (o APIInfo) ToMap() (map[string]interface{}, error) {
 	if o.FetchedMatchesPerDay.IsSet() {
 		toSerialize["fetched_matches_per_day"] = o.FetchedMatchesPerDay.Get()
 	}
-	if o.MissedMatches.IsSet() {
-		toSerialize["missed_matches"] = o.MissedMatches.Get()
-	}
 	if !IsNil(o.TableSizes) {
 		toSerialize["table_sizes"] = o.TableSizes
+	}
+	if o.UserIngestedMatchesLast24h.IsSet() {
+		toSerialize["user_ingested_matches_last24h"] = o.UserIngestedMatchesLast24h.Get()
 	}
 	return toSerialize, nil
 }

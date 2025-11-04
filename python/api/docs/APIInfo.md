@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fetched_matches_per_day** | **int** | The number of matches fetched in the last 24 hours. | [optional] 
-**missed_matches** | **int** | The number of matches that have not been fetched. | [optional] 
 **table_sizes** | [**Dict[str, TableSize]**](TableSize.md) | The sizes of all tables in the database. | [optional] 
+**user_ingested_matches_last24h** | **int** | The number of matches ingested by users in the last 24 hours. | [optional] 
 
 ## Example
 

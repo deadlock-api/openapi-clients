@@ -22,15 +22,15 @@ void main() {
       // TODO
     });
 
-    // The number of matches that have not been fetched.
-    // int missedMatches
-    test('to test the property `missedMatches`', () async {
-      // TODO
-    });
-
     // The sizes of all tables in the database.
     // Map<String, TableSize> tableSizes (default value: const {})
     test('to test the property `tableSizes`', () async {
+      // TODO
+    });
+
+    // The number of matches ingested by users in the last 24 hours.
+    // int userIngestedMatchesLast24h
+    test('to test the property `userIngestedMatchesLast24h`', () async {
       // TODO
     });
 

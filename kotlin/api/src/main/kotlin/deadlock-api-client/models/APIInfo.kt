@@ -24,8 +24,8 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param fetchedMatchesPerDay The number of matches fetched in the last 24 hours.
- * @param missedMatches The number of matches that have not been fetched.
  * @param tableSizes The sizes of all tables in the database.
+ * @param userIngestedMatchesLast24h The number of matches ingested by users in the last 24 hours.
  */
 
 
@@ -35,13 +35,13 @@ data class APIInfo (
     @Json(name = "fetched_matches_per_day")
     val fetchedMatchesPerDay: kotlin.Long? = null,
 
-    /* The number of matches that have not been fetched. */
-    @Json(name = "missed_matches")
-    val missedMatches: kotlin.Long? = null,
-
     /* The sizes of all tables in the database. */
     @Json(name = "table_sizes")
-    val tableSizes: kotlin.collections.Map<kotlin.String, TableSize>? = null
+    val tableSizes: kotlin.collections.Map<kotlin.String, TableSize>? = null,
+
+    /* The number of matches ingested by users in the last 24 hours. */
+    @Json(name = "user_ingested_matches_last24h")
+    val userIngestedMatchesLast24h: kotlin.Long? = null
 
 ) {
 

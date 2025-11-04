@@ -58,8 +58,8 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'fetched_matches_per_day' => 'int',
-        'missed_matches' => 'int',
-        'table_sizes' => 'array<string,\OpenAPI\Client\Model\TableSize>'
+        'table_sizes' => 'array<string,\OpenAPI\Client\Model\TableSize>',
+        'user_ingested_matches_last24h' => 'int'
     ];
 
     /**
@@ -71,8 +71,8 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'fetched_matches_per_day' => 'int64',
-        'missed_matches' => 'int64',
-        'table_sizes' => null
+        'table_sizes' => null,
+        'user_ingested_matches_last24h' => 'int64'
     ];
 
     /**
@@ -82,8 +82,8 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'fetched_matches_per_day' => true,
-        'missed_matches' => true,
-        'table_sizes' => false
+        'table_sizes' => false,
+        'user_ingested_matches_last24h' => true
     ];
 
     /**
@@ -173,8 +173,8 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'fetched_matches_per_day' => 'fetched_matches_per_day',
-        'missed_matches' => 'missed_matches',
-        'table_sizes' => 'table_sizes'
+        'table_sizes' => 'table_sizes',
+        'user_ingested_matches_last24h' => 'user_ingested_matches_last24h'
     ];
 
     /**
@@ -184,8 +184,8 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'fetched_matches_per_day' => 'setFetchedMatchesPerDay',
-        'missed_matches' => 'setMissedMatches',
-        'table_sizes' => 'setTableSizes'
+        'table_sizes' => 'setTableSizes',
+        'user_ingested_matches_last24h' => 'setUserIngestedMatchesLast24h'
     ];
 
     /**
@@ -195,8 +195,8 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'fetched_matches_per_day' => 'getFetchedMatchesPerDay',
-        'missed_matches' => 'getMissedMatches',
-        'table_sizes' => 'getTableSizes'
+        'table_sizes' => 'getTableSizes',
+        'user_ingested_matches_last24h' => 'getUserIngestedMatchesLast24h'
     ];
 
     /**
@@ -257,8 +257,8 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('fetched_matches_per_day', $data ?? [], null);
-        $this->setIfExists('missed_matches', $data ?? [], null);
         $this->setIfExists('table_sizes', $data ?? [], null);
+        $this->setIfExists('user_ingested_matches_last24h', $data ?? [], null);
     }
 
     /**
@@ -292,8 +292,8 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'fetched_matches_per_day', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['missed_matches']) && ($this->container['missed_matches'] < 0)) {
-            $invalidProperties[] = "invalid value for 'missed_matches', must be bigger than or equal to 0.";
+        if (!is_null($this->container['user_ingested_matches_last24h']) && ($this->container['user_ingested_matches_last24h'] < 0)) {
+            $invalidProperties[] = "invalid value for 'user_ingested_matches_last24h', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -351,45 +351,6 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets missed_matches
-     *
-     * @return int|null
-     */
-    public function getMissedMatches()
-    {
-        return $this->container['missed_matches'];
-    }
-
-    /**
-     * Sets missed_matches
-     *
-     * @param int|null $missed_matches The number of matches that have not been fetched.
-     *
-     * @return self
-     */
-    public function setMissedMatches($missed_matches)
-    {
-        if (is_null($missed_matches)) {
-            array_push($this->openAPINullablesSetToNull, 'missed_matches');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('missed_matches', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-
-        if (!is_null($missed_matches) && ($missed_matches < 0)) {
-            throw new \InvalidArgumentException('invalid value for $missed_matches when calling APIInfo., must be bigger than or equal to 0.');
-        }
-
-        $this->container['missed_matches'] = $missed_matches;
-
-        return $this;
-    }
-
-    /**
      * Gets table_sizes
      *
      * @return array<string,\OpenAPI\Client\Model\TableSize>|null
@@ -412,6 +373,45 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable table_sizes cannot be null');
         }
         $this->container['table_sizes'] = $table_sizes;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_ingested_matches_last24h
+     *
+     * @return int|null
+     */
+    public function getUserIngestedMatchesLast24h()
+    {
+        return $this->container['user_ingested_matches_last24h'];
+    }
+
+    /**
+     * Sets user_ingested_matches_last24h
+     *
+     * @param int|null $user_ingested_matches_last24h The number of matches ingested by users in the last 24 hours.
+     *
+     * @return self
+     */
+    public function setUserIngestedMatchesLast24h($user_ingested_matches_last24h)
+    {
+        if (is_null($user_ingested_matches_last24h)) {
+            array_push($this->openAPINullablesSetToNull, 'user_ingested_matches_last24h');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('user_ingested_matches_last24h', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($user_ingested_matches_last24h) && ($user_ingested_matches_last24h < 0)) {
+            throw new \InvalidArgumentException('invalid value for $user_ingested_matches_last24h when calling APIInfo., must be bigger than or equal to 0.');
+        }
+
+        $this->container['user_ingested_matches_last24h'] = $user_ingested_matches_last24h;
 
         return $this;
     }
