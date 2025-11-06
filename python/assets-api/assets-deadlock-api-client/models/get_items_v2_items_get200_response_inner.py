@@ -17,27 +17,27 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from assets-deadlock-api-client.models.ability_v2_output import AbilityV2Output
-from assets-deadlock-api-client.models.upgrade_v2_output import UpgradeV2Output
-from assets-deadlock-api-client.models.weapon_v2_output import WeaponV2Output
+from assets-deadlock-api-client.models.ability_v2 import AbilityV2
+from assets-deadlock-api-client.models.upgrade_v2 import UpgradeV2
+from assets-deadlock-api-client.models.weapon_v2 import WeaponV2
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-GETITEMSV2ITEMSGET200RESPONSEINNER_ONE_OF_SCHEMAS = ["AbilityV2Output", "UpgradeV2Output", "WeaponV2Output"]
+GETITEMSV2ITEMSGET200RESPONSEINNER_ONE_OF_SCHEMAS = ["AbilityV2", "UpgradeV2", "WeaponV2"]
 
 class GetItemsV2ItemsGet200ResponseInner(BaseModel):
     """
     GetItemsV2ItemsGet200ResponseInner
     """
-    # data type: AbilityV2Output
-    oneof_schema_1_validator: Optional[AbilityV2Output] = None
-    # data type: WeaponV2Output
-    oneof_schema_2_validator: Optional[WeaponV2Output] = None
-    # data type: UpgradeV2Output
-    oneof_schema_3_validator: Optional[UpgradeV2Output] = None
-    actual_instance: Optional[Union[AbilityV2Output, UpgradeV2Output, WeaponV2Output]] = None
-    one_of_schemas: Set[str] = { "AbilityV2Output", "UpgradeV2Output", "WeaponV2Output" }
+    # data type: AbilityV2
+    oneof_schema_1_validator: Optional[AbilityV2] = None
+    # data type: WeaponV2
+    oneof_schema_2_validator: Optional[WeaponV2] = None
+    # data type: UpgradeV2
+    oneof_schema_3_validator: Optional[UpgradeV2] = None
+    actual_instance: Optional[Union[AbilityV2, UpgradeV2, WeaponV2]] = None
+    one_of_schemas: Set[str] = { "AbilityV2", "UpgradeV2", "WeaponV2" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -63,27 +63,27 @@ class GetItemsV2ItemsGet200ResponseInner(BaseModel):
         instance = GetItemsV2ItemsGet200ResponseInner.model_construct()
         error_messages = []
         match = 0
-        # validate data type: AbilityV2Output
-        if not isinstance(v, AbilityV2Output):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `AbilityV2Output`")
+        # validate data type: AbilityV2
+        if not isinstance(v, AbilityV2):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `AbilityV2`")
         else:
             match += 1
-        # validate data type: WeaponV2Output
-        if not isinstance(v, WeaponV2Output):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `WeaponV2Output`")
+        # validate data type: WeaponV2
+        if not isinstance(v, WeaponV2):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `WeaponV2`")
         else:
             match += 1
-        # validate data type: UpgradeV2Output
-        if not isinstance(v, UpgradeV2Output):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `UpgradeV2Output`")
+        # validate data type: UpgradeV2
+        if not isinstance(v, UpgradeV2):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `UpgradeV2`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2Output, UpgradeV2Output, WeaponV2Output. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2Output, UpgradeV2Output, WeaponV2Output. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -98,31 +98,31 @@ class GetItemsV2ItemsGet200ResponseInner(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into AbilityV2Output
+        # deserialize data into AbilityV2
         try:
-            instance.actual_instance = AbilityV2Output.from_json(json_str)
+            instance.actual_instance = AbilityV2.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into WeaponV2Output
+        # deserialize data into WeaponV2
         try:
-            instance.actual_instance = WeaponV2Output.from_json(json_str)
+            instance.actual_instance = WeaponV2.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into UpgradeV2Output
+        # deserialize data into UpgradeV2
         try:
-            instance.actual_instance = UpgradeV2Output.from_json(json_str)
+            instance.actual_instance = UpgradeV2.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2Output, UpgradeV2Output, WeaponV2Output. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2Output, UpgradeV2Output, WeaponV2Output. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -136,7 +136,7 @@ class GetItemsV2ItemsGet200ResponseInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], AbilityV2Output, UpgradeV2Output, WeaponV2Output]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], AbilityV2, UpgradeV2, WeaponV2]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

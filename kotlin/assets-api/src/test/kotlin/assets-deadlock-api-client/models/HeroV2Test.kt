@@ -22,17 +22,17 @@ import assets-deadlock-api-client.models.HeroV2
 import assets-deadlock-api-client.models.HeroColorsV2
 import assets-deadlock-api-client.models.HeroDescriptionV2
 import assets-deadlock-api-client.models.HeroImagesV2
-import assets-deadlock-api-client.models.HeroLevelInfoV2Output
+import assets-deadlock-api-client.models.HeroLevelInfoV2
 import assets-deadlock-api-client.models.HeroPhysicsV2
-import assets-deadlock-api-client.models.HeroShopStatDisplayV2Output
+import assets-deadlock-api-client.models.HeroShopStatDisplayV2
 import assets-deadlock-api-client.models.HeroStartingStatsV2
 import assets-deadlock-api-client.models.HeroTypeV2
-import assets-deadlock-api-client.models.RawHeroItemSlotInfoValueV2Output
-import assets-deadlock-api-client.models.RawHeroMapModCostBonusesV2Output
-import assets-deadlock-api-client.models.RawHeroPurchaseBonusV2Output
-import assets-deadlock-api-client.models.RawHeroScalingStatV2Output
-import assets-deadlock-api-client.models.RawHeroStatsDisplayV2Output
-import assets-deadlock-api-client.models.RawHeroStatsUIV2Output
+import assets-deadlock-api-client.models.RawHeroItemSlotInfoValueV2
+import assets-deadlock-api-client.models.RawHeroMapModCostBonusesV2
+import assets-deadlock-api-client.models.RawHeroPurchaseBonusV2
+import assets-deadlock-api-client.models.RawHeroScalingStatV2
+import assets-deadlock-api-client.models.RawHeroStatsDisplayV2
+import assets-deadlock-api-client.models.RawHeroStatsUIV2
 
 class HeroV2Test : ShouldSpec() {
     init {

@@ -19,7 +19,7 @@ All URIs are relative to https://assets.deadlock-api.com, except if the operatio
 ## `getBuildTagsV2BuildTagsGet()`
 
 ```php
-getBuildTagsV2BuildTagsGet($language, $client_version): \OpenAPI\Client\Model\BuildTagV2Output[]
+getBuildTagsV2BuildTagsGet($language, $client_version): \OpenAPI\Client\Model\BuildTagV2[]
 ```
 
 Get Build Tags
@@ -57,7 +57,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BuildTagV2Output[]**](../Model/BuildTagV2Output.md)
+[**\OpenAPI\Client\Model\BuildTagV2[]**](../Model/BuildTagV2.md)
 
 ### Authorization
 
@@ -288,7 +288,7 @@ No authorization required
 ## `getRanksV2RanksGet()`
 
 ```php
-getRanksV2RanksGet($language, $client_version): \OpenAPI\Client\Model\RankV2Output[]
+getRanksV2RanksGet($language, $client_version): \OpenAPI\Client\Model\RankV2[]
 ```
 
 Get Ranks
@@ -326,7 +326,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RankV2Output[]**](../Model/RankV2Output.md)
+[**\OpenAPI\Client\Model\RankV2[]**](../Model/RankV2.md)
 
 ### Authorization
 

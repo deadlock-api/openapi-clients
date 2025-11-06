@@ -1,0 +1,32 @@
+# RawAbilityUpgradePropertyUpgradeV2
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **str** |  | 
+**bonus** | [**Bonus**](Bonus.md) |  | 
+**scale_stat_filter** | **str** |  | [optional] 
+**upgrade_type** | **str** |  | [optional] 
+
+## Example
+
+```python
+from assets-deadlock-api-client.models.raw_ability_upgrade_property_upgrade_v2 import RawAbilityUpgradePropertyUpgradeV2
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RawAbilityUpgradePropertyUpgradeV2 from a JSON string
+raw_ability_upgrade_property_upgrade_v2_instance = RawAbilityUpgradePropertyUpgradeV2.from_json(json)
+# print the JSON string representation of the object
+print(RawAbilityUpgradePropertyUpgradeV2.to_json())
+
+# convert the object into a dict
+raw_ability_upgrade_property_upgrade_v2_dict = raw_ability_upgrade_property_upgrade_v2_instance.to_dict()
+# create an instance of RawAbilityUpgradePropertyUpgradeV2 from a dict
+raw_ability_upgrade_property_upgrade_v2_from_dict = RawAbilityUpgradePropertyUpgradeV2.from_dict(raw_ability_upgrade_property_upgrade_v2_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

@@ -126,7 +126,7 @@ void main() {
       // TODO
     });
 
-    // Map<String, RawHeroItemSlotInfoValueV2Output> itemSlotInfo (default value: const {})
+    // Map<String, RawHeroItemSlotInfoValueV2> itemSlotInfo (default value: const {})
     test('to test the property `itemSlotInfo`', () async {
       // TODO
     });
@@ -141,37 +141,37 @@ void main() {
       // TODO
     });
 
-    // HeroShopStatDisplayV2Output shopStatDisplay
+    // HeroShopStatDisplayV2 shopStatDisplay
     test('to test the property `shopStatDisplay`', () async {
       // TODO
     });
 
-    // Map<String, List<RawHeroMapModCostBonusesV2Output>> costBonuses (default value: const {})
+    // Map<String, List<RawHeroMapModCostBonusesV2>> costBonuses (default value: const {})
     test('to test the property `costBonuses`', () async {
       // TODO
     });
 
-    // RawHeroStatsDisplayV2Output statsDisplay
+    // RawHeroStatsDisplayV2 statsDisplay
     test('to test the property `statsDisplay`', () async {
       // TODO
     });
 
-    // RawHeroStatsUIV2Output heroStatsUi
+    // RawHeroStatsUIV2 heroStatsUi
     test('to test the property `heroStatsUi`', () async {
       // TODO
     });
 
-    // Map<String, HeroLevelInfoV2Output> levelInfo (default value: const {})
+    // Map<String, HeroLevelInfoV2> levelInfo (default value: const {})
     test('to test the property `levelInfo`', () async {
       // TODO
     });
 
-    // Map<String, RawHeroScalingStatV2Output> scalingStats (default value: const {})
+    // Map<String, RawHeroScalingStatV2> scalingStats (default value: const {})
     test('to test the property `scalingStats`', () async {
       // TODO
     });
 
-    // Map<String, List<RawHeroPurchaseBonusV2Output>> purchaseBonuses (default value: const {})
+    // Map<String, List<RawHeroPurchaseBonusV2>> purchaseBonuses (default value: const {})
     test('to test the property `purchaseBonuses`', () async {
       // TODO
     });

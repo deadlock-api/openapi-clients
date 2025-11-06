@@ -36,24 +36,14 @@ export interface AbilityTooltipDetailsInfoSectionPropertyBlockV2 {
     'loc_string'?: string | null;
     'properties'?: Array<AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty> | null;
 }
-export interface AbilityTooltipDetailsInfoSectionV2Input {
+export interface AbilityTooltipDetailsInfoSectionV2 {
     'loc_string'?: string | null;
     'property_upgrade_required'?: string | null;
     'properties_block'?: Array<AbilityTooltipDetailsInfoSectionPropertyBlockV2> | null;
     'basic_properties'?: Array<string> | null;
 }
-export interface AbilityTooltipDetailsInfoSectionV2Output {
-    'loc_string'?: string | null;
-    'property_upgrade_required'?: string | null;
-    'properties_block'?: Array<AbilityTooltipDetailsInfoSectionPropertyBlockV2> | null;
-    'basic_properties'?: Array<string> | null;
-}
-export interface AbilityTooltipDetailsV2Input {
-    'info_sections'?: Array<AbilityTooltipDetailsInfoSectionV2Input> | null;
-    'additional_header_properties'?: Array<string> | null;
-}
-export interface AbilityTooltipDetailsV2Output {
-    'info_sections'?: Array<AbilityTooltipDetailsInfoSectionV2Output> | null;
+export interface AbilityTooltipDetailsV2 {
+    'info_sections'?: Array<AbilityTooltipDetailsInfoSectionV2> | null;
     'additional_header_properties'?: Array<string> | null;
 }
 
@@ -69,7 +59,7 @@ export const AbilityTypeV2 = {
 export type AbilityTypeV2 = typeof AbilityTypeV2[keyof typeof AbilityTypeV2];
 
 
-export interface AbilityV2Input {
+export interface AbilityV2 {
     'id': number;
     'class_name': string;
     'name': string;
@@ -79,53 +69,24 @@ export interface AbilityV2Input {
     'hero'?: number | null;
     'heroes'?: Array<number> | null;
     'update_time'?: number | null;
-    'properties'?: { [key: string]: ItemPropertyV2Input; } | null;
-    'weapon_info'?: RawItemWeaponInfoV2Input | null;
-    'type'?: AbilityV2InputTypeEnum;
+    'properties'?: { [key: string]: ItemPropertyV2; } | null;
+    'weapon_info'?: RawItemWeaponInfoV2 | null;
+    'type'?: AbilityV2TypeEnum;
     'behaviours'?: Array<string> | null;
     'description': AbilityDescriptionV2;
-    'tooltip_details'?: AbilityTooltipDetailsV2Input | null;
-    'upgrades'?: Array<RawAbilityUpgradeV2Input> | null;
+    'tooltip_details'?: AbilityTooltipDetailsV2 | null;
+    'upgrades'?: Array<RawAbilityUpgradeV2> | null;
     'ability_type'?: AbilityTypeV2 | null;
     'boss_damage_scale'?: number | null;
     'dependant_abilities'?: Array<string> | null;
     'videos'?: AbilityVideosV2 | null;
 }
 
-export const AbilityV2InputTypeEnum = {
+export const AbilityV2TypeEnum = {
     Ability: 'ability'
 } as const;
 
-export type AbilityV2InputTypeEnum = typeof AbilityV2InputTypeEnum[keyof typeof AbilityV2InputTypeEnum];
-
-export interface AbilityV2Output {
-    'id': number;
-    'class_name': string;
-    'name': string;
-    'start_trained'?: boolean | null;
-    'image'?: string | null;
-    'image_webp'?: string | null;
-    'hero'?: number | null;
-    'heroes'?: Array<number> | null;
-    'update_time'?: number | null;
-    'properties'?: { [key: string]: ItemPropertyV2Output; } | null;
-    'weapon_info'?: RawItemWeaponInfoV2Output | null;
-    'type'?: AbilityV2OutputTypeEnum;
-    'behaviours'?: Array<string> | null;
-    'description': AbilityDescriptionV2;
-    'tooltip_details'?: AbilityTooltipDetailsV2Output | null;
-    'upgrades'?: Array<RawAbilityUpgradeV2Output> | null;
-    'ability_type'?: AbilityTypeV2 | null;
-    'boss_damage_scale'?: number | null;
-    'dependant_abilities'?: Array<string> | null;
-    'videos'?: AbilityVideosV2 | null;
-}
-
-export const AbilityV2OutputTypeEnum = {
-    Ability: 'ability'
-} as const;
-
-export type AbilityV2OutputTypeEnum = typeof AbilityV2OutputTypeEnum[keyof typeof AbilityV2OutputTypeEnum];
+export type AbilityV2TypeEnum = typeof AbilityV2TypeEnum[keyof typeof AbilityV2TypeEnum];
 
 export interface AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty {
     'requires_ability_upgrade'?: boolean | null;
@@ -143,11 +104,7 @@ export interface AimingShotSpreadPenalty {
 }
 export interface Bonus {
 }
-export interface BuildTagV2Input {
-    'class_name': string;
-    'label': string;
-}
-export interface BuildTagV2Output {
+export interface BuildTagV2 {
     'class_name': string;
     'label': string;
     'id': number;
@@ -213,7 +170,7 @@ export type DeadlockAssetsApiRoutesV1ValidClientVersions = typeof DeadlockAssets
 /**
  * @type GetItemsV2ItemsGet200ResponseInner
  */
-export type GetItemsV2ItemsGet200ResponseInner = { type: 'ability' } & AbilityV2Output | { type: 'upgrade' } & UpgradeV2Output | { type: 'weapon' } & WeaponV2Output;
+export type GetItemsV2ItemsGet200ResponseInner = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
 
 export interface HTTPValidationError {
     'detail'?: Array<ValidationError>;
@@ -272,12 +229,7 @@ export const HeroItemTypeV2 = {
 export type HeroItemTypeV2 = typeof HeroItemTypeV2[keyof typeof HeroItemTypeV2];
 
 
-export interface HeroLevelInfoV2Input {
-    'm_bUseStandardUpgrade'?: boolean | null;
-    'bonus_currencies'?: Array<string> | null;
-    'm_unRequiredGold': number;
-}
-export interface HeroLevelInfoV2Output {
+export interface HeroLevelInfoV2 {
     'use_standard_upgrade'?: boolean | null;
     'bonus_currencies'?: Array<string> | null;
     'required_gold': number;
@@ -291,24 +243,12 @@ export interface HeroPhysicsV2 {
     'step_sound_time'?: number | null;
     'step_sound_time_sprinting'?: number | null;
 }
-export interface HeroShopStatDisplayV2Input {
-    'm_eSpiritStatsDisplay': RawHeroShopSpiritStatsDisplayV2Input;
-    'm_eVitalityStatsDisplay': RawHeroShopVitalityStatsDisplayV2Input;
-    'weapon_stats_display': HeroShopWeaponStatsDisplayV2Input;
+export interface HeroShopStatDisplayV2 {
+    'spirit_stats_display': RawHeroShopSpiritStatsDisplayV2;
+    'vitality_stats_display': RawHeroShopVitalityStatsDisplayV2;
+    'weapon_stats_display': HeroShopWeaponStatsDisplayV2;
 }
-export interface HeroShopStatDisplayV2Output {
-    'spirit_stats_display': RawHeroShopSpiritStatsDisplayV2Output;
-    'vitality_stats_display': RawHeroShopVitalityStatsDisplayV2Output;
-    'weapon_stats_display': HeroShopWeaponStatsDisplayV2Output;
-}
-export interface HeroShopWeaponStatsDisplayV2Input {
-    'm_vecDisplayStats': Array<string>;
-    'm_vecOtherDisplayStats': Array<string>;
-    'weapon_attributes'?: Array<string> | null;
-    'm_strWeaponImage'?: string | null;
-    'weapon_image_webp'?: string | null;
-}
-export interface HeroShopWeaponStatsDisplayV2Output {
+export interface HeroShopWeaponStatsDisplayV2 {
     'display_stats': Array<string>;
     'other_display_stats': Array<string>;
     'weapon_attributes'?: Array<string> | null;
@@ -376,39 +316,21 @@ export interface HeroV2 {
     'images': HeroImagesV2;
     'items': { [key: string]: string; };
     'starting_stats': HeroStartingStatsV2;
-    'item_slot_info': { [key: string]: RawHeroItemSlotInfoValueV2Output; };
+    'item_slot_info': { [key: string]: RawHeroItemSlotInfoValueV2; };
     'physics': HeroPhysicsV2;
     'colors': HeroColorsV2;
-    'shop_stat_display': HeroShopStatDisplayV2Output;
-    'cost_bonuses'?: { [key: string]: Array<RawHeroMapModCostBonusesV2Output>; } | null;
-    'stats_display': RawHeroStatsDisplayV2Output;
-    'hero_stats_ui': RawHeroStatsUIV2Output;
-    'level_info': { [key: string]: HeroLevelInfoV2Output; };
-    'scaling_stats': { [key: string]: RawHeroScalingStatV2Output; };
-    'purchase_bonuses': { [key: string]: Array<RawHeroPurchaseBonusV2Output>; };
+    'shop_stat_display': HeroShopStatDisplayV2;
+    'cost_bonuses'?: { [key: string]: Array<RawHeroMapModCostBonusesV2>; } | null;
+    'stats_display': RawHeroStatsDisplayV2;
+    'hero_stats_ui': RawHeroStatsUIV2;
+    'level_info': { [key: string]: HeroLevelInfoV2; };
+    'scaling_stats': { [key: string]: RawHeroScalingStatV2; };
+    'purchase_bonuses': { [key: string]: Array<RawHeroPurchaseBonusV2>; };
     'standard_level_up_upgrades': { [key: string]: number; };
 }
 
 
-export interface ItemPropertyV2Input {
-    'm_strValue'?: MStrvalue | null;
-    'm_bCanSetTokenOverride'?: boolean | null;
-    'm_eProvidedPropertyType'?: string | null;
-    'm_strCSSClass'?: string | null;
-    'm_eStatsUsageFlags'?: MEstatsusageflags | null;
-    'm_bIsNegativeAttribute'?: boolean | null;
-    'm_strDisableValue'?: string | null;
-    'm_strLocTokenOverride'?: string | null;
-    'm_eDisplayUnits'?: string | null;
-    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2Input | null;
-    'prefix'?: string | null;
-    'label'?: string | null;
-    'postfix'?: string | null;
-    'postvalue_label'?: string | null;
-    'conditional'?: string | null;
-    'icon'?: string | null;
-}
-export interface ItemPropertyV2Output {
+export interface ItemPropertyV2 {
     'value'?: Value1 | null;
     'can_set_token_override'?: boolean | null;
     'provided_property_type'?: string | null;
@@ -419,7 +341,7 @@ export interface ItemPropertyV2Output {
     'loc_token_override'?: string | null;
     'display_units'?: string | null;
     'icon_path'?: string | null;
-    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2Output | null;
+    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2 | null;
     'prefix'?: string | null;
     'label'?: string | null;
     'postfix'?: string | null;
@@ -496,18 +418,6 @@ export const Language = {
 export type Language = typeof Language[keyof typeof Language];
 
 
-export interface MAimingshootspreadpenalty {
-}
-export interface MEstatsusageflags {
-}
-export interface MRange {
-}
-export interface MStandingshootspreadpenalty {
-}
-export interface MStrbonus {
-}
-export interface MStrvalue {
-}
 export interface MapImagesV1 {
     /**
      * The minimap image of the map.
@@ -609,12 +519,7 @@ export interface RankImagesV2 {
     'small_subrank6'?: string | null;
     'small_subrank6_webp'?: string | null;
 }
-export interface RankV2Input {
-    'tier': number;
-    'name': string;
-    'images': RankImagesV2;
-}
-export interface RankV2Output {
+export interface RankV2 {
     'tier': number;
     'name': string;
     'images': RankImagesV2;
@@ -653,80 +558,40 @@ export const RawAbilitySectionTypeV2 = {
 export type RawAbilitySectionTypeV2 = typeof RawAbilitySectionTypeV2[keyof typeof RawAbilitySectionTypeV2];
 
 
-export interface RawAbilityUpgradePropertyUpgradeV2Input {
-    'm_strPropertyName': string;
-    'm_strBonus': MStrbonus;
-    'm_eScaleStatFilter'?: string | null;
-    'm_eUpgradeType'?: string | null;
-}
-export interface RawAbilityUpgradePropertyUpgradeV2Output {
+export interface RawAbilityUpgradePropertyUpgradeV2 {
     'name': string;
     'bonus': Bonus;
     'scale_stat_filter'?: string | null;
     'upgrade_type'?: string | null;
 }
-export interface RawAbilityUpgradeV2Input {
-    'm_vecPropertyUpgrades'?: Array<RawAbilityUpgradePropertyUpgradeV2Input>;
+export interface RawAbilityUpgradeV2 {
+    'property_upgrades'?: Array<RawAbilityUpgradePropertyUpgradeV2>;
 }
-export interface RawAbilityUpgradeV2Output {
-    'property_upgrades'?: Array<RawAbilityUpgradePropertyUpgradeV2Output>;
-}
-export interface RawHeroItemSlotInfoValueV2Input {
-    'm_arMaxPurchasesForTier': Array<number>;
-}
-export interface RawHeroItemSlotInfoValueV2Output {
+export interface RawHeroItemSlotInfoValueV2 {
     'max_purchases_for_tier': Array<number>;
 }
-export interface RawHeroMapModCostBonusesV2Input {
-    'nGoldThreshold': number;
-    'flBonus': number;
-    'flPercentOnGraph': number;
-}
-export interface RawHeroMapModCostBonusesV2Output {
+export interface RawHeroMapModCostBonusesV2 {
     'gold_threshold': number;
     'bonus': number;
     'percent_on_graph': number;
 }
-export interface RawHeroPurchaseBonusV2Input {
-    'm_ValueType': string;
-    'm_nTier': number;
-    'm_strValue': string;
-}
-export interface RawHeroPurchaseBonusV2Output {
+export interface RawHeroPurchaseBonusV2 {
     'value_type': string;
     'tier': number;
     'value': string;
 }
-export interface RawHeroScalingStatV2Input {
-    'eScalingStat': string;
-    'flScale': number;
-}
-export interface RawHeroScalingStatV2Output {
+export interface RawHeroScalingStatV2 {
     'scaling_stat': string;
     'scale': number;
 }
-export interface RawHeroShopSpiritStatsDisplayV2Input {
-    'm_vecDisplayStats': Array<string>;
-}
-export interface RawHeroShopSpiritStatsDisplayV2Output {
+export interface RawHeroShopSpiritStatsDisplayV2 {
     'display_stats': Array<string>;
 }
-export interface RawHeroShopVitalityStatsDisplayV2Input {
-    'm_vecDisplayStats': Array<string>;
-    'm_vecOtherDisplayStats': Array<string>;
-}
-export interface RawHeroShopVitalityStatsDisplayV2Output {
+export interface RawHeroShopVitalityStatsDisplayV2 {
     'display_stats': Array<string>;
     'other_display_stats': Array<string>;
 }
-export interface RawHeroStatsDisplayV2Input {
-    'm_vecHealthHeaderStats': Array<string>;
-    'm_vecMagicHeaderStats': Array<string>;
-    'm_vecMagicStats': Array<string>;
-    'm_vecWeaponHeaderStats': Array<string>;
-    'm_vecWeaponStats': Array<string>;
-}
-export interface RawHeroStatsDisplayV2Output {
+export interface RawHeroStatsDisplayV2 {
     'health_header_stats': Array<string>;
     'health_stats': Array<string>;
     'magic_header_stats': Array<string>;
@@ -734,128 +599,40 @@ export interface RawHeroStatsDisplayV2Output {
     'weapon_header_stats': Array<string>;
     'weapon_stats': Array<string>;
 }
-export interface RawHeroStatsUIDisplayV2Input {
-    'm_eStatCategory': string;
-    'm_eStatType': string;
-}
-export interface RawHeroStatsUIDisplayV2Output {
+export interface RawHeroStatsUIDisplayV2 {
     'category': string;
     'stat_type': string;
 }
-export interface RawHeroStatsUIV2Input {
-    'm_eWeaponStatDisplay': string;
-    'm_vecDisplayStats': Array<RawHeroStatsUIDisplayV2Input>;
-}
-export interface RawHeroStatsUIV2Output {
+export interface RawHeroStatsUIV2 {
     'weapon_stat_display': string;
-    'display_stats': Array<RawHeroStatsUIDisplayV2Output>;
+    'display_stats': Array<RawHeroStatsUIDisplayV2>;
 }
-export interface RawItemPropertyScaleFunctionSubclassV2Input {
-    '_class'?: string | null;
-    '_my_subclass_name'?: string | null;
-    'm_eSpecificStatScaleType'?: string | null;
-    'm_vecScalingStats'?: Array<string> | null;
-    'm_flStatScale'?: number | null;
-}
-export interface RawItemPropertyScaleFunctionSubclassV2Output {
+export interface RawItemPropertyScaleFunctionSubclassV2 {
     'class_name'?: string | null;
     'subclass_name'?: string | null;
     'specific_stat_scale_type'?: string | null;
     'scaling_stats'?: Array<string> | null;
     'stat_scale'?: number | null;
 }
-export interface RawItemWeaponInfoBulletSpeedCurveSplineV2Input {
-    'm_flSlopeIncoming': number;
-    'm_flSlopeOutgoing': number;
-    'x': number;
-    'y': number;
-}
-export interface RawItemWeaponInfoBulletSpeedCurveSplineV2Output {
+export interface RawItemWeaponInfoBulletSpeedCurveSplineV2 {
     'slope_incoming': number;
     'slope_outgoing': number;
     'x': number;
     'y': number;
 }
-export interface RawItemWeaponInfoBulletSpeedCurveV2Input {
-    'm_spline'?: Array<RawItemWeaponInfoBulletSpeedCurveSplineV2Input>;
-    'm_vDomainMaxs': Array<number>;
-    'm_vDomainMins': Array<number>;
-}
-export interface RawItemWeaponInfoBulletSpeedCurveV2Output {
-    'spline'?: Array<RawItemWeaponInfoBulletSpeedCurveSplineV2Output>;
+export interface RawItemWeaponInfoBulletSpeedCurveV2 {
+    'spline'?: Array<RawItemWeaponInfoBulletSpeedCurveSplineV2>;
     'domain_maxs': Array<number>;
     'domain_mins': Array<number>;
 }
-export interface RawItemWeaponInfoV2Input {
-    'm_BulletSpeedCurve'?: RawItemWeaponInfoBulletSpeedCurveV2Input | null;
+export interface RawItemWeaponInfoV2 {
+    'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2 | null;
 }
-export interface RawItemWeaponInfoV2Output {
-    'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2Output | null;
-}
-export interface RawWeaponInfoHorizontalRecoilV2Input {
-    'm_Range'?: MRange | null;
-    'm_flBurstExponent'?: number | null;
-}
-export interface RawWeaponInfoHorizontalRecoilV2Output {
+export interface RawWeaponInfoHorizontalRecoilV2 {
     'range'?: Range | null;
     'burst_exponent'?: number | null;
 }
-export interface RawWeaponInfoV2Input {
-    'm_bCanZoom'?: boolean | null;
-    'm_flBulletDamage'?: number | null;
-    'm_flBulletGravityScale'?: number | null;
-    'm_flBulletInheritShooterVelocityScale'?: number | null;
-    'm_flBulletLifetime'?: number | null;
-    'm_flBulletRadius'?: number | null;
-    'm_flBulletRadiusVsWorld'?: number | null;
-    'm_flBulletReflectAmount'?: number | null;
-    'm_flBulletReflectScale'?: number | null;
-    'm_flBulletWhizDistance'?: number | null;
-    'm_flBurstShotCooldown'?: number | null;
-    'm_flCritBonusAgainstNpcs'?: number | null;
-    'm_flCritBonusEnd'?: number | null;
-    'm_flCritBonusEndRange'?: number | null;
-    'm_flCritBonusStart'?: number | null;
-    'm_flCritBonusStartRange'?: number | null;
-    'm_flCycleTime'?: number | null;
-    'm_flIntraBurstCycleTime'?: number | null;
-    'm_flMaxSpinCycleTime'?: number | null;
-    'm_flDamageFalloffBias'?: number | null;
-    'm_flDamageFalloffEndRange'?: number | null;
-    'm_flDamageFalloffEndScale'?: number | null;
-    'm_flDamageFalloffStartRange'?: number | null;
-    'm_flDamageFalloffStartScale'?: number | null;
-    'm_flHorizontalPunch'?: number | null;
-    'm_flRange'?: number | null;
-    'm_flRecoilRecoveryDelayFactor'?: number | null;
-    'm_flRecoilRecoverySpeed'?: number | null;
-    'm_flRecoilShotIndexRecoveryTimeFactor'?: number | null;
-    'm_flRecoilSpeed'?: number | null;
-    'm_flReloadMoveSpeed'?: number | null;
-    'm_flScatterYawScale'?: number | null;
-    'm_AimingShootSpreadPenalty'?: MAimingshootspreadpenalty | null;
-    'm_StandingShootSpreadPenalty'?: MStandingshootspreadpenalty | null;
-    'm_flShootMoveSpeedPercent'?: number | null;
-    'm_flShootSpreadPenaltyDecay'?: number | null;
-    'm_flShootSpreadPenaltyDecayDelay'?: number | null;
-    'm_flShootSpreadPenaltyPerShot'?: number | null;
-    'm_flShootingUpSpreadPenalty'?: number | null;
-    'm_flVerticalPunch'?: number | null;
-    'm_flZoomFov'?: number | null;
-    'm_flZoomMoveSpeedPercent'?: number | null;
-    'm_iBullets'?: number | null;
-    'm_iBurstShotCount'?: number | null;
-    'm_iClipSize'?: number | null;
-    'm_flSpread'?: number | null;
-    'm_flStandingSpread'?: number | null;
-    'm_flLowAmmoIndicatorThreshold'?: number | null;
-    'm_flRecoilSeed'?: number | null;
-    'm_flReloadDuration'?: number | null;
-    'm_BulletSpeedCurve'?: RawItemWeaponInfoBulletSpeedCurveV2Input | null;
-    'm_HorizontalRecoil'?: RawWeaponInfoHorizontalRecoilV2Input | null;
-    'm_VerticalRecoil'?: RawWeaponInfoVerticalRecoilV2Input | null;
-}
-export interface RawWeaponInfoV2Output {
+export interface RawWeaponInfoV2 {
     'can_zoom'?: boolean | null;
     'bullet_damage'?: number | null;
     'bullet_gravity_scale'?: number | null;
@@ -906,17 +683,11 @@ export interface RawWeaponInfoV2Output {
     'low_ammo_indicator_threshold'?: number | null;
     'recoil_seed'?: number | null;
     'reload_duration'?: number | null;
-    'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2Output | null;
-    'horizontal_recoil'?: RawWeaponInfoHorizontalRecoilV2Output | null;
-    'vertical_recoil'?: RawWeaponInfoVerticalRecoilV2Output | null;
+    'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2 | null;
+    'horizontal_recoil'?: RawWeaponInfoHorizontalRecoilV2 | null;
+    'vertical_recoil'?: RawWeaponInfoVerticalRecoilV2 | null;
 }
-export interface RawWeaponInfoVerticalRecoilV2Input {
-    'm_Range'?: MRange | null;
-    'm_flBurstExponent'?: number | null;
-    'm_flBurstConstant'?: number | null;
-    'm_flBurstSlope'?: number | null;
-}
-export interface RawWeaponInfoVerticalRecoilV2Output {
+export interface RawWeaponInfoVerticalRecoilV2 {
     'range'?: Range | null;
     'burst_exponent'?: number | null;
     'burst_constant'?: number | null;
@@ -925,7 +696,7 @@ export interface RawWeaponInfoVerticalRecoilV2Output {
 /**
  * @type ResponseGetItemV2ItemsIdOrClassNameGet
  */
-export type ResponseGetItemV2ItemsIdOrClassNameGet = { type: 'ability' } & AbilityV2Output | { type: 'upgrade' } & UpgradeV2Output | { type: 'weapon' } & WeaponV2Output;
+export type ResponseGetItemV2ItemsIdOrClassNameGet = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
 
 export interface StandingShotSpreadPenalty {
 }
@@ -945,30 +716,7 @@ export interface UpgradeDescriptionV2 {
     'active'?: string | null;
     'passive'?: string | null;
 }
-export interface UpgradePropertyV2Input {
-    'm_strValue'?: MStrvalue | null;
-    'm_bCanSetTokenOverride'?: boolean | null;
-    'm_eProvidedPropertyType'?: string | null;
-    'm_strCSSClass'?: string | null;
-    'm_eStatsUsageFlags'?: MEstatsusageflags | null;
-    'm_bIsNegativeAttribute'?: boolean | null;
-    'm_strDisableValue'?: string | null;
-    'm_strLocTokenOverride'?: string | null;
-    'm_eDisplayUnits'?: string | null;
-    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2Input | null;
-    'prefix'?: string | null;
-    'label'?: string | null;
-    'postfix'?: string | null;
-    'postvalue_label'?: string | null;
-    'conditional'?: string | null;
-    'icon'?: string | null;
-    'tooltip_section'?: RawAbilitySectionTypeV2 | null;
-    'tooltip_is_elevated'?: boolean | null;
-    'tooltip_is_important'?: boolean | null;
-}
-
-
-export interface UpgradePropertyV2Output {
+export interface UpgradePropertyV2 {
     'value'?: Value1 | null;
     'can_set_token_override'?: boolean | null;
     'provided_property_type'?: string | null;
@@ -979,7 +727,7 @@ export interface UpgradePropertyV2Output {
     'loc_token_override'?: string | null;
     'display_units'?: string | null;
     'icon_path'?: string | null;
-    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2Output | null;
+    'scale_function'?: RawItemPropertyScaleFunctionSubclassV2 | null;
     'prefix'?: string | null;
     'label'?: string | null;
     'postfix'?: string | null;
@@ -1004,19 +752,13 @@ export interface UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon {
     'icon'?: string | null;
     'localized_name'?: string | null;
 }
-export interface UpgradeTooltipSectionV2Input {
+export interface UpgradeTooltipSectionV2 {
     'section_type'?: RawAbilitySectionTypeV2 | null;
     'section_attributes'?: Array<UpgradeTooltipSectionAttributeV2> | null;
 }
 
 
-export interface UpgradeTooltipSectionV2Output {
-    'section_type'?: RawAbilitySectionTypeV2 | null;
-    'section_attributes'?: Array<UpgradeTooltipSectionAttributeV2> | null;
-}
-
-
-export interface UpgradeV2Input {
+export interface UpgradeV2 {
     'id': number;
     'class_name': string;
     'name': string;
@@ -1026,9 +768,9 @@ export interface UpgradeV2Input {
     'hero'?: number | null;
     'heroes'?: Array<number> | null;
     'update_time'?: number | null;
-    'properties'?: { [key: string]: UpgradePropertyV2Input; } | null;
-    'weapon_info'?: RawItemWeaponInfoV2Input | null;
-    'type'?: UpgradeV2InputTypeEnum;
+    'properties'?: { [key: string]: UpgradePropertyV2; } | null;
+    'weapon_info'?: RawItemWeaponInfoV2 | null;
+    'type'?: UpgradeV2TypeEnum;
     'shop_image'?: string | null;
     'shop_image_webp'?: string | null;
     'shop_image_small'?: string | null;
@@ -1040,50 +782,17 @@ export interface UpgradeV2Input {
     'activation': RawAbilityActivationV2;
     'imbue'?: RawAbilityImbueV2 | null;
     'component_items'?: Array<string> | null;
-    'tooltip_sections'?: Array<UpgradeTooltipSectionV2Input> | null;
-}
-
-export const UpgradeV2InputTypeEnum = {
-    Upgrade: 'upgrade'
-} as const;
-
-export type UpgradeV2InputTypeEnum = typeof UpgradeV2InputTypeEnum[keyof typeof UpgradeV2InputTypeEnum];
-
-export interface UpgradeV2Output {
-    'id': number;
-    'class_name': string;
-    'name': string;
-    'start_trained'?: boolean | null;
-    'image'?: string | null;
-    'image_webp'?: string | null;
-    'hero'?: number | null;
-    'heroes'?: Array<number> | null;
-    'update_time'?: number | null;
-    'properties'?: { [key: string]: UpgradePropertyV2Output; } | null;
-    'weapon_info'?: RawItemWeaponInfoV2Output | null;
-    'type'?: UpgradeV2OutputTypeEnum;
-    'shop_image'?: string | null;
-    'shop_image_webp'?: string | null;
-    'shop_image_small'?: string | null;
-    'shop_image_small_webp'?: string | null;
-    'item_slot_type': ItemSlotTypeV2;
-    'item_tier': ItemTierV2;
-    'disabled'?: boolean | null;
-    'description'?: UpgradeDescriptionV2 | null;
-    'activation': RawAbilityActivationV2;
-    'imbue'?: RawAbilityImbueV2 | null;
-    'component_items'?: Array<string> | null;
-    'tooltip_sections'?: Array<UpgradeTooltipSectionV2Output> | null;
+    'tooltip_sections'?: Array<UpgradeTooltipSectionV2> | null;
     'is_active_item': boolean;
     'shopable': boolean;
     'cost': number | null;
 }
 
-export const UpgradeV2OutputTypeEnum = {
+export const UpgradeV2TypeEnum = {
     Upgrade: 'upgrade'
 } as const;
 
-export type UpgradeV2OutputTypeEnum = typeof UpgradeV2OutputTypeEnum[keyof typeof UpgradeV2OutputTypeEnum];
+export type UpgradeV2TypeEnum = typeof UpgradeV2TypeEnum[keyof typeof UpgradeV2TypeEnum];
 
 export interface UsageFlags {
 }
@@ -1098,7 +807,7 @@ export interface Value {
 }
 export interface Value1 {
 }
-export interface WeaponV2Input {
+export interface WeaponV2 {
     'id': number;
     'class_name': string;
     'name': string;
@@ -1108,37 +817,16 @@ export interface WeaponV2Input {
     'hero'?: number | null;
     'heroes'?: Array<number> | null;
     'update_time'?: number | null;
-    'properties'?: { [key: string]: ItemPropertyV2Input; } | null;
-    'weapon_info'?: RawWeaponInfoV2Input | null;
-    'type'?: WeaponV2InputTypeEnum;
+    'properties'?: { [key: string]: ItemPropertyV2; } | null;
+    'weapon_info'?: RawWeaponInfoV2 | null;
+    'type'?: WeaponV2TypeEnum;
 }
 
-export const WeaponV2InputTypeEnum = {
+export const WeaponV2TypeEnum = {
     Weapon: 'weapon'
 } as const;
 
-export type WeaponV2InputTypeEnum = typeof WeaponV2InputTypeEnum[keyof typeof WeaponV2InputTypeEnum];
-
-export interface WeaponV2Output {
-    'id': number;
-    'class_name': string;
-    'name': string;
-    'start_trained'?: boolean | null;
-    'image'?: string | null;
-    'image_webp'?: string | null;
-    'hero'?: number | null;
-    'heroes'?: Array<number> | null;
-    'update_time'?: number | null;
-    'properties'?: { [key: string]: ItemPropertyV2Output; } | null;
-    'weapon_info'?: RawWeaponInfoV2Output | null;
-    'type'?: WeaponV2OutputTypeEnum;
-}
-
-export const WeaponV2OutputTypeEnum = {
-    Weapon: 'weapon'
-} as const;
-
-export type WeaponV2OutputTypeEnum = typeof WeaponV2OutputTypeEnum[keyof typeof WeaponV2OutputTypeEnum];
+export type WeaponV2TypeEnum = typeof WeaponV2TypeEnum[keyof typeof WeaponV2TypeEnum];
 
 export interface ZiplanePathV1 {
     /**
@@ -1470,7 +1158,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getBuildTagsV2BuildTagsGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV1ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BuildTagV2Output>>> {
+        async getBuildTagsV2BuildTagsGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV1ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BuildTagV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBuildTagsV2BuildTagsGet(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getBuildTagsV2BuildTagsGet']?.[localVarOperationServerIndex]?.url;
@@ -1535,7 +1223,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRanksV2RanksGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV1ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RankV2Output>>> {
+        async getRanksV2RanksGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV1ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RankV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRanksV2RanksGet(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getRanksV2RanksGet']?.[localVarOperationServerIndex]?.url;
@@ -1583,7 +1271,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBuildTagsV2BuildTagsGet(requestParameters: DefaultApiGetBuildTagsV2BuildTagsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<BuildTagV2Output>> {
+        getBuildTagsV2BuildTagsGet(requestParameters: DefaultApiGetBuildTagsV2BuildTagsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<BuildTagV2>> {
             return localVarFp.getBuildTagsV2BuildTagsGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1632,7 +1320,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRanksV2RanksGet(requestParameters: DefaultApiGetRanksV2RanksGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<RankV2Output>> {
+        getRanksV2RanksGet(requestParameters: DefaultApiGetRanksV2RanksGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<RankV2>> {
             return localVarFp.getRanksV2RanksGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**

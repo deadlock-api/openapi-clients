@@ -123,7 +123,7 @@ pub enum GetSteamInfoV1SteamInfoGetError {
 }
 
 
-pub async fn get_build_tags_v2_build_tags_get(configuration: &configuration::Configuration, params: GetBuildTagsV2BuildTagsGetParams) -> Result<Vec<models::BuildTagV2Output>, Error<GetBuildTagsV2BuildTagsGetError>> {
+pub async fn get_build_tags_v2_build_tags_get(configuration: &configuration::Configuration, params: GetBuildTagsV2BuildTagsGetParams) -> Result<Vec<models::BuildTagV2>, Error<GetBuildTagsV2BuildTagsGetError>> {
 
     let uri_str = format!("{}/v2/build-tags", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -153,8 +153,8 @@ pub async fn get_build_tags_v2_build_tags_get(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::BuildTagV2Output&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::BuildTagV2Output&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::BuildTagV2&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::BuildTagV2&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -308,7 +308,7 @@ pub async fn get_map_v1_map_get(configuration: &configuration::Configuration, pa
     }
 }
 
-pub async fn get_ranks_v2_ranks_get(configuration: &configuration::Configuration, params: GetRanksV2RanksGetParams) -> Result<Vec<models::RankV2Output>, Error<GetRanksV2RanksGetError>> {
+pub async fn get_ranks_v2_ranks_get(configuration: &configuration::Configuration, params: GetRanksV2RanksGetParams) -> Result<Vec<models::RankV2>, Error<GetRanksV2RanksGetError>> {
 
     let uri_str = format!("{}/v2/ranks", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -338,8 +338,8 @@ pub async fn get_ranks_v2_ranks_get(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::RankV2Output&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::RankV2Output&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::RankV2&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::RankV2&gt;`")))),
         }
     } else {
         let content = resp.text().await?;

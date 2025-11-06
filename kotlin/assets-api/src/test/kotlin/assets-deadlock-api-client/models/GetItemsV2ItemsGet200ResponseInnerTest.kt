@@ -19,21 +19,21 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets-deadlock-api-client.models.GetItemsV2ItemsGet200ResponseInner
-import assets-deadlock-api-client.models.AbilityTooltipDetailsV2Output
+import assets-deadlock-api-client.models.AbilityTooltipDetailsV2
 import assets-deadlock-api-client.models.AbilityTypeV2
-import assets-deadlock-api-client.models.AbilityV2Output
+import assets-deadlock-api-client.models.AbilityV2
 import assets-deadlock-api-client.models.AbilityVideosV2
 import assets-deadlock-api-client.models.ItemSlotTypeV2
 import assets-deadlock-api-client.models.ItemTierV2
 import assets-deadlock-api-client.models.RawAbilityActivationV2
 import assets-deadlock-api-client.models.RawAbilityImbueV2
-import assets-deadlock-api-client.models.RawAbilityUpgradeV2Output
-import assets-deadlock-api-client.models.RawItemWeaponInfoV2Output
+import assets-deadlock-api-client.models.RawAbilityUpgradeV2
+import assets-deadlock-api-client.models.RawItemWeaponInfoV2
 import assets-deadlock-api-client.models.UpgradeDescriptionV2
-import assets-deadlock-api-client.models.UpgradePropertyV2Output
-import assets-deadlock-api-client.models.UpgradeTooltipSectionV2Output
-import assets-deadlock-api-client.models.UpgradeV2Output
-import assets-deadlock-api-client.models.WeaponV2Output
+import assets-deadlock-api-client.models.UpgradePropertyV2
+import assets-deadlock-api-client.models.UpgradeTooltipSectionV2
+import assets-deadlock-api-client.models.UpgradeV2
+import assets-deadlock-api-client.models.WeaponV2
 
 class GetItemsV2ItemsGet200ResponseInnerTest : ShouldSpec() {
     init {

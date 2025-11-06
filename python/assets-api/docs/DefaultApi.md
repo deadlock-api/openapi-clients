@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **get_build_tags_v2_build_tags_get**
-> List[BuildTagV2Output] get_build_tags_v2_build_tags_get(language=language, client_version=client_version)
+> List[BuildTagV2] get_build_tags_v2_build_tags_get(language=language, client_version=client_version)
 
 Get Build Tags
 
@@ -24,7 +24,7 @@ Get Build Tags
 
 ```python
 import assets-deadlock-api-client
-from assets-deadlock-api-client.models.build_tag_v2_output import BuildTagV2Output
+from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2
 from assets-deadlock-api-client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets-deadlock-api-client.models.language import Language
 from assets-deadlock-api-client.rest import ApiException
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[BuildTagV2Output]**](BuildTagV2Output.md)
+[**List[BuildTagV2]**](BuildTagV2.md)
 
 ### Authorization
 
@@ -350,7 +350,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ranks_v2_ranks_get**
-> List[RankV2Output] get_ranks_v2_ranks_get(language=language, client_version=client_version)
+> List[RankV2] get_ranks_v2_ranks_get(language=language, client_version=client_version)
 
 Get Ranks
 
@@ -361,7 +361,7 @@ Get Ranks
 import assets-deadlock-api-client
 from assets-deadlock-api-client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets-deadlock-api-client.models.language import Language
-from assets-deadlock-api-client.models.rank_v2_output import RankV2Output
+from assets-deadlock-api-client.models.rank_v2 import RankV2
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
 
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[RankV2Output]**](RankV2Output.md)
+[**List[RankV2]**](RankV2.md)
 
 ### Authorization
 

@@ -16,7 +16,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 
 <a id="getBuildTagsV2BuildTagsGet"></a>
 # **getBuildTagsV2BuildTagsGet**
-> kotlin.collections.List&lt;BuildTagV2Output&gt; getBuildTagsV2BuildTagsGet(language, clientVersion)
+> kotlin.collections.List&lt;BuildTagV2&gt; getBuildTagsV2BuildTagsGet(language, clientVersion)
 
 Get Build Tags
 
@@ -30,7 +30,7 @@ val apiInstance = DefaultApi()
 val language : Language =  // Language | 
 val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 try {
-    val result : kotlin.collections.List<BuildTagV2Output> = apiInstance.getBuildTagsV2BuildTagsGet(language, clientVersion)
+    val result : kotlin.collections.List<BuildTagV2> = apiInstance.getBuildTagsV2BuildTagsGet(language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getBuildTagsV2BuildTagsGet")
@@ -49,7 +49,7 @@ try {
 
 ### Return type
 
-[**kotlin.collections.List&lt;BuildTagV2Output&gt;**](BuildTagV2Output.md)
+[**kotlin.collections.List&lt;BuildTagV2&gt;**](BuildTagV2.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ No authorization required
 
 <a id="getRanksV2RanksGet"></a>
 # **getRanksV2RanksGet**
-> kotlin.collections.List&lt;RankV2Output&gt; getRanksV2RanksGet(language, clientVersion)
+> kotlin.collections.List&lt;RankV2&gt; getRanksV2RanksGet(language, clientVersion)
 
 Get Ranks
 
@@ -249,7 +249,7 @@ val apiInstance = DefaultApi()
 val language : Language =  // Language | 
 val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 try {
-    val result : kotlin.collections.List<RankV2Output> = apiInstance.getRanksV2RanksGet(language, clientVersion)
+    val result : kotlin.collections.List<RankV2> = apiInstance.getRanksV2RanksGet(language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getRanksV2RanksGet")
@@ -268,7 +268,7 @@ try {
 
 ### Return type
 
-[**kotlin.collections.List&lt;RankV2Output&gt;**](RankV2Output.md)
+[**kotlin.collections.List&lt;RankV2&gt;**](RankV2.md)
 
 ### Authorization
 

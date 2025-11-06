@@ -19,13 +19,13 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets-deadlock-api-client.apis.DefaultApi
-import assets-deadlock-api-client.models.BuildTagV2Output
+import assets-deadlock-api-client.models.BuildTagV2
 import assets-deadlock-api-client.models.ColorV1
 import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets-deadlock-api-client.models.HTTPValidationError
 import assets-deadlock-api-client.models.Language
 import assets-deadlock-api-client.models.MapV1
-import assets-deadlock-api-client.models.RankV2Output
+import assets-deadlock-api-client.models.RankV2
 
 class DefaultApiTest : ShouldSpec() {
     init {
@@ -37,7 +37,7 @@ class DefaultApiTest : ShouldSpec() {
             // uncomment below to test getBuildTagsV2BuildTagsGet
             //val language : Language =  // Language | 
             //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
-            //val result : kotlin.collections.List<BuildTagV2Output> = apiInstance.getBuildTagsV2BuildTagsGet(language, clientVersion)
+            //val result : kotlin.collections.List<BuildTagV2> = apiInstance.getBuildTagsV2BuildTagsGet(language, clientVersion)
             //result shouldBe ("TODO")
         }
 
@@ -77,7 +77,7 @@ class DefaultApiTest : ShouldSpec() {
             // uncomment below to test getRanksV2RanksGet
             //val language : Language =  // Language | 
             //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
-            //val result : kotlin.collections.List<RankV2Output> = apiInstance.getRanksV2RanksGet(language, clientVersion)
+            //val result : kotlin.collections.List<RankV2> = apiInstance.getRanksV2RanksGet(language, clientVersion)
             //result shouldBe ("TODO")
         }
 

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## GetBuildTagsV2BuildTagsGet
 
-> []BuildTagV2Output GetBuildTagsV2BuildTagsGet(ctx).Language(language).ClientVersion(clientVersion).Execute()
+> []BuildTagV2 GetBuildTagsV2BuildTagsGet(ctx).Language(language).ClientVersion(clientVersion).Execute()
 
 Get Build Tags
 
@@ -44,7 +44,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetBuildTagsV2BuildTagsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetBuildTagsV2BuildTagsGet`: []BuildTagV2Output
+	// response from `GetBuildTagsV2BuildTagsGet`: []BuildTagV2
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetBuildTagsV2BuildTagsGet`: %v\n", resp)
 }
 ```
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]BuildTagV2Output**](BuildTagV2Output.md)
+[**[]BuildTagV2**](BuildTagV2.md)
 
 ### Authorization
 
@@ -334,7 +334,7 @@ No authorization required
 
 ## GetRanksV2RanksGet
 
-> []RankV2Output GetRanksV2RanksGet(ctx).Language(language).ClientVersion(clientVersion).Execute()
+> []RankV2 GetRanksV2RanksGet(ctx).Language(language).ClientVersion(clientVersion).Execute()
 
 Get Ranks
 
@@ -361,7 +361,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetRanksV2RanksGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRanksV2RanksGet`: []RankV2Output
+	// response from `GetRanksV2RanksGet`: []RankV2
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetRanksV2RanksGet`: %v\n", resp)
 }
 ```
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]RankV2Output**](RankV2Output.md)
+[**[]RankV2**](RankV2.md)
 
 ### Authorization
 

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **getBuildTagsV2BuildTagsGet**
-> List<BuildTagV2Output> getBuildTagsV2BuildTagsGet(language, clientVersion)
+> List<BuildTagV2> getBuildTagsV2BuildTagsGet(language, clientVersion)
 
 Get Build Tags
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<BuildTagV2Output>**](BuildTagV2Output.md)
+[**List<BuildTagV2>**](BuildTagV2.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRanksV2RanksGet**
-> List<RankV2Output> getRanksV2RanksGet(language, clientVersion)
+> List<RankV2> getRanksV2RanksGet(language, clientVersion)
 
 Get Ranks
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<RankV2Output>**](RankV2Output.md)
+[**List<RankV2>**](RankV2.md)
 
 ### Authorization
 

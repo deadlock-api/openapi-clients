@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## get_build_tags_v2_build_tags_get
 
-> Vec<models::BuildTagV2Output> get_build_tags_v2_build_tags_get(language, client_version)
+> Vec<models::BuildTagV2> get_build_tags_v2_build_tags_get(language, client_version)
 Get Build Tags
 
 ### Parameters
@@ -30,7 +30,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::BuildTagV2Output>**](BuildTagV2-Output.md)
+[**Vec<models::BuildTagV2>**](BuildTagV2.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ No authorization required
 
 ## get_ranks_v2_ranks_get
 
-> Vec<models::RankV2Output> get_ranks_v2_ranks_get(language, client_version)
+> Vec<models::RankV2> get_ranks_v2_ranks_get(language, client_version)
 Get Ranks
 
 ### Parameters
@@ -168,7 +168,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::RankV2Output>**](RankV2-Output.md)
+[**Vec<models::RankV2>**](RankV2.md)
 
 ### Authorization
 

@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum GetItemsV2ItemsGet200ResponseInner {
     #[serde(rename="ability")]
-    Ability(Box<models::AbilityV2Output>),
+    Ability(Box<models::AbilityV2>),
     #[serde(rename="weapon")]
-    Weapon(Box<models::WeaponV2Output>),
+    Weapon(Box<models::WeaponV2>),
     #[serde(rename="upgrade")]
-    Upgrade(Box<models::UpgradeV2Output>),
+    Upgrade(Box<models::UpgradeV2>),
 }
 
 impl Default for GetItemsV2ItemsGet200ResponseInner {

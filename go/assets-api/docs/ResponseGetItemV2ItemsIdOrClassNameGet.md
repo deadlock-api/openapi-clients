@@ -13,13 +13,13 @@ Name | Type | Description | Notes
 **Hero** | Pointer to **int32** |  | [optional] 
 **Heroes** | Pointer to **[]int32** |  | [optional] 
 **UpdateTime** | Pointer to **int32** |  | [optional] 
-**Properties** | Pointer to [**map[string]UpgradePropertyV2Output**](UpgradePropertyV2Output.md) |  | [optional] 
-**WeaponInfo** | Pointer to [**RawItemWeaponInfoV2Output**](RawItemWeaponInfoV2Output.md) |  | [optional] 
+**Properties** | Pointer to [**map[string]UpgradePropertyV2**](UpgradePropertyV2.md) |  | [optional] 
+**WeaponInfo** | Pointer to [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] [default to "ability"]
 **Behaviours** | Pointer to **[]string** |  | [optional] 
 **Description** | [**UpgradeDescriptionV2**](UpgradeDescriptionV2.md) |  | 
-**TooltipDetails** | Pointer to [**AbilityTooltipDetailsV2Output**](AbilityTooltipDetailsV2Output.md) |  | [optional] 
-**Upgrades** | Pointer to [**[]RawAbilityUpgradeV2Output**](RawAbilityUpgradeV2Output.md) |  | [optional] 
+**TooltipDetails** | Pointer to [**AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md) |  | [optional] 
+**Upgrades** | Pointer to [**[]RawAbilityUpgradeV2**](RawAbilityUpgradeV2.md) |  | [optional] 
 **AbilityType** | Pointer to [**AbilityTypeV2**](AbilityTypeV2.md) |  | [optional] 
 **BossDamageScale** | Pointer to **float32** |  | [optional] 
 **DependantAbilities** | Pointer to **[]string** |  | [optional] 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **Activation** | [**RawAbilityActivationV2**](RawAbilityActivationV2.md) |  | 
 **Imbue** | Pointer to [**RawAbilityImbueV2**](RawAbilityImbueV2.md) |  | [optional] 
 **ComponentItems** | Pointer to **[]string** |  | [optional] 
-**TooltipSections** | Pointer to [**[]UpgradeTooltipSectionV2Output**](UpgradeTooltipSectionV2Output.md) |  | [optional] 
+**TooltipSections** | Pointer to [**[]UpgradeTooltipSectionV2**](UpgradeTooltipSectionV2.md) |  | [optional] 
 **IsActiveItem** | **bool** |  | [readonly] 
 **Shopable** | **bool** |  | [readonly] 
 **Cost** | **int32** |  | [readonly] 
@@ -270,20 +270,20 @@ HasUpdateTime returns a boolean if a field has been set.
 
 ### GetProperties
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetProperties() map[string]UpgradePropertyV2Output`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetProperties() map[string]UpgradePropertyV2`
 
 GetProperties returns the Properties field if non-nil, zero value otherwise.
 
 ### GetPropertiesOk
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetPropertiesOk() (*map[string]UpgradePropertyV2Output, bool)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetPropertiesOk() (*map[string]UpgradePropertyV2, bool)`
 
 GetPropertiesOk returns a tuple with the Properties field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProperties
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetProperties(v map[string]UpgradePropertyV2Output)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetProperties(v map[string]UpgradePropertyV2)`
 
 SetProperties sets Properties field to given value.
 
@@ -295,20 +295,20 @@ HasProperties returns a boolean if a field has been set.
 
 ### GetWeaponInfo
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetWeaponInfo() RawItemWeaponInfoV2Output`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetWeaponInfo() RawItemWeaponInfoV2`
 
 GetWeaponInfo returns the WeaponInfo field if non-nil, zero value otherwise.
 
 ### GetWeaponInfoOk
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetWeaponInfoOk() (*RawItemWeaponInfoV2Output, bool)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetWeaponInfoOk() (*RawItemWeaponInfoV2, bool)`
 
 GetWeaponInfoOk returns a tuple with the WeaponInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWeaponInfo
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetWeaponInfo(v RawItemWeaponInfoV2Output)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetWeaponInfo(v RawItemWeaponInfoV2)`
 
 SetWeaponInfo sets WeaponInfo field to given value.
 
@@ -390,20 +390,20 @@ SetDescription sets Description field to given value.
 
 ### GetTooltipDetails
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetTooltipDetails() AbilityTooltipDetailsV2Output`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetTooltipDetails() AbilityTooltipDetailsV2`
 
 GetTooltipDetails returns the TooltipDetails field if non-nil, zero value otherwise.
 
 ### GetTooltipDetailsOk
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetTooltipDetailsOk() (*AbilityTooltipDetailsV2Output, bool)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetTooltipDetailsOk() (*AbilityTooltipDetailsV2, bool)`
 
 GetTooltipDetailsOk returns a tuple with the TooltipDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTooltipDetails
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetTooltipDetails(v AbilityTooltipDetailsV2Output)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetTooltipDetails(v AbilityTooltipDetailsV2)`
 
 SetTooltipDetails sets TooltipDetails field to given value.
 
@@ -415,20 +415,20 @@ HasTooltipDetails returns a boolean if a field has been set.
 
 ### GetUpgrades
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetUpgrades() []RawAbilityUpgradeV2Output`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetUpgrades() []RawAbilityUpgradeV2`
 
 GetUpgrades returns the Upgrades field if non-nil, zero value otherwise.
 
 ### GetUpgradesOk
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetUpgradesOk() (*[]RawAbilityUpgradeV2Output, bool)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetUpgradesOk() (*[]RawAbilityUpgradeV2, bool)`
 
 GetUpgradesOk returns a tuple with the Upgrades field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpgrades
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetUpgrades(v []RawAbilityUpgradeV2Output)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetUpgrades(v []RawAbilityUpgradeV2)`
 
 SetUpgrades sets Upgrades field to given value.
 
@@ -775,20 +775,20 @@ HasComponentItems returns a boolean if a field has been set.
 
 ### GetTooltipSections
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetTooltipSections() []UpgradeTooltipSectionV2Output`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetTooltipSections() []UpgradeTooltipSectionV2`
 
 GetTooltipSections returns the TooltipSections field if non-nil, zero value otherwise.
 
 ### GetTooltipSectionsOk
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetTooltipSectionsOk() (*[]UpgradeTooltipSectionV2Output, bool)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) GetTooltipSectionsOk() (*[]UpgradeTooltipSectionV2, bool)`
 
 GetTooltipSectionsOk returns a tuple with the TooltipSections field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTooltipSections
 
-`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetTooltipSections(v []UpgradeTooltipSectionV2Output)`
+`func (o *ResponseGetItemV2ItemsIdOrClassNameGet) SetTooltipSections(v []UpgradeTooltipSectionV2)`
 
 SetTooltipSections sets TooltipSections field to given value.
 

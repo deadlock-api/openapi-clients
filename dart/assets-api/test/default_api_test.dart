@@ -19,7 +19,7 @@ void main() {
   group('tests for DefaultApi', () {
     // Get Build Tags
     //
-    //Future<List<BuildTagV2Output>> getBuildTagsV2BuildTagsGet({ Language language, DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
+    //Future<List<BuildTagV2>> getBuildTagsV2BuildTagsGet({ Language language, DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
     test('test getBuildTagsV2BuildTagsGet', () async {
       // TODO
     });
@@ -54,7 +54,7 @@ void main() {
 
     // Get Ranks
     //
-    //Future<List<RankV2Output>> getRanksV2RanksGet({ Language language, DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
+    //Future<List<RankV2>> getRanksV2RanksGet({ Language language, DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
     test('test getRanksV2RanksGet', () async {
       // TODO
     });

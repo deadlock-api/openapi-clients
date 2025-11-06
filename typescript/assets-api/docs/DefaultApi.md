@@ -14,7 +14,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 |[**getSteamInfoV1SteamInfoGet**](#getsteaminfov1steaminfoget) | **GET** /v1/steam-info | Get Steam Info|
 
 # **getBuildTagsV2BuildTagsGet**
-> Array<BuildTagV2Output> getBuildTagsV2BuildTagsGet()
+> Array<BuildTagV2> getBuildTagsV2BuildTagsGet()
 
 
 ### Example
@@ -47,7 +47,7 @@ const { status, data } = await apiInstance.getBuildTagsV2BuildTagsGet(
 
 ### Return type
 
-**Array<BuildTagV2Output>**
+**Array<BuildTagV2>**
 
 ### Authorization
 
@@ -264,7 +264,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRanksV2RanksGet**
-> Array<RankV2Output> getRanksV2RanksGet()
+> Array<RankV2> getRanksV2RanksGet()
 
 
 ### Example
@@ -297,7 +297,7 @@ const { status, data } = await apiInstance.getRanksV2RanksGet(
 
 ### Return type
 
-**Array<RankV2Output>**
+**Array<RankV2>**
 
 ### Authorization
 

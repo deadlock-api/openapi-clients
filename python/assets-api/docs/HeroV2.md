@@ -27,16 +27,16 @@ Name | Type | Description | Notes
 **images** | [**HeroImagesV2**](HeroImagesV2.md) |  | 
 **items** | **Dict[str, str]** |  | 
 **starting_stats** | [**HeroStartingStatsV2**](HeroStartingStatsV2.md) |  | 
-**item_slot_info** | [**Dict[str, RawHeroItemSlotInfoValueV2Output]**](RawHeroItemSlotInfoValueV2Output.md) |  | 
+**item_slot_info** | [**Dict[str, RawHeroItemSlotInfoValueV2]**](RawHeroItemSlotInfoValueV2.md) |  | 
 **physics** | [**HeroPhysicsV2**](HeroPhysicsV2.md) |  | 
 **colors** | [**HeroColorsV2**](HeroColorsV2.md) |  | 
-**shop_stat_display** | [**HeroShopStatDisplayV2Output**](HeroShopStatDisplayV2Output.md) |  | 
-**cost_bonuses** | **Dict[str, List[RawHeroMapModCostBonusesV2Output]]** |  | [optional] 
-**stats_display** | [**RawHeroStatsDisplayV2Output**](RawHeroStatsDisplayV2Output.md) |  | 
-**hero_stats_ui** | [**RawHeroStatsUIV2Output**](RawHeroStatsUIV2Output.md) |  | 
-**level_info** | [**Dict[str, HeroLevelInfoV2Output]**](HeroLevelInfoV2Output.md) |  | 
-**scaling_stats** | [**Dict[str, RawHeroScalingStatV2Output]**](RawHeroScalingStatV2Output.md) |  | 
-**purchase_bonuses** | **Dict[str, List[RawHeroPurchaseBonusV2Output]]** |  | 
+**shop_stat_display** | [**HeroShopStatDisplayV2**](HeroShopStatDisplayV2.md) |  | 
+**cost_bonuses** | **Dict[str, List[RawHeroMapModCostBonusesV2]]** |  | [optional] 
+**stats_display** | [**RawHeroStatsDisplayV2**](RawHeroStatsDisplayV2.md) |  | 
+**hero_stats_ui** | [**RawHeroStatsUIV2**](RawHeroStatsUIV2.md) |  | 
+**level_info** | [**Dict[str, HeroLevelInfoV2]**](HeroLevelInfoV2.md) |  | 
+**scaling_stats** | [**Dict[str, RawHeroScalingStatV2]**](RawHeroScalingStatV2.md) |  | 
+**purchase_bonuses** | **Dict[str, List[RawHeroPurchaseBonusV2]]** |  | 
 **standard_level_up_upgrades** | **Dict[str, float]** |  | 
 
 ## Example

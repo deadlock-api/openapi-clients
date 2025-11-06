@@ -18,12 +18,12 @@ from typing_extensions import Annotated
 
 from pydantic import StrictInt, StrictStr
 from typing import Any, Dict, List, Optional
-from assets-deadlock-api-client.models.build_tag_v2_output import BuildTagV2Output
+from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2
 from assets-deadlock-api-client.models.color_v1 import ColorV1
 from assets-deadlock-api-client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets-deadlock-api-client.models.language import Language
 from assets-deadlock-api-client.models.map_v1 import MapV1
-from assets-deadlock-api-client.models.rank_v2_output import RankV2Output
+from assets-deadlock-api-client.models.rank_v2 import RankV2
 
 from assets-deadlock-api-client.api_client import ApiClient, RequestSerialized
 from assets-deadlock-api-client.api_response import ApiResponse
@@ -60,7 +60,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[BuildTagV2Output]:
+    ) -> List[BuildTagV2]:
         """Get Build Tags
 
 
@@ -100,7 +100,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BuildTagV2Output]",
+            '200': "List[BuildTagV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -131,7 +131,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[BuildTagV2Output]]:
+    ) -> ApiResponse[List[BuildTagV2]]:
         """Get Build Tags
 
 
@@ -171,7 +171,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BuildTagV2Output]",
+            '200': "List[BuildTagV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -242,7 +242,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BuildTagV2Output]",
+            '200': "List[BuildTagV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1367,7 +1367,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[RankV2Output]:
+    ) -> List[RankV2]:
         """Get Ranks
 
 
@@ -1407,7 +1407,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[RankV2Output]",
+            '200': "List[RankV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1438,7 +1438,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[RankV2Output]]:
+    ) -> ApiResponse[List[RankV2]]:
         """Get Ranks
 
 
@@ -1478,7 +1478,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[RankV2Output]",
+            '200': "List[RankV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1549,7 +1549,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[RankV2Output]",
+            '200': "List[RankV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

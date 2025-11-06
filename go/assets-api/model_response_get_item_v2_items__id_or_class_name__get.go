@@ -18,29 +18,29 @@ import (
 
 // ResponseGetItemV2ItemsIdOrClassNameGet - struct for ResponseGetItemV2ItemsIdOrClassNameGet
 type ResponseGetItemV2ItemsIdOrClassNameGet struct {
-	AbilityV2Output *AbilityV2Output
-	UpgradeV2Output *UpgradeV2Output
-	WeaponV2Output *WeaponV2Output
+	AbilityV2 *AbilityV2
+	UpgradeV2 *UpgradeV2
+	WeaponV2 *WeaponV2
 }
 
-// AbilityV2OutputAsResponseGetItemV2ItemsIdOrClassNameGet is a convenience function that returns AbilityV2Output wrapped in ResponseGetItemV2ItemsIdOrClassNameGet
-func AbilityV2OutputAsResponseGetItemV2ItemsIdOrClassNameGet(v *AbilityV2Output) ResponseGetItemV2ItemsIdOrClassNameGet {
+// AbilityV2AsResponseGetItemV2ItemsIdOrClassNameGet is a convenience function that returns AbilityV2 wrapped in ResponseGetItemV2ItemsIdOrClassNameGet
+func AbilityV2AsResponseGetItemV2ItemsIdOrClassNameGet(v *AbilityV2) ResponseGetItemV2ItemsIdOrClassNameGet {
 	return ResponseGetItemV2ItemsIdOrClassNameGet{
-		AbilityV2Output: v,
+		AbilityV2: v,
 	}
 }
 
-// UpgradeV2OutputAsResponseGetItemV2ItemsIdOrClassNameGet is a convenience function that returns UpgradeV2Output wrapped in ResponseGetItemV2ItemsIdOrClassNameGet
-func UpgradeV2OutputAsResponseGetItemV2ItemsIdOrClassNameGet(v *UpgradeV2Output) ResponseGetItemV2ItemsIdOrClassNameGet {
+// UpgradeV2AsResponseGetItemV2ItemsIdOrClassNameGet is a convenience function that returns UpgradeV2 wrapped in ResponseGetItemV2ItemsIdOrClassNameGet
+func UpgradeV2AsResponseGetItemV2ItemsIdOrClassNameGet(v *UpgradeV2) ResponseGetItemV2ItemsIdOrClassNameGet {
 	return ResponseGetItemV2ItemsIdOrClassNameGet{
-		UpgradeV2Output: v,
+		UpgradeV2: v,
 	}
 }
 
-// WeaponV2OutputAsResponseGetItemV2ItemsIdOrClassNameGet is a convenience function that returns WeaponV2Output wrapped in ResponseGetItemV2ItemsIdOrClassNameGet
-func WeaponV2OutputAsResponseGetItemV2ItemsIdOrClassNameGet(v *WeaponV2Output) ResponseGetItemV2ItemsIdOrClassNameGet {
+// WeaponV2AsResponseGetItemV2ItemsIdOrClassNameGet is a convenience function that returns WeaponV2 wrapped in ResponseGetItemV2ItemsIdOrClassNameGet
+func WeaponV2AsResponseGetItemV2ItemsIdOrClassNameGet(v *WeaponV2) ResponseGetItemV2ItemsIdOrClassNameGet {
 	return ResponseGetItemV2ItemsIdOrClassNameGet{
-		WeaponV2Output: v,
+		WeaponV2: v,
 	}
 }
 
@@ -49,62 +49,62 @@ func WeaponV2OutputAsResponseGetItemV2ItemsIdOrClassNameGet(v *WeaponV2Output) R
 func (dst *ResponseGetItemV2ItemsIdOrClassNameGet) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into AbilityV2Output
-	err = newStrictDecoder(data).Decode(&dst.AbilityV2Output)
+	// try to unmarshal data into AbilityV2
+	err = newStrictDecoder(data).Decode(&dst.AbilityV2)
 	if err == nil {
-		jsonAbilityV2Output, _ := json.Marshal(dst.AbilityV2Output)
-		if string(jsonAbilityV2Output) == "{}" { // empty struct
-			dst.AbilityV2Output = nil
+		jsonAbilityV2, _ := json.Marshal(dst.AbilityV2)
+		if string(jsonAbilityV2) == "{}" { // empty struct
+			dst.AbilityV2 = nil
 		} else {
-			if err = validator.Validate(dst.AbilityV2Output); err != nil {
-				dst.AbilityV2Output = nil
+			if err = validator.Validate(dst.AbilityV2); err != nil {
+				dst.AbilityV2 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.AbilityV2Output = nil
+		dst.AbilityV2 = nil
 	}
 
-	// try to unmarshal data into UpgradeV2Output
-	err = newStrictDecoder(data).Decode(&dst.UpgradeV2Output)
+	// try to unmarshal data into UpgradeV2
+	err = newStrictDecoder(data).Decode(&dst.UpgradeV2)
 	if err == nil {
-		jsonUpgradeV2Output, _ := json.Marshal(dst.UpgradeV2Output)
-		if string(jsonUpgradeV2Output) == "{}" { // empty struct
-			dst.UpgradeV2Output = nil
+		jsonUpgradeV2, _ := json.Marshal(dst.UpgradeV2)
+		if string(jsonUpgradeV2) == "{}" { // empty struct
+			dst.UpgradeV2 = nil
 		} else {
-			if err = validator.Validate(dst.UpgradeV2Output); err != nil {
-				dst.UpgradeV2Output = nil
+			if err = validator.Validate(dst.UpgradeV2); err != nil {
+				dst.UpgradeV2 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.UpgradeV2Output = nil
+		dst.UpgradeV2 = nil
 	}
 
-	// try to unmarshal data into WeaponV2Output
-	err = newStrictDecoder(data).Decode(&dst.WeaponV2Output)
+	// try to unmarshal data into WeaponV2
+	err = newStrictDecoder(data).Decode(&dst.WeaponV2)
 	if err == nil {
-		jsonWeaponV2Output, _ := json.Marshal(dst.WeaponV2Output)
-		if string(jsonWeaponV2Output) == "{}" { // empty struct
-			dst.WeaponV2Output = nil
+		jsonWeaponV2, _ := json.Marshal(dst.WeaponV2)
+		if string(jsonWeaponV2) == "{}" { // empty struct
+			dst.WeaponV2 = nil
 		} else {
-			if err = validator.Validate(dst.WeaponV2Output); err != nil {
-				dst.WeaponV2Output = nil
+			if err = validator.Validate(dst.WeaponV2); err != nil {
+				dst.WeaponV2 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.WeaponV2Output = nil
+		dst.WeaponV2 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.AbilityV2Output = nil
-		dst.UpgradeV2Output = nil
-		dst.WeaponV2Output = nil
+		dst.AbilityV2 = nil
+		dst.UpgradeV2 = nil
+		dst.WeaponV2 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(ResponseGetItemV2ItemsIdOrClassNameGet)")
 	} else if match == 1 {
@@ -116,16 +116,16 @@ func (dst *ResponseGetItemV2ItemsIdOrClassNameGet) UnmarshalJSON(data []byte) er
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src ResponseGetItemV2ItemsIdOrClassNameGet) MarshalJSON() ([]byte, error) {
-	if src.AbilityV2Output != nil {
-		return json.Marshal(&src.AbilityV2Output)
+	if src.AbilityV2 != nil {
+		return json.Marshal(&src.AbilityV2)
 	}
 
-	if src.UpgradeV2Output != nil {
-		return json.Marshal(&src.UpgradeV2Output)
+	if src.UpgradeV2 != nil {
+		return json.Marshal(&src.UpgradeV2)
 	}
 
-	if src.WeaponV2Output != nil {
-		return json.Marshal(&src.WeaponV2Output)
+	if src.WeaponV2 != nil {
+		return json.Marshal(&src.WeaponV2)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -136,16 +136,16 @@ func (obj *ResponseGetItemV2ItemsIdOrClassNameGet) GetActualInstance() (interfac
 	if obj == nil {
 		return nil
 	}
-	if obj.AbilityV2Output != nil {
-		return obj.AbilityV2Output
+	if obj.AbilityV2 != nil {
+		return obj.AbilityV2
 	}
 
-	if obj.UpgradeV2Output != nil {
-		return obj.UpgradeV2Output
+	if obj.UpgradeV2 != nil {
+		return obj.UpgradeV2
 	}
 
-	if obj.WeaponV2Output != nil {
-		return obj.WeaponV2Output
+	if obj.WeaponV2 != nil {
+		return obj.WeaponV2
 	}
 
 	// all schemas are nil
@@ -154,16 +154,16 @@ func (obj *ResponseGetItemV2ItemsIdOrClassNameGet) GetActualInstance() (interfac
 
 // Get the actual instance value
 func (obj ResponseGetItemV2ItemsIdOrClassNameGet) GetActualInstanceValue() (interface{}) {
-	if obj.AbilityV2Output != nil {
-		return *obj.AbilityV2Output
+	if obj.AbilityV2 != nil {
+		return *obj.AbilityV2
 	}
 
-	if obj.UpgradeV2Output != nil {
-		return *obj.UpgradeV2Output
+	if obj.UpgradeV2 != nil {
+		return *obj.UpgradeV2
 	}
 
-	if obj.WeaponV2Output != nil {
-		return *obj.WeaponV2Output
+	if obj.WeaponV2 != nil {
+		return *obj.WeaponV2
 	}
 
 	// all schemas are nil

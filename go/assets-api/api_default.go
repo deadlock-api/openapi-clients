@@ -39,7 +39,7 @@ func (r ApiGetBuildTagsV2BuildTagsGetRequest) ClientVersion(clientVersion Deadlo
 	return r
 }
 
-func (r ApiGetBuildTagsV2BuildTagsGetRequest) Execute() ([]BuildTagV2Output, *http.Response, error) {
+func (r ApiGetBuildTagsV2BuildTagsGetRequest) Execute() ([]BuildTagV2, *http.Response, error) {
 	return r.ApiService.GetBuildTagsV2BuildTagsGetExecute(r)
 }
 
@@ -57,13 +57,13 @@ func (a *DefaultAPIService) GetBuildTagsV2BuildTagsGet(ctx context.Context) ApiG
 }
 
 // Execute executes the request
-//  @return []BuildTagV2Output
-func (a *DefaultAPIService) GetBuildTagsV2BuildTagsGetExecute(r ApiGetBuildTagsV2BuildTagsGetRequest) ([]BuildTagV2Output, *http.Response, error) {
+//  @return []BuildTagV2
+func (a *DefaultAPIService) GetBuildTagsV2BuildTagsGetExecute(r ApiGetBuildTagsV2BuildTagsGetRequest) ([]BuildTagV2, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []BuildTagV2Output
+		localVarReturnValue  []BuildTagV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetBuildTagsV2BuildTagsGet")
@@ -609,7 +609,7 @@ func (r ApiGetRanksV2RanksGetRequest) ClientVersion(clientVersion DeadlockAssets
 	return r
 }
 
-func (r ApiGetRanksV2RanksGetRequest) Execute() ([]RankV2Output, *http.Response, error) {
+func (r ApiGetRanksV2RanksGetRequest) Execute() ([]RankV2, *http.Response, error) {
 	return r.ApiService.GetRanksV2RanksGetExecute(r)
 }
 
@@ -627,13 +627,13 @@ func (a *DefaultAPIService) GetRanksV2RanksGet(ctx context.Context) ApiGetRanksV
 }
 
 // Execute executes the request
-//  @return []RankV2Output
-func (a *DefaultAPIService) GetRanksV2RanksGetExecute(r ApiGetRanksV2RanksGetRequest) ([]RankV2Output, *http.Response, error) {
+//  @return []RankV2
+func (a *DefaultAPIService) GetRanksV2RanksGetExecute(r ApiGetRanksV2RanksGetRequest) ([]RankV2, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []RankV2Output
+		localVarReturnValue  []RankV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetRanksV2RanksGet")

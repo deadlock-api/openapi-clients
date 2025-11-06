@@ -18,17 +18,17 @@ package assets-deadlock-api-client.models
 import assets-deadlock-api-client.models.HeroColorsV2
 import assets-deadlock-api-client.models.HeroDescriptionV2
 import assets-deadlock-api-client.models.HeroImagesV2
-import assets-deadlock-api-client.models.HeroLevelInfoV2Output
+import assets-deadlock-api-client.models.HeroLevelInfoV2
 import assets-deadlock-api-client.models.HeroPhysicsV2
-import assets-deadlock-api-client.models.HeroShopStatDisplayV2Output
+import assets-deadlock-api-client.models.HeroShopStatDisplayV2
 import assets-deadlock-api-client.models.HeroStartingStatsV2
 import assets-deadlock-api-client.models.HeroTypeV2
-import assets-deadlock-api-client.models.RawHeroItemSlotInfoValueV2Output
-import assets-deadlock-api-client.models.RawHeroMapModCostBonusesV2Output
-import assets-deadlock-api-client.models.RawHeroPurchaseBonusV2Output
-import assets-deadlock-api-client.models.RawHeroScalingStatV2Output
-import assets-deadlock-api-client.models.RawHeroStatsDisplayV2Output
-import assets-deadlock-api-client.models.RawHeroStatsUIV2Output
+import assets-deadlock-api-client.models.RawHeroItemSlotInfoValueV2
+import assets-deadlock-api-client.models.RawHeroMapModCostBonusesV2
+import assets-deadlock-api-client.models.RawHeroPurchaseBonusV2
+import assets-deadlock-api-client.models.RawHeroScalingStatV2
+import assets-deadlock-api-client.models.RawHeroStatsDisplayV2
+import assets-deadlock-api-client.models.RawHeroStatsUIV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -120,7 +120,7 @@ data class HeroV2 (
     val startingStats: HeroStartingStatsV2,
 
     @Json(name = "item_slot_info")
-    val itemSlotInfo: kotlin.collections.Map<kotlin.String, RawHeroItemSlotInfoValueV2Output>,
+    val itemSlotInfo: kotlin.collections.Map<kotlin.String, RawHeroItemSlotInfoValueV2>,
 
     @Json(name = "physics")
     val physics: HeroPhysicsV2,
@@ -129,22 +129,22 @@ data class HeroV2 (
     val colors: HeroColorsV2,
 
     @Json(name = "shop_stat_display")
-    val shopStatDisplay: HeroShopStatDisplayV2Output,
+    val shopStatDisplay: HeroShopStatDisplayV2,
 
     @Json(name = "stats_display")
-    val statsDisplay: RawHeroStatsDisplayV2Output,
+    val statsDisplay: RawHeroStatsDisplayV2,
 
     @Json(name = "hero_stats_ui")
-    val heroStatsUi: RawHeroStatsUIV2Output,
+    val heroStatsUi: RawHeroStatsUIV2,
 
     @Json(name = "level_info")
-    val levelInfo: kotlin.collections.Map<kotlin.String, HeroLevelInfoV2Output>,
+    val levelInfo: kotlin.collections.Map<kotlin.String, HeroLevelInfoV2>,
 
     @Json(name = "scaling_stats")
-    val scalingStats: kotlin.collections.Map<kotlin.String, RawHeroScalingStatV2Output>,
+    val scalingStats: kotlin.collections.Map<kotlin.String, RawHeroScalingStatV2>,
 
     @Json(name = "purchase_bonuses")
-    val purchaseBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroPurchaseBonusV2Output>>,
+    val purchaseBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroPurchaseBonusV2>>,
 
     @Json(name = "standard_level_up_upgrades")
     val standardLevelUpUpgrades: kotlin.collections.Map<kotlin.String, java.math.BigDecimal>,
@@ -171,7 +171,7 @@ data class HeroV2 (
     val prereleaseOnly: kotlin.Boolean? = null,
 
     @Json(name = "cost_bonuses")
-    val costBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroMapModCostBonusesV2Output>>? = null
+    val costBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroMapModCostBonusesV2>>? = null
 
 ) {
 

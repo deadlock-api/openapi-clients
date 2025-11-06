@@ -157,7 +157,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BuildTagV2Output[]|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \OpenAPI\Client\Model\BuildTagV2[]|\OpenAPI\Client\Model\HTTPValidationError
      */
     public function getBuildTagsV2BuildTagsGet($language = null, $client_version = null, string $contentType = self::contentTypes['getBuildTagsV2BuildTagsGet'][0])
     {
@@ -176,7 +176,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BuildTagV2Output[]|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\BuildTagV2[]|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBuildTagsV2BuildTagsGetWithHttpInfo($language = null, $client_version = null, string $contentType = self::contentTypes['getBuildTagsV2BuildTagsGet'][0])
     {
@@ -208,7 +208,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\BuildTagV2Output[]',
+                        '\OpenAPI\Client\Model\BuildTagV2[]',
                         $request,
                         $response,
                     );
@@ -236,7 +236,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\BuildTagV2Output[]',
+                '\OpenAPI\Client\Model\BuildTagV2[]',
                 $request,
                 $response,
             );
@@ -245,7 +245,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BuildTagV2Output[]',
+                        '\OpenAPI\Client\Model\BuildTagV2[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -301,7 +301,7 @@ class DefaultApi
      */
     public function getBuildTagsV2BuildTagsGetAsyncWithHttpInfo($language = null, $client_version = null, string $contentType = self::contentTypes['getBuildTagsV2BuildTagsGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BuildTagV2Output[]';
+        $returnType = '\OpenAPI\Client\Model\BuildTagV2[]';
         $request = $this->getBuildTagsV2BuildTagsGetRequest($language, $client_version, $contentType);
 
         return $this->client
@@ -1528,7 +1528,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RankV2Output[]|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \OpenAPI\Client\Model\RankV2[]|\OpenAPI\Client\Model\HTTPValidationError
      */
     public function getRanksV2RanksGet($language = null, $client_version = null, string $contentType = self::contentTypes['getRanksV2RanksGet'][0])
     {
@@ -1547,7 +1547,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RankV2Output[]|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RankV2[]|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRanksV2RanksGetWithHttpInfo($language = null, $client_version = null, string $contentType = self::contentTypes['getRanksV2RanksGet'][0])
     {
@@ -1579,7 +1579,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\RankV2Output[]',
+                        '\OpenAPI\Client\Model\RankV2[]',
                         $request,
                         $response,
                     );
@@ -1607,7 +1607,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\RankV2Output[]',
+                '\OpenAPI\Client\Model\RankV2[]',
                 $request,
                 $response,
             );
@@ -1616,7 +1616,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RankV2Output[]',
+                        '\OpenAPI\Client\Model\RankV2[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1672,7 +1672,7 @@ class DefaultApi
      */
     public function getRanksV2RanksGetAsyncWithHttpInfo($language = null, $client_version = null, string $contentType = self::contentTypes['getRanksV2RanksGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\RankV2Output[]';
+        $returnType = '\OpenAPI\Client\Model\RankV2[]';
         $request = $this->getRanksV2RanksGetRequest($language, $client_version, $contentType);
 
         return $this->client

@@ -19,13 +19,13 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import assets-deadlock-api-client.models.BuildTagV2Output
+import assets-deadlock-api-client.models.BuildTagV2
 import assets-deadlock-api-client.models.ColorV1
 import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets-deadlock-api-client.models.HTTPValidationError
 import assets-deadlock-api-client.models.Language
 import assets-deadlock-api-client.models.MapV1
-import assets-deadlock-api-client.models.RankV2Output
+import assets-deadlock-api-client.models.RankV2
 
 import com.squareup.moshi.Json
 
@@ -57,7 +57,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return kotlin.collections.List<BuildTagV2Output>
+     * @return kotlin.collections.List<BuildTagV2>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -66,11 +66,11 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBuildTagsV2BuildTagsGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<BuildTagV2Output> {
+    fun getBuildTagsV2BuildTagsGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<BuildTagV2> {
         val localVarResponse = getBuildTagsV2BuildTagsGetWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<BuildTagV2Output>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<BuildTagV2>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -90,16 +90,16 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.collections.List<BuildTagV2Output>?>
+     * @return ApiResponse<kotlin.collections.List<BuildTagV2>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBuildTagsV2BuildTagsGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<BuildTagV2Output>?> {
+    fun getBuildTagsV2BuildTagsGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<BuildTagV2>?> {
         val localVariableConfig = getBuildTagsV2BuildTagsGetRequestConfig(language = language, clientVersion = clientVersion)
 
-        return request<Unit, kotlin.collections.List<BuildTagV2Output>>(
+        return request<Unit, kotlin.collections.List<BuildTagV2>>(
             localVariableConfig
         )
     }
@@ -445,7 +445,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return kotlin.collections.List<RankV2Output>
+     * @return kotlin.collections.List<RankV2>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -454,11 +454,11 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRanksV2RanksGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<RankV2Output> {
+    fun getRanksV2RanksGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<RankV2> {
         val localVarResponse = getRanksV2RanksGetWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RankV2Output>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RankV2>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -478,16 +478,16 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.collections.List<RankV2Output>?>
+     * @return ApiResponse<kotlin.collections.List<RankV2>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRanksV2RanksGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<RankV2Output>?> {
+    fun getRanksV2RanksGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<RankV2>?> {
         val localVariableConfig = getRanksV2RanksGetRequestConfig(language = language, clientVersion = clientVersion)
 
-        return request<Unit, kotlin.collections.List<RankV2Output>>(
+        return request<Unit, kotlin.collections.List<RankV2>>(
             localVariableConfig
         )
     }
