@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**heroSynergiesStats**](AnalyticsApi.md#herosynergiesstats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats
 [**itemPermutationStats**](AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 [**itemStats**](AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
+[**killDeathStats**](AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
 [**playerScoreboard**](AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 [**playerStatsMetrics**](AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
 
@@ -65,7 +66,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int**| See more: <https://assets.deadlock-api.com/v2/heroes> | 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -130,7 +131,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -184,7 +185,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int**| Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minLastUpdatedUnixTimestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minLastUpdatedUnixTimestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxLastUpdatedUnixTimestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). | [optional] 
 
 ### Return type
@@ -244,7 +245,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -319,7 +320,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -395,7 +396,7 @@ Name | Type | Description  | Notes
  **sortBy** | **String**| The field to sort by. | 
  **sortDirection** | **String**| The direction to sort heroes in. | [optional] 
  **minMatches** | **int**| Filter by min number of matches played. | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -468,7 +469,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **String**| Bucket allows you to group the stats by a specific field. | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -543,7 +544,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -620,7 +621,7 @@ Name | Type | Description  | Notes
  **combSize** | **int**| The combination size to return. | [optional] [default to 2]
  **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
  **heroId** | **int**| Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -695,7 +696,7 @@ Name | Type | Description  | Notes
  **bucket** | **String**| Bucket allows you to group the stats by a specific field. | [optional] 
  **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
  **heroId** | **int**| Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -715,6 +716,89 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List<ItemStats>**](ItemStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **killDeathStats**
+> List<KillDeathStats> killDeathStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, accountIds, heroIds, minNetworth, maxNetworth, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, minAverageBadge, maxAverageBadge, minKillsPerRaster, maxKillsPerRaster, minDeathsPerRaster, maxDeathsPerRaster, minGameTimeS, maxGameTimeS)
+
+Kill Death Stats
+
+ This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+### Example
+```dart
+import 'package:deadlock-api-client/api.dart';
+
+final api_instance = AnalyticsApi();
+final minUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+final maxUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp).
+final minDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
+final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
+final accountIds = []; // List<int> | Filter matches by account IDs of players that participated in the match.
+final heroIds = heroIds_example; // String | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+final minNetworth = 789; // int | Filter players based on their net worth.
+final maxNetworth = 789; // int | Filter players based on their net worth.
+final isHighSkillRangeParties = true; // bool | Filter matches based on whether they are in the high skill range.
+final isLowPriPool = true; // bool | Filter matches based on whether they are in the low priority pool.
+final isNewPlayerPool = true; // bool | Filter matches based on whether they are in the new player pool.
+final minMatchId = 789; // int | Filter matches based on their ID.
+final maxMatchId = 789; // int | Filter matches based on their ID.
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minKillsPerRaster = 56; // int | Filter Raster cells based on minimum kills.
+final maxKillsPerRaster = 56; // int | Filter Raster cells based on maximum kills.
+final minDeathsPerRaster = 56; // int | Filter Raster cells based on minimum deaths.
+final maxDeathsPerRaster = 56; // int | Filter Raster cells based on maximum deaths.
+final minGameTimeS = 56; // int | Filter kills based on their game time.
+final maxGameTimeS = 56; // int | Filter kills based on their game time.
+
+try {
+    final result = api_instance.killDeathStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, accountIds, heroIds, minNetworth, maxNetworth, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, minAverageBadge, maxAverageBadge, minKillsPerRaster, maxKillsPerRaster, minDeathsPerRaster, maxDeathsPerRaster, minGameTimeS, maxGameTimeS);
+    print(result);
+} catch (e) {
+    print('Exception when calling AnalyticsApi->killDeathStats: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
+ **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
+ **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
+ **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
+ **accountIds** | [**List<int>**](int.md)| Filter matches by account IDs of players that participated in the match. | [optional] [default to const []]
+ **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
+ **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
+ **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
+ **isHighSkillRangeParties** | **bool**| Filter matches based on whether they are in the high skill range. | [optional] 
+ **isLowPriPool** | **bool**| Filter matches based on whether they are in the low priority pool. | [optional] 
+ **isNewPlayerPool** | **bool**| Filter matches based on whether they are in the new player pool. | [optional] 
+ **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
+ **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minKillsPerRaster** | **int**| Filter Raster cells based on minimum kills. | [optional] [default to 1]
+ **maxKillsPerRaster** | **int**| Filter Raster cells based on maximum kills. | [optional] 
+ **minDeathsPerRaster** | **int**| Filter Raster cells based on minimum deaths. | [optional] [default to 1]
+ **maxDeathsPerRaster** | **int**| Filter Raster cells based on maximum deaths. | [optional] 
+ **minGameTimeS** | **int**| Filter kills based on their game time. | [optional] 
+ **maxGameTimeS** | **int**| Filter kills based on their game time. | [optional] 
+
+### Return type
+
+[**List<KillDeathStats>**](KillDeathStats.md)
 
 ### Authorization
 
@@ -845,7 +929,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759795200]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1759881600]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 

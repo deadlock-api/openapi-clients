@@ -107,7 +107,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -310,7 +310,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -442,7 +442,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -490,7 +490,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -724,7 +724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -961,7 +961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -1207,7 +1207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -1470,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -1680,7 +1680,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -1881,6 +1881,266 @@ paths:
       summary: Item Stats
       tags:
       - Analytics
+  /v1/analytics/kill-death-stats:
+    get:
+      description: "\nThis endpoint returns the kill-death statistics across a 100x100\
+        \ pixel raster.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n\
+        | IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+      operationId: kill_death_stats
+      parameters:
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1759881600
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches by account IDs of players that participated in
+          the match.
+        explode: true
+        in: query
+        name: account_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+        style: form
+      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+        explode: true
+        in: query
+        name: hero_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Filter players based on their net worth.
+        explode: true
+        in: query
+        name: min_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their net worth.
+        explode: true
+        in: query
+        name: max_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on whether they are in the high skill range.
+        explode: true
+        in: query
+        name: is_high_skill_range_parties
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on whether they are in the low priority
+          pool.
+        explode: true
+        in: query
+        name: is_low_pri_pool
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on whether they are in the new player pool.
+        explode: true
+        in: query
+        name: is_new_player_pool
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (0-116) of *both*\
+          \ teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (0-116) of *both*\
+          \ teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter Raster cells based on minimum kills.
+        explode: true
+        in: query
+        name: min_kills_per_raster
+        required: false
+        schema:
+          default: 1
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter Raster cells based on maximum kills.
+        explode: true
+        in: query
+        name: max_kills_per_raster
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter Raster cells based on minimum deaths.
+        explode: true
+        in: query
+        name: min_deaths_per_raster
+        required: false
+        schema:
+          default: 1
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter Raster cells based on maximum deaths.
+        explode: true
+        in: query
+        name: max_deaths_per_raster
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter kills based on their game time.
+        explode: true
+        in: query
+        name: min_game_time_s
+        required: false
+        schema:
+          format: int32
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter kills based on their game time.
+        explode: true
+        in: query
+        name: max_game_time_s
+        required: false
+        schema:
+          format: int32
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/KillDeathStats"
+                type: array
+          description: Kill Death Stats
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch kill death stats
+      summary: Kill Death Stats
+      tags:
+      - Analytics
   /v1/analytics/player-stats/metrics:
     get:
       description: "\nReturns comprehensive statistical analysis of player performance.\n\
@@ -1909,7 +2169,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -2190,7 +2450,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -4244,7 +4504,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -4363,7 +4623,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1759795200
+          default: 1759881600
           format: int64
           nullable: true
           type: integer
@@ -6864,6 +7124,32 @@ components:
       - matches
       - players
       - wins
+    KillDeathStats:
+      example:
+        kills: 0
+        position_x: 1
+        position_y: 5
+        deaths: 0
+      properties:
+        deaths:
+          format: int64
+          minimum: 0
+          type: integer
+        kills:
+          format: int64
+          minimum: 0
+          type: integer
+        position_x:
+          format: int32
+          type: integer
+        position_y:
+          format: int32
+          type: integer
+      required:
+      - deaths
+      - kills
+      - position_x
+      - position_y
     Leaderboard:
       example:
         entries:

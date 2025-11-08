@@ -45,6 +45,7 @@ docs/InfoApi.md
 docs/InternalApi.md
 docs/ItemPermutationStats.md
 docs/ItemStats.md
+docs/KillDeathStats.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
@@ -121,6 +122,7 @@ src/models/hero_stats.rs
 src/models/hero_synergy_stats.rs
 src/models/item_permutation_stats.rs
 src/models/item_stats.rs
+src/models/kill_death_stats.rs
 src/models/leaderboard.rs
 src/models/leaderboard_entry.rs
 src/models/match_salts_response.rs

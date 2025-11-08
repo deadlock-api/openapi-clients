@@ -96,6 +96,13 @@ class TestAnalyticsApi(unittest.TestCase):
         """
         pass
 
+    def test_kill_death_stats(self) -> None:
+        """Test case for kill_death_stats
+
+        Kill Death Stats
+        """
+        pass
+
     def test_player_scoreboard(self) -> None:
         """Test case for player_scoreboard
 

@@ -603,6 +603,12 @@ export interface ItemStats {
     'players': number;
     'wins': number;
 }
+export interface KillDeathStats {
+    'deaths': number;
+    'kills': number;
+    'position_x': number;
+    'position_y': number;
+}
 export interface Leaderboard {
     /**
      * The leaderboard entries.
@@ -1877,6 +1883,141 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Kill Death Stats
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [minNetworth] Filter players based on their net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
+         * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
+         * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minKillsPerRaster] Filter Raster cells based on minimum kills.
+         * @param {number | null} [maxKillsPerRaster] Filter Raster cells based on maximum kills.
+         * @param {number | null} [minDeathsPerRaster] Filter Raster cells based on minimum deaths.
+         * @param {number | null} [maxDeathsPerRaster] Filter Raster cells based on maximum deaths.
+         * @param {number | null} [minGameTimeS] Filter kills based on their game time.
+         * @param {number | null} [maxGameTimeS] Filter kills based on their game time.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        killDeathStats: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, accountIds?: Array<number> | null, heroIds?: string | null, minNetworth?: number | null, maxNetworth?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minKillsPerRaster?: number | null, maxKillsPerRaster?: number | null, minDeathsPerRaster?: number | null, maxDeathsPerRaster?: number | null, minGameTimeS?: number | null, maxGameTimeS?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/analytics/kill-death-stats`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (minUnixTimestamp !== undefined) {
+                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
+            }
+
+            if (maxUnixTimestamp !== undefined) {
+                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
+            }
+
+            if (minDurationS !== undefined) {
+                localVarQueryParameter['min_duration_s'] = minDurationS;
+            }
+
+            if (maxDurationS !== undefined) {
+                localVarQueryParameter['max_duration_s'] = maxDurationS;
+            }
+
+            if (accountIds) {
+                localVarQueryParameter['account_ids'] = accountIds;
+            }
+
+            if (heroIds !== undefined) {
+                localVarQueryParameter['hero_ids'] = heroIds;
+            }
+
+            if (minNetworth !== undefined) {
+                localVarQueryParameter['min_networth'] = minNetworth;
+            }
+
+            if (maxNetworth !== undefined) {
+                localVarQueryParameter['max_networth'] = maxNetworth;
+            }
+
+            if (isHighSkillRangeParties !== undefined) {
+                localVarQueryParameter['is_high_skill_range_parties'] = isHighSkillRangeParties;
+            }
+
+            if (isLowPriPool !== undefined) {
+                localVarQueryParameter['is_low_pri_pool'] = isLowPriPool;
+            }
+
+            if (isNewPlayerPool !== undefined) {
+                localVarQueryParameter['is_new_player_pool'] = isNewPlayerPool;
+            }
+
+            if (minMatchId !== undefined) {
+                localVarQueryParameter['min_match_id'] = minMatchId;
+            }
+
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+            if (minAverageBadge !== undefined) {
+                localVarQueryParameter['min_average_badge'] = minAverageBadge;
+            }
+
+            if (maxAverageBadge !== undefined) {
+                localVarQueryParameter['max_average_badge'] = maxAverageBadge;
+            }
+
+            if (minKillsPerRaster !== undefined) {
+                localVarQueryParameter['min_kills_per_raster'] = minKillsPerRaster;
+            }
+
+            if (maxKillsPerRaster !== undefined) {
+                localVarQueryParameter['max_kills_per_raster'] = maxKillsPerRaster;
+            }
+
+            if (minDeathsPerRaster !== undefined) {
+                localVarQueryParameter['min_deaths_per_raster'] = minDeathsPerRaster;
+            }
+
+            if (maxDeathsPerRaster !== undefined) {
+                localVarQueryParameter['max_deaths_per_raster'] = maxDeathsPerRaster;
+            }
+
+            if (minGameTimeS !== undefined) {
+                localVarQueryParameter['min_game_time_s'] = minGameTimeS;
+            }
+
+            if (maxGameTimeS !== undefined) {
+                localVarQueryParameter['max_game_time_s'] = maxGameTimeS;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Player Scoreboard
          * @param {PlayerScoreboardSortByEnum} sortBy The field to sort by.
@@ -2380,6 +2521,39 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Kill Death Stats
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [minNetworth] Filter players based on their net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
+         * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
+         * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minKillsPerRaster] Filter Raster cells based on minimum kills.
+         * @param {number | null} [maxKillsPerRaster] Filter Raster cells based on maximum kills.
+         * @param {number | null} [minDeathsPerRaster] Filter Raster cells based on minimum deaths.
+         * @param {number | null} [maxDeathsPerRaster] Filter Raster cells based on maximum deaths.
+         * @param {number | null} [minGameTimeS] Filter kills based on their game time.
+         * @param {number | null} [maxGameTimeS] Filter kills based on their game time.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async killDeathStats(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, accountIds?: Array<number> | null, heroIds?: string | null, minNetworth?: number | null, maxNetworth?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minKillsPerRaster?: number | null, maxKillsPerRaster?: number | null, minDeathsPerRaster?: number | null, maxDeathsPerRaster?: number | null, minGameTimeS?: number | null, maxGameTimeS?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<KillDeathStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.killDeathStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, accountIds, heroIds, minNetworth, maxNetworth, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, minAverageBadge, maxAverageBadge, minKillsPerRaster, maxKillsPerRaster, minDeathsPerRaster, maxDeathsPerRaster, minGameTimeS, maxGameTimeS, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.killDeathStats']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Player Scoreboard
          * @param {PlayerScoreboardSortByEnum} sortBy The field to sort by.
@@ -2544,6 +2718,16 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          */
         itemStats(requestParameters: AnalyticsApiItemStatsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<ItemStats>> {
             return localVarFp.itemStats(requestParameters.bucket, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Kill Death Stats
+         * @param {AnalyticsApiKillDeathStatsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        killDeathStats(requestParameters: AnalyticsApiKillDeathStatsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<KillDeathStats>> {
+            return localVarFp.killDeathStats(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.accountIds, requestParameters.heroIds, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minKillsPerRaster, requestParameters.maxKillsPerRaster, requestParameters.minDeathsPerRaster, requestParameters.maxDeathsPerRaster, requestParameters.minGameTimeS, requestParameters.maxGameTimeS, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -3354,6 +3538,116 @@ export interface AnalyticsApiItemStatsRequest {
 }
 
 /**
+ * Request parameters for killDeathStats operation in AnalyticsApi.
+ */
+export interface AnalyticsApiKillDeathStatsRequest {
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     */
+    readonly minUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null
+
+    /**
+     * Filter matches by account IDs of players that participated in the match.
+     */
+    readonly accountIds?: Array<number> | null
+
+    /**
+     * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     */
+    readonly heroIds?: string | null
+
+    /**
+     * Filter players based on their net worth.
+     */
+    readonly minNetworth?: number | null
+
+    /**
+     * Filter players based on their net worth.
+     */
+    readonly maxNetworth?: number | null
+
+    /**
+     * Filter matches based on whether they are in the high skill range.
+     */
+    readonly isHighSkillRangeParties?: boolean | null
+
+    /**
+     * Filter matches based on whether they are in the low priority pool.
+     */
+    readonly isLowPriPool?: boolean | null
+
+    /**
+     * Filter matches based on whether they are in the new player pool.
+     */
+    readonly isNewPlayerPool?: boolean | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null
+
+    /**
+     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     */
+    readonly minAverageBadge?: number | null
+
+    /**
+     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     */
+    readonly maxAverageBadge?: number | null
+
+    /**
+     * Filter Raster cells based on minimum kills.
+     */
+    readonly minKillsPerRaster?: number | null
+
+    /**
+     * Filter Raster cells based on maximum kills.
+     */
+    readonly maxKillsPerRaster?: number | null
+
+    /**
+     * Filter Raster cells based on minimum deaths.
+     */
+    readonly minDeathsPerRaster?: number | null
+
+    /**
+     * Filter Raster cells based on maximum deaths.
+     */
+    readonly maxDeathsPerRaster?: number | null
+
+    /**
+     * Filter kills based on their game time.
+     */
+    readonly minGameTimeS?: number | null
+
+    /**
+     * Filter kills based on their game time.
+     */
+    readonly maxGameTimeS?: number | null
+}
+
+/**
  * Request parameters for playerScoreboard operation in AnalyticsApi.
  */
 export interface AnalyticsApiPlayerScoreboardRequest {
@@ -3640,6 +3934,17 @@ export class AnalyticsApi extends BaseAPI {
      */
     public itemStats(requestParameters: AnalyticsApiItemStatsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).itemStats(requestParameters.bucket, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Kill Death Stats
+     * @param {AnalyticsApiKillDeathStatsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public killDeathStats(requestParameters: AnalyticsApiKillDeathStatsRequest = {}, options?: RawAxiosRequestConfig) {
+        return AnalyticsApiFp(this.configuration).killDeathStats(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.accountIds, requestParameters.heroIds, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minKillsPerRaster, requestParameters.maxKillsPerRaster, requestParameters.minDeathsPerRaster, requestParameters.maxDeathsPerRaster, requestParameters.minGameTimeS, requestParameters.maxGameTimeS, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

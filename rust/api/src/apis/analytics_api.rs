@@ -358,6 +358,53 @@ pub struct ItemStatsParams {
     pub account_ids: Option<Vec<u32>>
 }
 
+/// struct for passing parameters to the method [`kill_death_stats`]
+#[derive(Clone, Debug)]
+pub struct KillDeathStatsParams {
+    /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+    pub min_unix_timestamp: Option<i64>,
+    /// Filter matches based on their start time (Unix timestamp).
+    pub max_unix_timestamp: Option<i64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub min_duration_s: Option<u64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub max_duration_s: Option<u64>,
+    /// Filter matches by account IDs of players that participated in the match.
+    pub account_ids: Option<Vec<u32>>,
+    /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+    pub hero_ids: Option<String>,
+    /// Filter players based on their net worth.
+    pub min_networth: Option<u64>,
+    /// Filter players based on their net worth.
+    pub max_networth: Option<u64>,
+    /// Filter matches based on whether they are in the high skill range.
+    pub is_high_skill_range_parties: Option<bool>,
+    /// Filter matches based on whether they are in the low priority pool.
+    pub is_low_pri_pool: Option<bool>,
+    /// Filter matches based on whether they are in the new player pool.
+    pub is_new_player_pool: Option<bool>,
+    /// Filter matches based on their ID.
+    pub min_match_id: Option<u64>,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<u64>,
+    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    pub min_average_badge: Option<u32>,
+    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    pub max_average_badge: Option<u32>,
+    /// Filter Raster cells based on minimum kills.
+    pub min_kills_per_raster: Option<u32>,
+    /// Filter Raster cells based on maximum kills.
+    pub max_kills_per_raster: Option<u32>,
+    /// Filter Raster cells based on minimum deaths.
+    pub min_deaths_per_raster: Option<u32>,
+    /// Filter Raster cells based on maximum deaths.
+    pub max_deaths_per_raster: Option<u32>,
+    /// Filter kills based on their game time.
+    pub min_game_time_s: Option<u32>,
+    /// Filter kills based on their game time.
+    pub max_game_time_s: Option<u32>
+}
+
 /// struct for passing parameters to the method [`player_scoreboard`]
 #[derive(Clone, Debug)]
 pub struct PlayerScoreboardParams {
@@ -520,6 +567,15 @@ pub enum ItemPermutationStatsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ItemStatsError {
+    Status400(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`kill_death_stats`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum KillDeathStatsError {
     Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
@@ -1372,6 +1428,107 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
     } else {
         let content = resp.text().await?;
         let entity: Option<ItemStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+pub async fn kill_death_stats(configuration: &configuration::Configuration, params: KillDeathStatsParams) -> Result<Vec<models::KillDeathStats>, Error<KillDeathStatsError>> {
+
+    let uri_str = format!("{}/v1/analytics/kill-death-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.hero_ids {
+        req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.is_high_skill_range_parties {
+        req_builder = req_builder.query(&[("is_high_skill_range_parties", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.is_low_pri_pool {
+        req_builder = req_builder.query(&[("is_low_pri_pool", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.is_new_player_pool {
+        req_builder = req_builder.query(&[("is_new_player_pool", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_kills_per_raster {
+        req_builder = req_builder.query(&[("min_kills_per_raster", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_kills_per_raster {
+        req_builder = req_builder.query(&[("max_kills_per_raster", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_deaths_per_raster {
+        req_builder = req_builder.query(&[("min_deaths_per_raster", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_deaths_per_raster {
+        req_builder = req_builder.query(&[("max_deaths_per_raster", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_game_time_s {
+        req_builder = req_builder.query(&[("min_game_time_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_game_time_s {
+        req_builder = req_builder.query(&[("max_game_time_s", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::KillDeathStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::KillDeathStats&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<KillDeathStatsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

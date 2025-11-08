@@ -48,6 +48,7 @@ from deadlock-api-client.models.hero_stats import HeroStats
 from deadlock-api-client.models.hero_synergy_stats import HeroSynergyStats
 from deadlock-api-client.models.item_permutation_stats import ItemPermutationStats
 from deadlock-api-client.models.item_stats import ItemStats
+from deadlock-api-client.models.kill_death_stats import KillDeathStats
 from deadlock-api-client.models.leaderboard import Leaderboard
 from deadlock-api-client.models.leaderboard_entry import LeaderboardEntry
 from deadlock-api-client.models.mmr_history import MMRHistory

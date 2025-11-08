@@ -30,6 +30,7 @@ import deadlock-api-client.models.HeroCounterStats
 import deadlock-api-client.models.HeroSynergyStats
 import deadlock-api-client.models.ItemPermutationStats
 import deadlock-api-client.models.ItemStats
+import deadlock-api-client.models.KillDeathStats
 
 class AnalyticsApiTest : ShouldSpec() {
     init {
@@ -250,6 +251,34 @@ class AnalyticsApiTest : ShouldSpec() {
             //val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
             //val result : kotlin.collections.List<ItemStats> = apiInstance.itemStats(bucket, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, minMatches, maxMatches, accountId, accountIds)
+            //result shouldBe ("TODO")
+        }
+
+        // to test killDeathStats
+        should("test killDeathStats") {
+            // uncomment below to test killDeathStats
+            //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+            //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Filter matches by account IDs of players that participated in the match.
+            //val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val minNetworth : kotlin.Long = 789 // kotlin.Long | Filter players based on their net worth.
+            //val maxNetworth : kotlin.Long = 789 // kotlin.Long | Filter players based on their net worth.
+            //val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the high skill range.
+            //val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
+            //val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
+            //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val minAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+            //val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+            //val minKillsPerRaster : kotlin.Int = 56 // kotlin.Int | Filter Raster cells based on minimum kills.
+            //val maxKillsPerRaster : kotlin.Int = 56 // kotlin.Int | Filter Raster cells based on maximum kills.
+            //val minDeathsPerRaster : kotlin.Int = 56 // kotlin.Int | Filter Raster cells based on minimum deaths.
+            //val maxDeathsPerRaster : kotlin.Int = 56 // kotlin.Int | Filter Raster cells based on maximum deaths.
+            //val minGameTimeS : kotlin.Int = 56 // kotlin.Int | Filter kills based on their game time.
+            //val maxGameTimeS : kotlin.Int = 56 // kotlin.Int | Filter kills based on their game time.
+            //val result : kotlin.collections.List<KillDeathStats> = apiInstance.killDeathStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, accountIds, heroIds, minNetworth, maxNetworth, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, minAverageBadge, maxAverageBadge, minKillsPerRaster, maxKillsPerRaster, minDeathsPerRaster, maxDeathsPerRaster, minGameTimeS, maxGameTimeS)
             //result shouldBe ("TODO")
         }
 

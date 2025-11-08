@@ -75,6 +75,7 @@ __all__ = [
     "HeroSynergyStats",
     "ItemPermutationStats",
     "ItemStats",
+    "KillDeathStats",
     "Leaderboard",
     "LeaderboardEntry",
     "MMRHistory",
@@ -157,6 +158,7 @@ from deadlock-api-client.models.hero_stats import HeroStats as HeroStats
 from deadlock-api-client.models.hero_synergy_stats import HeroSynergyStats as HeroSynergyStats
 from deadlock-api-client.models.item_permutation_stats import ItemPermutationStats as ItemPermutationStats
 from deadlock-api-client.models.item_stats import ItemStats as ItemStats
+from deadlock-api-client.models.kill_death_stats import KillDeathStats as KillDeathStats
 from deadlock-api-client.models.leaderboard import Leaderboard as Leaderboard
 from deadlock-api-client.models.leaderboard_entry import LeaderboardEntry as LeaderboardEntry
 from deadlock-api-client.models.mmr_history import MMRHistory as MMRHistory

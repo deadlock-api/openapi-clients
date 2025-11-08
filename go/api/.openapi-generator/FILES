@@ -60,6 +60,7 @@ docs/InfoAPI.md
 docs/InternalAPI.md
 docs/ItemPermutationStats.md
 docs/ItemStats.md
+docs/KillDeathStats.md
 docs/Leaderboard.md
 docs/LeaderboardAPI.md
 docs/LeaderboardEntry.md
@@ -122,6 +123,7 @@ model_hero_stats.go
 model_hero_synergy_stats.go
 model_item_permutation_stats.go
 model_item_stats.go
+model_kill_death_stats.go
 model_leaderboard.go
 model_leaderboard_entry.go
 model_match_salts_response.go

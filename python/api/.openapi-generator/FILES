@@ -59,6 +59,7 @@ deadlock-api-client/models/hero_stats.py
 deadlock-api-client/models/hero_synergy_stats.py
 deadlock-api-client/models/item_permutation_stats.py
 deadlock-api-client/models/item_stats.py
+deadlock-api-client/models/kill_death_stats.py
 deadlock-api-client/models/leaderboard.py
 deadlock-api-client/models/leaderboard_entry.py
 deadlock-api-client/models/match_salts_response.py
@@ -121,6 +122,7 @@ docs/InfoApi.md
 docs/InternalApi.md
 docs/ItemPermutationStats.md
 docs/ItemStats.md
+docs/KillDeathStats.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
@@ -194,6 +196,7 @@ test/test_info_api.py
 test/test_internal_api.py
 test/test_item_permutation_stats.py
 test/test_item_stats.py
+test/test_kill_death_stats.py
 test/test_leaderboard.py
 test/test_leaderboard_api.py
 test/test_leaderboard_entry.py

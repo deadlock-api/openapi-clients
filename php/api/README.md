@@ -69,7 +69,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1759795200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1759881600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**heroSynergiesStats**](docs/Api/AnalyticsApi.md#herosynergiesstats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats
 *AnalyticsApi* | [**itemPermutationStats**](docs/Api/AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsApi* | [**itemStats**](docs/Api/AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
+*AnalyticsApi* | [**killDeathStats**](docs/Api/AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
 *AnalyticsApi* | [**playerScoreboard**](docs/Api/AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**playerStatsMetrics**](docs/Api/AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
 *BuildsApi* | [**searchBuilds**](docs/Api/BuildsApi.md#searchbuilds) | **GET** /v1/builds | Search
@@ -194,6 +195,7 @@ Class | Method | HTTP request | Description
 - [HeroSynergyStats](docs/Model/HeroSynergyStats.md)
 - [ItemPermutationStats](docs/Model/ItemPermutationStats.md)
 - [ItemStats](docs/Model/ItemStats.md)
+- [KillDeathStats](docs/Model/KillDeathStats.md)
 - [Leaderboard](docs/Model/Leaderboard.md)
 - [LeaderboardEntry](docs/Model/LeaderboardEntry.md)
 - [MMRHistory](docs/Model/MMRHistory.md)

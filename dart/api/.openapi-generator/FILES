@@ -45,6 +45,7 @@ doc/InfoApi.md
 doc/InternalApi.md
 doc/ItemPermutationStats.md
 doc/ItemStats.md
+doc/KillDeathStats.md
 doc/Leaderboard.md
 doc/LeaderboardApi.md
 doc/LeaderboardEntry.md
@@ -127,6 +128,7 @@ lib/model/hero_stats.dart
 lib/model/hero_synergy_stats.dart
 lib/model/item_permutation_stats.dart
 lib/model/item_stats.dart
+lib/model/kill_death_stats.dart
 lib/model/leaderboard.dart
 lib/model/leaderboard_entry.dart
 lib/model/match_salts_response.dart
@@ -188,6 +190,7 @@ test/info_api_test.dart
 test/internal_api_test.dart
 test/item_permutation_stats_test.dart
 test/item_stats_test.dart
+test/kill_death_stats_test.dart
 test/leaderboard_api_test.dart
 test/leaderboard_entry_test.dart
 test/leaderboard_test.dart

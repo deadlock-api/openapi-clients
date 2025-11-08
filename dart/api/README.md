@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**heroSynergiesStats**](doc//AnalyticsApi.md#herosynergiesstats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats
 *AnalyticsApi* | [**itemPermutationStats**](doc//AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsApi* | [**itemStats**](doc//AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
+*AnalyticsApi* | [**killDeathStats**](doc//AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
 *AnalyticsApi* | [**playerScoreboard**](doc//AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**playerStatsMetrics**](doc//AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
 *BuildsApi* | [**searchBuilds**](doc//BuildsApi.md#searchbuilds) | **GET** /v1/builds | Search
@@ -183,6 +184,7 @@ Class | Method | HTTP request | Description
  - [HeroSynergyStats](doc//HeroSynergyStats.md)
  - [ItemPermutationStats](doc//ItemPermutationStats.md)
  - [ItemStats](doc//ItemStats.md)
+ - [KillDeathStats](doc//KillDeathStats.md)
  - [Leaderboard](doc//Leaderboard.md)
  - [LeaderboardEntry](doc//LeaderboardEntry.md)
  - [MMRHistory](doc//MMRHistory.md)

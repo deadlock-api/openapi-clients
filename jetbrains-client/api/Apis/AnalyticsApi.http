@@ -50,6 +50,11 @@ Accept: application/json
 GET https://api.deadlock-api.com/v1/analytics/item-stats?bucket={{bucket}}&heroIds={{heroIds}}&heroId={{heroId}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
+### Kill Death Stats
+## Kill Death Stats
+GET https://api.deadlock-api.com/v1/analytics/kill-death-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&accountIds={{accountIds}}&heroIds={{heroIds}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minKillsPerRaster={{minKillsPerRaster}}&maxKillsPerRaster={{maxKillsPerRaster}}&minDeathsPerRaster={{minDeathsPerRaster}}&maxDeathsPerRaster={{maxDeathsPerRaster}}&minGameTimeS={{minGameTimeS}}&maxGameTimeS={{maxGameTimeS}}
+Accept: application/json
+
 ### Player Scoreboard
 ## Player Scoreboard
 GET https://api.deadlock-api.com/v1/analytics/scoreboards/players?sortBy={{sortBy}}&sortDirection={{sortDirection}}&heroId={{heroId}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&start={{start}}&limit={{limit}}&accountIds={{accountIds}}

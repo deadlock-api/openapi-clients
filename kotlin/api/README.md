@@ -69,6 +69,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *AnalyticsApi* | [**heroSynergiesStats**](docs/AnalyticsApi.md#herosynergiesstats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats |
 | *AnalyticsApi* | [**itemPermutationStats**](docs/AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats |
 | *AnalyticsApi* | [**itemStats**](docs/AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats |
+| *AnalyticsApi* | [**killDeathStats**](docs/AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats |
 | *AnalyticsApi* | [**playerScoreboard**](docs/AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard |
 | *AnalyticsApi* | [**playerStatsMetrics**](docs/AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics |
 | *BuildsApi* | [**searchBuilds**](docs/BuildsApi.md#searchbuilds) | **GET** /v1/builds | Search |
@@ -155,6 +156,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock-api-client.models.HeroSynergyStats](docs/HeroSynergyStats.md)
  - [deadlock-api-client.models.ItemPermutationStats](docs/ItemPermutationStats.md)
  - [deadlock-api-client.models.ItemStats](docs/ItemStats.md)
+ - [deadlock-api-client.models.KillDeathStats](docs/KillDeathStats.md)
  - [deadlock-api-client.models.Leaderboard](docs/Leaderboard.md)
  - [deadlock-api-client.models.LeaderboardEntry](docs/LeaderboardEntry.md)
  - [deadlock-api-client.models.MMRHistory](docs/MMRHistory.md)

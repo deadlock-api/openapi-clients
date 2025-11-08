@@ -43,6 +43,7 @@ docs/InfoApi.md
 docs/InternalApi.md
 docs/ItemPermutationStats.md
 docs/ItemStats.md
+docs/KillDeathStats.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
@@ -137,6 +138,7 @@ src/main/kotlin/deadlock-api-client/models/HeroStats.kt
 src/main/kotlin/deadlock-api-client/models/HeroSynergyStats.kt
 src/main/kotlin/deadlock-api-client/models/ItemPermutationStats.kt
 src/main/kotlin/deadlock-api-client/models/ItemStats.kt
+src/main/kotlin/deadlock-api-client/models/KillDeathStats.kt
 src/main/kotlin/deadlock-api-client/models/Leaderboard.kt
 src/main/kotlin/deadlock-api-client/models/LeaderboardEntry.kt
 src/main/kotlin/deadlock-api-client/models/MMRHistory.kt
@@ -203,6 +205,7 @@ src/test/kotlin/deadlock-api-client/models/HeroStatsTest.kt
 src/test/kotlin/deadlock-api-client/models/HeroSynergyStatsTest.kt
 src/test/kotlin/deadlock-api-client/models/ItemPermutationStatsTest.kt
 src/test/kotlin/deadlock-api-client/models/ItemStatsTest.kt
+src/test/kotlin/deadlock-api-client/models/KillDeathStatsTest.kt
 src/test/kotlin/deadlock-api-client/models/LeaderboardEntryTest.kt
 src/test/kotlin/deadlock-api-client/models/LeaderboardTest.kt
 src/test/kotlin/deadlock-api-client/models/MMRHistoryTest.kt

@@ -68,6 +68,8 @@ pub mod item_permutation_stats;
 pub use self::item_permutation_stats::ItemPermutationStats;
 pub mod item_stats;
 pub use self::item_stats::ItemStats;
+pub mod kill_death_stats;
+pub use self::kill_death_stats::KillDeathStats;
 pub mod leaderboard;
 pub use self::leaderboard::Leaderboard;
 pub mod leaderboard_entry;

@@ -24,6 +24,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**heroSynergiesStats**](Apis/AnalyticsApi.http#herosynergiesstats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats
 *AnalyticsApi* | [**itemPermutationStats**](Apis/AnalyticsApi.http#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsApi* | [**itemStats**](Apis/AnalyticsApi.http#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
+*AnalyticsApi* | [**killDeathStats**](Apis/AnalyticsApi.http#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
 *AnalyticsApi* | [**playerScoreboard**](Apis/AnalyticsApi.http#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**playerStatsMetrics**](Apis/AnalyticsApi.http#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
 *BuildsApi* | [**searchBuilds**](Apis/BuildsApi.http#searchbuilds) | **GET** /v1/builds | Search

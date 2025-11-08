@@ -55,6 +55,7 @@ api/Model/HeroStats.php
 api/Model/HeroSynergyStats.php
 api/Model/ItemPermutationStats.php
 api/Model/ItemStats.php
+api/Model/KillDeathStats.php
 api/Model/Leaderboard.php
 api/Model/LeaderboardEntry.php
 api/Model/MMRHistory.php
@@ -124,6 +125,7 @@ docs/Model/HeroStats.md
 docs/Model/HeroSynergyStats.md
 docs/Model/ItemPermutationStats.md
 docs/Model/ItemStats.md
+docs/Model/KillDeathStats.md
 docs/Model/Leaderboard.md
 docs/Model/LeaderboardEntry.md
 docs/Model/MMRHistory.md
@@ -192,6 +194,7 @@ test/Model/HeroStatsTest.php
 test/Model/HeroSynergyStatsTest.php
 test/Model/ItemPermutationStatsTest.php
 test/Model/ItemStatsTest.php
+test/Model/KillDeathStatsTest.php
 test/Model/LeaderboardEntryTest.php
 test/Model/LeaderboardTest.php
 test/Model/MMRHistoryTest.php

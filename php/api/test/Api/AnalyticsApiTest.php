@@ -192,6 +192,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for killDeathStats
+     *
+     * Kill Death Stats.
+     *
+     */
+    public function testKillDeathStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for playerScoreboard
      *
      * Player Scoreboard.

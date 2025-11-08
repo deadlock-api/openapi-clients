@@ -82,7 +82,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
-    min_unix_timestamp = 1759795200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1759795200)
+    min_unix_timestamp = 1759881600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1759881600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -124,6 +124,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**hero_synergies_stats**](docs/AnalyticsApi.md#hero_synergies_stats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats
 *AnalyticsApi* | [**item_permutation_stats**](docs/AnalyticsApi.md#item_permutation_stats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsApi* | [**item_stats**](docs/AnalyticsApi.md#item_stats) | **GET** /v1/analytics/item-stats | Item Stats
+*AnalyticsApi* | [**kill_death_stats**](docs/AnalyticsApi.md#kill_death_stats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
 *AnalyticsApi* | [**player_scoreboard**](docs/AnalyticsApi.md#player_scoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**player_stats_metrics**](docs/AnalyticsApi.md#player_stats_metrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
 *BuildsApi* | [**search_builds**](docs/BuildsApi.md#search_builds) | **GET** /v1/builds | Search
@@ -209,6 +210,7 @@ Class | Method | HTTP request | Description
  - [HeroSynergyStats](docs/HeroSynergyStats.md)
  - [ItemPermutationStats](docs/ItemPermutationStats.md)
  - [ItemStats](docs/ItemStats.md)
+ - [KillDeathStats](docs/KillDeathStats.md)
  - [Leaderboard](docs/Leaderboard.md)
  - [LeaderboardEntry](docs/LeaderboardEntry.md)
  - [MMRHistory](docs/MMRHistory.md)

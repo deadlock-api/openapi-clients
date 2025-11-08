@@ -107,6 +107,15 @@ void main() {
       // TODO
     });
 
+    // Kill Death Stats
+    //
+    //  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+    //
+    //Future<List<KillDeathStats>> killDeathStats({ int minUnixTimestamp, int maxUnixTimestamp, int minDurationS, int maxDurationS, List<int> accountIds, String heroIds, int minNetworth, int maxNetworth, bool isHighSkillRangeParties, bool isLowPriPool, bool isNewPlayerPool, int minMatchId, int maxMatchId, int minAverageBadge, int maxAverageBadge, int minKillsPerRaster, int maxKillsPerRaster, int minDeathsPerRaster, int maxDeathsPerRaster, int minGameTimeS, int maxGameTimeS }) async
+    test('test killDeathStats', () async {
+      // TODO
+    });
+
     // Player Scoreboard
     //
     //  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
