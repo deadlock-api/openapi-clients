@@ -144,7 +144,7 @@ func (a *MMRAPIService) HeroMmrExecute(r ApiHeroMmrRequest) ([]DistributionEntry
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1759881600
+        var defaultValue int64 = 1759968000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -841,7 +841,7 @@ func (a *MMRAPIService) Mmr_2Execute(r ApiMmr_0Request) ([]DistributionEntry, *h
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1759881600
+        var defaultValue int64 = 1759968000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
