@@ -146,7 +146,7 @@ class MMRApi
      * Hero MMR Distribution
      *
      * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1759968000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760054400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -161,7 +161,7 @@ class MMRApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DistributionEntry[]
      */
-    public function heroMmr($hero_id, $min_unix_timestamp = 1759968000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    public function heroMmr($hero_id, $min_unix_timestamp = 1760054400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
     {
         list($response) = $this->heroMmrWithHttpInfo($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
         return $response;
@@ -173,7 +173,7 @@ class MMRApi
      * Hero MMR Distribution
      *
      * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1759968000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760054400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -188,7 +188,7 @@ class MMRApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DistributionEntry[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroMmrWithHttpInfo($hero_id, $min_unix_timestamp = 1759968000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    public function heroMmrWithHttpInfo($hero_id, $min_unix_timestamp = 1760054400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
     {
         $request = $this->heroMmrRequest($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
 
@@ -267,7 +267,7 @@ class MMRApi
      * Hero MMR Distribution
      *
      * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1759968000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760054400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -281,7 +281,7 @@ class MMRApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroMmrAsync($hero_id, $min_unix_timestamp = 1759968000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    public function heroMmrAsync($hero_id, $min_unix_timestamp = 1760054400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
     {
         return $this->heroMmrAsyncWithHttpInfo($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
             ->then(
@@ -297,7 +297,7 @@ class MMRApi
      * Hero MMR Distribution
      *
      * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1759968000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760054400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -311,7 +311,7 @@ class MMRApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroMmrAsyncWithHttpInfo($hero_id, $min_unix_timestamp = 1759968000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    public function heroMmrAsyncWithHttpInfo($hero_id, $min_unix_timestamp = 1760054400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DistributionEntry[]';
         $request = $this->heroMmrRequest($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
@@ -356,7 +356,7 @@ class MMRApi
      * Create request for operation 'heroMmr'
      *
      * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1759968000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760054400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -370,7 +370,7 @@ class MMRApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroMmrRequest($hero_id, $min_unix_timestamp = 1759968000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    public function heroMmrRequest($hero_id, $min_unix_timestamp = 1760054400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
     {
 
         // verify the required parameter 'hero_id' is set
@@ -1743,7 +1743,7 @@ class MMRApi
      *
      * MMR Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1759968000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760054400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1758,7 +1758,7 @@ class MMRApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DistributionEntry[]
      */
-    public function mmr_0($min_unix_timestamp = 1759968000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
+    public function mmr_0($min_unix_timestamp = 1760054400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
     {
         list($response) = $this->mmr_0WithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
         return $response;
@@ -1769,7 +1769,7 @@ class MMRApi
      *
      * MMR Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1759968000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760054400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1784,7 +1784,7 @@ class MMRApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DistributionEntry[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function mmr_0WithHttpInfo($min_unix_timestamp = 1759968000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
+    public function mmr_0WithHttpInfo($min_unix_timestamp = 1760054400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
     {
         $request = $this->mmr_0Request($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
 
@@ -1862,7 +1862,7 @@ class MMRApi
      *
      * MMR Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1759968000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760054400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1876,7 +1876,7 @@ class MMRApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mmr_0Async($min_unix_timestamp = 1759968000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
+    public function mmr_0Async($min_unix_timestamp = 1760054400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
     {
         return $this->mmr_0AsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
             ->then(
@@ -1891,7 +1891,7 @@ class MMRApi
      *
      * MMR Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1759968000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760054400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1905,7 +1905,7 @@ class MMRApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mmr_0AsyncWithHttpInfo($min_unix_timestamp = 1759968000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
+    public function mmr_0AsyncWithHttpInfo($min_unix_timestamp = 1760054400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DistributionEntry[]';
         $request = $this->mmr_0Request($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
@@ -1949,7 +1949,7 @@ class MMRApi
     /**
      * Create request for operation 'mmr_0'
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1759968000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760054400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1963,7 +1963,7 @@ class MMRApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function mmr_0Request($min_unix_timestamp = 1759968000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
+    public function mmr_0Request($min_unix_timestamp = 1760054400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
     {
 
 
