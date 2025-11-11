@@ -19,21 +19,21 @@ void main() {
   group('tests for HeroesApi', () {
     // Get Hero By Name
     //
-    //Future<HeroV2> getHeroByNameV2HeroesByNameNameGet(String name, { Language language, DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
+    //Future<HeroV2> getHeroByNameV2HeroesByNameNameGet(String name, { Language language, DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
     test('test getHeroByNameV2HeroesByNameNameGet', () async {
       // TODO
     });
 
     // Get Hero
     //
-    //Future<HeroV2> getHeroV2HeroesIdGet(int id, { Language language, DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
+    //Future<HeroV2> getHeroV2HeroesIdGet(int id, { Language language, DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
     test('test getHeroV2HeroesIdGet', () async {
       // TODO
     });
 
     // Get Heroes
     //
-    //Future<List<HeroV2>> getHeroesV2HeroesGet({ Language language, DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion, bool onlyActive }) async
+    //Future<List<HeroV2>> getHeroesV2HeroesGet({ Language language, DeadlockAssetsApiRoutesRawValidClientVersions clientVersion, bool onlyActive }) async
     test('test getHeroesV2HeroesGet', () async {
       // TODO
     });

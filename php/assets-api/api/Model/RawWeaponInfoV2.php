@@ -100,6 +100,9 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'zoom_fov' => 'float',
         'zoom_move_speed_percent' => 'float',
         'bullets' => 'int',
+        'reload_single_bullets_initial_delay' => 'float',
+        'reload_single_bullets' => 'bool',
+        'reload_single_bullets_allow_cancel' => 'bool',
         'burst_shot_count' => 'int',
         'clip_size' => 'int',
         'spread' => 'float',
@@ -163,6 +166,9 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'zoom_fov' => null,
         'zoom_move_speed_percent' => null,
         'bullets' => null,
+        'reload_single_bullets_initial_delay' => null,
+        'reload_single_bullets' => null,
+        'reload_single_bullets_allow_cancel' => null,
         'burst_shot_count' => null,
         'clip_size' => null,
         'spread' => null,
@@ -224,6 +230,9 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'zoom_fov' => true,
         'zoom_move_speed_percent' => true,
         'bullets' => true,
+        'reload_single_bullets_initial_delay' => true,
+        'reload_single_bullets' => true,
+        'reload_single_bullets_allow_cancel' => true,
         'burst_shot_count' => true,
         'clip_size' => true,
         'spread' => true,
@@ -365,6 +374,9 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'zoom_fov' => 'zoom_fov',
         'zoom_move_speed_percent' => 'zoom_move_speed_percent',
         'bullets' => 'bullets',
+        'reload_single_bullets_initial_delay' => 'reload_single_bullets_initial_delay',
+        'reload_single_bullets' => 'reload_single_bullets',
+        'reload_single_bullets_allow_cancel' => 'reload_single_bullets_allow_cancel',
         'burst_shot_count' => 'burst_shot_count',
         'clip_size' => 'clip_size',
         'spread' => 'spread',
@@ -426,6 +438,9 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'zoom_fov' => 'setZoomFov',
         'zoom_move_speed_percent' => 'setZoomMoveSpeedPercent',
         'bullets' => 'setBullets',
+        'reload_single_bullets_initial_delay' => 'setReloadSingleBulletsInitialDelay',
+        'reload_single_bullets' => 'setReloadSingleBullets',
+        'reload_single_bullets_allow_cancel' => 'setReloadSingleBulletsAllowCancel',
         'burst_shot_count' => 'setBurstShotCount',
         'clip_size' => 'setClipSize',
         'spread' => 'setSpread',
@@ -487,6 +502,9 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'zoom_fov' => 'getZoomFov',
         'zoom_move_speed_percent' => 'getZoomMoveSpeedPercent',
         'bullets' => 'getBullets',
+        'reload_single_bullets_initial_delay' => 'getReloadSingleBulletsInitialDelay',
+        'reload_single_bullets' => 'getReloadSingleBullets',
+        'reload_single_bullets_allow_cancel' => 'getReloadSingleBulletsAllowCancel',
         'burst_shot_count' => 'getBurstShotCount',
         'clip_size' => 'getClipSize',
         'spread' => 'getSpread',
@@ -599,6 +617,9 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('zoom_fov', $data ?? [], null);
         $this->setIfExists('zoom_move_speed_percent', $data ?? [], null);
         $this->setIfExists('bullets', $data ?? [], null);
+        $this->setIfExists('reload_single_bullets_initial_delay', $data ?? [], null);
+        $this->setIfExists('reload_single_bullets', $data ?? [], null);
+        $this->setIfExists('reload_single_bullets_allow_cancel', $data ?? [], null);
         $this->setIfExists('burst_shot_count', $data ?? [], null);
         $this->setIfExists('clip_size', $data ?? [], null);
         $this->setIfExists('spread', $data ?? [], null);
@@ -2111,6 +2132,108 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['bullets'] = $bullets;
+
+        return $this;
+    }
+
+    /**
+     * Gets reload_single_bullets_initial_delay
+     *
+     * @return float|null
+     */
+    public function getReloadSingleBulletsInitialDelay()
+    {
+        return $this->container['reload_single_bullets_initial_delay'];
+    }
+
+    /**
+     * Sets reload_single_bullets_initial_delay
+     *
+     * @param float|null $reload_single_bullets_initial_delay reload_single_bullets_initial_delay
+     *
+     * @return self
+     */
+    public function setReloadSingleBulletsInitialDelay($reload_single_bullets_initial_delay)
+    {
+        if (is_null($reload_single_bullets_initial_delay)) {
+            array_push($this->openAPINullablesSetToNull, 'reload_single_bullets_initial_delay');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reload_single_bullets_initial_delay', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['reload_single_bullets_initial_delay'] = $reload_single_bullets_initial_delay;
+
+        return $this;
+    }
+
+    /**
+     * Gets reload_single_bullets
+     *
+     * @return bool|null
+     */
+    public function getReloadSingleBullets()
+    {
+        return $this->container['reload_single_bullets'];
+    }
+
+    /**
+     * Sets reload_single_bullets
+     *
+     * @param bool|null $reload_single_bullets reload_single_bullets
+     *
+     * @return self
+     */
+    public function setReloadSingleBullets($reload_single_bullets)
+    {
+        if (is_null($reload_single_bullets)) {
+            array_push($this->openAPINullablesSetToNull, 'reload_single_bullets');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reload_single_bullets', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['reload_single_bullets'] = $reload_single_bullets;
+
+        return $this;
+    }
+
+    /**
+     * Gets reload_single_bullets_allow_cancel
+     *
+     * @return bool|null
+     */
+    public function getReloadSingleBulletsAllowCancel()
+    {
+        return $this->container['reload_single_bullets_allow_cancel'];
+    }
+
+    /**
+     * Sets reload_single_bullets_allow_cancel
+     *
+     * @param bool|null $reload_single_bullets_allow_cancel reload_single_bullets_allow_cancel
+     *
+     * @return self
+     */
+    public function setReloadSingleBulletsAllowCancel($reload_single_bullets_allow_cancel)
+    {
+        if (is_null($reload_single_bullets_allow_cancel)) {
+            array_push($this->openAPINullablesSetToNull, 'reload_single_bullets_allow_cancel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reload_single_bullets_allow_cancel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['reload_single_bullets_allow_cancel'] = $reload_single_bullets_allow_cancel;
 
         return $this;
     }

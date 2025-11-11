@@ -231,6 +231,21 @@ void main() {
       // TODO
     });
 
+    // num reloadSingleBulletsInitialDelay
+    test('to test the property `reloadSingleBulletsInitialDelay`', () async {
+      // TODO
+    });
+
+    // bool reloadSingleBullets
+    test('to test the property `reloadSingleBullets`', () async {
+      // TODO
+    });
+
+    // bool reloadSingleBulletsAllowCancel
+    test('to test the property `reloadSingleBulletsAllowCancel`', () async {
+      // TODO
+    });
+
     // int burstShotCount
     test('to test the property `burstShotCount`', () async {
       // TODO

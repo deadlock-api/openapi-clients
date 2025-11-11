@@ -1,6 +1,6 @@
 <?php
 /**
- * DeadlockAssetsApiRoutesV1ValidClientVersions
+ * DeadlockAssetsApiRoutesRawValidClientVersions
  *
  * PHP version 8.1
  *
@@ -30,18 +30,20 @@ namespace OpenAPI\Client\Model;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DeadlockAssetsApiRoutesV1ValidClientVersions Class Doc Comment
+ * DeadlockAssetsApiRoutesRawValidClientVersions Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DeadlockAssetsApiRoutesV1ValidClientVersions
+class DeadlockAssetsApiRoutesRawValidClientVersions
 {
     /**
      * Possible values of this enum
      */
+    public const NUMBER_5972 = 5972;
+
     public const NUMBER_5959 = 5959;
 
     public const NUMBER_5945 = 5945;
@@ -113,6 +115,7 @@ class DeadlockAssetsApiRoutesV1ValidClientVersions
     public static function getAllowableEnumValues()
     {
         return [
+            self::NUMBER_5972,
             self::NUMBER_5959,
             self::NUMBER_5945,
             self::NUMBER_5920,

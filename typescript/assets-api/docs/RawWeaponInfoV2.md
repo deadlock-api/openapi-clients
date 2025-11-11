@@ -48,6 +48,9 @@ Name | Type | Description | Notes
 **zoom_fov** | **number** |  | [optional] [default to undefined]
 **zoom_move_speed_percent** | **number** |  | [optional] [default to undefined]
 **bullets** | **number** |  | [optional] [default to undefined]
+**reload_single_bullets_initial_delay** | **number** |  | [optional] [default to undefined]
+**reload_single_bullets** | **boolean** |  | [optional] [default to undefined]
+**reload_single_bullets_allow_cancel** | **boolean** |  | [optional] [default to undefined]
 **burst_shot_count** | **number** |  | [optional] [default to undefined]
 **clip_size** | **number** |  | [optional] [default to undefined]
 **spread** | **number** |  | [optional] [default to undefined]
@@ -108,6 +111,9 @@ const instance: RawWeaponInfoV2 = {
     zoom_fov,
     zoom_move_speed_percent,
     bullets,
+    reload_single_bullets_initial_delay,
+    reload_single_bullets,
+    reload_single_bullets_allow_cancel,
     burst_shot_count,
     clip_size,
     spread,

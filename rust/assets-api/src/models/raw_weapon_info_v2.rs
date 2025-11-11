@@ -99,6 +99,12 @@ pub struct RawWeaponInfoV2 {
     pub zoom_move_speed_percent: Option<Option<f64>>,
     #[serde(rename = "bullets", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub bullets: Option<Option<i32>>,
+    #[serde(rename = "reload_single_bullets_initial_delay", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub reload_single_bullets_initial_delay: Option<Option<f64>>,
+    #[serde(rename = "reload_single_bullets", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub reload_single_bullets: Option<Option<bool>>,
+    #[serde(rename = "reload_single_bullets_allow_cancel", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub reload_single_bullets_allow_cancel: Option<Option<bool>>,
     #[serde(rename = "burst_shot_count", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub burst_shot_count: Option<Option<i32>>,
     #[serde(rename = "clip_size", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -167,6 +173,9 @@ impl RawWeaponInfoV2 {
             zoom_fov: None,
             zoom_move_speed_percent: None,
             bullets: None,
+            reload_single_bullets_initial_delay: None,
+            reload_single_bullets: None,
+            reload_single_bullets_allow_cancel: None,
             burst_shot_count: None,
             clip_size: None,
             spread: None,

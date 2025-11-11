@@ -62,6 +62,9 @@ type RawWeaponInfoV2 struct {
 	ZoomFov NullableFloat32 `json:"zoom_fov,omitempty"`
 	ZoomMoveSpeedPercent NullableFloat32 `json:"zoom_move_speed_percent,omitempty"`
 	Bullets NullableInt32 `json:"bullets,omitempty"`
+	ReloadSingleBulletsInitialDelay NullableFloat32 `json:"reload_single_bullets_initial_delay,omitempty"`
+	ReloadSingleBullets NullableBool `json:"reload_single_bullets,omitempty"`
+	ReloadSingleBulletsAllowCancel NullableBool `json:"reload_single_bullets_allow_cancel,omitempty"`
 	BurstShotCount NullableInt32 `json:"burst_shot_count,omitempty"`
 	ClipSize NullableInt32 `json:"clip_size,omitempty"`
 	Spread NullableFloat32 `json:"spread,omitempty"`
@@ -1897,6 +1900,132 @@ func (o *RawWeaponInfoV2) UnsetBullets() {
 	o.Bullets.Unset()
 }
 
+// GetReloadSingleBulletsInitialDelay returns the ReloadSingleBulletsInitialDelay field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RawWeaponInfoV2) GetReloadSingleBulletsInitialDelay() float32 {
+	if o == nil || IsNil(o.ReloadSingleBulletsInitialDelay.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.ReloadSingleBulletsInitialDelay.Get()
+}
+
+// GetReloadSingleBulletsInitialDelayOk returns a tuple with the ReloadSingleBulletsInitialDelay field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RawWeaponInfoV2) GetReloadSingleBulletsInitialDelayOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ReloadSingleBulletsInitialDelay.Get(), o.ReloadSingleBulletsInitialDelay.IsSet()
+}
+
+// HasReloadSingleBulletsInitialDelay returns a boolean if a field has been set.
+func (o *RawWeaponInfoV2) HasReloadSingleBulletsInitialDelay() bool {
+	if o != nil && o.ReloadSingleBulletsInitialDelay.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetReloadSingleBulletsInitialDelay gets a reference to the given NullableFloat32 and assigns it to the ReloadSingleBulletsInitialDelay field.
+func (o *RawWeaponInfoV2) SetReloadSingleBulletsInitialDelay(v float32) {
+	o.ReloadSingleBulletsInitialDelay.Set(&v)
+}
+// SetReloadSingleBulletsInitialDelayNil sets the value for ReloadSingleBulletsInitialDelay to be an explicit nil
+func (o *RawWeaponInfoV2) SetReloadSingleBulletsInitialDelayNil() {
+	o.ReloadSingleBulletsInitialDelay.Set(nil)
+}
+
+// UnsetReloadSingleBulletsInitialDelay ensures that no value is present for ReloadSingleBulletsInitialDelay, not even an explicit nil
+func (o *RawWeaponInfoV2) UnsetReloadSingleBulletsInitialDelay() {
+	o.ReloadSingleBulletsInitialDelay.Unset()
+}
+
+// GetReloadSingleBullets returns the ReloadSingleBullets field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RawWeaponInfoV2) GetReloadSingleBullets() bool {
+	if o == nil || IsNil(o.ReloadSingleBullets.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ReloadSingleBullets.Get()
+}
+
+// GetReloadSingleBulletsOk returns a tuple with the ReloadSingleBullets field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RawWeaponInfoV2) GetReloadSingleBulletsOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ReloadSingleBullets.Get(), o.ReloadSingleBullets.IsSet()
+}
+
+// HasReloadSingleBullets returns a boolean if a field has been set.
+func (o *RawWeaponInfoV2) HasReloadSingleBullets() bool {
+	if o != nil && o.ReloadSingleBullets.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetReloadSingleBullets gets a reference to the given NullableBool and assigns it to the ReloadSingleBullets field.
+func (o *RawWeaponInfoV2) SetReloadSingleBullets(v bool) {
+	o.ReloadSingleBullets.Set(&v)
+}
+// SetReloadSingleBulletsNil sets the value for ReloadSingleBullets to be an explicit nil
+func (o *RawWeaponInfoV2) SetReloadSingleBulletsNil() {
+	o.ReloadSingleBullets.Set(nil)
+}
+
+// UnsetReloadSingleBullets ensures that no value is present for ReloadSingleBullets, not even an explicit nil
+func (o *RawWeaponInfoV2) UnsetReloadSingleBullets() {
+	o.ReloadSingleBullets.Unset()
+}
+
+// GetReloadSingleBulletsAllowCancel returns the ReloadSingleBulletsAllowCancel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RawWeaponInfoV2) GetReloadSingleBulletsAllowCancel() bool {
+	if o == nil || IsNil(o.ReloadSingleBulletsAllowCancel.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ReloadSingleBulletsAllowCancel.Get()
+}
+
+// GetReloadSingleBulletsAllowCancelOk returns a tuple with the ReloadSingleBulletsAllowCancel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RawWeaponInfoV2) GetReloadSingleBulletsAllowCancelOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ReloadSingleBulletsAllowCancel.Get(), o.ReloadSingleBulletsAllowCancel.IsSet()
+}
+
+// HasReloadSingleBulletsAllowCancel returns a boolean if a field has been set.
+func (o *RawWeaponInfoV2) HasReloadSingleBulletsAllowCancel() bool {
+	if o != nil && o.ReloadSingleBulletsAllowCancel.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetReloadSingleBulletsAllowCancel gets a reference to the given NullableBool and assigns it to the ReloadSingleBulletsAllowCancel field.
+func (o *RawWeaponInfoV2) SetReloadSingleBulletsAllowCancel(v bool) {
+	o.ReloadSingleBulletsAllowCancel.Set(&v)
+}
+// SetReloadSingleBulletsAllowCancelNil sets the value for ReloadSingleBulletsAllowCancel to be an explicit nil
+func (o *RawWeaponInfoV2) SetReloadSingleBulletsAllowCancelNil() {
+	o.ReloadSingleBulletsAllowCancel.Set(nil)
+}
+
+// UnsetReloadSingleBulletsAllowCancel ensures that no value is present for ReloadSingleBulletsAllowCancel, not even an explicit nil
+func (o *RawWeaponInfoV2) UnsetReloadSingleBulletsAllowCancel() {
+	o.ReloadSingleBulletsAllowCancel.Unset()
+}
+
 // GetBurstShotCount returns the BurstShotCount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RawWeaponInfoV2) GetBurstShotCount() int32 {
 	if o == nil || IsNil(o.BurstShotCount.Get()) {
@@ -2455,6 +2584,15 @@ func (o RawWeaponInfoV2) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Bullets.IsSet() {
 		toSerialize["bullets"] = o.Bullets.Get()
+	}
+	if o.ReloadSingleBulletsInitialDelay.IsSet() {
+		toSerialize["reload_single_bullets_initial_delay"] = o.ReloadSingleBulletsInitialDelay.Get()
+	}
+	if o.ReloadSingleBullets.IsSet() {
+		toSerialize["reload_single_bullets"] = o.ReloadSingleBullets.Get()
+	}
+	if o.ReloadSingleBulletsAllowCancel.IsSet() {
+		toSerialize["reload_single_bullets_allow_cancel"] = o.ReloadSingleBulletsAllowCancel.Get()
 	}
 	if o.BurstShotCount.IsSet() {
 		toSerialize["burst_shot_count"] = o.BurstShotCount.Get()

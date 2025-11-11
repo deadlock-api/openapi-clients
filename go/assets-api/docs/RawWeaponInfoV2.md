@@ -47,6 +47,9 @@ Name | Type | Description | Notes
 **ZoomFov** | Pointer to **NullableFloat32** |  | [optional] 
 **ZoomMoveSpeedPercent** | Pointer to **NullableFloat32** |  | [optional] 
 **Bullets** | Pointer to **NullableInt32** |  | [optional] 
+**ReloadSingleBulletsInitialDelay** | Pointer to **NullableFloat32** |  | [optional] 
+**ReloadSingleBullets** | Pointer to **NullableBool** |  | [optional] 
+**ReloadSingleBulletsAllowCancel** | Pointer to **NullableBool** |  | [optional] 
 **BurstShotCount** | Pointer to **NullableInt32** |  | [optional] 
 **ClipSize** | Pointer to **NullableInt32** |  | [optional] 
 **Spread** | Pointer to **NullableFloat32** |  | [optional] 
@@ -1582,6 +1585,111 @@ HasBullets returns a boolean if a field has been set.
 `func (o *RawWeaponInfoV2) UnsetBullets()`
 
 UnsetBullets ensures that no value is present for Bullets, not even an explicit nil
+### GetReloadSingleBulletsInitialDelay
+
+`func (o *RawWeaponInfoV2) GetReloadSingleBulletsInitialDelay() float32`
+
+GetReloadSingleBulletsInitialDelay returns the ReloadSingleBulletsInitialDelay field if non-nil, zero value otherwise.
+
+### GetReloadSingleBulletsInitialDelayOk
+
+`func (o *RawWeaponInfoV2) GetReloadSingleBulletsInitialDelayOk() (*float32, bool)`
+
+GetReloadSingleBulletsInitialDelayOk returns a tuple with the ReloadSingleBulletsInitialDelay field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReloadSingleBulletsInitialDelay
+
+`func (o *RawWeaponInfoV2) SetReloadSingleBulletsInitialDelay(v float32)`
+
+SetReloadSingleBulletsInitialDelay sets ReloadSingleBulletsInitialDelay field to given value.
+
+### HasReloadSingleBulletsInitialDelay
+
+`func (o *RawWeaponInfoV2) HasReloadSingleBulletsInitialDelay() bool`
+
+HasReloadSingleBulletsInitialDelay returns a boolean if a field has been set.
+
+### SetReloadSingleBulletsInitialDelayNil
+
+`func (o *RawWeaponInfoV2) SetReloadSingleBulletsInitialDelayNil(b bool)`
+
+ SetReloadSingleBulletsInitialDelayNil sets the value for ReloadSingleBulletsInitialDelay to be an explicit nil
+
+### UnsetReloadSingleBulletsInitialDelay
+`func (o *RawWeaponInfoV2) UnsetReloadSingleBulletsInitialDelay()`
+
+UnsetReloadSingleBulletsInitialDelay ensures that no value is present for ReloadSingleBulletsInitialDelay, not even an explicit nil
+### GetReloadSingleBullets
+
+`func (o *RawWeaponInfoV2) GetReloadSingleBullets() bool`
+
+GetReloadSingleBullets returns the ReloadSingleBullets field if non-nil, zero value otherwise.
+
+### GetReloadSingleBulletsOk
+
+`func (o *RawWeaponInfoV2) GetReloadSingleBulletsOk() (*bool, bool)`
+
+GetReloadSingleBulletsOk returns a tuple with the ReloadSingleBullets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReloadSingleBullets
+
+`func (o *RawWeaponInfoV2) SetReloadSingleBullets(v bool)`
+
+SetReloadSingleBullets sets ReloadSingleBullets field to given value.
+
+### HasReloadSingleBullets
+
+`func (o *RawWeaponInfoV2) HasReloadSingleBullets() bool`
+
+HasReloadSingleBullets returns a boolean if a field has been set.
+
+### SetReloadSingleBulletsNil
+
+`func (o *RawWeaponInfoV2) SetReloadSingleBulletsNil(b bool)`
+
+ SetReloadSingleBulletsNil sets the value for ReloadSingleBullets to be an explicit nil
+
+### UnsetReloadSingleBullets
+`func (o *RawWeaponInfoV2) UnsetReloadSingleBullets()`
+
+UnsetReloadSingleBullets ensures that no value is present for ReloadSingleBullets, not even an explicit nil
+### GetReloadSingleBulletsAllowCancel
+
+`func (o *RawWeaponInfoV2) GetReloadSingleBulletsAllowCancel() bool`
+
+GetReloadSingleBulletsAllowCancel returns the ReloadSingleBulletsAllowCancel field if non-nil, zero value otherwise.
+
+### GetReloadSingleBulletsAllowCancelOk
+
+`func (o *RawWeaponInfoV2) GetReloadSingleBulletsAllowCancelOk() (*bool, bool)`
+
+GetReloadSingleBulletsAllowCancelOk returns a tuple with the ReloadSingleBulletsAllowCancel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReloadSingleBulletsAllowCancel
+
+`func (o *RawWeaponInfoV2) SetReloadSingleBulletsAllowCancel(v bool)`
+
+SetReloadSingleBulletsAllowCancel sets ReloadSingleBulletsAllowCancel field to given value.
+
+### HasReloadSingleBulletsAllowCancel
+
+`func (o *RawWeaponInfoV2) HasReloadSingleBulletsAllowCancel() bool`
+
+HasReloadSingleBulletsAllowCancel returns a boolean if a field has been set.
+
+### SetReloadSingleBulletsAllowCancelNil
+
+`func (o *RawWeaponInfoV2) SetReloadSingleBulletsAllowCancelNil(b bool)`
+
+ SetReloadSingleBulletsAllowCancelNil sets the value for ReloadSingleBulletsAllowCancel to be an explicit nil
+
+### UnsetReloadSingleBulletsAllowCancel
+`func (o *RawWeaponInfoV2) UnsetReloadSingleBulletsAllowCancel()`
+
+UnsetReloadSingleBulletsAllowCancel ensures that no value is present for ReloadSingleBulletsAllowCancel, not even an explicit nil
 ### GetBurstShotCount
 
 `func (o *RawWeaponInfoV2) GetBurstShotCount() int32`

@@ -70,6 +70,9 @@ import com.squareup.moshi.JsonClass
  * @param zoomFov 
  * @param zoomMoveSpeedPercent 
  * @param bullets 
+ * @param reloadSingleBulletsInitialDelay 
+ * @param reloadSingleBullets 
+ * @param reloadSingleBulletsAllowCancel 
  * @param burstShotCount 
  * @param clipSize 
  * @param spread 
@@ -213,6 +216,15 @@ data class RawWeaponInfoV2 (
 
     @Json(name = "bullets")
     val bullets: kotlin.Int? = null,
+
+    @Json(name = "reload_single_bullets_initial_delay")
+    val reloadSingleBulletsInitialDelay: java.math.BigDecimal? = null,
+
+    @Json(name = "reload_single_bullets")
+    val reloadSingleBullets: kotlin.Boolean? = null,
+
+    @Json(name = "reload_single_bullets_allow_cancel")
+    val reloadSingleBulletsAllowCancel: kotlin.Boolean? = null,
 
     @Json(name = "burst_shot_count")
     val burstShotCount: kotlin.Int? = null,

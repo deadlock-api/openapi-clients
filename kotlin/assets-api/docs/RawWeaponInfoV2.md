@@ -47,6 +47,9 @@
 | **zoomFov** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **zoomMoveSpeedPercent** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **bullets** | **kotlin.Int** |  |  [optional] |
+| **reloadSingleBulletsInitialDelay** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **reloadSingleBullets** | **kotlin.Boolean** |  |  [optional] |
+| **reloadSingleBulletsAllowCancel** | **kotlin.Boolean** |  |  [optional] |
 | **burstShotCount** | **kotlin.Int** |  |  [optional] |
 | **clipSize** | **kotlin.Int** |  |  [optional] |
 | **spread** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

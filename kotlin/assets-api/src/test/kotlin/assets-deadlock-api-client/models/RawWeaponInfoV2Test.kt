@@ -288,6 +288,24 @@ class RawWeaponInfoV2Test : ShouldSpec() {
             //modelInstance.bullets shouldBe ("TODO")
         }
 
+        // to test the property `reloadSingleBulletsInitialDelay`
+        should("test reloadSingleBulletsInitialDelay") {
+            // uncomment below to test the property
+            //modelInstance.reloadSingleBulletsInitialDelay shouldBe ("TODO")
+        }
+
+        // to test the property `reloadSingleBullets`
+        should("test reloadSingleBullets") {
+            // uncomment below to test the property
+            //modelInstance.reloadSingleBullets shouldBe ("TODO")
+        }
+
+        // to test the property `reloadSingleBulletsAllowCancel`
+        should("test reloadSingleBulletsAllowCancel") {
+            // uncomment below to test the property
+            //modelInstance.reloadSingleBulletsAllowCancel shouldBe ("TODO")
+        }
+
         // to test the property `burstShotCount`
         should("test burstShotCount") {
             // uncomment below to test the property

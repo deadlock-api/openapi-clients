@@ -467,6 +467,33 @@ class RawWeaponInfoV2Test extends TestCase
     }
 
     /**
+     * Test attribute "reload_single_bullets_initial_delay"
+     */
+    public function testPropertyReloadSingleBulletsInitialDelay()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "reload_single_bullets"
+     */
+    public function testPropertyReloadSingleBullets()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "reload_single_bullets_allow_cancel"
+     */
+    public function testPropertyReloadSingleBulletsAllowCancel()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "burst_shot_count"
      */
     public function testPropertyBurstShotCount()

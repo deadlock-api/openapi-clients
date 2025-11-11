@@ -26,7 +26,7 @@ Get Build Tags
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -79,7 +79,7 @@ Get Colors
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -107,7 +107,7 @@ Get Icons
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -135,7 +135,7 @@ Get Map
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -164,7 +164,7 @@ Get Ranks
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -192,7 +192,7 @@ Get Sounds
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -220,7 +220,7 @@ Get Steam Info
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
 
 ### Return type
 

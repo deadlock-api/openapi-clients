@@ -74,6 +74,9 @@ class RawWeaponInfoV2(BaseModel):
     zoom_fov: Optional[Union[StrictFloat, StrictInt]] = None
     zoom_move_speed_percent: Optional[Union[StrictFloat, StrictInt]] = None
     bullets: Optional[StrictInt] = None
+    reload_single_bullets_initial_delay: Optional[Union[StrictFloat, StrictInt]] = None
+    reload_single_bullets: Optional[StrictBool] = None
+    reload_single_bullets_allow_cancel: Optional[StrictBool] = None
     burst_shot_count: Optional[StrictInt] = None
     clip_size: Optional[StrictInt] = None
     spread: Optional[Union[StrictFloat, StrictInt]] = None
@@ -84,7 +87,7 @@ class RawWeaponInfoV2(BaseModel):
     bullet_speed_curve: Optional[RawItemWeaponInfoBulletSpeedCurveV2] = None
     horizontal_recoil: Optional[RawWeaponInfoHorizontalRecoilV2] = None
     vertical_recoil: Optional[RawWeaponInfoVerticalRecoilV2] = None
-    __properties: ClassVar[List[str]] = ["can_zoom", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_whiz_distance", "burst_shot_cooldown", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "intra_burst_cycle_time", "max_spin_cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "horizontal_punch", "range", "recoil_recovery_delay_factor", "recoil_recovery_speed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_move_speed", "scatter_yaw_scale", "aiming_shot_spread_penalty", "standing_shot_spread_penalty", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "vertical_punch", "zoom_fov", "zoom_move_speed_percent", "bullets", "burst_shot_count", "clip_size", "spread", "standing_spread", "low_ammo_indicator_threshold", "recoil_seed", "reload_duration", "bullet_speed_curve", "horizontal_recoil", "vertical_recoil"]
+    __properties: ClassVar[List[str]] = ["can_zoom", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_whiz_distance", "burst_shot_cooldown", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "intra_burst_cycle_time", "max_spin_cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "horizontal_punch", "range", "recoil_recovery_delay_factor", "recoil_recovery_speed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_move_speed", "scatter_yaw_scale", "aiming_shot_spread_penalty", "standing_shot_spread_penalty", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "vertical_punch", "zoom_fov", "zoom_move_speed_percent", "bullets", "reload_single_bullets_initial_delay", "reload_single_bullets", "reload_single_bullets_allow_cancel", "burst_shot_count", "clip_size", "spread", "standing_spread", "low_ammo_indicator_threshold", "recoil_seed", "reload_duration", "bullet_speed_curve", "horizontal_recoil", "vertical_recoil"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -355,6 +358,21 @@ class RawWeaponInfoV2(BaseModel):
         if self.bullets is None and "bullets" in self.model_fields_set:
             _dict['bullets'] = None
 
+        # set to None if reload_single_bullets_initial_delay (nullable) is None
+        # and model_fields_set contains the field
+        if self.reload_single_bullets_initial_delay is None and "reload_single_bullets_initial_delay" in self.model_fields_set:
+            _dict['reload_single_bullets_initial_delay'] = None
+
+        # set to None if reload_single_bullets (nullable) is None
+        # and model_fields_set contains the field
+        if self.reload_single_bullets is None and "reload_single_bullets" in self.model_fields_set:
+            _dict['reload_single_bullets'] = None
+
+        # set to None if reload_single_bullets_allow_cancel (nullable) is None
+        # and model_fields_set contains the field
+        if self.reload_single_bullets_allow_cancel is None and "reload_single_bullets_allow_cancel" in self.model_fields_set:
+            _dict['reload_single_bullets_allow_cancel'] = None
+
         # set to None if burst_shot_count (nullable) is None
         # and model_fields_set contains the field
         if self.burst_shot_count is None and "burst_shot_count" in self.model_fields_set:
@@ -460,6 +478,9 @@ class RawWeaponInfoV2(BaseModel):
             "zoom_fov": obj.get("zoom_fov"),
             "zoom_move_speed_percent": obj.get("zoom_move_speed_percent"),
             "bullets": obj.get("bullets"),
+            "reload_single_bullets_initial_delay": obj.get("reload_single_bullets_initial_delay"),
+            "reload_single_bullets": obj.get("reload_single_bullets"),
+            "reload_single_bullets_allow_cancel": obj.get("reload_single_bullets_allow_cancel"),
             "burst_shot_count": obj.get("burst_shot_count"),
             "clip_size": obj.get("clip_size"),
             "spread": obj.get("spread"),
