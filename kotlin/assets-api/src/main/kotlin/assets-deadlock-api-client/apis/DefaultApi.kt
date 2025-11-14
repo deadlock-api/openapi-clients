@@ -21,7 +21,7 @@ import okhttp3.HttpUrl
 
 import assets-deadlock-api-client.models.BuildTagV2
 import assets-deadlock-api-client.models.ColorV1
-import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesRawValidClientVersions
+import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets-deadlock-api-client.models.HTTPValidationError
 import assets-deadlock-api-client.models.Language
 import assets-deadlock-api-client.models.MapV1
@@ -66,7 +66,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBuildTagsV2BuildTagsGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.collections.List<BuildTagV2> {
+    fun getBuildTagsV2BuildTagsGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<BuildTagV2> {
         val localVarResponse = getBuildTagsV2BuildTagsGetWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -96,7 +96,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBuildTagsV2BuildTagsGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.collections.List<BuildTagV2>?> {
+    fun getBuildTagsV2BuildTagsGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<BuildTagV2>?> {
         val localVariableConfig = getBuildTagsV2BuildTagsGetRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<BuildTagV2>>(
@@ -111,7 +111,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getBuildTagsV2BuildTagsGetRequestConfig(language: Language?, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
+    fun getBuildTagsV2BuildTagsGetRequestConfig(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -219,7 +219,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getColorsV1ColorsGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, ColorV1> {
+    fun getColorsV1ColorsGet(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, ColorV1> {
         val localVarResponse = getColorsV1ColorsGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -248,7 +248,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getColorsV1ColorsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, ColorV1>?> {
+    fun getColorsV1ColorsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, ColorV1>?> {
         val localVariableConfig = getColorsV1ColorsGetRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.Map<kotlin.String, ColorV1>>(
@@ -262,7 +262,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getColorsV1ColorsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
+    fun getColorsV1ColorsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -297,7 +297,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getIconsV1IconsGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, kotlin.String> {
+    fun getIconsV1IconsGet(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, kotlin.String> {
         val localVarResponse = getIconsV1IconsGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -326,7 +326,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getIconsV1IconsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
+    fun getIconsV1IconsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
         val localVariableConfig = getIconsV1IconsGetRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.String>>(
@@ -340,7 +340,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getIconsV1IconsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
+    fun getIconsV1IconsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -375,7 +375,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMapV1MapGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : MapV1 {
+    fun getMapV1MapGet(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : MapV1 {
         val localVarResponse = getMapV1MapGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -404,7 +404,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMapV1MapGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<MapV1?> {
+    fun getMapV1MapGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<MapV1?> {
         val localVariableConfig = getMapV1MapGetRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, MapV1>(
@@ -418,7 +418,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getMapV1MapGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
+    fun getMapV1MapGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -454,7 +454,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRanksV2RanksGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.collections.List<RankV2> {
+    fun getRanksV2RanksGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<RankV2> {
         val localVarResponse = getRanksV2RanksGetWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -484,7 +484,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRanksV2RanksGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.collections.List<RankV2>?> {
+    fun getRanksV2RanksGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<RankV2>?> {
         val localVariableConfig = getRanksV2RanksGetRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<RankV2>>(
@@ -499,7 +499,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getRanksV2RanksGetRequestConfig(language: Language?, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
+    fun getRanksV2RanksGetRequestConfig(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -537,7 +537,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSoundsV1SoundsGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, kotlin.Any> {
+    fun getSoundsV1SoundsGet(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, kotlin.Any> {
         val localVarResponse = getSoundsV1SoundsGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -566,7 +566,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSoundsV1SoundsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.Any>?> {
+    fun getSoundsV1SoundsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.Any>?> {
         val localVariableConfig = getSoundsV1SoundsGetRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.Any>>(
@@ -580,7 +580,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getSoundsV1SoundsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
+    fun getSoundsV1SoundsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -615,7 +615,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSteamInfoV1SteamInfoGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.Any {
+    fun getSteamInfoV1SteamInfoGet(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.Any {
         val localVarResponse = getSteamInfoV1SteamInfoGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -644,7 +644,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSteamInfoV1SteamInfoGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.Any?> {
+    fun getSteamInfoV1SteamInfoGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.Any?> {
         val localVariableConfig = getSteamInfoV1SteamInfoGetRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.Any>(
@@ -658,7 +658,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getSteamInfoV1SteamInfoGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
+    fun getSteamInfoV1SteamInfoGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

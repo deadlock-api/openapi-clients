@@ -25,7 +25,7 @@ from assets-deadlock-api-client.models.aiming_shot_spread_penalty import AimingS
 from assets-deadlock-api-client.models.bonus import Bonus
 from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2
 from assets-deadlock-api-client.models.color_v1 import ColorV1
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets-deadlock-api-client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets-deadlock-api-client.models.http_validation_error import HTTPValidationError
 from assets-deadlock-api-client.models.hero_colors_v2 import HeroColorsV2

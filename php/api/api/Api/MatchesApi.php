@@ -343,7 +343,13 @@ class MatchesApi
             throw new \InvalidArgumentException('invalid value for "$account_id" when calling MatchesApi.activeMatches, must be bigger than or equal to 0.');
         }
         
-
+        if ($account_ids !== null && count($account_ids) > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling MatchesApi.activeMatches, number of items must be less than or equal to 1000.');
+        }
+        if ($account_ids !== null && count($account_ids) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling MatchesApi.activeMatches, number of items must be greater than or equal to 1.');
+        }
+        
 
         $resourcePath = '/v1/matches/active';
         $formParams = [];
@@ -985,7 +991,13 @@ class MatchesApi
 
 
 
-
+        if ($match_ids !== null && count($match_ids) > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$match_ids" when calling MatchesApi.bulkMetadata, number of items must be less than or equal to 1000.');
+        }
+        if ($match_ids !== null && count($match_ids) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$match_ids" when calling MatchesApi.bulkMetadata, number of items must be greater than or equal to 1.');
+        }
+        
 
 
         if ($min_duration_s !== null && $min_duration_s > 7000) {

@@ -46,7 +46,7 @@ class MatchesApi:
     def active_matches(
         self,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The account ID to filter active matches by (`SteamID3`)")] = None,
-        account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of account ids to include")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -119,7 +119,7 @@ class MatchesApi:
     def active_matches_with_http_info(
         self,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The account ID to filter active matches by (`SteamID3`)")] = None,
-        account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of account ids to include")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -192,7 +192,7 @@ class MatchesApi:
     def active_matches_without_preload_content(
         self,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The account ID to filter active matches by (`SteamID3`)")] = None,
-        account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of account ids to include")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -586,7 +586,7 @@ class MatchesApi:
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
-        match_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
+        match_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -747,7 +747,7 @@ class MatchesApi:
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
-        match_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
+        match_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -908,7 +908,7 @@ class MatchesApi:
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
-        match_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
+        match_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
