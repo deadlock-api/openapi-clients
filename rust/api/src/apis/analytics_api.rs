@@ -35,9 +35,9 @@ pub struct AbilityOrderStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -100,9 +100,9 @@ pub struct HeroCombStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -143,9 +143,9 @@ pub struct HeroCountersStatsParams {
     pub min_enemy_networth: Option<u64>,
     /// Filter enemy players based on their net worth.
     pub max_enemy_networth: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -184,9 +184,9 @@ pub struct HeroScoreboardParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -215,9 +215,9 @@ pub struct HeroStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -256,9 +256,9 @@ pub struct HeroSynergiesStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -301,9 +301,9 @@ pub struct ItemPermutationStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -336,9 +336,9 @@ pub struct ItemStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -387,9 +387,9 @@ pub struct KillDeathStatsParams {
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter Raster cells based on minimum kills.
     pub min_kills_per_raster: Option<u32>,
@@ -430,9 +430,9 @@ pub struct PlayerScoreboardParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -463,9 +463,9 @@ pub struct PlayerStatsMetricsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,

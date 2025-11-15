@@ -28,7 +28,7 @@ void main() {
       // TODO
     });
 
-    // The number of matches ingested by users in the last 24 hours.
+    // The number of matches ingested in the last 24 hours.
     // int userIngestedMatchesLast24h
     test('to test the property `userIngestedMatchesLast24h`', () async {
       // TODO

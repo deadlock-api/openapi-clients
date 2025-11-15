@@ -811,13 +811,13 @@ func (r ApiPlayerHeroStatsRequest) MaxNetworth(maxNetworth int64) ApiPlayerHeroS
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiPlayerHeroStatsRequest) MinAverageBadge(minAverageBadge int32) ApiPlayerHeroStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiPlayerHeroStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiPlayerHeroStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r

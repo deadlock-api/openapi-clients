@@ -42,7 +42,7 @@ import (
 
 func main() {
 	heroId := int32(56) // int32 | See more: <https://assets.deadlock-api.com/v2/heroes>
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -50,8 +50,8 @@ func main() {
 	maxAbilityUpgrades := int64(789) // int64 | Filter players based on their maximum number of ability upgrades over the whole match. (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minMatches := int32(56) // int32 | The minimum number of matches played for an ability order to be included in the response. (optional) (default to 20)
@@ -82,7 +82,7 @@ Other parameters are passed through a pointer to a apiAbilityOrderStatsRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -90,8 +90,8 @@ Name | Type | Description  | Notes
  **maxAbilityUpgrades** | **int64** | Filter players based on their maximum number of ability upgrades over the whole match. | 
  **minNetworth** | **int64** | Filter players based on their net worth. | 
  **maxNetworth** | **int64** | Filter players based on their net worth. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minMatches** | **int32** | The minimum number of matches played for an ability order to be included in the response. | [default to 20]
@@ -137,7 +137,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -170,7 +170,7 @@ Other parameters are passed through a pointer to a apiBadgeDistributionRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -220,7 +220,7 @@ import (
 
 func main() {
 	heroId := int32(56) // int32 | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -247,7 +247,7 @@ Other parameters are passed through a pointer to a apiBuildItemStatsRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int32** | Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). | 
 
 ### Return type
@@ -289,14 +289,14 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	includeHeroIds := []int32{int32(123)} // []int32 | Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
@@ -330,14 +330,14 @@ Other parameters are passed through a pointer to a apiHeroCombStatsRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their net worth. | 
  **maxNetworth** | **int64** | Filter players based on their net worth. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **includeHeroIds** | **[]int32** | Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
@@ -387,7 +387,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -395,8 +395,8 @@ func main() {
 	maxNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
 	minEnemyNetworth := int64(789) // int64 | Filter enemy players based on their net worth. (optional)
 	maxEnemyNetworth := int64(789) // int64 | Filter enemy players based on their net worth. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	sameLaneFilter := true // bool | When `true`, only considers matchups where both `hero_id` and `enemy_hero_id` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane. (optional) (default to true)
@@ -428,7 +428,7 @@ Other parameters are passed through a pointer to a apiHeroCountersStatsRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -436,8 +436,8 @@ Name | Type | Description  | Notes
  **maxNetworth** | **int64** | Filter players based on their net worth. | 
  **minEnemyNetworth** | **int64** | Filter enemy players based on their net worth. | 
  **maxEnemyNetworth** | **int64** | Filter enemy players based on their net worth. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **sameLaneFilter** | **bool** | When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. | [default to true]
@@ -488,14 +488,14 @@ func main() {
 	sortBy := "sortBy_example" // string | The field to sort by.
 	sortDirection := "sortDirection_example" // string | The direction to sort heroes in. (optional)
 	minMatches := int32(56) // int32 | Filter by min number of matches played. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
@@ -527,14 +527,14 @@ Name | Type | Description  | Notes
  **sortBy** | **string** | The field to sort by. | 
  **sortDirection** | **string** | The direction to sort heroes in. | 
  **minMatches** | **int32** | Filter by min number of matches played. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their net worth. | 
  **maxNetworth** | **int64** | Filter players based on their net worth. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **accountId** | **int32** | Filter for matches with a specific player account ID. | 
@@ -580,14 +580,14 @@ import (
 
 func main() {
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minHeroMatches := int64(789) // int64 | Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
@@ -623,14 +623,14 @@ Other parameters are passed through a pointer to a apiHeroStatsRequest struct vi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their net worth. | 
  **maxNetworth** | **int64** | Filter players based on their net worth. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minHeroMatches** | **int64** | Filter players based on the number of matches they have played with a specific hero within the filtered time range. | 
@@ -681,14 +681,14 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	sameLaneFilter := true // bool | When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane. (optional) (default to true)
@@ -721,14 +721,14 @@ Other parameters are passed through a pointer to a apiHeroSynergiesStatsRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their net worth. | 
  **maxNetworth** | **int64** | Filter players based on their net worth. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **sameLaneFilter** | **bool** | When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. | [default to true]
@@ -781,14 +781,14 @@ func main() {
 	combSize := int32(56) // int32 | The combination size to return. (optional) (default to 2)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
 	heroId := int32(56) // int32 | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
@@ -821,14 +821,14 @@ Name | Type | Description  | Notes
  **combSize** | **int32** | The combination size to return. | [default to 2]
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
  **heroId** | **int32** | Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their net worth. | 
  **maxNetworth** | **int64** | Filter players based on their net worth. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **accountId** | **int32** | Filter for matches with a specific player account ID. | 
@@ -876,14 +876,14 @@ func main() {
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
 	heroId := int32(56) // int32 | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items> (optional)
@@ -919,14 +919,14 @@ Name | Type | Description  | Notes
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
  **heroId** | **int32** | Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their net worth. | 
  **maxNetworth** | **int64** | Filter players based on their net worth. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **includeItemIds** | **[]int32** | Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
@@ -975,7 +975,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -988,8 +988,8 @@ func main() {
 	isNewPlayerPool := true // bool | Filter matches based on whether they are in the new player pool. (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minKillsPerRaster := int32(56) // int32 | Filter Raster cells based on minimum kills. (optional) (default to 1)
 	maxKillsPerRaster := int32(56) // int32 | Filter Raster cells based on maximum kills. (optional)
 	minDeathsPerRaster := int32(56) // int32 | Filter Raster cells based on minimum deaths. (optional) (default to 1)
@@ -1020,7 +1020,7 @@ Other parameters are passed through a pointer to a apiKillDeathStatsRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -1033,8 +1033,8 @@ Name | Type | Description  | Notes
  **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minKillsPerRaster** | **int32** | Filter Raster cells based on minimum kills. | [default to 1]
  **maxKillsPerRaster** | **int32** | Filter Raster cells based on maximum kills. | 
  **minDeathsPerRaster** | **int32** | Filter Raster cells based on minimum deaths. | [default to 1]
@@ -1092,8 +1092,8 @@ func main() {
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	start := int32(56) // int32 | The offset to start fetching players from. (optional)
@@ -1134,8 +1134,8 @@ Name | Type | Description  | Notes
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their net worth. | 
  **maxNetworth** | **int64** | Filter players based on their net worth. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **start** | **int32** | The offset to start fetching players from. | 
@@ -1182,14 +1182,14 @@ import (
 
 func main() {
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their net worth. (optional)
-	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatches := int32(56) // int32 | The maximum number of matches to analyze. (optional)
@@ -1221,14 +1221,14 @@ Other parameters are passed through a pointer to a apiPlayerStatsMetricsRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760400000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1760486400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their net worth. | 
  **maxNetworth** | **int64** | Filter players based on their net worth. | 
- **minAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **maxAverageBadge** | **int32** | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatches** | **int32** | The maximum number of matches to analyze. | 

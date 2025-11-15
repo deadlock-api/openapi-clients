@@ -45,8 +45,8 @@ final minAbilityUpgrades = 789; // int | Filter players based on their minimum n
 final maxAbilityUpgrades = 789; // int | Filter players based on their maximum number of ability upgrades over the whole match.
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final minMatches = 56; // int | The minimum number of matches played for an ability order to be included in the response.
@@ -66,7 +66,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int**| See more: <https://assets.deadlock-api.com/v2/heroes> | 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -74,8 +74,8 @@ Name | Type | Description  | Notes
  **maxAbilityUpgrades** | **int**| Filter players based on their maximum number of ability upgrades over the whole match. | [optional] 
  **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **minMatches** | **int**| The minimum number of matches played for an ability order to be included in the response. | [optional] [default to 20]
@@ -131,7 +131,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -185,7 +185,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int**| Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minLastUpdatedUnixTimestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minLastUpdatedUnixTimestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxLastUpdatedUnixTimestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). | [optional] 
 
 ### Return type
@@ -221,8 +221,8 @@ final minDurationS = 789; // int | Filter matches based on their duration in sec
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final includeHeroIds = []; // List<int> | Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -245,14 +245,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **includeHeroIds** | [**List<int>**](int.md)| Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] [default to const []]
@@ -298,8 +298,8 @@ final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
 final minEnemyNetworth = 789; // int | Filter enemy players based on their net worth.
 final maxEnemyNetworth = 789; // int | Filter enemy players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final sameLaneFilter = true; // bool | When `true`, only considers matchups where both `hero_id` and `enemy_hero_id` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.
@@ -320,7 +320,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -328,8 +328,8 @@ Name | Type | Description  | Notes
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **minEnemyNetworth** | **int**| Filter enemy players based on their net worth. | [optional] 
  **maxEnemyNetworth** | **int**| Filter enemy players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **sameLaneFilter** | **bool**| When `true`, only considers matchups where both `hero_id` and `enemy_hero_id` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane. | [optional] [default to true]
@@ -374,8 +374,8 @@ final minDurationS = 789; // int | Filter matches based on their duration in sec
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final accountId = 56; // int | Filter for matches with a specific player account ID.
@@ -396,14 +396,14 @@ Name | Type | Description  | Notes
  **sortBy** | **String**| The field to sort by. | 
  **sortDirection** | **String**| The direction to sort heroes in. | [optional] 
  **minMatches** | **int**| Filter by min number of matches played. | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **accountId** | **int**| Filter for matches with a specific player account ID. | [optional] 
@@ -443,8 +443,8 @@ final minDurationS = 789; // int | Filter matches based on their duration in sec
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final minHeroMatches = 789; // int | Filter players based on the number of matches they have played with a specific hero within the filtered time range.
@@ -469,14 +469,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **String**| Bucket allows you to group the stats by a specific field. | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **minHeroMatches** | **int**| Filter players based on the number of matches they have played with a specific hero within the filtered time range. | [optional] 
@@ -521,8 +521,8 @@ final minDurationS = 789; // int | Filter matches based on their duration in sec
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final sameLaneFilter = true; // bool | When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.
@@ -544,14 +544,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **sameLaneFilter** | **bool**| When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane. | [optional] [default to true]
@@ -598,8 +598,8 @@ final minDurationS = 789; // int | Filter matches based on their duration in sec
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final accountId = 56; // int | Filter for matches with a specific player account ID.
@@ -621,14 +621,14 @@ Name | Type | Description  | Notes
  **combSize** | **int**| The combination size to return. | [optional] [default to 2]
  **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
  **heroId** | **int**| Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **accountId** | **int**| Filter for matches with a specific player account ID. | [optional] 
@@ -670,8 +670,8 @@ final minDurationS = 789; // int | Filter matches based on their duration in sec
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final includeItemIds = []; // List<int> | Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items>
@@ -696,14 +696,14 @@ Name | Type | Description  | Notes
  **bucket** | **String**| Bucket allows you to group the stats by a specific field. | [optional] 
  **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
  **heroId** | **int**| Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **includeItemIds** | [**List<int>**](int.md)| Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items> | [optional] [default to const []]
@@ -753,8 +753,8 @@ final isLowPriPool = true; // bool | Filter matches based on whether they are in
 final isNewPlayerPool = true; // bool | Filter matches based on whether they are in the new player pool.
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minKillsPerRaster = 56; // int | Filter Raster cells based on minimum kills.
 final maxKillsPerRaster = 56; // int | Filter Raster cells based on maximum kills.
 final minDeathsPerRaster = 56; // int | Filter Raster cells based on minimum deaths.
@@ -774,7 +774,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -787,8 +787,8 @@ Name | Type | Description  | Notes
  **isNewPlayerPool** | **bool**| Filter matches based on whether they are in the new player pool. | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minKillsPerRaster** | **int**| Filter Raster cells based on minimum kills. | [optional] [default to 1]
  **maxKillsPerRaster** | **int**| Filter Raster cells based on maximum kills. | [optional] 
  **minDeathsPerRaster** | **int**| Filter Raster cells based on minimum deaths. | [optional] [default to 1]
@@ -834,8 +834,8 @@ final minDurationS = 789; // int | Filter matches based on their duration in sec
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final start = 56; // int | The offset to start fetching players from.
@@ -865,8 +865,8 @@ Name | Type | Description  | Notes
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **start** | **int**| The offset to start fetching players from. | [optional] 
@@ -907,8 +907,8 @@ final minDurationS = 789; // int | Filter matches based on their duration in sec
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final maxMatches = 56; // int | The maximum number of matches to analyze.
@@ -929,14 +929,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760400000]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760486400]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatches** | **int**| The maximum number of matches to analyze. | [optional] 

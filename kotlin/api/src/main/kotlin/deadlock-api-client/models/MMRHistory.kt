@@ -27,7 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param divisionTier Extracted from the rank the division tier (rank % 10)
  * @param matchId 
  * @param playerScore Player Score is the index for the rank array (internally used for the rank regression)
- * @param rank The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks>
+ * @param rank The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param startTime Start time of the match
  */
 
@@ -52,7 +52,7 @@ data class MMRHistory (
     @Json(name = "player_score")
     val playerScore: kotlin.Double,
 
-    /* The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> */
     @Json(name = "rank")
     val rank: kotlin.Int,
 

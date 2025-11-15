@@ -55,7 +55,7 @@ class MMRHistoryTest : ShouldSpec() {
             //modelInstance.playerScore shouldBe ("TODO")
         }
 
-        // to test the property `rank` - The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `rank` - The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
         should("test rank") {
             // uncomment below to test the property
             //modelInstance.rank shouldBe ("TODO")

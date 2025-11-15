@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **DivisionTier** | **int32** | Extracted from the rank the division tier (rank % 10) | 
 **MatchId** | **int64** |  | 
 **PlayerScore** | **float64** | Player Score is the index for the rank array (internally used for the rank regression) | 
-**Rank** | **int32** | The Player Rank. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+**Rank** | **int32** | The Player Rank (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
 **StartTime** | **int32** | Start time of the match | 
 
 ## Methods

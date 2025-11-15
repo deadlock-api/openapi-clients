@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    // The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+    // The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
     // int badgeLevel
     test('to test the property `badgeLevel`', () async {
       // TODO
@@ -34,7 +34,7 @@ void main() {
       // TODO
     });
 
-    // The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+    // The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
     // int rank
     test('to test the property `rank`', () async {
       // TODO

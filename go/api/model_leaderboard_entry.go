@@ -21,11 +21,11 @@ var _ MappedNullable = &LeaderboardEntry{}
 type LeaderboardEntry struct {
 	// The account name of the player.
 	AccountName NullableString `json:"account_name,omitempty"`
-	// The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+	// The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
 	BadgeLevel NullableInt32 `json:"badge_level,omitempty"`
 	// The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
 	PossibleAccountIds []int32 `json:"possible_account_ids,omitempty"`
-	// The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+	// The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
 	Rank NullableInt32 `json:"rank,omitempty"`
 	// The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
 	RankedRank NullableInt32 `json:"ranked_rank,omitempty"`

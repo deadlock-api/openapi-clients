@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BadgeLevel** | **int32** | The badge level. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+**BadgeLevel** | **int32** | The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
 **TotalMatches** | **int64** | The total number of matches. | 
 
 ## Methods

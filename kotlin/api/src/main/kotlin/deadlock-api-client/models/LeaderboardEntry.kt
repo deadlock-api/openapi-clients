@@ -23,9 +23,9 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param accountName The account name of the player.
- * @param badgeLevel The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+ * @param badgeLevel The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param possibleAccountIds The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
- * @param rank The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+ * @param rank The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param rankedRank The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param rankedSubrank The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param topHeroIds The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -38,7 +38,7 @@ data class LeaderboardEntry (
     @Json(name = "account_name")
     val accountName: kotlin.String? = null,
 
-    /* The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> */
     @Json(name = "badge_level")
     val badgeLevel: kotlin.Int? = null,
 
@@ -46,7 +46,7 @@ data class LeaderboardEntry (
     @Json(name = "possible_account_ids")
     val possibleAccountIds: kotlin.collections.List<kotlin.Int>? = null,
 
-    /* The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> */
     @Json(name = "rank")
     val rank: kotlin.Int? = null,
 

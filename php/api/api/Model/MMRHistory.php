@@ -544,7 +544,7 @@ class MMRHistory implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rank
      *
-     * @param int $rank The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int $rank The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
      *
      * @return self
      */

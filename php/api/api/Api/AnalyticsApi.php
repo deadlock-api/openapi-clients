@@ -167,7 +167,7 @@ class AnalyticsApi
      * Ability Order Stats
      *
      * @param  int $hero_id See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -175,8 +175,8 @@ class AnalyticsApi
      * @param  int|null $max_ability_upgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 20)
@@ -188,7 +188,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AnalyticsAbilityOrderStats[]
      */
-    public function abilityOrderStats($hero_id, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStats($hero_id, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
         list($response) = $this->abilityOrderStatsWithHttpInfo($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $contentType);
         return $response;
@@ -200,7 +200,7 @@ class AnalyticsApi
      * Ability Order Stats
      *
      * @param  int $hero_id See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -208,8 +208,8 @@ class AnalyticsApi
      * @param  int|null $max_ability_upgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 20)
@@ -221,7 +221,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AnalyticsAbilityOrderStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function abilityOrderStatsWithHttpInfo($hero_id, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsWithHttpInfo($hero_id, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
         $request = $this->abilityOrderStatsRequest($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $contentType);
 
@@ -300,7 +300,7 @@ class AnalyticsApi
      * Ability Order Stats
      *
      * @param  int $hero_id See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -308,8 +308,8 @@ class AnalyticsApi
      * @param  int|null $max_ability_upgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 20)
@@ -320,7 +320,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function abilityOrderStatsAsync($hero_id, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsAsync($hero_id, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
         return $this->abilityOrderStatsAsyncWithHttpInfo($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $contentType)
             ->then(
@@ -336,7 +336,7 @@ class AnalyticsApi
      * Ability Order Stats
      *
      * @param  int $hero_id See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -344,8 +344,8 @@ class AnalyticsApi
      * @param  int|null $max_ability_upgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 20)
@@ -356,7 +356,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function abilityOrderStatsAsyncWithHttpInfo($hero_id, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsAsyncWithHttpInfo($hero_id, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AnalyticsAbilityOrderStats[]';
         $request = $this->abilityOrderStatsRequest($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $contentType);
@@ -401,7 +401,7 @@ class AnalyticsApi
      * Create request for operation 'abilityOrderStats'
      *
      * @param  int $hero_id See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -409,8 +409,8 @@ class AnalyticsApi
      * @param  int|null $max_ability_upgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 20)
@@ -421,7 +421,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function abilityOrderStatsRequest($hero_id, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsRequest($hero_id, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
 
         // verify the required parameter 'hero_id' is set
@@ -723,7 +723,7 @@ class AnalyticsApi
      *
      * Badge Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -738,7 +738,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BadgeDistribution[]
      */
-    public function badgeDistribution($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
+    public function badgeDistribution($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
     {
         list($response) = $this->badgeDistributionWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
         return $response;
@@ -749,7 +749,7 @@ class AnalyticsApi
      *
      * Badge Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -764,7 +764,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BadgeDistribution[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function badgeDistributionWithHttpInfo($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
+    public function badgeDistributionWithHttpInfo($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
     {
         $request = $this->badgeDistributionRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
 
@@ -842,7 +842,7 @@ class AnalyticsApi
      *
      * Badge Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -856,7 +856,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function badgeDistributionAsync($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
+    public function badgeDistributionAsync($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
     {
         return $this->badgeDistributionAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
             ->then(
@@ -871,7 +871,7 @@ class AnalyticsApi
      *
      * Badge Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -885,7 +885,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function badgeDistributionAsyncWithHttpInfo($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
+    public function badgeDistributionAsyncWithHttpInfo($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BadgeDistribution[]';
         $request = $this->badgeDistributionRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
@@ -929,7 +929,7 @@ class AnalyticsApi
     /**
      * Create request for operation 'badgeDistribution'
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -943,7 +943,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function badgeDistributionRequest($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
+    public function badgeDistributionRequest($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
     {
 
 
@@ -1125,7 +1125,7 @@ class AnalyticsApi
      * Build Item Stats
      *
      * @param  int|null $hero_id Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['buildItemStats'] to see the possible values for this operation
      *
@@ -1133,7 +1133,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BuildItemStats[]
      */
-    public function buildItemStats($hero_id = null, $min_last_updated_unix_timestamp = 1760400000, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
+    public function buildItemStats($hero_id = null, $min_last_updated_unix_timestamp = 1760486400, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
     {
         list($response) = $this->buildItemStatsWithHttpInfo($hero_id, $min_last_updated_unix_timestamp, $max_last_updated_unix_timestamp, $contentType);
         return $response;
@@ -1145,7 +1145,7 @@ class AnalyticsApi
      * Build Item Stats
      *
      * @param  int|null $hero_id Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['buildItemStats'] to see the possible values for this operation
      *
@@ -1153,7 +1153,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BuildItemStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function buildItemStatsWithHttpInfo($hero_id = null, $min_last_updated_unix_timestamp = 1760400000, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
+    public function buildItemStatsWithHttpInfo($hero_id = null, $min_last_updated_unix_timestamp = 1760486400, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
     {
         $request = $this->buildItemStatsRequest($hero_id, $min_last_updated_unix_timestamp, $max_last_updated_unix_timestamp, $contentType);
 
@@ -1232,14 +1232,14 @@ class AnalyticsApi
      * Build Item Stats
      *
      * @param  int|null $hero_id Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['buildItemStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function buildItemStatsAsync($hero_id = null, $min_last_updated_unix_timestamp = 1760400000, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
+    public function buildItemStatsAsync($hero_id = null, $min_last_updated_unix_timestamp = 1760486400, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
     {
         return $this->buildItemStatsAsyncWithHttpInfo($hero_id, $min_last_updated_unix_timestamp, $max_last_updated_unix_timestamp, $contentType)
             ->then(
@@ -1255,14 +1255,14 @@ class AnalyticsApi
      * Build Item Stats
      *
      * @param  int|null $hero_id Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['buildItemStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function buildItemStatsAsyncWithHttpInfo($hero_id = null, $min_last_updated_unix_timestamp = 1760400000, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
+    public function buildItemStatsAsyncWithHttpInfo($hero_id = null, $min_last_updated_unix_timestamp = 1760486400, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BuildItemStats[]';
         $request = $this->buildItemStatsRequest($hero_id, $min_last_updated_unix_timestamp, $max_last_updated_unix_timestamp, $contentType);
@@ -1307,14 +1307,14 @@ class AnalyticsApi
      * Create request for operation 'buildItemStats'
      *
      * @param  int|null $hero_id Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['buildItemStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function buildItemStatsRequest($hero_id = null, $min_last_updated_unix_timestamp = 1760400000, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
+    public function buildItemStatsRequest($hero_id = null, $min_last_updated_unix_timestamp = 1760486400, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
     {
 
         if ($hero_id !== null && $hero_id < 0) {
@@ -1420,14 +1420,14 @@ class AnalyticsApi
      *
      * Hero Comb Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int[]|null $include_hero_ids Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -1443,7 +1443,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroCombStats[]
      */
-    public function heroCombStats($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
+    public function heroCombStats($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
     {
         list($response) = $this->heroCombStatsWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_hero_ids, $exclude_hero_ids, $min_matches, $max_matches, $comb_size, $account_id, $account_ids, $contentType);
         return $response;
@@ -1454,14 +1454,14 @@ class AnalyticsApi
      *
      * Hero Comb Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int[]|null $include_hero_ids Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -1477,7 +1477,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroCombStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroCombStatsWithHttpInfo($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
+    public function heroCombStatsWithHttpInfo($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
     {
         $request = $this->heroCombStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_hero_ids, $exclude_hero_ids, $min_matches, $max_matches, $comb_size, $account_id, $account_ids, $contentType);
 
@@ -1555,14 +1555,14 @@ class AnalyticsApi
      *
      * Hero Comb Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int[]|null $include_hero_ids Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -1577,7 +1577,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroCombStatsAsync($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
+    public function heroCombStatsAsync($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
     {
         return $this->heroCombStatsAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_hero_ids, $exclude_hero_ids, $min_matches, $max_matches, $comb_size, $account_id, $account_ids, $contentType)
             ->then(
@@ -1592,14 +1592,14 @@ class AnalyticsApi
      *
      * Hero Comb Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int[]|null $include_hero_ids Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -1614,7 +1614,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroCombStatsAsyncWithHttpInfo($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
+    public function heroCombStatsAsyncWithHttpInfo($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroCombStats[]';
         $request = $this->heroCombStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_hero_ids, $exclude_hero_ids, $min_matches, $max_matches, $comb_size, $account_id, $account_ids, $contentType);
@@ -1658,14 +1658,14 @@ class AnalyticsApi
     /**
      * Create request for operation 'heroCombStats'
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int[]|null $include_hero_ids Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -1680,7 +1680,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroCombStatsRequest($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
+    public function heroCombStatsRequest($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
     {
 
 
@@ -1980,7 +1980,7 @@ class AnalyticsApi
      *
      * Hero Counter Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1988,8 +1988,8 @@ class AnalyticsApi
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
      * @param  int|null $min_enemy_networth Filter enemy players based on their net worth. (optional)
      * @param  int|null $max_enemy_networth Filter enemy players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. (optional, default to true)
@@ -2003,7 +2003,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroCounterStats[]
      */
-    public function heroCountersStats($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStats($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
         list($response) = $this->heroCountersStatsWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
         return $response;
@@ -2014,7 +2014,7 @@ class AnalyticsApi
      *
      * Hero Counter Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2022,8 +2022,8 @@ class AnalyticsApi
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
      * @param  int|null $min_enemy_networth Filter enemy players based on their net worth. (optional)
      * @param  int|null $max_enemy_networth Filter enemy players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. (optional, default to true)
@@ -2037,7 +2037,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroCounterStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroCountersStatsWithHttpInfo($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsWithHttpInfo($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
         $request = $this->heroCountersStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
 
@@ -2115,7 +2115,7 @@ class AnalyticsApi
      *
      * Hero Counter Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2123,8 +2123,8 @@ class AnalyticsApi
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
      * @param  int|null $min_enemy_networth Filter enemy players based on their net worth. (optional)
      * @param  int|null $max_enemy_networth Filter enemy players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. (optional, default to true)
@@ -2137,7 +2137,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroCountersStatsAsync($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsAsync($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
         return $this->heroCountersStatsAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType)
             ->then(
@@ -2152,7 +2152,7 @@ class AnalyticsApi
      *
      * Hero Counter Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2160,8 +2160,8 @@ class AnalyticsApi
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
      * @param  int|null $min_enemy_networth Filter enemy players based on their net worth. (optional)
      * @param  int|null $max_enemy_networth Filter enemy players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. (optional, default to true)
@@ -2174,7 +2174,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroCountersStatsAsyncWithHttpInfo($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsAsyncWithHttpInfo($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroCounterStats[]';
         $request = $this->heroCountersStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
@@ -2218,7 +2218,7 @@ class AnalyticsApi
     /**
      * Create request for operation 'heroCountersStats'
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2226,8 +2226,8 @@ class AnalyticsApi
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
      * @param  int|null $min_enemy_networth Filter enemy players based on their net worth. (optional)
      * @param  int|null $max_enemy_networth Filter enemy players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. (optional, default to true)
@@ -2240,7 +2240,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroCountersStatsRequest($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsRequest($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
 
 
@@ -2543,14 +2543,14 @@ class AnalyticsApi
      * @param  string $sort_by The field to sort by. (required)
      * @param  string|null $sort_direction The direction to sort heroes in. (optional)
      * @param  int|null $min_matches Filter by min number of matches played. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
@@ -2561,7 +2561,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Entry[]
      */
-    public function heroScoreboard($sort_by, $sort_direction = null, $min_matches = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
+    public function heroScoreboard($sort_by, $sort_direction = null, $min_matches = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
     {
         list($response) = $this->heroScoreboardWithHttpInfo($sort_by, $sort_direction, $min_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType);
         return $response;
@@ -2575,14 +2575,14 @@ class AnalyticsApi
      * @param  string $sort_by The field to sort by. (required)
      * @param  string|null $sort_direction The direction to sort heroes in. (optional)
      * @param  int|null $min_matches Filter by min number of matches played. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
@@ -2593,7 +2593,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Entry[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroScoreboardWithHttpInfo($sort_by, $sort_direction = null, $min_matches = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
+    public function heroScoreboardWithHttpInfo($sort_by, $sort_direction = null, $min_matches = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
     {
         $request = $this->heroScoreboardRequest($sort_by, $sort_direction, $min_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType);
 
@@ -2674,14 +2674,14 @@ class AnalyticsApi
      * @param  string $sort_by The field to sort by. (required)
      * @param  string|null $sort_direction The direction to sort heroes in. (optional)
      * @param  int|null $min_matches Filter by min number of matches played. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
@@ -2691,7 +2691,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroScoreboardAsync($sort_by, $sort_direction = null, $min_matches = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
+    public function heroScoreboardAsync($sort_by, $sort_direction = null, $min_matches = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
     {
         return $this->heroScoreboardAsyncWithHttpInfo($sort_by, $sort_direction, $min_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType)
             ->then(
@@ -2709,14 +2709,14 @@ class AnalyticsApi
      * @param  string $sort_by The field to sort by. (required)
      * @param  string|null $sort_direction The direction to sort heroes in. (optional)
      * @param  int|null $min_matches Filter by min number of matches played. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
@@ -2726,7 +2726,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroScoreboardAsyncWithHttpInfo($sort_by, $sort_direction = null, $min_matches = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
+    public function heroScoreboardAsyncWithHttpInfo($sort_by, $sort_direction = null, $min_matches = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Entry[]';
         $request = $this->heroScoreboardRequest($sort_by, $sort_direction, $min_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType);
@@ -2773,14 +2773,14 @@ class AnalyticsApi
      * @param  string $sort_by The field to sort by. (required)
      * @param  string|null $sort_direction The direction to sort heroes in. (optional)
      * @param  int|null $min_matches Filter by min number of matches played. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
@@ -2790,7 +2790,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroScoreboardRequest($sort_by, $sort_direction = null, $min_matches = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
+    public function heroScoreboardRequest($sort_by, $sort_direction = null, $min_matches = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
     {
 
         // verify the required parameter 'sort_by' is set
@@ -3068,14 +3068,14 @@ class AnalyticsApi
      * Hero Stats
      *
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
@@ -3092,7 +3092,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AnalyticsHeroStats[]
      */
-    public function heroStats($bucket = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStats($bucket = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
         list($response) = $this->heroStatsWithHttpInfo($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $account_id, $account_ids, $contentType);
         return $response;
@@ -3104,14 +3104,14 @@ class AnalyticsApi
      * Hero Stats
      *
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
@@ -3128,7 +3128,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AnalyticsHeroStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroStatsWithHttpInfo($bucket = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsWithHttpInfo($bucket = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
         $request = $this->heroStatsRequest($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $account_id, $account_ids, $contentType);
 
@@ -3207,14 +3207,14 @@ class AnalyticsApi
      * Hero Stats
      *
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
@@ -3230,7 +3230,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroStatsAsync($bucket = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsAsync($bucket = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
         return $this->heroStatsAsyncWithHttpInfo($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $account_id, $account_ids, $contentType)
             ->then(
@@ -3246,14 +3246,14 @@ class AnalyticsApi
      * Hero Stats
      *
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
@@ -3269,7 +3269,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroStatsAsyncWithHttpInfo($bucket = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsAsyncWithHttpInfo($bucket = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AnalyticsHeroStats[]';
         $request = $this->heroStatsRequest($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $account_id, $account_ids, $contentType);
@@ -3314,14 +3314,14 @@ class AnalyticsApi
      * Create request for operation 'heroStats'
      *
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
@@ -3337,7 +3337,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroStatsRequest($bucket = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsRequest($bucket = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
 
 
@@ -3657,14 +3657,14 @@ class AnalyticsApi
      *
      * Hero Synergy Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. (optional, default to true)
@@ -3679,7 +3679,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroSynergyStats[]
      */
-    public function heroSynergiesStats($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $same_party_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
+    public function heroSynergiesStats($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $same_party_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
     {
         list($response) = $this->heroSynergiesStatsWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $same_party_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
         return $response;
@@ -3690,14 +3690,14 @@ class AnalyticsApi
      *
      * Hero Synergy Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. (optional, default to true)
@@ -3712,7 +3712,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroSynergyStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroSynergiesStatsWithHttpInfo($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $same_party_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
+    public function heroSynergiesStatsWithHttpInfo($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $same_party_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
     {
         $request = $this->heroSynergiesStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $same_party_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
 
@@ -3790,14 +3790,14 @@ class AnalyticsApi
      *
      * Hero Synergy Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. (optional, default to true)
@@ -3811,7 +3811,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroSynergiesStatsAsync($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $same_party_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
+    public function heroSynergiesStatsAsync($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $same_party_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
     {
         return $this->heroSynergiesStatsAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $same_party_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType)
             ->then(
@@ -3826,14 +3826,14 @@ class AnalyticsApi
      *
      * Hero Synergy Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. (optional, default to true)
@@ -3847,7 +3847,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroSynergiesStatsAsyncWithHttpInfo($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $same_party_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
+    public function heroSynergiesStatsAsyncWithHttpInfo($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $same_party_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroSynergyStats[]';
         $request = $this->heroSynergiesStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $same_party_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
@@ -3891,14 +3891,14 @@ class AnalyticsApi
     /**
      * Create request for operation 'heroSynergiesStats'
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. (optional, default to true)
@@ -3912,7 +3912,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroSynergiesStatsRequest($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $same_party_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
+    public function heroSynergiesStatsRequest($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $same_party_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
     {
 
 
@@ -4200,14 +4200,14 @@ class AnalyticsApi
      * @param  int|null $comb_size The combination size to return. (optional, default to 2)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
@@ -4218,7 +4218,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ItemPermutationStats[]
      */
-    public function itemPermutationStats($item_ids = null, $comb_size = 2, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStats($item_ids = null, $comb_size = 2, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
         list($response) = $this->itemPermutationStatsWithHttpInfo($item_ids, $comb_size, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType);
         return $response;
@@ -4233,14 +4233,14 @@ class AnalyticsApi
      * @param  int|null $comb_size The combination size to return. (optional, default to 2)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
@@ -4251,7 +4251,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ItemPermutationStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function itemPermutationStatsWithHttpInfo($item_ids = null, $comb_size = 2, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsWithHttpInfo($item_ids = null, $comb_size = 2, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
         $request = $this->itemPermutationStatsRequest($item_ids, $comb_size, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType);
 
@@ -4333,14 +4333,14 @@ class AnalyticsApi
      * @param  int|null $comb_size The combination size to return. (optional, default to 2)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
@@ -4350,7 +4350,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemPermutationStatsAsync($item_ids = null, $comb_size = 2, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsAsync($item_ids = null, $comb_size = 2, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
         return $this->itemPermutationStatsAsyncWithHttpInfo($item_ids, $comb_size, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType)
             ->then(
@@ -4369,14 +4369,14 @@ class AnalyticsApi
      * @param  int|null $comb_size The combination size to return. (optional, default to 2)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
@@ -4386,7 +4386,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemPermutationStatsAsyncWithHttpInfo($item_ids = null, $comb_size = 2, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsAsyncWithHttpInfo($item_ids = null, $comb_size = 2, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemPermutationStats[]';
         $request = $this->itemPermutationStatsRequest($item_ids, $comb_size, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType);
@@ -4434,14 +4434,14 @@ class AnalyticsApi
      * @param  int|null $comb_size The combination size to return. (optional, default to 2)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
@@ -4451,7 +4451,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function itemPermutationStatsRequest($item_ids = null, $comb_size = 2, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsRequest($item_ids = null, $comb_size = 2, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
 
 
@@ -4741,14 +4741,14 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
@@ -4763,7 +4763,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ItemStats[]
      */
-    public function itemStats($bucket = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStats($bucket = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemStats'][0])
     {
         list($response) = $this->itemStatsWithHttpInfo($bucket, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
         return $response;
@@ -4777,14 +4777,14 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
@@ -4799,7 +4799,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ItemStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function itemStatsWithHttpInfo($bucket = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsWithHttpInfo($bucket = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemStats'][0])
     {
         $request = $this->itemStatsRequest($bucket, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
 
@@ -4880,14 +4880,14 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
@@ -4901,7 +4901,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemStatsAsync($bucket = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsAsync($bucket = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemStats'][0])
     {
         return $this->itemStatsAsyncWithHttpInfo($bucket, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $min_matches, $max_matches, $account_id, $account_ids, $contentType)
             ->then(
@@ -4919,14 +4919,14 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
@@ -4940,7 +4940,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemStatsAsyncWithHttpInfo($bucket = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsAsyncWithHttpInfo($bucket = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemStats[]';
         $request = $this->itemStatsRequest($bucket, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
@@ -4987,14 +4987,14 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
@@ -5008,7 +5008,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function itemStatsRequest($bucket = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsRequest($bucket = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['itemStats'][0])
     {
 
 
@@ -5325,7 +5325,7 @@ class AnalyticsApi
      *
      * Kill Death Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5338,8 +5338,8 @@ class AnalyticsApi
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional, default to 1)
      * @param  int|null $max_kills_per_raster Filter Raster cells based on maximum kills. (optional)
      * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional, default to 1)
@@ -5352,7 +5352,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\KillDeathStats[]
      */
-    public function killDeathStats($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStats($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         list($response) = $this->killDeathStatsWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
         return $response;
@@ -5363,7 +5363,7 @@ class AnalyticsApi
      *
      * Kill Death Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5376,8 +5376,8 @@ class AnalyticsApi
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional, default to 1)
      * @param  int|null $max_kills_per_raster Filter Raster cells based on maximum kills. (optional)
      * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional, default to 1)
@@ -5390,7 +5390,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\KillDeathStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function killDeathStatsWithHttpInfo($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsWithHttpInfo($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         $request = $this->killDeathStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
 
@@ -5468,7 +5468,7 @@ class AnalyticsApi
      *
      * Kill Death Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5481,8 +5481,8 @@ class AnalyticsApi
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional, default to 1)
      * @param  int|null $max_kills_per_raster Filter Raster cells based on maximum kills. (optional)
      * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional, default to 1)
@@ -5494,7 +5494,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function killDeathStatsAsync($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsAsync($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         return $this->killDeathStatsAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType)
             ->then(
@@ -5509,7 +5509,7 @@ class AnalyticsApi
      *
      * Kill Death Stats
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5522,8 +5522,8 @@ class AnalyticsApi
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional, default to 1)
      * @param  int|null $max_kills_per_raster Filter Raster cells based on maximum kills. (optional)
      * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional, default to 1)
@@ -5535,7 +5535,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function killDeathStatsAsyncWithHttpInfo($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsAsyncWithHttpInfo($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\KillDeathStats[]';
         $request = $this->killDeathStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
@@ -5579,7 +5579,7 @@ class AnalyticsApi
     /**
      * Create request for operation 'killDeathStats'
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5592,8 +5592,8 @@ class AnalyticsApi
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional, default to 1)
      * @param  int|null $max_kills_per_raster Filter Raster cells based on maximum kills. (optional)
      * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional, default to 1)
@@ -5605,7 +5605,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function killDeathStatsRequest($min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsRequest($min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
 
 
@@ -5959,8 +5959,8 @@ class AnalyticsApi
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $start The offset to start fetching players from. (optional)
@@ -5994,8 +5994,8 @@ class AnalyticsApi
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $start The offset to start fetching players from. (optional)
@@ -6096,8 +6096,8 @@ class AnalyticsApi
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $start The offset to start fetching players from. (optional)
@@ -6134,8 +6134,8 @@ class AnalyticsApi
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $start The offset to start fetching players from. (optional)
@@ -6201,8 +6201,8 @@ class AnalyticsApi
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $start The offset to start fetching players from. (optional)
@@ -6533,14 +6533,14 @@ class AnalyticsApi
      * Player Stats Metrics
      *
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_matches The maximum number of matches to analyze. (optional)
@@ -6553,7 +6553,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array<string,\OpenAPI\Client\Model\HashMapValue>
      */
-    public function playerStatsMetrics($hero_ids = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $account_ids = null, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetrics($hero_ids = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $account_ids = null, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
         list($response) = $this->playerStatsMetricsWithHttpInfo($hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $account_ids, $contentType);
         return $response;
@@ -6565,14 +6565,14 @@ class AnalyticsApi
      * Player Stats Metrics
      *
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_matches The maximum number of matches to analyze. (optional)
@@ -6585,7 +6585,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of array<string,\OpenAPI\Client\Model\HashMapValue>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function playerStatsMetricsWithHttpInfo($hero_ids = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $account_ids = null, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsWithHttpInfo($hero_ids = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $account_ids = null, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
         $request = $this->playerStatsMetricsRequest($hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $account_ids, $contentType);
 
@@ -6664,14 +6664,14 @@ class AnalyticsApi
      * Player Stats Metrics
      *
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_matches The maximum number of matches to analyze. (optional)
@@ -6683,7 +6683,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerStatsMetricsAsync($hero_ids = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $account_ids = null, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsAsync($hero_ids = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $account_ids = null, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
         return $this->playerStatsMetricsAsyncWithHttpInfo($hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $account_ids, $contentType)
             ->then(
@@ -6699,14 +6699,14 @@ class AnalyticsApi
      * Player Stats Metrics
      *
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_matches The maximum number of matches to analyze. (optional)
@@ -6718,7 +6718,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerStatsMetricsAsyncWithHttpInfo($hero_ids = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $account_ids = null, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsAsyncWithHttpInfo($hero_ids = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $account_ids = null, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
         $returnType = 'array<string,\OpenAPI\Client\Model\HashMapValue>';
         $request = $this->playerStatsMetricsRequest($hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $account_ids, $contentType);
@@ -6763,14 +6763,14 @@ class AnalyticsApi
      * Create request for operation 'playerStatsMetrics'
      *
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760400000)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760486400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $min_networth Filter players based on their net worth. (optional)
      * @param  int|null $max_networth Filter players based on their net worth. (optional)
-     * @param  int|null $min_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $max_average_badge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_matches The maximum number of matches to analyze. (optional)
@@ -6782,7 +6782,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function playerStatsMetricsRequest($hero_ids = null, $min_unix_timestamp = 1760400000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $account_ids = null, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsRequest($hero_ids = null, $min_unix_timestamp = 1760486400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $account_ids = null, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
 
 

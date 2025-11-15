@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hero_id** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [default to undefined]
 **matches** | **number** |  | [default to undefined]
-**rank** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [default to undefined]
+**rank** | **number** | tier &#x3D; first digits, subtier &#x3D; last digit, see more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [default to undefined]
 **value** | **number** |  | [default to undefined]
 
 ## Example

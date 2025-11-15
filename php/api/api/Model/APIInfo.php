@@ -381,6 +381,7 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets user_ingested_matches_last24h
      *
      * @return int|null
+     * @deprecated
      */
     public function getUserIngestedMatchesLast24h()
     {
@@ -390,9 +391,10 @@ class APIInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets user_ingested_matches_last24h
      *
-     * @param int|null $user_ingested_matches_last24h The number of matches ingested by users in the last 24 hours.
+     * @param int|null $user_ingested_matches_last24h The number of matches ingested in the last 24 hours.
      *
      * @return self
+     * @deprecated
      */
     public function setUserIngestedMatchesLast24h($user_ingested_matches_last24h)
     {

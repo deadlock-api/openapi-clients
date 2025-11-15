@@ -260,8 +260,8 @@ final minDurationS = 789; // int | Filter matches based on their duration in sec
 final maxDurationS = 789; // int | Filter matches based on their duration in seconds (up to 7000s).
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 
@@ -285,8 +285,8 @@ Name | Type | Description  | Notes
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **minNetworth** | **int**| Filter players based on their net worth. | [optional] 
  **maxNetworth** | **int**| Filter players based on their net worth. | [optional] 
- **minAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
- **maxAverageBadge** | **int**| Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **minAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+ **maxAverageBadge** | **int**| Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
  **minMatchId** | **int**| Filter matches based on their ID. | [optional] 
  **maxMatchId** | **int**| Filter matches based on their ID. | [optional] 
 

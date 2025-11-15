@@ -19,7 +19,7 @@ pub struct ApiInfo {
     /// The sizes of all tables in the database.
     #[serde(rename = "table_sizes", skip_serializing_if = "Option::is_none")]
     pub table_sizes: Option<std::collections::HashMap<String, models::TableSize>>,
-    /// The number of matches ingested by users in the last 24 hours.
+    /// The number of matches ingested in the last 24 hours.
     #[serde(rename = "user_ingested_matches_last24h", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub user_ingested_matches_last24h: Option<Option<u64>>,
 }

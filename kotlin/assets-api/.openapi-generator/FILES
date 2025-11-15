@@ -13,7 +13,7 @@ docs/AimingShotSpreadPenalty.md
 docs/Bonus.md
 docs/BuildTagV2.md
 docs/ColorV1.md
-docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md
 docs/DefaultApi.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/HTTPValidationError.md
@@ -119,7 +119,7 @@ src/main/kotlin/assets-deadlock-api-client/models/AimingShotSpreadPenalty.kt
 src/main/kotlin/assets-deadlock-api-client/models/Bonus.kt
 src/main/kotlin/assets-deadlock-api-client/models/BuildTagV2.kt
 src/main/kotlin/assets-deadlock-api-client/models/ColorV1.kt
-src/main/kotlin/assets-deadlock-api-client/models/DeadlockAssetsApiRoutesV1ValidClientVersions.kt
+src/main/kotlin/assets-deadlock-api-client/models/DeadlockAssetsApiRoutesV2ValidClientVersions.kt
 src/main/kotlin/assets-deadlock-api-client/models/GetItemsV2ItemsGet200ResponseInner.kt
 src/main/kotlin/assets-deadlock-api-client/models/HTTPValidationError.kt
 src/main/kotlin/assets-deadlock-api-client/models/HeroColorsV2.kt
@@ -199,7 +199,7 @@ src/test/kotlin/assets-deadlock-api-client/models/AimingShotSpreadPenaltyTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/BonusTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/BuildTagV2Test.kt
 src/test/kotlin/assets-deadlock-api-client/models/ColorV1Test.kt
-src/test/kotlin/assets-deadlock-api-client/models/DeadlockAssetsApiRoutesV1ValidClientVersionsTest.kt
+src/test/kotlin/assets-deadlock-api-client/models/DeadlockAssetsApiRoutesV2ValidClientVersionsTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/GetItemsV2ItemsGet200ResponseInnerTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/HTTPValidationErrorTest.kt
 src/test/kotlin/assets-deadlock-api-client/models/HeroColorsV2Test.kt

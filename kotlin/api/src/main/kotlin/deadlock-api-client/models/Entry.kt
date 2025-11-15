@@ -24,7 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param heroId See more: <https://assets.deadlock-api.com/v2/heroes>
  * @param matches 
- * @param rank See more: <https://assets.deadlock-api.com/v2/ranks>
+ * @param rank tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
  * @param `value` 
  */
 
@@ -38,7 +38,7 @@ data class Entry (
     @Json(name = "matches")
     val matches: kotlin.Long,
 
-    /* See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks> */
     @Json(name = "rank")
     val rank: kotlin.Long,
 

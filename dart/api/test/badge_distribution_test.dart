@@ -16,7 +16,7 @@ void main() {
   // final instance = BadgeDistribution();
 
   group('test BadgeDistribution', () {
-    // The badge level. See more: <https://assets.deadlock-api.com/v2/ranks>
+    // The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
     // int badgeLevel
     test('to test the property `badgeLevel`', () async {
       // TODO

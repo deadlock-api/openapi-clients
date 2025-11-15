@@ -82,7 +82,7 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
-    min_unix_timestamp = 1760400000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760400000)
+    min_unix_timestamp = 1760486400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760486400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -90,8 +90,8 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
     max_ability_upgrades = 56 # int | Filter players based on their maximum number of ability upgrades over the whole match. (optional)
     min_networth = 56 # int | Filter players based on their net worth. (optional)
     max_networth = 56 # int | Filter players based on their net worth. (optional)
-    min_average_badge = 56 # int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-    max_average_badge = 56 # int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+    min_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+    max_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
     min_match_id = 56 # int | Filter matches based on their ID. (optional)
     max_match_id = 56 # int | Filter matches based on their ID. (optional)
     min_matches = 20 # int | The minimum number of matches played for an ability order to be included in the response. (optional) (default to 20)

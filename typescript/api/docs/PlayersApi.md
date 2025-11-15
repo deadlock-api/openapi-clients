@@ -324,8 +324,8 @@ let minDurationS: number; //Filter matches based on their duration in seconds (u
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let minNetworth: number; //Filter players based on their net worth. (optional) (default to undefined)
 let maxNetworth: number; //Filter players based on their net worth. (optional) (default to undefined)
-let minAverageBadge: number; //Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
-let maxAverageBadge: number; //Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
+let minAverageBadge: number; //Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
+let maxAverageBadge: number; //Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
 let minMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 
@@ -357,8 +357,8 @@ const { status, data } = await apiInstance.playerHeroStats(
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **minNetworth** | [**number**] | Filter players based on their net worth. | (optional) defaults to undefined|
 | **maxNetworth** | [**number**] | Filter players based on their net worth. | (optional) defaults to undefined|
-| **minAverageBadge** | [**number**] | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
-| **maxAverageBadge** | [**number**] | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
+| **minAverageBadge** | [**number**] | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
+| **maxAverageBadge** | [**number**] | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
 | **minMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 

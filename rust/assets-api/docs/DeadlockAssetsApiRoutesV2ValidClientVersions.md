@@ -1,4 +1,4 @@
-# DeadlockAssetsApiRoutesV1ValidClientVersions
+# DeadlockAssetsApiRoutesV2ValidClientVersions
 
 ## Enum Variants
 

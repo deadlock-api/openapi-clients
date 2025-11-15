@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FetchedMatchesPerDay** | Pointer to **NullableInt64** | The number of matches fetched in the last 24 hours. | [optional] 
 **TableSizes** | Pointer to [**map[string]TableSize**](TableSize.md) | The sizes of all tables in the database. | [optional] 
-**UserIngestedMatchesLast24h** | Pointer to **NullableInt64** | The number of matches ingested by users in the last 24 hours. | [optional] 
+**UserIngestedMatchesLast24h** | Pointer to **NullableInt64** | The number of matches ingested in the last 24 hours. | [optional] 
 
 ## Methods
 

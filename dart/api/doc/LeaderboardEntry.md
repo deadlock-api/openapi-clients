@@ -9,9 +9,9 @@ import 'package:deadlock-api-client/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accountName** | **String** | The account name of the player. | [optional] 
-**badgeLevel** | **int** | The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+**badgeLevel** | **int** | The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
 **possibleAccountIds** | **List<int>** | The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.** | [optional] [default to const []]
-**rank** | **int** | The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
+**rank** | **int** | The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
 **rankedRank** | **int** | The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
 **rankedSubrank** | **int** | The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks> | [optional] 
 **topHeroIds** | **List<int>** | The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] [default to const []]

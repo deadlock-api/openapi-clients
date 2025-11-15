@@ -21,7 +21,7 @@ var _ MappedNullable = &BadgeDistribution{}
 
 // BadgeDistribution struct for BadgeDistribution
 type BadgeDistribution struct {
-	// The badge level. See more: <https://assets.deadlock-api.com/v2/ranks>
+	// The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
 	BadgeLevel int32 `json:"badge_level"`
 	// The total number of matches.
 	TotalMatches int64 `json:"total_matches"`

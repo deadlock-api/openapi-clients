@@ -27,7 +27,7 @@ void main() {
       // TODO
     });
 
-    // See more: <https://assets.deadlock-api.com/v2/ranks>
+    // tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
     // int rank
     test('to test the property `rank`', () async {
       // TODO

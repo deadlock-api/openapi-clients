@@ -33,7 +33,8 @@ export interface APIInfo {
      */
     'table_sizes'?: { [key: string]: TableSize; };
     /**
-     * The number of matches ingested by users in the last 24 hours.
+     * The number of matches ingested in the last 24 hours.
+     * @deprecated
      */
     'user_ingested_matches_last24h'?: number | null;
 }
@@ -165,7 +166,7 @@ export interface AnalyticsHeroStats {
 }
 export interface BadgeDistribution {
     /**
-     * The badge level. See more: <https://assets.deadlock-api.com/v2/ranks>
+     * The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
      */
     'badge_level': number;
     /**
@@ -353,7 +354,7 @@ export interface Entry {
     'hero_id': number;
     'matches': number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
      */
     'rank': number;
     'value': number;
@@ -621,7 +622,7 @@ export interface LeaderboardEntry {
      */
     'account_name'?: string | null;
     /**
-     * The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+     * The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
      */
     'badge_level'?: number | null;
     /**
@@ -629,7 +630,7 @@ export interface LeaderboardEntry {
      */
     'possible_account_ids'?: Array<number>;
     /**
-     * The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+     * The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
      */
     'rank'?: number | null;
     /**
@@ -661,7 +662,7 @@ export interface MMRHistory {
      */
     'player_score': number;
     /**
-     * The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks>
+     * The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
      */
     'rank': number;
     /**
@@ -855,8 +856,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxAbilityUpgrades] Filter players based on their maximum number of ability upgrades over the whole match.
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatches] The minimum number of matches played for an ability order to be included in the response.
@@ -1084,8 +1085,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {Array<number> | null} [includeHeroIds] Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -1201,8 +1202,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
          * @param {number | null} [minEnemyNetworth] Filter enemy players based on their net worth.
          * @param {number | null} [maxEnemyNetworth] Filter enemy players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {boolean | null} [sameLaneFilter] When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane.
@@ -1317,8 +1318,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
@@ -1422,8 +1423,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minHeroMatches] Filter players based on the number of matches they have played with a specific hero within the filtered time range.
@@ -1546,8 +1547,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {boolean | null} [sameLaneFilter] When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane.
@@ -1660,8 +1661,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
@@ -1769,8 +1770,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
@@ -1898,8 +1899,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minKillsPerRaster] Filter Raster cells based on minimum kills.
          * @param {number | null} [maxKillsPerRaster] Filter Raster cells based on maximum kills.
          * @param {number | null} [minDeathsPerRaster] Filter Raster cells based on minimum deaths.
@@ -2031,8 +2032,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [start] The offset to start fetching players from.
@@ -2149,8 +2150,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatches] The maximum number of matches to analyze.
@@ -2265,8 +2266,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxAbilityUpgrades] Filter players based on their maximum number of ability upgrades over the whole match.
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatches] The minimum number of matches played for an ability order to be included in the response.
@@ -2326,8 +2327,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {Array<number> | null} [includeHeroIds] Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -2357,8 +2358,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
          * @param {number | null} [minEnemyNetworth] Filter enemy players based on their net worth.
          * @param {number | null} [maxEnemyNetworth] Filter enemy players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {boolean | null} [sameLaneFilter] When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane.
@@ -2387,8 +2388,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
@@ -2412,8 +2413,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minHeroMatches] Filter players based on the number of matches they have played with a specific hero within the filtered time range.
@@ -2442,8 +2443,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {boolean | null} [sameLaneFilter] When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane.
@@ -2474,8 +2475,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
@@ -2501,8 +2502,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
@@ -2536,8 +2537,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minKillsPerRaster] Filter Raster cells based on minimum kills.
          * @param {number | null} [maxKillsPerRaster] Filter Raster cells based on maximum kills.
          * @param {number | null} [minDeathsPerRaster] Filter Raster cells based on minimum deaths.
@@ -2567,8 +2568,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [start] The offset to start fetching players from.
@@ -2593,8 +2594,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatches] The maximum number of matches to analyze.
@@ -2802,12 +2803,12 @@ export interface AnalyticsApiAbilityOrderStatsRequest {
     readonly maxNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -2942,12 +2943,12 @@ export interface AnalyticsApiHeroCombStatsRequest {
     readonly maxNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -3042,12 +3043,12 @@ export interface AnalyticsApiHeroCountersStatsRequest {
     readonly maxEnemyNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -3137,12 +3138,12 @@ export interface AnalyticsApiHeroScoreboardRequest {
     readonly maxNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -3207,12 +3208,12 @@ export interface AnalyticsApiHeroStatsRequest {
     readonly maxNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -3302,12 +3303,12 @@ export interface AnalyticsApiHeroSynergiesStatsRequest {
     readonly maxNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -3407,12 +3408,12 @@ export interface AnalyticsApiItemPermutationStatsRequest {
     readonly maxNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -3487,12 +3488,12 @@ export interface AnalyticsApiItemStatsRequest {
     readonly maxNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -3607,12 +3608,12 @@ export interface AnalyticsApiKillDeathStatsRequest {
     readonly maxMatchId?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -3707,12 +3708,12 @@ export interface AnalyticsApiPlayerScoreboardRequest {
     readonly maxNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -3782,12 +3783,12 @@ export interface AnalyticsApiPlayerStatsMetricsRequest {
     readonly maxNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -6809,8 +6810,8 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
@@ -7175,8 +7176,8 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
@@ -7434,12 +7435,12 @@ export interface MatchesApiBulkMetadataRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 
@@ -8084,8 +8085,8 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
@@ -8336,8 +8337,8 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their net worth.
          * @param {number | null} [maxNetworth] Filter players based on their net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
@@ -8667,12 +8668,12 @@ export interface PlayersApiPlayerHeroStatsRequest {
     readonly maxNetworth?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly minAverageBadge?: number | null
 
     /**
-     * Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
      */
     readonly maxAverageBadge?: number | null
 

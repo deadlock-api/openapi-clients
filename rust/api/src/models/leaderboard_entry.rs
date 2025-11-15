@@ -16,13 +16,13 @@ pub struct LeaderboardEntry {
     /// The account name of the player.
     #[serde(rename = "account_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub account_name: Option<Option<String>>,
-    /// The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "badge_level", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub badge_level: Option<Option<u32>>,
     /// The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
     #[serde(rename = "possible_account_ids", skip_serializing_if = "Option::is_none")]
     pub possible_account_ids: Option<Vec<u32>>,
-    /// The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "rank", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub rank: Option<Option<u32>>,
     /// The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>

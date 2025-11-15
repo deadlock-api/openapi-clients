@@ -394,7 +394,7 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets badge_level
      *
-     * @param int|null $badge_level The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int|null $badge_level The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
      *
      * @return self
      */
@@ -460,7 +460,7 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rank
      *
-     * @param int|null $rank The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int|null $rank The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
      *
      * @return self
      */

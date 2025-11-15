@@ -65,8 +65,8 @@ final minAbilityUpgrades = 789; // int | Filter players based on their minimum n
 final maxAbilityUpgrades = 789; // int | Filter players based on their maximum number of ability upgrades over the whole match.
 final minNetworth = 789; // int | Filter players based on their net worth.
 final maxNetworth = 789; // int | Filter players based on their net worth.
-final minAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-final maxAverageBadge = 56; // int | Filter matches based on the average badge level (0-116) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final minAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+final maxAverageBadge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 final minMatchId = 789; // int | Filter matches based on their ID.
 final maxMatchId = 789; // int | Filter matches based on their ID.
 final minMatches = 56; // int | The minimum number of matches played for an ability order to be included in the response.

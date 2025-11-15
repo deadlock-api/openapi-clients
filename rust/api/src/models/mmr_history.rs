@@ -26,7 +26,7 @@ pub struct MmrHistory {
     /// Player Score is the index for the rank array (internally used for the rank regression)
     #[serde(rename = "player_score")]
     pub player_score: f64,
-    /// The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "rank")]
     pub rank: u32,
     /// Start time of the match

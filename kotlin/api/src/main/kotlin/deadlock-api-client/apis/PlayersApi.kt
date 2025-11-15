@@ -512,8 +512,8 @@ class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param minNetworth Filter players based on their net worth. (optional)
      * @param maxNetworth Filter players based on their net worth. (optional)
-     * @param minAverageBadge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param maxAverageBadge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return kotlin.collections.List<HeroStats>
@@ -555,8 +555,8 @@ class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param minNetworth Filter players based on their net worth. (optional)
      * @param maxNetworth Filter players based on their net worth. (optional)
-     * @param minAverageBadge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param maxAverageBadge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return ApiResponse<kotlin.collections.List<HeroStats>?>
@@ -584,8 +584,8 @@ class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param minNetworth Filter players based on their net worth. (optional)
      * @param maxNetworth Filter players based on their net worth. (optional)
-     * @param minAverageBadge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param maxAverageBadge Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig

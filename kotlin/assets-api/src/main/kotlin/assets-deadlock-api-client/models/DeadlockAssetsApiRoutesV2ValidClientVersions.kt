@@ -26,7 +26,7 @@ import com.squareup.moshi.JsonClass
  */
 
 @JsonClass(generateAdapter = false)
-enum class DeadlockAssetsApiRoutesV1ValidClientVersions(val value: kotlin.Int) {
+enum class DeadlockAssetsApiRoutesV2ValidClientVersions(val value: kotlin.Int) {
 
     @Json(name = "5972")
     _5972(5972),
@@ -140,12 +140,12 @@ enum class DeadlockAssetsApiRoutesV1ValidClientVersions(val value: kotlin.Int) {
         /**
          * Converts the provided [data] to a [String] on success, null otherwise.
          */
-        fun encode(data: kotlin.Any?): kotlin.String? = if (data is DeadlockAssetsApiRoutesV1ValidClientVersions) "$data" else null
+        fun encode(data: kotlin.Any?): kotlin.String? = if (data is DeadlockAssetsApiRoutesV2ValidClientVersions) "$data" else null
 
         /**
-         * Returns a valid [DeadlockAssetsApiRoutesV1ValidClientVersions] for [data], null otherwise.
+         * Returns a valid [DeadlockAssetsApiRoutesV2ValidClientVersions] for [data], null otherwise.
          */
-        fun decode(data: kotlin.Any?): DeadlockAssetsApiRoutesV1ValidClientVersions? = data?.let {
+        fun decode(data: kotlin.Any?): DeadlockAssetsApiRoutesV2ValidClientVersions? = data?.let {
           val normalizedData = "$it".lowercase()
           values().firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()

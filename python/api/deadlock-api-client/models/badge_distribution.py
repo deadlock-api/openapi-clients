@@ -27,7 +27,7 @@ class BadgeDistribution(BaseModel):
     """
     BadgeDistribution
     """ # noqa: E501
-    badge_level: Annotated[int, Field(strict=True, ge=0)] = Field(description="The badge level. See more: <https://assets.deadlock-api.com/v2/ranks>")
+    badge_level: Annotated[int, Field(strict=True, ge=0)] = Field(description="The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>")
     total_matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="The total number of matches.")
     __properties: ClassVar[List[str]] = ["badge_level", "total_matches"]
 

@@ -32,7 +32,7 @@ class MMRHistory(BaseModel):
     division_tier: Annotated[int, Field(strict=True, ge=0)] = Field(description="Extracted from the rank the division tier (rank % 10)")
     match_id: Annotated[int, Field(strict=True, ge=0)]
     player_score: Union[StrictFloat, StrictInt] = Field(description="Player Score is the index for the rank array (internally used for the rank regression)")
-    rank: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks>")
+    rank: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>")
     start_time: Annotated[int, Field(strict=True, ge=0)] = Field(description="Start time of the match")
     __properties: ClassVar[List[str]] = ["account_id", "division", "division_tier", "match_id", "player_score", "rank", "start_time"]
 

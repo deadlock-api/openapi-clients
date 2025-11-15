@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **HeroId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
 **Matches** | **int64** |  | 
-**Rank** | **int64** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+**Rank** | **int64** | tier &#x3D; first digits, subtier &#x3D; last digit, see more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
 **Value** | **float64** |  | 
 
 ## Methods

@@ -29,7 +29,7 @@ type MMRHistory struct {
 	MatchId int64 `json:"match_id"`
 	// Player Score is the index for the rank array (internally used for the rank regression)
 	PlayerScore float64 `json:"player_score"`
-	// The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks>
+	// The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
 	Rank int32 `json:"rank"`
 	// Start time of the match
 	StartTime int32 `json:"start_time"`

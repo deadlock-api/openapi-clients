@@ -30,7 +30,7 @@ class APIInfo(BaseModel):
     """ # noqa: E501
     fetched_matches_per_day: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The number of matches fetched in the last 24 hours.")
     table_sizes: Optional[Dict[str, TableSize]] = Field(default=None, description="The sizes of all tables in the database.")
-    user_ingested_matches_last24h: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The number of matches ingested by users in the last 24 hours.")
+    user_ingested_matches_last24h: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The number of matches ingested in the last 24 hours.")
     __properties: ClassVar[List[str]] = ["fetched_matches_per_day", "table_sizes", "user_ingested_matches_last24h"]
 
     model_config = ConfigDict(

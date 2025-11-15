@@ -323,7 +323,7 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets badge_level
      *
-     * @param int $badge_level The badge level. See more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int $badge_level The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
      *
      * @return self
      */

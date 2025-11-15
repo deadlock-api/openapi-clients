@@ -98,13 +98,13 @@ func (r ApiAbilityOrderStatsRequest) MaxNetworth(maxNetworth int64) ApiAbilityOr
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiAbilityOrderStatsRequest) MinAverageBadge(minAverageBadge int32) ApiAbilityOrderStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiAbilityOrderStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiAbilityOrderStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -200,7 +200,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -432,7 +432,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -597,7 +597,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
         r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -716,13 +716,13 @@ func (r ApiHeroCombStatsRequest) MaxNetworth(maxNetworth int64) ApiHeroCombStats
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiHeroCombStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroCombStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiHeroCombStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroCombStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -837,7 +837,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1045,13 +1045,13 @@ func (r ApiHeroCountersStatsRequest) MaxEnemyNetworth(maxEnemyNetworth int64) Ap
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiHeroCountersStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroCountersStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiHeroCountersStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroCountersStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -1156,7 +1156,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1352,13 +1352,13 @@ func (r ApiHeroScoreboardRequest) MaxNetworth(maxNetworth int64) ApiHeroScoreboa
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiHeroScoreboardRequest) MinAverageBadge(minAverageBadge int32) ApiHeroScoreboardRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiHeroScoreboardRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroScoreboardRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -1451,7 +1451,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1616,13 +1616,13 @@ func (r ApiHeroStatsRequest) MaxNetworth(maxNetworth int64) ApiHeroStatsRequest 
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiHeroStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiHeroStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -1744,7 +1744,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1934,13 +1934,13 @@ func (r ApiHeroSynergiesStatsRequest) MaxNetworth(maxNetworth int64) ApiHeroSyne
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiHeroSynergiesStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroSynergiesStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiHeroSynergiesStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroSynergiesStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -2051,7 +2051,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2256,13 +2256,13 @@ func (r ApiItemPermutationStatsRequest) MaxNetworth(maxNetworth int64) ApiItemPe
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiItemPermutationStatsRequest) MinAverageBadge(minAverageBadge int32) ApiItemPermutationStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiItemPermutationStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiItemPermutationStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -2371,7 +2371,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2549,13 +2549,13 @@ func (r ApiItemStatsRequest) MaxNetworth(maxNetworth int64) ApiItemStatsRequest 
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiItemStatsRequest) MinAverageBadge(minAverageBadge int32) ApiItemStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiItemStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiItemStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -2673,7 +2673,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2908,13 +2908,13 @@ func (r ApiKillDeathStatsRequest) MaxMatchId(maxMatchId int64) ApiKillDeathStats
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiKillDeathStatsRequest) MinAverageBadge(minAverageBadge int32) ApiKillDeathStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiKillDeathStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiKillDeathStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -3008,7 +3008,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -3231,13 +3231,13 @@ func (r ApiPlayerScoreboardRequest) MaxNetworth(maxNetworth int64) ApiPlayerScor
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiPlayerScoreboardRequest) MinAverageBadge(minAverageBadge int32) ApiPlayerScoreboardRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiPlayerScoreboardRequest) MaxAverageBadge(maxAverageBadge int32) ApiPlayerScoreboardRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -3509,13 +3509,13 @@ func (r ApiPlayerStatsMetricsRequest) MaxNetworth(maxNetworth int64) ApiPlayerSt
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiPlayerStatsMetricsRequest) MinAverageBadge(minAverageBadge int32) ApiPlayerStatsMetricsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (0-116) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
 func (r ApiPlayerStatsMetricsRequest) MaxAverageBadge(maxAverageBadge int32) ApiPlayerStatsMetricsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -3616,7 +3616,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1760400000
+        var defaultValue int64 = 1760486400
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}

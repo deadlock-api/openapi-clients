@@ -23,7 +23,8 @@ type APIInfo struct {
 	FetchedMatchesPerDay NullableInt64 `json:"fetched_matches_per_day,omitempty"`
 	// The sizes of all tables in the database.
 	TableSizes map[string]TableSize `json:"table_sizes,omitempty"`
-	// The number of matches ingested by users in the last 24 hours.
+	// The number of matches ingested in the last 24 hours.
+	// Deprecated
 	UserIngestedMatchesLast24h NullableInt64 `json:"user_ingested_matches_last24h,omitempty"`
 }
 
@@ -119,6 +120,7 @@ func (o *APIInfo) SetTableSizes(v map[string]TableSize) {
 }
 
 // GetUserIngestedMatchesLast24h returns the UserIngestedMatchesLast24h field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *APIInfo) GetUserIngestedMatchesLast24h() int64 {
 	if o == nil || IsNil(o.UserIngestedMatchesLast24h.Get()) {
 		var ret int64
@@ -130,6 +132,7 @@ func (o *APIInfo) GetUserIngestedMatchesLast24h() int64 {
 // GetUserIngestedMatchesLast24hOk returns a tuple with the UserIngestedMatchesLast24h field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *APIInfo) GetUserIngestedMatchesLast24hOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
@@ -147,6 +150,7 @@ func (o *APIInfo) HasUserIngestedMatchesLast24h() bool {
 }
 
 // SetUserIngestedMatchesLast24h gets a reference to the given NullableInt64 and assigns it to the UserIngestedMatchesLast24h field.
+// Deprecated
 func (o *APIInfo) SetUserIngestedMatchesLast24h(v int64) {
 	o.UserIngestedMatchesLast24h.Set(&v)
 }

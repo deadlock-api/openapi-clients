@@ -28,9 +28,9 @@ class LeaderboardEntry(BaseModel):
     LeaderboardEntry
     """ # noqa: E501
     account_name: Optional[StrictStr] = Field(default=None, description="The account name of the player.")
-    badge_level: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The badge level of the player. See more: <https://assets.deadlock-api.com/v2/ranks>")
+    badge_level: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>")
     possible_account_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**")
-    rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>")
+    rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>")
     ranked_rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>")
     ranked_subrank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>")
     top_hero_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes>")

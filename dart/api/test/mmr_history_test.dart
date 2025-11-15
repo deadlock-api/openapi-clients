@@ -44,7 +44,7 @@ void main() {
       // TODO
     });
 
-    // The Player Rank. See more: <https://assets.deadlock-api.com/v2/ranks>
+    // The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
     // int rank
     test('to test the property `rank`', () async {
       // TODO

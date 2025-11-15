@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **division_tier** | **number** | Extracted from the rank the division tier (rank % 10) | [default to undefined]
 **match_id** | **number** |  | [default to undefined]
 **player_score** | **number** | Player Score is the index for the rank array (internally used for the rank regression) | [default to undefined]
-**rank** | **number** | The Player Rank. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [default to undefined]
+**rank** | **number** | The Player Rank (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [default to undefined]
 **start_time** | **number** | Start time of the match | [default to undefined]
 
 ## Example

@@ -25,7 +25,7 @@ class BadgeDistributionTest : ShouldSpec() {
         // uncomment below to create an instance of BadgeDistribution
         //val modelInstance = BadgeDistribution()
 
-        // to test the property `badgeLevel` - The badge level. See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `badgeLevel` - The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
         should("test badgeLevel") {
             // uncomment below to test the property
             //modelInstance.badgeLevel shouldBe ("TODO")

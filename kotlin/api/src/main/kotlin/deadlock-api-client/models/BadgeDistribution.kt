@@ -22,14 +22,14 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param badgeLevel The badge level. See more: <https://assets.deadlock-api.com/v2/ranks>
+ * @param badgeLevel The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param totalMatches The total number of matches.
  */
 
 
 data class BadgeDistribution (
 
-    /* The badge level. See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> */
     @Json(name = "badge_level")
     val badgeLevel: kotlin.Int,
 

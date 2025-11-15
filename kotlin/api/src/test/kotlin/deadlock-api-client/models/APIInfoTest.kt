@@ -38,7 +38,7 @@ class APIInfoTest : ShouldSpec() {
             //modelInstance.tableSizes shouldBe ("TODO")
         }
 
-        // to test the property `userIngestedMatchesLast24h` - The number of matches ingested by users in the last 24 hours.
+        // to test the property `userIngestedMatchesLast24h` - The number of matches ingested in the last 24 hours.
         should("test userIngestedMatchesLast24h") {
             // uncomment below to test the property
             //modelInstance.userIngestedMatchesLast24h shouldBe ("TODO")
