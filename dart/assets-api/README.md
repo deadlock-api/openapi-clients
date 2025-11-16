@@ -57,7 +57,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = DefaultApi();
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesRawValidClientVersions | 
 
 try {
     final result = api_instance.getBuildTagsV2BuildTagsGet(language, clientVersion);
@@ -109,7 +109,7 @@ Class | Method | HTTP request | Description
  - [Bonus](doc//Bonus.md)
  - [BuildTagV2](doc//BuildTagV2.md)
  - [ColorV1](doc//ColorV1.md)
- - [DeadlockAssetsApiRoutesV2ValidClientVersions](doc//DeadlockAssetsApiRoutesV2ValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesRawValidClientVersions](doc//DeadlockAssetsApiRoutesRawValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](doc//GetItemsV2ItemsGet200ResponseInner.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [HeroColorsV2](doc//HeroColorsV2.md)
