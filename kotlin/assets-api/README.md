@@ -1,6 +1,10 @@
 # assets-deadlock-api-client - Kotlin client library for Assets - Deadlock API
 
 
+## API Clients
+
+We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)
+
 ## Support the Deadlock API
 
 Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.
@@ -95,7 +99,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets-deadlock-api-client.models.Bonus](docs/Bonus.md)
  - [assets-deadlock-api-client.models.BuildTagV2](docs/BuildTagV2.md)
  - [assets-deadlock-api-client.models.ColorV1](docs/ColorV1.md)
- - [assets-deadlock-api-client.models.DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [assets-deadlock-api-client.models.GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [assets-deadlock-api-client.models.HTTPValidationError](docs/HTTPValidationError.md)
  - [assets-deadlock-api-client.models.HeroColorsV2](docs/HeroColorsV2.md)

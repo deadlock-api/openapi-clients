@@ -1,6 +1,10 @@
 # Rust API client for assets-deadlock-api-client
 
 
+## API Clients
+
+We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)
+
 ## Support the Deadlock API
 
 Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.
@@ -75,7 +79,7 @@ Class | Method | HTTP request | Description
  - [Bonus](docs/Bonus.md)
  - [BuildTagV2](docs/BuildTagV2.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [HeroColorsV2](docs/HeroColorsV2.md)
  - [HeroDescriptionV2](docs/HeroDescriptionV2.md)

@@ -1,7 +1,7 @@
 /*
 Assets - Deadlock API
 
- ## Support the Deadlock API  Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.  Your sponsorship helps keep this resource open, free and future-proof for everyone. By supporting the Deadlock API, you will enable continued development, new features and reliable access for developers, analysts and streamers worldwide.  Help us continue to provide the data you need - sponsor the Deadlock API today!  **-> You can Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or [GitHub](https://github.com/sponsors/raimannma)**  ## Disclaimer _deadlock-api.com is not endorsed by Valve and does not reflect the views or opinions of Valve or anyone officially involved in producing or managing Valve properties. Valve and all associated properties are trademarks or registered trademarks of Valve Corporation_ 
+ ## API Clients  We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)  ## Support the Deadlock API  Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.  Your sponsorship helps keep this resource open, free and future-proof for everyone. By supporting the Deadlock API, you will enable continued development, new features and reliable access for developers, analysts and streamers worldwide.  Help us continue to provide the data you need - sponsor the Deadlock API today!  **-> You can Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or [GitHub](https://github.com/sponsors/raimannma)**  ## Disclaimer _deadlock-api.com is not endorsed by Valve and does not reflect the views or opinions of Valve or anyone officially involved in producing or managing Valve properties. Valve and all associated properties are trademarks or registered trademarks of Valve Corporation_ 
 
 API version: 0.1.0
 */
@@ -26,7 +26,7 @@ type ApiGetBuildTagsV2BuildTagsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
 func (r ApiGetBuildTagsV2BuildTagsGetRequest) Language(language Language) ApiGetBuildTagsV2BuildTagsGetRequest {
@@ -34,7 +34,7 @@ func (r ApiGetBuildTagsV2BuildTagsGetRequest) Language(language Language) ApiGet
 	return r
 }
 
-func (r ApiGetBuildTagsV2BuildTagsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetBuildTagsV2BuildTagsGetRequest {
+func (r ApiGetBuildTagsV2BuildTagsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetBuildTagsV2BuildTagsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -247,10 +247,10 @@ func (a *DefaultAPIService) GetClientVersionsV2ClientVersionsGetExecute(r ApiGet
 type ApiGetColorsV1ColorsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
-func (r ApiGetColorsV1ColorsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetColorsV1ColorsGetRequest {
+func (r ApiGetColorsV1ColorsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetColorsV1ColorsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -363,10 +363,10 @@ func (a *DefaultAPIService) GetColorsV1ColorsGetExecute(r ApiGetColorsV1ColorsGe
 type ApiGetIconsV1IconsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
-func (r ApiGetIconsV1IconsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetIconsV1IconsGetRequest {
+func (r ApiGetIconsV1IconsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetIconsV1IconsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -479,10 +479,10 @@ func (a *DefaultAPIService) GetIconsV1IconsGetExecute(r ApiGetIconsV1IconsGetReq
 type ApiGetMapV1MapGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
-func (r ApiGetMapV1MapGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetMapV1MapGetRequest {
+func (r ApiGetMapV1MapGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetMapV1MapGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -596,7 +596,7 @@ type ApiGetRanksV2RanksGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
 func (r ApiGetRanksV2RanksGetRequest) Language(language Language) ApiGetRanksV2RanksGetRequest {
@@ -604,7 +604,7 @@ func (r ApiGetRanksV2RanksGetRequest) Language(language Language) ApiGetRanksV2R
 	return r
 }
 
-func (r ApiGetRanksV2RanksGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetRanksV2RanksGetRequest {
+func (r ApiGetRanksV2RanksGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetRanksV2RanksGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -720,10 +720,10 @@ func (a *DefaultAPIService) GetRanksV2RanksGetExecute(r ApiGetRanksV2RanksGetReq
 type ApiGetSoundsV1SoundsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
-func (r ApiGetSoundsV1SoundsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetSoundsV1SoundsGetRequest {
+func (r ApiGetSoundsV1SoundsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetSoundsV1SoundsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -836,10 +836,10 @@ func (a *DefaultAPIService) GetSoundsV1SoundsGetExecute(r ApiGetSoundsV1SoundsGe
 type ApiGetSteamInfoV1SteamInfoGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
-func (r ApiGetSteamInfoV1SteamInfoGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetSteamInfoV1SteamInfoGetRequest {
+func (r ApiGetSteamInfoV1SteamInfoGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetSteamInfoV1SteamInfoGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

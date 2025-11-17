@@ -3,15 +3,17 @@ info:
   contact:
     name: Deadlock API - Discord
     url: https://discord.gg/XMF9Xrgfqu
-  description: "\n## Support the Deadlock API\n\nWhether you're building your own\
-    \ database, developing data science projects, or enhancing your website with game\
-    \ and player analytics, the Deadlock API has the data you need.\n\nYour sponsorship\
-    \ helps keep this resource open, free and future-proof for everyone. By supporting\
-    \ the Deadlock API, you will enable continued development, new features and reliable\
-    \ access for developers, analysts and streamers worldwide.\n\nHelp us continue\
-    \ to provide the data you need - sponsor the Deadlock API today!\n\n**-> You can\
-    \ Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896)\
-    \ or [GitHub](https://github.com/sponsors/raimannma)**\n\n## Disclaimer\n_deadlock-api.com\
+  description: "\n## API Clients\n\nWe have auto generated and updated clients for\
+    \ many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)\n\
+    \n## Support the Deadlock API\n\nWhether you're building your own database, developing\
+    \ data science projects, or enhancing your website with game and player analytics,\
+    \ the Deadlock API has the data you need.\n\nYour sponsorship helps keep this\
+    \ resource open, free and future-proof for everyone. By supporting the Deadlock\
+    \ API, you will enable continued development, new features and reliable access\
+    \ for developers, analysts and streamers worldwide.\n\nHelp us continue to provide\
+    \ the data you need - sponsor the Deadlock API today!\n\n**-> You can Sponsor\
+    \ the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or\
+    \ [GitHub](https://github.com/sponsors/raimannma)**\n\n## Disclaimer\n_deadlock-api.com\
     \ is not endorsed by Valve and does not reflect the views or opinions of Valve\
     \ or anyone officially involved in producing or managing Valve properties. Valve\
     \ and all associated properties are trademarks or registered trademarks of Valve\
@@ -107,7 +109,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -312,7 +314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -444,7 +446,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -492,7 +494,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -728,7 +730,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -967,7 +969,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -1215,7 +1217,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -1480,7 +1482,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -1692,7 +1694,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -1909,7 +1911,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -2183,7 +2185,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -2466,7 +2468,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -4528,7 +4530,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer
@@ -4647,7 +4649,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1760572800
+          default: 1760659200
           format: int64
           nullable: true
           type: integer

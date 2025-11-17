@@ -1,5 +1,9 @@
 # assets-deadlock-api-client
 
+## API Clients
+
+We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)
+
 ## Support the Deadlock API
 
 Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.
@@ -57,7 +61,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = DefaultApi();
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesRawValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getBuildTagsV2BuildTagsGet(language, clientVersion);
@@ -109,7 +113,7 @@ Class | Method | HTTP request | Description
  - [Bonus](doc//Bonus.md)
  - [BuildTagV2](doc//BuildTagV2.md)
  - [ColorV1](doc//ColorV1.md)
- - [DeadlockAssetsApiRoutesRawValidClientVersions](doc//DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV1ValidClientVersions](doc//DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](doc//GetItemsV2ItemsGet200ResponseInner.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [HeroColorsV2](doc//HeroColorsV2.md)

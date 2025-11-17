@@ -1,6 +1,10 @@
 # assets-deadlock-api-client
 
 
+## API Clients
+
+We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)
+
 ## Support the Deadlock API
 
 Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.
@@ -69,7 +73,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions
 
 try {
     $result = $apiInstance->getBuildTagsV2BuildTagsGet($language, $client_version);
@@ -120,7 +124,7 @@ Class | Method | HTTP request | Description
 - [Bonus](docs/Model/Bonus.md)
 - [BuildTagV2](docs/Model/BuildTagV2.md)
 - [ColorV1](docs/Model/ColorV1.md)
-- [DeadlockAssetsApiRoutesRawValidClientVersions](docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+- [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
 - [GetItemsV2ItemsGet200ResponseInner](docs/Model/GetItemsV2ItemsGet200ResponseInner.md)
 - [HTTPValidationError](docs/Model/HTTPValidationError.md)
 - [HeroColorsV2](docs/Model/HeroColorsV2.md)

@@ -86,7 +86,7 @@ Class | Method | HTTP request | Description
  - [Bonus](docs/Bonus.md)
  - [BuildTagV2](docs/BuildTagV2.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HeroColorsV2](docs/HeroColorsV2.md)

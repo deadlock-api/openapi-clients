@@ -1,5 +1,9 @@
 # assets-deadlock-api-client
 
+## API Clients
+
+We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)
+
 ## Support the Deadlock API
 
 Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.
@@ -83,7 +87,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     api_instance = assets-deadlock-api-client.HeroesApi(api_client)
     name = 'name_example' # str | 
     language = assets-deadlock-api-client.Language() # Language |  (optional)
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Hero By Name
@@ -136,7 +140,7 @@ Class | Method | HTTP request | Description
  - [Bonus](docs/Bonus.md)
  - [BuildTagV2](docs/BuildTagV2.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HeroColorsV2](docs/HeroColorsV2.md)

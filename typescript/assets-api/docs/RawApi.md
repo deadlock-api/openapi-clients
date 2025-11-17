@@ -23,7 +23,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RawApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getGenericDataRawGenericDataGet(
     clientVersion
@@ -34,7 +34,7 @@ const { status, data } = await apiInstance.getGenericDataRawGenericDataGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesRawValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -74,7 +74,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RawApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getRawHeroesRawHeroesGet(
     clientVersion
@@ -85,7 +85,7 @@ const { status, data } = await apiInstance.getRawHeroesRawHeroesGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesRawValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -125,7 +125,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RawApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getRawItemsRawItemsGet(
     clientVersion
@@ -136,7 +136,7 @@ const { status, data } = await apiInstance.getRawItemsRawItemsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesRawValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type

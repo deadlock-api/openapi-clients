@@ -1,7 +1,7 @@
 /*
 Assets - Deadlock API
 
- ## Support the Deadlock API  Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.  Your sponsorship helps keep this resource open, free and future-proof for everyone. By supporting the Deadlock API, you will enable continued development, new features and reliable access for developers, analysts and streamers worldwide.  Help us continue to provide the data you need - sponsor the Deadlock API today!  **-> You can Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or [GitHub](https://github.com/sponsors/raimannma)**  ## Disclaimer _deadlock-api.com is not endorsed by Valve and does not reflect the views or opinions of Valve or anyone officially involved in producing or managing Valve properties. Valve and all associated properties are trademarks or registered trademarks of Valve Corporation_ 
+ ## API Clients  We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)  ## Support the Deadlock API  Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.  Your sponsorship helps keep this resource open, free and future-proof for everyone. By supporting the Deadlock API, you will enable continued development, new features and reliable access for developers, analysts and streamers worldwide.  Help us continue to provide the data you need - sponsor the Deadlock API today!  **-> You can Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or [GitHub](https://github.com/sponsors/raimannma)**  ## Disclaimer _deadlock-api.com is not endorsed by Valve and does not reflect the views or opinions of Valve or anyone officially involved in producing or managing Valve properties. Valve and all associated properties are trademarks or registered trademarks of Valve Corporation_ 
 
 API version: 0.1.0
 */
@@ -28,7 +28,7 @@ type ApiGetHeroByNameV2HeroesByNameNameGetRequest struct {
 	ApiService *HeroesAPIService
 	name string
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
 func (r ApiGetHeroByNameV2HeroesByNameNameGetRequest) Language(language Language) ApiGetHeroByNameV2HeroesByNameNameGetRequest {
@@ -36,7 +36,7 @@ func (r ApiGetHeroByNameV2HeroesByNameNameGetRequest) Language(language Language
 	return r
 }
 
-func (r ApiGetHeroByNameV2HeroesByNameNameGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetHeroByNameV2HeroesByNameNameGetRequest {
+func (r ApiGetHeroByNameV2HeroesByNameNameGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetHeroByNameV2HeroesByNameNameGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -157,7 +157,7 @@ type ApiGetHeroV2HeroesIdGetRequest struct {
 	ApiService *HeroesAPIService
 	id int32
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
 func (r ApiGetHeroV2HeroesIdGetRequest) Language(language Language) ApiGetHeroV2HeroesIdGetRequest {
@@ -165,7 +165,7 @@ func (r ApiGetHeroV2HeroesIdGetRequest) Language(language Language) ApiGetHeroV2
 	return r
 }
 
-func (r ApiGetHeroV2HeroesIdGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetHeroV2HeroesIdGetRequest {
+func (r ApiGetHeroV2HeroesIdGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetHeroV2HeroesIdGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -285,7 +285,7 @@ type ApiGetHeroesV2HeroesGetRequest struct {
 	ctx context.Context
 	ApiService *HeroesAPIService
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 	onlyActive *bool
 }
 
@@ -294,7 +294,7 @@ func (r ApiGetHeroesV2HeroesGetRequest) Language(language Language) ApiGetHeroes
 	return r
 }
 
-func (r ApiGetHeroesV2HeroesGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetHeroesV2HeroesGetRequest {
+func (r ApiGetHeroesV2HeroesGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetHeroesV2HeroesGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
