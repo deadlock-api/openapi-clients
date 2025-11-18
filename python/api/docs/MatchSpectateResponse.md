@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.match_spectate_response import MatchSpectateResponse
+from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse
 
 # TODO update the JSON string below
 json = "{}"

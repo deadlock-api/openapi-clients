@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
 
 class TestDeadlockAssetsApiRoutesRawValidClientVersions(unittest.TestCase):
     """DeadlockAssetsApiRoutesRawValidClientVersions unit test stubs"""

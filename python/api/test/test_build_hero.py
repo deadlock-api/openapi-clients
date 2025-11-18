@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.build_hero import BuildHero
+from deadlock_api_client.models.build_hero import BuildHero
 
 class TestBuildHero(unittest.TestCase):
     """BuildHero unit test stubs"""
@@ -37,21 +37,21 @@ class TestBuildHero(unittest.TestCase):
             return BuildHero(
                 author_account_id = 0,
                 description = '',
-                details = deadlock-api-client.models.build_hero_details.BuildHeroDetails(
-                    ability_order = deadlock-api-client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
+                details = deadlock_api_client.models.build_hero_details.BuildHeroDetails(
+                    ability_order = deadlock_api_client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
                         currency_changes = [
-                            deadlock-api-client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
+                            deadlock_api_client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
                                 ability_id = 0, 
                                 annotation = '', 
                                 currency_type = 56, 
                                 delta = 56, )
                             ], ), 
                     mod_categories = [
-                        deadlock-api-client.models.build_hero_details_category.BuildHeroDetailsCategory(
+                        deadlock_api_client.models.build_hero_details_category.BuildHeroDetailsCategory(
                             description = '', 
                             height = 1.337, 
                             mods = [
-                                deadlock-api-client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
+                                deadlock_api_client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
                                     ability_id = 0, 
                                     annotation = '', 
                                     imbue_target_ability_id = 0, 
@@ -78,21 +78,21 @@ class TestBuildHero(unittest.TestCase):
         else:
             return BuildHero(
                 author_account_id = 0,
-                details = deadlock-api-client.models.build_hero_details.BuildHeroDetails(
-                    ability_order = deadlock-api-client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
+                details = deadlock_api_client.models.build_hero_details.BuildHeroDetails(
+                    ability_order = deadlock_api_client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
                         currency_changes = [
-                            deadlock-api-client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
+                            deadlock_api_client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
                                 ability_id = 0, 
                                 annotation = '', 
                                 currency_type = 56, 
                                 delta = 56, )
                             ], ), 
                     mod_categories = [
-                        deadlock-api-client.models.build_hero_details_category.BuildHeroDetailsCategory(
+                        deadlock_api_client.models.build_hero_details_category.BuildHeroDetailsCategory(
                             description = '', 
                             height = 1.337, 
                             mods = [
-                                deadlock-api-client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
+                                deadlock_api_client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
                                     ability_id = 0, 
                                     annotation = '', 
                                     imbue_target_ability_id = 0, 

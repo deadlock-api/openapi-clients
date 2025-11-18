@@ -9,14 +9,14 @@ generate-api-python:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p python/api
 	@echo "--> Generating Python client for the main API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g python -o python/api/ --skip-validate-spec --additional-properties=packageName=deadlock-api-client
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g python -o python/api/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client
 	@echo "--> Main API client generated successfully in python/api/"
 
 generate-assets-api-python:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p python/assets-api
 	@echo "--> Generating Python client for the assets API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g python -o python/assets-api/ --skip-validate-spec --additional-properties=packageName=assets-deadlock-api-client
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g python -o python/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client
 	@echo "--> Assets API client generated successfully in python/assets-api/"
 
 

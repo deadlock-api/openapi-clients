@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.enemy_stats import EnemyStats
+from deadlock_api_client.models.enemy_stats import EnemyStats
 
 class TestEnemyStats(unittest.TestCase):
     """EnemyStats unit test stubs"""

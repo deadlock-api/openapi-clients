@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.upgrade_tooltip_section_v2 import UpgradeTooltipSectionV2
+from assets_deadlock_api_client.models.upgrade_tooltip_section_v2 import UpgradeTooltipSectionV2
 
 class TestUpgradeTooltipSectionV2(unittest.TestCase):
     """UpgradeTooltipSectionV2 unit test stubs"""
@@ -37,7 +37,7 @@ class TestUpgradeTooltipSectionV2(unittest.TestCase):
             return UpgradeTooltipSectionV2(
                 section_type = 'innate',
                 section_attributes = [
-                    assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2.UpgradeTooltipSectionAttributeV2(
+                    assets_deadlock_api_client.models.upgrade_tooltip_section_attribute_v2.UpgradeTooltipSectionAttributeV2(
                         loc_string = '', 
                         properties = [
                             ''
@@ -49,7 +49,7 @@ class TestUpgradeTooltipSectionV2(unittest.TestCase):
                             ''
                             ], 
                         important_properties_with_icon = [
-                            assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon.UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon(
+                            assets_deadlock_api_client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon.UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon(
                                 name = '', 
                                 icon = '', 
                                 localized_name = '', )

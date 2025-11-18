@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.leaderboard_entry import LeaderboardEntry
+from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry
 
 class TestLeaderboardEntry(unittest.TestCase):
     """LeaderboardEntry unit test stubs"""

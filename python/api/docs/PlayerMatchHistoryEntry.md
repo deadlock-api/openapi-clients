@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.player_match_history_entry import PlayerMatchHistoryEntry
+from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry
 
 # TODO update the JSON string below
 json = "{}"

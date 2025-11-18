@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.match_salts_response import MatchSaltsResponse
+from deadlock_api_client.models.match_salts_response import MatchSaltsResponse
 
 class TestMatchSaltsResponse(unittest.TestCase):
     """MatchSaltsResponse unit test stubs"""

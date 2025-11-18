@@ -1,4 +1,4 @@
-# deadlock-api-client.PlayersApi
+# deadlock_api_client.PlayersApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -33,22 +33,22 @@ This endpoint returns the enemy stats.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.enemy_stats import EnemyStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.enemy_stats import EnemyStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.PlayersApi(api_client)
+    api_instance = deadlock_api_client.PlayersApi(api_client)
     account_id = 56 # int | The players `SteamID3`
     min_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
@@ -136,22 +136,22 @@ Relevant Protobuf Messages:
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.player_match_history_entry import PlayerMatchHistoryEntry
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.PlayersApi(api_client)
+    api_instance = deadlock_api_client.PlayersApi(api_client)
     account_id = 56 # int | The players `SteamID3`
     force_refetch = True # bool | Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit. (optional)
     only_stored_history = True # bool | Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`. (optional)
@@ -220,22 +220,22 @@ This endpoint returns the mate stats.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.mate_stats import MateStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.mate_stats import MateStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.PlayersApi(api_client)
+    api_instance = deadlock_api_client.PlayersApi(api_client)
     account_id = 56 # int | The players `SteamID3`
     min_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
@@ -317,22 +317,22 @@ This endpoint returns the party stats.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.party_stats import PartyStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.party_stats import PartyStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.PlayersApi(api_client)
+    api_instance = deadlock_api_client.PlayersApi(api_client)
     account_id = 56 # int | The players `SteamID3`
     min_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
@@ -408,22 +408,22 @@ This endpoint returns statistics for each hero played by a given player account.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.hero_stats import HeroStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.hero_stats import HeroStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.PlayersApi(api_client)
+    api_instance = deadlock_api_client.PlayersApi(api_client)
     account_ids = [56] # List[int] | Comma separated list of account ids, Account IDs are in `SteamID3` format.
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     min_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
@@ -511,22 +511,22 @@ See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.steam_profile import SteamProfile
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.steam_profile import SteamProfile
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.PlayersApi(api_client)
+    api_instance = deadlock_api_client.PlayersApi(api_client)
     account_ids = [56] # List[int] | Comma separated list of account ids, Account IDs are in `SteamID3` format.
 
     try:
@@ -593,22 +593,22 @@ See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.steam_profile import SteamProfile
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.steam_profile import SteamProfile
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.PlayersApi(api_client)
+    api_instance = deadlock_api_client.PlayersApi(api_client)
     search_query = 'search_query_example' # str | Search query for Steam profiles.
 
     try:

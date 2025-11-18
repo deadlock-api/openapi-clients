@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.hero_starting_stats_v2 import HeroStartingStatsV2
+from assets_deadlock_api_client.models.hero_starting_stats_v2 import HeroStartingStatsV2
 
 # TODO update the JSON string below
 json = "{}"

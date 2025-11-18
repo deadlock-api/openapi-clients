@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.raw_ability_activation_v2 import RawAbilityActivationV2
+from assets_deadlock_api_client.models.raw_ability_activation_v2 import RawAbilityActivationV2
 
 class TestRawAbilityActivationV2(unittest.TestCase):
     """RawAbilityActivationV2 unit test stubs"""

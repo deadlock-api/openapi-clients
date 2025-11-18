@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.api.raw_api import RawApi
+from assets_deadlock_api_client.api.raw_api import RawApi
 
 
 class TestRawApi(unittest.TestCase):

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.value import Value
+from assets_deadlock_api_client.models.value import Value
 
 # TODO update the JSON string below
 json = "{}"

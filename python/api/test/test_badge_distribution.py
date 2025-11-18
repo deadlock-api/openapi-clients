@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.badge_distribution import BadgeDistribution
+from deadlock_api_client.models.badge_distribution import BadgeDistribution
 
 class TestBadgeDistribution(unittest.TestCase):
     """BadgeDistribution unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.api.misc_entities_api import MiscEntitiesApi
+from assets_deadlock_api_client.api.misc_entities_api import MiscEntitiesApi
 
 
 class TestMiscEntitiesApi(unittest.TestCase):

@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.bonus import Bonus
+from assets_deadlock_api_client.models.bonus import Bonus
 
 class TestBonus(unittest.TestCase):
     """Bonus unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.hero_v2 import HeroV2
+from assets_deadlock_api_client.models.hero_v2 import HeroV2
 
 class TestHeroV2(unittest.TestCase):
     """HeroV2 unit test stubs"""
@@ -38,7 +38,7 @@ class TestHeroV2(unittest.TestCase):
                 id = 56,
                 class_name = '',
                 name = '',
-                description = assets-deadlock-api-client.models.hero_description_v2.HeroDescriptionV2(
+                description = assets_deadlock_api_client.models.hero_description_v2.HeroDescriptionV2(
                     lore = '', 
                     role = '', 
                     playstyle = '', ),
@@ -63,7 +63,7 @@ class TestHeroV2(unittest.TestCase):
                 limited_testing = True,
                 complexity = 56,
                 skin = 56,
-                images = assets-deadlock-api-client.models.hero_images_v2.HeroImagesV2(
+                images = assets_deadlock_api_client.models.hero_images_v2.HeroImagesV2(
                     icon_hero_card = '', 
                     icon_hero_card_webp = '', 
                     icon_image_small = '', 
@@ -84,11 +84,11 @@ class TestHeroV2(unittest.TestCase):
                 items = {
                     'key' : ''
                     },
-                starting_stats = assets-deadlock-api-client.models.hero_starting_stats_v2.HeroStartingStatsV2(
-                    max_move_speed = assets-deadlock-api-client.models.hero_starting_stat_v2.HeroStartingStatV2(
+                starting_stats = assets_deadlock_api_client.models.hero_starting_stats_v2.HeroStartingStatsV2(
+                    max_move_speed = assets_deadlock_api_client.models.hero_starting_stat_v2.HeroStartingStatV2(
                         value = null, 
                         display_stat_name = '', ), 
-                    sprint_speed = assets-deadlock-api-client.models.hero_starting_stat_v2.HeroStartingStatV2(
+                    sprint_speed = assets_deadlock_api_client.models.hero_starting_stat_v2.HeroStartingStatV2(
                         value = null, 
                         display_stat_name = '', ), 
                     crouch_speed = , 
@@ -111,12 +111,12 @@ class TestHeroV2(unittest.TestCase):
                     tech_range = , 
                     bullet_armor_damage_reduction = , ),
                 item_slot_info = {
-                    'key' : assets-deadlock-api-client.models.raw_hero_item_slot_info_value_v2.RawHeroItemSlotInfoValueV2(
+                    'key' : assets_deadlock_api_client.models.raw_hero_item_slot_info_value_v2.RawHeroItemSlotInfoValueV2(
                         max_purchases_for_tier = [
                             56
                             ], )
                     },
-                physics = assets-deadlock-api-client.models.hero_physics_v2.HeroPhysicsV2(
+                physics = assets_deadlock_api_client.models.hero_physics_v2.HeroPhysicsV2(
                     collision_height = 1.337, 
                     collision_radius = 1.337, 
                     stealth_speed_meters_per_second = 1.337, 
@@ -124,7 +124,7 @@ class TestHeroV2(unittest.TestCase):
                     footstep_sound_travel_distance_meters = 1.337, 
                     step_sound_time = 1.337, 
                     step_sound_time_sprinting = 1.337, ),
-                colors = assets-deadlock-api-client.models.hero_colors_v2.HeroColorsV2(
+                colors = assets_deadlock_api_client.models.hero_colors_v2.HeroColorsV2(
                     glow_enemy = [
                         null
                         ], 
@@ -140,19 +140,19 @@ class TestHeroV2(unittest.TestCase):
                     ui = [
                         null
                         ], ),
-                shop_stat_display = assets-deadlock-api-client.models.hero_shop_stat_display_v2.HeroShopStatDisplayV2(
-                    spirit_stats_display = assets-deadlock-api-client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
+                shop_stat_display = assets_deadlock_api_client.models.hero_shop_stat_display_v2.HeroShopStatDisplayV2(
+                    spirit_stats_display = assets_deadlock_api_client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
                         display_stats = [
                             ''
                             ], ), 
-                    vitality_stats_display = assets-deadlock-api-client.models.raw_hero_shop_vitality_stats_display_v2.RawHeroShopVitalityStatsDisplayV2(
+                    vitality_stats_display = assets_deadlock_api_client.models.raw_hero_shop_vitality_stats_display_v2.RawHeroShopVitalityStatsDisplayV2(
                         display_stats = [
                             ''
                             ], 
                         other_display_stats = [
                             ''
                             ], ), 
-                    weapon_stats_display = assets-deadlock-api-client.models.hero_shop_weapon_stats_display_v2.HeroShopWeaponStatsDisplayV2(
+                    weapon_stats_display = assets_deadlock_api_client.models.hero_shop_weapon_stats_display_v2.HeroShopWeaponStatsDisplayV2(
                         display_stats = , 
                         other_display_stats = [
                             ''
@@ -164,13 +164,13 @@ class TestHeroV2(unittest.TestCase):
                         weapon_image_webp = '', ), ),
                 cost_bonuses = {
                     'key' : [
-                        assets-deadlock-api-client.models.raw_hero_map_mod_cost_bonuses_v2.RawHeroMapModCostBonusesV2(
+                        assets_deadlock_api_client.models.raw_hero_map_mod_cost_bonuses_v2.RawHeroMapModCostBonusesV2(
                             gold_threshold = 56, 
                             bonus = 1.337, 
                             percent_on_graph = 1.337, )
                         ]
                     },
-                stats_display = assets-deadlock-api-client.models.raw_hero_stats_display_v2.RawHeroStatsDisplayV2(
+                stats_display = assets_deadlock_api_client.models.raw_hero_stats_display_v2.RawHeroStatsDisplayV2(
                     health_header_stats = [
                         ''
                         ], 
@@ -189,15 +189,15 @@ class TestHeroV2(unittest.TestCase):
                     weapon_stats = [
                         ''
                         ], ),
-                hero_stats_ui = assets-deadlock-api-client.models.raw_hero_stats_uiv2.RawHeroStatsUIV2(
+                hero_stats_ui = assets_deadlock_api_client.models.raw_hero_stats_uiv2.RawHeroStatsUIV2(
                     weapon_stat_display = '', 
                     display_stats = [
-                        assets-deadlock-api-client.models.raw_hero_stats_ui_display_v2.RawHeroStatsUIDisplayV2(
+                        assets_deadlock_api_client.models.raw_hero_stats_ui_display_v2.RawHeroStatsUIDisplayV2(
                             category = '', 
                             stat_type = '', )
                         ], ),
                 level_info = {
-                    'key' : assets-deadlock-api-client.models.hero_level_info_v2.HeroLevelInfoV2(
+                    'key' : assets_deadlock_api_client.models.hero_level_info_v2.HeroLevelInfoV2(
                         use_standard_upgrade = True, 
                         bonus_currencies = [
                             ''
@@ -205,13 +205,13 @@ class TestHeroV2(unittest.TestCase):
                         required_gold = 56, )
                     },
                 scaling_stats = {
-                    'key' : assets-deadlock-api-client.models.raw_hero_scaling_stat_v2.RawHeroScalingStatV2(
+                    'key' : assets_deadlock_api_client.models.raw_hero_scaling_stat_v2.RawHeroScalingStatV2(
                         scaling_stat = '', 
                         scale = 1.337, )
                     },
                 purchase_bonuses = {
                     'key' : [
-                        assets-deadlock-api-client.models.raw_hero_purchase_bonus_v2.RawHeroPurchaseBonusV2(
+                        assets_deadlock_api_client.models.raw_hero_purchase_bonus_v2.RawHeroPurchaseBonusV2(
                             value_type = '', 
                             tier = 56, 
                             value = '', )
@@ -226,7 +226,7 @@ class TestHeroV2(unittest.TestCase):
                 id = 56,
                 class_name = '',
                 name = '',
-                description = assets-deadlock-api-client.models.hero_description_v2.HeroDescriptionV2(
+                description = assets_deadlock_api_client.models.hero_description_v2.HeroDescriptionV2(
                     lore = '', 
                     role = '', 
                     playstyle = '', ),
@@ -238,7 +238,7 @@ class TestHeroV2(unittest.TestCase):
                 limited_testing = True,
                 complexity = 56,
                 skin = 56,
-                images = assets-deadlock-api-client.models.hero_images_v2.HeroImagesV2(
+                images = assets_deadlock_api_client.models.hero_images_v2.HeroImagesV2(
                     icon_hero_card = '', 
                     icon_hero_card_webp = '', 
                     icon_image_small = '', 
@@ -259,11 +259,11 @@ class TestHeroV2(unittest.TestCase):
                 items = {
                     'key' : ''
                     },
-                starting_stats = assets-deadlock-api-client.models.hero_starting_stats_v2.HeroStartingStatsV2(
-                    max_move_speed = assets-deadlock-api-client.models.hero_starting_stat_v2.HeroStartingStatV2(
+                starting_stats = assets_deadlock_api_client.models.hero_starting_stats_v2.HeroStartingStatsV2(
+                    max_move_speed = assets_deadlock_api_client.models.hero_starting_stat_v2.HeroStartingStatV2(
                         value = null, 
                         display_stat_name = '', ), 
-                    sprint_speed = assets-deadlock-api-client.models.hero_starting_stat_v2.HeroStartingStatV2(
+                    sprint_speed = assets_deadlock_api_client.models.hero_starting_stat_v2.HeroStartingStatV2(
                         value = null, 
                         display_stat_name = '', ), 
                     crouch_speed = , 
@@ -286,12 +286,12 @@ class TestHeroV2(unittest.TestCase):
                     tech_range = , 
                     bullet_armor_damage_reduction = , ),
                 item_slot_info = {
-                    'key' : assets-deadlock-api-client.models.raw_hero_item_slot_info_value_v2.RawHeroItemSlotInfoValueV2(
+                    'key' : assets_deadlock_api_client.models.raw_hero_item_slot_info_value_v2.RawHeroItemSlotInfoValueV2(
                         max_purchases_for_tier = [
                             56
                             ], )
                     },
-                physics = assets-deadlock-api-client.models.hero_physics_v2.HeroPhysicsV2(
+                physics = assets_deadlock_api_client.models.hero_physics_v2.HeroPhysicsV2(
                     collision_height = 1.337, 
                     collision_radius = 1.337, 
                     stealth_speed_meters_per_second = 1.337, 
@@ -299,7 +299,7 @@ class TestHeroV2(unittest.TestCase):
                     footstep_sound_travel_distance_meters = 1.337, 
                     step_sound_time = 1.337, 
                     step_sound_time_sprinting = 1.337, ),
-                colors = assets-deadlock-api-client.models.hero_colors_v2.HeroColorsV2(
+                colors = assets_deadlock_api_client.models.hero_colors_v2.HeroColorsV2(
                     glow_enemy = [
                         null
                         ], 
@@ -315,19 +315,19 @@ class TestHeroV2(unittest.TestCase):
                     ui = [
                         null
                         ], ),
-                shop_stat_display = assets-deadlock-api-client.models.hero_shop_stat_display_v2.HeroShopStatDisplayV2(
-                    spirit_stats_display = assets-deadlock-api-client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
+                shop_stat_display = assets_deadlock_api_client.models.hero_shop_stat_display_v2.HeroShopStatDisplayV2(
+                    spirit_stats_display = assets_deadlock_api_client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
                         display_stats = [
                             ''
                             ], ), 
-                    vitality_stats_display = assets-deadlock-api-client.models.raw_hero_shop_vitality_stats_display_v2.RawHeroShopVitalityStatsDisplayV2(
+                    vitality_stats_display = assets_deadlock_api_client.models.raw_hero_shop_vitality_stats_display_v2.RawHeroShopVitalityStatsDisplayV2(
                         display_stats = [
                             ''
                             ], 
                         other_display_stats = [
                             ''
                             ], ), 
-                    weapon_stats_display = assets-deadlock-api-client.models.hero_shop_weapon_stats_display_v2.HeroShopWeaponStatsDisplayV2(
+                    weapon_stats_display = assets_deadlock_api_client.models.hero_shop_weapon_stats_display_v2.HeroShopWeaponStatsDisplayV2(
                         display_stats = , 
                         other_display_stats = [
                             ''
@@ -337,7 +337,7 @@ class TestHeroV2(unittest.TestCase):
                             ], 
                         weapon_image = '', 
                         weapon_image_webp = '', ), ),
-                stats_display = assets-deadlock-api-client.models.raw_hero_stats_display_v2.RawHeroStatsDisplayV2(
+                stats_display = assets_deadlock_api_client.models.raw_hero_stats_display_v2.RawHeroStatsDisplayV2(
                     health_header_stats = [
                         ''
                         ], 
@@ -356,15 +356,15 @@ class TestHeroV2(unittest.TestCase):
                     weapon_stats = [
                         ''
                         ], ),
-                hero_stats_ui = assets-deadlock-api-client.models.raw_hero_stats_uiv2.RawHeroStatsUIV2(
+                hero_stats_ui = assets_deadlock_api_client.models.raw_hero_stats_uiv2.RawHeroStatsUIV2(
                     weapon_stat_display = '', 
                     display_stats = [
-                        assets-deadlock-api-client.models.raw_hero_stats_ui_display_v2.RawHeroStatsUIDisplayV2(
+                        assets_deadlock_api_client.models.raw_hero_stats_ui_display_v2.RawHeroStatsUIDisplayV2(
                             category = '', 
                             stat_type = '', )
                         ], ),
                 level_info = {
-                    'key' : assets-deadlock-api-client.models.hero_level_info_v2.HeroLevelInfoV2(
+                    'key' : assets_deadlock_api_client.models.hero_level_info_v2.HeroLevelInfoV2(
                         use_standard_upgrade = True, 
                         bonus_currencies = [
                             ''
@@ -372,13 +372,13 @@ class TestHeroV2(unittest.TestCase):
                         required_gold = 56, )
                     },
                 scaling_stats = {
-                    'key' : assets-deadlock-api-client.models.raw_hero_scaling_stat_v2.RawHeroScalingStatV2(
+                    'key' : assets_deadlock_api_client.models.raw_hero_scaling_stat_v2.RawHeroScalingStatV2(
                         scaling_stat = '', 
                         scale = 1.337, )
                     },
                 purchase_bonuses = {
                     'key' : [
-                        assets-deadlock-api-client.models.raw_hero_purchase_bonus_v2.RawHeroPurchaseBonusV2(
+                        assets_deadlock_api_client.models.raw_hero_purchase_bonus_v2.RawHeroPurchaseBonusV2(
                             value_type = '', 
                             tier = 56, 
                             value = '', )

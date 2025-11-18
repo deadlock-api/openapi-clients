@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.hero_type_v2 import HeroTypeV2
+from assets_deadlock_api_client.models.hero_type_v2 import HeroTypeV2
 
 class TestHeroTypeV2(unittest.TestCase):
     """HeroTypeV2 unit test stubs"""

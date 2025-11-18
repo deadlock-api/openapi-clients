@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.build_item_stats import BuildItemStats
+from deadlock_api_client.models.build_item_stats import BuildItemStats
 
 class TestBuildItemStats(unittest.TestCase):
     """BuildItemStats unit test stubs"""

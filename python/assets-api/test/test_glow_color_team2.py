@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.glow_color_team2 import GlowColorTeam2
+from assets_deadlock_api_client.models.glow_color_team2 import GlowColorTeam2
 
 class TestGlowColorTeam2(unittest.TestCase):
     """GlowColorTeam2 unit test stubs"""

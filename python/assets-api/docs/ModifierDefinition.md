@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.modifier_definition import ModifierDefinition
+from assets_deadlock_api_client.models.modifier_definition import ModifierDefinition
 
 # TODO update the JSON string below
 json = "{}"

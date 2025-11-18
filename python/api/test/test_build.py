@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.build import Build
+from deadlock_api_client.models.build import Build
 
 class TestBuild(unittest.TestCase):
     """Build unit test stubs"""
@@ -35,24 +35,24 @@ class TestBuild(unittest.TestCase):
         model = Build()
         if include_optional:
             return Build(
-                hero_build = deadlock-api-client.models.build_hero.BuildHero(
+                hero_build = deadlock_api_client.models.build_hero.BuildHero(
                     author_account_id = 0, 
                     description = '', 
-                    details = deadlock-api-client.models.build_hero_details.BuildHeroDetails(
-                        ability_order = deadlock-api-client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
+                    details = deadlock_api_client.models.build_hero_details.BuildHeroDetails(
+                        ability_order = deadlock_api_client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
                             currency_changes = [
-                                deadlock-api-client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
+                                deadlock_api_client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
                                     ability_id = 0, 
                                     annotation = '', 
                                     currency_type = 56, 
                                     delta = 56, )
                                 ], ), 
                         mod_categories = [
-                            deadlock-api-client.models.build_hero_details_category.BuildHeroDetailsCategory(
+                            deadlock_api_client.models.build_hero_details_category.BuildHeroDetailsCategory(
                                 description = '', 
                                 height = 1.337, 
                                 mods = [
-                                    deadlock-api-client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
+                                    deadlock_api_client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
                                         ability_id = 0, 
                                         annotation = '', 
                                         imbue_target_ability_id = 0, 
@@ -83,24 +83,24 @@ class TestBuild(unittest.TestCase):
             )
         else:
             return Build(
-                hero_build = deadlock-api-client.models.build_hero.BuildHero(
+                hero_build = deadlock_api_client.models.build_hero.BuildHero(
                     author_account_id = 0, 
                     description = '', 
-                    details = deadlock-api-client.models.build_hero_details.BuildHeroDetails(
-                        ability_order = deadlock-api-client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
+                    details = deadlock_api_client.models.build_hero_details.BuildHeroDetails(
+                        ability_order = deadlock_api_client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
                             currency_changes = [
-                                deadlock-api-client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
+                                deadlock_api_client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
                                     ability_id = 0, 
                                     annotation = '', 
                                     currency_type = 56, 
                                     delta = 56, )
                                 ], ), 
                         mod_categories = [
-                            deadlock-api-client.models.build_hero_details_category.BuildHeroDetailsCategory(
+                            deadlock_api_client.models.build_hero_details_category.BuildHeroDetailsCategory(
                                 description = '', 
                                 height = 1.337, 
                                 mods = [
-                                    deadlock-api-client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
+                                    deadlock_api_client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
                                         ability_id = 0, 
                                         annotation = '', 
                                         imbue_target_ability_id = 0, 

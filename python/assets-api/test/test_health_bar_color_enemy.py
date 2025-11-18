@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.health_bar_color_enemy import HealthBarColorEnemy
+from assets_deadlock_api_client.models.health_bar_color_enemy import HealthBarColorEnemy
 
 class TestHealthBarColorEnemy(unittest.TestCase):
     """HealthBarColorEnemy unit test stubs"""

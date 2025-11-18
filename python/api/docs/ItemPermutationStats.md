@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.item_permutation_stats import ItemPermutationStats
+from deadlock_api_client.models.item_permutation_stats import ItemPermutationStats
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.range import Range
+from assets_deadlock_api_client.models.range import Range
 
 class TestRange(unittest.TestCase):
     """Range unit test stubs"""

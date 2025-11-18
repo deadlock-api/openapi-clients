@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.api.players_api import PlayersApi
+from deadlock_api_client.api.players_api import PlayersApi
 
 
 class TestPlayersApi(unittest.TestCase):

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.raw_hero_stats_uiv2 import RawHeroStatsUIV2
+from assets_deadlock_api_client.models.raw_hero_stats_uiv2 import RawHeroStatsUIV2
 
 # TODO update the JSON string below
 json = "{}"

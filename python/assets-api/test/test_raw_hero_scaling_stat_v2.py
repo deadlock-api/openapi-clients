@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.raw_hero_scaling_stat_v2 import RawHeroScalingStatV2
+from assets_deadlock_api_client.models.raw_hero_scaling_stat_v2 import RawHeroScalingStatV2
 
 class TestRawHeroScalingStatV2(unittest.TestCase):
     """RawHeroScalingStatV2 unit test stubs"""

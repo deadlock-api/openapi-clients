@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.modifier_definition import ModifierDefinition
+from assets_deadlock_api_client.models.modifier_definition import ModifierDefinition
 
 class TestModifierDefinition(unittest.TestCase):
     """ModifierDefinition unit test stubs"""
@@ -45,14 +45,14 @@ class TestModifierDefinition(unittest.TestCase):
                     ''
                     ],
                 modifier_values = [
-                    assets-deadlock-api-client.models.modifier_value.ModifierValue(
+                    assets_deadlock_api_client.models.modifier_value.ModifierValue(
                         value_type = '', 
                         value = 1.337, 
                         value_min = 1.337, 
                         value_max = 1.337, )
                     ],
                 script_values = [
-                    assets-deadlock-api-client.models.modifier_value.ModifierValue(
+                    assets_deadlock_api_client.models.modifier_value.ModifierValue(
                         value_type = '', 
                         value = 1.337, 
                         value_min = 1.337, 

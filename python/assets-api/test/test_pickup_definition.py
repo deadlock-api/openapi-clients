@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.pickup_definition import PickupDefinition
+from assets_deadlock_api_client.models.pickup_definition import PickupDefinition
 
 class TestPickupDefinition(unittest.TestCase):
     """PickupDefinition unit test stubs"""

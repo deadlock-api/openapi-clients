@@ -1,5 +1,5 @@
 [project]
-name = "assets-deadlock-api-client"
+name = "assets_deadlock_api_client"
 version = "1.0.0"
 description = "Assets - Deadlock API"
 authors = [
@@ -41,7 +41,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "assets-deadlock-api-client",
+  "assets_deadlock_api_client",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]
@@ -79,7 +79,7 @@ disallow_any_generics = true
 
 [[tool.mypy.overrides]]
 module = [
-  "assets-deadlock-api-client.configuration",
+  "assets_deadlock_api_client.configuration",
 ]
 warn_unused_ignores = true
 strict_equality = true

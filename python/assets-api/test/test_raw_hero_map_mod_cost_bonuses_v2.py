@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.raw_hero_map_mod_cost_bonuses_v2 import RawHeroMapModCostBonusesV2
+from assets_deadlock_api_client.models.raw_hero_map_mod_cost_bonuses_v2 import RawHeroMapModCostBonusesV2
 
 class TestRawHeroMapModCostBonusesV2(unittest.TestCase):
     """RawHeroMapModCostBonusesV2 unit test stubs"""

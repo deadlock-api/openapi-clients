@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.hero_comb_stats import HeroCombStats
+from deadlock_api_client.models.hero_comb_stats import HeroCombStats
 
 # TODO update the JSON string below
 json = "{}"

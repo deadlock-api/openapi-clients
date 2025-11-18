@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2
+from assets_deadlock_api_client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2
 
 class TestRawAbilityUpgradeV2(unittest.TestCase):
     """RawAbilityUpgradeV2 unit test stubs"""
@@ -36,7 +36,7 @@ class TestRawAbilityUpgradeV2(unittest.TestCase):
         if include_optional:
             return RawAbilityUpgradeV2(
                 property_upgrades = [
-                    assets-deadlock-api-client.models.raw_ability_upgrade_property_upgrade_v2.RawAbilityUpgradePropertyUpgradeV2(
+                    assets_deadlock_api_client.models.raw_ability_upgrade_property_upgrade_v2.RawAbilityUpgradePropertyUpgradeV2(
                         name = '', 
                         bonus = null, 
                         scale_stat_filter = '', 

@@ -1,4 +1,4 @@
-# deadlock-api-client.SQLApi
+# deadlock_api_client.SQLApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -29,21 +29,21 @@ Lists all tables in the database.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.SQLApi(api_client)
+    api_instance = deadlock_api_client.SQLApi(api_client)
 
     try:
         # List Tables
@@ -102,21 +102,21 @@ Executes a SQL query on the database.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.SQLApi(api_client)
+    api_instance = deadlock_api_client.SQLApi(api_client)
     query = 'query_example' # str | The SQL query to execute. It must follow the Clickhouse SQL syntax.
 
     try:
@@ -179,21 +179,21 @@ Returns the schema of a table.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.SQLApi(api_client)
+    api_instance = deadlock_api_client.SQLApi(api_client)
     table = 'table_example' # str | The name of the table to fetch the schema for.
 
     try:

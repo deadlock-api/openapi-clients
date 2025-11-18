@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.hash_map_value import HashMapValue
+from deadlock_api_client.models.hash_map_value import HashMapValue
 
 class TestHashMapValue(unittest.TestCase):
     """HashMapValue unit test stubs"""

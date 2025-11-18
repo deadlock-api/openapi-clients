@@ -1,4 +1,4 @@
-# assets-deadlock-api-client.NPCUnitsApi
+# assets_deadlock_api_client.NPCUnitsApi
 
 All URIs are relative to *https://assets.deadlock-api.com*
 
@@ -17,25 +17,25 @@ Get Npc Unit
 
 
 ```python
-import assets-deadlock-api-client
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
-from assets-deadlock-api-client.models.npc_unit_v2 import NPCUnitV2
-from assets-deadlock-api-client.rest import ApiException
+import assets_deadlock_api_client
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
+from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2
+from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = assets-deadlock-api-client.Configuration(
+configuration = assets_deadlock_api_client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with assets-deadlock-api-client.ApiClient(configuration) as api_client:
+with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = assets-deadlock-api-client.NPCUnitsApi(api_client)
+    api_instance = assets_deadlock_api_client.NPCUnitsApi(api_client)
     id_or_class_name = 'id_or_class_name_example' # str | 
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
     try:
         # Get Npc Unit
@@ -87,24 +87,24 @@ Get Npc Units
 
 
 ```python
-import assets-deadlock-api-client
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
-from assets-deadlock-api-client.models.npc_unit_v2 import NPCUnitV2
-from assets-deadlock-api-client.rest import ApiException
+import assets_deadlock_api_client
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
+from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2
+from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = assets-deadlock-api-client.Configuration(
+configuration = assets_deadlock_api_client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with assets-deadlock-api-client.ApiClient(configuration) as api_client:
+with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = assets-deadlock-api-client.NPCUnitsApi(api_client)
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+    api_instance = assets_deadlock_api_client.NPCUnitsApi(api_client)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
     try:
         # Get Npc Units

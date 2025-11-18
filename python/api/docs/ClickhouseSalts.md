@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.clickhouse_salts import ClickhouseSalts
+from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts
 
 # TODO update the JSON string below
 json = "{}"

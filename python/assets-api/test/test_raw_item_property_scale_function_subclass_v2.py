@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.raw_item_property_scale_function_subclass_v2 import RawItemPropertyScaleFunctionSubclassV2
+from assets_deadlock_api_client.models.raw_item_property_scale_function_subclass_v2 import RawItemPropertyScaleFunctionSubclassV2
 
 class TestRawItemPropertyScaleFunctionSubclassV2(unittest.TestCase):
     """RawItemPropertyScaleFunctionSubclassV2 unit test stubs"""

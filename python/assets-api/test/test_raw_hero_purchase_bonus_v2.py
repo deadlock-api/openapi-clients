@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.raw_hero_purchase_bonus_v2 import RawHeroPurchaseBonusV2
+from assets_deadlock_api_client.models.raw_hero_purchase_bonus_v2 import RawHeroPurchaseBonusV2
 
 class TestRawHeroPurchaseBonusV2(unittest.TestCase):
     """RawHeroPurchaseBonusV2 unit test stubs"""

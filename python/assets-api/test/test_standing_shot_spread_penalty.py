@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty
+from assets_deadlock_api_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty
 
 class TestStandingShotSpreadPenalty(unittest.TestCase):
     """StandingShotSpreadPenalty unit test stubs"""

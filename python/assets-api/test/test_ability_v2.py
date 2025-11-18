@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.ability_v2 import AbilityV2
+from assets_deadlock_api_client.models.ability_v2 import AbilityV2
 
 class TestAbilityV2(unittest.TestCase):
     """AbilityV2 unit test stubs"""
@@ -47,7 +47,7 @@ class TestAbilityV2(unittest.TestCase):
                     ],
                 update_time = 56,
                 properties = {
-                    'key' : assets-deadlock-api-client.models.item_property_v2.ItemPropertyV2(
+                    'key' : assets_deadlock_api_client.models.item_property_v2.ItemPropertyV2(
                         value = null, 
                         can_set_token_override = True, 
                         provided_property_type = '', 
@@ -58,7 +58,7 @@ class TestAbilityV2(unittest.TestCase):
                         loc_token_override = '', 
                         display_units = '', 
                         icon_path = '', 
-                        scale_function = assets-deadlock-api-client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
+                        scale_function = assets_deadlock_api_client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
                             class_name = '', 
                             subclass_name = '', 
                             specific_stat_scale_type = '', 
@@ -73,10 +73,10 @@ class TestAbilityV2(unittest.TestCase):
                         conditional = '', 
                         icon = '', )
                     },
-                weapon_info = assets-deadlock-api-client.models.raw_item_weapon_info_v2.RawItemWeaponInfoV2(
-                    bullet_speed_curve = assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
+                weapon_info = assets_deadlock_api_client.models.raw_item_weapon_info_v2.RawItemWeaponInfoV2(
+                    bullet_speed_curve = assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
                         spline = [
-                            assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
+                            assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
                                 slope_incoming = 1.337, 
                                 slope_outgoing = 1.337, 
                                 x = 1.337, 
@@ -92,7 +92,7 @@ class TestAbilityV2(unittest.TestCase):
                 behaviours = [
                     ''
                     ],
-                description = assets-deadlock-api-client.models.ability_description_v2.AbilityDescriptionV2(
+                description = assets_deadlock_api_client.models.ability_description_v2.AbilityDescriptionV2(
                     desc = '', 
                     quip = '', 
                     t1_desc = '', 
@@ -100,16 +100,16 @@ class TestAbilityV2(unittest.TestCase):
                     t3_desc = '', 
                     active = '', 
                     passive = '', ),
-                tooltip_details = assets-deadlock-api-client.models.ability_tooltip_details_v2.AbilityTooltipDetailsV2(
+                tooltip_details = assets_deadlock_api_client.models.ability_tooltip_details_v2.AbilityTooltipDetailsV2(
                     info_sections = [
-                        assets-deadlock-api-client.models.ability_tooltip_details_info_section_v2.AbilityTooltipDetailsInfoSectionV2(
+                        assets_deadlock_api_client.models.ability_tooltip_details_info_section_v2.AbilityTooltipDetailsInfoSectionV2(
                             loc_string = '', 
                             property_upgrade_required = '', 
                             properties_block = [
-                                assets-deadlock-api-client.models.ability_tooltip_details_info_section_property_block_v2.AbilityTooltipDetailsInfoSectionPropertyBlockV2(
+                                assets_deadlock_api_client.models.ability_tooltip_details_info_section_property_block_v2.AbilityTooltipDetailsInfoSectionPropertyBlockV2(
                                     loc_string = '', 
                                     properties = [
-                                        assets-deadlock-api-client.models.ability_v2_tooltip_details_info_section_property_block_property.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty(
+                                        assets_deadlock_api_client.models.ability_v2_tooltip_details_info_section_property_block_property.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty(
                                             requires_ability_upgrade = True, 
                                             show_property_value = True, 
                                             important_property = '', 
@@ -126,9 +126,9 @@ class TestAbilityV2(unittest.TestCase):
                         ''
                         ], ),
                 upgrades = [
-                    assets-deadlock-api-client.models.raw_ability_upgrade_v2.RawAbilityUpgradeV2(
+                    assets_deadlock_api_client.models.raw_ability_upgrade_v2.RawAbilityUpgradeV2(
                         property_upgrades = [
-                            assets-deadlock-api-client.models.raw_ability_upgrade_property_upgrade_v2.RawAbilityUpgradePropertyUpgradeV2(
+                            assets_deadlock_api_client.models.raw_ability_upgrade_property_upgrade_v2.RawAbilityUpgradePropertyUpgradeV2(
                                 name = '', 
                                 bonus = null, 
                                 scale_stat_filter = '', 
@@ -140,7 +140,7 @@ class TestAbilityV2(unittest.TestCase):
                 dependant_abilities = [
                     ''
                     ],
-                videos = assets-deadlock-api-client.models.ability_videos_v2.AbilityVideosV2(
+                videos = assets_deadlock_api_client.models.ability_videos_v2.AbilityVideosV2(
                     webm = '', 
                     mp4 = '', )
             )
@@ -149,7 +149,7 @@ class TestAbilityV2(unittest.TestCase):
                 id = 56,
                 class_name = '',
                 name = '',
-                description = assets-deadlock-api-client.models.ability_description_v2.AbilityDescriptionV2(
+                description = assets_deadlock_api_client.models.ability_description_v2.AbilityDescriptionV2(
                     desc = '', 
                     quip = '', 
                     t1_desc = '', 

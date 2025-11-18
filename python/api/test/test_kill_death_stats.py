@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.kill_death_stats import KillDeathStats
+from deadlock_api_client.models.kill_death_stats import KillDeathStats
 
 class TestKillDeathStats(unittest.TestCase):
     """KillDeathStats unit test stubs"""

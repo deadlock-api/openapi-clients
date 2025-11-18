@@ -1,4 +1,4 @@
-# deadlock-api-client.AnalyticsApi
+# deadlock_api_client.AnalyticsApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -39,22 +39,22 @@ Retrieves statistics for the ability order of a hero.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
     min_unix_timestamp = 1760832000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760832000)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
@@ -148,22 +148,22 @@ This endpoint returns the player badge distribution.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.badge_distribution import BadgeDistribution
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.badge_distribution import BadgeDistribution
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     min_unix_timestamp = 1760832000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760832000)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -245,22 +245,22 @@ Results are cached for **1 hour** based on the unique combination of query param
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.build_item_stats import BuildItemStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.build_item_stats import BuildItemStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_id = 56 # int | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     min_last_updated_unix_timestamp = 1760832000 # int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760832000)
     max_last_updated_unix_timestamp = 56 # int | Filter builds based on their last updated time (Unix timestamp). (optional)
@@ -330,22 +330,22 @@ Results are cached for **1 hour**. The cache key is determined by the specific c
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.hero_comb_stats import HeroCombStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.hero_comb_stats import HeroCombStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     min_unix_timestamp = 1760832000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760832000)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -445,22 +445,22 @@ Results are cached for **1 hour** based on the combination of query parameters p
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.hero_counter_stats import HeroCounterStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.hero_counter_stats import HeroCounterStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     min_unix_timestamp = 1760832000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760832000)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -556,22 +556,22 @@ This endpoint returns the hero scoreboard.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.entry import Entry
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.entry import Entry
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     sort_by = 'sort_by_example' # str | The field to sort by.
     sort_direction = 'sort_direction_example' # str | The direction to sort heroes in. (optional)
     min_matches = 56 # int | Filter by min number of matches played. (optional)
@@ -663,22 +663,22 @@ Retrieves performance statistics for each hero based on historical match data.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.analytics_hero_stats import AnalyticsHeroStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     bucket = 'bucket_example' # str | Bucket allows you to group the stats by a specific field. (optional)
     min_unix_timestamp = 1760832000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760832000)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
@@ -782,22 +782,22 @@ Results are cached for **1 hour** based on the combination of query parameters p
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.hero_synergy_stats import HeroSynergyStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.hero_synergy_stats import HeroSynergyStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     min_unix_timestamp = 1760832000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760832000)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -893,22 +893,22 @@ Results are cached for **1 hour** based on the unique combination of query param
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.item_permutation_stats import ItemPermutationStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.item_permutation_stats import ItemPermutationStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     item_ids = [56] # List[int] | Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items> (optional)
     comb_size = 2 # int | The combination size to return. (optional) (default to 2)
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
@@ -1004,22 +1004,22 @@ Results are cached for **1 hour** based on the unique combination of query param
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.item_stats import ItemStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.item_stats import ItemStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     bucket = 'bucket_example' # str | Bucket allows you to group the stats by a specific field. (optional)
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     hero_id = 56 # int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
@@ -1119,22 +1119,22 @@ This endpoint returns the kill-death statistics across a 100x100 pixel raster.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.kill_death_stats import KillDeathStats
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.kill_death_stats import KillDeathStats
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     min_unix_timestamp = 1760832000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760832000)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1238,22 +1238,22 @@ This endpoint returns the player scoreboard.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.entry import Entry
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.entry import Entry
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     sort_by = 'sort_by_example' # str | The field to sort by.
     sort_direction = 'sort_direction_example' # str | The direction to sort players in. (optional)
     hero_id = 56 # int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
@@ -1355,22 +1355,22 @@ Results are cached for **1 hour** based on the unique combination of query param
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.hash_map_value import HashMapValue
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.hash_map_value import HashMapValue
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.AnalyticsApi(api_client)
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     min_unix_timestamp = 1760832000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1760832000)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)

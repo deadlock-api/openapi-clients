@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.modifier_value import ModifierValue
+from assets_deadlock_api_client.models.modifier_value import ModifierValue
 
 # TODO update the JSON string below
 json = "{}"

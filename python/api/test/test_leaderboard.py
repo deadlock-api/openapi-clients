@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.leaderboard import Leaderboard
+from deadlock_api_client.models.leaderboard import Leaderboard
 
 class TestLeaderboard(unittest.TestCase):
     """Leaderboard unit test stubs"""
@@ -36,7 +36,7 @@ class TestLeaderboard(unittest.TestCase):
         if include_optional:
             return Leaderboard(
                 entries = [
-                    deadlock-api-client.models.leaderboard_entry.LeaderboardEntry(
+                    deadlock_api_client.models.leaderboard_entry.LeaderboardEntry(
                         account_name = '', 
                         badge_level = 0, 
                         possible_account_ids = [
@@ -53,7 +53,7 @@ class TestLeaderboard(unittest.TestCase):
         else:
             return Leaderboard(
                 entries = [
-                    deadlock-api-client.models.leaderboard_entry.LeaderboardEntry(
+                    deadlock_api_client.models.leaderboard_entry.LeaderboardEntry(
                         account_name = '', 
                         badge_level = 0, 
                         possible_account_ids = [

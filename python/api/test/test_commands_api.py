@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.api.commands_api import CommandsApi
+from deadlock_api_client.api.commands_api import CommandsApi
 
 
 class TestCommandsApi(unittest.TestCase):

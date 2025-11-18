@@ -1,4 +1,4 @@
-# assets-deadlock-api-client.HeroesApi
+# assets_deadlock_api_client.HeroesApi
 
 All URIs are relative to *https://assets.deadlock-api.com*
 
@@ -18,27 +18,27 @@ Get Hero By Name
 
 
 ```python
-import assets-deadlock-api-client
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
-from assets-deadlock-api-client.models.hero_v2 import HeroV2
-from assets-deadlock-api-client.models.language import Language
-from assets-deadlock-api-client.rest import ApiException
+import assets_deadlock_api_client
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
+from assets_deadlock_api_client.models.hero_v2 import HeroV2
+from assets_deadlock_api_client.models.language import Language
+from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = assets-deadlock-api-client.Configuration(
+configuration = assets_deadlock_api_client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with assets-deadlock-api-client.ApiClient(configuration) as api_client:
+with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = assets-deadlock-api-client.HeroesApi(api_client)
+    api_instance = assets_deadlock_api_client.HeroesApi(api_client)
     name = 'name_example' # str | 
-    language = assets-deadlock-api-client.Language() # Language |  (optional)
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+    language = assets_deadlock_api_client.Language() # Language |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
     try:
         # Get Hero By Name
@@ -91,27 +91,27 @@ Get Hero
 
 
 ```python
-import assets-deadlock-api-client
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
-from assets-deadlock-api-client.models.hero_v2 import HeroV2
-from assets-deadlock-api-client.models.language import Language
-from assets-deadlock-api-client.rest import ApiException
+import assets_deadlock_api_client
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
+from assets_deadlock_api_client.models.hero_v2 import HeroV2
+from assets_deadlock_api_client.models.language import Language
+from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = assets-deadlock-api-client.Configuration(
+configuration = assets_deadlock_api_client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with assets-deadlock-api-client.ApiClient(configuration) as api_client:
+with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = assets-deadlock-api-client.HeroesApi(api_client)
+    api_instance = assets_deadlock_api_client.HeroesApi(api_client)
     id = 56 # int | 
-    language = assets-deadlock-api-client.Language() # Language |  (optional)
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+    language = assets_deadlock_api_client.Language() # Language |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
     try:
         # Get Hero
@@ -164,26 +164,26 @@ Get Heroes
 
 
 ```python
-import assets-deadlock-api-client
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
-from assets-deadlock-api-client.models.hero_v2 import HeroV2
-from assets-deadlock-api-client.models.language import Language
-from assets-deadlock-api-client.rest import ApiException
+import assets_deadlock_api_client
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
+from assets_deadlock_api_client.models.hero_v2 import HeroV2
+from assets_deadlock_api_client.models.language import Language
+from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = assets-deadlock-api-client.Configuration(
+configuration = assets_deadlock_api_client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with assets-deadlock-api-client.ApiClient(configuration) as api_client:
+with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = assets-deadlock-api-client.HeroesApi(api_client)
-    language = assets-deadlock-api-client.Language() # Language |  (optional)
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+    api_instance = assets_deadlock_api_client.HeroesApi(api_client)
+    language = assets_deadlock_api_client.Language() # Language |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
     only_active = True # bool |  (optional)
 
     try:

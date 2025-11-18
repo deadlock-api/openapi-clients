@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.raw_hero_stats_uiv2 import RawHeroStatsUIV2
+from assets_deadlock_api_client.models.raw_hero_stats_uiv2 import RawHeroStatsUIV2
 
 class TestRawHeroStatsUIV2(unittest.TestCase):
     """RawHeroStatsUIV2 unit test stubs"""
@@ -37,7 +37,7 @@ class TestRawHeroStatsUIV2(unittest.TestCase):
             return RawHeroStatsUIV2(
                 weapon_stat_display = '',
                 display_stats = [
-                    assets-deadlock-api-client.models.raw_hero_stats_ui_display_v2.RawHeroStatsUIDisplayV2(
+                    assets_deadlock_api_client.models.raw_hero_stats_ui_display_v2.RawHeroStatsUIDisplayV2(
                         category = '', 
                         stat_type = '', )
                     ]
@@ -46,7 +46,7 @@ class TestRawHeroStatsUIV2(unittest.TestCase):
             return RawHeroStatsUIV2(
                 weapon_stat_display = '',
                 display_stats = [
-                    assets-deadlock-api-client.models.raw_hero_stats_ui_display_v2.RawHeroStatsUIDisplayV2(
+                    assets_deadlock_api_client.models.raw_hero_stats_ui_display_v2.RawHeroStatsUIDisplayV2(
                         category = '', 
                         stat_type = '', )
                     ],

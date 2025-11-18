@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.hero_comb_stats import HeroCombStats
+from deadlock_api_client.models.hero_comb_stats import HeroCombStats
 
 class TestHeroCombStats(unittest.TestCase):
     """HeroCombStats unit test stubs"""

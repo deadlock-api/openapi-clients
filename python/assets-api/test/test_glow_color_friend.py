@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.glow_color_friend import GlowColorFriend
+from assets_deadlock_api_client.models.glow_color_friend import GlowColorFriend
 
 class TestGlowColorFriend(unittest.TestCase):
     """GlowColorFriend unit test stubs"""

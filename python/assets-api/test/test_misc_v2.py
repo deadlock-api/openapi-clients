@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.misc_v2 import MiscV2
+from assets_deadlock_api_client.models.misc_v2 import MiscV2
 
 class TestMiscV2(unittest.TestCase):
     """MiscV2 unit test stubs"""
@@ -56,25 +56,25 @@ class TestMiscV2(unittest.TestCase):
                 is_mantleable = True,
                 primary_drop_chance = 1.337,
                 primary_pickups = [
-                    assets-deadlock-api-client.models.pickup_definition.PickupDefinition(
+                    assets_deadlock_api_client.models.pickup_definition.PickupDefinition(
                         pickup_name = '', 
                         pickup_weight = 1.337, )
                     ],
                 m_vec_pickups_lv2 = [
-                    assets-deadlock-api-client.models.pickup_definition.PickupDefinition(
+                    assets_deadlock_api_client.models.pickup_definition.PickupDefinition(
                         pickup_name = '', 
                         pickup_weight = 1.337, )
                     ],
                 m_vec_pickups_lv3 = [
-                    assets-deadlock-api-client.models.pickup_definition.PickupDefinition(
+                    assets_deadlock_api_client.models.pickup_definition.PickupDefinition(
                         pickup_name = '', 
                         pickup_weight = 1.337, )
                     ],
                 roll_type = '',
                 gold_amount = 1.337,
                 gold_per_minute_amount = 1.337,
-                modifier = assets-deadlock-api-client.models.subclass_modifier_definition.SubclassModifierDefinition(
-                    subclass = assets-deadlock-api-client.models.modifier_definition.ModifierDefinition(
+                modifier = assets_deadlock_api_client.models.subclass_modifier_definition.SubclassModifierDefinition(
+                    subclass = assets_deadlock_api_client.models.modifier_definition.ModifierDefinition(
                         class_name = '', 
                         subclass_name = '', 
                         duration = 1.337, 
@@ -85,14 +85,14 @@ class TestMiscV2(unittest.TestCase):
                             ''
                             ], 
                         modifier_values = [
-                            assets-deadlock-api-client.models.modifier_value.ModifierValue(
+                            assets_deadlock_api_client.models.modifier_value.ModifierValue(
                                 value_type = '', 
                                 value = 1.337, 
                                 value_min = 1.337, 
                                 value_max = 1.337, )
                             ], 
                         script_values = [
-                            assets-deadlock-api-client.models.modifier_value.ModifierValue(
+                            assets_deadlock_api_client.models.modifier_value.ModifierValue(
                                 value_type = '', 
                                 value = 1.337, 
                                 value_min = 1.337, 

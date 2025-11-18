@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.weapon_v2 import WeaponV2
+from assets_deadlock_api_client.models.weapon_v2 import WeaponV2
 
 # TODO update the JSON string below
 json = "{}"

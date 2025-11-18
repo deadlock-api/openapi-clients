@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.api.npc_units_api import NPCUnitsApi
+from assets_deadlock_api_client.api.npc_units_api import NPCUnitsApi
 
 
 class TestNPCUnitsApi(unittest.TestCase):

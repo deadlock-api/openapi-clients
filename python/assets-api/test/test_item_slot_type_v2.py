@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.item_slot_type_v2 import ItemSlotTypeV2
+from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2
 
 class TestItemSlotTypeV2(unittest.TestCase):
     """ItemSlotTypeV2 unit test stubs"""

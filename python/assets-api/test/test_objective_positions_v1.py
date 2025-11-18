@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.objective_positions_v1 import ObjectivePositionsV1
+from assets_deadlock_api_client.models.objective_positions_v1 import ObjectivePositionsV1
 
 class TestObjectivePositionsV1(unittest.TestCase):
     """ObjectivePositionsV1 unit test stubs"""
@@ -35,115 +35,115 @@ class TestObjectivePositionsV1(unittest.TestCase):
         model = ObjectivePositionsV1()
         if include_optional:
             return ObjectivePositionsV1(
-                team0_core = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_core = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_core = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_core = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_titan = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_titan = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_titan = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_titan = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier2_1 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier2_1 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier2_2 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier2_2 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier2_3 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier2_3 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier2_4 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier2_4 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier2_1 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier2_1 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier2_2 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier2_2 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier2_3 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier2_3 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier2_4 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier2_4 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier1_1 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier1_1 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier1_2 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier1_2 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier1_3 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier1_3 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier1_4 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier1_4 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier1_1 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier1_1 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier1_2 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier1_2 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier1_3 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier1_3 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier1_4 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier1_4 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, )
             )
         else:
             return ObjectivePositionsV1(
-                team0_core = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_core = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_core = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_core = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_titan = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_titan = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_titan = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_titan = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier2_1 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier2_1 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier2_3 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier2_3 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier2_4 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier2_4 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier2_1 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier2_1 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier2_3 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier2_3 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier2_4 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier2_4 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier1_1 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier1_1 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier1_3 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier1_3 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team0_tier1_4 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team0_tier1_4 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier1_1 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier1_1 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier1_3 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier1_3 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
-                team1_tier1_4 = assets-deadlock-api-client.models.objective_position_v1.ObjectivePositionV1(
+                team1_tier1_4 = assets_deadlock_api_client.models.objective_position_v1.ObjectivePositionV1(
                     left_relative = 1.337, 
                     top_relative = 1.337, ),
         )

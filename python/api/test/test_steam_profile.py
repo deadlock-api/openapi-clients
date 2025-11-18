@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.steam_profile import SteamProfile
+from deadlock_api_client.models.steam_profile import SteamProfile
 
 class TestSteamProfile(unittest.TestCase):
     """SteamProfile unit test stubs"""

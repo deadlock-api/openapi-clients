@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.aiming_shot_spread_penalty import AimingShotSpreadPenalty
+from assets_deadlock_api_client.models.aiming_shot_spread_penalty import AimingShotSpreadPenalty
 
 class TestAimingShotSpreadPenalty(unittest.TestCase):
     """AimingShotSpreadPenalty unit test stubs"""

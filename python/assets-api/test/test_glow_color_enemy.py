@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.glow_color_enemy import GlowColorEnemy
+from assets_deadlock_api_client.models.glow_color_enemy import GlowColorEnemy
 
 class TestGlowColorEnemy(unittest.TestCase):
     """GlowColorEnemy unit test stubs"""

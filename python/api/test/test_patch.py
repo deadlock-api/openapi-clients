@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.patch import Patch
+from deadlock_api_client.models.patch import Patch
 
 class TestPatch(unittest.TestCase):
     """Patch unit test stubs"""
@@ -36,12 +36,12 @@ class TestPatch(unittest.TestCase):
         if include_optional:
             return Patch(
                 author = '',
-                category = deadlock-api-client.models.patch_category.PatchCategory(
+                category = deadlock_api_client.models.patch_category.PatchCategory(
                     domain = '', 
                     text = '', ),
                 content_encoded = '',
                 dc_creator = '',
-                guid = deadlock-api-client.models.patch_guid.PatchGuid(
+                guid = deadlock_api_client.models.patch_guid.PatchGuid(
                     is_perma_link = True, 
                     text = '', ),
                 link = '',
@@ -52,12 +52,12 @@ class TestPatch(unittest.TestCase):
         else:
             return Patch(
                 author = '',
-                category = deadlock-api-client.models.patch_category.PatchCategory(
+                category = deadlock_api_client.models.patch_category.PatchCategory(
                     domain = '', 
                     text = '', ),
                 content_encoded = '',
                 dc_creator = '',
-                guid = deadlock-api-client.models.patch_guid.PatchGuid(
+                guid = deadlock_api_client.models.patch_guid.PatchGuid(
                     is_perma_link = True, 
                     text = '', ),
                 link = '',

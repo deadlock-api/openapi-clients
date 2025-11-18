@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.e_sports_match import ESportsMatch
+from deadlock_api_client.models.e_sports_match import ESportsMatch
 
 class TestESportsMatch(unittest.TestCase):
     """ESportsMatch unit test stubs"""

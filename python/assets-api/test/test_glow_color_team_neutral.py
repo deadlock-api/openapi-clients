@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.glow_color_team_neutral import GlowColorTeamNeutral
+from assets_deadlock_api_client.models.glow_color_team_neutral import GlowColorTeamNeutral
 
 class TestGlowColorTeamNeutral(unittest.TestCase):
     """GlowColorTeamNeutral unit test stubs"""

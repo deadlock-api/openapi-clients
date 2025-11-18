@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.status import Status
+from deadlock_api_client.models.status import Status
 
 class TestStatus(unittest.TestCase):
     """Status unit test stubs"""
@@ -35,14 +35,14 @@ class TestStatus(unittest.TestCase):
         model = Status()
         if include_optional:
             return Status(
-                services = deadlock-api-client.models.status_services.StatusServices(
+                services = deadlock_api_client.models.status_services.StatusServices(
                     clickhouse = True, 
                     postgres = True, 
                     redis = True, )
             )
         else:
             return Status(
-                services = deadlock-api-client.models.status_services.StatusServices(
+                services = deadlock_api_client.models.status_services.StatusServices(
                     clickhouse = True, 
                     postgres = True, 
                     redis = True, ),

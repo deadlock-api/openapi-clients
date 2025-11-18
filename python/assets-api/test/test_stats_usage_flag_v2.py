@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.stats_usage_flag_v2 import StatsUsageFlagV2
+from assets_deadlock_api_client.models.stats_usage_flag_v2 import StatsUsageFlagV2
 
 class TestStatsUsageFlagV2(unittest.TestCase):
     """StatsUsageFlagV2 unit test stubs"""

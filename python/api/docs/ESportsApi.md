@@ -1,4 +1,4 @@
-# deadlock-api-client.ESportsApi
+# deadlock_api_client.ESportsApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -29,23 +29,23 @@ Please contact us if you organize E-Sports Matches and want to ingest them to us
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.e_sports_match import ESportsMatch
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.e_sports_match import ESportsMatch
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.ESportsApi(api_client)
-    e_sports_match = deadlock-api-client.ESportsMatch() # ESportsMatch | 
+    api_instance = deadlock_api_client.ESportsApi(api_client)
+    e_sports_match = deadlock_api_client.ESportsMatch() # ESportsMatch | 
 
     try:
         # Ingest
@@ -104,22 +104,22 @@ List Matches
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.e_sports_match import ESportsMatch
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.e_sports_match import ESportsMatch
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.ESportsApi(api_client)
+    api_instance = deadlock_api_client.ESportsApi(api_client)
 
     try:
         # List Matches

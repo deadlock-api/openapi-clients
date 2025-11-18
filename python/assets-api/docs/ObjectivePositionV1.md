@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.objective_position_v1 import ObjectivePositionV1
+from assets_deadlock_api_client.models.objective_position_v1 import ObjectivePositionV1
 
 # TODO update the JSON string below
 json = "{}"

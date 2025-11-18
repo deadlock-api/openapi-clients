@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.api.heroes_api import HeroesApi
+from assets_deadlock_api_client.api.heroes_api import HeroesApi
 
 
 class TestHeroesApi(unittest.TestCase):

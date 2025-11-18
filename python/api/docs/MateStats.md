@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.mate_stats import MateStats
+from deadlock_api_client.models.mate_stats import MateStats
 
 # TODO update the JSON string below
 json = "{}"

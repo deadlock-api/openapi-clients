@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.distribution_entry import DistributionEntry
+from deadlock_api_client.models.distribution_entry import DistributionEntry
 
 class TestDistributionEntry(unittest.TestCase):
     """DistributionEntry unit test stubs"""

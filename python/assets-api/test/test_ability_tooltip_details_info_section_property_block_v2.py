@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.ability_tooltip_details_info_section_property_block_v2 import AbilityTooltipDetailsInfoSectionPropertyBlockV2
+from assets_deadlock_api_client.models.ability_tooltip_details_info_section_property_block_v2 import AbilityTooltipDetailsInfoSectionPropertyBlockV2
 
 class TestAbilityTooltipDetailsInfoSectionPropertyBlockV2(unittest.TestCase):
     """AbilityTooltipDetailsInfoSectionPropertyBlockV2 unit test stubs"""
@@ -37,7 +37,7 @@ class TestAbilityTooltipDetailsInfoSectionPropertyBlockV2(unittest.TestCase):
             return AbilityTooltipDetailsInfoSectionPropertyBlockV2(
                 loc_string = '',
                 properties = [
-                    assets-deadlock-api-client.models.ability_v2_tooltip_details_info_section_property_block_property.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty(
+                    assets_deadlock_api_client.models.ability_v2_tooltip_details_info_section_property_block_property.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty(
                         requires_ability_upgrade = True, 
                         show_property_value = True, 
                         important_property = '', 

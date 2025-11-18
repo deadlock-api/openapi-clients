@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon import UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
+from assets_deadlock_api_client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon import UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
 
 # TODO update the JSON string below
 json = "{}"

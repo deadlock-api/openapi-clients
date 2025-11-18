@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.upgrade_v2 import UpgradeV2
+from assets_deadlock_api_client.models.upgrade_v2 import UpgradeV2
 
 class TestUpgradeV2(unittest.TestCase):
     """UpgradeV2 unit test stubs"""
@@ -47,7 +47,7 @@ class TestUpgradeV2(unittest.TestCase):
                     ],
                 update_time = 56,
                 properties = {
-                    'key' : assets-deadlock-api-client.models.upgrade_property_v2.UpgradePropertyV2(
+                    'key' : assets_deadlock_api_client.models.upgrade_property_v2.UpgradePropertyV2(
                         value = null, 
                         can_set_token_override = True, 
                         provided_property_type = '', 
@@ -58,7 +58,7 @@ class TestUpgradeV2(unittest.TestCase):
                         loc_token_override = '', 
                         display_units = '', 
                         icon_path = '', 
-                        scale_function = assets-deadlock-api-client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
+                        scale_function = assets_deadlock_api_client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
                             class_name = '', 
                             subclass_name = '', 
                             specific_stat_scale_type = '', 
@@ -76,10 +76,10 @@ class TestUpgradeV2(unittest.TestCase):
                         tooltip_is_elevated = True, 
                         tooltip_is_important = True, )
                     },
-                weapon_info = assets-deadlock-api-client.models.raw_item_weapon_info_v2.RawItemWeaponInfoV2(
-                    bullet_speed_curve = assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
+                weapon_info = assets_deadlock_api_client.models.raw_item_weapon_info_v2.RawItemWeaponInfoV2(
+                    bullet_speed_curve = assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
                         spline = [
-                            assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
+                            assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
                                 slope_incoming = 1.337, 
                                 slope_outgoing = 1.337, 
                                 x = 1.337, 
@@ -99,7 +99,7 @@ class TestUpgradeV2(unittest.TestCase):
                 item_slot_type = 'weapon',
                 item_tier = 1,
                 disabled = True,
-                description = assets-deadlock-api-client.models.upgrade_description_v2.UpgradeDescriptionV2(
+                description = assets_deadlock_api_client.models.upgrade_description_v2.UpgradeDescriptionV2(
                     desc = '', 
                     active = '', 
                     passive = '', ),
@@ -109,10 +109,10 @@ class TestUpgradeV2(unittest.TestCase):
                     ''
                     ],
                 tooltip_sections = [
-                    assets-deadlock-api-client.models.upgrade_tooltip_section_v2.UpgradeTooltipSectionV2(
+                    assets_deadlock_api_client.models.upgrade_tooltip_section_v2.UpgradeTooltipSectionV2(
                         section_type = 'innate', 
                         section_attributes = [
-                            assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2.UpgradeTooltipSectionAttributeV2(
+                            assets_deadlock_api_client.models.upgrade_tooltip_section_attribute_v2.UpgradeTooltipSectionAttributeV2(
                                 loc_string = '', 
                                 properties = [
                                     ''
@@ -124,7 +124,7 @@ class TestUpgradeV2(unittest.TestCase):
                                     ''
                                     ], 
                                 important_properties_with_icon = [
-                                    assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon.UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon(
+                                    assets_deadlock_api_client.models.upgrade_tooltip_section_attribute_v2_important_property_with_icon.UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon(
                                         name = '', 
                                         icon = '', 
                                         localized_name = '', )

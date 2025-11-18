@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.subclass_modifier_definition import SubclassModifierDefinition
+from assets_deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition
 
 class TestSubclassModifierDefinition(unittest.TestCase):
     """SubclassModifierDefinition unit test stubs"""
@@ -35,7 +35,7 @@ class TestSubclassModifierDefinition(unittest.TestCase):
         model = SubclassModifierDefinition()
         if include_optional:
             return SubclassModifierDefinition(
-                subclass = assets-deadlock-api-client.models.modifier_definition.ModifierDefinition(
+                subclass = assets_deadlock_api_client.models.modifier_definition.ModifierDefinition(
                     class_name = '', 
                     subclass_name = '', 
                     duration = 1.337, 
@@ -46,14 +46,14 @@ class TestSubclassModifierDefinition(unittest.TestCase):
                         ''
                         ], 
                     modifier_values = [
-                        assets-deadlock-api-client.models.modifier_value.ModifierValue(
+                        assets_deadlock_api_client.models.modifier_value.ModifierValue(
                             value_type = '', 
                             value = 1.337, 
                             value_min = 1.337, 
                             value_max = 1.337, )
                         ], 
                     script_values = [
-                        assets-deadlock-api-client.models.modifier_value.ModifierValue(
+                        assets_deadlock_api_client.models.modifier_value.ModifierValue(
                             value_type = '', 
                             value = 1.337, 
                             value_min = 1.337, 

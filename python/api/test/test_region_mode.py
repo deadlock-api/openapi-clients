@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.region_mode import RegionMode
+from deadlock_api_client.models.region_mode import RegionMode
 
 class TestRegionMode(unittest.TestCase):
     """RegionMode unit test stubs"""

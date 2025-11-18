@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.api.leaderboard_api import LeaderboardApi
+from deadlock_api_client.api.leaderboard_api import LeaderboardApi
 
 
 class TestLeaderboardApi(unittest.TestCase):

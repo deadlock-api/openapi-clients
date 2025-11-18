@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.api.analytics_api import AnalyticsApi
+from deadlock_api_client.api.analytics_api import AnalyticsApi
 
 
 class TestAnalyticsApi(unittest.TestCase):

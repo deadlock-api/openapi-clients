@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.build_hero_details import BuildHeroDetails
+from deadlock_api_client.models.build_hero_details import BuildHeroDetails
 
 class TestBuildHeroDetails(unittest.TestCase):
     """BuildHeroDetails unit test stubs"""
@@ -35,20 +35,20 @@ class TestBuildHeroDetails(unittest.TestCase):
         model = BuildHeroDetails()
         if include_optional:
             return BuildHeroDetails(
-                ability_order = deadlock-api-client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
+                ability_order = deadlock_api_client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
                     currency_changes = [
-                        deadlock-api-client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
+                        deadlock_api_client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
                             ability_id = 0, 
                             annotation = '', 
                             currency_type = 56, 
                             delta = 56, )
                         ], ),
                 mod_categories = [
-                    deadlock-api-client.models.build_hero_details_category.BuildHeroDetailsCategory(
+                    deadlock_api_client.models.build_hero_details_category.BuildHeroDetailsCategory(
                         description = '', 
                         height = 1.337, 
                         mods = [
-                            deadlock-api-client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
+                            deadlock_api_client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
                                 ability_id = 0, 
                                 annotation = '', 
                                 imbue_target_ability_id = 0, 
@@ -63,11 +63,11 @@ class TestBuildHeroDetails(unittest.TestCase):
         else:
             return BuildHeroDetails(
                 mod_categories = [
-                    deadlock-api-client.models.build_hero_details_category.BuildHeroDetailsCategory(
+                    deadlock_api_client.models.build_hero_details_category.BuildHeroDetailsCategory(
                         description = '', 
                         height = 1.337, 
                         mods = [
-                            deadlock-api-client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
+                            deadlock_api_client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
                                 ability_id = 0, 
                                 annotation = '', 
                                 imbue_target_ability_id = 0, 

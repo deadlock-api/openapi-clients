@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.active_match_player import ActiveMatchPlayer
+from deadlock_api_client.models.active_match_player import ActiveMatchPlayer
 
 class TestActiveMatchPlayer(unittest.TestCase):
     """ActiveMatchPlayer unit test stubs"""

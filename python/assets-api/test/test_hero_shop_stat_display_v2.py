@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.hero_shop_stat_display_v2 import HeroShopStatDisplayV2
+from assets_deadlock_api_client.models.hero_shop_stat_display_v2 import HeroShopStatDisplayV2
 
 class TestHeroShopStatDisplayV2(unittest.TestCase):
     """HeroShopStatDisplayV2 unit test stubs"""
@@ -35,18 +35,18 @@ class TestHeroShopStatDisplayV2(unittest.TestCase):
         model = HeroShopStatDisplayV2()
         if include_optional:
             return HeroShopStatDisplayV2(
-                spirit_stats_display = assets-deadlock-api-client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
+                spirit_stats_display = assets_deadlock_api_client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
                     display_stats = [
                         ''
                         ], ),
-                vitality_stats_display = assets-deadlock-api-client.models.raw_hero_shop_vitality_stats_display_v2.RawHeroShopVitalityStatsDisplayV2(
+                vitality_stats_display = assets_deadlock_api_client.models.raw_hero_shop_vitality_stats_display_v2.RawHeroShopVitalityStatsDisplayV2(
                     display_stats = [
                         ''
                         ], 
                     other_display_stats = [
                         ''
                         ], ),
-                weapon_stats_display = assets-deadlock-api-client.models.hero_shop_weapon_stats_display_v2.HeroShopWeaponStatsDisplayV2(
+                weapon_stats_display = assets_deadlock_api_client.models.hero_shop_weapon_stats_display_v2.HeroShopWeaponStatsDisplayV2(
                     display_stats = [
                         ''
                         ], 
@@ -61,18 +61,18 @@ class TestHeroShopStatDisplayV2(unittest.TestCase):
             )
         else:
             return HeroShopStatDisplayV2(
-                spirit_stats_display = assets-deadlock-api-client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
+                spirit_stats_display = assets_deadlock_api_client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
                     display_stats = [
                         ''
                         ], ),
-                vitality_stats_display = assets-deadlock-api-client.models.raw_hero_shop_vitality_stats_display_v2.RawHeroShopVitalityStatsDisplayV2(
+                vitality_stats_display = assets_deadlock_api_client.models.raw_hero_shop_vitality_stats_display_v2.RawHeroShopVitalityStatsDisplayV2(
                     display_stats = [
                         ''
                         ], 
                     other_display_stats = [
                         ''
                         ], ),
-                weapon_stats_display = assets-deadlock-api-client.models.hero_shop_weapon_stats_display_v2.HeroShopWeaponStatsDisplayV2(
+                weapon_stats_display = assets_deadlock_api_client.models.hero_shop_weapon_stats_display_v2.HeroShopWeaponStatsDisplayV2(
                     display_stats = [
                         ''
                         ], 

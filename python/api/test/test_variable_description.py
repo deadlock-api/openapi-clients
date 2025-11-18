@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.variable_description import VariableDescription
+from deadlock_api_client.models.variable_description import VariableDescription
 
 class TestVariableDescription(unittest.TestCase):
     """VariableDescription unit test stubs"""

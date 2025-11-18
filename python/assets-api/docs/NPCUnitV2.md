@@ -58,7 +58,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.npc_unit_v2 import NPCUnitV2
+from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2
 
 # TODO update the JSON string below
 json = "{}"

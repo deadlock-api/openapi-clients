@@ -1,4 +1,4 @@
-# deadlock-api-client.PatchesApi
+# deadlock_api_client.PatchesApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -31,21 +31,21 @@ This list is manually maintained, and so new patch dates may be delayed by a few
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.PatchesApi(api_client)
+    api_instance = deadlock_api_client.PatchesApi(api_client)
 
     try:
         # Big Days
@@ -105,22 +105,22 @@ RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.patch import Patch
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.patch import Patch
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.PatchesApi(api_client)
+    api_instance = deadlock_api_client.PatchesApi(api_client)
 
     try:
         # Notes

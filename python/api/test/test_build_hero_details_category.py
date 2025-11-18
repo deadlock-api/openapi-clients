@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.build_hero_details_category import BuildHeroDetailsCategory
+from deadlock_api_client.models.build_hero_details_category import BuildHeroDetailsCategory
 
 class TestBuildHeroDetailsCategory(unittest.TestCase):
     """BuildHeroDetailsCategory unit test stubs"""
@@ -38,7 +38,7 @@ class TestBuildHeroDetailsCategory(unittest.TestCase):
                 description = '',
                 height = 1.337,
                 mods = [
-                    deadlock-api-client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
+                    deadlock_api_client.models.build_hero_details_category_ability.BuildHeroDetailsCategoryAbility(
                         ability_id = 0, 
                         annotation = '', 
                         imbue_target_ability_id = 0, 

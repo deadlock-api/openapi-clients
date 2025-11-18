@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.raw_weapon_info_v2 import RawWeaponInfoV2
+from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2
 
 class TestRawWeaponInfoV2(unittest.TestCase):
     """RawWeaponInfoV2 unit test stubs"""
@@ -88,9 +88,9 @@ class TestRawWeaponInfoV2(unittest.TestCase):
                 low_ammo_indicator_threshold = 1.337,
                 recoil_seed = 1.337,
                 reload_duration = 1.337,
-                bullet_speed_curve = assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
+                bullet_speed_curve = assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
                     spline = [
-                        assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
+                        assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
                             slope_incoming = 1.337, 
                             slope_outgoing = 1.337, 
                             x = 1.337, 
@@ -102,10 +102,10 @@ class TestRawWeaponInfoV2(unittest.TestCase):
                     domain_mins = [
                         1.337
                         ], ),
-                horizontal_recoil = assets-deadlock-api-client.models.raw_weapon_info_horizontal_recoil_v2.RawWeaponInfoHorizontalRecoilV2(
+                horizontal_recoil = assets_deadlock_api_client.models.raw_weapon_info_horizontal_recoil_v2.RawWeaponInfoHorizontalRecoilV2(
                     range = null, 
                     burst_exponent = 1.337, ),
-                vertical_recoil = assets-deadlock-api-client.models.raw_weapon_info_vertical_recoil_v2.RawWeaponInfoVerticalRecoilV2(
+                vertical_recoil = assets_deadlock_api_client.models.raw_weapon_info_vertical_recoil_v2.RawWeaponInfoVerticalRecoilV2(
                     range = null, 
                     burst_exponent = 1.337, 
                     burst_constant = 1.337, 

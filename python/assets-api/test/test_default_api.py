@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.api.default_api import DefaultApi
+from assets_deadlock_api_client.api.default_api import DefaultApi
 
 
 class TestDefaultApi(unittest.TestCase):

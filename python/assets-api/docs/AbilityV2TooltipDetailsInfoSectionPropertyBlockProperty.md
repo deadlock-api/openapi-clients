@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.ability_v2_tooltip_details_info_section_property_block_property import AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
+from assets_deadlock_api_client.models.ability_v2_tooltip_details_info_section_property_block_property import AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
 
 # TODO update the JSON string below
 json = "{}"

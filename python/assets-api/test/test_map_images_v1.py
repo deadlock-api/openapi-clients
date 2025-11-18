@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.map_images_v1 import MapImagesV1
+from assets_deadlock_api_client.models.map_images_v1 import MapImagesV1
 
 class TestMapImagesV1(unittest.TestCase):
     """MapImagesV1 unit test stubs"""

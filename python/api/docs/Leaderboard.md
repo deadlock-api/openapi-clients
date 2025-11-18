@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.leaderboard import Leaderboard
+from deadlock_api_client.models.leaderboard import Leaderboard
 
 # TODO update the JSON string below
 json = "{}"

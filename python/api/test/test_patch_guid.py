@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.patch_guid import PatchGuid
+from deadlock_api_client.models.patch_guid import PatchGuid
 
 class TestPatchGuid(unittest.TestCase):
     """PatchGuid unit test stubs"""

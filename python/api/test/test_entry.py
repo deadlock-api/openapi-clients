@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.entry import Entry
+from deadlock_api_client.models.entry import Entry
 
 class TestEntry(unittest.TestCase):
     """Entry unit test stubs"""

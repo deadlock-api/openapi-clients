@@ -1,4 +1,4 @@
-# deadlock-api-client.MatchesApi
+# deadlock_api_client.MatchesApi
 
 All URIs are relative to *https://api.deadlock-api.com*
 
@@ -36,22 +36,22 @@ Fetched from the watch tab in game, which is limited to the **top 200 matches**.
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.active_match import ActiveMatch
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.active_match import ActiveMatch
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.MatchesApi(api_client)
+    api_instance = deadlock_api_client.MatchesApi(api_client)
     account_id = 56 # int | The account ID to filter active matches by (`SteamID3`) (optional)
     account_ids = [56] # List[int] | Comma separated list of account ids to include (optional)
 
@@ -126,21 +126,21 @@ Relevant Protobuf Message:
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.MatchesApi(api_client)
+    api_instance = deadlock_api_client.MatchesApi(api_client)
 
     try:
         # Active as Protobuf
@@ -199,21 +199,21 @@ This endpoints lets you fetch multiple match metadata at once. The response is a
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.MatchesApi(api_client)
+    api_instance = deadlock_api_client.MatchesApi(api_client)
     include_info = True # bool | Include match info in the response. (optional) (default to True)
     include_objectives = True # bool | Include objectives in the response. (optional)
     include_mid_boss = True # bool | Include midboss in the response. (optional)
@@ -329,21 +329,21 @@ Relevant Protobuf Messages:
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.MatchesApi(api_client)
+    api_instance = deadlock_api_client.MatchesApi(api_client)
     match_id = 56 # int | The match ID
     is_custom = True # bool |  (optional)
 
@@ -417,21 +417,21 @@ Relevant Protobuf Messages:
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.MatchesApi(api_client)
+    api_instance = deadlock_api_client.MatchesApi(api_client)
     match_id = 56 # int | The match ID
     is_custom = True # bool |  (optional)
 
@@ -499,22 +499,22 @@ This endpoint returns a list of match ids that have been fetched within the last
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.clickhouse_match_info import ClickhouseMatchInfo
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.clickhouse_match_info import ClickhouseMatchInfo
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.MatchesApi(api_client)
+    api_instance = deadlock_api_client.MatchesApi(api_client)
     player_ingested_only = True # bool | If true, only return matches that have been ingested by players. (optional)
 
     try:
@@ -579,22 +579,22 @@ This endpoints returns salts that can be used to fetch metadata and demofile for
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.match_salts_response import MatchSaltsResponse
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.match_salts_response import MatchSaltsResponse
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.MatchesApi(api_client)
+    api_instance = deadlock_api_client.MatchesApi(api_client)
     match_id = 56 # int | The match ID
 
     try:
@@ -663,22 +663,22 @@ Example Parsers:
 
 
 ```python
-import deadlock-api-client
-from deadlock-api-client.models.match_spectate_response import MatchSpectateResponse
-from deadlock-api-client.rest import ApiException
+import deadlock_api_client
+from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse
+from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock-api-client.Configuration(
+configuration = deadlock_api_client.Configuration(
     host = "https://api.deadlock-api.com"
 )
 
 
 # Enter a context with an instance of the API client
-with deadlock-api-client.ApiClient(configuration) as api_client:
+with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock-api-client.MatchesApi(api_client)
+    api_instance = deadlock_api_client.MatchesApi(api_client)
     match_id = 56 # int | The match ID
 
     try:

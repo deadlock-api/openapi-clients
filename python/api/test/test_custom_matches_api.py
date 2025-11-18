@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.api.custom_matches_api import CustomMatchesApi
+from deadlock_api_client.api.custom_matches_api import CustomMatchesApi
 
 
 class TestCustomMatchesApi(unittest.TestCase):

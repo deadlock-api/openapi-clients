@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.map_images_v1 import MapImagesV1
+from assets_deadlock_api_client.models.map_images_v1 import MapImagesV1
 
 # TODO update the JSON string below
 json = "{}"

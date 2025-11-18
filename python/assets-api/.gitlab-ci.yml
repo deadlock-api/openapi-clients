@@ -12,7 +12,7 @@ stages:
   script:
    - pip install -r requirements.txt
    - pip install -r test-requirements.txt
-   - pytest --cov=assets-deadlock-api-client
+   - pytest --cov=assets_deadlock_api_client
 
 pytest-3.9:
   extends: .pytest

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.e_sports_match import ESportsMatch
+from deadlock_api_client.models.e_sports_match import ESportsMatch
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.health_bar_color_team_neutral import HealthBarColorTeamNeutral
+from assets_deadlock_api_client.models.health_bar_color_team_neutral import HealthBarColorTeamNeutral
 
 class TestHealthBarColorTeamNeutral(unittest.TestCase):
     """HealthBarColorTeamNeutral unit test stubs"""

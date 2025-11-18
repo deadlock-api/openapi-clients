@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.ziplane_path_v1 import ZiplanePathV1
+from assets_deadlock_api_client.models.ziplane_path_v1 import ZiplanePathV1
 
 class TestZiplanePathV1(unittest.TestCase):
     """ZiplanePathV1 unit test stubs"""

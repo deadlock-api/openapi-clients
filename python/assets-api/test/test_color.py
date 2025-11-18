@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.color import Color
+from assets_deadlock_api_client.models.color import Color
 
 class TestColor(unittest.TestCase):
     """Color unit test stubs"""

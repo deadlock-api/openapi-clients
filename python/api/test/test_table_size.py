@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.table_size import TableSize
+from deadlock_api_client.models.table_size import TableSize
 
 class TestTableSize(unittest.TestCase):
     """TableSize unit test stubs"""

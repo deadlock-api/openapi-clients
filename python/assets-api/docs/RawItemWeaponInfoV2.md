@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.raw_item_weapon_info_v2 import RawItemWeaponInfoV2
+from assets_deadlock_api_client.models.raw_item_weapon_info_v2 import RawItemWeaponInfoV2
 
 # TODO update the JSON string below
 json = "{}"

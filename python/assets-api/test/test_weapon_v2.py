@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.weapon_v2 import WeaponV2
+from assets_deadlock_api_client.models.weapon_v2 import WeaponV2
 
 class TestWeaponV2(unittest.TestCase):
     """WeaponV2 unit test stubs"""
@@ -47,7 +47,7 @@ class TestWeaponV2(unittest.TestCase):
                     ],
                 update_time = 56,
                 properties = {
-                    'key' : assets-deadlock-api-client.models.item_property_v2.ItemPropertyV2(
+                    'key' : assets_deadlock_api_client.models.item_property_v2.ItemPropertyV2(
                         value = null, 
                         can_set_token_override = True, 
                         provided_property_type = '', 
@@ -58,7 +58,7 @@ class TestWeaponV2(unittest.TestCase):
                         loc_token_override = '', 
                         display_units = '', 
                         icon_path = '', 
-                        scale_function = assets-deadlock-api-client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
+                        scale_function = assets_deadlock_api_client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
                             class_name = '', 
                             subclass_name = '', 
                             specific_stat_scale_type = '', 
@@ -73,7 +73,7 @@ class TestWeaponV2(unittest.TestCase):
                         conditional = '', 
                         icon = '', )
                     },
-                weapon_info = assets-deadlock-api-client.models.raw_weapon_info_v2.RawWeaponInfoV2(
+                weapon_info = assets_deadlock_api_client.models.raw_weapon_info_v2.RawWeaponInfoV2(
                     can_zoom = True, 
                     bullet_damage = 1.337, 
                     bullet_gravity_scale = 1.337, 
@@ -127,9 +127,9 @@ class TestWeaponV2(unittest.TestCase):
                     low_ammo_indicator_threshold = 1.337, 
                     recoil_seed = 1.337, 
                     reload_duration = 1.337, 
-                    bullet_speed_curve = assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
+                    bullet_speed_curve = assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
                         spline = [
-                            assets-deadlock-api-client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
+                            assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
                                 slope_incoming = 1.337, 
                                 slope_outgoing = 1.337, 
                                 x = 1.337, 
@@ -141,10 +141,10 @@ class TestWeaponV2(unittest.TestCase):
                         domain_mins = [
                             1.337
                             ], ), 
-                    horizontal_recoil = assets-deadlock-api-client.models.raw_weapon_info_horizontal_recoil_v2.RawWeaponInfoHorizontalRecoilV2(
+                    horizontal_recoil = assets_deadlock_api_client.models.raw_weapon_info_horizontal_recoil_v2.RawWeaponInfoHorizontalRecoilV2(
                         range = null, 
                         burst_exponent = 1.337, ), 
-                    vertical_recoil = assets-deadlock-api-client.models.raw_weapon_info_vertical_recoil_v2.RawWeaponInfoVerticalRecoilV2(
+                    vertical_recoil = assets_deadlock_api_client.models.raw_weapon_info_vertical_recoil_v2.RawWeaponInfoVerticalRecoilV2(
                         burst_exponent = 1.337, 
                         burst_constant = 1.337, 
                         burst_slope = 1.337, ), ),

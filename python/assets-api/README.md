@@ -42,7 +42,7 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 
 Then import the package:
 ```python
-import assets-deadlock-api-client
+import assets_deadlock_api_client
 ```
 
 ### Setuptools
@@ -56,7 +56,7 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import assets-deadlock-api-client
+import assets_deadlock_api_client
 ```
 
 ### Tests
@@ -69,25 +69,25 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 
-import assets-deadlock-api-client
-from assets-deadlock-api-client.rest import ApiException
+import assets_deadlock_api_client
+from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://assets.deadlock-api.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = assets-deadlock-api-client.Configuration(
+configuration = assets_deadlock_api_client.Configuration(
     host = "https://assets.deadlock-api.com"
 )
 
 
 
 # Enter a context with an instance of the API client
-with assets-deadlock-api-client.ApiClient(configuration) as api_client:
+with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = assets-deadlock-api-client.HeroesApi(api_client)
+    api_instance = assets_deadlock_api_client.HeroesApi(api_client)
     name = 'name_example' # str | 
-    language = assets-deadlock-api-client.Language() # Language |  (optional)
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+    language = assets_deadlock_api_client.Language() # Language |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
     try:
         # Get Hero By Name

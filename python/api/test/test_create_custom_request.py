@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.create_custom_request import CreateCustomRequest
+from deadlock_api_client.models.create_custom_request import CreateCustomRequest
 
 class TestCreateCustomRequest(unittest.TestCase):
     """CreateCustomRequest unit test stubs"""

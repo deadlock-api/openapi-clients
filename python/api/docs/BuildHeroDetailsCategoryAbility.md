@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.build_hero_details_category_ability import BuildHeroDetailsCategoryAbility
+from deadlock_api_client.models.build_hero_details_category_ability import BuildHeroDetailsCategoryAbility
 
 # TODO update the JSON string below
 json = "{}"

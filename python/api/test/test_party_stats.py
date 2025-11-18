@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.party_stats import PartyStats
+from deadlock_api_client.models.party_stats import PartyStats
 
 class TestPartyStats(unittest.TestCase):
     """PartyStats unit test stubs"""

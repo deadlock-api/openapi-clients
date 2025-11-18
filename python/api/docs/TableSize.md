@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.table_size import TableSize
+from deadlock_api_client.models.table_size import TableSize
 
 # TODO update the JSON string below
 json = "{}"

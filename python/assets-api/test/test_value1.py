@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.value1 import Value1
+from assets_deadlock_api_client.models.value1 import Value1
 
 class TestValue1(unittest.TestCase):
     """Value1 unit test stubs"""

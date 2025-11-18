@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.http_validation_error import HTTPValidationError
+from assets_deadlock_api_client.models.http_validation_error import HTTPValidationError
 
 # TODO update the JSON string below
 json = "{}"

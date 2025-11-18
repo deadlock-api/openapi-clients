@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.models.mmr_history import MMRHistory
+from deadlock_api_client.models.mmr_history import MMRHistory
 
 class TestMMRHistory(unittest.TestCase):
     """MMRHistory unit test stubs"""

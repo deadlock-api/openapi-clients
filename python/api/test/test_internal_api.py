@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.api.internal_api import InternalApi
+from deadlock_api_client.api.internal_api import InternalApi
 
 
 class TestInternalApi(unittest.TestCase):

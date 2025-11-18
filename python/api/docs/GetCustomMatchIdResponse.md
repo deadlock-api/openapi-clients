@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.get_custom_match_id_response import GetCustomMatchIdResponse
+from deadlock_api_client.models.get_custom_match_id_response import GetCustomMatchIdResponse
 
 # TODO update the JSON string below
 json = "{}"

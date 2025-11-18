@@ -14,7 +14,7 @@
 
 import unittest
 
-from deadlock-api-client.api.patches_api import PatchesApi
+from deadlock_api_client.api.patches_api import PatchesApi
 
 
 class TestPatchesApi(unittest.TestCase):

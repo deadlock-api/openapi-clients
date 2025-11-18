@@ -3,7 +3,7 @@
 #
 # ref: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: assets-deadlock-api-client Python package
+name: assets_deadlock_api_client Python package
 
 on: [push, pull_request]
 
@@ -31,4 +31,4 @@ jobs:
           pip install -r test-requirements.txt
       - name: Test with pytest
         run: |
-          pytest --cov=assets-deadlock-api-client
+          pytest --cov=assets_deadlock_api_client

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from deadlock-api-client.models.api_info import APIInfo
+from deadlock_api_client.models.api_info import APIInfo
 
 # TODO update the JSON string below
 json = "{}"

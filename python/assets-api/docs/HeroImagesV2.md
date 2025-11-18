@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.hero_images_v2 import HeroImagesV2
+from assets_deadlock_api_client.models.hero_images_v2 import HeroImagesV2
 
 # TODO update the JSON string below
 json = "{}"

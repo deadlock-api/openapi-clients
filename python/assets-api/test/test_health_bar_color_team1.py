@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.health_bar_color_team1 import HealthBarColorTeam1
+from assets_deadlock_api_client.models.health_bar_color_team1 import HealthBarColorTeam1
 
 class TestHealthBarColorTeam1(unittest.TestCase):
     """HealthBarColorTeam1 unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from assets-deadlock-api-client.models.modifier_value import ModifierValue
+from assets_deadlock_api_client.models.modifier_value import ModifierValue
 
 class TestModifierValue(unittest.TestCase):
     """ModifierValue unit test stubs"""

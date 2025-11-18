@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2
+from assets_deadlock_api_client.models.build_tag_v2 import BuildTagV2
 
 # TODO update the JSON string below
 json = "{}"
