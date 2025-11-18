@@ -45,7 +45,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       - explode: true
         in: query
@@ -97,7 +97,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -139,7 +139,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -173,7 +173,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -217,7 +217,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -258,7 +258,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -302,7 +302,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -345,7 +345,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -365,6 +365,134 @@ paths:
       summary: Get Items By Slot Type
       tags:
       - Items
+  /v2/npc-units:
+    get:
+      operationId: get_npc_units_v2_npc_units_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/NPCUnitV2"
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Npc Units
+      tags:
+      - NPC Units
+  /v2/npc-units/{id_or_class_name}:
+    get:
+      operationId: get_npc_unit_v2_npc_units__id_or_class_name__get
+      parameters:
+      - explode: false
+        in: path
+        name: id_or_class_name
+        required: true
+        schema:
+          title: Id Or Class Name
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NPCUnitV2"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Npc Unit
+      tags:
+      - NPC Units
+  /v2/misc-entities:
+    get:
+      operationId: get_misc_entities_v2_misc_entities_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/MiscV2"
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Misc Entities
+      tags:
+      - Misc Entities
+  /v2/misc-entities/{id_or_class_name}:
+    get:
+      operationId: get_misc_entity_v2_misc_entities__id_or_class_name__get
+      parameters:
+      - explode: false
+        in: path
+        name: id_or_class_name
+        required: true
+        schema:
+          title: Id Or Class Name
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NPCUnitV2"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Misc Entity
+      tags:
+      - Misc Entities
   /v2/client-versions:
     get:
       operationId: get_client_versions_v2_client_versions_get
@@ -394,7 +522,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -428,7 +556,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -455,7 +583,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -480,7 +608,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -507,7 +635,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -531,7 +659,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -558,7 +686,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -584,7 +712,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -610,7 +738,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -636,7 +764,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v2__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -2339,6 +2467,596 @@ components:
       - objective_positions
       - zipline_paths
       title: MapV1
+    MiscV2:
+      example:
+        initial_spawn_time: 0.8008281904610115
+        initial_spawn_delay_seconds: 3
+        loot_list_deck_size: 9
+        color:
+        - ""
+        - ""
+        - ""
+        spawn_interval_in_seconds: 5
+        roll_type: roll_type
+        respawn_time: 6.027456183070403
+        modifier:
+          subclass:
+            duration: 1.4894159098541704
+            time_max: 7.457744773683766
+            time_min: 6.84685269835264
+            script_values:
+            - value_type: value_type
+              value_min: 4.965218492984954
+              value_max: 5.025004791520295
+              value: 1.1730742509559433
+            - value_type: value_type
+              value_min: 4.965218492984954
+              value_max: 5.025004791520295
+              value: 1.1730742509559433
+            debuff_type: debuff_type
+            modifier_values:
+            - value_type: value_type
+              value_min: 4.965218492984954
+              value_max: 5.025004791520295
+              value: 1.1730742509559433
+            - value_type: value_type
+              value_min: 4.965218492984954
+              value_max: 5.025004791520295
+              value: 1.1730742509559433
+            subclass_name: subclass_name
+            class_name: class_name
+            always_show_in_ui:
+            - always_show_in_ui
+            - always_show_in_ui
+        lifetime: 9.018348186070783
+        primary_pickups:
+        - pickup_weight: 7.386281948385884
+          pickup_name: pickup_name
+        - pickup_weight: 7.386281948385884
+          pickup_name: pickup_name
+        primary_drop_chance: 4.145608029883936
+        gold_amount: 1.2315135367772556
+        spawn_interval: 1.4658129805029452
+        damaged_by_bullets: true
+        m_vecPickups_lv2:
+        - pickup_weight: 7.386281948385884
+          pickup_name: pickup_name
+        - pickup_weight: 7.386281948385884
+          pickup_name: pickup_name
+        render_after_death: true
+        m_vecPickups_lv3:
+        - pickup_weight: 7.386281948385884
+          pickup_name: pickup_name
+        - pickup_weight: 7.386281948385884
+          pickup_name: pickup_name
+        orb_spawn_delay_min: 6.683562403749608
+        is_mantleable: true
+        gold_per_minute_amount: 1.0246457001441578
+        id: 3
+        class_name: class_name
+        orb_spawn_delay_max: 8.762042012749001
+        break_on_dodge_touch: true
+        show_on_minimap: true
+        health: 2
+        pickup_radius: 9.965781217890562
+        match_time_mins_for_level2_pickups: 2
+        damaged_by_abilities: true
+        solid_after_death: true
+        initial_spawn_delay_in_seconds: 5
+        match_time_mins_for_level3_pickups: 7
+        collision_radius: 6.438423552598547
+        damaged_by_melee: true
+        expiration_duration: 9.369310271410669
+      properties:
+        class_name:
+          title: Class Name
+          type: string
+        color:
+          $ref: "#/components/schemas/Color"
+        initial_spawn_time:
+          nullable: true
+          type: number
+        respawn_time:
+          nullable: true
+          type: number
+        spawn_interval:
+          nullable: true
+          type: number
+        initial_spawn_delay_in_seconds:
+          nullable: true
+          type: integer
+        spawn_interval_in_seconds:
+          nullable: true
+          type: integer
+        match_time_mins_for_level2_pickups:
+          nullable: true
+          type: integer
+        match_time_mins_for_level3_pickups:
+          nullable: true
+          type: integer
+        loot_list_deck_size:
+          nullable: true
+          type: integer
+        initial_spawn_delay_seconds:
+          nullable: true
+          type: integer
+        health:
+          nullable: true
+          type: integer
+        break_on_dodge_touch:
+          nullable: true
+          type: boolean
+        solid_after_death:
+          nullable: true
+          type: boolean
+        render_after_death:
+          nullable: true
+          type: boolean
+        damaged_by_abilities:
+          nullable: true
+          type: boolean
+        damaged_by_melee:
+          nullable: true
+          type: boolean
+        damaged_by_bullets:
+          nullable: true
+          type: boolean
+        is_mantleable:
+          nullable: true
+          type: boolean
+        primary_drop_chance:
+          nullable: true
+          type: number
+        primary_pickups:
+          items:
+            $ref: "#/components/schemas/PickupDefinition"
+          nullable: true
+          type: array
+        m_vecPickups_lv2:
+          items:
+            $ref: "#/components/schemas/PickupDefinition"
+          nullable: true
+          type: array
+        m_vecPickups_lv3:
+          items:
+            $ref: "#/components/schemas/PickupDefinition"
+          nullable: true
+          type: array
+        roll_type:
+          nullable: true
+          type: string
+        gold_amount:
+          nullable: true
+          type: number
+        gold_per_minute_amount:
+          nullable: true
+          type: number
+        modifier:
+          $ref: "#/components/schemas/SubclassModifierDefinition"
+        pickup_radius:
+          nullable: true
+          type: number
+        expiration_duration:
+          nullable: true
+          type: number
+        show_on_minimap:
+          nullable: true
+          type: boolean
+        orb_spawn_delay_min:
+          nullable: true
+          type: number
+        orb_spawn_delay_max:
+          nullable: true
+          type: number
+        lifetime:
+          nullable: true
+          type: number
+        collision_radius:
+          nullable: true
+          type: number
+        id:
+          readOnly: true
+          title: Id
+          type: integer
+      required:
+      - class_name
+      - id
+      title: MiscV2
+    ModifierDefinition:
+      description: Schema for the m_sModifer block (note the typo in the source key
+        'Modifer').
+      example:
+        duration: 1.4894159098541704
+        time_max: 7.457744773683766
+        time_min: 6.84685269835264
+        script_values:
+        - value_type: value_type
+          value_min: 4.965218492984954
+          value_max: 5.025004791520295
+          value: 1.1730742509559433
+        - value_type: value_type
+          value_min: 4.965218492984954
+          value_max: 5.025004791520295
+          value: 1.1730742509559433
+        debuff_type: debuff_type
+        modifier_values:
+        - value_type: value_type
+          value_min: 4.965218492984954
+          value_max: 5.025004791520295
+          value: 1.1730742509559433
+        - value_type: value_type
+          value_min: 4.965218492984954
+          value_max: 5.025004791520295
+          value: 1.1730742509559433
+        subclass_name: subclass_name
+        class_name: class_name
+        always_show_in_ui:
+        - always_show_in_ui
+        - always_show_in_ui
+      properties:
+        class_name:
+          nullable: true
+          type: string
+        subclass_name:
+          nullable: true
+          type: string
+        duration:
+          nullable: true
+          type: number
+        time_min:
+          nullable: true
+          type: number
+        time_max:
+          nullable: true
+          type: number
+        debuff_type:
+          nullable: true
+          type: string
+        always_show_in_ui:
+          items:
+            type: string
+          nullable: true
+          type: array
+        modifier_values:
+          items:
+            $ref: "#/components/schemas/ModifierValue"
+          nullable: true
+          type: array
+        script_values:
+          items:
+            $ref: "#/components/schemas/ModifierValue"
+          nullable: true
+          type: array
+      title: ModifierDefinition
+    ModifierValue:
+      description: |-
+        Handles items within m_vecModifierValues and m_vecScriptValues.
+        Captures both fixed values (m_value) and ranged values (m_valueMin/Max).
+      example:
+        value_type: value_type
+        value_min: 4.965218492984954
+        value_max: 5.025004791520295
+        value: 1.1730742509559433
+      properties:
+        value_type:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: number
+        value_min:
+          nullable: true
+          type: number
+        value_max:
+          nullable: true
+          type: number
+      title: ModifierValue
+    NPCUnitV2:
+      example:
+        gold_reward: 9.702963800023566
+        health_bar_color_enemy:
+        - ""
+        - ""
+        - ""
+        attack_t1_boss_max_range: 9.254183946267839
+        t1_boss_dps: 8.761432466225475
+        trooper_dps: 3.1497903714250555
+        melee_duration: 8.863729185622827
+        acceleration: 1.7325933120207193
+        glow_color_friend:
+        - ""
+        - ""
+        - ""
+        gold_reward_bonus_percent_per_minute: 0.5199002018724985
+        glow_color_enemy:
+        - ""
+        - ""
+        - ""
+        attack_trooper_max_range: 9.183123594773994
+        id: 2
+        t1_boss_damage_resist_pct: 4.86315908102884
+        walk_speed: 0.43431398824148815
+        barrack_guardian_damage_resist_pct: 4.459605034958679
+        trooper_damage_resist_pct: 5.507386964179881
+        near_death_duration: 3.901545264248647
+        t2_boss_dpsmax_resist: 3.7814124730767915
+        health_bar_color_team_neutral:
+        - ""
+        - ""
+        - ""
+        t1_boss_dpsmax_resist: 5.299143560275359
+        melee_attempt_range: 6.623518433804886
+        glow_color_team_neutral:
+        - ""
+        - ""
+        - ""
+        melee_damage: 8.28965939814297
+        t2_boss_dps: 8.37823741034869
+        melee_hit_range: 4.573936264232251
+        glow_color_team2:
+        - ""
+        - ""
+        - ""
+        glow_color_team1:
+        - ""
+        - ""
+        - ""
+        t2_boss_dpsbase_resist: 7.606863723092579
+        t2_boss_dpsmax_resist_time_in_seconds: 3.111202833403195
+        sight_range_players: 9.132027271330688
+        t3_boss_damage_resist_pct: 8.251625748923757
+        class_name: class_name
+        weapon_info:
+          recoil_speed: 1.284659006116532
+          crit_bonus_start_range: 1.4894159098541704
+          reload_single_bullets_allow_cancel: true
+          low_ammo_indicator_threshold: 5.533258397034986
+          damage_falloff_end_scale: 9.965781217890562
+          vertical_punch: 7.058770351582356
+          aiming_shot_spread_penalty:
+          - 6.878052220127876
+          - 6.878052220127876
+          shoot_spread_penalty_decay: 3.353193347011243
+          damage_falloff_end_range: 5.025004791520295
+          scatter_yaw_scale: 6.778324963048013
+          bullet_whiz_distance: 3.616076749251911
+          crit_bonus_against_npcs: 4.145608029883936
+          shooting_up_spread_penalty: 0.8851374739011653
+          max_spin_cycle_time: 1.1730742509559433
+          bullet_reflect_scale: 9.301444243932576
+          burst_shot_count: 7
+          can_zoom: true
+          recoil_recovery_speed: 3.5571952270680973
+          crit_bonus_end_range: 1.2315135367772556
+          recoil_shot_index_recovery_time_factor: 6.965117697638846
+          damage_falloff_bias: 4.965218492984954
+          bullet_reflect_amount: 7.061401241503109
+          horizontal_recoil:
+            burst_exponent: 6.628464275087742
+            range:
+            - 0.2025324113236393
+            - 0.2025324113236393
+          burst_shot_cooldown: 2.027123023002322
+          shoot_spread_penalty_per_shot: 7.143538047012306
+          reload_single_bullets: true
+          bullet_gravity_scale: 6.027456183070403
+          intra_burst_cycle_time: 7.457744773683766
+          reload_move_speed: 2.8841621266687802
+          damage_falloff_start_scale: 6.683562403749608
+          bullet_radius: 5.637376656633329
+          cycle_time: 6.84685269835264
+          bullet_damage: 0.8008281904610115
+          zoom_move_speed_percent: 0.10263654006109402
+          bullet_inherit_shooter_velocity_scale: 1.4658129805029452
+          range: 9.018348186070783
+          standing_spread: 7.04836565559697
+          shoot_move_speed_percent: 6.704019297950036
+          bullet_radius_vs_world: 2.3021358869347655
+          crit_bonus_end: 7.386281948385884
+          damage_falloff_start_range: 9.369310271410669
+          shoot_spread_penalty_decay_delay: 3.0937452626664474
+          zoom_fov: 6.519180951018382
+          bullet_lifetime: 5.962133916683182
+          recoil_seed: 3.2588565619047607
+          standing_shot_spread_penalty:
+          - 5.944895607614016
+          - 5.944895607614016
+          bullets: 4
+          clip_size: 3
+          horizontal_punch: 8.762042012749001
+          reload_single_bullets_initial_delay: 8.969578798196912
+          recoil_recovery_delay_factor: 6.438423552598547
+          spread: 3.0576100241049344
+          bullet_speed_curve:
+            domain_mins:
+            - 4.145608029883936
+            - 4.145608029883936
+            spline:
+            - x: 9.301444243932576
+              slope_outgoing: 7.061401241503109
+              "y": 3.616076749251911
+              slope_incoming: 2.3021358869347655
+            - x: 9.301444243932576
+              slope_outgoing: 7.061401241503109
+              "y": 3.616076749251911
+              slope_incoming: 2.3021358869347655
+            domain_maxs:
+            - 2.027123023002322
+            - 2.027123023002322
+          crit_bonus_start: 1.0246457001441578
+          vertical_recoil:
+            burst_exponent: 4.258773108174356
+            burst_constant: 1.041444916118296
+            burst_slope: 4.678947989005849
+            range: null
+          reload_duration: 4.078845849666752
+        health_bar_color_team2:
+        - ""
+        - ""
+        - ""
+        health_bar_color_team1:
+        - ""
+        - ""
+        - ""
+        generator_boss_dps: 5.877124706116695
+        run_speed: 2.9409642974827896
+        health_bar_color_friend:
+        - ""
+        - ""
+        - ""
+        attack_t3_boss_max_range: 1.8268702177058116
+        attack_t3_boss_phase2_max_range: 3.502657762086401
+        sight_range_npcs: 0.8774076871421566
+        max_health: 7
+        t3_boss_dps: 9.897492629215506
+        player_dps: 0.4768402382624515
+        t1_boss_dpsbase_resist: 0.4182561061793122
+        t1_boss_dpsmax_resist_time_in_seconds: 5.312489704336296
+        barrack_boss_dps: 7.835035282970782
+        m_flPlayerDamageResistPct: 7.933506881737151
+        t2_boss_damage_resist_pct: 6.073898085781152
+      properties:
+        class_name:
+          title: Class Name
+          type: string
+        weapon_info:
+          $ref: "#/components/schemas/RawWeaponInfoV2"
+        max_health:
+          nullable: true
+          type: integer
+        sight_range_players:
+          nullable: true
+          type: number
+        sight_range_npcs:
+          nullable: true
+          type: number
+        gold_reward:
+          nullable: true
+          type: number
+        gold_reward_bonus_percent_per_minute:
+          nullable: true
+          type: number
+        m_flPlayerDamageResistPct:
+          nullable: true
+          type: number
+        trooper_damage_resist_pct:
+          nullable: true
+          type: number
+        t1_boss_damage_resist_pct:
+          nullable: true
+          type: number
+        t2_boss_damage_resist_pct:
+          nullable: true
+          type: number
+        t3_boss_damage_resist_pct:
+          nullable: true
+          type: number
+        barrack_guardian_damage_resist_pct:
+          nullable: true
+          type: number
+        near_death_duration:
+          nullable: true
+          type: number
+        walk_speed:
+          nullable: true
+          type: number
+        run_speed:
+          nullable: true
+          type: number
+        acceleration:
+          nullable: true
+          type: number
+        melee_damage:
+          nullable: true
+          type: number
+        melee_attempt_range:
+          nullable: true
+          type: number
+        melee_hit_range:
+          nullable: true
+          type: number
+        melee_duration:
+          nullable: true
+          type: number
+        attack_t1_boss_max_range:
+          nullable: true
+          type: number
+        attack_t3_boss_max_range:
+          nullable: true
+          type: number
+        attack_t3_boss_phase2_max_range:
+          nullable: true
+          type: number
+        attack_trooper_max_range:
+          nullable: true
+          type: number
+        t1_boss_dps:
+          nullable: true
+          type: number
+        t1_boss_dpsbase_resist:
+          nullable: true
+          type: number
+        t1_boss_dpsmax_resist:
+          nullable: true
+          type: number
+        t1_boss_dpsmax_resist_time_in_seconds:
+          nullable: true
+          type: number
+        t2_boss_dps:
+          nullable: true
+          type: number
+        t2_boss_dpsbase_resist:
+          nullable: true
+          type: number
+        t2_boss_dpsmax_resist:
+          nullable: true
+          type: number
+        t2_boss_dpsmax_resist_time_in_seconds:
+          nullable: true
+          type: number
+        t3_boss_dps:
+          nullable: true
+          type: number
+        generator_boss_dps:
+          nullable: true
+          type: number
+        barrack_boss_dps:
+          nullable: true
+          type: number
+        player_dps:
+          nullable: true
+          type: number
+        trooper_dps:
+          nullable: true
+          type: number
+        health_bar_color_friend:
+          $ref: "#/components/schemas/Health_Bar_Color_Friend"
+        health_bar_color_enemy:
+          $ref: "#/components/schemas/Health_Bar_Color_Enemy"
+        health_bar_color_team1:
+          $ref: "#/components/schemas/Health_Bar_Color_Team1"
+        health_bar_color_team2:
+          $ref: "#/components/schemas/Health_Bar_Color_Team2"
+        health_bar_color_team_neutral:
+          $ref: "#/components/schemas/Health_Bar_Color_Team_Neutral"
+        glow_color_friend:
+          $ref: "#/components/schemas/Glow_Color_Friend"
+        glow_color_enemy:
+          $ref: "#/components/schemas/Glow_Color_Enemy"
+        glow_color_team1:
+          $ref: "#/components/schemas/Glow_Color_Team1"
+        glow_color_team2:
+          $ref: "#/components/schemas/Glow_Color_Team2"
+        glow_color_team_neutral:
+          $ref: "#/components/schemas/Glow_Color_Team_Neutral"
+        id:
+          readOnly: true
+          title: Id
+          type: integer
+      required:
+      - class_name
+      - id
+      title: NPCUnitV2
     ObjectivePositionV1:
       example:
         top_relative: 1.4658129805029452
@@ -2477,6 +3195,19 @@ components:
       - team1_tier2_4
       - team1_titan
       title: ObjectivePositionsV1
+    PickupDefinition:
+      description: Schema for items inside m_vecPrimaryPickups
+      example:
+        pickup_weight: 7.386281948385884
+        pickup_name: pickup_name
+      properties:
+        pickup_name:
+          nullable: true
+          type: string
+        pickup_weight:
+          nullable: true
+          type: number
+      title: PickupDefinition
     RankImagesV2:
       example:
         small: small
@@ -3009,6 +3740,11 @@ components:
           $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
       title: RawItemWeaponInfoV2
     RawWeaponInfoHorizontalRecoilV2:
+      example:
+        burst_exponent: 6.628464275087742
+        range:
+        - 0.2025324113236393
+        - 0.2025324113236393
       properties:
         range:
           $ref: "#/components/schemas/Range"
@@ -3017,6 +3753,90 @@ components:
           type: number
       title: RawWeaponInfoHorizontalRecoilV2
     RawWeaponInfoV2:
+      example:
+        recoil_speed: 1.284659006116532
+        crit_bonus_start_range: 1.4894159098541704
+        reload_single_bullets_allow_cancel: true
+        low_ammo_indicator_threshold: 5.533258397034986
+        damage_falloff_end_scale: 9.965781217890562
+        vertical_punch: 7.058770351582356
+        aiming_shot_spread_penalty:
+        - 6.878052220127876
+        - 6.878052220127876
+        shoot_spread_penalty_decay: 3.353193347011243
+        damage_falloff_end_range: 5.025004791520295
+        scatter_yaw_scale: 6.778324963048013
+        bullet_whiz_distance: 3.616076749251911
+        crit_bonus_against_npcs: 4.145608029883936
+        shooting_up_spread_penalty: 0.8851374739011653
+        max_spin_cycle_time: 1.1730742509559433
+        bullet_reflect_scale: 9.301444243932576
+        burst_shot_count: 7
+        can_zoom: true
+        recoil_recovery_speed: 3.5571952270680973
+        crit_bonus_end_range: 1.2315135367772556
+        recoil_shot_index_recovery_time_factor: 6.965117697638846
+        damage_falloff_bias: 4.965218492984954
+        bullet_reflect_amount: 7.061401241503109
+        horizontal_recoil:
+          burst_exponent: 6.628464275087742
+          range:
+          - 0.2025324113236393
+          - 0.2025324113236393
+        burst_shot_cooldown: 2.027123023002322
+        shoot_spread_penalty_per_shot: 7.143538047012306
+        reload_single_bullets: true
+        bullet_gravity_scale: 6.027456183070403
+        intra_burst_cycle_time: 7.457744773683766
+        reload_move_speed: 2.8841621266687802
+        damage_falloff_start_scale: 6.683562403749608
+        bullet_radius: 5.637376656633329
+        cycle_time: 6.84685269835264
+        bullet_damage: 0.8008281904610115
+        zoom_move_speed_percent: 0.10263654006109402
+        bullet_inherit_shooter_velocity_scale: 1.4658129805029452
+        range: 9.018348186070783
+        standing_spread: 7.04836565559697
+        shoot_move_speed_percent: 6.704019297950036
+        bullet_radius_vs_world: 2.3021358869347655
+        crit_bonus_end: 7.386281948385884
+        damage_falloff_start_range: 9.369310271410669
+        shoot_spread_penalty_decay_delay: 3.0937452626664474
+        zoom_fov: 6.519180951018382
+        bullet_lifetime: 5.962133916683182
+        recoil_seed: 3.2588565619047607
+        standing_shot_spread_penalty:
+        - 5.944895607614016
+        - 5.944895607614016
+        bullets: 4
+        clip_size: 3
+        horizontal_punch: 8.762042012749001
+        reload_single_bullets_initial_delay: 8.969578798196912
+        recoil_recovery_delay_factor: 6.438423552598547
+        spread: 3.0576100241049344
+        bullet_speed_curve:
+          domain_mins:
+          - 4.145608029883936
+          - 4.145608029883936
+          spline:
+          - x: 9.301444243932576
+            slope_outgoing: 7.061401241503109
+            "y": 3.616076749251911
+            slope_incoming: 2.3021358869347655
+          - x: 9.301444243932576
+            slope_outgoing: 7.061401241503109
+            "y": 3.616076749251911
+            slope_incoming: 2.3021358869347655
+          domain_maxs:
+          - 2.027123023002322
+          - 2.027123023002322
+        crit_bonus_start: 1.0246457001441578
+        vertical_recoil:
+          burst_exponent: 4.258773108174356
+          burst_constant: 1.041444916118296
+          burst_slope: 4.678947989005849
+          range: null
+        reload_duration: 4.078845849666752
       properties:
         can_zoom:
           nullable: true
@@ -3183,6 +4003,11 @@ components:
           $ref: "#/components/schemas/RawWeaponInfoVerticalRecoilV2"
       title: RawWeaponInfoV2
     RawWeaponInfoVerticalRecoilV2:
+      example:
+        burst_exponent: 4.258773108174356
+        burst_constant: 1.041444916118296
+        burst_slope: 4.678947989005849
+        range: null
       properties:
         range:
           $ref: "#/components/schemas/Range"
@@ -3204,6 +4029,40 @@ components:
       - IntrinsicallyProvidedInModifier
       title: StatsUsageFlagV2
       type: string
+    SubclassModifierDefinition:
+      example:
+        subclass:
+          duration: 1.4894159098541704
+          time_max: 7.457744773683766
+          time_min: 6.84685269835264
+          script_values:
+          - value_type: value_type
+            value_min: 4.965218492984954
+            value_max: 5.025004791520295
+            value: 1.1730742509559433
+          - value_type: value_type
+            value_min: 4.965218492984954
+            value_max: 5.025004791520295
+            value: 1.1730742509559433
+          debuff_type: debuff_type
+          modifier_values:
+          - value_type: value_type
+            value_min: 4.965218492984954
+            value_max: 5.025004791520295
+            value: 1.1730742509559433
+          - value_type: value_type
+            value_min: 4.965218492984954
+            value_max: 5.025004791520295
+            value: 1.1730742509559433
+          subclass_name: subclass_name
+          class_name: class_name
+          always_show_in_ui:
+          - always_show_in_ui
+          - always_show_in_ui
+      properties:
+        subclass:
+          $ref: "#/components/schemas/ModifierDefinition"
+      title: SubclassModifierDefinition
     UpgradeDescriptionV2:
       properties:
         desc:
@@ -3565,7 +4424,7 @@ components:
       - color
       - origin
       title: ZiplanePathV1
-    deadlock_assets_api__routes__raw__ValidClientVersions:
+    deadlock_assets_api__routes__v2__ValidClientVersions:
       enum:
       - 5972
       - 5959
@@ -3644,6 +4503,138 @@ components:
       - type: string
       nullable: true
       title: Usage Flags
+    Color:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Color
+    Health_Bar_Color_Friend:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Health Bar Color Friend
+    Health_Bar_Color_Enemy:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Health Bar Color Enemy
+    Health_Bar_Color_Team1:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Health Bar Color Team1
+    Health_Bar_Color_Team2:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Health Bar Color Team2
+    Health_Bar_Color_Team_Neutral:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Health Bar Color Team Neutral
+    Glow_Color_Friend:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Glow Color Friend
+    Glow_Color_Enemy:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Glow Color Enemy
+    Glow_Color_Team1:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Glow Color Team1
+    Glow_Color_Team2:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Glow Color Team2
+    Glow_Color_Team_Neutral:
+      anyOf:
+      - items: {}
+        maxItems: 3
+        minItems: 3
+        type: array
+      - items: {}
+        maxItems: 4
+        minItems: 4
+        type: array
+      nullable: true
+      title: Glow Color Team Neutral
     Bonus:
       anyOf:
       - type: string

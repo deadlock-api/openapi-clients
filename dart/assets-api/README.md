@@ -61,7 +61,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = DefaultApi();
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesRawValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getBuildTagsV2BuildTagsGet(language, clientVersion);
@@ -94,6 +94,10 @@ Class | Method | HTTP request | Description
 *ItemsApi* | [**getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet**](doc//ItemsApi.md#getitemsbyslottypev2itemsbyslottypeslottypeget) | **GET** /v2/items/by-slot-type/{slot_type} | Get Items By Slot Type
 *ItemsApi* | [**getItemsByTypeV2ItemsByTypeTypeGet**](doc//ItemsApi.md#getitemsbytypev2itemsbytypetypeget) | **GET** /v2/items/by-type/{type} | Get Items By Type
 *ItemsApi* | [**getItemsV2ItemsGet**](doc//ItemsApi.md#getitemsv2itemsget) | **GET** /v2/items | Get Items
+*MiscEntitiesApi* | [**getMiscEntitiesV2MiscEntitiesGet**](doc//MiscEntitiesApi.md#getmiscentitiesv2miscentitiesget) | **GET** /v2/misc-entities | Get Misc Entities
+*MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](doc//MiscEntitiesApi.md#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
+*NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](doc//NPCUnitsApi.md#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit
+*NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](doc//NPCUnitsApi.md#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units
 *RawApi* | [**getGenericDataRawGenericDataGet**](doc//RawApi.md#getgenericdatarawgenericdataget) | **GET** /raw/generic_data | Get Generic Data
 *RawApi* | [**getRawHeroesRawHeroesGet**](doc//RawApi.md#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes
 *RawApi* | [**getRawItemsRawItemsGet**](doc//RawApi.md#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items
@@ -112,10 +116,21 @@ Class | Method | HTTP request | Description
  - [AimingShotSpreadPenalty](doc//AimingShotSpreadPenalty.md)
  - [Bonus](doc//Bonus.md)
  - [BuildTagV2](doc//BuildTagV2.md)
+ - [Color](doc//Color.md)
  - [ColorV1](doc//ColorV1.md)
- - [DeadlockAssetsApiRoutesRawValidClientVersions](doc//DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV2ValidClientVersions](doc//DeadlockAssetsApiRoutesV2ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](doc//GetItemsV2ItemsGet200ResponseInner.md)
+ - [GlowColorEnemy](doc//GlowColorEnemy.md)
+ - [GlowColorFriend](doc//GlowColorFriend.md)
+ - [GlowColorTeam1](doc//GlowColorTeam1.md)
+ - [GlowColorTeam2](doc//GlowColorTeam2.md)
+ - [GlowColorTeamNeutral](doc//GlowColorTeamNeutral.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
+ - [HealthBarColorEnemy](doc//HealthBarColorEnemy.md)
+ - [HealthBarColorFriend](doc//HealthBarColorFriend.md)
+ - [HealthBarColorTeam1](doc//HealthBarColorTeam1.md)
+ - [HealthBarColorTeam2](doc//HealthBarColorTeam2.md)
+ - [HealthBarColorTeamNeutral](doc//HealthBarColorTeamNeutral.md)
  - [HeroColorsV2](doc//HeroColorsV2.md)
  - [HeroDescriptionV2](doc//HeroDescriptionV2.md)
  - [HeroImagesV2](doc//HeroImagesV2.md)
@@ -135,8 +150,13 @@ Class | Method | HTTP request | Description
  - [Language](doc//Language.md)
  - [MapImagesV1](doc//MapImagesV1.md)
  - [MapV1](doc//MapV1.md)
+ - [MiscV2](doc//MiscV2.md)
+ - [ModifierDefinition](doc//ModifierDefinition.md)
+ - [ModifierValue](doc//ModifierValue.md)
+ - [NPCUnitV2](doc//NPCUnitV2.md)
  - [ObjectivePositionV1](doc//ObjectivePositionV1.md)
  - [ObjectivePositionsV1](doc//ObjectivePositionsV1.md)
+ - [PickupDefinition](doc//PickupDefinition.md)
  - [Range](doc//Range.md)
  - [RankImagesV2](doc//RankImagesV2.md)
  - [RankV2](doc//RankV2.md)
@@ -164,6 +184,7 @@ Class | Method | HTTP request | Description
  - [ResponseGetItemV2ItemsIdOrClassNameGet](doc//ResponseGetItemV2ItemsIdOrClassNameGet.md)
  - [StandingShotSpreadPenalty](doc//StandingShotSpreadPenalty.md)
  - [StatsUsageFlagV2](doc//StatsUsageFlagV2.md)
+ - [SubclassModifierDefinition](doc//SubclassModifierDefinition.md)
  - [UpgradeDescriptionV2](doc//UpgradeDescriptionV2.md)
  - [UpgradePropertyV2](doc//UpgradePropertyV2.md)
  - [UpgradeTooltipSectionAttributeV2](doc//UpgradeTooltipSectionAttributeV2.md)

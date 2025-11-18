@@ -55,6 +55,10 @@ type APIClient struct {
 
 	ItemsAPI *ItemsAPIService
 
+	MiscEntitiesAPI *MiscEntitiesAPIService
+
+	NPCUnitsAPI *NPCUnitsAPIService
+
 	RawAPI *RawAPIService
 }
 
@@ -77,6 +81,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.DefaultAPI = (*DefaultAPIService)(&c.common)
 	c.HeroesAPI = (*HeroesAPIService)(&c.common)
 	c.ItemsAPI = (*ItemsAPIService)(&c.common)
+	c.MiscEntitiesAPI = (*MiscEntitiesAPIService)(&c.common)
+	c.NPCUnitsAPI = (*NPCUnitsAPIService)(&c.common)
 	c.RawAPI = (*RawAPIService)(&c.common)
 
 	return c

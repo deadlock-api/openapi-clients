@@ -73,7 +73,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getBuildTagsV2BuildTagsGet($language, $client_version);
@@ -106,6 +106,10 @@ Class | Method | HTTP request | Description
 *ItemsApi* | [**getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet**](docs/Api/ItemsApi.md#getitemsbyslottypev2itemsbyslottypeslottypeget) | **GET** /v2/items/by-slot-type/{slot_type} | Get Items By Slot Type
 *ItemsApi* | [**getItemsByTypeV2ItemsByTypeTypeGet**](docs/Api/ItemsApi.md#getitemsbytypev2itemsbytypetypeget) | **GET** /v2/items/by-type/{type} | Get Items By Type
 *ItemsApi* | [**getItemsV2ItemsGet**](docs/Api/ItemsApi.md#getitemsv2itemsget) | **GET** /v2/items | Get Items
+*MiscEntitiesApi* | [**getMiscEntitiesV2MiscEntitiesGet**](docs/Api/MiscEntitiesApi.md#getmiscentitiesv2miscentitiesget) | **GET** /v2/misc-entities | Get Misc Entities
+*MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](docs/Api/MiscEntitiesApi.md#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
+*NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](docs/Api/NPCUnitsApi.md#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit
+*NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](docs/Api/NPCUnitsApi.md#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units
 *RawApi* | [**getGenericDataRawGenericDataGet**](docs/Api/RawApi.md#getgenericdatarawgenericdataget) | **GET** /raw/generic_data | Get Generic Data
 *RawApi* | [**getRawHeroesRawHeroesGet**](docs/Api/RawApi.md#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes
 *RawApi* | [**getRawItemsRawItemsGet**](docs/Api/RawApi.md#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items
@@ -123,10 +127,21 @@ Class | Method | HTTP request | Description
 - [AimingShotSpreadPenalty](docs/Model/AimingShotSpreadPenalty.md)
 - [Bonus](docs/Model/Bonus.md)
 - [BuildTagV2](docs/Model/BuildTagV2.md)
+- [Color](docs/Model/Color.md)
 - [ColorV1](docs/Model/ColorV1.md)
-- [DeadlockAssetsApiRoutesRawValidClientVersions](docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+- [DeadlockAssetsApiRoutesV2ValidClientVersions](docs/Model/DeadlockAssetsApiRoutesV2ValidClientVersions.md)
 - [GetItemsV2ItemsGet200ResponseInner](docs/Model/GetItemsV2ItemsGet200ResponseInner.md)
+- [GlowColorEnemy](docs/Model/GlowColorEnemy.md)
+- [GlowColorFriend](docs/Model/GlowColorFriend.md)
+- [GlowColorTeam1](docs/Model/GlowColorTeam1.md)
+- [GlowColorTeam2](docs/Model/GlowColorTeam2.md)
+- [GlowColorTeamNeutral](docs/Model/GlowColorTeamNeutral.md)
 - [HTTPValidationError](docs/Model/HTTPValidationError.md)
+- [HealthBarColorEnemy](docs/Model/HealthBarColorEnemy.md)
+- [HealthBarColorFriend](docs/Model/HealthBarColorFriend.md)
+- [HealthBarColorTeam1](docs/Model/HealthBarColorTeam1.md)
+- [HealthBarColorTeam2](docs/Model/HealthBarColorTeam2.md)
+- [HealthBarColorTeamNeutral](docs/Model/HealthBarColorTeamNeutral.md)
 - [HeroColorsV2](docs/Model/HeroColorsV2.md)
 - [HeroDescriptionV2](docs/Model/HeroDescriptionV2.md)
 - [HeroImagesV2](docs/Model/HeroImagesV2.md)
@@ -146,8 +161,13 @@ Class | Method | HTTP request | Description
 - [Language](docs/Model/Language.md)
 - [MapImagesV1](docs/Model/MapImagesV1.md)
 - [MapV1](docs/Model/MapV1.md)
+- [MiscV2](docs/Model/MiscV2.md)
+- [ModifierDefinition](docs/Model/ModifierDefinition.md)
+- [ModifierValue](docs/Model/ModifierValue.md)
+- [NPCUnitV2](docs/Model/NPCUnitV2.md)
 - [ObjectivePositionV1](docs/Model/ObjectivePositionV1.md)
 - [ObjectivePositionsV1](docs/Model/ObjectivePositionsV1.md)
+- [PickupDefinition](docs/Model/PickupDefinition.md)
 - [Range](docs/Model/Range.md)
 - [RankImagesV2](docs/Model/RankImagesV2.md)
 - [RankV2](docs/Model/RankV2.md)
@@ -175,6 +195,7 @@ Class | Method | HTTP request | Description
 - [ResponseGetItemV2ItemsIdOrClassNameGet](docs/Model/ResponseGetItemV2ItemsIdOrClassNameGet.md)
 - [StandingShotSpreadPenalty](docs/Model/StandingShotSpreadPenalty.md)
 - [StatsUsageFlagV2](docs/Model/StatsUsageFlagV2.md)
+- [SubclassModifierDefinition](docs/Model/SubclassModifierDefinition.md)
 - [UpgradeDescriptionV2](docs/Model/UpgradeDescriptionV2.md)
 - [UpgradePropertyV2](docs/Model/UpgradePropertyV2.md)
 - [UpgradeTooltipSectionAttributeV2](docs/Model/UpgradeTooltipSectionAttributeV2.md)

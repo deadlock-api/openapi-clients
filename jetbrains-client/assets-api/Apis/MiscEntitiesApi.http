@@ -1,0 +1,11 @@
+## MiscEntitiesApi
+
+### Get Misc Entities
+## Get Misc Entities
+GET https://assets.deadlock-api.com/v2/misc-entities?clientVersion={{clientVersion}}
+Accept: application/json
+
+### Get Misc Entity
+## Get Misc Entity
+GET https://assets.deadlock-api.com/v2/misc-entities/{{id_or_class_name}}?clientVersion={{clientVersion}}
+Accept: application/json

@@ -144,7 +144,7 @@ class ItemsApi
      *
      * @param  string $id_or_class_name id_or_class_name (required)
      * @param  \OpenAPI\Client\Model\Language|null $language language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemV2ItemsIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -164,7 +164,7 @@ class ItemsApi
      *
      * @param  string $id_or_class_name (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemV2ItemsIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -265,7 +265,7 @@ class ItemsApi
      *
      * @param  string $id_or_class_name (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemV2ItemsIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -288,7 +288,7 @@ class ItemsApi
      *
      * @param  string $id_or_class_name (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemV2ItemsIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -340,7 +340,7 @@ class ItemsApi
      *
      * @param  string $id_or_class_name (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemV2ItemsIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -379,7 +379,7 @@ class ItemsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesRawValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesV2ValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -456,7 +456,7 @@ class ItemsApi
      *
      * @param  int $id id (required)
      * @param  \OpenAPI\Client\Model\Language|null $language language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsByHeroIdV2ItemsByHeroIdIdGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -476,7 +476,7 @@ class ItemsApi
      *
      * @param  int $id (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsByHeroIdV2ItemsByHeroIdIdGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -577,7 +577,7 @@ class ItemsApi
      *
      * @param  int $id (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsByHeroIdV2ItemsByHeroIdIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -600,7 +600,7 @@ class ItemsApi
      *
      * @param  int $id (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsByHeroIdV2ItemsByHeroIdIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -652,7 +652,7 @@ class ItemsApi
      *
      * @param  int $id (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsByHeroIdV2ItemsByHeroIdIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -691,7 +691,7 @@ class ItemsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesRawValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesV2ValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -768,7 +768,7 @@ class ItemsApi
      *
      * @param  \OpenAPI\Client\Model\ItemSlotTypeV2 $slot_type slot_type (required)
      * @param  \OpenAPI\Client\Model\Language|null $language language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -788,7 +788,7 @@ class ItemsApi
      *
      * @param  \OpenAPI\Client\Model\ItemSlotTypeV2 $slot_type (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -889,7 +889,7 @@ class ItemsApi
      *
      * @param  \OpenAPI\Client\Model\ItemSlotTypeV2 $slot_type (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -912,7 +912,7 @@ class ItemsApi
      *
      * @param  \OpenAPI\Client\Model\ItemSlotTypeV2 $slot_type (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -964,7 +964,7 @@ class ItemsApi
      *
      * @param  \OpenAPI\Client\Model\ItemSlotTypeV2 $slot_type (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1003,7 +1003,7 @@ class ItemsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesRawValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesV2ValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1080,7 +1080,7 @@ class ItemsApi
      *
      * @param  \OpenAPI\Client\Model\ItemTypeV2 $type type (required)
      * @param  \OpenAPI\Client\Model\Language|null $language language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsByTypeV2ItemsByTypeTypeGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1100,7 +1100,7 @@ class ItemsApi
      *
      * @param  \OpenAPI\Client\Model\ItemTypeV2 $type (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsByTypeV2ItemsByTypeTypeGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1201,7 +1201,7 @@ class ItemsApi
      *
      * @param  \OpenAPI\Client\Model\ItemTypeV2 $type (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsByTypeV2ItemsByTypeTypeGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1224,7 +1224,7 @@ class ItemsApi
      *
      * @param  \OpenAPI\Client\Model\ItemTypeV2 $type (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsByTypeV2ItemsByTypeTypeGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1276,7 +1276,7 @@ class ItemsApi
      *
      * @param  \OpenAPI\Client\Model\ItemTypeV2 $type (required)
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsByTypeV2ItemsByTypeTypeGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1315,7 +1315,7 @@ class ItemsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesRawValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesV2ValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1391,7 +1391,7 @@ class ItemsApi
      * Get Items
      *
      * @param  \OpenAPI\Client\Model\Language|null $language language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsV2ItemsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1410,7 +1410,7 @@ class ItemsApi
      * Get Items
      *
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsV2ItemsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1510,7 +1510,7 @@ class ItemsApi
      * Get Items
      *
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsV2ItemsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1532,7 +1532,7 @@ class ItemsApi
      * Get Items
      *
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsV2ItemsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1583,7 +1583,7 @@ class ItemsApi
      * Create request for operation 'getItemsV2ItemsGet'
      *
      * @param  \OpenAPI\Client\Model\Language|null $language (optional)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsV2ItemsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1615,7 +1615,7 @@ class ItemsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesRawValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesV2ValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required

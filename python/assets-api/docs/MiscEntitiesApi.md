@@ -1,0 +1,148 @@
+# assets-deadlock-api-client.MiscEntitiesApi
+
+All URIs are relative to *https://assets.deadlock-api.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**get_misc_entities_v2_misc_entities_get**](MiscEntitiesApi.md#get_misc_entities_v2_misc_entities_get) | **GET** /v2/misc-entities | Get Misc Entities
+[**get_misc_entity_v2_misc_entities_id_or_class_name_get**](MiscEntitiesApi.md#get_misc_entity_v2_misc_entities_id_or_class_name_get) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
+
+
+# **get_misc_entities_v2_misc_entities_get**
+> List[MiscV2] get_misc_entities_v2_misc_entities_get(client_version=client_version)
+
+Get Misc Entities
+
+### Example
+
+
+```python
+import assets-deadlock-api-client
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets-deadlock-api-client.models.misc_v2 import MiscV2
+from assets-deadlock-api-client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://assets.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = assets-deadlock-api-client.Configuration(
+    host = "https://assets.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = assets-deadlock-api-client.MiscEntitiesApi(api_client)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+
+    try:
+        # Get Misc Entities
+        api_response = api_instance.get_misc_entities_v2_misc_entities_get(client_version=client_version)
+        print("The response of MiscEntitiesApi->get_misc_entities_v2_misc_entities_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MiscEntitiesApi->get_misc_entities_v2_misc_entities_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+
+### Return type
+
+[**List[MiscV2]**](MiscV2.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_misc_entity_v2_misc_entities_id_or_class_name_get**
+> NPCUnitV2 get_misc_entity_v2_misc_entities_id_or_class_name_get(id_or_class_name, client_version=client_version)
+
+Get Misc Entity
+
+### Example
+
+
+```python
+import assets-deadlock-api-client
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets-deadlock-api-client.models.npc_unit_v2 import NPCUnitV2
+from assets-deadlock-api-client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://assets.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = assets-deadlock-api-client.Configuration(
+    host = "https://assets.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with assets-deadlock-api-client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = assets-deadlock-api-client.MiscEntitiesApi(api_client)
+    id_or_class_name = 'id_or_class_name_example' # str | 
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+
+    try:
+        # Get Misc Entity
+        api_response = api_instance.get_misc_entity_v2_misc_entities_id_or_class_name_get(id_or_class_name, client_version=client_version)
+        print("The response of MiscEntitiesApi->get_misc_entity_v2_misc_entities_id_or_class_name_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MiscEntitiesApi->get_misc_entity_v2_misc_entities_id_or_class_name_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_or_class_name** | **str**|  | 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+
+### Return type
+
+[**NPCUnitV2**](NPCUnitV2.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

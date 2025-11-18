@@ -79,6 +79,10 @@ All URIs are relative to *https://assets.deadlock-api.com*
 | *ItemsApi* | [**getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet**](docs/ItemsApi.md#getitemsbyslottypev2itemsbyslottypeslottypeget) | **GET** /v2/items/by-slot-type/{slot_type} | Get Items By Slot Type |
 | *ItemsApi* | [**getItemsByTypeV2ItemsByTypeTypeGet**](docs/ItemsApi.md#getitemsbytypev2itemsbytypetypeget) | **GET** /v2/items/by-type/{type} | Get Items By Type |
 | *ItemsApi* | [**getItemsV2ItemsGet**](docs/ItemsApi.md#getitemsv2itemsget) | **GET** /v2/items | Get Items |
+| *MiscEntitiesApi* | [**getMiscEntitiesV2MiscEntitiesGet**](docs/MiscEntitiesApi.md#getmiscentitiesv2miscentitiesget) | **GET** /v2/misc-entities | Get Misc Entities |
+| *MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](docs/MiscEntitiesApi.md#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity |
+| *NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](docs/NPCUnitsApi.md#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit |
+| *NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](docs/NPCUnitsApi.md#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units |
 | *RawApi* | [**getGenericDataRawGenericDataGet**](docs/RawApi.md#getgenericdatarawgenericdataget) | **GET** /raw/generic_data | Get Generic Data |
 | *RawApi* | [**getRawHeroesRawHeroesGet**](docs/RawApi.md#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes |
 | *RawApi* | [**getRawItemsRawItemsGet**](docs/RawApi.md#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items |
@@ -98,10 +102,21 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets-deadlock-api-client.models.AimingShotSpreadPenalty](docs/AimingShotSpreadPenalty.md)
  - [assets-deadlock-api-client.models.Bonus](docs/Bonus.md)
  - [assets-deadlock-api-client.models.BuildTagV2](docs/BuildTagV2.md)
+ - [assets-deadlock-api-client.models.Color](docs/Color.md)
  - [assets-deadlock-api-client.models.ColorV1](docs/ColorV1.md)
- - [assets-deadlock-api-client.models.DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV2ValidClientVersions](docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md)
  - [assets-deadlock-api-client.models.GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
+ - [assets-deadlock-api-client.models.GlowColorEnemy](docs/GlowColorEnemy.md)
+ - [assets-deadlock-api-client.models.GlowColorFriend](docs/GlowColorFriend.md)
+ - [assets-deadlock-api-client.models.GlowColorTeam1](docs/GlowColorTeam1.md)
+ - [assets-deadlock-api-client.models.GlowColorTeam2](docs/GlowColorTeam2.md)
+ - [assets-deadlock-api-client.models.GlowColorTeamNeutral](docs/GlowColorTeamNeutral.md)
  - [assets-deadlock-api-client.models.HTTPValidationError](docs/HTTPValidationError.md)
+ - [assets-deadlock-api-client.models.HealthBarColorEnemy](docs/HealthBarColorEnemy.md)
+ - [assets-deadlock-api-client.models.HealthBarColorFriend](docs/HealthBarColorFriend.md)
+ - [assets-deadlock-api-client.models.HealthBarColorTeam1](docs/HealthBarColorTeam1.md)
+ - [assets-deadlock-api-client.models.HealthBarColorTeam2](docs/HealthBarColorTeam2.md)
+ - [assets-deadlock-api-client.models.HealthBarColorTeamNeutral](docs/HealthBarColorTeamNeutral.md)
  - [assets-deadlock-api-client.models.HeroColorsV2](docs/HeroColorsV2.md)
  - [assets-deadlock-api-client.models.HeroDescriptionV2](docs/HeroDescriptionV2.md)
  - [assets-deadlock-api-client.models.HeroImagesV2](docs/HeroImagesV2.md)
@@ -121,8 +136,13 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets-deadlock-api-client.models.Language](docs/Language.md)
  - [assets-deadlock-api-client.models.MapImagesV1](docs/MapImagesV1.md)
  - [assets-deadlock-api-client.models.MapV1](docs/MapV1.md)
+ - [assets-deadlock-api-client.models.MiscV2](docs/MiscV2.md)
+ - [assets-deadlock-api-client.models.ModifierDefinition](docs/ModifierDefinition.md)
+ - [assets-deadlock-api-client.models.ModifierValue](docs/ModifierValue.md)
+ - [assets-deadlock-api-client.models.NPCUnitV2](docs/NPCUnitV2.md)
  - [assets-deadlock-api-client.models.ObjectivePositionV1](docs/ObjectivePositionV1.md)
  - [assets-deadlock-api-client.models.ObjectivePositionsV1](docs/ObjectivePositionsV1.md)
+ - [assets-deadlock-api-client.models.PickupDefinition](docs/PickupDefinition.md)
  - [assets-deadlock-api-client.models.Range](docs/Range.md)
  - [assets-deadlock-api-client.models.RankImagesV2](docs/RankImagesV2.md)
  - [assets-deadlock-api-client.models.RankV2](docs/RankV2.md)
@@ -150,6 +170,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets-deadlock-api-client.models.ResponseGetItemV2ItemsIdOrClassNameGet](docs/ResponseGetItemV2ItemsIdOrClassNameGet.md)
  - [assets-deadlock-api-client.models.StandingShotSpreadPenalty](docs/StandingShotSpreadPenalty.md)
  - [assets-deadlock-api-client.models.StatsUsageFlagV2](docs/StatsUsageFlagV2.md)
+ - [assets-deadlock-api-client.models.SubclassModifierDefinition](docs/SubclassModifierDefinition.md)
  - [assets-deadlock-api-client.models.UpgradeDescriptionV2](docs/UpgradeDescriptionV2.md)
  - [assets-deadlock-api-client.models.UpgradePropertyV2](docs/UpgradePropertyV2.md)
  - [assets-deadlock-api-client.models.UpgradeTooltipSectionAttributeV2](docs/UpgradeTooltipSectionAttributeV2.md)

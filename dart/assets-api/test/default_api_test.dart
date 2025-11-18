@@ -19,7 +19,7 @@ void main() {
   group('tests for DefaultApi', () {
     // Get Build Tags
     //
-    //Future<List<BuildTagV2>> getBuildTagsV2BuildTagsGet({ Language language, DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
+    //Future<List<BuildTagV2>> getBuildTagsV2BuildTagsGet({ Language language, DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getBuildTagsV2BuildTagsGet', () async {
       // TODO
     });
@@ -33,42 +33,42 @@ void main() {
 
     // Get Colors
     //
-    //Future<Map<String, ColorV1>> getColorsV1ColorsGet({ DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
+    //Future<Map<String, ColorV1>> getColorsV1ColorsGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getColorsV1ColorsGet', () async {
       // TODO
     });
 
     // Get Icons
     //
-    //Future<Map<String, String>> getIconsV1IconsGet({ DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
+    //Future<Map<String, String>> getIconsV1IconsGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getIconsV1IconsGet', () async {
       // TODO
     });
 
     // Get Map
     //
-    //Future<MapV1> getMapV1MapGet({ DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
+    //Future<MapV1> getMapV1MapGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getMapV1MapGet', () async {
       // TODO
     });
 
     // Get Ranks
     //
-    //Future<List<RankV2>> getRanksV2RanksGet({ Language language, DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
+    //Future<List<RankV2>> getRanksV2RanksGet({ Language language, DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getRanksV2RanksGet', () async {
       // TODO
     });
 
     // Get Sounds
     //
-    //Future<Map<String, Object>> getSoundsV1SoundsGet({ DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
+    //Future<Map<String, Object>> getSoundsV1SoundsGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getSoundsV1SoundsGet', () async {
       // TODO
     });
 
     // Get Steam Info
     //
-    //Future<Object> getSteamInfoV1SteamInfoGet({ DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
+    //Future<Object> getSteamInfoV1SteamInfoGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getSteamInfoV1SteamInfoGet', () async {
       // TODO
     });

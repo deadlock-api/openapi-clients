@@ -110,6 +110,8 @@ export interface BuildTagV2 {
     'id': number;
     'icon': string;
 }
+export interface Color {
+}
 export interface ColorV1 {
     /**
      * The red value of the color.
@@ -129,7 +131,7 @@ export interface ColorV1 {
     'alpha': number;
 }
 
-export const DeadlockAssetsApiRoutesRawValidClientVersions = {
+export const DeadlockAssetsApiRoutesV2ValidClientVersions = {
     NUMBER_5972: 5972,
     NUMBER_5959: 5959,
     NUMBER_5945: 5945,
@@ -165,7 +167,7 @@ export const DeadlockAssetsApiRoutesRawValidClientVersions = {
     NUMBER_5527: 5527
 } as const;
 
-export type DeadlockAssetsApiRoutesRawValidClientVersions = typeof DeadlockAssetsApiRoutesRawValidClientVersions[keyof typeof DeadlockAssetsApiRoutesRawValidClientVersions];
+export type DeadlockAssetsApiRoutesV2ValidClientVersions = typeof DeadlockAssetsApiRoutesV2ValidClientVersions[keyof typeof DeadlockAssetsApiRoutesV2ValidClientVersions];
 
 
 /**
@@ -173,8 +175,28 @@ export type DeadlockAssetsApiRoutesRawValidClientVersions = typeof DeadlockAsset
  */
 export type GetItemsV2ItemsGet200ResponseInner = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
 
+export interface GlowColorEnemy {
+}
+export interface GlowColorFriend {
+}
+export interface GlowColorTeam1 {
+}
+export interface GlowColorTeam2 {
+}
+export interface GlowColorTeamNeutral {
+}
 export interface HTTPValidationError {
     'detail'?: Array<ValidationError>;
+}
+export interface HealthBarColorEnemy {
+}
+export interface HealthBarColorFriend {
+}
+export interface HealthBarColorTeam1 {
+}
+export interface HealthBarColorTeam2 {
+}
+export interface HealthBarColorTeamNeutral {
 }
 export interface HeroColorsV2 {
     'glow_enemy': Array<any>;
@@ -456,6 +478,117 @@ export interface MapV1 {
      */
     'zipline_paths': Array<ZiplanePathV1>;
 }
+export interface MiscV2 {
+    'class_name': string;
+    'color'?: Color | null;
+    'initial_spawn_time'?: number | null;
+    'respawn_time'?: number | null;
+    'spawn_interval'?: number | null;
+    'initial_spawn_delay_in_seconds'?: number | null;
+    'spawn_interval_in_seconds'?: number | null;
+    'match_time_mins_for_level2_pickups'?: number | null;
+    'match_time_mins_for_level3_pickups'?: number | null;
+    'loot_list_deck_size'?: number | null;
+    'initial_spawn_delay_seconds'?: number | null;
+    'health'?: number | null;
+    'break_on_dodge_touch'?: boolean | null;
+    'solid_after_death'?: boolean | null;
+    'render_after_death'?: boolean | null;
+    'damaged_by_abilities'?: boolean | null;
+    'damaged_by_melee'?: boolean | null;
+    'damaged_by_bullets'?: boolean | null;
+    'is_mantleable'?: boolean | null;
+    'primary_drop_chance'?: number | null;
+    'primary_pickups'?: Array<PickupDefinition> | null;
+    'm_vecPickups_lv2'?: Array<PickupDefinition> | null;
+    'm_vecPickups_lv3'?: Array<PickupDefinition> | null;
+    'roll_type'?: string | null;
+    'gold_amount'?: number | null;
+    'gold_per_minute_amount'?: number | null;
+    'modifier'?: SubclassModifierDefinition | null;
+    'pickup_radius'?: number | null;
+    'expiration_duration'?: number | null;
+    'show_on_minimap'?: boolean | null;
+    'orb_spawn_delay_min'?: number | null;
+    'orb_spawn_delay_max'?: number | null;
+    'lifetime'?: number | null;
+    'collision_radius'?: number | null;
+    'id': number;
+}
+/**
+ * Schema for the m_sModifer block (note the typo in the source key \'Modifer\').
+ */
+export interface ModifierDefinition {
+    'class_name'?: string | null;
+    'subclass_name'?: string | null;
+    'duration'?: number | null;
+    'time_min'?: number | null;
+    'time_max'?: number | null;
+    'debuff_type'?: string | null;
+    'always_show_in_ui'?: Array<string> | null;
+    'modifier_values'?: Array<ModifierValue> | null;
+    'script_values'?: Array<ModifierValue> | null;
+}
+/**
+ * Handles items within m_vecModifierValues and m_vecScriptValues. Captures both fixed values (m_value) and ranged values (m_valueMin/Max).
+ */
+export interface ModifierValue {
+    'value_type'?: string | null;
+    'value'?: number | null;
+    'value_min'?: number | null;
+    'value_max'?: number | null;
+}
+export interface NPCUnitV2 {
+    'class_name': string;
+    'weapon_info'?: RawWeaponInfoV2 | null;
+    'max_health'?: number | null;
+    'sight_range_players'?: number | null;
+    'sight_range_npcs'?: number | null;
+    'gold_reward'?: number | null;
+    'gold_reward_bonus_percent_per_minute'?: number | null;
+    'm_flPlayerDamageResistPct'?: number | null;
+    'trooper_damage_resist_pct'?: number | null;
+    't1_boss_damage_resist_pct'?: number | null;
+    't2_boss_damage_resist_pct'?: number | null;
+    't3_boss_damage_resist_pct'?: number | null;
+    'barrack_guardian_damage_resist_pct'?: number | null;
+    'near_death_duration'?: number | null;
+    'walk_speed'?: number | null;
+    'run_speed'?: number | null;
+    'acceleration'?: number | null;
+    'melee_damage'?: number | null;
+    'melee_attempt_range'?: number | null;
+    'melee_hit_range'?: number | null;
+    'melee_duration'?: number | null;
+    'attack_t1_boss_max_range'?: number | null;
+    'attack_t3_boss_max_range'?: number | null;
+    'attack_t3_boss_phase2_max_range'?: number | null;
+    'attack_trooper_max_range'?: number | null;
+    't1_boss_dps'?: number | null;
+    't1_boss_dpsbase_resist'?: number | null;
+    't1_boss_dpsmax_resist'?: number | null;
+    't1_boss_dpsmax_resist_time_in_seconds'?: number | null;
+    't2_boss_dps'?: number | null;
+    't2_boss_dpsbase_resist'?: number | null;
+    't2_boss_dpsmax_resist'?: number | null;
+    't2_boss_dpsmax_resist_time_in_seconds'?: number | null;
+    't3_boss_dps'?: number | null;
+    'generator_boss_dps'?: number | null;
+    'barrack_boss_dps'?: number | null;
+    'player_dps'?: number | null;
+    'trooper_dps'?: number | null;
+    'health_bar_color_friend'?: HealthBarColorFriend | null;
+    'health_bar_color_enemy'?: HealthBarColorEnemy | null;
+    'health_bar_color_team1'?: HealthBarColorTeam1 | null;
+    'health_bar_color_team2'?: HealthBarColorTeam2 | null;
+    'health_bar_color_team_neutral'?: HealthBarColorTeamNeutral | null;
+    'glow_color_friend'?: GlowColorFriend | null;
+    'glow_color_enemy'?: GlowColorEnemy | null;
+    'glow_color_team1'?: GlowColorTeam1 | null;
+    'glow_color_team2'?: GlowColorTeam2 | null;
+    'glow_color_team_neutral'?: GlowColorTeamNeutral | null;
+    'id': number;
+}
 export interface ObjectivePositionV1 {
     /**
      * The relative margin left of the map image.
@@ -487,6 +620,13 @@ export interface ObjectivePositionsV1 {
     'team1_tier1_2'?: ObjectivePositionV1 | null;
     'team1_tier1_3': ObjectivePositionV1;
     'team1_tier1_4': ObjectivePositionV1;
+}
+/**
+ * Schema for items inside m_vecPrimaryPickups
+ */
+export interface PickupDefinition {
+    'pickup_name'?: string | null;
+    'pickup_weight'?: number | null;
 }
 export interface Range {
 }
@@ -715,6 +855,9 @@ export const StatsUsageFlagV2 = {
 export type StatsUsageFlagV2 = typeof StatsUsageFlagV2[keyof typeof StatsUsageFlagV2];
 
 
+export interface SubclassModifierDefinition {
+    'subclass'?: ModifierDefinition;
+}
 export interface UpgradeDescriptionV2 {
     'desc'?: string | null;
     'active'?: string | null;
@@ -864,11 +1007,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @summary Get Build Tags
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBuildTagsV2BuildTagsGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getBuildTagsV2BuildTagsGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v2/build-tags`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -933,11 +1076,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Colors
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getColorsV1ColorsGet: async (clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getColorsV1ColorsGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/colors`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -968,11 +1111,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Icons
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIconsV1IconsGet: async (clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIconsV1IconsGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/icons`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1003,11 +1146,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Map
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMapV1MapGet: async (clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMapV1MapGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/map`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1039,11 +1182,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @summary Get Ranks
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRanksV2RanksGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRanksV2RanksGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v2/ranks`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1078,11 +1221,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Sounds
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSoundsV1SoundsGet: async (clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSoundsV1SoundsGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/sounds`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1113,11 +1256,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Steam Info
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSteamInfoV1SteamInfoGet: async (clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSteamInfoV1SteamInfoGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/steam-info`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1158,11 +1301,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * 
          * @summary Get Build Tags
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getBuildTagsV2BuildTagsGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BuildTagV2>>> {
+        async getBuildTagsV2BuildTagsGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BuildTagV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBuildTagsV2BuildTagsGet(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getBuildTagsV2BuildTagsGet']?.[localVarOperationServerIndex]?.url;
@@ -1183,11 +1326,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Colors
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getColorsV1ColorsGet(clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: ColorV1; }>> {
+        async getColorsV1ColorsGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: ColorV1; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getColorsV1ColorsGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getColorsV1ColorsGet']?.[localVarOperationServerIndex]?.url;
@@ -1196,11 +1339,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Icons
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getIconsV1IconsGet(clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
+        async getIconsV1IconsGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIconsV1IconsGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getIconsV1IconsGet']?.[localVarOperationServerIndex]?.url;
@@ -1209,11 +1352,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Map
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMapV1MapGet(clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapV1>> {
+        async getMapV1MapGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapV1>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMapV1MapGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getMapV1MapGet']?.[localVarOperationServerIndex]?.url;
@@ -1223,11 +1366,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * 
          * @summary Get Ranks
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRanksV2RanksGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RankV2>>> {
+        async getRanksV2RanksGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RankV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRanksV2RanksGet(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getRanksV2RanksGet']?.[localVarOperationServerIndex]?.url;
@@ -1236,11 +1379,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Sounds
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSoundsV1SoundsGet(clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+        async getSoundsV1SoundsGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSoundsV1SoundsGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getSoundsV1SoundsGet']?.[localVarOperationServerIndex]?.url;
@@ -1249,11 +1392,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Steam Info
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSteamInfoV1SteamInfoGet(clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getSteamInfoV1SteamInfoGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSteamInfoV1SteamInfoGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getSteamInfoV1SteamInfoGet']?.[localVarOperationServerIndex]?.url;
@@ -1356,28 +1499,28 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
 export interface DefaultApiGetBuildTagsV2BuildTagsGetRequest {
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getColorsV1ColorsGet operation in DefaultApi.
  */
 export interface DefaultApiGetColorsV1ColorsGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getIconsV1IconsGet operation in DefaultApi.
  */
 export interface DefaultApiGetIconsV1IconsGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getMapV1MapGet operation in DefaultApi.
  */
 export interface DefaultApiGetMapV1MapGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -1386,21 +1529,21 @@ export interface DefaultApiGetMapV1MapGetRequest {
 export interface DefaultApiGetRanksV2RanksGetRequest {
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getSoundsV1SoundsGet operation in DefaultApi.
  */
 export interface DefaultApiGetSoundsV1SoundsGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getSteamInfoV1SteamInfoGet operation in DefaultApi.
  */
 export interface DefaultApiGetSteamInfoV1SteamInfoGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -1507,11 +1650,11 @@ export const HeroesApiAxiosParamCreator = function (configuration?: Configuratio
          * @summary Get Hero By Name
          * @param {string} name 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHeroByNameV2HeroesByNameNameGet: async (name: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getHeroByNameV2HeroesByNameNameGet: async (name: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('getHeroByNameV2HeroesByNameNameGet', 'name', name)
             const localVarPath = `/v2/heroes/by-name/{name}`
@@ -1551,11 +1694,11 @@ export const HeroesApiAxiosParamCreator = function (configuration?: Configuratio
          * @summary Get Hero
          * @param {number} id 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHeroV2HeroesIdGet: async (id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getHeroV2HeroesIdGet: async (id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getHeroV2HeroesIdGet', 'id', id)
             const localVarPath = `/v2/heroes/{id}`
@@ -1594,12 +1737,12 @@ export const HeroesApiAxiosParamCreator = function (configuration?: Configuratio
          * 
          * @summary Get Heroes
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {boolean | null} [onlyActive] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHeroesV2HeroesGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, onlyActive?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getHeroesV2HeroesGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, onlyActive?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v2/heroes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1649,11 +1792,11 @@ export const HeroesApiFp = function(configuration?: Configuration) {
          * @summary Get Hero By Name
          * @param {string} name 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getHeroByNameV2HeroesByNameNameGet(name: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HeroV2>> {
+        async getHeroByNameV2HeroesByNameNameGet(name: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HeroV2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHeroByNameV2HeroesByNameNameGet(name, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HeroesApi.getHeroByNameV2HeroesByNameNameGet']?.[localVarOperationServerIndex]?.url;
@@ -1664,11 +1807,11 @@ export const HeroesApiFp = function(configuration?: Configuration) {
          * @summary Get Hero
          * @param {number} id 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getHeroV2HeroesIdGet(id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HeroV2>> {
+        async getHeroV2HeroesIdGet(id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HeroV2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHeroV2HeroesIdGet(id, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HeroesApi.getHeroV2HeroesIdGet']?.[localVarOperationServerIndex]?.url;
@@ -1678,12 +1821,12 @@ export const HeroesApiFp = function(configuration?: Configuration) {
          * 
          * @summary Get Heroes
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {boolean | null} [onlyActive] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getHeroesV2HeroesGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, onlyActive?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroV2>>> {
+        async getHeroesV2HeroesGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, onlyActive?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHeroesV2HeroesGet(language, clientVersion, onlyActive, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HeroesApi.getHeroesV2HeroesGet']?.[localVarOperationServerIndex]?.url;
@@ -1739,7 +1882,7 @@ export interface HeroesApiGetHeroByNameV2HeroesByNameNameGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -1750,7 +1893,7 @@ export interface HeroesApiGetHeroV2HeroesIdGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -1759,7 +1902,7 @@ export interface HeroesApiGetHeroV2HeroesIdGetRequest {
 export interface HeroesApiGetHeroesV2HeroesGetRequest {
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 
     readonly onlyActive?: boolean | null
 }
@@ -1814,11 +1957,11 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get Item
          * @param {string} idOrClassName 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemV2ItemsIdOrClassNameGet: async (idOrClassName: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemV2ItemsIdOrClassNameGet: async (idOrClassName: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'idOrClassName' is not null or undefined
             assertParamExists('getItemV2ItemsIdOrClassNameGet', 'idOrClassName', idOrClassName)
             const localVarPath = `/v2/items/{id_or_class_name}`
@@ -1858,11 +2001,11 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get Items By Hero Id
          * @param {number} id 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsByHeroIdV2ItemsByHeroIdIdGet: async (id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemsByHeroIdV2ItemsByHeroIdIdGet: async (id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getItemsByHeroIdV2ItemsByHeroIdIdGet', 'id', id)
             const localVarPath = `/v2/items/by-hero-id/{id}`
@@ -1902,11 +2045,11 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get Items By Slot Type
          * @param {ItemSlotTypeV2} slotType 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet: async (slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet: async (slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'slotType' is not null or undefined
             assertParamExists('getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet', 'slotType', slotType)
             const localVarPath = `/v2/items/by-slot-type/{slot_type}`
@@ -1946,11 +2089,11 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get Items By Type
          * @param {ItemTypeV2} type 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsByTypeV2ItemsByTypeTypeGet: async (type: ItemTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemsByTypeV2ItemsByTypeTypeGet: async (type: ItemTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('getItemsByTypeV2ItemsByTypeTypeGet', 'type', type)
             const localVarPath = `/v2/items/by-type/{type}`
@@ -1989,11 +2132,11 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
          * 
          * @summary Get Items
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsV2ItemsGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getItemsV2ItemsGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v2/items`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2039,11 +2182,11 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @summary Get Item
          * @param {string} idOrClassName 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemV2ItemsIdOrClassNameGet(idOrClassName: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetItemV2ItemsIdOrClassNameGet>> {
+        async getItemV2ItemsIdOrClassNameGet(idOrClassName: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetItemV2ItemsIdOrClassNameGet>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemV2ItemsIdOrClassNameGet(idOrClassName, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemV2ItemsIdOrClassNameGet']?.[localVarOperationServerIndex]?.url;
@@ -2054,11 +2197,11 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @summary Get Items By Hero Id
          * @param {number} id 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsByHeroIdV2ItemsByHeroIdIdGet(id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsByHeroIdV2ItemsByHeroIdIdGet(id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsByHeroIdV2ItemsByHeroIdIdGet']?.[localVarOperationServerIndex]?.url;
@@ -2069,11 +2212,11 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @summary Get Items By Slot Type
          * @param {ItemSlotTypeV2} slotType 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet']?.[localVarOperationServerIndex]?.url;
@@ -2084,11 +2227,11 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @summary Get Items By Type
          * @param {ItemTypeV2} type 
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsByTypeV2ItemsByTypeTypeGet']?.[localVarOperationServerIndex]?.url;
@@ -2098,11 +2241,11 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * 
          * @summary Get Items
          * @param {Language | null} [language] 
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsV2ItemsGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsV2ItemsGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsV2ItemsGet(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsV2ItemsGet']?.[localVarOperationServerIndex]?.url;
@@ -2178,7 +2321,7 @@ export interface ItemsApiGetItemV2ItemsIdOrClassNameGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -2189,7 +2332,7 @@ export interface ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -2200,7 +2343,7 @@ export interface ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -2211,7 +2354,7 @@ export interface ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest {
 
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -2220,7 +2363,7 @@ export interface ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest {
 export interface ItemsApiGetItemsV2ItemsGetRequest {
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
@@ -2286,6 +2429,390 @@ export class ItemsApi extends BaseAPI {
 
 
 /**
+ * MiscEntitiesApi - axios parameter creator
+ */
+export const MiscEntitiesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Get Misc Entities
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMiscEntitiesV2MiscEntitiesGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v2/misc-entities`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get Misc Entity
+         * @param {string} idOrClassName 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMiscEntityV2MiscEntitiesIdOrClassNameGet: async (idOrClassName: string, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'idOrClassName' is not null or undefined
+            assertParamExists('getMiscEntityV2MiscEntitiesIdOrClassNameGet', 'idOrClassName', idOrClassName)
+            const localVarPath = `/v2/misc-entities/{id_or_class_name}`
+                .replace(`{${"id_or_class_name"}}`, encodeURIComponent(String(idOrClassName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * MiscEntitiesApi - functional programming interface
+ */
+export const MiscEntitiesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MiscEntitiesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @summary Get Misc Entities
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMiscEntitiesV2MiscEntitiesGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MiscV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMiscEntitiesV2MiscEntitiesGet(clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MiscEntitiesApi.getMiscEntitiesV2MiscEntitiesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Get Misc Entity
+         * @param {string} idOrClassName 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName: string, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NPCUnitV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MiscEntitiesApi.getMiscEntityV2MiscEntitiesIdOrClassNameGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * MiscEntitiesApi - factory interface
+ */
+export const MiscEntitiesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MiscEntitiesApiFp(configuration)
+    return {
+        /**
+         * 
+         * @summary Get Misc Entities
+         * @param {MiscEntitiesApiGetMiscEntitiesV2MiscEntitiesGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMiscEntitiesV2MiscEntitiesGet(requestParameters: MiscEntitiesApiGetMiscEntitiesV2MiscEntitiesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<MiscV2>> {
+            return localVarFp.getMiscEntitiesV2MiscEntitiesGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Misc Entity
+         * @param {MiscEntitiesApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMiscEntityV2MiscEntitiesIdOrClassNameGet(requestParameters: MiscEntitiesApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<NPCUnitV2> {
+            return localVarFp.getMiscEntityV2MiscEntitiesIdOrClassNameGet(requestParameters.idOrClassName, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getMiscEntitiesV2MiscEntitiesGet operation in MiscEntitiesApi.
+ */
+export interface MiscEntitiesApiGetMiscEntitiesV2MiscEntitiesGetRequest {
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getMiscEntityV2MiscEntitiesIdOrClassNameGet operation in MiscEntitiesApi.
+ */
+export interface MiscEntitiesApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest {
+    readonly idOrClassName: string
+
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
+}
+
+/**
+ * MiscEntitiesApi - object-oriented interface
+ */
+export class MiscEntitiesApi extends BaseAPI {
+    /**
+     * 
+     * @summary Get Misc Entities
+     * @param {MiscEntitiesApiGetMiscEntitiesV2MiscEntitiesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getMiscEntitiesV2MiscEntitiesGet(requestParameters: MiscEntitiesApiGetMiscEntitiesV2MiscEntitiesGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return MiscEntitiesApiFp(this.configuration).getMiscEntitiesV2MiscEntitiesGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Misc Entity
+     * @param {MiscEntitiesApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getMiscEntityV2MiscEntitiesIdOrClassNameGet(requestParameters: MiscEntitiesApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest, options?: RawAxiosRequestConfig) {
+        return MiscEntitiesApiFp(this.configuration).getMiscEntityV2MiscEntitiesIdOrClassNameGet(requestParameters.idOrClassName, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * NPCUnitsApi - axios parameter creator
+ */
+export const NPCUnitsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Get Npc Unit
+         * @param {string} idOrClassName 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNpcUnitV2NpcUnitsIdOrClassNameGet: async (idOrClassName: string, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'idOrClassName' is not null or undefined
+            assertParamExists('getNpcUnitV2NpcUnitsIdOrClassNameGet', 'idOrClassName', idOrClassName)
+            const localVarPath = `/v2/npc-units/{id_or_class_name}`
+                .replace(`{${"id_or_class_name"}}`, encodeURIComponent(String(idOrClassName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get Npc Units
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNpcUnitsV2NpcUnitsGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v2/npc-units`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * NPCUnitsApi - functional programming interface
+ */
+export const NPCUnitsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = NPCUnitsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @summary Get Npc Unit
+         * @param {string} idOrClassName 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNpcUnitV2NpcUnitsIdOrClassNameGet(idOrClassName: string, clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NPCUnitV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNpcUnitV2NpcUnitsIdOrClassNameGet(idOrClassName, clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['NPCUnitsApi.getNpcUnitV2NpcUnitsIdOrClassNameGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Get Npc Units
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNpcUnitsV2NpcUnitsGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NPCUnitV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNpcUnitsV2NpcUnitsGet(clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['NPCUnitsApi.getNpcUnitsV2NpcUnitsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * NPCUnitsApi - factory interface
+ */
+export const NPCUnitsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = NPCUnitsApiFp(configuration)
+    return {
+        /**
+         * 
+         * @summary Get Npc Unit
+         * @param {NPCUnitsApiGetNpcUnitV2NpcUnitsIdOrClassNameGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNpcUnitV2NpcUnitsIdOrClassNameGet(requestParameters: NPCUnitsApiGetNpcUnitV2NpcUnitsIdOrClassNameGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<NPCUnitV2> {
+            return localVarFp.getNpcUnitV2NpcUnitsIdOrClassNameGet(requestParameters.idOrClassName, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Npc Units
+         * @param {NPCUnitsApiGetNpcUnitsV2NpcUnitsGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNpcUnitsV2NpcUnitsGet(requestParameters: NPCUnitsApiGetNpcUnitsV2NpcUnitsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<NPCUnitV2>> {
+            return localVarFp.getNpcUnitsV2NpcUnitsGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getNpcUnitV2NpcUnitsIdOrClassNameGet operation in NPCUnitsApi.
+ */
+export interface NPCUnitsApiGetNpcUnitV2NpcUnitsIdOrClassNameGetRequest {
+    readonly idOrClassName: string
+
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
+}
+
+/**
+ * Request parameters for getNpcUnitsV2NpcUnitsGet operation in NPCUnitsApi.
+ */
+export interface NPCUnitsApiGetNpcUnitsV2NpcUnitsGetRequest {
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
+}
+
+/**
+ * NPCUnitsApi - object-oriented interface
+ */
+export class NPCUnitsApi extends BaseAPI {
+    /**
+     * 
+     * @summary Get Npc Unit
+     * @param {NPCUnitsApiGetNpcUnitV2NpcUnitsIdOrClassNameGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getNpcUnitV2NpcUnitsIdOrClassNameGet(requestParameters: NPCUnitsApiGetNpcUnitV2NpcUnitsIdOrClassNameGetRequest, options?: RawAxiosRequestConfig) {
+        return NPCUnitsApiFp(this.configuration).getNpcUnitV2NpcUnitsIdOrClassNameGet(requestParameters.idOrClassName, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Npc Units
+     * @param {NPCUnitsApiGetNpcUnitsV2NpcUnitsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getNpcUnitsV2NpcUnitsGet(requestParameters: NPCUnitsApiGetNpcUnitsV2NpcUnitsGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return NPCUnitsApiFp(this.configuration).getNpcUnitsV2NpcUnitsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
  * RawApi - axios parameter creator
  */
 export const RawApiAxiosParamCreator = function (configuration?: Configuration) {
@@ -2293,11 +2820,11 @@ export const RawApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * 
          * @summary Get Generic Data
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGenericDataRawGenericDataGet: async (clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getGenericDataRawGenericDataGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/raw/generic_data`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2328,11 +2855,11 @@ export const RawApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * 
          * @summary Get Raw Heroes
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRawHeroesRawHeroesGet: async (clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRawHeroesRawHeroesGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/raw/heroes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2363,11 +2890,11 @@ export const RawApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * 
          * @summary Get Raw Items
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRawItemsRawItemsGet: async (clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRawItemsRawItemsGet: async (clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/raw/items`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2407,11 +2934,11 @@ export const RawApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Generic Data
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGenericDataRawGenericDataGet(clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getGenericDataRawGenericDataGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGenericDataRawGenericDataGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RawApi.getGenericDataRawGenericDataGet']?.[localVarOperationServerIndex]?.url;
@@ -2420,11 +2947,11 @@ export const RawApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Raw Heroes
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRawHeroesRawHeroesGet(clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getRawHeroesRawHeroesGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRawHeroesRawHeroesGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RawApi.getRawHeroesRawHeroesGet']?.[localVarOperationServerIndex]?.url;
@@ -2433,11 +2960,11 @@ export const RawApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Raw Items
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {DeadlockAssetsApiRoutesV2ValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRawItemsRawItemsGet(clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getRawItemsRawItemsGet(clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRawItemsRawItemsGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RawApi.getRawItemsRawItemsGet']?.[localVarOperationServerIndex]?.url;
@@ -2489,21 +3016,21 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
  * Request parameters for getGenericDataRawGenericDataGet operation in RawApi.
  */
 export interface RawApiGetGenericDataRawGenericDataGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getRawHeroesRawHeroesGet operation in RawApi.
  */
 export interface RawApiGetRawHeroesRawHeroesGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**
  * Request parameters for getRawItemsRawItemsGet operation in RawApi.
  */
 export interface RawApiGetRawItemsRawItemsGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+    readonly clientVersion?: DeadlockAssetsApiRoutesV2ValidClientVersions | null
 }
 
 /**

@@ -20,6 +20,8 @@ __version__ = "1.0.0"
 __all__ = [
     "HeroesApi",
     "ItemsApi",
+    "MiscEntitiesApi",
+    "NPCUnitsApi",
     "RawApi",
     "DefaultApi",
     "ApiResponse",
@@ -42,10 +44,21 @@ __all__ = [
     "AimingShotSpreadPenalty",
     "Bonus",
     "BuildTagV2",
+    "Color",
     "ColorV1",
-    "DeadlockAssetsApiRoutesRawValidClientVersions",
+    "DeadlockAssetsApiRoutesV2ValidClientVersions",
     "GetItemsV2ItemsGet200ResponseInner",
+    "GlowColorEnemy",
+    "GlowColorFriend",
+    "GlowColorTeam1",
+    "GlowColorTeam2",
+    "GlowColorTeamNeutral",
     "HTTPValidationError",
+    "HealthBarColorEnemy",
+    "HealthBarColorFriend",
+    "HealthBarColorTeam1",
+    "HealthBarColorTeam2",
+    "HealthBarColorTeamNeutral",
     "HeroColorsV2",
     "HeroDescriptionV2",
     "HeroImagesV2",
@@ -65,8 +78,13 @@ __all__ = [
     "Language",
     "MapImagesV1",
     "MapV1",
+    "MiscV2",
+    "ModifierDefinition",
+    "ModifierValue",
+    "NPCUnitV2",
     "ObjectivePositionV1",
     "ObjectivePositionsV1",
+    "PickupDefinition",
     "Range",
     "RankImagesV2",
     "RankV2",
@@ -94,6 +112,7 @@ __all__ = [
     "ResponseGetItemV2ItemsIdOrClassNameGet",
     "StandingShotSpreadPenalty",
     "StatsUsageFlagV2",
+    "SubclassModifierDefinition",
     "UpgradeDescriptionV2",
     "UpgradePropertyV2",
     "UpgradeTooltipSectionAttributeV2",
@@ -112,6 +131,8 @@ __all__ = [
 # import apis into sdk package
 from assets-deadlock-api-client.api.heroes_api import HeroesApi as HeroesApi
 from assets-deadlock-api-client.api.items_api import ItemsApi as ItemsApi
+from assets-deadlock-api-client.api.misc_entities_api import MiscEntitiesApi as MiscEntitiesApi
+from assets-deadlock-api-client.api.npc_units_api import NPCUnitsApi as NPCUnitsApi
 from assets-deadlock-api-client.api.raw_api import RawApi as RawApi
 from assets-deadlock-api-client.api.default_api import DefaultApi as DefaultApi
 
@@ -138,10 +159,21 @@ from assets-deadlock-api-client.models.ability_videos_v2 import AbilityVideosV2 
 from assets-deadlock-api-client.models.aiming_shot_spread_penalty import AimingShotSpreadPenalty as AimingShotSpreadPenalty
 from assets-deadlock-api-client.models.bonus import Bonus as Bonus
 from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2 as BuildTagV2
+from assets-deadlock-api-client.models.color import Color as Color
 from assets-deadlock-api-client.models.color_v1 import ColorV1 as ColorV1
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions as DeadlockAssetsApiRoutesRawValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions as DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets-deadlock-api-client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner as GetItemsV2ItemsGet200ResponseInner
+from assets-deadlock-api-client.models.glow_color_enemy import GlowColorEnemy as GlowColorEnemy
+from assets-deadlock-api-client.models.glow_color_friend import GlowColorFriend as GlowColorFriend
+from assets-deadlock-api-client.models.glow_color_team1 import GlowColorTeam1 as GlowColorTeam1
+from assets-deadlock-api-client.models.glow_color_team2 import GlowColorTeam2 as GlowColorTeam2
+from assets-deadlock-api-client.models.glow_color_team_neutral import GlowColorTeamNeutral as GlowColorTeamNeutral
 from assets-deadlock-api-client.models.http_validation_error import HTTPValidationError as HTTPValidationError
+from assets-deadlock-api-client.models.health_bar_color_enemy import HealthBarColorEnemy as HealthBarColorEnemy
+from assets-deadlock-api-client.models.health_bar_color_friend import HealthBarColorFriend as HealthBarColorFriend
+from assets-deadlock-api-client.models.health_bar_color_team1 import HealthBarColorTeam1 as HealthBarColorTeam1
+from assets-deadlock-api-client.models.health_bar_color_team2 import HealthBarColorTeam2 as HealthBarColorTeam2
+from assets-deadlock-api-client.models.health_bar_color_team_neutral import HealthBarColorTeamNeutral as HealthBarColorTeamNeutral
 from assets-deadlock-api-client.models.hero_colors_v2 import HeroColorsV2 as HeroColorsV2
 from assets-deadlock-api-client.models.hero_description_v2 import HeroDescriptionV2 as HeroDescriptionV2
 from assets-deadlock-api-client.models.hero_images_v2 import HeroImagesV2 as HeroImagesV2
@@ -161,8 +193,13 @@ from assets-deadlock-api-client.models.item_type_v2 import ItemTypeV2 as ItemTyp
 from assets-deadlock-api-client.models.language import Language as Language
 from assets-deadlock-api-client.models.map_images_v1 import MapImagesV1 as MapImagesV1
 from assets-deadlock-api-client.models.map_v1 import MapV1 as MapV1
+from assets-deadlock-api-client.models.misc_v2 import MiscV2 as MiscV2
+from assets-deadlock-api-client.models.modifier_definition import ModifierDefinition as ModifierDefinition
+from assets-deadlock-api-client.models.modifier_value import ModifierValue as ModifierValue
+from assets-deadlock-api-client.models.npc_unit_v2 import NPCUnitV2 as NPCUnitV2
 from assets-deadlock-api-client.models.objective_position_v1 import ObjectivePositionV1 as ObjectivePositionV1
 from assets-deadlock-api-client.models.objective_positions_v1 import ObjectivePositionsV1 as ObjectivePositionsV1
+from assets-deadlock-api-client.models.pickup_definition import PickupDefinition as PickupDefinition
 from assets-deadlock-api-client.models.range import Range as Range
 from assets-deadlock-api-client.models.rank_images_v2 import RankImagesV2 as RankImagesV2
 from assets-deadlock-api-client.models.rank_v2 import RankV2 as RankV2
@@ -190,6 +227,7 @@ from assets-deadlock-api-client.models.raw_weapon_info_vertical_recoil_v2 import
 from assets-deadlock-api-client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet as ResponseGetItemV2ItemsIdOrClassNameGet
 from assets-deadlock-api-client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty as StandingShotSpreadPenalty
 from assets-deadlock-api-client.models.stats_usage_flag_v2 import StatsUsageFlagV2 as StatsUsageFlagV2
+from assets-deadlock-api-client.models.subclass_modifier_definition import SubclassModifierDefinition as SubclassModifierDefinition
 from assets-deadlock-api-client.models.upgrade_description_v2 import UpgradeDescriptionV2 as UpgradeDescriptionV2
 from assets-deadlock-api-client.models.upgrade_property_v2 import UpgradePropertyV2 as UpgradePropertyV2
 from assets-deadlock-api-client.models.upgrade_tooltip_section_attribute_v2 import UpgradeTooltipSectionAttributeV2 as UpgradeTooltipSectionAttributeV2

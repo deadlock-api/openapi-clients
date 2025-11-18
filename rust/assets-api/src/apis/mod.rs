@@ -114,6 +114,8 @@ impl From<&str> for ContentType {
 pub mod default_api;
 pub mod heroes_api;
 pub mod items_api;
+pub mod misc_entities_api;
+pub mod npc_units_api;
 pub mod raw_api;
 
 pub mod configuration;

@@ -30,6 +30,10 @@ Class | Method | HTTP request | Description
 *ItemsApi* | [**getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet**](Apis/ItemsApi.http#getitemsbyslottypev2itemsbyslottypeslottypeget) | **GET** /v2/items/by-slot-type/{slot_type} | Get Items By Slot Type
 *ItemsApi* | [**getItemsByTypeV2ItemsByTypeTypeGet**](Apis/ItemsApi.http#getitemsbytypev2itemsbytypetypeget) | **GET** /v2/items/by-type/{type} | Get Items By Type
 *ItemsApi* | [**getItemsV2ItemsGet**](Apis/ItemsApi.http#getitemsv2itemsget) | **GET** /v2/items | Get Items
+*MiscEntitiesApi* | [**getMiscEntitiesV2MiscEntitiesGet**](Apis/MiscEntitiesApi.http#getmiscentitiesv2miscentitiesget) | **GET** /v2/misc-entities | Get Misc Entities
+*MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](Apis/MiscEntitiesApi.http#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
+*NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](Apis/NPCUnitsApi.http#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit
+*NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](Apis/NPCUnitsApi.http#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units
 *RawApi* | [**getGenericDataRawGenericDataGet**](Apis/RawApi.http#getgenericdatarawgenericdataget) | **GET** /raw/generic_data | Get Generic Data
 *RawApi* | [**getRawHeroesRawHeroesGet**](Apis/RawApi.http#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes
 *RawApi* | [**getRawItemsRawItemsGet**](Apis/RawApi.http#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items

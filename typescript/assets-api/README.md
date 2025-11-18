@@ -67,6 +67,10 @@ Class | Method | HTTP request | Description
 *ItemsApi* | [**getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet**](docs/ItemsApi.md#getitemsbyslottypev2itemsbyslottypeslottypeget) | **GET** /v2/items/by-slot-type/{slot_type} | Get Items By Slot Type
 *ItemsApi* | [**getItemsByTypeV2ItemsByTypeTypeGet**](docs/ItemsApi.md#getitemsbytypev2itemsbytypetypeget) | **GET** /v2/items/by-type/{type} | Get Items By Type
 *ItemsApi* | [**getItemsV2ItemsGet**](docs/ItemsApi.md#getitemsv2itemsget) | **GET** /v2/items | Get Items
+*MiscEntitiesApi* | [**getMiscEntitiesV2MiscEntitiesGet**](docs/MiscEntitiesApi.md#getmiscentitiesv2miscentitiesget) | **GET** /v2/misc-entities | Get Misc Entities
+*MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](docs/MiscEntitiesApi.md#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
+*NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](docs/NPCUnitsApi.md#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit
+*NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](docs/NPCUnitsApi.md#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units
 *RawApi* | [**getGenericDataRawGenericDataGet**](docs/RawApi.md#getgenericdatarawgenericdataget) | **GET** /raw/generic_data | Get Generic Data
 *RawApi* | [**getRawHeroesRawHeroesGet**](docs/RawApi.md#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes
 *RawApi* | [**getRawItemsRawItemsGet**](docs/RawApi.md#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items
@@ -85,10 +89,21 @@ Class | Method | HTTP request | Description
  - [AimingShotSpreadPenalty](docs/AimingShotSpreadPenalty.md)
  - [Bonus](docs/Bonus.md)
  - [BuildTagV2](docs/BuildTagV2.md)
+ - [Color](docs/Color.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV2ValidClientVersions](docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
+ - [GlowColorEnemy](docs/GlowColorEnemy.md)
+ - [GlowColorFriend](docs/GlowColorFriend.md)
+ - [GlowColorTeam1](docs/GlowColorTeam1.md)
+ - [GlowColorTeam2](docs/GlowColorTeam2.md)
+ - [GlowColorTeamNeutral](docs/GlowColorTeamNeutral.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
+ - [HealthBarColorEnemy](docs/HealthBarColorEnemy.md)
+ - [HealthBarColorFriend](docs/HealthBarColorFriend.md)
+ - [HealthBarColorTeam1](docs/HealthBarColorTeam1.md)
+ - [HealthBarColorTeam2](docs/HealthBarColorTeam2.md)
+ - [HealthBarColorTeamNeutral](docs/HealthBarColorTeamNeutral.md)
  - [HeroColorsV2](docs/HeroColorsV2.md)
  - [HeroDescriptionV2](docs/HeroDescriptionV2.md)
  - [HeroImagesV2](docs/HeroImagesV2.md)
@@ -108,8 +123,13 @@ Class | Method | HTTP request | Description
  - [Language](docs/Language.md)
  - [MapImagesV1](docs/MapImagesV1.md)
  - [MapV1](docs/MapV1.md)
+ - [MiscV2](docs/MiscV2.md)
+ - [ModifierDefinition](docs/ModifierDefinition.md)
+ - [ModifierValue](docs/ModifierValue.md)
+ - [NPCUnitV2](docs/NPCUnitV2.md)
  - [ObjectivePositionV1](docs/ObjectivePositionV1.md)
  - [ObjectivePositionsV1](docs/ObjectivePositionsV1.md)
+ - [PickupDefinition](docs/PickupDefinition.md)
  - [Range](docs/Range.md)
  - [RankImagesV2](docs/RankImagesV2.md)
  - [RankV2](docs/RankV2.md)
@@ -137,6 +157,7 @@ Class | Method | HTTP request | Description
  - [ResponseGetItemV2ItemsIdOrClassNameGet](docs/ResponseGetItemV2ItemsIdOrClassNameGet.md)
  - [StandingShotSpreadPenalty](docs/StandingShotSpreadPenalty.md)
  - [StatsUsageFlagV2](docs/StatsUsageFlagV2.md)
+ - [SubclassModifierDefinition](docs/SubclassModifierDefinition.md)
  - [UpgradeDescriptionV2](docs/UpgradeDescriptionV2.md)
  - [UpgradePropertyV2](docs/UpgradePropertyV2.md)
  - [UpgradeTooltipSectionAttributeV2](docs/UpgradeTooltipSectionAttributeV2.md)
