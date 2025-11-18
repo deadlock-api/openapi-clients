@@ -149,7 +149,7 @@ No authorization required
 
 ## ReadyUp
 
-> ReadyUp(ctx).Execute()
+> ReadyUp(ctx, lobbyId).Execute()
 
 Ready Up
 
@@ -168,10 +168,11 @@ import (
 )
 
 func main() {
+	lobbyId := "lobbyId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.CustomMatchesAPI.ReadyUp(context.Background()).Execute()
+	r, err := apiClient.CustomMatchesAPI.ReadyUp(context.Background(), lobbyId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomMatchesAPI.ReadyUp``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -181,11 +182,19 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**lobbyId** | **string** |  | 
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiReadyUpRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -208,7 +217,7 @@ No authorization required
 
 ## Unready
 
-> Unready(ctx).Execute()
+> Unready(ctx, lobbyId).Execute()
 
 Unready
 
@@ -227,10 +236,11 @@ import (
 )
 
 func main() {
+	lobbyId := "lobbyId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.CustomMatchesAPI.Unready(context.Background()).Execute()
+	r, err := apiClient.CustomMatchesAPI.Unready(context.Background(), lobbyId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomMatchesAPI.Unready``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -240,11 +250,19 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**lobbyId** | **string** |  | 
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiUnreadyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type

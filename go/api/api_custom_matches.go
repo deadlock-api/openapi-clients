@@ -278,6 +278,7 @@ func (a *CustomMatchesAPIService) GetCustomExecute(r ApiGetCustomRequest) (*GetC
 type ApiReadyUpRequest struct {
 	ctx context.Context
 	ApiService *CustomMatchesAPIService
+	lobbyId string
 }
 
 func (r ApiReadyUpRequest) Execute() (*http.Response, error) {
@@ -299,12 +300,14 @@ This endpoint allows you to ready up for a custom match.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param lobbyId
  @return ApiReadyUpRequest
 */
-func (a *CustomMatchesAPIService) ReadyUp(ctx context.Context) ApiReadyUpRequest {
+func (a *CustomMatchesAPIService) ReadyUp(ctx context.Context, lobbyId string) ApiReadyUpRequest {
 	return ApiReadyUpRequest{
 		ApiService: a,
 		ctx: ctx,
+		lobbyId: lobbyId,
 	}
 }
 
@@ -322,6 +325,7 @@ func (a *CustomMatchesAPIService) ReadyUpExecute(r ApiReadyUpRequest) (*http.Res
 	}
 
 	localVarPath := localBasePath + "/v1/matches/custom/{lobby_id}/ready"
+	localVarPath = strings.Replace(localVarPath, "{"+"lobby_id"+"}", url.PathEscape(parameterValueToString(r.lobbyId, "lobbyId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -375,6 +379,7 @@ func (a *CustomMatchesAPIService) ReadyUpExecute(r ApiReadyUpRequest) (*http.Res
 type ApiUnreadyRequest struct {
 	ctx context.Context
 	ApiService *CustomMatchesAPIService
+	lobbyId string
 }
 
 func (r ApiUnreadyRequest) Execute() (*http.Response, error) {
@@ -396,12 +401,14 @@ This endpoint allows you to unready for a custom match.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param lobbyId
  @return ApiUnreadyRequest
 */
-func (a *CustomMatchesAPIService) Unready(ctx context.Context) ApiUnreadyRequest {
+func (a *CustomMatchesAPIService) Unready(ctx context.Context, lobbyId string) ApiUnreadyRequest {
 	return ApiUnreadyRequest{
 		ApiService: a,
 		ctx: ctx,
+		lobbyId: lobbyId,
 	}
 }
 
@@ -419,6 +426,7 @@ func (a *CustomMatchesAPIService) UnreadyExecute(r ApiUnreadyRequest) (*http.Res
 	}
 
 	localVarPath := localBasePath + "/v1/matches/custom/{lobby_id}/unready"
+	localVarPath = strings.Replace(localVarPath, "{"+"lobby_id"+"}", url.PathEscape(parameterValueToString(r.lobbyId, "lobbyId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

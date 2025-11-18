@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field
+from pydantic import Field, StrictStr
 from typing_extensions import Annotated
 from deadlock-api-client.models.create_custom_request import CreateCustomRequest
 from deadlock-api-client.models.create_custom_response import CreateCustomResponse
@@ -594,6 +594,7 @@ class CustomMatchesApi:
     @validate_call
     def ready_up(
         self,
+        lobby_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -611,6 +612,8 @@ class CustomMatchesApi:
 
          This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
 
+        :param lobby_id: (required)
+        :type lobby_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -634,6 +637,7 @@ class CustomMatchesApi:
         """ # noqa: E501
 
         _param = self._ready_up_serialize(
+            lobby_id=lobby_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -660,6 +664,7 @@ class CustomMatchesApi:
     @validate_call
     def ready_up_with_http_info(
         self,
+        lobby_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -677,6 +682,8 @@ class CustomMatchesApi:
 
          This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
 
+        :param lobby_id: (required)
+        :type lobby_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -700,6 +707,7 @@ class CustomMatchesApi:
         """ # noqa: E501
 
         _param = self._ready_up_serialize(
+            lobby_id=lobby_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -726,6 +734,7 @@ class CustomMatchesApi:
     @validate_call
     def ready_up_without_preload_content(
         self,
+        lobby_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -743,6 +752,8 @@ class CustomMatchesApi:
 
          This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
 
+        :param lobby_id: (required)
+        :type lobby_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -766,6 +777,7 @@ class CustomMatchesApi:
         """ # noqa: E501
 
         _param = self._ready_up_serialize(
+            lobby_id=lobby_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -787,6 +799,7 @@ class CustomMatchesApi:
 
     def _ready_up_serialize(
         self,
+        lobby_id,
         _request_auth,
         _content_type,
         _headers,
@@ -808,6 +821,8 @@ class CustomMatchesApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if lobby_id is not None:
+            _path_params['lobby_id'] = lobby_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -841,6 +856,7 @@ class CustomMatchesApi:
     @validate_call
     def unready(
         self,
+        lobby_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -858,6 +874,8 @@ class CustomMatchesApi:
 
          This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
 
+        :param lobby_id: (required)
+        :type lobby_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -881,6 +899,7 @@ class CustomMatchesApi:
         """ # noqa: E501
 
         _param = self._unready_serialize(
+            lobby_id=lobby_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -907,6 +926,7 @@ class CustomMatchesApi:
     @validate_call
     def unready_with_http_info(
         self,
+        lobby_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -924,6 +944,8 @@ class CustomMatchesApi:
 
          This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
 
+        :param lobby_id: (required)
+        :type lobby_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -947,6 +969,7 @@ class CustomMatchesApi:
         """ # noqa: E501
 
         _param = self._unready_serialize(
+            lobby_id=lobby_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -973,6 +996,7 @@ class CustomMatchesApi:
     @validate_call
     def unready_without_preload_content(
         self,
+        lobby_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -990,6 +1014,8 @@ class CustomMatchesApi:
 
          This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
 
+        :param lobby_id: (required)
+        :type lobby_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1013,6 +1039,7 @@ class CustomMatchesApi:
         """ # noqa: E501
 
         _param = self._unready_serialize(
+            lobby_id=lobby_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1034,6 +1061,7 @@ class CustomMatchesApi:
 
     def _unready_serialize(
         self,
+        lobby_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1055,6 +1083,8 @@ class CustomMatchesApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if lobby_id is not None:
+            _path_params['lobby_id'] = lobby_id
         # process the query parameters
         # process the header parameters
         # process the form parameters

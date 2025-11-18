@@ -104,7 +104,7 @@ No authorization required
 
 <a id="readyUp"></a>
 # **readyUp**
-> readyUp()
+> readyUp(lobbyId)
 
 Ready Up
 
@@ -117,8 +117,9 @@ Ready Up
 //import deadlock-api-client.models.*
 
 val apiInstance = CustomMatchesApi()
+val lobbyId : kotlin.String = lobbyId_example // kotlin.String | 
 try {
-    apiInstance.readyUp()
+    apiInstance.readyUp(lobbyId)
 } catch (e: ClientException) {
     println("4xx response calling CustomMatchesApi#readyUp")
     e.printStackTrace()
@@ -129,7 +130,9 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **lobbyId** | **kotlin.String**|  | |
 
 ### Return type
 
@@ -146,7 +149,7 @@ No authorization required
 
 <a id="unready"></a>
 # **unready**
-> unready()
+> unready(lobbyId)
 
 Unready
 
@@ -159,8 +162,9 @@ Unready
 //import deadlock-api-client.models.*
 
 val apiInstance = CustomMatchesApi()
+val lobbyId : kotlin.String = lobbyId_example // kotlin.String | 
 try {
-    apiInstance.unready()
+    apiInstance.unready(lobbyId)
 } catch (e: ClientException) {
     println("4xx response calling CustomMatchesApi#unready")
     e.printStackTrace()
@@ -171,7 +175,9 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **lobbyId** | **kotlin.String**|  | |
 
 ### Return type
 

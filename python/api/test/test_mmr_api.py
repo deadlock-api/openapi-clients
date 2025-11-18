@@ -29,14 +29,14 @@ class TestMMRApi(unittest.TestCase):
     def test_hero_mmr(self) -> None:
         """Test case for hero_mmr
 
-        Hero MMR Distribution
+        Batch Hero MMR
         """
         pass
 
-    def test_hero_mmr_0(self) -> None:
-        """Test case for hero_mmr_0
+    def test_hero_mmr_distribution(self) -> None:
+        """Test case for hero_mmr_distribution
 
-        Batch Hero MMR
+        Hero MMR Distribution
         """
         pass
 
@@ -54,8 +54,8 @@ class TestMMRApi(unittest.TestCase):
         """
         pass
 
-    def test_mmr_0(self) -> None:
-        """Test case for mmr_0
+    def test_mmr_distribution(self) -> None:
+        """Test case for mmr_distribution
 
         MMR Distribution
         """

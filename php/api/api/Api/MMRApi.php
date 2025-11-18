@@ -77,19 +77,19 @@ class MMRApi
         'heroMmr' => [
             'application/json',
         ],
-        'heroMmrHistory' => [
+        'heroMmrDistribution' => [
             'application/json',
         ],
-        'heroMmr_0' => [
+        'heroMmrHistory' => [
             'application/json',
         ],
         'mmr' => [
             'application/json',
         ],
-        'mmrHistory' => [
+        'mmrDistribution' => [
             'application/json',
         ],
-        'mmr_0' => [
+        'mmrHistory' => [
             'application/json',
         ],
     ];
@@ -143,33 +143,322 @@ class MMRApi
     /**
      * Operation heroMmr
      *
-     * Hero MMR Distribution
+     * Batch Hero MMR
      *
+     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
      * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
-     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
-     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DistributionEntry[]
+     * @return \OpenAPI\Client\Model\MMRHistory[]
      */
-    public function heroMmr($hero_id, $min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    public function heroMmr($account_ids, $hero_id, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
     {
-        list($response) = $this->heroMmrWithHttpInfo($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
+        list($response) = $this->heroMmrWithHttpInfo($account_ids, $hero_id, $max_match_id, $contentType);
         return $response;
     }
 
     /**
      * Operation heroMmrWithHttpInfo
      *
+     * Batch Hero MMR
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\MMRHistory[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function heroMmrWithHttpInfo($account_ids, $hero_id, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    {
+        $request = $this->heroMmrRequest($account_ids, $hero_id, $max_match_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\MMRHistory[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\MMRHistory[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\MMRHistory[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation heroMmrAsync
+     *
+     * Batch Hero MMR
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function heroMmrAsync($account_ids, $hero_id, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    {
+        return $this->heroMmrAsyncWithHttpInfo($account_ids, $hero_id, $max_match_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation heroMmrAsyncWithHttpInfo
+     *
+     * Batch Hero MMR
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function heroMmrAsyncWithHttpInfo($account_ids, $hero_id, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\MMRHistory[]';
+        $request = $this->heroMmrRequest($account_ids, $hero_id, $max_match_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'heroMmr'
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function heroMmrRequest($account_ids, $hero_id, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    {
+
+        // verify the required parameter 'account_ids' is set
+        if ($account_ids === null || (is_array($account_ids) && count($account_ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_ids when calling heroMmr'
+            );
+        }
+        if (count($account_ids) > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling MMRApi.heroMmr, number of items must be less than or equal to 1000.');
+        }
+        if (count($account_ids) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling MMRApi.heroMmr, number of items must be greater than or equal to 1.');
+        }
+        
+        // verify the required parameter 'hero_id' is set
+        if ($hero_id === null || (is_array($hero_id) && count($hero_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hero_id when calling heroMmr'
+            );
+        }
+        if ($hero_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling MMRApi.heroMmr, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_match_id !== null && $max_match_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling MMRApi.heroMmr, must be bigger than or equal to 0.');
+        }
+        
+
+        $resourcePath = '/v1/players/mmr/{hero_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $account_ids,
+            'account_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_match_id,
+            'max_match_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($hero_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'hero_id' . '}',
+                ObjectSerializer::toPathValue($hero_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation heroMmrDistribution
+     *
      * Hero MMR Distribution
      *
      * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
@@ -182,15 +471,42 @@ class MMRApi
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmrDistribution'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\DistributionEntry[]
+     */
+    public function heroMmrDistribution($hero_id, $min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmrDistribution'][0])
+    {
+        list($response) = $this->heroMmrDistributionWithHttpInfo($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation heroMmrDistributionWithHttpInfo
+     *
+     * Hero MMR Distribution
+     *
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmrDistribution'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DistributionEntry[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroMmrWithHttpInfo($hero_id, $min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    public function heroMmrDistributionWithHttpInfo($hero_id, $min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmrDistribution'][0])
     {
-        $request = $this->heroMmrRequest($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
+        $request = $this->heroMmrDistributionRequest($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -262,7 +578,7 @@ class MMRApi
     }
 
     /**
-     * Operation heroMmrAsync
+     * Operation heroMmrDistributionAsync
      *
      * Hero MMR Distribution
      *
@@ -276,14 +592,14 @@ class MMRApi
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmrDistribution'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroMmrAsync($hero_id, $min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    public function heroMmrDistributionAsync($hero_id, $min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmrDistribution'][0])
     {
-        return $this->heroMmrAsyncWithHttpInfo($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
+        return $this->heroMmrDistributionAsyncWithHttpInfo($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -292,7 +608,7 @@ class MMRApi
     }
 
     /**
-     * Operation heroMmrAsyncWithHttpInfo
+     * Operation heroMmrDistributionAsyncWithHttpInfo
      *
      * Hero MMR Distribution
      *
@@ -306,15 +622,15 @@ class MMRApi
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmrDistribution'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroMmrAsyncWithHttpInfo($hero_id, $min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    public function heroMmrDistributionAsyncWithHttpInfo($hero_id, $min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmrDistribution'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DistributionEntry[]';
-        $request = $this->heroMmrRequest($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
+        $request = $this->heroMmrDistributionRequest($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -353,7 +669,7 @@ class MMRApi
     }
 
     /**
-     * Create request for operation 'heroMmr'
+     * Create request for operation 'heroMmrDistribution'
      *
      * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
@@ -365,49 +681,49 @@ class MMRApi
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmrDistribution'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroMmrRequest($hero_id, $min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmr'][0])
+    public function heroMmrDistributionRequest($hero_id, $min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroMmrDistribution'][0])
     {
 
         // verify the required parameter 'hero_id' is set
         if ($hero_id === null || (is_array($hero_id) && count($hero_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $hero_id when calling heroMmr'
+                'Missing the required parameter $hero_id when calling heroMmrDistribution'
             );
         }
         if ($hero_id < 0) {
-            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling MMRApi.heroMmr, must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling MMRApi.heroMmrDistribution, must be bigger than or equal to 0.');
         }
         
 
 
         if ($min_duration_s !== null && $min_duration_s > 7000) {
-            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling MMRApi.heroMmr, must be smaller than or equal to 7000.');
+            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling MMRApi.heroMmrDistribution, must be smaller than or equal to 7000.');
         }
         if ($min_duration_s !== null && $min_duration_s < 0) {
-            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling MMRApi.heroMmr, must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling MMRApi.heroMmrDistribution, must be bigger than or equal to 0.');
         }
         
         if ($max_duration_s !== null && $max_duration_s > 7000) {
-            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling MMRApi.heroMmr, must be smaller than or equal to 7000.');
+            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling MMRApi.heroMmrDistribution, must be smaller than or equal to 7000.');
         }
         if ($max_duration_s !== null && $max_duration_s < 0) {
-            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling MMRApi.heroMmr, must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling MMRApi.heroMmrDistribution, must be bigger than or equal to 0.');
         }
         
 
 
 
         if ($min_match_id !== null && $min_match_id < 0) {
-            throw new \InvalidArgumentException('invalid value for "$min_match_id" when calling MMRApi.heroMmr, must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for "$min_match_id" when calling MMRApi.heroMmrDistribution, must be bigger than or equal to 0.');
         }
         
         if ($max_match_id !== null && $max_match_id < 0) {
-            throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling MMRApi.heroMmr, must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling MMRApi.heroMmrDistribution, must be bigger than or equal to 0.');
         }
         
 
@@ -859,322 +1175,6 @@ class MMRApi
     }
 
     /**
-     * Operation heroMmr_0
-     *
-     * Batch Hero MMR
-     *
-     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr_0'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\MMRHistory[]
-     */
-    public function heroMmr_0($account_ids, $hero_id, $max_match_id = null, string $contentType = self::contentTypes['heroMmr_0'][0])
-    {
-        list($response) = $this->heroMmr_0WithHttpInfo($account_ids, $hero_id, $max_match_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation heroMmr_0WithHttpInfo
-     *
-     * Batch Hero MMR
-     *
-     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr_0'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\MMRHistory[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function heroMmr_0WithHttpInfo($account_ids, $hero_id, $max_match_id = null, string $contentType = self::contentTypes['heroMmr_0'][0])
-    {
-        $request = $this->heroMmr_0Request($account_ids, $hero_id, $max_match_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\MMRHistory[]',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\MMRHistory[]',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\MMRHistory[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation heroMmr_0Async
-     *
-     * Batch Hero MMR
-     *
-     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr_0'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function heroMmr_0Async($account_ids, $hero_id, $max_match_id = null, string $contentType = self::contentTypes['heroMmr_0'][0])
-    {
-        return $this->heroMmr_0AsyncWithHttpInfo($account_ids, $hero_id, $max_match_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation heroMmr_0AsyncWithHttpInfo
-     *
-     * Batch Hero MMR
-     *
-     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr_0'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function heroMmr_0AsyncWithHttpInfo($account_ids, $hero_id, $max_match_id = null, string $contentType = self::contentTypes['heroMmr_0'][0])
-    {
-        $returnType = '\OpenAPI\Client\Model\MMRHistory[]';
-        $request = $this->heroMmr_0Request($account_ids, $hero_id, $max_match_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'heroMmr_0'
-     *
-     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr_0'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function heroMmr_0Request($account_ids, $hero_id, $max_match_id = null, string $contentType = self::contentTypes['heroMmr_0'][0])
-    {
-
-        // verify the required parameter 'account_ids' is set
-        if ($account_ids === null || (is_array($account_ids) && count($account_ids) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $account_ids when calling heroMmr_0'
-            );
-        }
-        if (count($account_ids) > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling MMRApi.heroMmr_0, number of items must be less than or equal to 1000.');
-        }
-        if (count($account_ids) < 1) {
-            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling MMRApi.heroMmr_0, number of items must be greater than or equal to 1.');
-        }
-        
-        // verify the required parameter 'hero_id' is set
-        if ($hero_id === null || (is_array($hero_id) && count($hero_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $hero_id when calling heroMmr_0'
-            );
-        }
-        if ($hero_id < 0) {
-            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling MMRApi.heroMmr_0, must be bigger than or equal to 0.');
-        }
-        
-        if ($max_match_id !== null && $max_match_id < 0) {
-            throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling MMRApi.heroMmr_0, must be bigger than or equal to 0.');
-        }
-        
-
-        $resourcePath = '/v1/players/mmr/{hero_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $account_ids,
-            'account_ids', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            true // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $max_match_id,
-            'max_match_id', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($hero_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'hero_id' . '}',
-                ObjectSerializer::toPathValue($hero_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation mmr
      *
      * Batch MMR
@@ -1468,6 +1468,407 @@ class MMRApi
     }
 
     /**
+     * Operation mmrDistribution
+     *
+     * MMR Distribution
+     *
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mmrDistribution'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\DistributionEntry[]
+     */
+    public function mmrDistribution($min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmrDistribution'][0])
+    {
+        list($response) = $this->mmrDistributionWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation mmrDistributionWithHttpInfo
+     *
+     * MMR Distribution
+     *
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mmrDistribution'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\DistributionEntry[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function mmrDistributionWithHttpInfo($min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmrDistribution'][0])
+    {
+        $request = $this->mmrDistributionRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\DistributionEntry[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\DistributionEntry[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\DistributionEntry[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation mmrDistributionAsync
+     *
+     * MMR Distribution
+     *
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mmrDistribution'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function mmrDistributionAsync($min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmrDistribution'][0])
+    {
+        return $this->mmrDistributionAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation mmrDistributionAsyncWithHttpInfo
+     *
+     * MMR Distribution
+     *
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mmrDistribution'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function mmrDistributionAsyncWithHttpInfo($min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmrDistribution'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\DistributionEntry[]';
+        $request = $this->mmrDistributionRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'mmrDistribution'
+     *
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mmrDistribution'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function mmrDistributionRequest($min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmrDistribution'][0])
+    {
+
+
+
+        if ($min_duration_s !== null && $min_duration_s > 7000) {
+            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling MMRApi.mmrDistribution, must be smaller than or equal to 7000.');
+        }
+        if ($min_duration_s !== null && $min_duration_s < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling MMRApi.mmrDistribution, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_duration_s !== null && $max_duration_s > 7000) {
+            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling MMRApi.mmrDistribution, must be smaller than or equal to 7000.');
+        }
+        if ($max_duration_s !== null && $max_duration_s < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling MMRApi.mmrDistribution, must be bigger than or equal to 0.');
+        }
+        
+
+
+
+        if ($min_match_id !== null && $min_match_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_match_id" when calling MMRApi.mmrDistribution, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_match_id !== null && $max_match_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling MMRApi.mmrDistribution, must be bigger than or equal to 0.');
+        }
+        
+
+        $resourcePath = '/v1/players/mmr/distribution';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_unix_timestamp,
+            'min_unix_timestamp', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_unix_timestamp,
+            'max_unix_timestamp', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_duration_s,
+            'min_duration_s', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_duration_s,
+            'max_duration_s', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $is_high_skill_range_parties,
+            'is_high_skill_range_parties', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $is_low_pri_pool,
+            'is_low_pri_pool', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $is_new_player_pool,
+            'is_new_player_pool', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_match_id,
+            'min_match_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_match_id,
+            'max_match_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation mmrHistory
      *
      * MMR History
@@ -1683,407 +2084,6 @@ class MMRApi
                 $resourcePath
             );
         }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation mmr_0
-     *
-     * MMR Distribution
-     *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
-     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
-     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mmr_0'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DistributionEntry[]
-     */
-    public function mmr_0($min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
-    {
-        list($response) = $this->mmr_0WithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation mmr_0WithHttpInfo
-     *
-     * MMR Distribution
-     *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
-     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
-     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mmr_0'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DistributionEntry[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function mmr_0WithHttpInfo($min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
-    {
-        $request = $this->mmr_0Request($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\DistributionEntry[]',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\DistributionEntry[]',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DistributionEntry[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation mmr_0Async
-     *
-     * MMR Distribution
-     *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
-     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
-     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mmr_0'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function mmr_0Async($min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
-    {
-        return $this->mmr_0AsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation mmr_0AsyncWithHttpInfo
-     *
-     * MMR Distribution
-     *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
-     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
-     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mmr_0'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function mmr_0AsyncWithHttpInfo($min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
-    {
-        $returnType = '\OpenAPI\Client\Model\DistributionEntry[]';
-        $request = $this->mmr_0Request($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'mmr_0'
-     *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1760832000)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
-     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
-     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mmr_0'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function mmr_0Request($min_unix_timestamp = 1760832000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['mmr_0'][0])
-    {
-
-
-
-        if ($min_duration_s !== null && $min_duration_s > 7000) {
-            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling MMRApi.mmr_0, must be smaller than or equal to 7000.');
-        }
-        if ($min_duration_s !== null && $min_duration_s < 0) {
-            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling MMRApi.mmr_0, must be bigger than or equal to 0.');
-        }
-        
-        if ($max_duration_s !== null && $max_duration_s > 7000) {
-            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling MMRApi.mmr_0, must be smaller than or equal to 7000.');
-        }
-        if ($max_duration_s !== null && $max_duration_s < 0) {
-            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling MMRApi.mmr_0, must be bigger than or equal to 0.');
-        }
-        
-
-
-
-        if ($min_match_id !== null && $min_match_id < 0) {
-            throw new \InvalidArgumentException('invalid value for "$min_match_id" when calling MMRApi.mmr_0, must be bigger than or equal to 0.');
-        }
-        
-        if ($max_match_id !== null && $max_match_id < 0) {
-            throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling MMRApi.mmr_0, must be bigger than or equal to 0.');
-        }
-        
-
-        $resourcePath = '/v1/players/mmr/distribution';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $min_unix_timestamp,
-            'min_unix_timestamp', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $max_unix_timestamp,
-            'max_unix_timestamp', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $min_duration_s,
-            'min_duration_s', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $max_duration_s,
-            'max_duration_s', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $is_high_skill_range_parties,
-            'is_high_skill_range_parties', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $is_low_pri_pool,
-            'is_low_pri_pool', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $is_new_player_pool,
-            'is_new_player_pool', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $min_match_id,
-            'min_match_id', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $max_match_id,
-            'max_match_id', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
 
 
         $headers = $this->headerSelector->selectHeaders(

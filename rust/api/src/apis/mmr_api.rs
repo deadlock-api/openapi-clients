@@ -17,6 +17,17 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`hero_mmr`]
 #[derive(Clone, Debug)]
 pub struct HeroMmrParams {
+    /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
+    pub account_ids: Vec<u32>,
+    /// The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+    pub hero_id: u32,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<u64>
+}
+
+/// struct for passing parameters to the method [`hero_mmr_distribution`]
+#[derive(Clone, Debug)]
+pub struct HeroMmrDistributionParams {
     /// The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_id: u32,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -39,17 +50,6 @@ pub struct HeroMmrParams {
     pub max_match_id: Option<u64>
 }
 
-/// struct for passing parameters to the method [`hero_mmr_0`]
-#[derive(Clone, Debug)]
-pub struct HeroMmr0Params {
-    /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
-    pub account_ids: Vec<u32>,
-    /// The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
-    pub hero_id: u32,
-    /// Filter matches based on their ID.
-    pub max_match_id: Option<u64>
-}
-
 /// struct for passing parameters to the method [`hero_mmr_history`]
 #[derive(Clone, Debug)]
 pub struct HeroMmrHistoryParams {
@@ -68,9 +68,9 @@ pub struct MmrParams {
     pub max_match_id: Option<u64>
 }
 
-/// struct for passing parameters to the method [`mmr_0`]
+/// struct for passing parameters to the method [`mmr_distribution`]
 #[derive(Clone, Debug)]
-pub struct Mmr0Params {
+pub struct MmrDistributionParams {
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -108,10 +108,10 @@ pub enum HeroMmrError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`hero_mmr_0`]
+/// struct for typed errors of method [`hero_mmr_distribution`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum HeroMmr0Error {
+pub enum HeroMmrDistributionError {
     Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
@@ -135,10 +135,10 @@ pub enum MmrError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`mmr_0`]
+/// struct for typed errors of method [`mmr_distribution`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum Mmr0Error {
+pub enum MmrDistributionError {
     Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
@@ -154,8 +154,50 @@ pub enum MmrHistoryError {
 }
 
 
+///  Batch Player Hero MMR 
+pub async fn hero_mmr(configuration: &configuration::Configuration, params: HeroMmrParams) -> Result<Vec<models::MmrHistory>, Error<HeroMmrError>> {
+
+    let uri_str = format!("{}/v1/players/mmr/{hero_id}", configuration.base_path, hero_id=params.hero_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&params.account_ids.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("account_ids", &params.account_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::MmrHistory&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::MmrHistory&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<HeroMmrError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 ///  Player Hero MMR Distribution 
-pub async fn hero_mmr(configuration: &configuration::Configuration, params: HeroMmrParams) -> Result<Vec<models::DistributionEntry>, Error<HeroMmrError>> {
+pub async fn hero_mmr_distribution(configuration: &configuration::Configuration, params: HeroMmrDistributionParams) -> Result<Vec<models::DistributionEntry>, Error<HeroMmrDistributionError>> {
 
     let uri_str = format!("{}/v1/players/mmr/distribution/{hero_id}", configuration.base_path, hero_id=params.hero_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -211,49 +253,7 @@ pub async fn hero_mmr(configuration: &configuration::Configuration, params: Hero
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<HeroMmrError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-///  Batch Player Hero MMR 
-pub async fn hero_mmr_0(configuration: &configuration::Configuration, params: HeroMmr0Params) -> Result<Vec<models::MmrHistory>, Error<HeroMmr0Error>> {
-
-    let uri_str = format!("{}/v1/players/mmr/{hero_id}", configuration.base_path, hero_id=params.hero_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = match "multi" {
-        "multi" => req_builder.query(&params.account_ids.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => req_builder.query(&[("account_ids", &params.account_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
-    if let Some(ref param_value) = params.max_match_id {
-        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::MmrHistory&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::MmrHistory&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<HeroMmr0Error> = serde_json::from_str(&content).ok();
+        let entity: Option<HeroMmrDistributionError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -336,7 +336,7 @@ pub async fn mmr(configuration: &configuration::Configuration, params: MmrParams
 }
 
 ///  Player MMR Distribution 
-pub async fn mmr_0(configuration: &configuration::Configuration, params: Mmr0Params) -> Result<Vec<models::DistributionEntry>, Error<Mmr0Error>> {
+pub async fn mmr_distribution(configuration: &configuration::Configuration, params: MmrDistributionParams) -> Result<Vec<models::DistributionEntry>, Error<MmrDistributionError>> {
 
     let uri_str = format!("{}/v1/players/mmr/distribution", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -392,7 +392,7 @@ pub async fn mmr_0(configuration: &configuration::Configuration, params: Mmr0Par
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<Mmr0Error> = serde_json::from_str(&content).ok();
+        let entity: Option<MmrDistributionError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

@@ -4921,11 +4921,15 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
         /**
          *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
          * @summary Ready Up
+         * @param {string} lobbyId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readyUp: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/matches/custom/{lobby_id}/ready`;
+        readyUp: async (lobbyId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'lobbyId' is not null or undefined
+            assertParamExists('readyUp', 'lobbyId', lobbyId)
+            const localVarPath = `/v1/matches/custom/{lobby_id}/ready`
+                .replace(`{${"lobby_id"}}`, encodeURIComponent(String(lobbyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -4951,11 +4955,15 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
         /**
          *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
          * @summary Unready
+         * @param {string} lobbyId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        unready: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/matches/custom/{lobby_id}/unready`;
+        unready: async (lobbyId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'lobbyId' is not null or undefined
+            assertParamExists('unready', 'lobbyId', lobbyId)
+            const localVarPath = `/v1/matches/custom/{lobby_id}/unready`
+                .replace(`{${"lobby_id"}}`, encodeURIComponent(String(lobbyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -5016,11 +5024,12 @@ export const CustomMatchesApiFp = function(configuration?: Configuration) {
         /**
          *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
          * @summary Ready Up
+         * @param {string} lobbyId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async readyUp(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.readyUp(options);
+        async readyUp(lobbyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.readyUp(lobbyId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomMatchesApi.readyUp']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5028,11 +5037,12 @@ export const CustomMatchesApiFp = function(configuration?: Configuration) {
         /**
          *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
          * @summary Unready
+         * @param {string} lobbyId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async unready(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.unready(options);
+        async unready(lobbyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.unready(lobbyId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomMatchesApi.unready']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5069,20 +5079,22 @@ export const CustomMatchesApiFactory = function (configuration?: Configuration, 
         /**
          *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
          * @summary Ready Up
+         * @param {CustomMatchesApiReadyUpRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readyUp(options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.readyUp(options).then((request) => request(axios, basePath));
+        readyUp(requestParameters: CustomMatchesApiReadyUpRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.readyUp(requestParameters.lobbyId, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
          * @summary Unready
+         * @param {CustomMatchesApiUnreadyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        unready(options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.unready(options).then((request) => request(axios, basePath));
+        unready(requestParameters: CustomMatchesApiUnreadyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.unready(requestParameters.lobbyId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -5099,6 +5111,20 @@ export interface CustomMatchesApiCreateCustomRequest {
  */
 export interface CustomMatchesApiGetCustomRequest {
     readonly partyId: number
+}
+
+/**
+ * Request parameters for readyUp operation in CustomMatchesApi.
+ */
+export interface CustomMatchesApiReadyUpRequest {
+    readonly lobbyId: string
+}
+
+/**
+ * Request parameters for unready operation in CustomMatchesApi.
+ */
+export interface CustomMatchesApiUnreadyRequest {
+    readonly lobbyId: string
 }
 
 /**
@@ -5130,21 +5156,23 @@ export class CustomMatchesApi extends BaseAPI {
     /**
      *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
      * @summary Ready Up
+     * @param {CustomMatchesApiReadyUpRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public readyUp(options?: RawAxiosRequestConfig) {
-        return CustomMatchesApiFp(this.configuration).readyUp(options).then((request) => request(this.axios, this.basePath));
+    public readyUp(requestParameters: CustomMatchesApiReadyUpRequest, options?: RawAxiosRequestConfig) {
+        return CustomMatchesApiFp(this.configuration).readyUp(requestParameters.lobbyId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
      * @summary Unready
+     * @param {CustomMatchesApiUnreadyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public unready(options?: RawAxiosRequestConfig) {
-        return CustomMatchesApiFp(this.configuration).unready(options).then((request) => request(this.axios, this.basePath));
+    public unready(requestParameters: CustomMatchesApiUnreadyRequest, options?: RawAxiosRequestConfig) {
+        return CustomMatchesApiFp(this.configuration).unready(requestParameters.lobbyId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -5989,6 +6017,52 @@ export type LeaderboardRawRegionEnum = typeof LeaderboardRawRegionEnum[keyof typ
 export const MMRApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         *  Batch Player Hero MMR 
+         * @summary Batch Hero MMR
+         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        heroMmr: async (accountIds: Array<number>, heroId: number, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountIds' is not null or undefined
+            assertParamExists('heroMmr', 'accountIds', accountIds)
+            // verify required parameter 'heroId' is not null or undefined
+            assertParamExists('heroMmr', 'heroId', heroId)
+            const localVarPath = `/v1/players/mmr/{hero_id}`
+                .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (accountIds) {
+                localVarQueryParameter['account_ids'] = accountIds;
+            }
+
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *  Player Hero MMR Distribution 
          * @summary Hero MMR Distribution
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -6004,9 +6078,9 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroMmr: async (heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroMmrDistribution: async (heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'heroId' is not null or undefined
-            assertParamExists('heroMmr', 'heroId', heroId)
+            assertParamExists('heroMmrDistribution', 'heroId', heroId)
             const localVarPath = `/v1/players/mmr/distribution/{hero_id}`
                 .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -6106,52 +6180,6 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         *  Batch Player Hero MMR 
-         * @summary Batch Hero MMR
-         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-         * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        heroMmr_1: async (accountIds: Array<number>, heroId: number, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountIds' is not null or undefined
-            assertParamExists('heroMmr_1', 'accountIds', accountIds)
-            // verify required parameter 'heroId' is not null or undefined
-            assertParamExists('heroMmr_1', 'heroId', heroId)
-            const localVarPath = `/v1/players/mmr/{hero_id}`
-                .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (accountIds) {
-                localVarQueryParameter['account_ids'] = accountIds;
-            }
-
-            if (maxMatchId !== undefined) {
-                localVarQueryParameter['max_match_id'] = maxMatchId;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          *  Batch Player MMR 
          * @summary Batch MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
@@ -6194,40 +6222,6 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * Player MMR History
-         * @summary MMR History
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        mmrHistory: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('mmrHistory', 'accountId', accountId)
-            const localVarPath = `/v1/players/{account_id}/mmr-history`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          *  Player MMR Distribution 
          * @summary MMR Distribution
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -6242,7 +6236,7 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mmr_2: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        mmrDistribution: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/players/mmr/distribution`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6302,6 +6296,40 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Player MMR History
+         * @summary MMR History
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mmrHistory: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('mmrHistory', 'accountId', accountId)
+            const localVarPath = `/v1/players/{account_id}/mmr-history`
+                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -6311,6 +6339,21 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
 export const MMRApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MMRApiAxiosParamCreator(configuration)
     return {
+        /**
+         *  Batch Player Hero MMR 
+         * @summary Batch Hero MMR
+         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async heroMmr(accountIds: Array<number>, heroId: number, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MMRHistory>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroMmr(accountIds, heroId, maxMatchId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MMRApi.heroMmr']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
         /**
          *  Player Hero MMR Distribution 
          * @summary Hero MMR Distribution
@@ -6327,10 +6370,10 @@ export const MMRApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroMmr(heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DistributionEntry>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.heroMmr(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, options);
+        async heroMmrDistribution(heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DistributionEntry>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroMmrDistribution(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MMRApi.heroMmr']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MMRApi.heroMmrDistribution']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6348,21 +6391,6 @@ export const MMRApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Batch Player Hero MMR 
-         * @summary Batch Hero MMR
-         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-         * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async heroMmr_1(accountIds: Array<number>, heroId: number, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MMRHistory>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.heroMmr_1(accountIds, heroId, maxMatchId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MMRApi.heroMmr_1']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
          *  Batch Player MMR 
          * @summary Batch MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
@@ -6374,19 +6402,6 @@ export const MMRApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.mmr(accountIds, maxMatchId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MMRApi.mmr']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Player MMR History
-         * @summary MMR History
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async mmrHistory(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MMRHistory>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mmrHistory(accountId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MMRApi.mmrHistory']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6404,10 +6419,23 @@ export const MMRApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async mmr_2(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DistributionEntry>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mmr_2(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, options);
+        async mmrDistribution(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DistributionEntry>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mmrDistribution(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MMRApi.mmr_2']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MMRApi.mmrDistribution']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Player MMR History
+         * @summary MMR History
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async mmrHistory(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MMRHistory>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mmrHistory(accountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MMRApi.mmrHistory']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -6420,14 +6448,24 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
     const localVarFp = MMRApiFp(configuration)
     return {
         /**
-         *  Player Hero MMR Distribution 
-         * @summary Hero MMR Distribution
+         *  Batch Player Hero MMR 
+         * @summary Batch Hero MMR
          * @param {MMRApiHeroMmrRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroMmr(requestParameters: MMRApiHeroMmrRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<DistributionEntry>> {
-            return localVarFp.heroMmr(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        heroMmr(requestParameters: MMRApiHeroMmrRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<MMRHistory>> {
+            return localVarFp.heroMmr(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Player Hero MMR Distribution 
+         * @summary Hero MMR Distribution
+         * @param {MMRApiHeroMmrDistributionRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        heroMmrDistribution(requestParameters: MMRApiHeroMmrDistributionRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<DistributionEntry>> {
+            return localVarFp.heroMmrDistribution(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
          * Player Hero MMR History
@@ -6440,16 +6478,6 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.heroMmrHistory(requestParameters.accountId, requestParameters.heroId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Batch Player Hero MMR 
-         * @summary Batch Hero MMR
-         * @param {MMRApiHeroMmr0Request} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        heroMmr_1(requestParameters: MMRApiHeroMmr0Request, options?: RawAxiosRequestConfig): AxiosPromise<Array<MMRHistory>> {
-            return localVarFp.heroMmr_1(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
-        },
-        /**
          *  Batch Player MMR 
          * @summary Batch MMR
          * @param {MMRApiMmrRequest} requestParameters Request parameters.
@@ -6458,6 +6486,16 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
          */
         mmr(requestParameters: MMRApiMmrRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<MMRHistory>> {
             return localVarFp.mmr(requestParameters.accountIds, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Player MMR Distribution 
+         * @summary MMR Distribution
+         * @param {MMRApiMmrDistributionRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mmrDistribution(requestParameters: MMRApiMmrDistributionRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<DistributionEntry>> {
+            return localVarFp.mmrDistribution(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
          * Player MMR History
@@ -6469,16 +6507,6 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
         mmrHistory(requestParameters: MMRApiMmrHistoryRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<MMRHistory>> {
             return localVarFp.mmrHistory(requestParameters.accountId, options).then((request) => request(axios, basePath));
         },
-        /**
-         *  Player MMR Distribution 
-         * @summary MMR Distribution
-         * @param {MMRApiMmr0Request} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        mmr_2(requestParameters: MMRApiMmr0Request = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<DistributionEntry>> {
-            return localVarFp.mmr_2(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
-        },
     };
 };
 
@@ -6486,6 +6514,26 @@ export const MMRApiFactory = function (configuration?: Configuration, basePath?:
  * Request parameters for heroMmr operation in MMRApi.
  */
 export interface MMRApiHeroMmrRequest {
+    /**
+     * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     */
+    readonly accountIds: Array<number>
+
+    /**
+     * The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     */
+    readonly heroId: number
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null
+}
+
+/**
+ * Request parameters for heroMmrDistribution operation in MMRApi.
+ */
+export interface MMRApiHeroMmrDistributionRequest {
     /**
      * The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      */
@@ -6553,26 +6601,6 @@ export interface MMRApiHeroMmrHistoryRequest {
 }
 
 /**
- * Request parameters for heroMmr_1 operation in MMRApi.
- */
-export interface MMRApiHeroMmr0Request {
-    /**
-     * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-     */
-    readonly accountIds: Array<number>
-
-    /**
-     * The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     */
-    readonly heroId: number
-
-    /**
-     * Filter matches based on their ID.
-     */
-    readonly maxMatchId?: number | null
-}
-
-/**
  * Request parameters for mmr operation in MMRApi.
  */
 export interface MMRApiMmrRequest {
@@ -6588,19 +6616,9 @@ export interface MMRApiMmrRequest {
 }
 
 /**
- * Request parameters for mmrHistory operation in MMRApi.
+ * Request parameters for mmrDistribution operation in MMRApi.
  */
-export interface MMRApiMmrHistoryRequest {
-    /**
-     * The players &#x60;SteamID3&#x60;
-     */
-    readonly accountId: number
-}
-
-/**
- * Request parameters for mmr_2 operation in MMRApi.
- */
-export interface MMRApiMmr0Request {
+export interface MMRApiMmrDistributionRequest {
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
      */
@@ -6648,18 +6666,39 @@ export interface MMRApiMmr0Request {
 }
 
 /**
+ * Request parameters for mmrHistory operation in MMRApi.
+ */
+export interface MMRApiMmrHistoryRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number
+}
+
+/**
  * MMRApi - object-oriented interface
  */
 export class MMRApi extends BaseAPI {
     /**
-     *  Player Hero MMR Distribution 
-     * @summary Hero MMR Distribution
+     *  Batch Player Hero MMR 
+     * @summary Batch Hero MMR
      * @param {MMRApiHeroMmrRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public heroMmr(requestParameters: MMRApiHeroMmrRequest, options?: RawAxiosRequestConfig) {
-        return MMRApiFp(this.configuration).heroMmr(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+        return MMRApiFp(this.configuration).heroMmr(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Player Hero MMR Distribution 
+     * @summary Hero MMR Distribution
+     * @param {MMRApiHeroMmrDistributionRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public heroMmrDistribution(requestParameters: MMRApiHeroMmrDistributionRequest, options?: RawAxiosRequestConfig) {
+        return MMRApiFp(this.configuration).heroMmrDistribution(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6674,17 +6713,6 @@ export class MMRApi extends BaseAPI {
     }
 
     /**
-     *  Batch Player Hero MMR 
-     * @summary Batch Hero MMR
-     * @param {MMRApiHeroMmr0Request} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public heroMmr_1(requestParameters: MMRApiHeroMmr0Request, options?: RawAxiosRequestConfig) {
-        return MMRApiFp(this.configuration).heroMmr_1(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      *  Batch Player MMR 
      * @summary Batch MMR
      * @param {MMRApiMmrRequest} requestParameters Request parameters.
@@ -6696,6 +6724,17 @@ export class MMRApi extends BaseAPI {
     }
 
     /**
+     *  Player MMR Distribution 
+     * @summary MMR Distribution
+     * @param {MMRApiMmrDistributionRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public mmrDistribution(requestParameters: MMRApiMmrDistributionRequest = {}, options?: RawAxiosRequestConfig) {
+        return MMRApiFp(this.configuration).mmrDistribution(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Player MMR History
      * @summary MMR History
      * @param {MMRApiMmrHistoryRequest} requestParameters Request parameters.
@@ -6704,17 +6743,6 @@ export class MMRApi extends BaseAPI {
      */
     public mmrHistory(requestParameters: MMRApiMmrHistoryRequest, options?: RawAxiosRequestConfig) {
         return MMRApiFp(this.configuration).mmrHistory(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     *  Player MMR Distribution 
-     * @summary MMR Distribution
-     * @param {MMRApiMmr0Request} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public mmr_2(requestParameters: MMRApiMmr0Request = {}, options?: RawAxiosRequestConfig) {
-        return MMRApiFp(this.configuration).mmr_2(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

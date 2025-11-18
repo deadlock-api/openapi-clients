@@ -36,6 +36,20 @@ func Test_deadlock-api-client_MMRAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test MMRAPIService HeroMmrDistribution", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var heroId int32
+
+		resp, httpRes, err := apiClient.MMRAPI.HeroMmrDistribution(context.Background(), heroId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test MMRAPIService HeroMmrHistory", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -44,20 +58,6 @@ func Test_deadlock-api-client_MMRAPIService(t *testing.T) {
 		var heroId int32
 
 		resp, httpRes, err := apiClient.MMRAPI.HeroMmrHistory(context.Background(), accountId, heroId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MMRAPIService HeroMmr_1", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var heroId int32
-
-		resp, httpRes, err := apiClient.MMRAPI.HeroMmr_0(context.Background(), heroId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -77,13 +77,11 @@ func Test_deadlock-api-client_MMRAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MMRAPIService MmrHistory", func(t *testing.T) {
+	t.Run("Test MMRAPIService MmrDistribution", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var accountId int32
-
-		resp, httpRes, err := apiClient.MMRAPI.MmrHistory(context.Background(), accountId).Execute()
+		resp, httpRes, err := apiClient.MMRAPI.MmrDistribution(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -91,11 +89,13 @@ func Test_deadlock-api-client_MMRAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MMRAPIService Mmr_2", func(t *testing.T) {
+	t.Run("Test MMRAPIService MmrHistory", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MMRAPI.Mmr_0(context.Background()).Execute()
+		var accountId int32
+
+		resp, httpRes, err := apiClient.MMRAPI.MmrHistory(context.Background(), accountId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

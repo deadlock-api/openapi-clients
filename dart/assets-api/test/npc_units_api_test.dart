@@ -19,14 +19,14 @@ void main() {
   group('tests for NPCUnitsApi', () {
     // Get Npc Unit
     //
-    //Future<NPCUnitV2> getNpcUnitV2NpcUnitsIdOrClassNameGet(String idOrClassName, { DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
+    //Future<NPCUnitV2> getNpcUnitV2NpcUnitsIdOrClassNameGet(String idOrClassName, { DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
     test('test getNpcUnitV2NpcUnitsIdOrClassNameGet', () async {
       // TODO
     });
 
     // Get Npc Units
     //
-    //Future<List<NPCUnitV2>> getNpcUnitsV2NpcUnitsGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
+    //Future<List<NPCUnitV2>> getNpcUnitsV2NpcUnitsGet({ DeadlockAssetsApiRoutesRawValidClientVersions clientVersion }) async
     test('test getNpcUnitsV2NpcUnitsGet', () async {
       // TODO
     });

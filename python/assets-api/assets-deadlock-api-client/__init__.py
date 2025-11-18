@@ -46,7 +46,7 @@ __all__ = [
     "BuildTagV2",
     "Color",
     "ColorV1",
-    "DeadlockAssetsApiRoutesV2ValidClientVersions",
+    "DeadlockAssetsApiRoutesRawValidClientVersions",
     "GetItemsV2ItemsGet200ResponseInner",
     "GlowColorEnemy",
     "GlowColorFriend",
@@ -161,7 +161,7 @@ from assets-deadlock-api-client.models.bonus import Bonus as Bonus
 from assets-deadlock-api-client.models.build_tag_v2 import BuildTagV2 as BuildTagV2
 from assets-deadlock-api-client.models.color import Color as Color
 from assets-deadlock-api-client.models.color_v1 import ColorV1 as ColorV1
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions as DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions as DeadlockAssetsApiRoutesRawValidClientVersions
 from assets-deadlock-api-client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner as GetItemsV2ItemsGet200ResponseInner
 from assets-deadlock-api-client.models.glow_color_enemy import GlowColorEnemy as GlowColorEnemy
 from assets-deadlock-api-client.models.glow_color_friend import GlowColorFriend as GlowColorFriend

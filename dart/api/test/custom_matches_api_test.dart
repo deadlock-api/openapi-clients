@@ -39,7 +39,7 @@ void main() {
     //
     //  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
     //
-    //Future readyUp() async
+    //Future readyUp(String lobbyId) async
     test('test readyUp', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     //  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
     //
-    //Future unready() async
+    //Future unready(String lobbyId) async
     test('test unready', () async {
       // TODO
     });

@@ -102,7 +102,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readyUp**
-> readyUp()
+> readyUp(lobbyId)
 
 Ready Up
 
@@ -113,16 +113,20 @@ Ready Up
 import 'package:deadlock-api-client/api.dart';
 
 final api_instance = CustomMatchesApi();
+final lobbyId = lobbyId_example; // String | 
 
 try {
-    api_instance.readyUp();
+    api_instance.readyUp(lobbyId);
 } catch (e) {
     print('Exception when calling CustomMatchesApi->readyUp: $e\n');
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lobbyId** | **String**|  | 
 
 ### Return type
 
@@ -140,7 +144,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unready**
-> unready()
+> unready(lobbyId)
 
 Unready
 
@@ -151,16 +155,20 @@ Unready
 import 'package:deadlock-api-client/api.dart';
 
 final api_instance = CustomMatchesApi();
+final lobbyId = lobbyId_example; // String | 
 
 try {
-    api_instance.unready();
+    api_instance.unready(lobbyId);
 } catch (e) {
     print('Exception when calling CustomMatchesApi->unready: $e\n');
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lobbyId** | **String**|  | 
 
 ### Return type
 

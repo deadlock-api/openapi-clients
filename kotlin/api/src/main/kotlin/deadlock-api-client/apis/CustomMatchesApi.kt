@@ -198,6 +198,7 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * POST /v1/matches/custom/{lobby_id}/ready
      * Ready Up
      *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+     * @param lobbyId 
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -206,8 +207,8 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun readyUp() : Unit {
-        val localVarResponse = readyUpWithHttpInfo()
+    fun readyUp(lobbyId: kotlin.String) : Unit {
+        val localVarResponse = readyUpWithHttpInfo(lobbyId = lobbyId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -228,13 +229,14 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * POST /v1/matches/custom/{lobby_id}/ready
      * Ready Up
      *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+     * @param lobbyId 
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun readyUpWithHttpInfo() : ApiResponse<Unit?> {
-        val localVariableConfig = readyUpRequestConfig()
+    fun readyUpWithHttpInfo(lobbyId: kotlin.String) : ApiResponse<Unit?> {
+        val localVariableConfig = readyUpRequestConfig(lobbyId = lobbyId)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -244,16 +246,17 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation readyUp
      *
+     * @param lobbyId 
      * @return RequestConfig
      */
-    fun readyUpRequestConfig() : RequestConfig<Unit> {
+    fun readyUpRequestConfig(lobbyId: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/v1/matches/custom/{lobby_id}/ready",
+            path = "/v1/matches/custom/{lobby_id}/ready".replace("{"+"lobby_id"+"}", encodeURIComponent(lobbyId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -265,6 +268,7 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * POST /v1/matches/custom/{lobby_id}/unready
      * Unready
      *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+     * @param lobbyId 
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -273,8 +277,8 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun unready() : Unit {
-        val localVarResponse = unreadyWithHttpInfo()
+    fun unready(lobbyId: kotlin.String) : Unit {
+        val localVarResponse = unreadyWithHttpInfo(lobbyId = lobbyId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -295,13 +299,14 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * POST /v1/matches/custom/{lobby_id}/unready
      * Unready
      *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+     * @param lobbyId 
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun unreadyWithHttpInfo() : ApiResponse<Unit?> {
-        val localVariableConfig = unreadyRequestConfig()
+    fun unreadyWithHttpInfo(lobbyId: kotlin.String) : ApiResponse<Unit?> {
+        val localVariableConfig = unreadyRequestConfig(lobbyId = lobbyId)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -311,16 +316,17 @@ class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation unready
      *
+     * @param lobbyId 
      * @return RequestConfig
      */
-    fun unreadyRequestConfig() : RequestConfig<Unit> {
+    fun unreadyRequestConfig(lobbyId: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/v1/matches/custom/{lobby_id}/unready",
+            path = "/v1/matches/custom/{lobby_id}/unready".replace("{"+"lobby_id"+"}", encodeURIComponent(lobbyId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

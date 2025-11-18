@@ -3687,6 +3687,14 @@ paths:
         | Key | 100req/30min |
         | Global | 1000req/h |
       operationId: ready_up
+      parameters:
+      - explode: false
+        in: path
+        name: lobby_id
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           description: Successfully ready up.
@@ -3712,6 +3720,14 @@ paths:
         | Key | 100req/30min |
         | Global | 1000req/h |
       operationId: unready
+      parameters:
+      - explode: false
+        in: path
+        name: lobby_id
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           description: Successfully unready.
@@ -4521,7 +4537,7 @@ paths:
       description: |2
 
         Player MMR Distribution
-      operationId: mmr
+      operationId: mmr_distribution
       parameters:
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
@@ -4640,7 +4656,7 @@ paths:
       description: |2
 
         Player Hero MMR Distribution
-      operationId: hero_mmr
+      operationId: hero_mmr_distribution
       parameters:
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.

@@ -52,7 +52,9 @@ func Test_deadlock-api-client_CustomMatchesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.CustomMatchesAPI.ReadyUp(context.Background()).Execute()
+		var lobbyId string
+
+		httpRes, err := apiClient.CustomMatchesAPI.ReadyUp(context.Background(), lobbyId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -63,7 +65,9 @@ func Test_deadlock-api-client_CustomMatchesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.CustomMatchesAPI.Unready(context.Background()).Execute()
+		var lobbyId string
+
+		httpRes, err := apiClient.CustomMatchesAPI.Unready(context.Background(), lobbyId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -73,14 +73,17 @@ No authorization required
 
 ## ready_up
 
-> ready_up()
+> ready_up(lobby_id)
 Ready Up
 
  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**lobby_id** | **String** |  | [required] |
 
 ### Return type
 
@@ -100,14 +103,17 @@ No authorization required
 
 ## unready
 
-> unready()
+> unready(lobby_id)
 Unready
 
  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**lobby_id** | **String** |  | [required] |
 
 ### Return type
 

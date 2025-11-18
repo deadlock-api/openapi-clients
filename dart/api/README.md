@@ -123,12 +123,12 @@ Class | Method | HTTP request | Description
 *LeaderboardApi* | [**leaderboardHero**](doc//LeaderboardApi.md#leaderboardhero) | **GET** /v1/leaderboard/{region}/{hero_id} | Hero Leaderboard
 *LeaderboardApi* | [**leaderboardHeroRaw**](doc//LeaderboardApi.md#leaderboardheroraw) | **GET** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf
 *LeaderboardApi* | [**leaderboardRaw**](doc//LeaderboardApi.md#leaderboardraw) | **GET** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf
-*MMRApi* | [**heroMmr**](doc//MMRApi.md#herommr) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution
+*MMRApi* | [**heroMmr**](doc//MMRApi.md#herommr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR
+*MMRApi* | [**heroMmrDistribution**](doc//MMRApi.md#herommrdistribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution
 *MMRApi* | [**heroMmrHistory**](doc//MMRApi.md#herommrhistory) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History
-*MMRApi* | [**heroMmr_0**](doc//MMRApi.md#herommr_0) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR
 *MMRApi* | [**mmr**](doc//MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR
+*MMRApi* | [**mmrDistribution**](doc//MMRApi.md#mmrdistribution) | **GET** /v1/players/mmr/distribution | MMR Distribution
 *MMRApi* | [**mmrHistory**](doc//MMRApi.md#mmrhistory) | **GET** /v1/players/{account_id}/mmr-history | MMR History
-*MMRApi* | [**mmr_0**](doc//MMRApi.md#mmr_0) | **GET** /v1/players/mmr/distribution | MMR Distribution
 *MatchesApi* | [**activeMatches**](doc//MatchesApi.md#activematches) | **GET** /v1/matches/active | Active
 *MatchesApi* | [**activeMatchesRaw**](doc//MatchesApi.md#activematchesraw) | **GET** /v1/matches/active/raw | Active as Protobuf
 *MatchesApi* | [**bulkMetadata**](doc//MatchesApi.md#bulkmetadata) | **GET** /v1/matches/metadata | Bulk Metadata

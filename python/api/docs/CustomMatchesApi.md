@@ -190,7 +190,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ready_up**
-> ready_up()
+> ready_up(lobby_id)
 
 Ready Up
 
@@ -224,10 +224,11 @@ configuration = deadlock-api-client.Configuration(
 with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.CustomMatchesApi(api_client)
+    lobby_id = 'lobby_id_example' # str | 
 
     try:
         # Ready Up
-        api_instance.ready_up()
+        api_instance.ready_up(lobby_id)
     except Exception as e:
         print("Exception when calling CustomMatchesApi->ready_up: %s\n" % e)
 ```
@@ -236,7 +237,10 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lobby_id** | **str**|  | 
 
 ### Return type
 
@@ -263,7 +267,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unready**
-> unready()
+> unready(lobby_id)
 
 Unready
 
@@ -297,10 +301,11 @@ configuration = deadlock-api-client.Configuration(
 with deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock-api-client.CustomMatchesApi(api_client)
+    lobby_id = 'lobby_id_example' # str | 
 
     try:
         # Unready
-        api_instance.unready()
+        api_instance.unready(lobby_id)
     except Exception as e:
         print("Exception when calling CustomMatchesApi->unready: %s\n" % e)
 ```
@@ -309,7 +314,10 @@ with deadlock-api-client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lobby_id** | **str**|  | 
 
 ### Return type
 

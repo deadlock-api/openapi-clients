@@ -127,7 +127,7 @@ No authorization required
 ## `readyUp()`
 
 ```php
-readyUp()
+readyUp($lobby_id)
 ```
 
 Ready Up
@@ -147,9 +147,10 @@ $apiInstance = new OpenAPI\Client\Api\CustomMatchesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$lobby_id = 'lobby_id_example'; // string
 
 try {
-    $apiInstance->readyUp();
+    $apiInstance->readyUp($lobby_id);
 } catch (Exception $e) {
     echo 'Exception when calling CustomMatchesApi->readyUp: ', $e->getMessage(), PHP_EOL;
 }
@@ -157,7 +158,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **lobby_id** | **string**|  | |
 
 ### Return type
 
@@ -179,7 +182,7 @@ No authorization required
 ## `unready()`
 
 ```php
-unready()
+unready($lobby_id)
 ```
 
 Unready
@@ -199,9 +202,10 @@ $apiInstance = new OpenAPI\Client\Api\CustomMatchesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$lobby_id = 'lobby_id_example'; // string
 
 try {
-    $apiInstance->unready();
+    $apiInstance->unready($lobby_id);
 } catch (Exception $e) {
     echo 'Exception when calling CustomMatchesApi->unready: ', $e->getMessage(), PHP_EOL;
 }
@@ -209,7 +213,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **lobby_id** | **string**|  | |
 
 ### Return type
 

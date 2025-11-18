@@ -1,5 +1,10 @@
 ## MMRApi
 
+### Batch Hero MMR
+## Batch Hero MMR
+GET https://api.deadlock-api.com/v1/players/mmr/{{hero_id}}?accountIds={{accountIds}}&maxMatchId={{maxMatchId}}
+Accept: application/json
+
 ### Hero MMR Distribution
 ## Hero MMR Distribution
 GET https://api.deadlock-api.com/v1/players/mmr/distribution/{{hero_id}}?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
@@ -10,22 +15,17 @@ Accept: application/json
 GET https://api.deadlock-api.com/v1/players/{{account_id}}/mmr-history/{{hero_id}}
 Accept: application/json
 
-### Batch Hero MMR
-## Batch Hero MMR
-GET https://api.deadlock-api.com/v1/players/mmr/{{hero_id}}?accountIds={{accountIds}}&maxMatchId={{maxMatchId}}
-Accept: application/json
-
 ### Batch MMR
 ## Batch MMR
 GET https://api.deadlock-api.com/v1/players/mmr?accountIds={{accountIds}}&maxMatchId={{maxMatchId}}
 Accept: application/json
 
-### MMR History
-## MMR History
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/mmr-history
-Accept: application/json
-
 ### MMR Distribution
 ## MMR Distribution
 GET https://api.deadlock-api.com/v1/players/mmr/distribution?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
+Accept: application/json
+
+### MMR History
+## MMR History
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/mmr-history
 Accept: application/json

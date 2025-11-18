@@ -26,6 +26,18 @@ pub struct GetCustomParams {
     pub party_id: u64
 }
 
+/// struct for passing parameters to the method [`ready_up`]
+#[derive(Clone, Debug)]
+pub struct ReadyUpParams {
+    pub lobby_id: String
+}
+
+/// struct for passing parameters to the method [`unready`]
+#[derive(Clone, Debug)]
+pub struct UnreadyParams {
+    pub lobby_id: String
+}
+
 
 /// struct for typed errors of method [`create_custom`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -140,9 +152,9 @@ pub async fn get_custom(configuration: &configuration::Configuration, params: Ge
 }
 
 ///  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
-pub async fn ready_up(configuration: &configuration::Configuration) -> Result<(), Error<ReadyUpError>> {
+pub async fn ready_up(configuration: &configuration::Configuration, params: ReadyUpParams) -> Result<(), Error<ReadyUpError>> {
 
-    let uri_str = format!("{}/v1/matches/custom/{lobby_id}/ready", configuration.base_path);
+    let uri_str = format!("{}/v1/matches/custom/{lobby_id}/ready", configuration.base_path, lobby_id=crate::apis::urlencode(params.lobby_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -164,9 +176,9 @@ pub async fn ready_up(configuration: &configuration::Configuration) -> Result<()
 }
 
 ///  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
-pub async fn unready(configuration: &configuration::Configuration) -> Result<(), Error<UnreadyError>> {
+pub async fn unready(configuration: &configuration::Configuration, params: UnreadyParams) -> Result<(), Error<UnreadyError>> {
 
-    let uri_str = format!("{}/v1/matches/custom/{lobby_id}/unready", configuration.base_path);
+    let uri_str = format!("{}/v1/matches/custom/{lobby_id}/unready", configuration.base_path, lobby_id=crate::apis::urlencode(params.lobby_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

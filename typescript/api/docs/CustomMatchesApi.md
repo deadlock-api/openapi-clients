@@ -134,11 +134,18 @@ import {
 const configuration = new Configuration();
 const apiInstance = new CustomMatchesApi(configuration);
 
-const { status, data } = await apiInstance.readyUp();
+let lobbyId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.readyUp(
+    lobbyId
+);
 ```
 
 ### Parameters
-This endpoint does not have any parameters.
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **lobbyId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
@@ -181,11 +188,18 @@ import {
 const configuration = new Configuration();
 const apiInstance = new CustomMatchesApi(configuration);
 
-const { status, data } = await apiInstance.unready();
+let lobbyId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.unready(
+    lobbyId
+);
 ```
 
 ### Parameters
-This endpoint does not have any parameters.
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **lobbyId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type

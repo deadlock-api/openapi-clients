@@ -677,15 +677,16 @@ class CustomMatchesApi
      *
      * Ready Up
      *
+     * @param  string $lobby_id lobby_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyUp'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function readyUp(string $contentType = self::contentTypes['readyUp'][0])
+    public function readyUp($lobby_id, string $contentType = self::contentTypes['readyUp'][0])
     {
-        $this->readyUpWithHttpInfo($contentType);
+        $this->readyUpWithHttpInfo($lobby_id, $contentType);
     }
 
     /**
@@ -693,15 +694,16 @@ class CustomMatchesApi
      *
      * Ready Up
      *
+     * @param  string $lobby_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyUp'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function readyUpWithHttpInfo(string $contentType = self::contentTypes['readyUp'][0])
+    public function readyUpWithHttpInfo($lobby_id, string $contentType = self::contentTypes['readyUp'][0])
     {
-        $request = $this->readyUpRequest($contentType);
+        $request = $this->readyUpRequest($lobby_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -741,14 +743,15 @@ class CustomMatchesApi
      *
      * Ready Up
      *
+     * @param  string $lobby_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyUp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function readyUpAsync(string $contentType = self::contentTypes['readyUp'][0])
+    public function readyUpAsync($lobby_id, string $contentType = self::contentTypes['readyUp'][0])
     {
-        return $this->readyUpAsyncWithHttpInfo($contentType)
+        return $this->readyUpAsyncWithHttpInfo($lobby_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -761,15 +764,16 @@ class CustomMatchesApi
      *
      * Ready Up
      *
+     * @param  string $lobby_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyUp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function readyUpAsyncWithHttpInfo(string $contentType = self::contentTypes['readyUp'][0])
+    public function readyUpAsyncWithHttpInfo($lobby_id, string $contentType = self::contentTypes['readyUp'][0])
     {
         $returnType = '';
-        $request = $this->readyUpRequest($contentType);
+        $request = $this->readyUpRequest($lobby_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -797,13 +801,21 @@ class CustomMatchesApi
     /**
      * Create request for operation 'readyUp'
      *
+     * @param  string $lobby_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyUp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function readyUpRequest(string $contentType = self::contentTypes['readyUp'][0])
+    public function readyUpRequest($lobby_id, string $contentType = self::contentTypes['readyUp'][0])
     {
+
+        // verify the required parameter 'lobby_id' is set
+        if ($lobby_id === null || (is_array($lobby_id) && count($lobby_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $lobby_id when calling readyUp'
+            );
+        }
 
 
         $resourcePath = '/v1/matches/custom/{lobby_id}/ready';
@@ -815,6 +827,14 @@ class CustomMatchesApi
 
 
 
+        // path params
+        if ($lobby_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'lobby_id' . '}',
+                ObjectSerializer::toPathValue($lobby_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -875,15 +895,16 @@ class CustomMatchesApi
      *
      * Unready
      *
+     * @param  string $lobby_id lobby_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unready'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function unready(string $contentType = self::contentTypes['unready'][0])
+    public function unready($lobby_id, string $contentType = self::contentTypes['unready'][0])
     {
-        $this->unreadyWithHttpInfo($contentType);
+        $this->unreadyWithHttpInfo($lobby_id, $contentType);
     }
 
     /**
@@ -891,15 +912,16 @@ class CustomMatchesApi
      *
      * Unready
      *
+     * @param  string $lobby_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unready'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unreadyWithHttpInfo(string $contentType = self::contentTypes['unready'][0])
+    public function unreadyWithHttpInfo($lobby_id, string $contentType = self::contentTypes['unready'][0])
     {
-        $request = $this->unreadyRequest($contentType);
+        $request = $this->unreadyRequest($lobby_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -939,14 +961,15 @@ class CustomMatchesApi
      *
      * Unready
      *
+     * @param  string $lobby_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unready'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unreadyAsync(string $contentType = self::contentTypes['unready'][0])
+    public function unreadyAsync($lobby_id, string $contentType = self::contentTypes['unready'][0])
     {
-        return $this->unreadyAsyncWithHttpInfo($contentType)
+        return $this->unreadyAsyncWithHttpInfo($lobby_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -959,15 +982,16 @@ class CustomMatchesApi
      *
      * Unready
      *
+     * @param  string $lobby_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unready'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unreadyAsyncWithHttpInfo(string $contentType = self::contentTypes['unready'][0])
+    public function unreadyAsyncWithHttpInfo($lobby_id, string $contentType = self::contentTypes['unready'][0])
     {
         $returnType = '';
-        $request = $this->unreadyRequest($contentType);
+        $request = $this->unreadyRequest($lobby_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -995,13 +1019,21 @@ class CustomMatchesApi
     /**
      * Create request for operation 'unready'
      *
+     * @param  string $lobby_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unready'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function unreadyRequest(string $contentType = self::contentTypes['unready'][0])
+    public function unreadyRequest($lobby_id, string $contentType = self::contentTypes['unready'][0])
     {
+
+        // verify the required parameter 'lobby_id' is set
+        if ($lobby_id === null || (is_array($lobby_id) && count($lobby_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $lobby_id when calling unready'
+            );
+        }
 
 
         $resourcePath = '/v1/matches/custom/{lobby_id}/unready';
@@ -1013,6 +1045,14 @@ class CustomMatchesApi
 
 
 
+        // path params
+        if ($lobby_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'lobby_id' . '}',
+                ObjectSerializer::toPathValue($lobby_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -18,7 +18,7 @@ Get Npc Unit
 
 ```python
 import assets-deadlock-api-client
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
 from assets-deadlock-api-client.models.npc_unit_v2 import NPCUnitV2
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
@@ -35,7 +35,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.NPCUnitsApi(api_client)
     id_or_class_name = 'id_or_class_name_example' # str | 
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
     try:
         # Get Npc Unit
@@ -54,7 +54,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_or_class_name** | **str**|  | 
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -88,7 +88,7 @@ Get Npc Units
 
 ```python
 import assets-deadlock-api-client
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
 from assets-deadlock-api-client.models.npc_unit_v2 import NPCUnitV2
 from assets-deadlock-api-client.rest import ApiException
 from pprint import pprint
@@ -104,7 +104,7 @@ configuration = assets-deadlock-api-client.Configuration(
 with assets-deadlock-api-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets-deadlock-api-client.NPCUnitsApi(api_client)
-    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets-deadlock-api-client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
     try:
         # Get Npc Units
@@ -122,7 +122,7 @@ with assets-deadlock-api-client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

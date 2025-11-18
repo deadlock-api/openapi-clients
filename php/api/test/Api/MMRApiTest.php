@@ -74,10 +74,22 @@ class MMRApiTest extends TestCase
     /**
      * Test case for heroMmr
      *
-     * Hero MMR Distribution.
+     * Batch Hero MMR.
      *
      */
     public function testHeroMmr()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for heroMmrDistribution
+     *
+     * Hero MMR Distribution.
+     *
+     */
+    public function testHeroMmrDistribution()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -96,18 +108,6 @@ class MMRApiTest extends TestCase
     }
 
     /**
-     * Test case for heroMmr_0
-     *
-     * Batch Hero MMR.
-     *
-     */
-    public function testHeroMmr0()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for mmr
      *
      * Batch MMR.
@@ -120,24 +120,24 @@ class MMRApiTest extends TestCase
     }
 
     /**
-     * Test case for mmrHistory
+     * Test case for mmrDistribution
      *
-     * MMR History.
+     * MMR Distribution.
      *
      */
-    public function testMmrHistory()
+    public function testMmrDistribution()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for mmr_0
+     * Test case for mmrHistory
      *
-     * MMR Distribution.
+     * MMR History.
      *
      */
-    public function testMmr0()
+    public function testMmrHistory()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

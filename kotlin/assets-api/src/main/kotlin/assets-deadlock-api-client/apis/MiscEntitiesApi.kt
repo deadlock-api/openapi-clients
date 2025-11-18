@@ -19,7 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
+import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesRawValidClientVersions
 import assets-deadlock-api-client.models.HTTPValidationError
 import assets-deadlock-api-client.models.MiscV2
 import assets-deadlock-api-client.models.NPCUnitV2
@@ -62,7 +62,7 @@ class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMiscEntitiesV2MiscEntitiesGet(clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions? = null) : kotlin.collections.List<MiscV2> {
+    fun getMiscEntitiesV2MiscEntitiesGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.collections.List<MiscV2> {
         val localVarResponse = getMiscEntitiesV2MiscEntitiesGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -91,7 +91,7 @@ class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMiscEntitiesV2MiscEntitiesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : ApiResponse<kotlin.collections.List<MiscV2>?> {
+    fun getMiscEntitiesV2MiscEntitiesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.collections.List<MiscV2>?> {
         val localVariableConfig = getMiscEntitiesV2MiscEntitiesGetRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<MiscV2>>(
@@ -105,7 +105,7 @@ class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getMiscEntitiesV2MiscEntitiesGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : RequestConfig<Unit> {
+    fun getMiscEntitiesV2MiscEntitiesGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -141,7 +141,7 @@ class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions? = null) : NPCUnitV2 {
+    fun getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : NPCUnitV2 {
         val localVarResponse = getMiscEntityV2MiscEntitiesIdOrClassNameGetWithHttpInfo(idOrClassName = idOrClassName, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -171,7 +171,7 @@ class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMiscEntityV2MiscEntitiesIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : ApiResponse<NPCUnitV2?> {
+    fun getMiscEntityV2MiscEntitiesIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<NPCUnitV2?> {
         val localVariableConfig = getMiscEntityV2MiscEntitiesIdOrClassNameGetRequestConfig(idOrClassName = idOrClassName, clientVersion = clientVersion)
 
         return request<Unit, NPCUnitV2>(
@@ -186,7 +186,7 @@ class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getMiscEntityV2MiscEntitiesIdOrClassNameGetRequestConfig(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : RequestConfig<Unit> {
+    fun getMiscEntityV2MiscEntitiesIdOrClassNameGetRequestConfig(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
