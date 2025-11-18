@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from typing import Any, Optional
-from assets-deadlock-api-client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets-deadlock-api-client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
 
 from assets-deadlock-api-client.api_client import ApiClient, RequestSerialized
 from assets-deadlock-api-client.api_response import ApiResponse
@@ -40,7 +40,7 @@ class RawApi:
     @validate_call
     def get_generic_data_raw_generic_data_get(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -58,7 +58,7 @@ class RawApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -107,7 +107,7 @@ class RawApi:
     @validate_call
     def get_generic_data_raw_generic_data_get_with_http_info(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -125,7 +125,7 @@ class RawApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -174,7 +174,7 @@ class RawApi:
     @validate_call
     def get_generic_data_raw_generic_data_get_without_preload_content(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -192,7 +192,7 @@ class RawApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -302,7 +302,7 @@ class RawApi:
     @validate_call
     def get_raw_heroes_raw_heroes_get(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -320,7 +320,7 @@ class RawApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -369,7 +369,7 @@ class RawApi:
     @validate_call
     def get_raw_heroes_raw_heroes_get_with_http_info(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -387,7 +387,7 @@ class RawApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -436,7 +436,7 @@ class RawApi:
     @validate_call
     def get_raw_heroes_raw_heroes_get_without_preload_content(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -454,7 +454,7 @@ class RawApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -564,7 +564,7 @@ class RawApi:
     @validate_call
     def get_raw_items_raw_items_get(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -582,7 +582,7 @@ class RawApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -631,7 +631,7 @@ class RawApi:
     @validate_call
     def get_raw_items_raw_items_get_with_http_info(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -649,7 +649,7 @@ class RawApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -698,7 +698,7 @@ class RawApi:
     @validate_call
     def get_raw_items_raw_items_get_without_preload_content(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -716,7 +716,7 @@ class RawApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

@@ -21,7 +21,7 @@ import io.kotlintest.specs.ShouldSpec
 import assets-deadlock-api-client.apis.DefaultApi
 import assets-deadlock-api-client.models.BuildTagV2
 import assets-deadlock-api-client.models.ColorV1
-import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
+import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesRawValidClientVersions
 import assets-deadlock-api-client.models.HTTPValidationError
 import assets-deadlock-api-client.models.Language
 import assets-deadlock-api-client.models.MapV1
@@ -36,7 +36,7 @@ class DefaultApiTest : ShouldSpec() {
         should("test getBuildTagsV2BuildTagsGet") {
             // uncomment below to test getBuildTagsV2BuildTagsGet
             //val language : Language =  // Language | 
-            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : kotlin.collections.List<BuildTagV2> = apiInstance.getBuildTagsV2BuildTagsGet(language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -51,7 +51,7 @@ class DefaultApiTest : ShouldSpec() {
         // to test getColorsV1ColorsGet
         should("test getColorsV1ColorsGet") {
             // uncomment below to test getColorsV1ColorsGet
-            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : kotlin.collections.Map<kotlin.String, ColorV1> = apiInstance.getColorsV1ColorsGet(clientVersion)
             //result shouldBe ("TODO")
         }
@@ -59,7 +59,7 @@ class DefaultApiTest : ShouldSpec() {
         // to test getIconsV1IconsGet
         should("test getIconsV1IconsGet") {
             // uncomment below to test getIconsV1IconsGet
-            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getIconsV1IconsGet(clientVersion)
             //result shouldBe ("TODO")
         }
@@ -67,7 +67,7 @@ class DefaultApiTest : ShouldSpec() {
         // to test getMapV1MapGet
         should("test getMapV1MapGet") {
             // uncomment below to test getMapV1MapGet
-            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : MapV1 = apiInstance.getMapV1MapGet(clientVersion)
             //result shouldBe ("TODO")
         }
@@ -76,7 +76,7 @@ class DefaultApiTest : ShouldSpec() {
         should("test getRanksV2RanksGet") {
             // uncomment below to test getRanksV2RanksGet
             //val language : Language =  // Language | 
-            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : kotlin.collections.List<RankV2> = apiInstance.getRanksV2RanksGet(language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -84,7 +84,7 @@ class DefaultApiTest : ShouldSpec() {
         // to test getSoundsV1SoundsGet
         should("test getSoundsV1SoundsGet") {
             // uncomment below to test getSoundsV1SoundsGet
-            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : kotlin.collections.Map<kotlin.String, kotlin.Any> = apiInstance.getSoundsV1SoundsGet(clientVersion)
             //result shouldBe ("TODO")
         }
@@ -92,7 +92,7 @@ class DefaultApiTest : ShouldSpec() {
         // to test getSteamInfoV1SteamInfoGet
         should("test getSteamInfoV1SteamInfoGet") {
             // uncomment below to test getSteamInfoV1SteamInfoGet
-            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : kotlin.Any = apiInstance.getSteamInfoV1SteamInfoGet(clientVersion)
             //result shouldBe ("TODO")
         }
