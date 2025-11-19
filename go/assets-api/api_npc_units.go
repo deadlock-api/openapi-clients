@@ -27,10 +27,10 @@ type ApiGetNpcUnitV2NpcUnitsIdOrClassNameGetRequest struct {
 	ctx context.Context
 	ApiService *NPCUnitsAPIService
 	idOrClassName string
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
-func (r ApiGetNpcUnitV2NpcUnitsIdOrClassNameGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetNpcUnitV2NpcUnitsIdOrClassNameGetRequest {
+func (r ApiGetNpcUnitV2NpcUnitsIdOrClassNameGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetNpcUnitV2NpcUnitsIdOrClassNameGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -146,10 +146,10 @@ func (a *NPCUnitsAPIService) GetNpcUnitV2NpcUnitsIdOrClassNameGetExecute(r ApiGe
 type ApiGetNpcUnitsV2NpcUnitsGetRequest struct {
 	ctx context.Context
 	ApiService *NPCUnitsAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV2ValidClientVersions
 }
 
-func (r ApiGetNpcUnitsV2NpcUnitsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetNpcUnitsV2NpcUnitsGetRequest {
+func (r ApiGetNpcUnitsV2NpcUnitsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV2ValidClientVersions) ApiGetNpcUnitsV2NpcUnitsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

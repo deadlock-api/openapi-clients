@@ -23,7 +23,7 @@ Get Misc Entities
 import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = MiscEntitiesApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesRawValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getMiscEntitiesV2MiscEntitiesGet(clientVersion);
@@ -37,7 +37,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -65,7 +65,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = MiscEntitiesApi();
 final idOrClassName = idOrClassName_example; // String | 
-final clientVersion = ; // DeadlockAssetsApiRoutesRawValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion);
@@ -80,7 +80,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idOrClassName** | **String**|  | 
- **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

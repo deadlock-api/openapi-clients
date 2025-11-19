@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets-deadlock-api-client.apis.NPCUnitsApi
-import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesRawValidClientVersions
+import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
 import assets-deadlock-api-client.models.HTTPValidationError
 import assets-deadlock-api-client.models.NPCUnitV2
 
@@ -32,7 +32,7 @@ class NPCUnitsApiTest : ShouldSpec() {
         should("test getNpcUnitV2NpcUnitsIdOrClassNameGet") {
             // uncomment below to test getNpcUnitV2NpcUnitsIdOrClassNameGet
             //val idOrClassName : kotlin.String = idOrClassName_example // kotlin.String | 
-            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
             //val result : NPCUnitV2 = apiInstance.getNpcUnitV2NpcUnitsIdOrClassNameGet(idOrClassName, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -40,7 +40,7 @@ class NPCUnitsApiTest : ShouldSpec() {
         // to test getNpcUnitsV2NpcUnitsGet
         should("test getNpcUnitsV2NpcUnitsGet") {
             // uncomment below to test getNpcUnitsV2NpcUnitsGet
-            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
             //val result : kotlin.collections.List<NPCUnitV2> = apiInstance.getNpcUnitsV2NpcUnitsGet(clientVersion)
             //result shouldBe ("TODO")
         }
