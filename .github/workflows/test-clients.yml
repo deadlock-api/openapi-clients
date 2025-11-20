@@ -1,0 +1,62 @@
+name: Test API Clients
+
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  test-clients:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Test Python clients
+        run: |
+          echo "Testing Python clients..."
+          CONTINUE_ON_ERROR=true ./test-clients.sh python
+        continue-on-error: false
+
+      - name: Test TypeScript clients
+        run: |
+          echo "Testing TypeScript clients..."
+          CONTINUE_ON_ERROR=true ./test-clients.sh typescript
+        continue-on-error: false
+
+      - name: Test Rust clients
+        run: |
+          echo "Testing Rust clients..."
+          CONTINUE_ON_ERROR=true ./test-clients.sh rust
+        continue-on-error: false
+
+      - name: Test Go clients
+        run: |
+          echo "Testing Go clients..."
+          CONTINUE_ON_ERROR=true ./test-clients.sh go
+        continue-on-error: false
+
+      - name: Test PHP clients
+        run: |
+          echo "Testing PHP clients..."
+          CONTINUE_ON_ERROR=true ./test-clients.sh php
+        continue-on-error: false
+
+      - name: Test Kotlin clients
+        run: |
+          echo "Testing Kotlin clients..."
+          CONTINUE_ON_ERROR=true ./test-clients.sh kotlin
+        continue-on-error: false
+
+      - name: Test Summary
+        if: always()
+        run: |
+          echo "All client tests completed"
+          echo "Check individual test steps for results"
+
