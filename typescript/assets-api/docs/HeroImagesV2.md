@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HeroImagesV2 } from 'assets-deadlock-api-client';
+import { HeroImagesV2 } from 'assets_deadlock_api_client';
 
 const instance: HeroImagesV2 = {
     icon_hero_card,

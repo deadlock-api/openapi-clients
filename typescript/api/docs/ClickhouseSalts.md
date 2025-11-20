@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ClickhouseSalts } from 'deadlock-api-client';
+import { ClickhouseSalts } from 'deadlock_api_client';
 
 const instance: ClickhouseSalts = {
     cluster_id,

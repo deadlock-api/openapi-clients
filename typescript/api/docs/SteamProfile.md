@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { SteamProfile } from 'deadlock-api-client';
+import { SteamProfile } from 'deadlock_api_client';
 
 const instance: SteamProfile = {
     account_id,

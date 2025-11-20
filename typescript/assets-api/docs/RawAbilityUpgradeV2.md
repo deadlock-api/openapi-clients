@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RawAbilityUpgradeV2 } from 'assets-deadlock-api-client';
+import { RawAbilityUpgradeV2 } from 'assets_deadlock_api_client';
 
 const instance: RawAbilityUpgradeV2 = {
     property_upgrades,

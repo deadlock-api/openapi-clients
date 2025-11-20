@@ -21,7 +21,7 @@ Get Item
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet
 from assets_deadlock_api_client.rest import ApiException
@@ -40,7 +40,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = assets_deadlock_api_client.ItemsApi(api_client)
     id_or_class_name = 'id_or_class_name_example' # str | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Item
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_or_class_name** | **str**|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -94,7 +94,7 @@ Get Items By Hero Id
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
@@ -113,7 +113,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = assets_deadlock_api_client.ItemsApi(api_client)
     id = 56 # int | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Items By Hero Id
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -167,7 +167,7 @@ Get Items By Slot Type
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2
 from assets_deadlock_api_client.models.language import Language
@@ -187,7 +187,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = assets_deadlock_api_client.ItemsApi(api_client)
     slot_type = assets_deadlock_api_client.ItemSlotTypeV2() # ItemSlotTypeV2 | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Items By Slot Type
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **slot_type** | [**ItemSlotTypeV2**](.md)|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -241,7 +241,7 @@ Get Items By Type
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.item_type_v2 import ItemTypeV2
 from assets_deadlock_api_client.models.language import Language
@@ -261,7 +261,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = assets_deadlock_api_client.ItemsApi(api_client)
     type = assets_deadlock_api_client.ItemTypeV2() # ItemTypeV2 | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Items By Type
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | [**ItemTypeV2**](.md)|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -315,7 +315,7 @@ Get Items
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
@@ -333,7 +333,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.ItemsApi(api_client)
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
 
     try:
         # Get Items
@@ -352,7 +352,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

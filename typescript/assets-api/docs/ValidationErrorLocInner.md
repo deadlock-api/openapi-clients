@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ValidationErrorLocInner } from 'assets-deadlock-api-client';
+import { ValidationErrorLocInner } from 'assets_deadlock_api_client';
 
 const instance: ValidationErrorLocInner = {
 };

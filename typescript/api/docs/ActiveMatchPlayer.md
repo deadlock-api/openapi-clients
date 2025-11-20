@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ActiveMatchPlayer } from 'deadlock-api-client';
+import { ActiveMatchPlayer } from 'deadlock_api_client';
 
 const instance: ActiveMatchPlayer = {
     abandoned,

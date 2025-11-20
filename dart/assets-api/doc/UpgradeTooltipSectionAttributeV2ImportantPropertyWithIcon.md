@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.model.UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
+# assets_deadlock_api_client.model.UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
 
 ## Load the model package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 ## Properties

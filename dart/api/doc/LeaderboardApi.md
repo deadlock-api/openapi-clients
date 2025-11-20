@@ -1,8 +1,8 @@
-# deadlock-api-client.api.LeaderboardApi
+# deadlock_api_client.api.LeaderboardApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -24,7 +24,7 @@ Leaderboard
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = LeaderboardApi();
 final region = region_example; // String | The region to fetch the leaderboard for.
@@ -67,7 +67,7 @@ Hero Leaderboard
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = LeaderboardApi();
 final region = region_example; // String | The region to fetch the leaderboard for.
@@ -112,7 +112,7 @@ Hero Leaderboard as Protobuf
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = LeaderboardApi();
 final region = region_example; // String | The region to fetch the leaderboard for.
@@ -157,7 +157,7 @@ Leaderboard as Protobuf
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = LeaderboardApi();
 final region = region_example; // String | The region to fetch the leaderboard for.

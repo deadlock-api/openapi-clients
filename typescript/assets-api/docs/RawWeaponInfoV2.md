@@ -65,7 +65,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RawWeaponInfoV2 } from 'assets-deadlock-api-client';
+import { RawWeaponInfoV2 } from 'assets_deadlock_api_client';
 
 const instance: RawWeaponInfoV2 = {
     can_zoom,

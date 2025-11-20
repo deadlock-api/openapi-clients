@@ -1,8 +1,8 @@
-# deadlock-api-client.api.AnalyticsApi
+# deadlock_api_client.api.AnalyticsApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -33,7 +33,7 @@ Ability Order Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final heroId = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -66,7 +66,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int**| See more: <https://assets.deadlock-api.com/v2/heroes> | 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -106,7 +106,7 @@ Badge Distribution
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final minUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -131,7 +131,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -165,7 +165,7 @@ Build Item Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final heroId = 56; // int | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -185,7 +185,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int**| Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minLastUpdatedUnixTimestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minLastUpdatedUnixTimestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxLastUpdatedUnixTimestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). | [optional] 
 
 ### Return type
@@ -212,7 +212,7 @@ Hero Comb Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final minUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -245,7 +245,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -287,7 +287,7 @@ Hero Counter Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final minUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -320,7 +320,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -362,7 +362,7 @@ Hero Scoreboard
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final sortBy = sortBy_example; // String | The field to sort by.
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
  **sortBy** | **String**| The field to sort by. | 
  **sortDirection** | **String**| The direction to sort heroes in. | [optional] 
  **minMatches** | **int**| Filter by min number of matches played. | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -433,7 +433,7 @@ Hero Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final bucket = bucket_example; // String | Bucket allows you to group the stats by a specific field.
@@ -469,7 +469,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **String**| Bucket allows you to group the stats by a specific field. | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -512,7 +512,7 @@ Hero Synergy Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final minUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -544,7 +544,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -585,7 +585,7 @@ Item Permutation Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final itemIds = []; // List<int> | Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>
@@ -621,7 +621,7 @@ Name | Type | Description  | Notes
  **combSize** | **int**| The combination size to return. | [optional] [default to 2]
  **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
  **heroId** | **int**| Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -658,7 +658,7 @@ Item Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final bucket = bucket_example; // String | Bucket allows you to group the stats by a specific field.
@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
  **bucket** | **String**| Bucket allows you to group the stats by a specific field. | [optional] 
  **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
  **heroId** | **int**| Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -737,7 +737,7 @@ Kill Death Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final minUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -774,7 +774,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -820,7 +820,7 @@ Player Scoreboard
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final sortBy = sortBy_example; // String | The field to sort by.
@@ -897,7 +897,7 @@ Player Stats Metrics
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = AnalyticsApi();
 final heroIds = heroIds_example; // String | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -929,7 +929,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroIds** | **String**| Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> | [optional] 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 

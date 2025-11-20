@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { BuildTagV2 } from 'assets-deadlock-api-client';
+import { BuildTagV2 } from 'assets_deadlock_api_client';
 
 const instance: BuildTagV2 = {
     class_name,

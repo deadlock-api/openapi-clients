@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { MapV1 } from 'assets-deadlock-api-client';
+import { MapV1 } from 'assets_deadlock_api_client';
 
 const instance: MapV1 = {
     radius,

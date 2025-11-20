@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { PatchCategory } from 'deadlock-api-client';
+import { PatchCategory } from 'deadlock_api_client';
 
 const instance: PatchCategory = {
     domain,

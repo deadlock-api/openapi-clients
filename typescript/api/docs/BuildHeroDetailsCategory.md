@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { BuildHeroDetailsCategory } from 'deadlock-api-client';
+import { BuildHeroDetailsCategory } from 'deadlock_api_client';
 
 const instance: BuildHeroDetailsCategory = {
     description,

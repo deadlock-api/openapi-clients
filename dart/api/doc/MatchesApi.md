@@ -1,8 +1,8 @@
-# deadlock-api-client.api.MatchesApi
+# deadlock_api_client.api.MatchesApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -28,7 +28,7 @@ Active
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MatchesApi();
 final accountId = 56; // int | The account ID to filter active matches by (`SteamID3`)
@@ -73,7 +73,7 @@ Active as Protobuf
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MatchesApi();
 
@@ -112,7 +112,7 @@ Bulk Metadata
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MatchesApi();
 final includeInfo = true; // bool | Include match info in the response.
@@ -201,7 +201,7 @@ Metadata
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MatchesApi();
 final matchId = 789; // int | The match ID
@@ -245,7 +245,7 @@ Metadata as Protobuf
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MatchesApi();
 final matchId = 789; // int | The match ID
@@ -290,7 +290,7 @@ Recently Fetched
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MatchesApi();
 final playerIngestedOnly = true; // bool | If true, only return matches that have been ingested by players.
@@ -333,7 +333,7 @@ Salts
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MatchesApi();
 final matchId = 789; // int | The match ID
@@ -376,7 +376,7 @@ Live Broadcast URL
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MatchesApi();
 final matchId = 789; // int | The match ID

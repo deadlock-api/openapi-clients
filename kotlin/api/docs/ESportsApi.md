@@ -19,8 +19,8 @@ Ingest
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = ESportsApi()
 val esportsMatch : ESportsMatch =  // ESportsMatch | 
@@ -64,8 +64,8 @@ List Matches
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = ESportsApi()
 try {

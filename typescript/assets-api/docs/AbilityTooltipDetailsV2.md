@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { AbilityTooltipDetailsV2 } from 'assets-deadlock-api-client';
+import { AbilityTooltipDetailsV2 } from 'assets_deadlock_api_client';
 
 const instance: AbilityTooltipDetailsV2 = {
     info_sections,

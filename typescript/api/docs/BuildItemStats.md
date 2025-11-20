@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { BuildItemStats } from 'deadlock-api-client';
+import { BuildItemStats } from 'deadlock_api_client';
 
 const instance: BuildItemStats = {
     builds,

@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RankImagesV2 } from 'assets-deadlock-api-client';
+import { RankImagesV2 } from 'assets_deadlock_api_client';
 
 const instance: RankImagesV2 = {
     large,

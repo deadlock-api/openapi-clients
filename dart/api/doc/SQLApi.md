@@ -1,8 +1,8 @@
-# deadlock-api-client.api.SQLApi
+# deadlock_api_client.api.SQLApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -23,7 +23,7 @@ List Tables
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = SQLApi();
 
@@ -62,7 +62,7 @@ Query
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = SQLApi();
 final query = query_example; // String | The SQL query to execute. It must follow the Clickhouse SQL syntax.
@@ -105,7 +105,7 @@ Table Schema
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = SQLApi();
 final table = table_example; // String | The name of the table to fetch the schema for.

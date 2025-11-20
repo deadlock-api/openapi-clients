@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.api.RawApi
+# assets_deadlock_api_client.api.RawApi
 
 ## Load the API package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://assets.deadlock-api.com*
@@ -21,10 +21,10 @@ Get Generic Data
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = RawApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getGenericDataRawGenericDataGet(clientVersion);
@@ -38,7 +38,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -62,10 +62,10 @@ Get Raw Heroes
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = RawApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getRawHeroesRawHeroesGet(clientVersion);
@@ -79,7 +79,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -103,10 +103,10 @@ Get Raw Items
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = RawApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getRawItemsRawItemsGet(clientVersion);
@@ -120,7 +120,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

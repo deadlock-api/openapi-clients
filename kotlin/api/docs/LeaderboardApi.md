@@ -21,8 +21,8 @@ Leaderboard
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = LeaderboardApi()
 val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
@@ -67,8 +67,8 @@ Hero Leaderboard
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = LeaderboardApi()
 val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
@@ -115,8 +115,8 @@ Hero Leaderboard as Protobuf
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = LeaderboardApi()
 val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
@@ -163,8 +163,8 @@ Leaderboard as Protobuf
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = LeaderboardApi()
 val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.

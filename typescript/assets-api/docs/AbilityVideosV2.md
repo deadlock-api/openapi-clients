@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { AbilityVideosV2 } from 'assets-deadlock-api-client';
+import { AbilityVideosV2 } from 'assets_deadlock_api_client';
 
 const instance: AbilityVideosV2 = {
     webm,

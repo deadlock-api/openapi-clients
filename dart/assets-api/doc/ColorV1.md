@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.model.ColorV1
+# assets_deadlock_api_client.model.ColorV1
 
 ## Load the model package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 ## Properties

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ColorV1 } from 'assets-deadlock-api-client';
+import { ColorV1 } from 'assets_deadlock_api_client';
 
 const instance: ColorV1 = {
     red,

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { BadgeDistribution } from 'deadlock-api-client';
+import { BadgeDistribution } from 'deadlock_api_client';
 
 const instance: BadgeDistribution = {
     badge_level,

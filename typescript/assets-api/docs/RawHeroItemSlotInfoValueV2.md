@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RawHeroItemSlotInfoValueV2 } from 'assets-deadlock-api-client';
+import { RawHeroItemSlotInfoValueV2 } from 'assets_deadlock_api_client';
 
 const instance: RawHeroItemSlotInfoValueV2 = {
     max_purchases_for_tier,

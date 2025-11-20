@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 import 'package:test/test.dart';
 
 
@@ -19,14 +19,14 @@ void main() {
   group('tests for NPCUnitsApi', () {
     // Get Npc Unit
     //
-    //Future<NPCUnitV2> getNpcUnitV2NpcUnitsIdOrClassNameGet(String idOrClassName, { DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
+    //Future<NPCUnitV2> getNpcUnitV2NpcUnitsIdOrClassNameGet(String idOrClassName, { DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getNpcUnitV2NpcUnitsIdOrClassNameGet', () async {
       // TODO
     });
 
     // Get Npc Units
     //
-    //Future<List<NPCUnitV2>> getNpcUnitsV2NpcUnitsGet({ DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
+    //Future<List<NPCUnitV2>> getNpcUnitsV2NpcUnitsGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getNpcUnitsV2NpcUnitsGet', () async {
       // TODO
     });

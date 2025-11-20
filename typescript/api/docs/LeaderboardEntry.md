@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { LeaderboardEntry } from 'deadlock-api-client';
+import { LeaderboardEntry } from 'deadlock_api_client';
 
 const instance: LeaderboardEntry = {
     account_name,

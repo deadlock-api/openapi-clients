@@ -18,12 +18,12 @@ All URIs are relative to *https://assets.deadlock-api.com*
 import {
     RawApi,
     Configuration
-} from 'assets-deadlock-api-client';
+} from 'assets_deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new RawApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getGenericDataRawGenericDataGet(
     clientVersion
@@ -34,7 +34,7 @@ const { status, data } = await apiInstance.getGenericDataRawGenericDataGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -69,12 +69,12 @@ No authorization required
 import {
     RawApi,
     Configuration
-} from 'assets-deadlock-api-client';
+} from 'assets_deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new RawApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getRawHeroesRawHeroesGet(
     clientVersion
@@ -85,7 +85,7 @@ const { status, data } = await apiInstance.getRawHeroesRawHeroesGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -120,12 +120,12 @@ No authorization required
 import {
     RawApi,
     Configuration
-} from 'assets-deadlock-api-client';
+} from 'assets_deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new RawApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getRawItemsRawItemsGet(
     clientVersion
@@ -136,7 +136,7 @@ const { status, data } = await apiInstance.getRawItemsRawItemsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type

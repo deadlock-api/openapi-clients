@@ -1,8 +1,8 @@
-# deadlock-api-client.model.CreateCustomResponse
+# deadlock_api_client.model.CreateCustomResponse
 
 ## Load the model package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 ## Properties

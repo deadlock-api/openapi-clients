@@ -17,7 +17,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 import {
     BuildsApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new BuildsApi(configuration);

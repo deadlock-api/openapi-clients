@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ESportsMatch } from 'deadlock-api-client';
+import { ESportsMatch } from 'deadlock_api_client';
 
 const instance: ESportsMatch = {
     match_id,

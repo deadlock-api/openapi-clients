@@ -1,4 +1,4 @@
-## assets-deadlock-api-client@0.1.0
+## assets_deadlock_api_client@0.1.0
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install assets-deadlock-api-client@0.1.0 --save
+npm install assets_deadlock_api_client@0.1.0 --save
 ```
 
 _unPublished (not recommended):_
@@ -91,7 +91,7 @@ Class | Method | HTTP request | Description
  - [BuildTagV2](docs/BuildTagV2.md)
  - [Color](docs/Color.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV2ValidClientVersions](docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [GlowColorEnemy](docs/GlowColorEnemy.md)
  - [GlowColorFriend](docs/GlowColorFriend.md)

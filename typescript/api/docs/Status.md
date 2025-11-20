@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Status } from 'deadlock-api-client';
+import { Status } from 'deadlock_api_client';
 
 const instance: Status = {
     services,

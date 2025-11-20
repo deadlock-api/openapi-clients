@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ModifierValue } from 'assets-deadlock-api-client';
+import { ModifierValue } from 'assets_deadlock_api_client';
 
 const instance: ModifierValue = {
     value_type,

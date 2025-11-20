@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.api.MiscEntitiesApi
+# assets_deadlock_api_client.api.MiscEntitiesApi
 
 ## Load the API package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://assets.deadlock-api.com*
@@ -20,10 +20,10 @@ Get Misc Entities
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = MiscEntitiesApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getMiscEntitiesV2MiscEntitiesGet(clientVersion);
@@ -37,7 +37,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -61,11 +61,11 @@ Get Misc Entity
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = MiscEntitiesApi();
 final idOrClassName = idOrClassName_example; // String | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion);
@@ -80,7 +80,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idOrClassName** | **String**|  | 
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

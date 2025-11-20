@@ -18,7 +18,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 import {
     InfoApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new InfoApi(configuration);
@@ -63,7 +63,7 @@ No authorization required
 import {
     InfoApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new InfoApi(configuration);

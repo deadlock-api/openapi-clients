@@ -1,8 +1,8 @@
-# deadlock-api-client.model.ESportsMatchStatus
+# deadlock_api_client.model.ESportsMatchStatus
 
 ## Load the model package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 ## Properties

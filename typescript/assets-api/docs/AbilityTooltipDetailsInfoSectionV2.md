@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { AbilityTooltipDetailsInfoSectionV2 } from 'assets-deadlock-api-client';
+import { AbilityTooltipDetailsInfoSectionV2 } from 'assets_deadlock_api_client';
 
 const instance: AbilityTooltipDetailsInfoSectionV2 = {
     loc_string,

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { WeaponV2 } from 'assets-deadlock-api-client';
+import { WeaponV2 } from 'assets_deadlock_api_client';
 
 const instance: WeaponV2 = {
     id,

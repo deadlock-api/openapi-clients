@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ZiplanePathV1 } from 'assets-deadlock-api-client';
+import { ZiplanePathV1 } from 'assets_deadlock_api_client';
 
 const instance: ZiplanePathV1 = {
     origin,

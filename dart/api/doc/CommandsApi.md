@@ -1,8 +1,8 @@
-# deadlock-api-client.api.CommandsApi
+# deadlock_api_client.api.CommandsApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -24,7 +24,7 @@ Available Variables
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = CommandsApi();
 
@@ -63,7 +63,7 @@ Resolve Command
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = CommandsApi();
 final accountId = 56; // int | The players `SteamID3`
@@ -112,7 +112,7 @@ Resolve Variables
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = CommandsApi();
 final accountId = 56; // int | 
@@ -161,7 +161,7 @@ Widget Versions
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = CommandsApi();
 

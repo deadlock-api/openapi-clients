@@ -2,7 +2,7 @@
 # AUTO-GENERATED FILE, DO NOT MODIFY!
 #
 
-name: 'deadlock-api-client'
+name: 'deadlock_api_client'
 version: '1.0.0'
 description: 'OpenAPI API client'
 homepage: 'https://deadlock-api.com'

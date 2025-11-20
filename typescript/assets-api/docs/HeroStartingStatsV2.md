@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HeroStartingStatsV2 } from 'assets-deadlock-api-client';
+import { HeroStartingStatsV2 } from 'assets_deadlock_api_client';
 
 const instance: HeroStartingStatsV2 = {
     max_move_speed,

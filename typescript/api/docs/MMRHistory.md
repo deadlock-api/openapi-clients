@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { MMRHistory } from 'deadlock-api-client';
+import { MMRHistory } from 'deadlock_api_client';
 
 const instance: MMRHistory = {
     account_id,

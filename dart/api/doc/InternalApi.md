@@ -1,8 +1,8 @@
-# deadlock-api-client.api.InternalApi
+# deadlock_api_client.api.InternalApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -21,7 +21,7 @@ Match Salts Ingest
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = InternalApi();
 final clickhouseSalts = [List<ClickhouseSalts>()]; // List<ClickhouseSalts> | 

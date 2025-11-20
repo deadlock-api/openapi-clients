@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { PlayerMatchHistoryEntry } from 'deadlock-api-client';
+import { PlayerMatchHistoryEntry } from 'deadlock_api_client';
 
 const instance: PlayerMatchHistoryEntry = {
     abandoned_time_s,

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RawHeroStatsDisplayV2 } from 'assets-deadlock-api-client';
+import { RawHeroStatsDisplayV2 } from 'assets_deadlock_api_client';
 
 const instance: RawHeroStatsDisplayV2 = {
     health_header_stats,

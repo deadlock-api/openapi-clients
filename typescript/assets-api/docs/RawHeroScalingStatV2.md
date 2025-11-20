@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RawHeroScalingStatV2 } from 'assets-deadlock-api-client';
+import { RawHeroScalingStatV2 } from 'assets_deadlock_api_client';
 
 const instance: RawHeroScalingStatV2 = {
     scaling_stat,

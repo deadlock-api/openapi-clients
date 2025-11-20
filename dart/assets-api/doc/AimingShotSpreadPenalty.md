@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.model.AimingShotSpreadPenalty
+# assets_deadlock_api_client.model.AimingShotSpreadPenalty
 
 ## Load the model package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 ## Properties

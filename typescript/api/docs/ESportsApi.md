@@ -19,7 +19,7 @@ import {
     ESportsApi,
     Configuration,
     ESportsMatch
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new ESportsApi(configuration);
@@ -72,7 +72,7 @@ No authorization required
 import {
     ESportsApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new ESportsApi(configuration);

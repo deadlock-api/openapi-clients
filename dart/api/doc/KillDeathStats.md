@@ -1,8 +1,8 @@
-# deadlock-api-client.model.KillDeathStats
+# deadlock_api_client.model.KillDeathStats
 
 ## Load the model package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 ## Properties

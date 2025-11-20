@@ -32,7 +32,7 @@ $apiInstance = new OpenAPI\Client\Api\NPCUnitsApi(
     new GuzzleHttp\Client()
 );
 $id_or_class_name = 'id_or_class_name_example'; // string
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getNpcUnitV2NpcUnitsIdOrClassNameGet($id_or_class_name, $client_version);
@@ -47,7 +47,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_or_class_name** | **string**|  | |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -87,7 +87,7 @@ $apiInstance = new OpenAPI\Client\Api\NPCUnitsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getNpcUnitsV2NpcUnitsGet($client_version);
@@ -101,7 +101,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 

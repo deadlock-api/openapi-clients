@@ -18,8 +18,8 @@ Match Salts Ingest
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = InternalApi()
 val clickhouseSalts : kotlin.collections.List<ClickhouseSalts> =  // kotlin.collections.List<ClickhouseSalts> | 

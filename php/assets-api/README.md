@@ -1,4 +1,4 @@
-# assets-deadlock-api-client
+# assets_deadlock_api_client
 
 
 ## API Clients
@@ -53,7 +53,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/assets-deadlock-api-client/vendor/autoload.php');
+require_once('/path/to/assets_deadlock_api_client/vendor/autoload.php');
 ```
 
 ## Getting Started
@@ -73,7 +73,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getBuildTagsV2BuildTagsGet($language, $client_version);
@@ -129,7 +129,7 @@ Class | Method | HTTP request | Description
 - [BuildTagV2](docs/Model/BuildTagV2.md)
 - [Color](docs/Model/Color.md)
 - [ColorV1](docs/Model/ColorV1.md)
-- [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
+- [DeadlockAssetsApiRoutesV2ValidClientVersions](docs/Model/DeadlockAssetsApiRoutesV2ValidClientVersions.md)
 - [GetItemsV2ItemsGet200ResponseInner](docs/Model/GetItemsV2ItemsGet200ResponseInner.md)
 - [GlowColorEnemy](docs/Model/GlowColorEnemy.md)
 - [GlowColorFriend](docs/Model/GlowColorFriend.md)

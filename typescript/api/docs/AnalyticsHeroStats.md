@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { AnalyticsHeroStats } from 'deadlock-api-client';
+import { AnalyticsHeroStats } from 'deadlock_api_client';
 
 const instance: AnalyticsHeroStats = {
     bucket,

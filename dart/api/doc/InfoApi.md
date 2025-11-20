@@ -1,8 +1,8 @@
-# deadlock-api-client.api.InfoApi
+# deadlock_api_client.api.InfoApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -22,7 +22,7 @@ Health Check
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = InfoApi();
 
@@ -61,7 +61,7 @@ API Info
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = InfoApi();
 

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { VariableDescription } from 'deadlock-api-client';
+import { VariableDescription } from 'deadlock_api_client';
 
 const instance: VariableDescription = {
     category,

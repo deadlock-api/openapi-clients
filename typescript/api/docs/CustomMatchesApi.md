@@ -21,7 +21,7 @@ import {
     CustomMatchesApi,
     Configuration,
     CreateCustomRequest
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomMatchesApi(configuration);
@@ -75,7 +75,7 @@ No authorization required
 import {
     CustomMatchesApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomMatchesApi(configuration);
@@ -129,7 +129,7 @@ No authorization required
 import {
     CustomMatchesApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomMatchesApi(configuration);
@@ -183,7 +183,7 @@ No authorization required
 import {
     CustomMatchesApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomMatchesApi(configuration);

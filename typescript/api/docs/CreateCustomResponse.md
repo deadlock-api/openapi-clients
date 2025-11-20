@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { CreateCustomResponse } from 'deadlock-api-client';
+import { CreateCustomResponse } from 'deadlock_api_client';
 
 const instance: CreateCustomResponse = {
     callback_secret,

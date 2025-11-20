@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { DistributionEntry } from 'deadlock-api-client';
+import { DistributionEntry } from 'deadlock_api_client';
 
 const instance: DistributionEntry = {
     players,

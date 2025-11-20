@@ -1,8 +1,8 @@
-# deadlock-api-client.model.PlayerMatchHistoryEntry
+# deadlock_api_client.model.PlayerMatchHistoryEntry
 
 ## Load the model package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 ## Properties

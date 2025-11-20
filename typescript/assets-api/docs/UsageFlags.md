@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { UsageFlags } from 'assets-deadlock-api-client';
+import { UsageFlags } from 'assets_deadlock_api_client';
 
 const instance: UsageFlags = {
 };

@@ -1,7 +1,7 @@
 {
-  "name": "deadlock-api-client",
+  "name": "deadlock_api_client",
   "version": "0.1.0",
-  "description": "OpenAPI client for deadlock-api-client",
+  "description": "OpenAPI client for deadlock_api_client",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "typescript",
     "openapi-client",
     "openapi-generator",
-    "deadlock-api-client"
+    "deadlock_api_client"
   ],
   "license": "Unlicense",
   "main": "./dist/index.js",

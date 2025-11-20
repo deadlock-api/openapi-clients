@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { BuildHero } from 'deadlock-api-client';
+import { BuildHero } from 'deadlock_api_client';
 
 const instance: BuildHero = {
     author_account_id,

@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.api.NPCUnitsApi
+# assets_deadlock_api_client.api.NPCUnitsApi
 
 ## Load the API package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://assets.deadlock-api.com*
@@ -20,11 +20,11 @@ Get Npc Unit
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = NPCUnitsApi();
 final idOrClassName = idOrClassName_example; // String | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getNpcUnitV2NpcUnitsIdOrClassNameGet(idOrClassName, clientVersion);
@@ -39,7 +39,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idOrClassName** | **String**|  | 
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -63,10 +63,10 @@ Get Npc Units
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = NPCUnitsApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getNpcUnitsV2NpcUnitsGet(clientVersion);
@@ -80,7 +80,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

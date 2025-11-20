@@ -1,8 +1,8 @@
-# deadlock-api-client.api.CustomMatchesApi
+# deadlock_api_client.api.CustomMatchesApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -24,7 +24,7 @@ Create Match
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = CustomMatchesApi();
 final createCustomRequest = CreateCustomRequest(); // CreateCustomRequest | 
@@ -67,7 +67,7 @@ Get Match ID
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = CustomMatchesApi();
 final partyId = 789; // int | 
@@ -110,7 +110,7 @@ Ready Up
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = CustomMatchesApi();
 final lobbyId = lobbyId_example; // String | 
@@ -152,7 +152,7 @@ Unready
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = CustomMatchesApi();
 final lobbyId = lobbyId_example; // String | 

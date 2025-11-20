@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { GetItemsV2ItemsGet200ResponseInner } from 'assets-deadlock-api-client';
+import { GetItemsV2ItemsGet200ResponseInner } from 'assets_deadlock_api_client';
 
 const instance: GetItemsV2ItemsGet200ResponseInner = {
     id,

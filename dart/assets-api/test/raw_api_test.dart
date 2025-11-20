@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 import 'package:test/test.dart';
 
 
@@ -19,21 +19,21 @@ void main() {
   group('tests for RawApi', () {
     // Get Generic Data
     //
-    //Future<Object> getGenericDataRawGenericDataGet({ DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
+    //Future<Object> getGenericDataRawGenericDataGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getGenericDataRawGenericDataGet', () async {
       // TODO
     });
 
     // Get Raw Heroes
     //
-    //Future<Object> getRawHeroesRawHeroesGet({ DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
+    //Future<Object> getRawHeroesRawHeroesGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getRawHeroesRawHeroesGet', () async {
       // TODO
     });
 
     // Get Raw Items
     //
-    //Future<Object> getRawItemsRawItemsGet({ DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
+    //Future<Object> getRawItemsRawItemsGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
     test('test getRawItemsRawItemsGet', () async {
       // TODO
     });

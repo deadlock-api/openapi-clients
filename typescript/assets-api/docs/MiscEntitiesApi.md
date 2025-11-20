@@ -17,12 +17,12 @@ All URIs are relative to *https://assets.deadlock-api.com*
 import {
     MiscEntitiesApi,
     Configuration
-} from 'assets-deadlock-api-client';
+} from 'assets_deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new MiscEntitiesApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getMiscEntitiesV2MiscEntitiesGet(
     clientVersion
@@ -33,7 +33,7 @@ const { status, data } = await apiInstance.getMiscEntitiesV2MiscEntitiesGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -68,13 +68,13 @@ No authorization required
 import {
     MiscEntitiesApi,
     Configuration
-} from 'assets-deadlock-api-client';
+} from 'assets_deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new MiscEntitiesApi(configuration);
 
 let idOrClassName: string; // (default to undefined)
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getMiscEntityV2MiscEntitiesIdOrClassNameGet(
     idOrClassName,
@@ -87,7 +87,7 @@ const { status, data } = await apiInstance.getMiscEntityV2MiscEntitiesIdOrClassN
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **idOrClassName** | [**string**] |  | defaults to undefined|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type

@@ -20,7 +20,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 import {
     CommandsApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new CommandsApi(configuration);
@@ -65,7 +65,7 @@ No authorization required
 import {
     CommandsApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new CommandsApi(configuration);
@@ -126,7 +126,7 @@ No authorization required
 import {
     CommandsApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new CommandsApi(configuration);
@@ -187,7 +187,7 @@ No authorization required
 import {
     CommandsApi,
     Configuration
-} from 'deadlock-api-client';
+} from 'deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new CommandsApi(configuration);

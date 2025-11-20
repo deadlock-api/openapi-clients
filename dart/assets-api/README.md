@@ -1,4 +1,4 @@
-# assets-deadlock-api-client
+# assets_deadlock_api_client
 
 ## API Clients
 
@@ -35,7 +35,7 @@ Dart 2.12 or later
 If this Dart package is published to Github, add the following dependency to your pubspec.yaml
 ```
 dependencies:
-  assets-deadlock-api-client:
+  assets_deadlock_api_client:
     git: https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 ```
 
@@ -43,8 +43,8 @@ dependencies:
 To use the package in your local drive, add the following dependency to your pubspec.yaml
 ```
 dependencies:
-  assets-deadlock-api-client:
-    path: /path/to/assets-deadlock-api-client
+  assets_deadlock_api_client:
+    path: /path/to/assets_deadlock_api_client
 ```
 
 ## Tests
@@ -56,12 +56,12 @@ TODO
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 
 final api_instance = DefaultApi();
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getBuildTagsV2BuildTagsGet(language, clientVersion);
@@ -118,7 +118,7 @@ Class | Method | HTTP request | Description
  - [BuildTagV2](doc//BuildTagV2.md)
  - [Color](doc//Color.md)
  - [ColorV1](doc//ColorV1.md)
- - [DeadlockAssetsApiRoutesV1ValidClientVersions](doc//DeadlockAssetsApiRoutesV1ValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV2ValidClientVersions](doc//DeadlockAssetsApiRoutesV2ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](doc//GetItemsV2ItemsGet200ResponseInner.md)
  - [GlowColorEnemy](doc//GlowColorEnemy.md)
  - [GlowColorFriend](doc//GlowColorFriend.md)

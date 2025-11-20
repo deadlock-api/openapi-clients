@@ -20,14 +20,14 @@ All URIs are relative to *https://assets.deadlock-api.com*
 import {
     ItemsApi,
     Configuration
-} from 'assets-deadlock-api-client';
+} from 'assets_deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new ItemsApi(configuration);
 
 let idOrClassName: string; // (default to undefined)
 let language: Language; // (optional) (default to undefined)
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getItemV2ItemsIdOrClassNameGet(
     idOrClassName,
@@ -42,7 +42,7 @@ const { status, data } = await apiInstance.getItemV2ItemsIdOrClassNameGet(
 |------------- | ------------- | ------------- | -------------|
 | **idOrClassName** | [**string**] |  | defaults to undefined|
 | **language** | **Language** |  | (optional) defaults to undefined|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -77,14 +77,14 @@ No authorization required
 import {
     ItemsApi,
     Configuration
-} from 'assets-deadlock-api-client';
+} from 'assets_deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new ItemsApi(configuration);
 
 let id: number; // (default to undefined)
 let language: Language; // (optional) (default to undefined)
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getItemsByHeroIdV2ItemsByHeroIdIdGet(
     id,
@@ -99,7 +99,7 @@ const { status, data } = await apiInstance.getItemsByHeroIdV2ItemsByHeroIdIdGet(
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**number**] |  | defaults to undefined|
 | **language** | **Language** |  | (optional) defaults to undefined|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -134,14 +134,14 @@ No authorization required
 import {
     ItemsApi,
     Configuration
-} from 'assets-deadlock-api-client';
+} from 'assets_deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new ItemsApi(configuration);
 
 let slotType: ItemSlotTypeV2; // (default to undefined)
 let language: Language; // (optional) (default to undefined)
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(
     slotType,
@@ -156,7 +156,7 @@ const { status, data } = await apiInstance.getItemsBySlotTypeV2ItemsBySlotTypeSl
 |------------- | ------------- | ------------- | -------------|
 | **slotType** | **ItemSlotTypeV2** |  | defaults to undefined|
 | **language** | **Language** |  | (optional) defaults to undefined|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -191,14 +191,14 @@ No authorization required
 import {
     ItemsApi,
     Configuration
-} from 'assets-deadlock-api-client';
+} from 'assets_deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new ItemsApi(configuration);
 
 let type: ItemTypeV2; // (default to undefined)
 let language: Language; // (optional) (default to undefined)
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getItemsByTypeV2ItemsByTypeTypeGet(
     type,
@@ -213,7 +213,7 @@ const { status, data } = await apiInstance.getItemsByTypeV2ItemsByTypeTypeGet(
 |------------- | ------------- | ------------- | -------------|
 | **type** | **ItemTypeV2** |  | defaults to undefined|
 | **language** | **Language** |  | (optional) defaults to undefined|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -248,13 +248,13 @@ No authorization required
 import {
     ItemsApi,
     Configuration
-} from 'assets-deadlock-api-client';
+} from 'assets_deadlock_api_client';
 
 const configuration = new Configuration();
 const apiInstance = new ItemsApi(configuration);
 
 let language: Language; // (optional) (default to undefined)
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getItemsV2ItemsGet(
     language,
@@ -267,7 +267,7 @@ const { status, data } = await apiInstance.getItemsV2ItemsGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **language** | **Language** |  | (optional) defaults to undefined|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type

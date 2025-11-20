@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { BuildHeroDetails } from 'deadlock-api-client';
+import { BuildHeroDetails } from 'deadlock_api_client';
 
 const instance: BuildHeroDetails = {
     ability_order,

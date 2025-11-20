@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { MiscV2 } from 'assets-deadlock-api-client';
+import { MiscV2 } from 'assets_deadlock_api_client';
 
 const instance: MiscV2 = {
     class_name,

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RawItemWeaponInfoBulletSpeedCurveSplineV2 } from 'assets-deadlock-api-client';
+import { RawItemWeaponInfoBulletSpeedCurveSplineV2 } from 'assets_deadlock_api_client';
 
 const instance: RawItemWeaponInfoBulletSpeedCurveSplineV2 = {
     slope_incoming,

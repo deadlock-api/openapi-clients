@@ -58,7 +58,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { NPCUnitV2 } from 'assets-deadlock-api-client';
+import { NPCUnitV2 } from 'assets_deadlock_api_client';
 
 const instance: NPCUnitV2 = {
     class_name,

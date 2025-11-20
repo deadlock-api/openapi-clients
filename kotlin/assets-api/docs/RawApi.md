@@ -18,11 +18,11 @@ Get Generic Data
 ### Example
 ```kotlin
 // Import classes:
-//import assets-deadlock-api-client.infrastructure.*
-//import assets-deadlock-api-client.models.*
+//import assets_deadlock_api_client.infrastructure.*
+//import assets_deadlock_api_client.models.*
 
 val apiInstance = RawApi()
-val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 try {
     val result : kotlin.Any = apiInstance.getGenericDataRawGenericDataGet(clientVersion)
     println(result)
@@ -38,7 +38,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] [enum: 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] [enum: 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -62,11 +62,11 @@ Get Raw Heroes
 ### Example
 ```kotlin
 // Import classes:
-//import assets-deadlock-api-client.infrastructure.*
-//import assets-deadlock-api-client.models.*
+//import assets_deadlock_api_client.infrastructure.*
+//import assets_deadlock_api_client.models.*
 
 val apiInstance = RawApi()
-val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 try {
     val result : kotlin.Any = apiInstance.getRawHeroesRawHeroesGet(clientVersion)
     println(result)
@@ -82,7 +82,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] [enum: 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] [enum: 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -106,11 +106,11 @@ Get Raw Items
 ### Example
 ```kotlin
 // Import classes:
-//import assets-deadlock-api-client.infrastructure.*
-//import assets-deadlock-api-client.models.*
+//import assets_deadlock_api_client.infrastructure.*
+//import assets_deadlock_api_client.models.*
 
 val apiInstance = RawApi()
-val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 try {
     val result : kotlin.Any = apiInstance.getRawItemsRawItemsGet(clientVersion)
     println(result)
@@ -126,7 +126,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] [enum: 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] [enum: 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 

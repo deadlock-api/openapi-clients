@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { APIInfo } from 'deadlock-api-client';
+import { APIInfo } from 'deadlock_api_client';
 
 const instance: APIInfo = {
     fetched_matches_per_day,

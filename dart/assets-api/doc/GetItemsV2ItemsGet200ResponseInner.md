@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.model.GetItemsV2ItemsGet200ResponseInner
+# assets_deadlock_api_client.model.GetItemsV2ItemsGet200ResponseInner
 
 ## Load the model package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 ## Properties

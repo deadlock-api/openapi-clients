@@ -25,8 +25,8 @@ Active
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = MatchesApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The account ID to filter active matches by (`SteamID3`)
@@ -73,8 +73,8 @@ Active as Protobuf
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = MatchesApi()
 try {
@@ -116,8 +116,8 @@ Bulk Metadata
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = MatchesApi()
 val includeInfo : kotlin.Boolean = true // kotlin.Boolean | Include match info in the response.
@@ -208,8 +208,8 @@ Metadata
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = MatchesApi()
 val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
@@ -255,8 +255,8 @@ Metadata as Protobuf
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = MatchesApi()
 val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
@@ -303,8 +303,8 @@ Recently Fetched
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = MatchesApi()
 val playerIngestedOnly : kotlin.Boolean = true // kotlin.Boolean | If true, only return matches that have been ingested by players.
@@ -349,8 +349,8 @@ Salts
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = MatchesApi()
 val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
@@ -395,8 +395,8 @@ Live Broadcast URL
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = MatchesApi()
 val matchId : kotlin.Long = 789 // kotlin.Long | The match ID

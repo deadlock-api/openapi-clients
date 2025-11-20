@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ObjectivePositionV1 } from 'assets-deadlock-api-client';
+import { ObjectivePositionV1 } from 'assets_deadlock_api_client';
 
 const instance: ObjectivePositionV1 = {
     left_relative,

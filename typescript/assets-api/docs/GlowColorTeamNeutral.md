@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { GlowColorTeamNeutral } from 'assets-deadlock-api-client';
+import { GlowColorTeamNeutral } from 'assets_deadlock_api_client';
 
 const instance: GlowColorTeamNeutral = {
 };

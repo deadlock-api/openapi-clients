@@ -1,8 +1,8 @@
-# deadlock-api-client.api.BuildsApi
+# deadlock_api_client.api.BuildsApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -21,7 +21,7 @@ Search
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = BuildsApi();
 final minUnixTimestamp = 789; // int | Filter builds based on their `last_updated` time (Unix timestamp).

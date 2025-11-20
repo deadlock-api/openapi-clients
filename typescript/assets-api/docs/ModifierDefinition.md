@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ModifierDefinition } from 'assets-deadlock-api-client';
+import { ModifierDefinition } from 'assets_deadlock_api_client';
 
 const instance: ModifierDefinition = {
     class_name,

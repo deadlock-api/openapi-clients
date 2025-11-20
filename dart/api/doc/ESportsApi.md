@@ -1,8 +1,8 @@
-# deadlock-api-client.api.ESportsApi
+# deadlock_api_client.api.ESportsApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -22,7 +22,7 @@ Ingest
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = ESportsApi();
 final eSportsMatch = ESportsMatch(); // ESportsMatch | 
@@ -64,7 +64,7 @@ List Matches
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = ESportsApi();
 

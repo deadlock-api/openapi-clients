@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HeroSynergyStats } from 'deadlock-api-client';
+import { HeroSynergyStats } from 'deadlock_api_client';
 
 const instance: HeroSynergyStats = {
     assists1,

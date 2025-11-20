@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.api.DefaultApi
+# assets_deadlock_api_client.api.DefaultApi
 
 ## Load the API package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://assets.deadlock-api.com*
@@ -26,11 +26,11 @@ Get Build Tags
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = DefaultApi();
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getBuildTagsV2BuildTagsGet(language, clientVersion);
@@ -45,7 +45,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -69,7 +69,7 @@ Get Client Versions
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = DefaultApi();
 
@@ -106,10 +106,10 @@ Get Colors
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = DefaultApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getColorsV1ColorsGet(clientVersion);
@@ -123,7 +123,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -147,10 +147,10 @@ Get Icons
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = DefaultApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getIconsV1IconsGet(clientVersion);
@@ -164,7 +164,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -188,10 +188,10 @@ Get Map
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = DefaultApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getMapV1MapGet(clientVersion);
@@ -205,7 +205,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -229,11 +229,11 @@ Get Ranks
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = DefaultApi();
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getRanksV2RanksGet(language, clientVersion);
@@ -248,7 +248,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -272,10 +272,10 @@ Get Sounds
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = DefaultApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getSoundsV1SoundsGet(clientVersion);
@@ -289,7 +289,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -313,10 +313,10 @@ Get Steam Info
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = DefaultApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getSteamInfoV1SteamInfoGet(clientVersion);
@@ -330,7 +330,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

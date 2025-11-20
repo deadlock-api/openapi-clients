@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HealthBarColorFriend } from 'assets-deadlock-api-client';
+import { HealthBarColorFriend } from 'assets_deadlock_api_client';
 
 const instance: HealthBarColorFriend = {
 };

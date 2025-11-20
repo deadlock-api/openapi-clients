@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RawItemWeaponInfoBulletSpeedCurveV2 } from 'assets-deadlock-api-client';
+import { RawItemWeaponInfoBulletSpeedCurveV2 } from 'assets_deadlock_api_client';
 
 const instance: RawItemWeaponInfoBulletSpeedCurveV2 = {
     spline,

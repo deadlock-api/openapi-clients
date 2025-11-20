@@ -1,8 +1,8 @@
-# deadlock-api-client.api.PlayersApi
+# deadlock_api_client.api.PlayersApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -27,7 +27,7 @@ Enemy Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = PlayersApi();
 final accountId = 56; // int | The players `SteamID3`
@@ -86,7 +86,7 @@ Match History
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = PlayersApi();
 final accountId = 56; // int | The players `SteamID3`
@@ -133,7 +133,7 @@ Mate Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = PlayersApi();
 final accountId = 56; // int | The players `SteamID3`
@@ -194,7 +194,7 @@ Party Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = PlayersApi();
 final accountId = 56; // int | The players `SteamID3`
@@ -249,7 +249,7 @@ Hero Stats
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = PlayersApi();
 final accountIds = []; // List<int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
@@ -314,7 +314,7 @@ Batch Steam Profile
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = PlayersApi();
 final accountIds = []; // List<int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
@@ -357,7 +357,7 @@ Steam Profile Search
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = PlayersApi();
 final searchQuery = searchQuery_example; // String | Search query for Steam profiles.

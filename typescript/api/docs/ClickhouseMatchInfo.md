@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ClickhouseMatchInfo } from 'deadlock-api-client';
+import { ClickhouseMatchInfo } from 'deadlock_api_client';
 
 const instance: ClickhouseMatchInfo = {
     average_badge_team0,

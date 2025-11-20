@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { BuildHeroDetailsAbilityOrderCurrencyChange } from 'deadlock-api-client';
+import { BuildHeroDetailsAbilityOrderCurrencyChange } from 'deadlock_api_client';
 
 const instance: BuildHeroDetailsAbilityOrderCurrencyChange = {
     ability_id,

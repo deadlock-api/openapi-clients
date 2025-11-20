@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ActiveMatch } from 'deadlock-api-client';
+import { ActiveMatch } from 'deadlock_api_client';
 
 const instance: ActiveMatch = {
     compat_version,

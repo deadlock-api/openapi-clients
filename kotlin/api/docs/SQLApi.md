@@ -20,8 +20,8 @@ List Tables
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = SQLApi()
 try {
@@ -63,8 +63,8 @@ Query
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = SQLApi()
 val query : kotlin.String = query_example // kotlin.String | The SQL query to execute. It must follow the Clickhouse SQL syntax.
@@ -109,8 +109,8 @@ Table Schema
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = SQLApi()
 val table : kotlin.String = table_example // kotlin.String | The name of the table to fetch the schema for.

@@ -24,8 +24,8 @@ Enemy Stats
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
@@ -86,8 +86,8 @@ Match History
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
@@ -136,8 +136,8 @@ Mate Stats
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
@@ -200,8 +200,8 @@ Party Stats
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
@@ -258,8 +258,8 @@ Hero Stats
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
@@ -326,8 +326,8 @@ Batch Steam Profile
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
 val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
@@ -372,8 +372,8 @@ Steam Profile Search
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
 val searchQuery : kotlin.String = searchQuery_example // kotlin.String | Search query for Steam profiles.

@@ -1,4 +1,4 @@
-# deadlock-api-client
+# deadlock_api_client
 
 ## API Clients
 
@@ -35,7 +35,7 @@ Dart 2.12 or later
 If this Dart package is published to Github, add the following dependency to your pubspec.yaml
 ```
 dependencies:
-  deadlock-api-client:
+  deadlock_api_client:
     git: https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 ```
 
@@ -43,8 +43,8 @@ dependencies:
 To use the package in your local drive, add the following dependency to your pubspec.yaml
 ```
 dependencies:
-  deadlock-api-client:
-    path: /path/to/deadlock-api-client
+  deadlock_api_client:
+    path: /path/to/deadlock_api_client
 ```
 
 ## Tests
@@ -56,7 +56,7 @@ TODO
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 
 final api_instance = AnalyticsApi();

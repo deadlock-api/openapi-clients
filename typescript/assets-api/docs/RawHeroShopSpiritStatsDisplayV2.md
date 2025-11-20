@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RawHeroShopSpiritStatsDisplayV2 } from 'assets-deadlock-api-client';
+import { RawHeroShopSpiritStatsDisplayV2 } from 'assets_deadlock_api_client';
 
 const instance: RawHeroShopSpiritStatsDisplayV2 = {
     display_stats,

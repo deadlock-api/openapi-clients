@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HeroPhysicsV2 } from 'assets-deadlock-api-client';
+import { HeroPhysicsV2 } from 'assets_deadlock_api_client';
 
 const instance: HeroPhysicsV2 = {
     collision_height,

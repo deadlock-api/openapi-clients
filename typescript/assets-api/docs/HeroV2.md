@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HeroV2 } from 'assets-deadlock-api-client';
+import { HeroV2 } from 'assets_deadlock_api_client';
 
 const instance: HeroV2 = {
     id,

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RawWeaponInfoVerticalRecoilV2 } from 'assets-deadlock-api-client';
+import { RawWeaponInfoVerticalRecoilV2 } from 'assets_deadlock_api_client';
 
 const instance: RawWeaponInfoVerticalRecoilV2 = {
     range,

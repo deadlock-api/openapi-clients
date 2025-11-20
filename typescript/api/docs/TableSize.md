@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { TableSize } from 'deadlock-api-client';
+import { TableSize } from 'deadlock_api_client';
 
 const instance: TableSize = {
     data_compressed_bytes,

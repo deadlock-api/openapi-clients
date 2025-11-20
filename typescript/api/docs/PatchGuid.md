@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { PatchGuid } from 'deadlock-api-client';
+import { PatchGuid } from 'deadlock_api_client';
 
 const instance: PatchGuid = {
     is_perma_link,

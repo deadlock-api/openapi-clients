@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { RawHeroPurchaseBonusV2 } from 'assets-deadlock-api-client';
+import { RawHeroPurchaseBonusV2 } from 'assets_deadlock_api_client';
 
 const instance: RawHeroPurchaseBonusV2 = {
     value_type,

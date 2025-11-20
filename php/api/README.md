@@ -1,4 +1,4 @@
-# deadlock-api-client
+# deadlock_api_client
 
 
 ## API Clients
@@ -53,7 +53,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/deadlock-api-client/vendor/autoload.php');
+require_once('/path/to/deadlock_api_client/vendor/autoload.php');
 ```
 
 ## Getting Started
@@ -73,7 +73,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1760918400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1761004800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).

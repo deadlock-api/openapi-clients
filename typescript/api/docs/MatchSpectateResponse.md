@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { MatchSpectateResponse } from 'deadlock-api-client';
+import { MatchSpectateResponse } from 'deadlock_api_client';
 
 const instance: MatchSpectateResponse = {
     broadcast_url,

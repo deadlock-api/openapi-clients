@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon } from 'assets-deadlock-api-client';
+import { UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon } from 'assets_deadlock_api_client';
 
 const instance: UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon = {
     name,

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { AbilityV2 } from 'assets-deadlock-api-client';
+import { AbilityV2 } from 'assets_deadlock_api_client';
 
 const instance: AbilityV2 = {
     id,

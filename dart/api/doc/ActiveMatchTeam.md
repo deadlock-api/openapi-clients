@@ -1,8 +1,8 @@
-# deadlock-api-client.model.ActiveMatchTeam
+# deadlock_api_client.model.ActiveMatchTeam
 
 ## Load the model package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 ## Properties

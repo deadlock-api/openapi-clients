@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { GetCustomMatchIdResponse } from 'deadlock-api-client';
+import { GetCustomMatchIdResponse } from 'deadlock_api_client';
 
 const instance: GetCustomMatchIdResponse = {
     match_id,

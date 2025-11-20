@@ -1,8 +1,8 @@
-# deadlock-api-client.model.HeroStats
+# deadlock_api_client.model.HeroStats
 
 ## Load the model package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 ## Properties

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Build } from 'deadlock-api-client';
+import { Build } from 'deadlock_api_client';
 
 const instance: Build = {
     hero_build,

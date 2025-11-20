@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { BuildHeroDetailsAbilityOrder } from 'deadlock-api-client';
+import { BuildHeroDetailsAbilityOrder } from 'deadlock_api_client';
 
 const instance: BuildHeroDetailsAbilityOrder = {
     currency_changes,

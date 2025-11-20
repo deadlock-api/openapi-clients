@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { StatusServices } from 'deadlock-api-client';
+import { StatusServices } from 'deadlock_api_client';
 
 const instance: StatusServices = {
     clickhouse,

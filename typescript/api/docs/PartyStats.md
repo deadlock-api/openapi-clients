@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { PartyStats } from 'deadlock-api-client';
+import { PartyStats } from 'deadlock_api_client';
 
 const instance: PartyStats = {
     matches,

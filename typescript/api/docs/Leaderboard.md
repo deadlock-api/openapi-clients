@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Leaderboard } from 'deadlock-api-client';
+import { Leaderboard } from 'deadlock_api_client';
 
 const instance: Leaderboard = {
     entries,

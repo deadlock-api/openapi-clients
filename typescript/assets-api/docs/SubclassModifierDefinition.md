@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { SubclassModifierDefinition } from 'assets-deadlock-api-client';
+import { SubclassModifierDefinition } from 'assets_deadlock_api_client';
 
 const instance: SubclassModifierDefinition = {
     subclass,

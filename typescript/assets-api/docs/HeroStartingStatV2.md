@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HeroStartingStatV2 } from 'assets-deadlock-api-client';
+import { HeroStartingStatV2 } from 'assets_deadlock_api_client';
 
 const instance: HeroStartingStatV2 = {
     value,

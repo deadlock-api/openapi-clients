@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Patch } from 'deadlock-api-client';
+import { Patch } from 'deadlock_api_client';
 
 const instance: Patch = {
     author,

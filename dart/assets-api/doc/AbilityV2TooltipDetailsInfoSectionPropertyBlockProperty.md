@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.model.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
+# assets_deadlock_api_client.model.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
 
 ## Load the model package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 ## Properties

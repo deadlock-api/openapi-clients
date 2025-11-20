@@ -1,8 +1,8 @@
-# deadlock-api-client.model.VariableCategory
+# deadlock_api_client.model.VariableCategory
 
 ## Load the model package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 ## Properties

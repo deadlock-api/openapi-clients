@@ -21,8 +21,8 @@ Create Match
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = CustomMatchesApi()
 val createCustomRequest : CreateCustomRequest =  // CreateCustomRequest | 
@@ -67,8 +67,8 @@ Get Match ID
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = CustomMatchesApi()
 val partyId : kotlin.Long = 789 // kotlin.Long | 
@@ -113,8 +113,8 @@ Ready Up
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = CustomMatchesApi()
 val lobbyId : kotlin.String = lobbyId_example // kotlin.String | 
@@ -158,8 +158,8 @@ Unready
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = CustomMatchesApi()
 val lobbyId : kotlin.String = lobbyId_example // kotlin.String | 

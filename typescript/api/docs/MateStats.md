@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { MateStats } from 'deadlock-api-client';
+import { MateStats } from 'deadlock_api_client';
 
 const instance: MateStats = {
     matches,

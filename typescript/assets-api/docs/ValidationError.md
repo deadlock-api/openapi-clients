@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ValidationError } from 'assets-deadlock-api-client';
+import { ValidationError } from 'assets_deadlock_api_client';
 
 const instance: ValidationError = {
     loc,

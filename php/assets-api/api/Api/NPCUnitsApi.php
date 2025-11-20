@@ -134,7 +134,7 @@ class NPCUnitsApi
      * Get Npc Unit
      *
      * @param  string $id_or_class_name id_or_class_name (required)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnitV2NpcUnitsIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -153,7 +153,7 @@ class NPCUnitsApi
      * Get Npc Unit
      *
      * @param  string $id_or_class_name (required)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnitV2NpcUnitsIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -253,7 +253,7 @@ class NPCUnitsApi
      * Get Npc Unit
      *
      * @param  string $id_or_class_name (required)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnitV2NpcUnitsIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -275,7 +275,7 @@ class NPCUnitsApi
      * Get Npc Unit
      *
      * @param  string $id_or_class_name (required)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnitV2NpcUnitsIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -326,7 +326,7 @@ class NPCUnitsApi
      * Create request for operation 'getNpcUnitV2NpcUnitsIdOrClassNameGet'
      *
      * @param  string $id_or_class_name (required)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnitV2NpcUnitsIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -355,7 +355,7 @@ class NPCUnitsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesV1ValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesV2ValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -430,7 +430,7 @@ class NPCUnitsApi
      *
      * Get Npc Units
      *
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnitsV2NpcUnitsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -448,7 +448,7 @@ class NPCUnitsApi
      *
      * Get Npc Units
      *
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnitsV2NpcUnitsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -547,7 +547,7 @@ class NPCUnitsApi
      *
      * Get Npc Units
      *
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnitsV2NpcUnitsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -568,7 +568,7 @@ class NPCUnitsApi
      *
      * Get Npc Units
      *
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnitsV2NpcUnitsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -618,7 +618,7 @@ class NPCUnitsApi
     /**
      * Create request for operation 'getNpcUnitsV2NpcUnitsGet'
      *
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnitsV2NpcUnitsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -640,7 +640,7 @@ class NPCUnitsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesV1ValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesV2ValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required

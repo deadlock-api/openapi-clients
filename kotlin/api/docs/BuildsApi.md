@@ -18,8 +18,8 @@ Search
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = BuildsApi()
 val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter builds based on their `last_updated` time (Unix timestamp).

@@ -1,8 +1,8 @@
-# deadlock-api-client.model.BuildHeroDetailsAbilityOrder
+# deadlock_api_client.model.BuildHeroDetailsAbilityOrder
 
 ## Load the model package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 ## Properties

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { CreateCustomRequest } from 'deadlock-api-client';
+import { CreateCustomRequest } from 'deadlock_api_client';
 
 const instance: CreateCustomRequest = {
     callback_url,

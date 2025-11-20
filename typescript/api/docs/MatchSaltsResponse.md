@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { MatchSaltsResponse } from 'deadlock-api-client';
+import { MatchSaltsResponse } from 'deadlock_api_client';
 
 const instance: MatchSaltsResponse = {
     cluster_id,

@@ -21,8 +21,8 @@ Available Variables
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = CommandsApi()
 try {
@@ -64,8 +64,8 @@ Resolve Command
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = CommandsApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
@@ -116,8 +116,8 @@ Resolve Variables
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = CommandsApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | 
@@ -168,8 +168,8 @@ Widget Versions
 ### Example
 ```kotlin
 // Import classes:
-//import deadlock-api-client.infrastructure.*
-//import deadlock-api-client.models.*
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
 
 val apiInstance = CommandsApi()
 try {

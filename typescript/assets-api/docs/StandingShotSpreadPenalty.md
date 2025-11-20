@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { StandingShotSpreadPenalty } from 'assets-deadlock-api-client';
+import { StandingShotSpreadPenalty } from 'assets_deadlock_api_client';
 
 const instance: StandingShotSpreadPenalty = {
 };

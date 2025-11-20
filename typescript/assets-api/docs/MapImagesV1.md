@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { MapImagesV1 } from 'assets-deadlock-api-client';
+import { MapImagesV1 } from 'assets_deadlock_api_client';
 
 const instance: MapImagesV1 = {
     minimap,

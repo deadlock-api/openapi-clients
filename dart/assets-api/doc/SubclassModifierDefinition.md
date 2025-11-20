@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.model.SubclassModifierDefinition
+# assets_deadlock_api_client.model.SubclassModifierDefinition
 
 ## Load the model package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 ## Properties

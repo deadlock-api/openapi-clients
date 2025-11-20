@@ -1,8 +1,8 @@
-# deadlock-api-client.api.MMRApi
+# deadlock_api_client.api.MMRApi
 
 ## Load the API package
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://api.deadlock-api.com*
@@ -26,7 +26,7 @@ Batch Hero MMR
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MMRApi();
 final accountIds = []; // List<int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
@@ -73,7 +73,7 @@ Hero MMR Distribution
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MMRApi();
 final heroId = 56; // int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -100,7 +100,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int**| The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> | 
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -134,7 +134,7 @@ Player Hero MMR History
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MMRApi();
 final accountId = 56; // int | The players `SteamID3`
@@ -179,7 +179,7 @@ Batch MMR
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MMRApi();
 final accountIds = []; // List<int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
@@ -224,7 +224,7 @@ MMR Distribution
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MMRApi();
 final minUnixTimestamp = 789; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -249,7 +249,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1760918400]
+ **minUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761004800]
  **maxUnixTimestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **minDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **maxDurationS** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -283,7 +283,7 @@ Player MMR History
 
 ### Example
 ```dart
-import 'package:deadlock-api-client/api.dart';
+import 'package:deadlock_api_client/api.dart';
 
 final api_instance = MMRApi();
 final accountId = 56; // int | The players `SteamID3`

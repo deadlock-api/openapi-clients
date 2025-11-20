@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { PickupDefinition } from 'assets-deadlock-api-client';
+import { PickupDefinition } from 'assets_deadlock_api_client';
 
 const instance: PickupDefinition = {
     pickup_name,

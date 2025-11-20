@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.model.RawHeroStatsDisplayV2
+# assets_deadlock_api_client.model.RawHeroStatsDisplayV2
 
 ## Load the model package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 ## Properties

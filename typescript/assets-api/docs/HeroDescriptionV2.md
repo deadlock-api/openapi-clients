@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HeroDescriptionV2 } from 'assets-deadlock-api-client';
+import { HeroDescriptionV2 } from 'assets_deadlock_api_client';
 
 const instance: HeroDescriptionV2 = {
     lore,

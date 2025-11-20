@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HeroLevelInfoV2 } from 'assets-deadlock-api-client';
+import { HeroLevelInfoV2 } from 'assets_deadlock_api_client';
 
 const instance: HeroLevelInfoV2 = {
     use_standard_upgrade,

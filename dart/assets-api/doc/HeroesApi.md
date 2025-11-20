@@ -1,8 +1,8 @@
-# assets-deadlock-api-client.api.HeroesApi
+# assets_deadlock_api_client.api.HeroesApi
 
 ## Load the API package
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 ```
 
 All URIs are relative to *https://assets.deadlock-api.com*
@@ -21,12 +21,12 @@ Get Hero By Name
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = HeroesApi();
 final name = name_example; // String | 
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getHeroByNameV2HeroesByNameNameGet(name, language, clientVersion);
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -66,12 +66,12 @@ Get Hero
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = HeroesApi();
 final id = 56; // int | 
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 
 try {
     final result = api_instance.getHeroV2HeroesIdGet(id, language, clientVersion);
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -111,11 +111,11 @@ Get Heroes
 
 ### Example
 ```dart
-import 'package:assets-deadlock-api-client/api.dart';
+import 'package:assets_deadlock_api_client/api.dart';
 
 final api_instance = HeroesApi();
 final language = ; // Language | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
 final onlyActive = true; // bool | 
 
 try {
@@ -131,7 +131,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
  **onlyActive** | **bool**|  | [optional] 
 
 ### Return type

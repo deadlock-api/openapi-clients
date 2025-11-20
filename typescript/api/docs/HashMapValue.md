@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HashMapValue } from 'deadlock-api-client';
+import { HashMapValue } from 'deadlock_api_client';
 
 const instance: HashMapValue = {
     avg,
