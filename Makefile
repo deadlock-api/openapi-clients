@@ -1,4 +1,4 @@
-all: python typescript rust kotlin go php dart jetbrains-client
+all: python typescript rust kotlin go php jetbrains-client
 
 python: generate-api-python generate-assets-api-python
 
@@ -114,22 +114,6 @@ generate-assets-api-php:
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g php -o php/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client,srcBasePath=api,licenseName=MIT,developerOrganization=deadlock-api,developerOrganizationUrl=https://deadlock-api.com
 	@echo "--> Assets API client generated successfully in php/assets-api/"
 
-dart: generate-api-dart generate-assets-api-dart
-
-generate-api-dart:
-	@echo "--> Creating directory for the main API client..."
-	@mkdir -p dart/api
-	@echo "--> Generating Dart client for the main API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g dart -o dart/api/ --skip-validate-spec --type-mappings=AnyType=Object --additional-properties=pubName=deadlock_api_client,pubLibrary=deadlock_api_client,pubAuthor=deadlock-api,pubAuthorEmail=contact@deadlock-api.com,pubHomepage=https://deadlock-api.com,pubRepository=https://github.com/deadlock-api/openapi-clients
-	@echo "--> Main API client generated successfully in dart/api/"
-
-generate-assets-api-dart:
-	@echo "--> Creating directory for the assets API client..."
-	@mkdir -p dart/assets-api
-	@echo "--> Generating Dart client for the assets API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g dart -o dart/assets-api/ --skip-validate-spec --type-mappings=AnyType=Object --additional-properties=pubName=assets_deadlock_api_client,pubLibrary=assets_deadlock_api_client,pubAuthor=deadlock-api,pubAuthorEmail=contact@deadlock-api.com,pubHomepage=https://deadlock-api.com,pubRepository=https://github.com/deadlock-api/openapi-clients
-	@echo "--> Assets API client generated successfully in dart/assets-api/"
-
 jetbrains-client: generate-api-jetbrains-client generate-assets-api-jetbrains-client
 
 generate-api-jetbrains-client:
@@ -149,5 +133,5 @@ generate-assets-api-jetbrains-client:
 # Target to clean up all generated directories.
 clean:
 	@echo "--> Removing generated client directories..."
-	@rm -rf openapitools.json python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api php/api php/assets-api dart/api dart/assets-api jetbrains-client/api jetbrains-client/assets-api
+	@rm -rf openapitools.json python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api php/api php/assets-api jetbrains-client/api jetbrains-client/assets-api
 	@echo "--> Cleanup complete."
