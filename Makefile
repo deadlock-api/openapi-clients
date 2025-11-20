@@ -1,9 +1,6 @@
-NPROCS = $(shell grep -c 'processor' /proc/cpuinfo)
-MAKEFLAGS += -j$(NPROCS)
+all: python typescript rust kotlin go php dart jetbrains-client
 
-all: | python typescript rust kotlin go php dart jetbrains-client
-
-python: | generate-api-python generate-assets-api-python
+python: generate-api-python generate-assets-api-python
 
 generate-api-python:
 	@echo "--> Creating directory for the main API client..."
@@ -20,7 +17,7 @@ generate-assets-api-python:
 	@echo "--> Assets API client generated successfully in python/assets-api/"
 
 
-typescript: | generate-api-typescript generate-assets-api-typescript
+typescript: generate-api-typescript generate-assets-api-typescript
 
 generate-api-typescript:
 	@echo "--> Creating directory for the main API client..."
@@ -35,7 +32,7 @@ generate-assets-api-typescript:
 	@echo "--> Generating Typescript client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g typescript-axios -o typescript/assets-api/ --skip-validate-spec --additional-properties=npmName=assets_deadlock_api_client,useSingleRequestParameter=true
 
-rust: | generate-api-rust generate-assets-api-rust
+rust: generate-api-rust generate-assets-api-rust
 
 generate-api-rust:
 	@echo "--> Creating directory for the main API client..."
@@ -51,7 +48,7 @@ generate-assets-api-rust:
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g rust -o rust/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client,useSingleRequestParameter=true,preferUnsignedInt=true,bestFitInt=true
 	@echo "--> Assets API client generated successfully in rust/assets-api/"
 
-kotlin: | generate-api-kotlin generate-assets-api-kotlin
+kotlin: generate-api-kotlin generate-assets-api-kotlin
 
 generate-api-kotlin:
 	@echo "--> Creating directory for the main API client..."
@@ -67,7 +64,7 @@ generate-assets-api-kotlin:
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g kotlin -o kotlin/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client,idea=true,artifactId=assets_deadlock_api_client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients
 	@echo "--> Assets API client generated successfully in kotlin/assets-api/"
 
-go: | generate-api-go generate-assets-api-go
+go: generate-api-go generate-assets-api-go
 
 generate-api-go:
 	@echo "--> Creating directory for the main API client..."
@@ -83,7 +80,7 @@ generate-assets-api-go:
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g go -o go/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client
 	@echo "--> Assets API client generated successfully in go/assets-api/"
 
-php: | generate-api-php generate-assets-api-php
+php: generate-api-php generate-assets-api-php
 
 generate-api-php:
 	@echo "--> Creating directory for the main API client..."
@@ -99,7 +96,7 @@ generate-assets-api-php:
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g php -o php/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client,srcBasePath=api,licenseName=MIT,developerOrganization=deadlock-api,developerOrganizationUrl=https://deadlock-api.com
 	@echo "--> Assets API client generated successfully in php/assets-api/"
 
-dart: | generate-api-dart generate-assets-api-dart
+dart: generate-api-dart generate-assets-api-dart
 
 generate-api-dart:
 	@echo "--> Creating directory for the main API client..."
@@ -115,7 +112,7 @@ generate-assets-api-dart:
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g dart -o dart/assets-api/ --skip-validate-spec --type-mappings=AnyType=Object --additional-properties=pubName=assets_deadlock_api_client,pubLibrary=assets_deadlock_api_client,pubAuthor=deadlock-api,pubAuthorEmail=contact@deadlock-api.com,pubHomepage=https://deadlock-api.com,pubRepository=https://github.com/deadlock-api/openapi-clients
 	@echo "--> Assets API client generated successfully in dart/assets-api/"
 
-jetbrains-client: | generate-api-jetbrains-client generate-assets-api-jetbrains-client
+jetbrains-client: generate-api-jetbrains-client generate-assets-api-jetbrains-client
 
 generate-api-jetbrains-client:
 	@echo "--> Creating directory for the main API client..."
