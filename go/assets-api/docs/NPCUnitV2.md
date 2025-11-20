@@ -52,13 +52,13 @@ Name | Type | Description | Notes
 **GlowColorTeam1** | Pointer to [**NullableGlowColorTeam1**](GlowColorTeam1.md) |  | [optional] 
 **GlowColorTeam2** | Pointer to [**NullableGlowColorTeam2**](GlowColorTeam2.md) |  | [optional] 
 **GlowColorTeamNeutral** | Pointer to [**NullableGlowColorTeamNeutral**](GlowColorTeamNeutral.md) |  | [optional] 
-**Id** | **int32** |  | [readonly] 
+**Id** | **int64** |  | [readonly] 
 
 ## Methods
 
 ### NewNPCUnitV2
 
-`func NewNPCUnitV2(className string, id int32, ) *NPCUnitV2`
+`func NewNPCUnitV2(className string, id int64, ) *NPCUnitV2`
 
 NewNPCUnitV2 instantiates a new NPCUnitV2 object
 This constructor will assign default values to properties that have it defined,
@@ -1740,20 +1740,20 @@ HasGlowColorTeamNeutral returns a boolean if a field has been set.
 UnsetGlowColorTeamNeutral ensures that no value is present for GlowColorTeamNeutral, not even an explicit nil
 ### GetId
 
-`func (o *NPCUnitV2) GetId() int32`
+`func (o *NPCUnitV2) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *NPCUnitV2) GetIdOk() (*int32, bool)`
+`func (o *NPCUnitV2) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *NPCUnitV2) SetId(v int32)`
+`func (o *NPCUnitV2) SetId(v int64)`
 
 SetId sets Id field to given value.
 

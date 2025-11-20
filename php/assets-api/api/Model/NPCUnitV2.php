@@ -164,7 +164,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'glow_color_team1' => null,
         'glow_color_team2' => null,
         'glow_color_team_neutral' => null,
-        'id' => null
+        'id' => 'int64'
     ];
 
     /**

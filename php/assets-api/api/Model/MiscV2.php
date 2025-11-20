@@ -136,7 +136,7 @@ class MiscV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'orb_spawn_delay_max' => null,
         'lifetime' => null,
         'collision_radius' => null,
-        'id' => null
+        'id' => 'int64'
     ];
 
     /**

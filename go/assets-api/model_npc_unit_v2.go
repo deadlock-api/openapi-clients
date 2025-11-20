@@ -69,7 +69,7 @@ type NPCUnitV2 struct {
 	GlowColorTeam1 NullableGlowColorTeam1 `json:"glow_color_team1,omitempty"`
 	GlowColorTeam2 NullableGlowColorTeam2 `json:"glow_color_team2,omitempty"`
 	GlowColorTeamNeutral NullableGlowColorTeamNeutral `json:"glow_color_team_neutral,omitempty"`
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 }
 
 type _NPCUnitV2 NPCUnitV2
@@ -78,7 +78,7 @@ type _NPCUnitV2 NPCUnitV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNPCUnitV2(className string, id int32) *NPCUnitV2 {
+func NewNPCUnitV2(className string, id int64) *NPCUnitV2 {
 	this := NPCUnitV2{}
 	this.ClassName = className
 	this.Id = id
@@ -2092,9 +2092,9 @@ func (o *NPCUnitV2) UnsetGlowColorTeamNeutral() {
 }
 
 // GetId returns the Id field value
-func (o *NPCUnitV2) GetId() int32 {
+func (o *NPCUnitV2) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -2103,7 +2103,7 @@ func (o *NPCUnitV2) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *NPCUnitV2) GetIdOk() (*int32, bool) {
+func (o *NPCUnitV2) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2111,7 +2111,7 @@ func (o *NPCUnitV2) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *NPCUnitV2) SetId(v int32) {
+func (o *NPCUnitV2) SetId(v int64) {
 	o.Id = v
 }
 

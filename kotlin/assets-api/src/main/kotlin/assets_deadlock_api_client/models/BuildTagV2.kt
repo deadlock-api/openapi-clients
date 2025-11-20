@@ -38,7 +38,7 @@ data class BuildTagV2 (
     val label: kotlin.String,
 
     @Json(name = "id")
-    val id: kotlin.Int,
+    val id: kotlin.Long,
 
     @Json(name = "icon")
     val icon: kotlin.String

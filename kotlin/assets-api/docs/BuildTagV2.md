@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **className** | **kotlin.String** |  |  |
 | **label** | **kotlin.String** |  |  |
-| **id** | **kotlin.Int** |  |  [readonly] |
+| **id** | **kotlin.Long** |  |  [readonly] |
 | **icon** | **kotlin.String** |  |  [readonly] |
 
 

@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **orb_spawn_delay_max** | Option<**f64**> |  | [optional]
 **lifetime** | Option<**f64**> |  | [optional]
 **collision_radius** | Option<**f64**> |  | [optional]
-**id** | **i32** |  | [readonly]
+**id** | **i64** |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

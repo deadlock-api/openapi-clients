@@ -1289,6 +1289,7 @@ components:
           title: Label
           type: string
         id:
+          format: int64
           readOnly: true
           title: Id
           type: integer
@@ -2655,6 +2656,7 @@ components:
           nullable: true
           type: number
         id:
+          format: int64
           readOnly: true
           title: Id
           type: integer
@@ -3050,6 +3052,7 @@ components:
         glow_color_team_neutral:
           $ref: "#/components/schemas/Glow_Color_Team_Neutral"
         id:
+          format: int64
           readOnly: true
           title: Id
           type: integer

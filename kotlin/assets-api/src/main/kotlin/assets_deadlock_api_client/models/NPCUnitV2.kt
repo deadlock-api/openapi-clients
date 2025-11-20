@@ -91,7 +91,7 @@ data class NPCUnitV2 (
     val className: kotlin.String,
 
     @Json(name = "id")
-    val id: kotlin.Int,
+    val id: kotlin.Long,
 
     @Json(name = "weapon_info")
     val weaponInfo: RawWeaponInfoV2? = null,

@@ -73,7 +73,7 @@ class BuildTagV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'class_name' => null,
         'label' => null,
-        'id' => null,
+        'id' => 'int64',
         'icon' => null
     ];
 

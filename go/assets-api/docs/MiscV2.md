@@ -38,13 +38,13 @@ Name | Type | Description | Notes
 **OrbSpawnDelayMax** | Pointer to **NullableFloat32** |  | [optional] 
 **Lifetime** | Pointer to **NullableFloat32** |  | [optional] 
 **CollisionRadius** | Pointer to **NullableFloat32** |  | [optional] 
-**Id** | **int32** |  | [readonly] 
+**Id** | **int64** |  | [readonly] 
 
 ## Methods
 
 ### NewMiscV2
 
-`func NewMiscV2(className string, id int32, ) *MiscV2`
+`func NewMiscV2(className string, id int64, ) *MiscV2`
 
 NewMiscV2 instantiates a new MiscV2 object
 This constructor will assign default values to properties that have it defined,
@@ -1236,20 +1236,20 @@ HasCollisionRadius returns a boolean if a field has been set.
 UnsetCollisionRadius ensures that no value is present for CollisionRadius, not even an explicit nil
 ### GetId
 
-`func (o *MiscV2) GetId() int32`
+`func (o *MiscV2) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *MiscV2) GetIdOk() (*int32, bool)`
+`func (o *MiscV2) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *MiscV2) SetId(v int32)`
+`func (o *MiscV2) SetId(v int64)`
 
 SetId sets Id field to given value.
 

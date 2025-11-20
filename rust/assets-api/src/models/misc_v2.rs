@@ -82,11 +82,11 @@ pub struct MiscV2 {
     #[serde(rename = "collision_radius", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub collision_radius: Option<Option<f64>>,
     #[serde(rename = "id")]
-    pub id: i32,
+    pub id: i64,
 }
 
 impl MiscV2 {
-    pub fn new(class_name: String, id: i32) -> MiscV2 {
+    pub fn new(class_name: String, id: i64) -> MiscV2 {
         MiscV2 {
             class_name,
             color: None,

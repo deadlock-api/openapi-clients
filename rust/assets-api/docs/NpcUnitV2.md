@@ -52,7 +52,7 @@ Name | Type | Description | Notes
 **glow_color_team1** | Option<[**models::GlowColorTeam1**](Glow_Color_Team1.md)> |  | [optional]
 **glow_color_team2** | Option<[**models::GlowColorTeam2**](Glow_Color_Team2.md)> |  | [optional]
 **glow_color_team_neutral** | Option<[**models::GlowColorTeamNeutral**](Glow_Color_Team_Neutral.md)> |  | [optional]
-**id** | **i32** |  | [readonly]
+**id** | **i64** |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

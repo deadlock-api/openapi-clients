@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassName** | **string** |  | 
 **Label** | **string** |  | 
-**Id** | **int32** |  | [readonly] 
+**Id** | **int64** |  | [readonly] 
 **Icon** | **string** |  | [readonly] 
 
 ## Methods
 
 ### NewBuildTagV2
 
-`func NewBuildTagV2(className string, label string, id int32, icon string, ) *BuildTagV2`
+`func NewBuildTagV2(className string, label string, id int64, icon string, ) *BuildTagV2`
 
 NewBuildTagV2 instantiates a new BuildTagV2 object
 This constructor will assign default values to properties that have it defined,
@@ -70,20 +70,20 @@ SetLabel sets Label field to given value.
 
 ### GetId
 
-`func (o *BuildTagV2) GetId() int32`
+`func (o *BuildTagV2) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *BuildTagV2) GetIdOk() (*int32, bool)`
+`func (o *BuildTagV2) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *BuildTagV2) SetId(v int32)`
+`func (o *BuildTagV2) SetId(v int64)`
 
 SetId sets Id field to given value.
 

@@ -18,13 +18,13 @@ pub struct BuildTagV2 {
     #[serde(rename = "label")]
     pub label: String,
     #[serde(rename = "id")]
-    pub id: i32,
+    pub id: i64,
     #[serde(rename = "icon")]
     pub icon: String,
 }
 
 impl BuildTagV2 {
-    pub fn new(class_name: String, label: String, id: i32, icon: String) -> BuildTagV2 {
+    pub fn new(class_name: String, label: String, id: i64, icon: String) -> BuildTagV2 {
         BuildTagV2 {
             class_name,
             label,

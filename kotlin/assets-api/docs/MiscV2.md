@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **className** | **kotlin.String** |  |  |
-| **id** | **kotlin.Int** |  |  [readonly] |
+| **id** | **kotlin.Long** |  |  [readonly] |
 | **color** | [**Color**](Color.md) |  |  [optional] |
 | **initialSpawnTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **respawnTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

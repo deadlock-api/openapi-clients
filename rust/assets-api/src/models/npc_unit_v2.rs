@@ -110,11 +110,11 @@ pub struct NpcUnitV2 {
     #[serde(rename = "glow_color_team_neutral", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub glow_color_team_neutral: Option<Option<Box<models::GlowColorTeamNeutral>>>,
     #[serde(rename = "id")]
-    pub id: i32,
+    pub id: i64,
 }
 
 impl NpcUnitV2 {
-    pub fn new(class_name: String, id: i32) -> NpcUnitV2 {
+    pub fn new(class_name: String, id: i64) -> NpcUnitV2 {
         NpcUnitV2 {
             class_name,
             weapon_info: None,

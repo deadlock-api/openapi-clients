@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **className** | **kotlin.String** |  |  |
-| **id** | **kotlin.Int** |  |  [readonly] |
+| **id** | **kotlin.Long** |  |  [readonly] |
 | **weaponInfo** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  |  [optional] |
 | **maxHealth** | **kotlin.Int** |  |  [optional] |
 | **sightRangePlayers** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
