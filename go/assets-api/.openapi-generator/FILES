@@ -24,7 +24,7 @@ docs/Bonus.md
 docs/BuildTagV2.md
 docs/Color.md
 docs/ColorV1.md
-docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
 docs/DefaultAPI.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/GlowColorEnemy.md
@@ -126,7 +126,7 @@ model_bonus.go
 model_build_tag_v2.go
 model_color.go
 model_color_v1.go
-model_deadlock_assets_api__routes__v2__valid_client_versions.go
+model_deadlock_assets_api__routes__v1__valid_client_versions.go
 model_get_items_v2_items_get_200_response_inner.go
 model_glow_color_enemy.go
 model_glow_color_friend.go

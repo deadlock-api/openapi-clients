@@ -19,14 +19,14 @@ void main() {
   group('tests for MiscEntitiesApi', () {
     // Get Misc Entities
     //
-    //Future<List<MiscV2>> getMiscEntitiesV2MiscEntitiesGet({ DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
+    //Future<List<MiscV2>> getMiscEntitiesV2MiscEntitiesGet({ DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
     test('test getMiscEntitiesV2MiscEntitiesGet', () async {
       // TODO
     });
 
     // Get Misc Entity
     //
-    //Future<NPCUnitV2> getMiscEntityV2MiscEntitiesIdOrClassNameGet(String idOrClassName, { DeadlockAssetsApiRoutesV2ValidClientVersions clientVersion }) async
+    //Future<NPCUnitV2> getMiscEntityV2MiscEntitiesIdOrClassNameGet(String idOrClassName, { DeadlockAssetsApiRoutesV1ValidClientVersions clientVersion }) async
     test('test getMiscEntityV2MiscEntitiesIdOrClassNameGet', () async {
       // TODO
     });

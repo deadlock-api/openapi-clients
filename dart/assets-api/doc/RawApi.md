@@ -24,7 +24,7 @@ Get Generic Data
 import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = RawApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getGenericDataRawGenericDataGet(clientVersion);
@@ -38,7 +38,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -65,7 +65,7 @@ Get Raw Heroes
 import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = RawApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getRawHeroesRawHeroesGet(clientVersion);
@@ -79,7 +79,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -106,7 +106,7 @@ Get Raw Items
 import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = RawApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getRawItemsRawItemsGet(clientVersion);
@@ -120,7 +120,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

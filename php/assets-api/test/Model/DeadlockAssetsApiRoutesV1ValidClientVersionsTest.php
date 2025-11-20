@@ -1,6 +1,6 @@
 <?php
 /**
- * DeadlockAssetsApiRoutesV2ValidClientVersionsTest
+ * DeadlockAssetsApiRoutesV1ValidClientVersionsTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DeadlockAssetsApiRoutesV2ValidClientVersionsTest Class Doc Comment
+ * DeadlockAssetsApiRoutesV1ValidClientVersionsTest Class Doc Comment
  *
  * @category    Class
- * @description DeadlockAssetsApiRoutesV2ValidClientVersions
+ * @description DeadlockAssetsApiRoutesV1ValidClientVersions
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DeadlockAssetsApiRoutesV2ValidClientVersionsTest extends TestCase
+class DeadlockAssetsApiRoutesV1ValidClientVersionsTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class DeadlockAssetsApiRoutesV2ValidClientVersionsTest extends TestCase
     }
 
     /**
-     * Test "DeadlockAssetsApiRoutesV2ValidClientVersions"
+     * Test "DeadlockAssetsApiRoutesV1ValidClientVersions"
      */
-    public function testDeadlockAssetsApiRoutesV2ValidClientVersions()
+    public function testDeadlockAssetsApiRoutesV1ValidClientVersions()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

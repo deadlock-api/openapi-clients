@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets-deadlock-api-client.apis.MiscEntitiesApi
-import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
+import assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets-deadlock-api-client.models.HTTPValidationError
 import assets-deadlock-api-client.models.MiscV2
 import assets-deadlock-api-client.models.NPCUnitV2
@@ -32,7 +32,7 @@ class MiscEntitiesApiTest : ShouldSpec() {
         // to test getMiscEntitiesV2MiscEntitiesGet
         should("test getMiscEntitiesV2MiscEntitiesGet") {
             // uncomment below to test getMiscEntitiesV2MiscEntitiesGet
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
             //val result : kotlin.collections.List<MiscV2> = apiInstance.getMiscEntitiesV2MiscEntitiesGet(clientVersion)
             //result shouldBe ("TODO")
         }
@@ -41,7 +41,7 @@ class MiscEntitiesApiTest : ShouldSpec() {
         should("test getMiscEntityV2MiscEntitiesIdOrClassNameGet") {
             // uncomment below to test getMiscEntityV2MiscEntitiesIdOrClassNameGet
             //val idOrClassName : kotlin.String = idOrClassName_example // kotlin.String | 
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
             //val result : NPCUnitV2 = apiInstance.getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion)
             //result shouldBe ("TODO")
         }

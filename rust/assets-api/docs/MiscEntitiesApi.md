@@ -19,7 +19,7 @@ Get Misc Entities
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -48,7 +48,7 @@ Get Misc Entity
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id_or_class_name** | **String** |  | [required] |
-**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 

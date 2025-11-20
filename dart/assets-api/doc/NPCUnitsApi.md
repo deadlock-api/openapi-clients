@@ -24,7 +24,7 @@ import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = NPCUnitsApi();
 final idOrClassName = idOrClassName_example; // String | 
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getNpcUnitV2NpcUnitsIdOrClassNameGet(idOrClassName, clientVersion);
@@ -39,7 +39,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idOrClassName** | **String**|  | 
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -66,7 +66,7 @@ Get Npc Units
 import 'package:assets-deadlock-api-client/api.dart';
 
 final api_instance = NPCUnitsApi();
-final clientVersion = ; // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+final clientVersion = ; // DeadlockAssetsApiRoutesV1ValidClientVersions | 
 
 try {
     final result = api_instance.getNpcUnitsV2NpcUnitsGet(clientVersion);
@@ -80,7 +80,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

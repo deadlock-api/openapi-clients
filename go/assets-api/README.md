@@ -136,7 +136,7 @@ Class | Method | HTTP request | Description
  - [BuildTagV2](docs/BuildTagV2.md)
  - [Color](docs/Color.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesV2ValidClientVersions](docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [GlowColorEnemy](docs/GlowColorEnemy.md)
  - [GlowColorFriend](docs/GlowColorFriend.md)

@@ -104,7 +104,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets-deadlock-api-client.models.BuildTagV2](docs/BuildTagV2.md)
  - [assets-deadlock-api-client.models.Color](docs/Color.md)
  - [assets-deadlock-api-client.models.ColorV1](docs/ColorV1.md)
- - [assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV2ValidClientVersions](docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md)
+ - [assets-deadlock-api-client.models.DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [assets-deadlock-api-client.models.GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [assets-deadlock-api-client.models.GlowColorEnemy](docs/GlowColorEnemy.md)
  - [assets-deadlock-api-client.models.GlowColorFriend](docs/GlowColorFriend.md)

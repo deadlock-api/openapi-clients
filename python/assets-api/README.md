@@ -87,7 +87,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = assets_deadlock_api_client.HeroesApi(api_client)
     name = 'name_example' # str | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Hero By Name
@@ -145,7 +145,7 @@ Class | Method | HTTP request | Description
  - [BuildTagV2](docs/BuildTagV2.md)
  - [Color](docs/Color.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesV2ValidClientVersions](docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [GlowColorEnemy](docs/GlowColorEnemy.md)
  - [GlowColorFriend](docs/GlowColorFriend.md)

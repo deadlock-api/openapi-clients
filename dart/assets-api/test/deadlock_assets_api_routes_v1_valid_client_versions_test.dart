@@ -11,10 +11,10 @@
 import 'package:assets-deadlock-api-client/api.dart';
 import 'package:test/test.dart';
 
-// tests for DeadlockAssetsApiRoutesV2ValidClientVersions
+// tests for DeadlockAssetsApiRoutesV1ValidClientVersions
 void main() {
 
-  group('test DeadlockAssetsApiRoutesV2ValidClientVersions', () {
+  group('test DeadlockAssetsApiRoutesV1ValidClientVersions', () {
 
   });
 
