@@ -100,6 +100,10 @@ docs/Value.md
 docs/Value1.md
 docs/WeaponV2.md
 docs/ZiplanePathV1.md
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+gradlew
+gradlew.bat
 settings.gradle
 src/main/kotlin/assets_deadlock_api_client/apis/DefaultApi.kt
 src/main/kotlin/assets_deadlock_api_client/apis/HeroesApi.kt

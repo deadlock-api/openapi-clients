@@ -1,6 +1,7 @@
 group 'com.deadlock-api'
 version '1.0.0'
 
+
 buildscript {
     ext.kotlin_version = '2.2.20'
     ext.spotless_version = "7.2.1"
@@ -62,4 +63,12 @@ dependencies {
     implementation "com.squareup.moshi:moshi-adapters:1.15.2"
     implementation "com.squareup.okhttp3:okhttp:5.1.0"
     testImplementation "io.kotlintest:kotlintest-runner-junit5:3.4.2"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
 }
