@@ -68,10 +68,6 @@ docs/SteamProfile.md
 docs/TableSize.md
 docs/VariableCategory.md
 docs/VariableDescription.md
-gradle/wrapper/gradle-wrapper.jar
-gradle/wrapper/gradle-wrapper.properties
-gradlew
-gradlew.bat
 settings.gradle
 src/main/kotlin/deadlock_api_client/apis/AnalyticsApi.kt
 src/main/kotlin/deadlock_api_client/apis/BuildsApi.kt

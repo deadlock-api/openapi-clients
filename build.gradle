@@ -1,12 +1,28 @@
-wrapper {
-    gradleVersion = '8.14.3'
-    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+allprojects {
+    version = "1.0.0"
+    group = "com.deadlock-api"
 }
 
-allprojects {
-    group = "com.deadlock-api"
-    version = "1.0.0"
-    repositories {
-        mavenCentral()
-    }
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'maven-publish'
+
+	sourceCompatibility = 1.8 // java 8
+	targetCompatibility = 1.8
+
+	java {
+		withSourcesJar()
+		withJavadocJar()
+	}
+
+	publishing {
+		publications {
+			maven(MavenPublication) {
+				groupId project.group
+				artifactId project.name
+				version project.version
+				from components.java
+			}
+		}
+	}
 }

@@ -1,4 +1,2 @@
-rootProject.name = "openapi-clients"
-
 include ':kotlin:assets-api'
 include ':kotlin:api'
