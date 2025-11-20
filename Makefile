@@ -55,6 +55,8 @@ generate-api-kotlin:
 	@mkdir -p kotlin/api
 	@echo "--> Generating Kotlin client for the main API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g kotlin -o kotlin/api/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client,idea=true,artifactId=deadlock_api_client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients
+	@echo "--> Removing wrapper task from kotlin/api/build.gradle..."
+	@sed -i '/^wrapper {/,/^}/d' kotlin/api/build.gradle
 	@echo "--> Main API client generated successfully in kotlin/api/"
 
 generate-assets-api-kotlin:
@@ -62,6 +64,8 @@ generate-assets-api-kotlin:
 	@mkdir -p kotlin/assets-api
 	@echo "--> Generating Kotlin client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g kotlin -o kotlin/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client,idea=true,artifactId=assets_deadlock_api_client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients
+	@echo "--> Removing wrapper task from kotlin/assets-api/build.gradle..."
+	@sed -i '/^wrapper {/,/^}/d' kotlin/assets-api/build.gradle
 	@echo "--> Assets API client generated successfully in kotlin/assets-api/"
 
 go: generate-api-go generate-assets-api-go

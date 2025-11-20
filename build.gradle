@@ -12,12 +12,16 @@ allprojects {
 }
 
 subprojects {
-    apply plugin: 'maven-publish'
+    afterEvaluate { project ->
+        if (project.plugins.hasPlugin('java') || project.plugins.hasPlugin('kotlin')) {
+            apply plugin: 'maven-publish'
 
-    publishing {
-        publications {
-            maven(MavenPublication) {
-                from components.java
+            publishing {
+                publications {
+                    maven(MavenPublication) {
+                        from components.java
+                    }
+                }
             }
         }
     }

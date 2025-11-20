@@ -1,10 +1,6 @@
 group 'com.deadlock-api'
 version '1.0.0'
 
-wrapper {
-    gradleVersion = '8.14.3'
-    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
-}
 
 buildscript {
     ext.kotlin_version = '2.2.20'

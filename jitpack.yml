@@ -1,0 +1,5 @@
+jdk:
+  - openjdk21
+before_install:
+  - sdk install gradle 8.14
+  - sdk use gradle 8.14
