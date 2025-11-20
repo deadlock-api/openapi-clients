@@ -1,0 +1,7 @@
+allprojects {
+    group = "com.deadlock-api"
+    version = "1.0.0"
+    repositories {
+        mavenCentral()
+    }
+}
