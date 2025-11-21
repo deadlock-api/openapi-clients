@@ -19,20 +19,24 @@ import assets_deadlock_api_client.models.ValidationError
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
  *
  * @param detail 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class HTTPValidationError (
 
     @Json(name = "detail")
     val detail: kotlin.collections.List<ValidationError>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

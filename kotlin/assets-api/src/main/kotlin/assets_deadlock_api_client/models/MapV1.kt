@@ -21,6 +21,7 @@ import assets_deadlock_api_client.models.ZiplanePathV1
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -30,7 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param ziplinePaths The ziplane paths of the map. Each path is a list of P0, P1, and P2 points, describing the cubic spline.
  * @param radius The radius of the map.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class MapV1 (
 
@@ -49,7 +50,10 @@ data class MapV1 (
     @Json(name = "radius")
     val radius: kotlin.Int? = 10752
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

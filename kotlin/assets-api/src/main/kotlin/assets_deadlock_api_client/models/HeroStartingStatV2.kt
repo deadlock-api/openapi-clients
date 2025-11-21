@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.Value
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -26,7 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param `value` 
  * @param displayStatName 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class HeroStartingStatV2 (
 
@@ -36,7 +37,10 @@ data class HeroStartingStatV2 (
     @Json(name = "display_stat_name")
     val displayStatName: kotlin.String
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

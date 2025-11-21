@@ -19,20 +19,24 @@ import assets_deadlock_api_client.models.RawAbilityUpgradePropertyUpgradeV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
  *
  * @param propertyUpgrades 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawAbilityUpgradeV2 (
 
     @Json(name = "property_upgrades")
     val propertyUpgrades: kotlin.collections.List<RawAbilityUpgradePropertyUpgradeV2>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

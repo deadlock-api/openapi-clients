@@ -20,6 +20,7 @@ import deadlock_api_client.models.BuildHeroDetailsCategory
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param modCategories 
  * @param abilityOrder 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class BuildHeroDetails (
 
@@ -37,7 +38,10 @@ data class BuildHeroDetails (
     @Json(name = "ability_order")
     val abilityOrder: BuildHeroDetailsAbilityOrder? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

@@ -20,6 +20,7 @@ import assets_deadlock_api_client.models.RawWeaponInfoV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -37,7 +38,7 @@ import com.squareup.moshi.JsonClass
  * @param weaponInfo 
  * @param type 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class WeaponV2 (
 
@@ -77,7 +78,10 @@ data class WeaponV2 (
     @Json(name = "type")
     val type: WeaponV2.Type? = Type.weapon
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
     /**
      * 

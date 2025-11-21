@@ -21,6 +21,7 @@ import assets_deadlock_api_client.models.Value1
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -43,7 +44,7 @@ import com.squareup.moshi.JsonClass
  * @param conditional 
  * @param icon 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ItemPropertyV2 (
 
@@ -98,7 +99,10 @@ data class ItemPropertyV2 (
     @Json(name = "icon")
     val icon: kotlin.String? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

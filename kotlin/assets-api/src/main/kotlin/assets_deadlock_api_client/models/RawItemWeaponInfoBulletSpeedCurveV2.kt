@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.RawItemWeaponInfoBulletSpeedCurveSpline
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param domainMins 
  * @param spline 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawItemWeaponInfoBulletSpeedCurveV2 (
 
@@ -40,7 +41,10 @@ data class RawItemWeaponInfoBulletSpeedCurveV2 (
     @Json(name = "spline")
     val spline: kotlin.collections.List<RawItemWeaponInfoBulletSpeedCurveSplineV2>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

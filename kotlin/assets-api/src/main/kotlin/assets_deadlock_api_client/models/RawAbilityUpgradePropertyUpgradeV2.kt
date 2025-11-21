@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.Bonus
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -28,7 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param scaleStatFilter 
  * @param upgradeType 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawAbilityUpgradePropertyUpgradeV2 (
 
@@ -44,7 +45,10 @@ data class RawAbilityUpgradePropertyUpgradeV2 (
     @Json(name = "upgrade_type")
     val upgradeType: kotlin.String? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

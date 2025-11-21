@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.Range
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -28,7 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param burstConstant 
  * @param burstSlope 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawWeaponInfoVerticalRecoilV2 (
 
@@ -44,7 +45,10 @@ data class RawWeaponInfoVerticalRecoilV2 (
     @Json(name = "burst_slope")
     val burstSlope: java.math.BigDecimal? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

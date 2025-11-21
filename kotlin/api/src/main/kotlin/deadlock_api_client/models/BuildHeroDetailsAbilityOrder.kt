@@ -19,20 +19,24 @@ import deadlock_api_client.models.BuildHeroDetailsAbilityOrderCurrencyChange
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
  *
  * @param currencyChanges 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class BuildHeroDetailsAbilityOrder (
 
     @Json(name = "currency_changes")
     val currencyChanges: kotlin.collections.List<BuildHeroDetailsAbilityOrderCurrencyChange>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

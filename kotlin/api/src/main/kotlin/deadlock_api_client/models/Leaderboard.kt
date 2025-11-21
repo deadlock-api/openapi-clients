@@ -19,13 +19,14 @@ import deadlock_api_client.models.LeaderboardEntry
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
  *
  * @param propertyEntries The leaderboard entries.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class Leaderboard (
 
@@ -33,7 +34,10 @@ data class Leaderboard (
     @Json(name = "entries")
     val propertyEntries: kotlin.collections.List<LeaderboardEntry>
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

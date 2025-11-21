@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.AbilityTooltipDetailsInfoSectionPropert
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -28,7 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param propertiesBlock 
  * @param basicProperties 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class AbilityTooltipDetailsInfoSectionV2 (
 
@@ -44,7 +45,10 @@ data class AbilityTooltipDetailsInfoSectionV2 (
     @Json(name = "basic_properties")
     val basicProperties: kotlin.collections.List<kotlin.String>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

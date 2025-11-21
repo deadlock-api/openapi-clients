@@ -19,13 +19,14 @@ import deadlock_api_client.models.StatusServices
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
  *
  * @param services Status of the services.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class Status (
 
@@ -33,7 +34,10 @@ data class Status (
     @Json(name = "services")
     val services: StatusServices
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

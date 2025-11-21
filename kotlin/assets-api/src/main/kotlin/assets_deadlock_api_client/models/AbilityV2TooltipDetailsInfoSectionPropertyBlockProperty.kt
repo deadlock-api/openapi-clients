@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -29,7 +30,7 @@ import com.squareup.moshi.JsonClass
  * @param statusEffectName 
  * @param importantPropertyIcon 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty (
 
@@ -51,7 +52,10 @@ data class AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty (
     @Json(name = "important_property_icon")
     val importantPropertyIcon: kotlin.String? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

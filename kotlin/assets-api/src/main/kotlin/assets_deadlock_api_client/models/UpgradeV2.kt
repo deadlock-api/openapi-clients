@@ -26,6 +26,7 @@ import assets_deadlock_api_client.models.UpgradeTooltipSectionV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -58,7 +59,7 @@ import com.squareup.moshi.JsonClass
  * @param componentItems 
  * @param tooltipSections 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class UpgradeV2 (
 
@@ -143,7 +144,10 @@ data class UpgradeV2 (
     @Json(name = "tooltip_sections")
     val tooltipSections: kotlin.collections.List<UpgradeTooltipSectionV2>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
     /**
      * 

@@ -21,6 +21,7 @@ import assets_deadlock_api_client.models.RawHeroShopVitalityStatsDisplayV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -29,7 +30,7 @@ import com.squareup.moshi.JsonClass
  * @param vitalityStatsDisplay 
  * @param weaponStatsDisplay 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class HeroShopStatDisplayV2 (
 
@@ -42,7 +43,10 @@ data class HeroShopStatDisplayV2 (
     @Json(name = "weapon_stats_display")
     val weaponStatsDisplay: HeroShopWeaponStatsDisplayV2
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

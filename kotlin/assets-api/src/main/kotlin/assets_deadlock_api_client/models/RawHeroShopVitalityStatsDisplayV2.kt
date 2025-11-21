@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -25,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param displayStats 
  * @param otherDisplayStats 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawHeroShopVitalityStatsDisplayV2 (
 
@@ -35,7 +36,10 @@ data class RawHeroShopVitalityStatsDisplayV2 (
     @Json(name = "other_display_stats")
     val otherDisplayStats: kotlin.collections.List<kotlin.String>
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

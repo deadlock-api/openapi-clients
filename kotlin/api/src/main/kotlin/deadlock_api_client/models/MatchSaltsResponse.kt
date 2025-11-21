@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -29,7 +30,7 @@ import com.squareup.moshi.JsonClass
  * @param metadataUrl 
  * @param replaySalt 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class MatchSaltsResponse (
 
@@ -51,7 +52,10 @@ data class MatchSaltsResponse (
     @Json(name = "replay_salt")
     val replaySalt: kotlin.Int? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

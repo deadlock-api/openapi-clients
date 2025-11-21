@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -30,7 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param rankedSubrank The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param topHeroIds The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes>
  */
-
+@JsonClass(generateAdapter = true)
 
 data class LeaderboardEntry (
 
@@ -62,7 +63,10 @@ data class LeaderboardEntry (
     @Json(name = "top_hero_ids")
     val topHeroIds: kotlin.collections.List<kotlin.Int>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

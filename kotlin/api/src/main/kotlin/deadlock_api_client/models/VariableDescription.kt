@@ -19,6 +19,7 @@ import deadlock_api_client.models.VariableCategory
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -29,7 +30,7 @@ import com.squareup.moshi.JsonClass
  * @param name The name of the variable.
  * @param defaultLabel The default label for the variable.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class VariableDescription (
 
@@ -53,7 +54,10 @@ data class VariableDescription (
     @Json(name = "default_label")
     val defaultLabel: kotlin.String? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

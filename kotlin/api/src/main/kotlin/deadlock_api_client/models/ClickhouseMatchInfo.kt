@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -29,7 +30,7 @@ import com.squareup.moshi.JsonClass
  * @param averageBadgeTeam0 See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param averageBadgeTeam1 See more: <https://assets.deadlock-api.com/v2/ranks>
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ClickhouseMatchInfo (
 
@@ -53,7 +54,10 @@ data class ClickhouseMatchInfo (
     @Json(name = "average_badge_team1")
     val averageBadgeTeam1: kotlin.Int? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

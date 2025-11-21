@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -25,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param leftRelative The relative margin left of the map image.
  * @param topRelative The relative margin top of the map image.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ObjectivePositionV1 (
 
@@ -37,7 +38,10 @@ data class ObjectivePositionV1 (
     @Json(name = "top_relative")
     val topRelative: java.math.BigDecimal
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

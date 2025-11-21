@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param dataUncompressedBytes Uncompressed size of the table in bytes.
  * @param rows Number of rows in the table.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class TableSize (
 
@@ -47,7 +48,10 @@ data class TableSize (
     @Json(name = "rows")
     val rows: kotlin.Long? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

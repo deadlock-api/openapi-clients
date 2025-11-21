@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -25,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param isPermaLink 
  * @param text 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class PatchGuid (
 
@@ -35,7 +36,10 @@ data class PatchGuid (
     @Json(name = "text")
     val text: kotlin.String
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

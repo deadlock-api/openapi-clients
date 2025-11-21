@@ -20,6 +20,7 @@ import assets_deadlock_api_client.models.RawWeaponInfoV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -74,7 +75,7 @@ import com.squareup.moshi.JsonClass
  * @param glowColorTeam2 
  * @param glowColorTeamNeutral 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class NPCUnitV2 (
 
@@ -225,7 +226,10 @@ data class NPCUnitV2 (
     @Json(name = "glow_color_team_neutral")
     val glowColorTeamNeutral: ColorV1? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

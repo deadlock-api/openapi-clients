@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param blue The blue value of the color.
  * @param alpha The alpha value of the color.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ColorV1 (
 
@@ -47,7 +48,10 @@ data class ColorV1 (
     @Json(name = "alpha")
     val alpha: kotlin.Int
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

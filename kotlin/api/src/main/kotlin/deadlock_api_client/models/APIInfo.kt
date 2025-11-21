@@ -19,6 +19,7 @@ import deadlock_api_client.models.TableSize
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param tableSizes The sizes of all tables in the database.
  * @param userIngestedMatchesLast24h The number of matches ingested in the last 24 hours.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class APIInfo (
 
@@ -44,7 +45,10 @@ data class APIInfo (
     @Deprecated(message = "This property is deprecated.")
     val userIngestedMatchesLast24h: kotlin.Long? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

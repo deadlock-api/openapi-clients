@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.RankImagesV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -28,7 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param images 
  * @param color 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RankV2 (
 
@@ -44,7 +45,10 @@ data class RankV2 (
     @Json(name = "color")
     val color: kotlin.String
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

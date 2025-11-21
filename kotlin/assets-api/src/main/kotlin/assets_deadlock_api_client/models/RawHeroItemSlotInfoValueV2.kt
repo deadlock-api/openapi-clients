@@ -18,20 +18,24 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
  *
  * @param maxPurchasesForTier 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawHeroItemSlotInfoValueV2 (
 
     @Json(name = "max_purchases_for_tier")
     val maxPurchasesForTier: kotlin.collections.List<kotlin.Int>
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

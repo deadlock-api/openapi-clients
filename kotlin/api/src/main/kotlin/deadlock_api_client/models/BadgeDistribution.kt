@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -25,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param badgeLevel The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param totalMatches The total number of matches.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class BadgeDistribution (
 
@@ -37,7 +38,10 @@ data class BadgeDistribution (
     @Json(name = "total_matches")
     val totalMatches: kotlin.Long
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

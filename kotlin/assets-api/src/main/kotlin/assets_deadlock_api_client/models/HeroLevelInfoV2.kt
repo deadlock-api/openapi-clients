@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -26,7 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param useStandardUpgrade 
  * @param bonusCurrencies 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class HeroLevelInfoV2 (
 
@@ -39,7 +40,10 @@ data class HeroLevelInfoV2 (
     @Json(name = "bonus_currencies")
     val bonusCurrencies: kotlin.collections.List<kotlin.String>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

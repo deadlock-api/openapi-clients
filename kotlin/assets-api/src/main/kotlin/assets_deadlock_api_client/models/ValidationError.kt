@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.ValidationErrorLocInner
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param msg 
  * @param type 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ValidationError (
 
@@ -40,7 +41,10 @@ data class ValidationError (
     @Json(name = "type")
     val type: kotlin.String
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

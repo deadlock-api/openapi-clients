@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -25,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param scalingStat 
  * @param scale 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawHeroScalingStatV2 (
 
@@ -35,7 +36,10 @@ data class RawHeroScalingStatV2 (
     @Json(name = "scale")
     val scale: java.math.BigDecimal
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

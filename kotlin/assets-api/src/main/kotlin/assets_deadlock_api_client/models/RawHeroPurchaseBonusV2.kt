@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -26,7 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param tier 
  * @param `value` 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawHeroPurchaseBonusV2 (
 
@@ -39,7 +40,10 @@ data class RawHeroPurchaseBonusV2 (
     @Json(name = "value")
     val `value`: kotlin.String
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

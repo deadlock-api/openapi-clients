@@ -23,6 +23,7 @@ import assets_deadlock_api_client.models.StandingShotSpreadPenalty
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -84,7 +85,7 @@ import com.squareup.moshi.JsonClass
  * @param horizontalRecoil 
  * @param verticalRecoil 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawWeaponInfoV2 (
 
@@ -256,7 +257,10 @@ data class RawWeaponInfoV2 (
     @Json(name = "vertical_recoil")
     val verticalRecoil: RawWeaponInfoVerticalRecoilV2? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param matchesPlayed 
  * @param wins The amount of matches won against the enemy.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class EnemyStats (
 
@@ -44,7 +45,10 @@ data class EnemyStats (
     @Json(name = "wins")
     val wins: kotlin.Long
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

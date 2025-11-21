@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -40,7 +41,7 @@ import com.squareup.moshi.JsonClass
  * @param backgroundImageWebp 
  * @param nameImage 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class HeroImagesV2 (
 
@@ -95,7 +96,10 @@ data class HeroImagesV2 (
     @Json(name = "name_image")
     val nameImage: kotlin.String? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

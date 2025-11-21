@@ -19,6 +19,7 @@ import deadlock_api_client.models.RegionMode
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -33,7 +34,7 @@ import com.squareup.moshi.JsonClass
  * @param randomizeLanes 
  * @param regionMode 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class CreateCustomRequest (
 
@@ -66,7 +67,10 @@ data class CreateCustomRequest (
     @Json(name = "region_mode")
     val regionMode: RegionMode? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -30,7 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param stepSoundTime 
  * @param stepSoundTimeSprinting 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class HeroPhysicsV2 (
 
@@ -55,7 +56,10 @@ data class HeroPhysicsV2 (
     @Json(name = "step_sound_time_sprinting")
     val stepSoundTimeSprinting: java.math.BigDecimal? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

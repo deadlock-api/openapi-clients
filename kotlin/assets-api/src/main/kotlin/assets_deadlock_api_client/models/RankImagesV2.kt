@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -51,7 +52,7 @@ import com.squareup.moshi.JsonClass
  * @param smallSubrank6 
  * @param smallSubrank6Webp 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RankImagesV2 (
 
@@ -139,7 +140,10 @@ data class RankImagesV2 (
     @Json(name = "small_subrank6_webp")
     val smallSubrank6Webp: kotlin.String? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

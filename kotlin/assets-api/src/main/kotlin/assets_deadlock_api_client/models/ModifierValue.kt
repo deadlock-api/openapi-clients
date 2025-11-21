@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * Handles items within m_vecModifierValues and m_vecScriptValues. Captures both fixed values (m_value) and ranged values (m_valueMin/Max).
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param valueMin 
  * @param valueMax 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ModifierValue (
 
@@ -43,7 +44,10 @@ data class ModifierValue (
     @Json(name = "value_max")
     val valueMax: java.math.BigDecimal? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

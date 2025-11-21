@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.ObjectivePositionV1
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -44,7 +45,7 @@ import com.squareup.moshi.JsonClass
  * @param team0Tier12 
  * @param team1Tier12 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ObjectivePositionsV1 (
 
@@ -108,7 +109,10 @@ data class ObjectivePositionsV1 (
     @Json(name = "team1_tier1_2")
     val team1Tier12: ObjectivePositionV1? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

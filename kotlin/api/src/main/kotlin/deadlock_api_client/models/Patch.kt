@@ -20,6 +20,7 @@ import deadlock_api_client.models.PatchGuid
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -34,7 +35,7 @@ import com.squareup.moshi.JsonClass
  * @param slashComments 
  * @param title 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class Patch (
 
@@ -65,7 +66,10 @@ data class Patch (
     @Json(name = "title")
     val title: kotlin.String
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

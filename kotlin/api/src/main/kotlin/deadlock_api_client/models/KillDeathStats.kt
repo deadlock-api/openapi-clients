@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param positionX 
  * @param positionY 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class KillDeathStats (
 
@@ -43,7 +44,10 @@ data class KillDeathStats (
     @Json(name = "position_y")
     val positionY: kotlin.Int
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

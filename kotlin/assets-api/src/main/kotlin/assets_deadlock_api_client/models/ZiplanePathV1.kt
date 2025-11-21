@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.ColorV1
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -30,7 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param p2Points The P2 points of the path.
  * @param colorParsed 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ZiplanePathV1 (
 
@@ -57,7 +58,10 @@ data class ZiplanePathV1 (
     @Json(name = "color_parsed")
     val colorParsed: ColorV1
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

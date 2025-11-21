@@ -19,6 +19,7 @@ import deadlock_api_client.models.BuildHeroDetailsCategoryAbility
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -30,7 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param optional 
  * @param width 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class BuildHeroDetailsCategory (
 
@@ -52,7 +53,10 @@ data class BuildHeroDetailsCategory (
     @Json(name = "width")
     val width: kotlin.Float? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

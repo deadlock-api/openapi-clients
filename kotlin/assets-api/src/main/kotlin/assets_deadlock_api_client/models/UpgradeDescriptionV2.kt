@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -26,7 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param active 
  * @param passive 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class UpgradeDescriptionV2 (
 
@@ -39,7 +40,10 @@ data class UpgradeDescriptionV2 (
     @Json(name = "passive")
     val passive: kotlin.String? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

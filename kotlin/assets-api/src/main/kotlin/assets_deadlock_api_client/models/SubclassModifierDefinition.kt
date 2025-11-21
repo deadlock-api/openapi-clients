@@ -19,20 +19,24 @@ import assets_deadlock_api_client.models.ModifierDefinition
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
  *
  * @param subclass 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class SubclassModifierDefinition (
 
     @Json(name = "subclass")
     val subclass: ModifierDefinition? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

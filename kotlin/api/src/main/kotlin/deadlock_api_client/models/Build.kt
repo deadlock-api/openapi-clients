@@ -19,6 +19,7 @@ import deadlock_api_client.models.BuildHero
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -30,7 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param numWeeklyFavorites 
  * @param rollupCategory 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class Build (
 
@@ -52,7 +53,10 @@ data class Build (
     @Json(name = "rollup_category")
     val rollupCategory: kotlin.Int? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

@@ -19,16 +19,20 @@ import assets_deadlock_api_client.models.StatsUsageFlagV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
  *
  */
-
+@JsonClass(generateAdapter = true)
 
 class UsageFlags (
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

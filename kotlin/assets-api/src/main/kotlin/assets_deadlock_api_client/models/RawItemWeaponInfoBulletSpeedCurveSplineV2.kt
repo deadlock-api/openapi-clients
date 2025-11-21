@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param x 
  * @param y 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawItemWeaponInfoBulletSpeedCurveSplineV2 (
 
@@ -43,7 +44,10 @@ data class RawItemWeaponInfoBulletSpeedCurveSplineV2 (
     @Json(name = "y")
     val y: java.math.BigDecimal
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

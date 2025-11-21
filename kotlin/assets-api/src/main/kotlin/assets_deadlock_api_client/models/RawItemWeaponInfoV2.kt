@@ -19,20 +19,24 @@ import assets_deadlock_api_client.models.RawItemWeaponInfoBulletSpeedCurveV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
  *
  * @param bulletSpeedCurve 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class RawItemWeaponInfoV2 (
 
     @Json(name = "bullet_speed_curve")
     val bulletSpeedCurve: RawItemWeaponInfoBulletSpeedCurveV2? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

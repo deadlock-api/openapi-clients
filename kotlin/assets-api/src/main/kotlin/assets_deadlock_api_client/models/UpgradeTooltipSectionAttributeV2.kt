@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.UpgradeTooltipSectionAttributeV2Importa
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -29,7 +30,7 @@ import com.squareup.moshi.JsonClass
  * @param importantProperties 
  * @param importantPropertiesWithIcon 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class UpgradeTooltipSectionAttributeV2 (
 
@@ -48,7 +49,10 @@ data class UpgradeTooltipSectionAttributeV2 (
     @Json(name = "important_properties_with_icon")
     val importantPropertiesWithIcon: kotlin.collections.List<UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

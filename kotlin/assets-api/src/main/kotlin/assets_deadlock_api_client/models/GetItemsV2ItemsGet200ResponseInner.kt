@@ -33,6 +33,7 @@ import assets_deadlock_api_client.models.WeaponV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -72,9 +73,12 @@ import com.squareup.moshi.JsonClass
  * @param componentItems 
  * @param tooltipSections 
  */
+@JsonClass(generateAdapter = true)
 
-
-interface GetItemsV2ItemsGet200ResponseInner {
+interface GetItemsV2ItemsGet200ResponseInner : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
     @Json(name = "id")
     val id: kotlin.Int

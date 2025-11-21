@@ -22,6 +22,7 @@ import assets_deadlock_api_client.models.Value1
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -47,7 +48,7 @@ import com.squareup.moshi.JsonClass
  * @param tooltipIsElevated 
  * @param tooltipIsImportant 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class UpgradePropertyV2 (
 
@@ -111,7 +112,10 @@ data class UpgradePropertyV2 (
     @Json(name = "tooltip_is_important")
     val tooltipIsImportant: kotlin.Boolean? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

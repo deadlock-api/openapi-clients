@@ -19,6 +19,7 @@ import deadlock_api_client.models.ESportsMatchStatus
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -33,7 +34,7 @@ import com.squareup.moshi.JsonClass
  * @param tournamentStage The stage of the tournament.
  * @param updateId If you want to update an existing match, you can provide an update id.
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ESportsMatch (
 
@@ -73,7 +74,10 @@ data class ESportsMatch (
     @Json(name = "update_id")
     val updateId: java.util.UUID? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

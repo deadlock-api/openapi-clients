@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -25,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param builds 
  * @param itemId See more: <https://assets.deadlock-api.com/v2/items>
  */
-
+@JsonClass(generateAdapter = true)
 
 data class BuildItemStats (
 
@@ -36,7 +37,10 @@ data class BuildItemStats (
     @Json(name = "item_id")
     val itemId: kotlin.Long
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

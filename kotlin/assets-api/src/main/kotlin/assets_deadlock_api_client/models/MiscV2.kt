@@ -21,6 +21,7 @@ import assets_deadlock_api_client.models.SubclassModifierDefinition
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -61,7 +62,7 @@ import com.squareup.moshi.JsonClass
  * @param lifetime 
  * @param collisionRadius 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class MiscV2 (
 
@@ -170,7 +171,10 @@ data class MiscV2 (
     @Json(name = "collision_radius")
     val collisionRadius: java.math.BigDecimal? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

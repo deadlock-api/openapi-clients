@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -30,7 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param rank The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param startTime Start time of the match
  */
-
+@JsonClass(generateAdapter = true)
 
 data class MMRHistory (
 
@@ -60,7 +61,10 @@ data class MMRHistory (
     @Json(name = "start_time")
     val startTime: kotlin.Int
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

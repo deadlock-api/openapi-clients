@@ -19,6 +19,7 @@ import deadlock_api_client.models.BuildHeroDetails
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -37,7 +38,7 @@ import com.squareup.moshi.JsonClass
  * @param publishTimestamp 
  * @param tags 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class BuildHero (
 
@@ -81,7 +82,10 @@ data class BuildHero (
     @Json(name = "tags")
     val tags: kotlin.collections.List<kotlin.Int>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

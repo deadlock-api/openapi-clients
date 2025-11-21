@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.HeroStartingStatV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -45,7 +46,7 @@ import com.squareup.moshi.JsonClass
  * @param techArmorDamageReduction 
  * @param bulletArmorDamageReduction 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class HeroStartingStatsV2 (
 
@@ -112,7 +113,10 @@ data class HeroStartingStatsV2 (
     @Json(name = "bullet_armor_damage_reduction")
     val bulletArmorDamageReduction: HeroStartingStatV2? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

@@ -25,6 +25,7 @@ import assets_deadlock_api_client.models.RawItemWeaponInfoV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -50,7 +51,7 @@ import com.squareup.moshi.JsonClass
  * @param dependantAbilities 
  * @param videos 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class AbilityV2 (
 
@@ -114,7 +115,10 @@ data class AbilityV2 (
     @Json(name = "videos")
     val videos: AbilityVideosV2? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
     /**
      * 

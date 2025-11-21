@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -28,7 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param glowTeam2 
  * @param ui 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class HeroColorsV2 (
 
@@ -47,7 +48,10 @@ data class HeroColorsV2 (
     @Json(name = "ui")
     val ui: kotlin.collections.List<kotlin.Any>
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

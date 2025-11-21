@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.ModifierValue
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * Schema for the m_sModifer block (note the typo in the source key 'Modifer').
@@ -33,7 +34,7 @@ import com.squareup.moshi.JsonClass
  * @param modifierValues 
  * @param scriptValues 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ModifierDefinition (
 
@@ -64,7 +65,10 @@ data class ModifierDefinition (
     @Json(name = "script_values")
     val scriptValues: kotlin.collections.List<ModifierValue>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

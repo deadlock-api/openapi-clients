@@ -18,20 +18,24 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
  *
  * @param matchId 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class GetCustomMatchIdResponse (
 
     @Json(name = "match_id")
     val matchId: kotlin.Long
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

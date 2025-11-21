@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -25,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param webm 
  * @param mp4 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class AbilityVideosV2 (
 
@@ -35,7 +36,10 @@ data class AbilityVideosV2 (
     @Json(name = "mp4")
     val mp4: kotlin.String? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

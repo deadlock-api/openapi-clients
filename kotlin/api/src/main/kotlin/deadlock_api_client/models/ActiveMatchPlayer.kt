@@ -19,6 +19,7 @@ import deadlock_api_client.models.ActiveMatchTeam
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -29,7 +30,7 @@ import com.squareup.moshi.JsonClass
  * @param team 
  * @param teamParsed 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class ActiveMatchPlayer (
 
@@ -49,7 +50,10 @@ data class ActiveMatchPlayer (
     @Json(name = "team_parsed")
     val teamParsed: ActiveMatchTeam? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

@@ -18,6 +18,7 @@ package deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -27,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param rank tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
  * @param `value` 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class Entry (
 
@@ -45,7 +46,10 @@ data class Entry (
     @Json(name = "value")
     val `value`: kotlin.Double
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

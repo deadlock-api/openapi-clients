@@ -32,6 +32,7 @@ import assets_deadlock_api_client.models.RawHeroStatsUIV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * 
@@ -70,7 +71,7 @@ import com.squareup.moshi.JsonClass
  * @param prereleaseOnly 
  * @param costBonuses 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class HeroV2 (
 
@@ -173,7 +174,10 @@ data class HeroV2 (
     @Json(name = "cost_bonuses")
     val costBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroMapModCostBonusesV2>>? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }

@@ -18,6 +18,7 @@ package assets_deadlock_api_client.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /**
  * Schema for items inside m_vecPrimaryPickups
@@ -25,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param pickupName 
  * @param pickupWeight 
  */
-
+@JsonClass(generateAdapter = true)
 
 data class PickupDefinition (
 
@@ -35,7 +36,10 @@ data class PickupDefinition (
     @Json(name = "pickup_weight")
     val pickupWeight: java.math.BigDecimal? = null
 
-) {
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
 
 }
