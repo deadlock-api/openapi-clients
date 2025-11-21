@@ -17,8 +17,16 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ModifierValue
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -38,31 +46,31 @@ import java.io.Serializable
 
 data class ModifierDefinition (
 
-    @Json(name = "class_name")
+    @SerializedName("class_name")
     val className: kotlin.String? = null,
 
-    @Json(name = "subclass_name")
+    @SerializedName("subclass_name")
     val subclassName: kotlin.String? = null,
 
-    @Json(name = "duration")
+    @SerializedName("duration")
     val duration: java.math.BigDecimal? = null,
 
-    @Json(name = "time_min")
+    @SerializedName("time_min")
     val timeMin: java.math.BigDecimal? = null,
 
-    @Json(name = "time_max")
+    @SerializedName("time_max")
     val timeMax: java.math.BigDecimal? = null,
 
-    @Json(name = "debuff_type")
+    @SerializedName("debuff_type")
     val debuffType: kotlin.String? = null,
 
-    @Json(name = "always_show_in_ui")
+    @SerializedName("always_show_in_ui")
     val alwaysShowInUi: kotlin.collections.List<kotlin.String>? = null,
 
-    @Json(name = "modifier_values")
+    @SerializedName("modifier_values")
     val modifierValues: kotlin.collections.List<ModifierValue>? = null,
 
-    @Json(name = "script_values")
+    @SerializedName("script_values")
     val scriptValues: kotlin.collections.List<ModifierValue>? = null
 
 ) : Serializable {
@@ -70,6 +78,122 @@ data class ModifierDefinition (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!ModifierDefinition::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'ModifierDefinition' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ModifierDefinition::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<ModifierDefinition>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: ModifierDefinition) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): ModifierDefinition  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("class_name")
+            openapiFields.add("subclass_name")
+            openapiFields.add("duration")
+            openapiFields.add("time_min")
+            openapiFields.add("time_max")
+            openapiFields.add("debuff_type")
+            openapiFields.add("always_show_in_ui")
+            openapiFields.add("modifier_values")
+            openapiFields.add("script_values")
+
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to ModifierDefinition
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in ModifierDefinition is not found in the empty JSON string", ModifierDefinition.openapiRequiredFields.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            if (jsonObj["class_name"] != null && !jsonObj["class_name"].isJsonNull) {
+              require(jsonObj.get("class_name").isJsonPrimitive) {
+                String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj["class_name"].toString())
+              }
+            }
+            if (jsonObj["subclass_name"] != null && !jsonObj["subclass_name"].isJsonNull) {
+              require(jsonObj.get("subclass_name").isJsonPrimitive) {
+                String.format("Expected the field `subclass_name` to be a primitive type in the JSON string but got `%s`", jsonObj["subclass_name"].toString())
+              }
+            }
+            if (jsonObj["debuff_type"] != null && !jsonObj["debuff_type"].isJsonNull) {
+              require(jsonObj.get("debuff_type").isJsonPrimitive) {
+                String.format("Expected the field `debuff_type` to be a primitive type in the JSON string but got `%s`", jsonObj["debuff_type"].toString())
+              }
+            }
+            // ensure the optional json data is an array if present
+            if (jsonObj["always_show_in_ui"] != null && !jsonObj["always_show_in_ui"].isJsonNull) {
+              require(jsonObj["always_show_in_ui"].isJsonArray()) {
+                String.format("Expected the field `always_show_in_ui` to be an array in the JSON string but got `%s`", jsonObj["always_show_in_ui"].toString())
+              }
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["always_show_in_ui"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("always_show_in_ui").size()) {
+                require(jsonObj.getAsJsonArray("always_show_in_ui").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `always_show_in_ui` to be primitive")
+                }
+              }
+            }
+            if (jsonObj["modifier_values"] != null && !jsonObj["modifier_values"].isJsonNull) {
+              if (jsonObj.getAsJsonArray("modifier_values") != null) {
+                // ensure the json data is an array
+                require(jsonObj["modifier_values"].isJsonArray) {
+                  String.format("Expected the field `modifier_values` to be an array in the JSON string but got `%s`", jsonObj["modifier_values"].toString())
+                }
+
+                // validate the optional field `modifier_values` (array)
+                for (i in 0 until jsonObj.getAsJsonArray("modifier_values").size()) {
+                  ModifierValue.validateJsonElement(jsonObj.getAsJsonArray("modifier_values").get(i))
+                }
+              }
+            }
+            if (jsonObj["script_values"] != null && !jsonObj["script_values"].isJsonNull) {
+              if (jsonObj.getAsJsonArray("script_values") != null) {
+                // ensure the json data is an array
+                require(jsonObj["script_values"].isJsonArray) {
+                  String.format("Expected the field `script_values` to be an array in the JSON string but got `%s`", jsonObj["script_values"].toString())
+                }
+
+                // validate the optional field `script_values` (array)
+                for (i in 0 until jsonObj.getAsJsonArray("script_values").size()) {
+                  ModifierValue.validateJsonElement(jsonObj.getAsJsonArray("script_values").get(i))
+                }
+              }
+            }
+        }
+    }
 
 }
 

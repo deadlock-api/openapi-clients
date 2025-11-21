@@ -16,8 +16,7 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
 /**
  * 
@@ -25,19 +24,18 @@ import com.squareup.moshi.JsonClass
  * Values: assassin,brawler,marksman,mystic
  */
 
-@JsonClass(generateAdapter = false)
 enum class HeroTypeV2(val value: kotlin.String) {
 
-    @Json(name = "assassin")
+    @SerializedName(value = "assassin")
     assassin("assassin"),
 
-    @Json(name = "brawler")
+    @SerializedName(value = "brawler")
     brawler("brawler"),
 
-    @Json(name = "marksman")
+    @SerializedName(value = "marksman")
     marksman("marksman"),
 
-    @Json(name = "mystic")
+    @SerializedName(value = "mystic")
     mystic("mystic");
 
     /**

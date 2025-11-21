@@ -15,405 +15,175 @@
 
 package deadlock_api_client.apis
 
-import java.io.IOException
-import okhttp3.Call
-import okhttp3.HttpUrl
-
 import deadlock_api_client.models.VariableDescription
 
-import com.squareup.moshi.Json
+import deadlock_api_client.infrastructure.*
+import io.ktor.client.HttpClientConfig
+import io.ktor.client.request.forms.formData
+import io.ktor.client.engine.HttpClientEngine
+import io.ktor.http.ParametersBuilder
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import java.text.DateFormat
 
-import deadlock_api_client.infrastructure.ApiClient
-import deadlock_api_client.infrastructure.ApiResponse
-import deadlock_api_client.infrastructure.ClientException
-import deadlock_api_client.infrastructure.ClientError
-import deadlock_api_client.infrastructure.ServerException
-import deadlock_api_client.infrastructure.ServerError
-import deadlock_api_client.infrastructure.MultiValueMap
-import deadlock_api_client.infrastructure.PartConfig
-import deadlock_api_client.infrastructure.RequestConfig
-import deadlock_api_client.infrastructure.RequestMethod
-import deadlock_api_client.infrastructure.ResponseType
-import deadlock_api_client.infrastructure.Success
-import deadlock_api_client.infrastructure.toMultiValue
-
-class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
-    companion object {
-        @JvmStatic
-        val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://api.deadlock-api.com")
-        }
-    }
-
-    /**
-     * GET /v1/commands/variables/available
-     * Available Variables
-     *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @return kotlin.collections.List<VariableDescription>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun availableVariables() : kotlin.collections.List<VariableDescription> {
-        val localVarResponse = availableVariablesWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<VariableDescription>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * GET /v1/commands/variables/available
-     * Available Variables
-     *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @return ApiResponse<kotlin.collections.List<VariableDescription>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun availableVariablesWithHttpInfo() : ApiResponse<kotlin.collections.List<VariableDescription>?> {
-        val localVariableConfig = availableVariablesRequestConfig()
-
-        return request<Unit, kotlin.collections.List<VariableDescription>>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation availableVariables
-     *
-     * @return RequestConfig
-     */
-    fun availableVariablesRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/commands/variables/available",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * enum for parameter region
-     */
-     enum class RegionCommandResolve(val value: kotlin.String) {
-         @Json(name = "Europe") Europe("Europe"),
-         @Json(name = "Asia") Asia("Asia"),
-         @Json(name = "NAmerica") NAmerica("NAmerica"),
-         @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania");
+    open class CommandsApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
         /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
-     }
+        * GET /v1/commands/variables/available
+        * Available Variables
+        *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @return kotlin.collections.List<VariableDescription>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun availableVariables(): HttpResponse<kotlin.collections.List<VariableDescription>> {
 
-    /**
-     * GET /v1/commands/resolve
-     * Resolve Command
-     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
-     * @param accountId The players &#x60;SteamID3&#x60;
-     * @param region The players region (optional)
-     * @param template The command template to resolve (optional)
-     * @param heroName Hero name to check for hero specific stats (optional)
-     * @return kotlin.String
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun commandResolve(accountId: kotlin.Int, region: RegionCommandResolve? = null, template: kotlin.String? = null, heroName: kotlin.String? = null) : kotlin.String {
-        val localVarResponse = commandResolveWithHttpInfo(accountId = accountId, region = region, template = template, heroName = heroName)
+            val localVariableAuthNames = listOf<String>()
 
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * GET /v1/commands/resolve
-     * Resolve Command
-     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
-     * @param accountId The players &#x60;SteamID3&#x60;
-     * @param region The players region (optional)
-     * @param template The command template to resolve (optional)
-     * @param heroName Hero name to check for hero specific stats (optional)
-     * @return ApiResponse<kotlin.String?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun commandResolveWithHttpInfo(accountId: kotlin.Int, region: RegionCommandResolve?, template: kotlin.String?, heroName: kotlin.String?) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = commandResolveRequestConfig(accountId = accountId, region = region, template = template, heroName = heroName)
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        return request<Unit, kotlin.String>(
-            localVariableConfig
-        )
-    }
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * To obtain the request config of the operation commandResolve
-     *
-     * @param accountId The players &#x60;SteamID3&#x60;
-     * @param region The players region (optional)
-     * @param template The command template to resolve (optional)
-     * @param heroName Hero name to check for hero specific stats (optional)
-     * @return RequestConfig
-     */
-    fun commandResolveRequestConfig(accountId: kotlin.Int, region: RegionCommandResolve?, template: kotlin.String?, heroName: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (region != null) {
-                    put("region", listOf(region.value))
-                }
-                put("account_id", listOf(accountId.toString()))
-                if (template != null) {
-                    put("template", listOf(template.toString()))
-                }
-                if (heroName != null) {
-                    put("hero_name", listOf(heroName.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "text/plain"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/commands/resolve",
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/commands/variables/available",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
-    /**
-     * enum for parameter region
-     */
-     enum class RegionVariablesResolve(val value: kotlin.String) {
-         @Json(name = "Europe") Europe("Europe"),
-         @Json(name = "Asia") Asia("Asia"),
-         @Json(name = "NAmerica") NAmerica("NAmerica"),
-         @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania");
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
+            }
 
         /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
-     }
+        * GET /v1/commands/resolve
+        * Resolve Command
+        *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+         * @param accountId The players &#x60;SteamID3&#x60; 
+         * @param region The players region (optional)
+         * @param template The command template to resolve (optional)
+         * @param heroName Hero name to check for hero specific stats (optional)
+         * @return kotlin.String
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun commandResolve(accountId: kotlin.Int, region: kotlin.String?, template: kotlin.String?, heroName: kotlin.String?): HttpResponse<kotlin.String> {
 
-    /**
-     * GET /v1/commands/variables/resolve
-     * Resolve Variables
-     *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
-     * @param accountId 
-     * @param region  (optional)
-     * @param variables Variables to resolve, separated by commas. (optional)
-     * @param heroName Hero name to check for hero specific stats (optional)
-     * @return kotlin.collections.Map<kotlin.String, kotlin.String>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun variablesResolve(accountId: kotlin.Int, region: RegionVariablesResolve? = null, variables: kotlin.String? = null, heroName: kotlin.String? = null) : kotlin.collections.Map<kotlin.String, kotlin.String> {
-        val localVarResponse = variablesResolveWithHttpInfo(accountId = accountId, region = region, variables = variables, heroName = heroName)
+            val localVariableAuthNames = listOf<String>()
 
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, kotlin.String>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * GET /v1/commands/variables/resolve
-     * Resolve Variables
-     *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
-     * @param accountId 
-     * @param region  (optional)
-     * @param variables Variables to resolve, separated by commas. (optional)
-     * @param heroName Hero name to check for hero specific stats (optional)
-     * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun variablesResolveWithHttpInfo(accountId: kotlin.Int, region: RegionVariablesResolve?, variables: kotlin.String?, heroName: kotlin.String?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
-        val localVariableConfig = variablesResolveRequestConfig(accountId = accountId, region = region, variables = variables, heroName = heroName)
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            region?.apply { localVariableQuery["region"] = listOf("$region") }
+            accountId?.apply { localVariableQuery["account_id"] = listOf("$accountId") }
+            template?.apply { localVariableQuery["template"] = listOf("$template") }
+            heroName?.apply { localVariableQuery["hero_name"] = listOf("$heroName") }
 
-        return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.String>>(
-            localVariableConfig
-        )
-    }
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * To obtain the request config of the operation variablesResolve
-     *
-     * @param accountId 
-     * @param region  (optional)
-     * @param variables Variables to resolve, separated by commas. (optional)
-     * @param heroName Hero name to check for hero specific stats (optional)
-     * @return RequestConfig
-     */
-    fun variablesResolveRequestConfig(accountId: kotlin.Int, region: RegionVariablesResolve?, variables: kotlin.String?, heroName: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (region != null) {
-                    put("region", listOf(region.value))
-                }
-                put("account_id", listOf(accountId.toString()))
-                if (variables != null) {
-                    put("variables", listOf(variables.toString()))
-                }
-                if (heroName != null) {
-                    put("hero_name", listOf(heroName.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/commands/variables/resolve",
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/commands/resolve",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
-    /**
-     * GET /v1/commands/widgets/versions
-     * Widget Versions
-     *  Returns a map of str-&gt;int of widget versions.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
-     * @return kotlin.collections.Map<kotlin.String, kotlin.Int>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun widgetVersions() : kotlin.collections.Map<kotlin.String, kotlin.Int> {
-        val localVarResponse = widgetVersionsWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, kotlin.Int>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
             }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
 
-    /**
-     * GET /v1/commands/widgets/versions
-     * Widget Versions
-     *  Returns a map of str-&gt;int of widget versions.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
-     * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.Int>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun widgetVersionsWithHttpInfo() : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.Int>?> {
-        val localVariableConfig = widgetVersionsRequestConfig()
+        /**
+        * GET /v1/commands/variables/resolve
+        * Resolve Variables
+        *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+         * @param accountId  
+         * @param region  (optional)
+         * @param variables Variables to resolve, separated by commas. (optional)
+         * @param heroName Hero name to check for hero specific stats (optional)
+         * @return kotlin.collections.Map<kotlin.String, kotlin.String>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun variablesResolve(accountId: kotlin.Int, region: kotlin.String?, variables: kotlin.String?, heroName: kotlin.String?): HttpResponse<kotlin.collections.Map<kotlin.String, kotlin.String>> {
 
-        return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.Int>>(
-            localVariableConfig
-        )
-    }
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * To obtain the request config of the operation widgetVersions
-     *
-     * @return RequestConfig
-     */
-    fun widgetVersionsRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/commands/widgets/versions",
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            region?.apply { localVariableQuery["region"] = listOf("$region") }
+            accountId?.apply { localVariableQuery["account_id"] = listOf("$accountId") }
+            variables?.apply { localVariableQuery["variables"] = listOf("$variables") }
+            heroName?.apply { localVariableQuery["hero_name"] = listOf("$heroName") }
+
+            val localVariableHeaders = mutableMapOf<String, String>()
+
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/commands/variables/resolve",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
+            }
 
-    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
-        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
-}
+        /**
+        * GET /v1/commands/widgets/versions
+        * Widget Versions
+        *  Returns a map of str-&gt;int of widget versions.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+         * @return kotlin.collections.Map<kotlin.String, kotlin.Int>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun widgetVersions(): HttpResponse<kotlin.collections.Map<kotlin.String, kotlin.Int>> {
+
+            val localVariableAuthNames = listOf<String>()
+
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
+
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+
+            val localVariableHeaders = mutableMapOf<String, String>()
+
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/commands/widgets/versions",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            )
+
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
+            }
+
+        }

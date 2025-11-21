@@ -16,8 +16,16 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -33,19 +41,19 @@ import java.io.Serializable
 
 data class RawItemPropertyScaleFunctionSubclassV2 (
 
-    @Json(name = "class_name")
+    @SerializedName("class_name")
     val className: kotlin.String? = null,
 
-    @Json(name = "subclass_name")
+    @SerializedName("subclass_name")
     val subclassName: kotlin.String? = null,
 
-    @Json(name = "specific_stat_scale_type")
+    @SerializedName("specific_stat_scale_type")
     val specificStatScaleType: kotlin.String? = null,
 
-    @Json(name = "scaling_stats")
+    @SerializedName("scaling_stats")
     val scalingStats: kotlin.collections.List<kotlin.String>? = null,
 
-    @Json(name = "stat_scale")
+    @SerializedName("stat_scale")
     val statScale: java.math.BigDecimal? = null
 
 ) : Serializable {
@@ -53,6 +61,92 @@ data class RawItemPropertyScaleFunctionSubclassV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!RawItemPropertyScaleFunctionSubclassV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'RawItemPropertyScaleFunctionSubclassV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(RawItemPropertyScaleFunctionSubclassV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<RawItemPropertyScaleFunctionSubclassV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: RawItemPropertyScaleFunctionSubclassV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): RawItemPropertyScaleFunctionSubclassV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("class_name")
+            openapiFields.add("subclass_name")
+            openapiFields.add("specific_stat_scale_type")
+            openapiFields.add("scaling_stats")
+            openapiFields.add("stat_scale")
+
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to RawItemPropertyScaleFunctionSubclassV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in RawItemPropertyScaleFunctionSubclassV2 is not found in the empty JSON string", RawItemPropertyScaleFunctionSubclassV2.openapiRequiredFields.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            if (jsonObj["class_name"] != null && !jsonObj["class_name"].isJsonNull) {
+              require(jsonObj.get("class_name").isJsonPrimitive) {
+                String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj["class_name"].toString())
+              }
+            }
+            if (jsonObj["subclass_name"] != null && !jsonObj["subclass_name"].isJsonNull) {
+              require(jsonObj.get("subclass_name").isJsonPrimitive) {
+                String.format("Expected the field `subclass_name` to be a primitive type in the JSON string but got `%s`", jsonObj["subclass_name"].toString())
+              }
+            }
+            if (jsonObj["specific_stat_scale_type"] != null && !jsonObj["specific_stat_scale_type"].isJsonNull) {
+              require(jsonObj.get("specific_stat_scale_type").isJsonPrimitive) {
+                String.format("Expected the field `specific_stat_scale_type` to be a primitive type in the JSON string but got `%s`", jsonObj["specific_stat_scale_type"].toString())
+              }
+            }
+            // ensure the optional json data is an array if present
+            if (jsonObj["scaling_stats"] != null && !jsonObj["scaling_stats"].isJsonNull) {
+              require(jsonObj["scaling_stats"].isJsonArray()) {
+                String.format("Expected the field `scaling_stats` to be an array in the JSON string but got `%s`", jsonObj["scaling_stats"].toString())
+              }
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["scaling_stats"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("scaling_stats").size()) {
+                require(jsonObj.getAsJsonArray("scaling_stats").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `scaling_stats` to be primitive")
+                }
+              }
+            }
+        }
+    }
 
 }
 

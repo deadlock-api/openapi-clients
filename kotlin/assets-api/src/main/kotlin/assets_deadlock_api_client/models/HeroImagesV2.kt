@@ -16,8 +16,16 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -45,55 +53,55 @@ import java.io.Serializable
 
 data class HeroImagesV2 (
 
-    @Json(name = "icon_hero_card")
+    @SerializedName("icon_hero_card")
     val iconHeroCard: kotlin.String? = null,
 
-    @Json(name = "icon_hero_card_webp")
+    @SerializedName("icon_hero_card_webp")
     val iconHeroCardWebp: kotlin.String? = null,
 
-    @Json(name = "icon_image_small")
+    @SerializedName("icon_image_small")
     val iconImageSmall: kotlin.String? = null,
 
-    @Json(name = "icon_image_small_webp")
+    @SerializedName("icon_image_small_webp")
     val iconImageSmallWebp: kotlin.String? = null,
 
-    @Json(name = "minimap_image")
+    @SerializedName("minimap_image")
     val minimapImage: kotlin.String? = null,
 
-    @Json(name = "minimap_image_webp")
+    @SerializedName("minimap_image_webp")
     val minimapImageWebp: kotlin.String? = null,
 
-    @Json(name = "selection_image")
+    @SerializedName("selection_image")
     val selectionImage: kotlin.String? = null,
 
-    @Json(name = "selection_image_webp")
+    @SerializedName("selection_image_webp")
     val selectionImageWebp: kotlin.String? = null,
 
-    @Json(name = "top_bar_image")
+    @SerializedName("top_bar_image")
     val topBarImage: kotlin.String? = null,
 
-    @Json(name = "top_bar_image_webp")
+    @SerializedName("top_bar_image_webp")
     val topBarImageWebp: kotlin.String? = null,
 
-    @Json(name = "top_bar_vertical_image")
+    @SerializedName("top_bar_vertical_image")
     val topBarVerticalImage: kotlin.String? = null,
 
-    @Json(name = "top_bar_vertical_image_webp")
+    @SerializedName("top_bar_vertical_image_webp")
     val topBarVerticalImageWebp: kotlin.String? = null,
 
-    @Json(name = "weapon_image")
+    @SerializedName("weapon_image")
     val weaponImage: kotlin.String? = null,
 
-    @Json(name = "weapon_image_webp")
+    @SerializedName("weapon_image_webp")
     val weaponImageWebp: kotlin.String? = null,
 
-    @Json(name = "background_image")
+    @SerializedName("background_image")
     val backgroundImage: kotlin.String? = null,
 
-    @Json(name = "background_image_webp")
+    @SerializedName("background_image_webp")
     val backgroundImageWebp: kotlin.String? = null,
 
-    @Json(name = "name_image")
+    @SerializedName("name_image")
     val nameImage: kotlin.String? = null
 
 ) : Serializable {
@@ -101,6 +109,160 @@ data class HeroImagesV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!HeroImagesV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'HeroImagesV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(HeroImagesV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<HeroImagesV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: HeroImagesV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): HeroImagesV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("icon_hero_card")
+            openapiFields.add("icon_hero_card_webp")
+            openapiFields.add("icon_image_small")
+            openapiFields.add("icon_image_small_webp")
+            openapiFields.add("minimap_image")
+            openapiFields.add("minimap_image_webp")
+            openapiFields.add("selection_image")
+            openapiFields.add("selection_image_webp")
+            openapiFields.add("top_bar_image")
+            openapiFields.add("top_bar_image_webp")
+            openapiFields.add("top_bar_vertical_image")
+            openapiFields.add("top_bar_vertical_image_webp")
+            openapiFields.add("weapon_image")
+            openapiFields.add("weapon_image_webp")
+            openapiFields.add("background_image")
+            openapiFields.add("background_image_webp")
+            openapiFields.add("name_image")
+
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to HeroImagesV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in HeroImagesV2 is not found in the empty JSON string", HeroImagesV2.openapiRequiredFields.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            if (jsonObj["icon_hero_card"] != null && !jsonObj["icon_hero_card"].isJsonNull) {
+              require(jsonObj.get("icon_hero_card").isJsonPrimitive) {
+                String.format("Expected the field `icon_hero_card` to be a primitive type in the JSON string but got `%s`", jsonObj["icon_hero_card"].toString())
+              }
+            }
+            if (jsonObj["icon_hero_card_webp"] != null && !jsonObj["icon_hero_card_webp"].isJsonNull) {
+              require(jsonObj.get("icon_hero_card_webp").isJsonPrimitive) {
+                String.format("Expected the field `icon_hero_card_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["icon_hero_card_webp"].toString())
+              }
+            }
+            if (jsonObj["icon_image_small"] != null && !jsonObj["icon_image_small"].isJsonNull) {
+              require(jsonObj.get("icon_image_small").isJsonPrimitive) {
+                String.format("Expected the field `icon_image_small` to be a primitive type in the JSON string but got `%s`", jsonObj["icon_image_small"].toString())
+              }
+            }
+            if (jsonObj["icon_image_small_webp"] != null && !jsonObj["icon_image_small_webp"].isJsonNull) {
+              require(jsonObj.get("icon_image_small_webp").isJsonPrimitive) {
+                String.format("Expected the field `icon_image_small_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["icon_image_small_webp"].toString())
+              }
+            }
+            if (jsonObj["minimap_image"] != null && !jsonObj["minimap_image"].isJsonNull) {
+              require(jsonObj.get("minimap_image").isJsonPrimitive) {
+                String.format("Expected the field `minimap_image` to be a primitive type in the JSON string but got `%s`", jsonObj["minimap_image"].toString())
+              }
+            }
+            if (jsonObj["minimap_image_webp"] != null && !jsonObj["minimap_image_webp"].isJsonNull) {
+              require(jsonObj.get("minimap_image_webp").isJsonPrimitive) {
+                String.format("Expected the field `minimap_image_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["minimap_image_webp"].toString())
+              }
+            }
+            if (jsonObj["selection_image"] != null && !jsonObj["selection_image"].isJsonNull) {
+              require(jsonObj.get("selection_image").isJsonPrimitive) {
+                String.format("Expected the field `selection_image` to be a primitive type in the JSON string but got `%s`", jsonObj["selection_image"].toString())
+              }
+            }
+            if (jsonObj["selection_image_webp"] != null && !jsonObj["selection_image_webp"].isJsonNull) {
+              require(jsonObj.get("selection_image_webp").isJsonPrimitive) {
+                String.format("Expected the field `selection_image_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["selection_image_webp"].toString())
+              }
+            }
+            if (jsonObj["top_bar_image"] != null && !jsonObj["top_bar_image"].isJsonNull) {
+              require(jsonObj.get("top_bar_image").isJsonPrimitive) {
+                String.format("Expected the field `top_bar_image` to be a primitive type in the JSON string but got `%s`", jsonObj["top_bar_image"].toString())
+              }
+            }
+            if (jsonObj["top_bar_image_webp"] != null && !jsonObj["top_bar_image_webp"].isJsonNull) {
+              require(jsonObj.get("top_bar_image_webp").isJsonPrimitive) {
+                String.format("Expected the field `top_bar_image_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["top_bar_image_webp"].toString())
+              }
+            }
+            if (jsonObj["top_bar_vertical_image"] != null && !jsonObj["top_bar_vertical_image"].isJsonNull) {
+              require(jsonObj.get("top_bar_vertical_image").isJsonPrimitive) {
+                String.format("Expected the field `top_bar_vertical_image` to be a primitive type in the JSON string but got `%s`", jsonObj["top_bar_vertical_image"].toString())
+              }
+            }
+            if (jsonObj["top_bar_vertical_image_webp"] != null && !jsonObj["top_bar_vertical_image_webp"].isJsonNull) {
+              require(jsonObj.get("top_bar_vertical_image_webp").isJsonPrimitive) {
+                String.format("Expected the field `top_bar_vertical_image_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["top_bar_vertical_image_webp"].toString())
+              }
+            }
+            if (jsonObj["weapon_image"] != null && !jsonObj["weapon_image"].isJsonNull) {
+              require(jsonObj.get("weapon_image").isJsonPrimitive) {
+                String.format("Expected the field `weapon_image` to be a primitive type in the JSON string but got `%s`", jsonObj["weapon_image"].toString())
+              }
+            }
+            if (jsonObj["weapon_image_webp"] != null && !jsonObj["weapon_image_webp"].isJsonNull) {
+              require(jsonObj.get("weapon_image_webp").isJsonPrimitive) {
+                String.format("Expected the field `weapon_image_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["weapon_image_webp"].toString())
+              }
+            }
+            if (jsonObj["background_image"] != null && !jsonObj["background_image"].isJsonNull) {
+              require(jsonObj.get("background_image").isJsonPrimitive) {
+                String.format("Expected the field `background_image` to be a primitive type in the JSON string but got `%s`", jsonObj["background_image"].toString())
+              }
+            }
+            if (jsonObj["background_image_webp"] != null && !jsonObj["background_image_webp"].isJsonNull) {
+              require(jsonObj.get("background_image_webp").isJsonPrimitive) {
+                String.format("Expected the field `background_image_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["background_image_webp"].toString())
+              }
+            }
+            if (jsonObj["name_image"] != null && !jsonObj["name_image"].isJsonNull) {
+              require(jsonObj.get("name_image").isJsonPrimitive) {
+                String.format("Expected the field `name_image` to be a primitive type in the JSON string but got `%s`", jsonObj["name_image"].toString())
+              }
+            }
+        }
+    }
 
 }
 

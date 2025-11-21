@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -39,37 +47,37 @@ import java.io.Serializable
 
 data class HashMapValue (
 
-    @Json(name = "avg")
+    @SerializedName("avg")
     val avg: kotlin.Double,
 
-    @Json(name = "percentile1")
+    @SerializedName("percentile1")
     val percentile1: kotlin.Double,
 
-    @Json(name = "percentile10")
+    @SerializedName("percentile10")
     val percentile10: kotlin.Double,
 
-    @Json(name = "percentile25")
+    @SerializedName("percentile25")
     val percentile25: kotlin.Double,
 
-    @Json(name = "percentile5")
+    @SerializedName("percentile5")
     val percentile5: kotlin.Double,
 
-    @Json(name = "percentile50")
+    @SerializedName("percentile50")
     val percentile50: kotlin.Double,
 
-    @Json(name = "percentile75")
+    @SerializedName("percentile75")
     val percentile75: kotlin.Double,
 
-    @Json(name = "percentile90")
+    @SerializedName("percentile90")
     val percentile90: kotlin.Double,
 
-    @Json(name = "percentile95")
+    @SerializedName("percentile95")
     val percentile95: kotlin.Double,
 
-    @Json(name = "percentile99")
+    @SerializedName("percentile99")
     val percentile99: kotlin.Double,
 
-    @Json(name = "std")
+    @SerializedName("std")
     val std: kotlin.Double
 
 ) : Serializable {
@@ -77,6 +85,88 @@ data class HashMapValue (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!HashMapValue::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'HashMapValue' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(HashMapValue::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<HashMapValue>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: HashMapValue) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): HashMapValue  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("avg")
+            openapiFields.add("percentile1")
+            openapiFields.add("percentile10")
+            openapiFields.add("percentile25")
+            openapiFields.add("percentile5")
+            openapiFields.add("percentile50")
+            openapiFields.add("percentile75")
+            openapiFields.add("percentile90")
+            openapiFields.add("percentile95")
+            openapiFields.add("percentile99")
+            openapiFields.add("std")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("avg")
+            openapiRequiredFields.add("percentile1")
+            openapiRequiredFields.add("percentile10")
+            openapiRequiredFields.add("percentile25")
+            openapiRequiredFields.add("percentile5")
+            openapiRequiredFields.add("percentile50")
+            openapiRequiredFields.add("percentile75")
+            openapiRequiredFields.add("percentile90")
+            openapiRequiredFields.add("percentile95")
+            openapiRequiredFields.add("percentile99")
+            openapiRequiredFields.add("std")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to HashMapValue
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in HashMapValue is not found in the empty JSON string", HashMapValue.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+        }
+    }
 
 }
 

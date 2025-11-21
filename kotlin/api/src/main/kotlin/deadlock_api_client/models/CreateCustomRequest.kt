@@ -17,8 +17,16 @@ package deadlock_api_client.models
 
 import deadlock_api_client.models.RegionMode
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -39,32 +47,32 @@ import java.io.Serializable
 data class CreateCustomRequest (
 
     /* If a callback url is provided, we will send a POST request to this url when the match starts. */
-    @Json(name = "callback_url")
+    @SerializedName("callback_url")
     val callbackUrl: kotlin.String? = null,
 
-    @Json(name = "cheats_enabled")
+    @SerializedName("cheats_enabled")
     val cheatsEnabled: kotlin.Boolean? = null,
 
     /* If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up. */
-    @Json(name = "disable_auto_ready")
+    @SerializedName("disable_auto_ready")
     val disableAutoReady: kotlin.Boolean? = null,
 
-    @Json(name = "duplicate_heroes_enabled")
+    @SerializedName("duplicate_heroes_enabled")
     val duplicateHeroesEnabled: kotlin.Boolean? = null,
 
-    @Json(name = "experimental_heroes_enabled")
+    @SerializedName("experimental_heroes_enabled")
     val experimentalHeroesEnabled: kotlin.Boolean? = null,
 
-    @Json(name = "is_publicly_visible")
+    @SerializedName("is_publicly_visible")
     val isPubliclyVisible: kotlin.Boolean? = null,
 
-    @Json(name = "min_roster_size")
+    @SerializedName("min_roster_size")
     val minRosterSize: kotlin.Int? = null,
 
-    @Json(name = "randomize_lanes")
+    @SerializedName("randomize_lanes")
     val randomizeLanes: kotlin.Boolean? = null,
 
-    @Json(name = "region_mode")
+    @SerializedName("region_mode")
     val regionMode: RegionMode? = null
 
 ) : Serializable {
@@ -72,6 +80,78 @@ data class CreateCustomRequest (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!CreateCustomRequest::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'CreateCustomRequest' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(CreateCustomRequest::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<CreateCustomRequest>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: CreateCustomRequest) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): CreateCustomRequest  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("callback_url")
+            openapiFields.add("cheats_enabled")
+            openapiFields.add("disable_auto_ready")
+            openapiFields.add("duplicate_heroes_enabled")
+            openapiFields.add("experimental_heroes_enabled")
+            openapiFields.add("is_publicly_visible")
+            openapiFields.add("min_roster_size")
+            openapiFields.add("randomize_lanes")
+            openapiFields.add("region_mode")
+
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to CreateCustomRequest
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in CreateCustomRequest is not found in the empty JSON string", CreateCustomRequest.openapiRequiredFields.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            if (jsonObj["callback_url"] != null && !jsonObj["callback_url"].isJsonNull) {
+              require(jsonObj.get("callback_url").isJsonPrimitive) {
+                String.format("Expected the field `callback_url` to be a primitive type in the JSON string but got `%s`", jsonObj["callback_url"].toString())
+              }
+            }
+            // validate the optional field `region_mode`
+            if (jsonObj["region_mode"] != null && !jsonObj["region_mode"].isJsonNull) {
+                require(RegionMode.values().any { it.value == jsonObj["region_mode"].asString }) {
+                    String.format("Expected the field `region_mode` to be valid `RegionMode` enum value in the JSON string but got `%s`", jsonObj["region_mode"].toString())
+                }
+            }
+        }
+    }
 
 }
 

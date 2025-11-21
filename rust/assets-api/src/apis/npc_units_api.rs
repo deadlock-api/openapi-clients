@@ -18,13 +18,13 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct GetNpcUnitV2NpcUnitsIdOrClassNameGetParams {
     pub id_or_class_name: String,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV1ValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_npc_units_v2_npc_units_get`]
 #[derive(Clone, Debug)]
 pub struct GetNpcUnitsV2NpcUnitsGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesV1ValidClientVersions>
 }
 
 

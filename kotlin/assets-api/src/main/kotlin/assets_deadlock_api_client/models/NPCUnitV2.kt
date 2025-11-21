@@ -18,8 +18,16 @@ package assets_deadlock_api_client.models
 import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.RawWeaponInfoV2
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -79,151 +87,151 @@ import java.io.Serializable
 
 data class NPCUnitV2 (
 
-    @Json(name = "class_name")
+    @SerializedName("class_name")
     val className: kotlin.String,
 
-    @Json(name = "id")
+    @SerializedName("id")
     val id: kotlin.Long,
 
-    @Json(name = "weapon_info")
+    @SerializedName("weapon_info")
     val weaponInfo: RawWeaponInfoV2? = null,
 
-    @Json(name = "max_health")
+    @SerializedName("max_health")
     val maxHealth: kotlin.Int? = null,
 
-    @Json(name = "sight_range_players")
+    @SerializedName("sight_range_players")
     val sightRangePlayers: java.math.BigDecimal? = null,
 
-    @Json(name = "sight_range_npcs")
+    @SerializedName("sight_range_npcs")
     val sightRangeNpcs: java.math.BigDecimal? = null,
 
-    @Json(name = "gold_reward")
+    @SerializedName("gold_reward")
     val goldReward: java.math.BigDecimal? = null,
 
-    @Json(name = "gold_reward_bonus_percent_per_minute")
+    @SerializedName("gold_reward_bonus_percent_per_minute")
     val goldRewardBonusPercentPerMinute: java.math.BigDecimal? = null,
 
-    @Json(name = "player_damage_resist_pct")
+    @SerializedName("player_damage_resist_pct")
     val playerDamageResistPct: java.math.BigDecimal? = null,
 
-    @Json(name = "trooper_damage_resist_pct")
+    @SerializedName("trooper_damage_resist_pct")
     val trooperDamageResistPct: java.math.BigDecimal? = null,
 
-    @Json(name = "t1_boss_damage_resist_pct")
+    @SerializedName("t1_boss_damage_resist_pct")
     val t1BossDamageResistPct: java.math.BigDecimal? = null,
 
-    @Json(name = "t2_boss_damage_resist_pct")
+    @SerializedName("t2_boss_damage_resist_pct")
     val t2BossDamageResistPct: java.math.BigDecimal? = null,
 
-    @Json(name = "t3_boss_damage_resist_pct")
+    @SerializedName("t3_boss_damage_resist_pct")
     val t3BossDamageResistPct: java.math.BigDecimal? = null,
 
-    @Json(name = "barrack_guardian_damage_resist_pct")
+    @SerializedName("barrack_guardian_damage_resist_pct")
     val barrackGuardianDamageResistPct: java.math.BigDecimal? = null,
 
-    @Json(name = "near_death_duration")
+    @SerializedName("near_death_duration")
     val nearDeathDuration: java.math.BigDecimal? = null,
 
-    @Json(name = "walk_speed")
+    @SerializedName("walk_speed")
     val walkSpeed: java.math.BigDecimal? = null,
 
-    @Json(name = "run_speed")
+    @SerializedName("run_speed")
     val runSpeed: java.math.BigDecimal? = null,
 
-    @Json(name = "acceleration")
+    @SerializedName("acceleration")
     val acceleration: java.math.BigDecimal? = null,
 
-    @Json(name = "melee_damage")
+    @SerializedName("melee_damage")
     val meleeDamage: java.math.BigDecimal? = null,
 
-    @Json(name = "melee_attempt_range")
+    @SerializedName("melee_attempt_range")
     val meleeAttemptRange: java.math.BigDecimal? = null,
 
-    @Json(name = "melee_hit_range")
+    @SerializedName("melee_hit_range")
     val meleeHitRange: java.math.BigDecimal? = null,
 
-    @Json(name = "melee_duration")
+    @SerializedName("melee_duration")
     val meleeDuration: java.math.BigDecimal? = null,
 
-    @Json(name = "attack_t1_boss_max_range")
+    @SerializedName("attack_t1_boss_max_range")
     val attackT1BossMaxRange: java.math.BigDecimal? = null,
 
-    @Json(name = "attack_t3_boss_max_range")
+    @SerializedName("attack_t3_boss_max_range")
     val attackT3BossMaxRange: java.math.BigDecimal? = null,
 
-    @Json(name = "attack_t3_boss_phase2_max_range")
+    @SerializedName("attack_t3_boss_phase2_max_range")
     val attackT3BossPhase2MaxRange: java.math.BigDecimal? = null,
 
-    @Json(name = "attack_trooper_max_range")
+    @SerializedName("attack_trooper_max_range")
     val attackTrooperMaxRange: java.math.BigDecimal? = null,
 
-    @Json(name = "t1_boss_dps")
+    @SerializedName("t1_boss_dps")
     val t1BossDps: java.math.BigDecimal? = null,
 
-    @Json(name = "t1_boss_dpsbase_resist")
+    @SerializedName("t1_boss_dpsbase_resist")
     val t1BossDpsbaseResist: java.math.BigDecimal? = null,
 
-    @Json(name = "t1_boss_dpsmax_resist")
+    @SerializedName("t1_boss_dpsmax_resist")
     val t1BossDpsmaxResist: java.math.BigDecimal? = null,
 
-    @Json(name = "t1_boss_dpsmax_resist_time_in_seconds")
+    @SerializedName("t1_boss_dpsmax_resist_time_in_seconds")
     val t1BossDpsmaxResistTimeInSeconds: java.math.BigDecimal? = null,
 
-    @Json(name = "t2_boss_dps")
+    @SerializedName("t2_boss_dps")
     val t2BossDps: java.math.BigDecimal? = null,
 
-    @Json(name = "t2_boss_dpsbase_resist")
+    @SerializedName("t2_boss_dpsbase_resist")
     val t2BossDpsbaseResist: java.math.BigDecimal? = null,
 
-    @Json(name = "t2_boss_dpsmax_resist")
+    @SerializedName("t2_boss_dpsmax_resist")
     val t2BossDpsmaxResist: java.math.BigDecimal? = null,
 
-    @Json(name = "t2_boss_dpsmax_resist_time_in_seconds")
+    @SerializedName("t2_boss_dpsmax_resist_time_in_seconds")
     val t2BossDpsmaxResistTimeInSeconds: java.math.BigDecimal? = null,
 
-    @Json(name = "t3_boss_dps")
+    @SerializedName("t3_boss_dps")
     val t3BossDps: java.math.BigDecimal? = null,
 
-    @Json(name = "generator_boss_dps")
+    @SerializedName("generator_boss_dps")
     val generatorBossDps: java.math.BigDecimal? = null,
 
-    @Json(name = "barrack_boss_dps")
+    @SerializedName("barrack_boss_dps")
     val barrackBossDps: java.math.BigDecimal? = null,
 
-    @Json(name = "player_dps")
+    @SerializedName("player_dps")
     val playerDps: java.math.BigDecimal? = null,
 
-    @Json(name = "trooper_dps")
+    @SerializedName("trooper_dps")
     val trooperDps: java.math.BigDecimal? = null,
 
-    @Json(name = "health_bar_color_friend")
+    @SerializedName("health_bar_color_friend")
     val healthBarColorFriend: ColorV1? = null,
 
-    @Json(name = "health_bar_color_enemy")
+    @SerializedName("health_bar_color_enemy")
     val healthBarColorEnemy: ColorV1? = null,
 
-    @Json(name = "health_bar_color_team1")
+    @SerializedName("health_bar_color_team1")
     val healthBarColorTeam1: ColorV1? = null,
 
-    @Json(name = "health_bar_color_team2")
+    @SerializedName("health_bar_color_team2")
     val healthBarColorTeam2: ColorV1? = null,
 
-    @Json(name = "health_bar_color_team_neutral")
+    @SerializedName("health_bar_color_team_neutral")
     val healthBarColorTeamNeutral: ColorV1? = null,
 
-    @Json(name = "glow_color_friend")
+    @SerializedName("glow_color_friend")
     val glowColorFriend: ColorV1? = null,
 
-    @Json(name = "glow_color_enemy")
+    @SerializedName("glow_color_enemy")
     val glowColorEnemy: ColorV1? = null,
 
-    @Json(name = "glow_color_team1")
+    @SerializedName("glow_color_team1")
     val glowColorTeam1: ColorV1? = null,
 
-    @Json(name = "glow_color_team2")
+    @SerializedName("glow_color_team2")
     val glowColorTeam2: ColorV1? = null,
 
-    @Json(name = "glow_color_team_neutral")
+    @SerializedName("glow_color_team_neutral")
     val glowColorTeamNeutral: ColorV1? = null
 
 ) : Serializable {
@@ -231,6 +239,164 @@ data class NPCUnitV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!NPCUnitV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'NPCUnitV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(NPCUnitV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<NPCUnitV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: NPCUnitV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): NPCUnitV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("class_name")
+            openapiFields.add("id")
+            openapiFields.add("weapon_info")
+            openapiFields.add("max_health")
+            openapiFields.add("sight_range_players")
+            openapiFields.add("sight_range_npcs")
+            openapiFields.add("gold_reward")
+            openapiFields.add("gold_reward_bonus_percent_per_minute")
+            openapiFields.add("player_damage_resist_pct")
+            openapiFields.add("trooper_damage_resist_pct")
+            openapiFields.add("t1_boss_damage_resist_pct")
+            openapiFields.add("t2_boss_damage_resist_pct")
+            openapiFields.add("t3_boss_damage_resist_pct")
+            openapiFields.add("barrack_guardian_damage_resist_pct")
+            openapiFields.add("near_death_duration")
+            openapiFields.add("walk_speed")
+            openapiFields.add("run_speed")
+            openapiFields.add("acceleration")
+            openapiFields.add("melee_damage")
+            openapiFields.add("melee_attempt_range")
+            openapiFields.add("melee_hit_range")
+            openapiFields.add("melee_duration")
+            openapiFields.add("attack_t1_boss_max_range")
+            openapiFields.add("attack_t3_boss_max_range")
+            openapiFields.add("attack_t3_boss_phase2_max_range")
+            openapiFields.add("attack_trooper_max_range")
+            openapiFields.add("t1_boss_dps")
+            openapiFields.add("t1_boss_dpsbase_resist")
+            openapiFields.add("t1_boss_dpsmax_resist")
+            openapiFields.add("t1_boss_dpsmax_resist_time_in_seconds")
+            openapiFields.add("t2_boss_dps")
+            openapiFields.add("t2_boss_dpsbase_resist")
+            openapiFields.add("t2_boss_dpsmax_resist")
+            openapiFields.add("t2_boss_dpsmax_resist_time_in_seconds")
+            openapiFields.add("t3_boss_dps")
+            openapiFields.add("generator_boss_dps")
+            openapiFields.add("barrack_boss_dps")
+            openapiFields.add("player_dps")
+            openapiFields.add("trooper_dps")
+            openapiFields.add("health_bar_color_friend")
+            openapiFields.add("health_bar_color_enemy")
+            openapiFields.add("health_bar_color_team1")
+            openapiFields.add("health_bar_color_team2")
+            openapiFields.add("health_bar_color_team_neutral")
+            openapiFields.add("glow_color_friend")
+            openapiFields.add("glow_color_enemy")
+            openapiFields.add("glow_color_team1")
+            openapiFields.add("glow_color_team2")
+            openapiFields.add("glow_color_team_neutral")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("class_name")
+            openapiRequiredFields.add("id")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to NPCUnitV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in NPCUnitV2 is not found in the empty JSON string", NPCUnitV2.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            require(jsonObj["class_name"].isJsonPrimitive) {
+              String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj["class_name"].toString())
+            }
+            // validate the optional field `weapon_info`
+            if (jsonObj["weapon_info"] != null && !jsonObj["weapon_info"].isJsonNull) {
+              RawWeaponInfoV2.validateJsonElement(jsonObj["weapon_info"])
+            }
+            // validate the optional field `health_bar_color_friend`
+            if (jsonObj["health_bar_color_friend"] != null && !jsonObj["health_bar_color_friend"].isJsonNull) {
+              ColorV1.validateJsonElement(jsonObj["health_bar_color_friend"])
+            }
+            // validate the optional field `health_bar_color_enemy`
+            if (jsonObj["health_bar_color_enemy"] != null && !jsonObj["health_bar_color_enemy"].isJsonNull) {
+              ColorV1.validateJsonElement(jsonObj["health_bar_color_enemy"])
+            }
+            // validate the optional field `health_bar_color_team1`
+            if (jsonObj["health_bar_color_team1"] != null && !jsonObj["health_bar_color_team1"].isJsonNull) {
+              ColorV1.validateJsonElement(jsonObj["health_bar_color_team1"])
+            }
+            // validate the optional field `health_bar_color_team2`
+            if (jsonObj["health_bar_color_team2"] != null && !jsonObj["health_bar_color_team2"].isJsonNull) {
+              ColorV1.validateJsonElement(jsonObj["health_bar_color_team2"])
+            }
+            // validate the optional field `health_bar_color_team_neutral`
+            if (jsonObj["health_bar_color_team_neutral"] != null && !jsonObj["health_bar_color_team_neutral"].isJsonNull) {
+              ColorV1.validateJsonElement(jsonObj["health_bar_color_team_neutral"])
+            }
+            // validate the optional field `glow_color_friend`
+            if (jsonObj["glow_color_friend"] != null && !jsonObj["glow_color_friend"].isJsonNull) {
+              ColorV1.validateJsonElement(jsonObj["glow_color_friend"])
+            }
+            // validate the optional field `glow_color_enemy`
+            if (jsonObj["glow_color_enemy"] != null && !jsonObj["glow_color_enemy"].isJsonNull) {
+              ColorV1.validateJsonElement(jsonObj["glow_color_enemy"])
+            }
+            // validate the optional field `glow_color_team1`
+            if (jsonObj["glow_color_team1"] != null && !jsonObj["glow_color_team1"].isJsonNull) {
+              ColorV1.validateJsonElement(jsonObj["glow_color_team1"])
+            }
+            // validate the optional field `glow_color_team2`
+            if (jsonObj["glow_color_team2"] != null && !jsonObj["glow_color_team2"].isJsonNull) {
+              ColorV1.validateJsonElement(jsonObj["glow_color_team2"])
+            }
+            // validate the optional field `glow_color_team_neutral`
+            if (jsonObj["glow_color_team_neutral"] != null && !jsonObj["glow_color_team_neutral"].isJsonNull) {
+              ColorV1.validateJsonElement(jsonObj["glow_color_team_neutral"])
+            }
+        }
+    }
 
 }
 

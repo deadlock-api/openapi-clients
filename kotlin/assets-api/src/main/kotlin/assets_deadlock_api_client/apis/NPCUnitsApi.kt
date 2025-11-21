@@ -15,198 +15,100 @@
 
 package assets_deadlock_api_client.apis
 
-import java.io.IOException
-import okhttp3.Call
-import okhttp3.HttpUrl
-
-import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesRawValidClientVersions
+import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.NPCUnitV2
 
-import com.squareup.moshi.Json
+import assets_deadlock_api_client.infrastructure.*
+import io.ktor.client.HttpClientConfig
+import io.ktor.client.request.forms.formData
+import io.ktor.client.engine.HttpClientEngine
+import io.ktor.http.ParametersBuilder
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import java.text.DateFormat
 
-import assets_deadlock_api_client.infrastructure.ApiClient
-import assets_deadlock_api_client.infrastructure.ApiResponse
-import assets_deadlock_api_client.infrastructure.ClientException
-import assets_deadlock_api_client.infrastructure.ClientError
-import assets_deadlock_api_client.infrastructure.ServerException
-import assets_deadlock_api_client.infrastructure.ServerError
-import assets_deadlock_api_client.infrastructure.MultiValueMap
-import assets_deadlock_api_client.infrastructure.PartConfig
-import assets_deadlock_api_client.infrastructure.RequestConfig
-import assets_deadlock_api_client.infrastructure.RequestMethod
-import assets_deadlock_api_client.infrastructure.ResponseType
-import assets_deadlock_api_client.infrastructure.Success
-import assets_deadlock_api_client.infrastructure.toMultiValue
+    open class NPCUnitsApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
-class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
-    companion object {
-        @JvmStatic
-        val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://assets.deadlock-api.com")
-        }
-    }
+        /**
+        * GET /v2/npc-units/{id_or_class_name}
+        * Get Npc Unit
+        * 
+         * @param idOrClassName  
+         * @param clientVersion  (optional)
+         * @return NPCUnitV2
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getNpcUnitV2NpcUnitsIdOrClassNameGet(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<NPCUnitV2> {
 
-    /**
-     * GET /v2/npc-units/{id_or_class_name}
-     * Get Npc Unit
-     * 
-     * @param idOrClassName 
-     * @param clientVersion  (optional)
-     * @return NPCUnitV2
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNpcUnitV2NpcUnitsIdOrClassNameGet(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : NPCUnitV2 {
-        val localVarResponse = getNpcUnitV2NpcUnitsIdOrClassNameGetWithHttpInfo(idOrClassName = idOrClassName, clientVersion = clientVersion)
+            val localVariableAuthNames = listOf<String>()
 
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as NPCUnitV2
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * GET /v2/npc-units/{id_or_class_name}
-     * Get Npc Unit
-     * 
-     * @param idOrClassName 
-     * @param clientVersion  (optional)
-     * @return ApiResponse<NPCUnitV2?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun getNpcUnitV2NpcUnitsIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<NPCUnitV2?> {
-        val localVariableConfig = getNpcUnitV2NpcUnitsIdOrClassNameGetRequestConfig(idOrClassName = idOrClassName, clientVersion = clientVersion)
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
 
-        return request<Unit, NPCUnitV2>(
-            localVariableConfig
-        )
-    }
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * To obtain the request config of the operation getNpcUnitV2NpcUnitsIdOrClassNameGet
-     *
-     * @param idOrClassName 
-     * @param clientVersion  (optional)
-     * @return RequestConfig
-     */
-    fun getNpcUnitV2NpcUnitsIdOrClassNameGetRequestConfig(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (clientVersion != null) {
-                    put("client_version", listOf(clientVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v2/npc-units/{id_or_class_name}".replace("{"+"id_or_class_name"+"}", encodeURIComponent(idOrClassName.toString())),
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v2/npc-units/{id_or_class_name}".replace("{" + "id_or_class_name" + "}", "$idOrClassName"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
-    /**
-     * GET /v2/npc-units
-     * Get Npc Units
-     * 
-     * @param clientVersion  (optional)
-     * @return kotlin.collections.List<NPCUnitV2>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNpcUnitsV2NpcUnitsGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.collections.List<NPCUnitV2> {
-        val localVarResponse = getNpcUnitsV2NpcUnitsGetWithHttpInfo(clientVersion = clientVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<NPCUnitV2>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
             }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
 
-    /**
-     * GET /v2/npc-units
-     * Get Npc Units
-     * 
-     * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.collections.List<NPCUnitV2>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun getNpcUnitsV2NpcUnitsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.collections.List<NPCUnitV2>?> {
-        val localVariableConfig = getNpcUnitsV2NpcUnitsGetRequestConfig(clientVersion = clientVersion)
+        /**
+        * GET /v2/npc-units
+        * Get Npc Units
+        * 
+         * @param clientVersion  (optional)
+         * @return kotlin.collections.List<NPCUnitV2>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getNpcUnitsV2NpcUnitsGet(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<kotlin.collections.List<NPCUnitV2>> {
 
-        return request<Unit, kotlin.collections.List<NPCUnitV2>>(
-            localVariableConfig
-        )
-    }
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * To obtain the request config of the operation getNpcUnitsV2NpcUnitsGet
-     *
-     * @param clientVersion  (optional)
-     * @return RequestConfig
-     */
-    fun getNpcUnitsV2NpcUnitsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (clientVersion != null) {
-                    put("client_version", listOf(clientVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v2/npc-units",
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
+
+            val localVariableHeaders = mutableMapOf<String, String>()
+
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v2/npc-units",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
+            }
 
-    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
-        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
-}
+        }

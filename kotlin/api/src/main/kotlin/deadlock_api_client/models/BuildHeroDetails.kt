@@ -18,8 +18,16 @@ package deadlock_api_client.models
 import deadlock_api_client.models.BuildHeroDetailsAbilityOrder
 import deadlock_api_client.models.BuildHeroDetailsCategory
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -32,10 +40,10 @@ import java.io.Serializable
 
 data class BuildHeroDetails (
 
-    @Json(name = "mod_categories")
+    @SerializedName("mod_categories")
     val modCategories: kotlin.collections.List<BuildHeroDetailsCategory>,
 
-    @Json(name = "ability_order")
+    @SerializedName("ability_order")
     val abilityOrder: BuildHeroDetailsAbilityOrder? = null
 
 ) : Serializable {
@@ -43,6 +51,82 @@ data class BuildHeroDetails (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!BuildHeroDetails::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'BuildHeroDetails' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(BuildHeroDetails::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<BuildHeroDetails>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: BuildHeroDetails) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): BuildHeroDetails  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("mod_categories")
+            openapiFields.add("ability_order")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("mod_categories")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to BuildHeroDetails
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in BuildHeroDetails is not found in the empty JSON string", BuildHeroDetails.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            // ensure the json data is an array
+            if (!jsonObj.get("mod_categories").isJsonArray) {
+              throw IllegalArgumentException(String.format("Expected the field `mod_categories` to be an array in the JSON string but got `%s`", jsonObj["mod_categories"].toString()))
+            }
+
+            // validate the required field `mod_categories` (array)
+            for (i in 0 until jsonObj.getAsJsonArray("mod_categories").size()) {
+              BuildHeroDetailsCategory.validateJsonElement(jsonObj.getAsJsonArray("mod_categories").get(i))
+            }
+            // validate the optional field `ability_order`
+            if (jsonObj["ability_order"] != null && !jsonObj["ability_order"].isJsonNull) {
+              BuildHeroDetailsAbilityOrder.validateJsonElement(jsonObj["ability_order"])
+            }
+        }
+    }
 
 }
 

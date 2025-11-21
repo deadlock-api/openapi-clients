@@ -17,8 +17,16 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.RawItemWeaponInfoBulletSpeedCurveSplineV2
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -32,13 +40,13 @@ import java.io.Serializable
 
 data class RawItemWeaponInfoBulletSpeedCurveV2 (
 
-    @Json(name = "domain_maxs")
+    @SerializedName("domain_maxs")
     val domainMaxs: kotlin.collections.List<java.math.BigDecimal>,
 
-    @Json(name = "domain_mins")
+    @SerializedName("domain_mins")
     val domainMins: kotlin.collections.List<java.math.BigDecimal>,
 
-    @Json(name = "spline")
+    @SerializedName("spline")
     val spline: kotlin.collections.List<RawItemWeaponInfoBulletSpeedCurveSplineV2>? = null
 
 ) : Serializable {
@@ -46,6 +54,98 @@ data class RawItemWeaponInfoBulletSpeedCurveV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!RawItemWeaponInfoBulletSpeedCurveV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'RawItemWeaponInfoBulletSpeedCurveV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(RawItemWeaponInfoBulletSpeedCurveV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<RawItemWeaponInfoBulletSpeedCurveV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: RawItemWeaponInfoBulletSpeedCurveV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): RawItemWeaponInfoBulletSpeedCurveV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("domain_maxs")
+            openapiFields.add("domain_mins")
+            openapiFields.add("spline")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("domain_maxs")
+            openapiRequiredFields.add("domain_mins")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to RawItemWeaponInfoBulletSpeedCurveV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in RawItemWeaponInfoBulletSpeedCurveV2 is not found in the empty JSON string", RawItemWeaponInfoBulletSpeedCurveV2.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            // ensure the required json array is present
+            requireNotNull(jsonObj["domain_maxs"]) {
+              "Expected the field `domain_maxs` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["domain_maxs"].isJsonArray()) {
+              String.format("Expected the field `domain_maxs` to be an array in the JSON string but got `%s`", jsonObj["domain_maxs"].toString())
+            }
+            // ensure the required json array is present
+            requireNotNull(jsonObj["domain_mins"]) {
+              "Expected the field `domain_mins` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["domain_mins"].isJsonArray()) {
+              String.format("Expected the field `domain_mins` to be an array in the JSON string but got `%s`", jsonObj["domain_mins"].toString())
+            }
+            if (jsonObj["spline"] != null && !jsonObj["spline"].isJsonNull) {
+              if (jsonObj.getAsJsonArray("spline") != null) {
+                // ensure the json data is an array
+                require(jsonObj["spline"].isJsonArray) {
+                  String.format("Expected the field `spline` to be an array in the JSON string but got `%s`", jsonObj["spline"].toString())
+                }
+
+                // validate the optional field `spline` (array)
+                for (i in 0 until jsonObj.getAsJsonArray("spline").size()) {
+                  RawItemWeaponInfoBulletSpeedCurveSplineV2.validateJsonElement(jsonObj.getAsJsonArray("spline").get(i))
+                }
+              }
+            }
+        }
+    }
 
 }
 

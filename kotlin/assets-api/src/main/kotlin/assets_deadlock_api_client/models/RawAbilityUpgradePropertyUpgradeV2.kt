@@ -17,8 +17,16 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.Bonus
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -33,16 +41,16 @@ import java.io.Serializable
 
 data class RawAbilityUpgradePropertyUpgradeV2 (
 
-    @Json(name = "name")
+    @SerializedName("name")
     val name: kotlin.String,
 
-    @Json(name = "bonus")
+    @SerializedName("bonus")
     val bonus: Bonus,
 
-    @Json(name = "scale_stat_filter")
+    @SerializedName("scale_stat_filter")
     val scaleStatFilter: kotlin.String? = null,
 
-    @Json(name = "upgrade_type")
+    @SerializedName("upgrade_type")
     val upgradeType: kotlin.String? = null
 
 ) : Serializable {
@@ -50,6 +58,87 @@ data class RawAbilityUpgradePropertyUpgradeV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!RawAbilityUpgradePropertyUpgradeV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'RawAbilityUpgradePropertyUpgradeV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(RawAbilityUpgradePropertyUpgradeV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<RawAbilityUpgradePropertyUpgradeV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: RawAbilityUpgradePropertyUpgradeV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): RawAbilityUpgradePropertyUpgradeV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("name")
+            openapiFields.add("bonus")
+            openapiFields.add("scale_stat_filter")
+            openapiFields.add("upgrade_type")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("name")
+            openapiRequiredFields.add("bonus")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to RawAbilityUpgradePropertyUpgradeV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in RawAbilityUpgradePropertyUpgradeV2 is not found in the empty JSON string", RawAbilityUpgradePropertyUpgradeV2.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            require(jsonObj["name"].isJsonPrimitive) {
+              String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj["name"].toString())
+            }
+            // validate the required field `bonus`
+            Bonus.validateJsonElement(jsonObj["bonus"])
+            if (jsonObj["scale_stat_filter"] != null && !jsonObj["scale_stat_filter"].isJsonNull) {
+              require(jsonObj.get("scale_stat_filter").isJsonPrimitive) {
+                String.format("Expected the field `scale_stat_filter` to be a primitive type in the JSON string but got `%s`", jsonObj["scale_stat_filter"].toString())
+              }
+            }
+            if (jsonObj["upgrade_type"] != null && !jsonObj["upgrade_type"].isJsonNull) {
+              require(jsonObj.get("upgrade_type").isJsonPrimitive) {
+                String.format("Expected the field `upgrade_type` to be a primitive type in the JSON string but got `%s`", jsonObj["upgrade_type"].toString())
+              }
+            }
+        }
+    }
 
 }
 

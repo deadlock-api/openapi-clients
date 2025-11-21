@@ -16,8 +16,16 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -56,88 +64,88 @@ import java.io.Serializable
 
 data class RankImagesV2 (
 
-    @Json(name = "large")
+    @SerializedName("large")
     val large: kotlin.String? = null,
 
-    @Json(name = "large_webp")
+    @SerializedName("large_webp")
     val largeWebp: kotlin.String? = null,
 
-    @Json(name = "large_subrank1")
+    @SerializedName("large_subrank1")
     val largeSubrank1: kotlin.String? = null,
 
-    @Json(name = "large_subrank1_webp")
+    @SerializedName("large_subrank1_webp")
     val largeSubrank1Webp: kotlin.String? = null,
 
-    @Json(name = "large_subrank2")
+    @SerializedName("large_subrank2")
     val largeSubrank2: kotlin.String? = null,
 
-    @Json(name = "large_subrank2_webp")
+    @SerializedName("large_subrank2_webp")
     val largeSubrank2Webp: kotlin.String? = null,
 
-    @Json(name = "large_subrank3")
+    @SerializedName("large_subrank3")
     val largeSubrank3: kotlin.String? = null,
 
-    @Json(name = "large_subrank3_webp")
+    @SerializedName("large_subrank3_webp")
     val largeSubrank3Webp: kotlin.String? = null,
 
-    @Json(name = "large_subrank4")
+    @SerializedName("large_subrank4")
     val largeSubrank4: kotlin.String? = null,
 
-    @Json(name = "large_subrank4_webp")
+    @SerializedName("large_subrank4_webp")
     val largeSubrank4Webp: kotlin.String? = null,
 
-    @Json(name = "large_subrank5")
+    @SerializedName("large_subrank5")
     val largeSubrank5: kotlin.String? = null,
 
-    @Json(name = "large_subrank5_webp")
+    @SerializedName("large_subrank5_webp")
     val largeSubrank5Webp: kotlin.String? = null,
 
-    @Json(name = "large_subrank6")
+    @SerializedName("large_subrank6")
     val largeSubrank6: kotlin.String? = null,
 
-    @Json(name = "large_subrank6_webp")
+    @SerializedName("large_subrank6_webp")
     val largeSubrank6Webp: kotlin.String? = null,
 
-    @Json(name = "small")
+    @SerializedName("small")
     val small: kotlin.String? = null,
 
-    @Json(name = "small_webp")
+    @SerializedName("small_webp")
     val smallWebp: kotlin.String? = null,
 
-    @Json(name = "small_subrank1")
+    @SerializedName("small_subrank1")
     val smallSubrank1: kotlin.String? = null,
 
-    @Json(name = "small_subrank1_webp")
+    @SerializedName("small_subrank1_webp")
     val smallSubrank1Webp: kotlin.String? = null,
 
-    @Json(name = "small_subrank2")
+    @SerializedName("small_subrank2")
     val smallSubrank2: kotlin.String? = null,
 
-    @Json(name = "small_subrank2_webp")
+    @SerializedName("small_subrank2_webp")
     val smallSubrank2Webp: kotlin.String? = null,
 
-    @Json(name = "small_subrank3")
+    @SerializedName("small_subrank3")
     val smallSubrank3: kotlin.String? = null,
 
-    @Json(name = "small_subrank3_webp")
+    @SerializedName("small_subrank3_webp")
     val smallSubrank3Webp: kotlin.String? = null,
 
-    @Json(name = "small_subrank4")
+    @SerializedName("small_subrank4")
     val smallSubrank4: kotlin.String? = null,
 
-    @Json(name = "small_subrank4_webp")
+    @SerializedName("small_subrank4_webp")
     val smallSubrank4Webp: kotlin.String? = null,
 
-    @Json(name = "small_subrank5")
+    @SerializedName("small_subrank5")
     val smallSubrank5: kotlin.String? = null,
 
-    @Json(name = "small_subrank5_webp")
+    @SerializedName("small_subrank5_webp")
     val smallSubrank5Webp: kotlin.String? = null,
 
-    @Json(name = "small_subrank6")
+    @SerializedName("small_subrank6")
     val smallSubrank6: kotlin.String? = null,
 
-    @Json(name = "small_subrank6_webp")
+    @SerializedName("small_subrank6_webp")
     val smallSubrank6Webp: kotlin.String? = null
 
 ) : Serializable {
@@ -145,6 +153,226 @@ data class RankImagesV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!RankImagesV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'RankImagesV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(RankImagesV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<RankImagesV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: RankImagesV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): RankImagesV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("large")
+            openapiFields.add("large_webp")
+            openapiFields.add("large_subrank1")
+            openapiFields.add("large_subrank1_webp")
+            openapiFields.add("large_subrank2")
+            openapiFields.add("large_subrank2_webp")
+            openapiFields.add("large_subrank3")
+            openapiFields.add("large_subrank3_webp")
+            openapiFields.add("large_subrank4")
+            openapiFields.add("large_subrank4_webp")
+            openapiFields.add("large_subrank5")
+            openapiFields.add("large_subrank5_webp")
+            openapiFields.add("large_subrank6")
+            openapiFields.add("large_subrank6_webp")
+            openapiFields.add("small")
+            openapiFields.add("small_webp")
+            openapiFields.add("small_subrank1")
+            openapiFields.add("small_subrank1_webp")
+            openapiFields.add("small_subrank2")
+            openapiFields.add("small_subrank2_webp")
+            openapiFields.add("small_subrank3")
+            openapiFields.add("small_subrank3_webp")
+            openapiFields.add("small_subrank4")
+            openapiFields.add("small_subrank4_webp")
+            openapiFields.add("small_subrank5")
+            openapiFields.add("small_subrank5_webp")
+            openapiFields.add("small_subrank6")
+            openapiFields.add("small_subrank6_webp")
+
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to RankImagesV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in RankImagesV2 is not found in the empty JSON string", RankImagesV2.openapiRequiredFields.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            if (jsonObj["large"] != null && !jsonObj["large"].isJsonNull) {
+              require(jsonObj.get("large").isJsonPrimitive) {
+                String.format("Expected the field `large` to be a primitive type in the JSON string but got `%s`", jsonObj["large"].toString())
+              }
+            }
+            if (jsonObj["large_webp"] != null && !jsonObj["large_webp"].isJsonNull) {
+              require(jsonObj.get("large_webp").isJsonPrimitive) {
+                String.format("Expected the field `large_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["large_webp"].toString())
+              }
+            }
+            if (jsonObj["large_subrank1"] != null && !jsonObj["large_subrank1"].isJsonNull) {
+              require(jsonObj.get("large_subrank1").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank1` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank1"].toString())
+              }
+            }
+            if (jsonObj["large_subrank1_webp"] != null && !jsonObj["large_subrank1_webp"].isJsonNull) {
+              require(jsonObj.get("large_subrank1_webp").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank1_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank1_webp"].toString())
+              }
+            }
+            if (jsonObj["large_subrank2"] != null && !jsonObj["large_subrank2"].isJsonNull) {
+              require(jsonObj.get("large_subrank2").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank2` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank2"].toString())
+              }
+            }
+            if (jsonObj["large_subrank2_webp"] != null && !jsonObj["large_subrank2_webp"].isJsonNull) {
+              require(jsonObj.get("large_subrank2_webp").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank2_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank2_webp"].toString())
+              }
+            }
+            if (jsonObj["large_subrank3"] != null && !jsonObj["large_subrank3"].isJsonNull) {
+              require(jsonObj.get("large_subrank3").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank3` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank3"].toString())
+              }
+            }
+            if (jsonObj["large_subrank3_webp"] != null && !jsonObj["large_subrank3_webp"].isJsonNull) {
+              require(jsonObj.get("large_subrank3_webp").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank3_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank3_webp"].toString())
+              }
+            }
+            if (jsonObj["large_subrank4"] != null && !jsonObj["large_subrank4"].isJsonNull) {
+              require(jsonObj.get("large_subrank4").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank4` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank4"].toString())
+              }
+            }
+            if (jsonObj["large_subrank4_webp"] != null && !jsonObj["large_subrank4_webp"].isJsonNull) {
+              require(jsonObj.get("large_subrank4_webp").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank4_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank4_webp"].toString())
+              }
+            }
+            if (jsonObj["large_subrank5"] != null && !jsonObj["large_subrank5"].isJsonNull) {
+              require(jsonObj.get("large_subrank5").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank5` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank5"].toString())
+              }
+            }
+            if (jsonObj["large_subrank5_webp"] != null && !jsonObj["large_subrank5_webp"].isJsonNull) {
+              require(jsonObj.get("large_subrank5_webp").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank5_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank5_webp"].toString())
+              }
+            }
+            if (jsonObj["large_subrank6"] != null && !jsonObj["large_subrank6"].isJsonNull) {
+              require(jsonObj.get("large_subrank6").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank6` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank6"].toString())
+              }
+            }
+            if (jsonObj["large_subrank6_webp"] != null && !jsonObj["large_subrank6_webp"].isJsonNull) {
+              require(jsonObj.get("large_subrank6_webp").isJsonPrimitive) {
+                String.format("Expected the field `large_subrank6_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["large_subrank6_webp"].toString())
+              }
+            }
+            if (jsonObj["small"] != null && !jsonObj["small"].isJsonNull) {
+              require(jsonObj.get("small").isJsonPrimitive) {
+                String.format("Expected the field `small` to be a primitive type in the JSON string but got `%s`", jsonObj["small"].toString())
+              }
+            }
+            if (jsonObj["small_webp"] != null && !jsonObj["small_webp"].isJsonNull) {
+              require(jsonObj.get("small_webp").isJsonPrimitive) {
+                String.format("Expected the field `small_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["small_webp"].toString())
+              }
+            }
+            if (jsonObj["small_subrank1"] != null && !jsonObj["small_subrank1"].isJsonNull) {
+              require(jsonObj.get("small_subrank1").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank1` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank1"].toString())
+              }
+            }
+            if (jsonObj["small_subrank1_webp"] != null && !jsonObj["small_subrank1_webp"].isJsonNull) {
+              require(jsonObj.get("small_subrank1_webp").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank1_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank1_webp"].toString())
+              }
+            }
+            if (jsonObj["small_subrank2"] != null && !jsonObj["small_subrank2"].isJsonNull) {
+              require(jsonObj.get("small_subrank2").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank2` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank2"].toString())
+              }
+            }
+            if (jsonObj["small_subrank2_webp"] != null && !jsonObj["small_subrank2_webp"].isJsonNull) {
+              require(jsonObj.get("small_subrank2_webp").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank2_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank2_webp"].toString())
+              }
+            }
+            if (jsonObj["small_subrank3"] != null && !jsonObj["small_subrank3"].isJsonNull) {
+              require(jsonObj.get("small_subrank3").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank3` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank3"].toString())
+              }
+            }
+            if (jsonObj["small_subrank3_webp"] != null && !jsonObj["small_subrank3_webp"].isJsonNull) {
+              require(jsonObj.get("small_subrank3_webp").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank3_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank3_webp"].toString())
+              }
+            }
+            if (jsonObj["small_subrank4"] != null && !jsonObj["small_subrank4"].isJsonNull) {
+              require(jsonObj.get("small_subrank4").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank4` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank4"].toString())
+              }
+            }
+            if (jsonObj["small_subrank4_webp"] != null && !jsonObj["small_subrank4_webp"].isJsonNull) {
+              require(jsonObj.get("small_subrank4_webp").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank4_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank4_webp"].toString())
+              }
+            }
+            if (jsonObj["small_subrank5"] != null && !jsonObj["small_subrank5"].isJsonNull) {
+              require(jsonObj.get("small_subrank5").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank5` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank5"].toString())
+              }
+            }
+            if (jsonObj["small_subrank5_webp"] != null && !jsonObj["small_subrank5_webp"].isJsonNull) {
+              require(jsonObj.get("small_subrank5_webp").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank5_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank5_webp"].toString())
+              }
+            }
+            if (jsonObj["small_subrank6"] != null && !jsonObj["small_subrank6"].isJsonNull) {
+              require(jsonObj.get("small_subrank6").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank6` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank6"].toString())
+              }
+            }
+            if (jsonObj["small_subrank6_webp"] != null && !jsonObj["small_subrank6_webp"].isJsonNull) {
+              require(jsonObj.get("small_subrank6_webp").isJsonPrimitive) {
+                String.format("Expected the field `small_subrank6_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["small_subrank6_webp"].toString())
+              }
+            }
+        }
+    }
 
 }
 

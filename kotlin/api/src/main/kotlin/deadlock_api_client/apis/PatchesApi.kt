@@ -15,177 +15,93 @@
 
 package deadlock_api_client.apis
 
-import java.io.IOException
-import okhttp3.Call
-import okhttp3.HttpUrl
-
 import deadlock_api_client.models.Patch
 
-import com.squareup.moshi.Json
+import deadlock_api_client.infrastructure.*
+import io.ktor.client.HttpClientConfig
+import io.ktor.client.request.forms.formData
+import io.ktor.client.engine.HttpClientEngine
+import io.ktor.http.ParametersBuilder
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import java.text.DateFormat
 
-import deadlock_api_client.infrastructure.ApiClient
-import deadlock_api_client.infrastructure.ApiResponse
-import deadlock_api_client.infrastructure.ClientException
-import deadlock_api_client.infrastructure.ClientError
-import deadlock_api_client.infrastructure.ServerException
-import deadlock_api_client.infrastructure.ServerError
-import deadlock_api_client.infrastructure.MultiValueMap
-import deadlock_api_client.infrastructure.PartConfig
-import deadlock_api_client.infrastructure.RequestConfig
-import deadlock_api_client.infrastructure.RequestMethod
-import deadlock_api_client.infrastructure.ResponseType
-import deadlock_api_client.infrastructure.Success
-import deadlock_api_client.infrastructure.toMultiValue
+    open class PatchesApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
-class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
-    companion object {
-        @JvmStatic
-        val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://api.deadlock-api.com")
-        }
-    }
+        /**
+        * GET /v1/patches/big-days
+        * Big Days
+        *  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the announcement forum post was published.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @return kotlin.collections.List<kotlin.String>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun bigPatchDays(): HttpResponse<kotlin.collections.List<kotlin.String>> {
 
-    /**
-     * GET /v1/patches/big-days
-     * Big Days
-     *  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the announcement forum post was published.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @return kotlin.collections.List<kotlin.String>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun bigPatchDays() : kotlin.collections.List<kotlin.String> {
-        val localVarResponse = bigPatchDaysWithHttpInfo()
+            val localVariableAuthNames = listOf<String>()
 
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.String>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * GET /v1/patches/big-days
-     * Big Days
-     *  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the announcement forum post was published.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @return ApiResponse<kotlin.collections.List<kotlin.String>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun bigPatchDaysWithHttpInfo() : ApiResponse<kotlin.collections.List<kotlin.String>?> {
-        val localVariableConfig = bigPatchDaysRequestConfig()
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        return request<Unit, kotlin.collections.List<kotlin.String>>(
-            localVariableConfig
-        )
-    }
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * To obtain the request config of the operation bigPatchDays
-     *
-     * @return RequestConfig
-     */
-    fun bigPatchDaysRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/patches/big-days",
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/patches/big-days",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
-    /**
-     * GET /v1/patches
-     * Notes
-     *  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @return kotlin.collections.List<Patch>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun feed() : kotlin.collections.List<Patch> {
-        val localVarResponse = feedWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Patch>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
             }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
 
-    /**
-     * GET /v1/patches
-     * Notes
-     *  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @return ApiResponse<kotlin.collections.List<Patch>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun feedWithHttpInfo() : ApiResponse<kotlin.collections.List<Patch>?> {
-        val localVariableConfig = feedRequestConfig()
+        /**
+        * GET /v1/patches
+        * Notes
+        *  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @return kotlin.collections.List<Patch>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun feed(): HttpResponse<kotlin.collections.List<Patch>> {
 
-        return request<Unit, kotlin.collections.List<Patch>>(
-            localVariableConfig
-        )
-    }
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * To obtain the request config of the operation feed
-     *
-     * @return RequestConfig
-     */
-    fun feedRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/patches",
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+
+            val localVariableHeaders = mutableMapOf<String, String>()
+
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/patches",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
+            }
 
-    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
-        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
-}
+        }

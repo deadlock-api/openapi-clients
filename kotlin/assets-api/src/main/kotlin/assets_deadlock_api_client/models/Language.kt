@@ -16,8 +16,7 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
 /**
  * 
@@ -25,94 +24,93 @@ import com.squareup.moshi.JsonClass
  * Values: brazilian,bulgarian,czech,danish,dutch,english,finnish,french,german,greek,hungarian,indonesian,italian,japanese,koreana,latam,norwegian,polish,portuguese,romanian,russian,schinese,spanish,swedish,tchinese,thai,turkish,ukrainian,vietnamese
  */
 
-@JsonClass(generateAdapter = false)
 enum class Language(val value: kotlin.String) {
 
-    @Json(name = "brazilian")
+    @SerializedName(value = "brazilian")
     brazilian("brazilian"),
 
-    @Json(name = "bulgarian")
+    @SerializedName(value = "bulgarian")
     bulgarian("bulgarian"),
 
-    @Json(name = "czech")
+    @SerializedName(value = "czech")
     czech("czech"),
 
-    @Json(name = "danish")
+    @SerializedName(value = "danish")
     danish("danish"),
 
-    @Json(name = "dutch")
+    @SerializedName(value = "dutch")
     dutch("dutch"),
 
-    @Json(name = "english")
+    @SerializedName(value = "english")
     english("english"),
 
-    @Json(name = "finnish")
+    @SerializedName(value = "finnish")
     finnish("finnish"),
 
-    @Json(name = "french")
+    @SerializedName(value = "french")
     french("french"),
 
-    @Json(name = "german")
+    @SerializedName(value = "german")
     german("german"),
 
-    @Json(name = "greek")
+    @SerializedName(value = "greek")
     greek("greek"),
 
-    @Json(name = "hungarian")
+    @SerializedName(value = "hungarian")
     hungarian("hungarian"),
 
-    @Json(name = "indonesian")
+    @SerializedName(value = "indonesian")
     indonesian("indonesian"),
 
-    @Json(name = "italian")
+    @SerializedName(value = "italian")
     italian("italian"),
 
-    @Json(name = "japanese")
+    @SerializedName(value = "japanese")
     japanese("japanese"),
 
-    @Json(name = "koreana")
+    @SerializedName(value = "koreana")
     koreana("koreana"),
 
-    @Json(name = "latam")
+    @SerializedName(value = "latam")
     latam("latam"),
 
-    @Json(name = "norwegian")
+    @SerializedName(value = "norwegian")
     norwegian("norwegian"),
 
-    @Json(name = "polish")
+    @SerializedName(value = "polish")
     polish("polish"),
 
-    @Json(name = "portuguese")
+    @SerializedName(value = "portuguese")
     portuguese("portuguese"),
 
-    @Json(name = "romanian")
+    @SerializedName(value = "romanian")
     romanian("romanian"),
 
-    @Json(name = "russian")
+    @SerializedName(value = "russian")
     russian("russian"),
 
-    @Json(name = "schinese")
+    @SerializedName(value = "schinese")
     schinese("schinese"),
 
-    @Json(name = "spanish")
+    @SerializedName(value = "spanish")
     spanish("spanish"),
 
-    @Json(name = "swedish")
+    @SerializedName(value = "swedish")
     swedish("swedish"),
 
-    @Json(name = "tchinese")
+    @SerializedName(value = "tchinese")
     tchinese("tchinese"),
 
-    @Json(name = "thai")
+    @SerializedName(value = "thai")
     thai("thai"),
 
-    @Json(name = "turkish")
+    @SerializedName(value = "turkish")
     turkish("turkish"),
 
-    @Json(name = "ukrainian")
+    @SerializedName(value = "ukrainian")
     ukrainian("ukrainian"),
 
-    @Json(name = "vietnamese")
+    @SerializedName(value = "vietnamese")
     vietnamese("vietnamese");
 
     /**

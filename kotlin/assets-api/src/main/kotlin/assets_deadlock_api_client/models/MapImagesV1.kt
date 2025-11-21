@@ -16,8 +16,16 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -34,23 +42,23 @@ import java.io.Serializable
 data class MapImagesV1 (
 
     /* The minimap image of the map. */
-    @Json(name = "minimap")
+    @SerializedName("minimap")
     val minimap: kotlin.String,
 
     /* The minimap image of the map without background image and frame image. */
-    @Json(name = "plain")
+    @SerializedName("plain")
     val plain: kotlin.String,
 
     /* The background image of the map. */
-    @Json(name = "background")
+    @SerializedName("background")
     val background: kotlin.String,
 
     /* The frame image of the map. */
-    @Json(name = "frame")
+    @SerializedName("frame")
     val frame: kotlin.String,
 
     /* The mid image of the map. */
-    @Json(name = "mid")
+    @SerializedName("mid")
     val mid: kotlin.String
 
 ) : Serializable {
@@ -58,6 +66,91 @@ data class MapImagesV1 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!MapImagesV1::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'MapImagesV1' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(MapImagesV1::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<MapImagesV1>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: MapImagesV1) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): MapImagesV1  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("minimap")
+            openapiFields.add("plain")
+            openapiFields.add("background")
+            openapiFields.add("frame")
+            openapiFields.add("mid")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("minimap")
+            openapiRequiredFields.add("plain")
+            openapiRequiredFields.add("background")
+            openapiRequiredFields.add("frame")
+            openapiRequiredFields.add("mid")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to MapImagesV1
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in MapImagesV1 is not found in the empty JSON string", MapImagesV1.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            require(jsonObj["minimap"].isJsonPrimitive) {
+              String.format("Expected the field `minimap` to be a primitive type in the JSON string but got `%s`", jsonObj["minimap"].toString())
+            }
+            require(jsonObj["plain"].isJsonPrimitive) {
+              String.format("Expected the field `plain` to be a primitive type in the JSON string but got `%s`", jsonObj["plain"].toString())
+            }
+            require(jsonObj["background"].isJsonPrimitive) {
+              String.format("Expected the field `background` to be a primitive type in the JSON string but got `%s`", jsonObj["background"].toString())
+            }
+            require(jsonObj["frame"].isJsonPrimitive) {
+              String.format("Expected the field `frame` to be a primitive type in the JSON string but got `%s`", jsonObj["frame"].toString())
+            }
+            require(jsonObj["mid"].isJsonPrimitive) {
+              String.format("Expected the field `mid` to be a primitive type in the JSON string but got `%s`", jsonObj["mid"].toString())
+            }
+        }
+    }
 
 }
 

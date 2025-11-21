@@ -16,8 +16,16 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -33,19 +41,19 @@ import java.io.Serializable
 data class ColorV1 (
 
     /* The red value of the color. */
-    @Json(name = "red")
+    @SerializedName("red")
     val red: kotlin.Int,
 
     /* The green value of the color. */
-    @Json(name = "green")
+    @SerializedName("green")
     val green: kotlin.Int,
 
     /* The blue value of the color. */
-    @Json(name = "blue")
+    @SerializedName("blue")
     val blue: kotlin.Int,
 
     /* The alpha value of the color. */
-    @Json(name = "alpha")
+    @SerializedName("alpha")
     val alpha: kotlin.Int
 
 ) : Serializable {
@@ -53,6 +61,74 @@ data class ColorV1 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!ColorV1::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'ColorV1' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ColorV1::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<ColorV1>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: ColorV1) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): ColorV1  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("red")
+            openapiFields.add("green")
+            openapiFields.add("blue")
+            openapiFields.add("alpha")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("red")
+            openapiRequiredFields.add("green")
+            openapiRequiredFields.add("blue")
+            openapiRequiredFields.add("alpha")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to ColorV1
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in ColorV1 is not found in the empty JSON string", ColorV1.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+        }
+    }
 
 }
 

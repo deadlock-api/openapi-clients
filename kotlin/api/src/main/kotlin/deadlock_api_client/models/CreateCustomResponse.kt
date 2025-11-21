@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -31,14 +39,14 @@ import java.io.Serializable
 
 data class CreateCustomResponse (
 
-    @Json(name = "party_code")
+    @SerializedName("party_code")
     val partyCode: kotlin.String,
 
-    @Json(name = "party_id")
+    @SerializedName("party_id")
     val partyId: kotlin.String,
 
     /* If a callback url is provided, this is the secret that should be used to verify the callback. The secret is a base64 encoded random string. To verify it you should compare it with the X-Callback-Secret header. If no callback url is provided, this will be None. */
-    @Json(name = "callback_secret")
+    @SerializedName("callback_secret")
     val callbackSecret: kotlin.String? = null
 
 ) : Serializable {
@@ -46,6 +54,82 @@ data class CreateCustomResponse (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!CreateCustomResponse::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'CreateCustomResponse' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(CreateCustomResponse::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<CreateCustomResponse>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: CreateCustomResponse) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): CreateCustomResponse  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("party_code")
+            openapiFields.add("party_id")
+            openapiFields.add("callback_secret")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("party_code")
+            openapiRequiredFields.add("party_id")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to CreateCustomResponse
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in CreateCustomResponse is not found in the empty JSON string", CreateCustomResponse.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            require(jsonObj["party_code"].isJsonPrimitive) {
+              String.format("Expected the field `party_code` to be a primitive type in the JSON string but got `%s`", jsonObj["party_code"].toString())
+            }
+            require(jsonObj["party_id"].isJsonPrimitive) {
+              String.format("Expected the field `party_id` to be a primitive type in the JSON string but got `%s`", jsonObj["party_id"].toString())
+            }
+            if (jsonObj["callback_secret"] != null && !jsonObj["callback_secret"].isJsonNull) {
+              require(jsonObj.get("callback_secret").isJsonPrimitive) {
+                String.format("Expected the field `callback_secret` to be a primitive type in the JSON string but got `%s`", jsonObj["callback_secret"].toString())
+              }
+            }
+        }
+    }
 
 }
 

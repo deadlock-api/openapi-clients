@@ -16,8 +16,16 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -32,16 +40,16 @@ import java.io.Serializable
 
 data class RawItemWeaponInfoBulletSpeedCurveSplineV2 (
 
-    @Json(name = "slope_incoming")
+    @SerializedName("slope_incoming")
     val slopeIncoming: java.math.BigDecimal,
 
-    @Json(name = "slope_outgoing")
+    @SerializedName("slope_outgoing")
     val slopeOutgoing: java.math.BigDecimal,
 
-    @Json(name = "x")
+    @SerializedName("x")
     val x: java.math.BigDecimal,
 
-    @Json(name = "y")
+    @SerializedName("y")
     val y: java.math.BigDecimal
 
 ) : Serializable {
@@ -49,6 +57,74 @@ data class RawItemWeaponInfoBulletSpeedCurveSplineV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!RawItemWeaponInfoBulletSpeedCurveSplineV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'RawItemWeaponInfoBulletSpeedCurveSplineV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(RawItemWeaponInfoBulletSpeedCurveSplineV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<RawItemWeaponInfoBulletSpeedCurveSplineV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: RawItemWeaponInfoBulletSpeedCurveSplineV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): RawItemWeaponInfoBulletSpeedCurveSplineV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("slope_incoming")
+            openapiFields.add("slope_outgoing")
+            openapiFields.add("x")
+            openapiFields.add("y")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("slope_incoming")
+            openapiRequiredFields.add("slope_outgoing")
+            openapiRequiredFields.add("x")
+            openapiRequiredFields.add("y")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to RawItemWeaponInfoBulletSpeedCurveSplineV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in RawItemWeaponInfoBulletSpeedCurveSplineV2 is not found in the empty JSON string", RawItemWeaponInfoBulletSpeedCurveSplineV2.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+        }
+    }
 
 }
 

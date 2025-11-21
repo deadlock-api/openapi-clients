@@ -16,8 +16,16 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -33,19 +41,19 @@ import java.io.Serializable
 
 data class HeroColorsV2 (
 
-    @Json(name = "glow_enemy")
+    @SerializedName("glow_enemy")
     val glowEnemy: kotlin.collections.List<kotlin.Any>,
 
-    @Json(name = "glow_friendly")
+    @SerializedName("glow_friendly")
     val glowFriendly: kotlin.collections.List<kotlin.Any>,
 
-    @Json(name = "glow_team1")
+    @SerializedName("glow_team1")
     val glowTeam1: kotlin.collections.List<kotlin.Any>,
 
-    @Json(name = "glow_team2")
+    @SerializedName("glow_team2")
     val glowTeam2: kotlin.collections.List<kotlin.Any>,
 
-    @Json(name = "ui")
+    @SerializedName("ui")
     val ui: kotlin.collections.List<kotlin.Any>
 
 ) : Serializable {
@@ -53,6 +61,111 @@ data class HeroColorsV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!HeroColorsV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'HeroColorsV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(HeroColorsV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<HeroColorsV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: HeroColorsV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): HeroColorsV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("glow_enemy")
+            openapiFields.add("glow_friendly")
+            openapiFields.add("glow_team1")
+            openapiFields.add("glow_team2")
+            openapiFields.add("ui")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("glow_enemy")
+            openapiRequiredFields.add("glow_friendly")
+            openapiRequiredFields.add("glow_team1")
+            openapiRequiredFields.add("glow_team2")
+            openapiRequiredFields.add("ui")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to HeroColorsV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in HeroColorsV2 is not found in the empty JSON string", HeroColorsV2.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            // ensure the required json array is present
+            requireNotNull(jsonObj["glow_enemy"]) {
+              "Expected the field `glow_enemy` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["glow_enemy"].isJsonArray()) {
+              String.format("Expected the field `glow_enemy` to be an array in the JSON string but got `%s`", jsonObj["glow_enemy"].toString())
+            }
+            // ensure the required json array is present
+            requireNotNull(jsonObj["glow_friendly"]) {
+              "Expected the field `glow_friendly` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["glow_friendly"].isJsonArray()) {
+              String.format("Expected the field `glow_friendly` to be an array in the JSON string but got `%s`", jsonObj["glow_friendly"].toString())
+            }
+            // ensure the required json array is present
+            requireNotNull(jsonObj["glow_team1"]) {
+              "Expected the field `glow_team1` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["glow_team1"].isJsonArray()) {
+              String.format("Expected the field `glow_team1` to be an array in the JSON string but got `%s`", jsonObj["glow_team1"].toString())
+            }
+            // ensure the required json array is present
+            requireNotNull(jsonObj["glow_team2"]) {
+              "Expected the field `glow_team2` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["glow_team2"].isJsonArray()) {
+              String.format("Expected the field `glow_team2` to be an array in the JSON string but got `%s`", jsonObj["glow_team2"].toString())
+            }
+            // ensure the required json array is present
+            requireNotNull(jsonObj["ui"]) {
+              "Expected the field `ui` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["ui"].isJsonArray()) {
+              String.format("Expected the field `ui` to be an array in the JSON string but got `%s`", jsonObj["ui"].toString())
+            }
+        }
+    }
 
 }
 

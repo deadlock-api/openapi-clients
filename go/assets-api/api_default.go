@@ -26,7 +26,7 @@ type ApiGetBuildTagsV2BuildTagsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
 func (r ApiGetBuildTagsV2BuildTagsGetRequest) Language(language Language) ApiGetBuildTagsV2BuildTagsGetRequest {
@@ -34,7 +34,7 @@ func (r ApiGetBuildTagsV2BuildTagsGetRequest) Language(language Language) ApiGet
 	return r
 }
 
-func (r ApiGetBuildTagsV2BuildTagsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetBuildTagsV2BuildTagsGetRequest {
+func (r ApiGetBuildTagsV2BuildTagsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetBuildTagsV2BuildTagsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -247,10 +247,10 @@ func (a *DefaultAPIService) GetClientVersionsV2ClientVersionsGetExecute(r ApiGet
 type ApiGetColorsV1ColorsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
-func (r ApiGetColorsV1ColorsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetColorsV1ColorsGetRequest {
+func (r ApiGetColorsV1ColorsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetColorsV1ColorsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -363,10 +363,10 @@ func (a *DefaultAPIService) GetColorsV1ColorsGetExecute(r ApiGetColorsV1ColorsGe
 type ApiGetIconsV1IconsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
-func (r ApiGetIconsV1IconsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetIconsV1IconsGetRequest {
+func (r ApiGetIconsV1IconsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetIconsV1IconsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -479,10 +479,10 @@ func (a *DefaultAPIService) GetIconsV1IconsGetExecute(r ApiGetIconsV1IconsGetReq
 type ApiGetMapV1MapGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
-func (r ApiGetMapV1MapGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetMapV1MapGetRequest {
+func (r ApiGetMapV1MapGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetMapV1MapGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -596,7 +596,7 @@ type ApiGetRanksV2RanksGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
 	language *Language
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
 func (r ApiGetRanksV2RanksGetRequest) Language(language Language) ApiGetRanksV2RanksGetRequest {
@@ -604,7 +604,7 @@ func (r ApiGetRanksV2RanksGetRequest) Language(language Language) ApiGetRanksV2R
 	return r
 }
 
-func (r ApiGetRanksV2RanksGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetRanksV2RanksGetRequest {
+func (r ApiGetRanksV2RanksGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetRanksV2RanksGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -720,10 +720,10 @@ func (a *DefaultAPIService) GetRanksV2RanksGetExecute(r ApiGetRanksV2RanksGetReq
 type ApiGetSoundsV1SoundsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
-func (r ApiGetSoundsV1SoundsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetSoundsV1SoundsGetRequest {
+func (r ApiGetSoundsV1SoundsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetSoundsV1SoundsGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -836,10 +836,10 @@ func (a *DefaultAPIService) GetSoundsV1SoundsGetExecute(r ApiGetSoundsV1SoundsGe
 type ApiGetSteamInfoV1SteamInfoGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesRawValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
 }
 
-func (r ApiGetSteamInfoV1SteamInfoGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesRawValidClientVersions) ApiGetSteamInfoV1SteamInfoGetRequest {
+func (r ApiGetSteamInfoV1SteamInfoGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetSteamInfoV1SteamInfoGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

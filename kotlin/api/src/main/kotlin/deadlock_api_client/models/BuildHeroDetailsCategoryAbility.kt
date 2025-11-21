@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -33,19 +41,19 @@ import java.io.Serializable
 
 data class BuildHeroDetailsCategoryAbility (
 
-    @Json(name = "ability_id")
+    @SerializedName("ability_id")
     val abilityId: kotlin.Int,
 
-    @Json(name = "annotation")
+    @SerializedName("annotation")
     val `annotation`: kotlin.String? = null,
 
-    @Json(name = "imbue_target_ability_id")
+    @SerializedName("imbue_target_ability_id")
     val imbueTargetAbilityId: kotlin.Int? = null,
 
-    @Json(name = "required_flex_slots")
+    @SerializedName("required_flex_slots")
     val requiredFlexSlots: kotlin.Int? = null,
 
-    @Json(name = "sell_priority")
+    @SerializedName("sell_priority")
     val sellPriority: kotlin.Int? = null
 
 ) : Serializable {
@@ -53,6 +61,77 @@ data class BuildHeroDetailsCategoryAbility (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!BuildHeroDetailsCategoryAbility::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'BuildHeroDetailsCategoryAbility' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(BuildHeroDetailsCategoryAbility::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<BuildHeroDetailsCategoryAbility>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: BuildHeroDetailsCategoryAbility) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): BuildHeroDetailsCategoryAbility  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("ability_id")
+            openapiFields.add("annotation")
+            openapiFields.add("imbue_target_ability_id")
+            openapiFields.add("required_flex_slots")
+            openapiFields.add("sell_priority")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("ability_id")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to BuildHeroDetailsCategoryAbility
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in BuildHeroDetailsCategoryAbility is not found in the empty JSON string", BuildHeroDetailsCategoryAbility.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            if (jsonObj["annotation"] != null && !jsonObj["annotation"].isJsonNull) {
+              require(jsonObj.get("annotation").isJsonPrimitive) {
+                String.format("Expected the field `annotation` to be a primitive type in the JSON string but got `%s`", jsonObj["annotation"].toString())
+              }
+            }
+        }
+    }
 
 }
 

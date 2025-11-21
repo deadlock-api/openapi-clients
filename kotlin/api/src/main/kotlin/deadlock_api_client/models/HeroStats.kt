@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -56,90 +64,90 @@ import java.io.Serializable
 
 data class HeroStats (
 
-    @Json(name = "account_id")
+    @SerializedName("account_id")
     val accountId: kotlin.Int,
 
-    @Json(name = "accuracy")
+    @SerializedName("accuracy")
     val accuracy: kotlin.Double,
 
-    @Json(name = "assists")
+    @SerializedName("assists")
     val assists: kotlin.Long,
 
-    @Json(name = "assists_per_min")
+    @SerializedName("assists_per_min")
     val assistsPerMin: kotlin.Double,
 
-    @Json(name = "creeps_per_min")
+    @SerializedName("creeps_per_min")
     val creepsPerMin: kotlin.Double,
 
-    @Json(name = "crit_shot_rate")
+    @SerializedName("crit_shot_rate")
     val critShotRate: kotlin.Double,
 
-    @Json(name = "damage_mitigated_per_min")
+    @SerializedName("damage_mitigated_per_min")
     @Deprecated(message = "This property is deprecated.")
     val damageMitigatedPerMin: kotlin.Double,
 
-    @Json(name = "damage_per_min")
+    @SerializedName("damage_per_min")
     val damagePerMin: kotlin.Double,
 
-    @Json(name = "damage_per_soul")
+    @SerializedName("damage_per_soul")
     val damagePerSoul: kotlin.Double,
 
-    @Json(name = "damage_taken_per_min")
+    @SerializedName("damage_taken_per_min")
     val damageTakenPerMin: kotlin.Double,
 
-    @Json(name = "damage_taken_per_soul")
+    @SerializedName("damage_taken_per_soul")
     val damageTakenPerSoul: kotlin.Double,
 
-    @Json(name = "deaths")
+    @SerializedName("deaths")
     val deaths: kotlin.Long,
 
-    @Json(name = "deaths_per_min")
+    @SerializedName("deaths_per_min")
     val deathsPerMin: kotlin.Double,
 
-    @Json(name = "denies_per_match")
+    @SerializedName("denies_per_match")
     val deniesPerMatch: kotlin.Double,
 
-    @Json(name = "denies_per_min")
+    @SerializedName("denies_per_min")
     val deniesPerMin: kotlin.Double,
 
-    @Json(name = "ending_level")
+    @SerializedName("ending_level")
     val endingLevel: kotlin.Double,
 
     /* See more: <https://assets.deadlock-api.com/v2/heroes> */
-    @Json(name = "hero_id")
+    @SerializedName("hero_id")
     val heroId: kotlin.Int,
 
-    @Json(name = "kills")
+    @SerializedName("kills")
     val kills: kotlin.Long,
 
-    @Json(name = "kills_per_min")
+    @SerializedName("kills_per_min")
     val killsPerMin: kotlin.Double,
 
-    @Json(name = "last_hits_per_min")
+    @SerializedName("last_hits_per_min")
     val lastHitsPerMin: kotlin.Double,
 
-    @Json(name = "last_played")
+    @SerializedName("last_played")
     val lastPlayed: kotlin.Int,
 
-    @Json(name = "matches")
+    @SerializedName("matches")
     val matches: kotlin.collections.List<kotlin.Long>,
 
-    @Json(name = "matches_played")
+    @SerializedName("matches_played")
     val matchesPlayed: kotlin.Long,
 
-    @Json(name = "networth_per_min")
+    @SerializedName("networth_per_min")
     val networthPerMin: kotlin.Double,
 
-    @Json(name = "obj_damage_per_min")
+    @SerializedName("obj_damage_per_min")
     val objDamagePerMin: kotlin.Double,
 
-    @Json(name = "obj_damage_per_soul")
+    @SerializedName("obj_damage_per_soul")
     val objDamagePerSoul: kotlin.Double,
 
-    @Json(name = "time_played")
+    @SerializedName("time_played")
     val timePlayed: kotlin.Long,
 
-    @Json(name = "wins")
+    @SerializedName("wins")
     val wins: kotlin.Long
 
 ) : Serializable {
@@ -147,6 +155,137 @@ data class HeroStats (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!HeroStats::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'HeroStats' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(HeroStats::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<HeroStats>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: HeroStats) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): HeroStats  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("account_id")
+            openapiFields.add("accuracy")
+            openapiFields.add("assists")
+            openapiFields.add("assists_per_min")
+            openapiFields.add("creeps_per_min")
+            openapiFields.add("crit_shot_rate")
+            openapiFields.add("damage_mitigated_per_min")
+            openapiFields.add("damage_per_min")
+            openapiFields.add("damage_per_soul")
+            openapiFields.add("damage_taken_per_min")
+            openapiFields.add("damage_taken_per_soul")
+            openapiFields.add("deaths")
+            openapiFields.add("deaths_per_min")
+            openapiFields.add("denies_per_match")
+            openapiFields.add("denies_per_min")
+            openapiFields.add("ending_level")
+            openapiFields.add("hero_id")
+            openapiFields.add("kills")
+            openapiFields.add("kills_per_min")
+            openapiFields.add("last_hits_per_min")
+            openapiFields.add("last_played")
+            openapiFields.add("matches")
+            openapiFields.add("matches_played")
+            openapiFields.add("networth_per_min")
+            openapiFields.add("obj_damage_per_min")
+            openapiFields.add("obj_damage_per_soul")
+            openapiFields.add("time_played")
+            openapiFields.add("wins")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("account_id")
+            openapiRequiredFields.add("accuracy")
+            openapiRequiredFields.add("assists")
+            openapiRequiredFields.add("assists_per_min")
+            openapiRequiredFields.add("creeps_per_min")
+            openapiRequiredFields.add("crit_shot_rate")
+            openapiRequiredFields.add("damage_mitigated_per_min")
+            openapiRequiredFields.add("damage_per_min")
+            openapiRequiredFields.add("damage_per_soul")
+            openapiRequiredFields.add("damage_taken_per_min")
+            openapiRequiredFields.add("damage_taken_per_soul")
+            openapiRequiredFields.add("deaths")
+            openapiRequiredFields.add("deaths_per_min")
+            openapiRequiredFields.add("denies_per_match")
+            openapiRequiredFields.add("denies_per_min")
+            openapiRequiredFields.add("ending_level")
+            openapiRequiredFields.add("hero_id")
+            openapiRequiredFields.add("kills")
+            openapiRequiredFields.add("kills_per_min")
+            openapiRequiredFields.add("last_hits_per_min")
+            openapiRequiredFields.add("last_played")
+            openapiRequiredFields.add("matches")
+            openapiRequiredFields.add("matches_played")
+            openapiRequiredFields.add("networth_per_min")
+            openapiRequiredFields.add("obj_damage_per_min")
+            openapiRequiredFields.add("obj_damage_per_soul")
+            openapiRequiredFields.add("time_played")
+            openapiRequiredFields.add("wins")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to HeroStats
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in HeroStats is not found in the empty JSON string", HeroStats.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            // ensure the required json array is present
+            requireNotNull(jsonObj["matches"]) {
+              "Expected the field `matches` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["matches"].isJsonArray()) {
+              String.format("Expected the field `matches` to be an array in the JSON string but got `%s`", jsonObj["matches"].toString())
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["matches"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("matches").size()) {
+                require(jsonObj.getAsJsonArray("matches").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `matches` to be primitive")
+                }
+              }
+            }
+        }
+    }
 
 }
 

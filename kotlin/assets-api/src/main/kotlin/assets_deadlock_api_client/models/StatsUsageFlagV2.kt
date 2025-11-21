@@ -16,8 +16,7 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
 /**
  * 
@@ -25,19 +24,18 @@ import com.squareup.moshi.JsonClass
  * Values: ConditionallyApplied,ConditionallyEnemyApplied,IntrinsicallyProvidedInAbility,IntrinsicallyProvidedInModifier
  */
 
-@JsonClass(generateAdapter = false)
 enum class StatsUsageFlagV2(val value: kotlin.String) {
 
-    @Json(name = "ConditionallyApplied")
+    @SerializedName(value = "ConditionallyApplied")
     ConditionallyApplied("ConditionallyApplied"),
 
-    @Json(name = "ConditionallyEnemyApplied")
+    @SerializedName(value = "ConditionallyEnemyApplied")
     ConditionallyEnemyApplied("ConditionallyEnemyApplied"),
 
-    @Json(name = "IntrinsicallyProvidedInAbility")
+    @SerializedName(value = "IntrinsicallyProvidedInAbility")
     IntrinsicallyProvidedInAbility("IntrinsicallyProvidedInAbility"),
 
-    @Json(name = "IntrinsicallyProvidedInModifier")
+    @SerializedName(value = "IntrinsicallyProvidedInModifier")
     IntrinsicallyProvidedInModifier("IntrinsicallyProvidedInModifier");
 
     /**

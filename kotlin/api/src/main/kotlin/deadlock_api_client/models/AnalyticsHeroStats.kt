@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -49,68 +57,68 @@ import java.io.Serializable
 
 data class AnalyticsHeroStats (
 
-    @Json(name = "bucket")
+    @SerializedName("bucket")
     val bucket: kotlin.Int,
 
     /* See more: <https://assets.deadlock-api.com/v2/heroes> */
-    @Json(name = "hero_id")
+    @SerializedName("hero_id")
     val heroId: kotlin.Int,
 
-    @Json(name = "losses")
+    @SerializedName("losses")
     val losses: kotlin.Long,
 
-    @Json(name = "matches")
+    @SerializedName("matches")
     val matches: kotlin.Long,
 
-    @Json(name = "matches_per_bucket")
+    @SerializedName("matches_per_bucket")
     val matchesPerBucket: kotlin.Long,
 
-    @Json(name = "players")
+    @SerializedName("players")
     val players: kotlin.Long,
 
-    @Json(name = "total_assists")
+    @SerializedName("total_assists")
     val totalAssists: kotlin.Long,
 
-    @Json(name = "total_boss_damage")
+    @SerializedName("total_boss_damage")
     val totalBossDamage: kotlin.Long,
 
-    @Json(name = "total_creep_damage")
+    @SerializedName("total_creep_damage")
     val totalCreepDamage: kotlin.Long,
 
-    @Json(name = "total_deaths")
+    @SerializedName("total_deaths")
     val totalDeaths: kotlin.Long,
 
-    @Json(name = "total_denies")
+    @SerializedName("total_denies")
     val totalDenies: kotlin.Long,
 
-    @Json(name = "total_kills")
+    @SerializedName("total_kills")
     val totalKills: kotlin.Long,
 
-    @Json(name = "total_last_hits")
+    @SerializedName("total_last_hits")
     val totalLastHits: kotlin.Long,
 
-    @Json(name = "total_max_health")
+    @SerializedName("total_max_health")
     val totalMaxHealth: kotlin.Long,
 
-    @Json(name = "total_net_worth")
+    @SerializedName("total_net_worth")
     val totalNetWorth: kotlin.Long,
 
-    @Json(name = "total_neutral_damage")
+    @SerializedName("total_neutral_damage")
     val totalNeutralDamage: kotlin.Long,
 
-    @Json(name = "total_player_damage")
+    @SerializedName("total_player_damage")
     val totalPlayerDamage: kotlin.Long,
 
-    @Json(name = "total_player_damage_taken")
+    @SerializedName("total_player_damage_taken")
     val totalPlayerDamageTaken: kotlin.Long,
 
-    @Json(name = "total_shots_hit")
+    @SerializedName("total_shots_hit")
     val totalShotsHit: kotlin.Long,
 
-    @Json(name = "total_shots_missed")
+    @SerializedName("total_shots_missed")
     val totalShotsMissed: kotlin.Long,
 
-    @Json(name = "wins")
+    @SerializedName("wins")
     val wins: kotlin.Long
 
 ) : Serializable {
@@ -118,6 +126,108 @@ data class AnalyticsHeroStats (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!AnalyticsHeroStats::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'AnalyticsHeroStats' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(AnalyticsHeroStats::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<AnalyticsHeroStats>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: AnalyticsHeroStats) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): AnalyticsHeroStats  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("bucket")
+            openapiFields.add("hero_id")
+            openapiFields.add("losses")
+            openapiFields.add("matches")
+            openapiFields.add("matches_per_bucket")
+            openapiFields.add("players")
+            openapiFields.add("total_assists")
+            openapiFields.add("total_boss_damage")
+            openapiFields.add("total_creep_damage")
+            openapiFields.add("total_deaths")
+            openapiFields.add("total_denies")
+            openapiFields.add("total_kills")
+            openapiFields.add("total_last_hits")
+            openapiFields.add("total_max_health")
+            openapiFields.add("total_net_worth")
+            openapiFields.add("total_neutral_damage")
+            openapiFields.add("total_player_damage")
+            openapiFields.add("total_player_damage_taken")
+            openapiFields.add("total_shots_hit")
+            openapiFields.add("total_shots_missed")
+            openapiFields.add("wins")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("bucket")
+            openapiRequiredFields.add("hero_id")
+            openapiRequiredFields.add("losses")
+            openapiRequiredFields.add("matches")
+            openapiRequiredFields.add("matches_per_bucket")
+            openapiRequiredFields.add("players")
+            openapiRequiredFields.add("total_assists")
+            openapiRequiredFields.add("total_boss_damage")
+            openapiRequiredFields.add("total_creep_damage")
+            openapiRequiredFields.add("total_deaths")
+            openapiRequiredFields.add("total_denies")
+            openapiRequiredFields.add("total_kills")
+            openapiRequiredFields.add("total_last_hits")
+            openapiRequiredFields.add("total_max_health")
+            openapiRequiredFields.add("total_net_worth")
+            openapiRequiredFields.add("total_neutral_damage")
+            openapiRequiredFields.add("total_player_damage")
+            openapiRequiredFields.add("total_player_damage_taken")
+            openapiRequiredFields.add("total_shots_hit")
+            openapiRequiredFields.add("total_shots_missed")
+            openapiRequiredFields.add("wins")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to AnalyticsHeroStats
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in AnalyticsHeroStats is not found in the empty JSON string", AnalyticsHeroStats.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+        }
+    }
 
 }
 

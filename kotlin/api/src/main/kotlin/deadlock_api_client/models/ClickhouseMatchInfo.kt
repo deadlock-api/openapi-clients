@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -34,24 +42,24 @@ import java.io.Serializable
 
 data class ClickhouseMatchInfo (
 
-    @Json(name = "duration_s")
+    @SerializedName("duration_s")
     val durationS: kotlin.Int,
 
-    @Json(name = "match_id")
+    @SerializedName("match_id")
     val matchId: kotlin.Long,
 
-    @Json(name = "match_mode")
+    @SerializedName("match_mode")
     val matchMode: kotlin.Int,
 
-    @Json(name = "start_time")
+    @SerializedName("start_time")
     val startTime: kotlin.Int,
 
     /* See more: <https://assets.deadlock-api.com/v2/ranks> */
-    @Json(name = "average_badge_team0")
+    @SerializedName("average_badge_team0")
     val averageBadgeTeam0: kotlin.Int? = null,
 
     /* See more: <https://assets.deadlock-api.com/v2/ranks> */
-    @Json(name = "average_badge_team1")
+    @SerializedName("average_badge_team1")
     val averageBadgeTeam1: kotlin.Int? = null
 
 ) : Serializable {
@@ -59,6 +67,76 @@ data class ClickhouseMatchInfo (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!ClickhouseMatchInfo::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'ClickhouseMatchInfo' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ClickhouseMatchInfo::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<ClickhouseMatchInfo>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: ClickhouseMatchInfo) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): ClickhouseMatchInfo  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("duration_s")
+            openapiFields.add("match_id")
+            openapiFields.add("match_mode")
+            openapiFields.add("start_time")
+            openapiFields.add("average_badge_team0")
+            openapiFields.add("average_badge_team1")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("duration_s")
+            openapiRequiredFields.add("match_id")
+            openapiRequiredFields.add("match_mode")
+            openapiRequiredFields.add("start_time")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to ClickhouseMatchInfo
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in ClickhouseMatchInfo is not found in the empty JSON string", ClickhouseMatchInfo.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+        }
+    }
 
 }
 

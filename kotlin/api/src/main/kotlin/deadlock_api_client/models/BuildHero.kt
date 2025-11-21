@@ -17,8 +17,16 @@ package deadlock_api_client.models
 
 import deadlock_api_client.models.BuildHeroDetails
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -42,44 +50,44 @@ import java.io.Serializable
 
 data class BuildHero (
 
-    @Json(name = "author_account_id")
+    @SerializedName("author_account_id")
     val authorAccountId: kotlin.Int,
 
-    @Json(name = "details")
+    @SerializedName("details")
     val details: BuildHeroDetails,
 
-    @Json(name = "hero_build_id")
+    @SerializedName("hero_build_id")
     val heroBuildId: kotlin.Int,
 
     /* See more: <https://assets.deadlock-api.com/v2/heroes> */
-    @Json(name = "hero_id")
+    @SerializedName("hero_id")
     val heroId: kotlin.Int,
 
-    @Json(name = "language")
+    @SerializedName("language")
     val language: kotlin.Int,
 
-    @Json(name = "name")
+    @SerializedName("name")
     val name: kotlin.String,
 
-    @Json(name = "origin_build_id")
+    @SerializedName("origin_build_id")
     val originBuildId: kotlin.Int,
 
-    @Json(name = "version")
+    @SerializedName("version")
     val version: kotlin.Int,
 
-    @Json(name = "description")
+    @SerializedName("description")
     val description: kotlin.String? = null,
 
-    @Json(name = "development_build")
+    @SerializedName("development_build")
     val developmentBuild: kotlin.Boolean? = null,
 
-    @Json(name = "last_updated_timestamp")
+    @SerializedName("last_updated_timestamp")
     val lastUpdatedTimestamp: kotlin.Long? = null,
 
-    @Json(name = "publish_timestamp")
+    @SerializedName("publish_timestamp")
     val publishTimestamp: kotlin.Long? = null,
 
-    @Json(name = "tags")
+    @SerializedName("tags")
     val tags: kotlin.collections.List<kotlin.Int>? = null
 
 ) : Serializable {
@@ -87,6 +95,111 @@ data class BuildHero (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!BuildHero::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'BuildHero' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(BuildHero::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<BuildHero>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: BuildHero) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): BuildHero  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("author_account_id")
+            openapiFields.add("details")
+            openapiFields.add("hero_build_id")
+            openapiFields.add("hero_id")
+            openapiFields.add("language")
+            openapiFields.add("name")
+            openapiFields.add("origin_build_id")
+            openapiFields.add("version")
+            openapiFields.add("description")
+            openapiFields.add("development_build")
+            openapiFields.add("last_updated_timestamp")
+            openapiFields.add("publish_timestamp")
+            openapiFields.add("tags")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("author_account_id")
+            openapiRequiredFields.add("details")
+            openapiRequiredFields.add("hero_build_id")
+            openapiRequiredFields.add("hero_id")
+            openapiRequiredFields.add("language")
+            openapiRequiredFields.add("name")
+            openapiRequiredFields.add("origin_build_id")
+            openapiRequiredFields.add("version")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to BuildHero
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in BuildHero is not found in the empty JSON string", BuildHero.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            // validate the required field `details`
+            BuildHeroDetails.validateJsonElement(jsonObj["details"])
+            require(jsonObj["name"].isJsonPrimitive) {
+              String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj["name"].toString())
+            }
+            if (jsonObj["description"] != null && !jsonObj["description"].isJsonNull) {
+              require(jsonObj.get("description").isJsonPrimitive) {
+                String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj["description"].toString())
+              }
+            }
+            // ensure the optional json data is an array if present
+            if (jsonObj["tags"] != null && !jsonObj["tags"].isJsonNull) {
+              require(jsonObj["tags"].isJsonArray()) {
+                String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj["tags"].toString())
+              }
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["tags"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("tags").size()) {
+                require(jsonObj.getAsJsonArray("tags").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `tags` to be primitive")
+                }
+              }
+            }
+        }
+    }
 
 }
 

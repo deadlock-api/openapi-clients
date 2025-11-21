@@ -17,8 +17,16 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.HeroStartingStatV2
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -50,67 +58,67 @@ import java.io.Serializable
 
 data class HeroStartingStatsV2 (
 
-    @Json(name = "max_move_speed")
+    @SerializedName("max_move_speed")
     val maxMoveSpeed: HeroStartingStatV2,
 
-    @Json(name = "sprint_speed")
+    @SerializedName("sprint_speed")
     val sprintSpeed: HeroStartingStatV2,
 
-    @Json(name = "crouch_speed")
+    @SerializedName("crouch_speed")
     val crouchSpeed: HeroStartingStatV2,
 
-    @Json(name = "move_acceleration")
+    @SerializedName("move_acceleration")
     val moveAcceleration: HeroStartingStatV2,
 
-    @Json(name = "light_melee_damage")
+    @SerializedName("light_melee_damage")
     val lightMeleeDamage: HeroStartingStatV2,
 
-    @Json(name = "heavy_melee_damage")
+    @SerializedName("heavy_melee_damage")
     val heavyMeleeDamage: HeroStartingStatV2,
 
-    @Json(name = "max_health")
+    @SerializedName("max_health")
     val maxHealth: HeroStartingStatV2,
 
-    @Json(name = "weapon_power")
+    @SerializedName("weapon_power")
     val weaponPower: HeroStartingStatV2,
 
-    @Json(name = "reload_speed")
+    @SerializedName("reload_speed")
     val reloadSpeed: HeroStartingStatV2,
 
-    @Json(name = "weapon_power_scale")
+    @SerializedName("weapon_power_scale")
     val weaponPowerScale: HeroStartingStatV2,
 
-    @Json(name = "proc_build_up_rate_scale")
+    @SerializedName("proc_build_up_rate_scale")
     val procBuildUpRateScale: HeroStartingStatV2,
 
-    @Json(name = "stamina")
+    @SerializedName("stamina")
     val stamina: HeroStartingStatV2,
 
-    @Json(name = "base_health_regen")
+    @SerializedName("base_health_regen")
     val baseHealthRegen: HeroStartingStatV2,
 
-    @Json(name = "stamina_regen_per_second")
+    @SerializedName("stamina_regen_per_second")
     val staminaRegenPerSecond: HeroStartingStatV2,
 
-    @Json(name = "ability_resource_max")
+    @SerializedName("ability_resource_max")
     val abilityResourceMax: HeroStartingStatV2,
 
-    @Json(name = "ability_resource_regen_per_second")
+    @SerializedName("ability_resource_regen_per_second")
     val abilityResourceRegenPerSecond: HeroStartingStatV2,
 
-    @Json(name = "crit_damage_received_scale")
+    @SerializedName("crit_damage_received_scale")
     val critDamageReceivedScale: HeroStartingStatV2,
 
-    @Json(name = "tech_duration")
+    @SerializedName("tech_duration")
     val techDuration: HeroStartingStatV2,
 
-    @Json(name = "tech_range")
+    @SerializedName("tech_range")
     val techRange: HeroStartingStatV2,
 
-    @Json(name = "tech_armor_damage_reduction")
+    @SerializedName("tech_armor_damage_reduction")
     val techArmorDamageReduction: HeroStartingStatV2? = null,
 
-    @Json(name = "bullet_armor_damage_reduction")
+    @SerializedName("bullet_armor_damage_reduction")
     val bulletArmorDamageReduction: HeroStartingStatV2? = null
 
 ) : Serializable {
@@ -118,6 +126,152 @@ data class HeroStartingStatsV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!HeroStartingStatsV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'HeroStartingStatsV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(HeroStartingStatsV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<HeroStartingStatsV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: HeroStartingStatsV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): HeroStartingStatsV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("max_move_speed")
+            openapiFields.add("sprint_speed")
+            openapiFields.add("crouch_speed")
+            openapiFields.add("move_acceleration")
+            openapiFields.add("light_melee_damage")
+            openapiFields.add("heavy_melee_damage")
+            openapiFields.add("max_health")
+            openapiFields.add("weapon_power")
+            openapiFields.add("reload_speed")
+            openapiFields.add("weapon_power_scale")
+            openapiFields.add("proc_build_up_rate_scale")
+            openapiFields.add("stamina")
+            openapiFields.add("base_health_regen")
+            openapiFields.add("stamina_regen_per_second")
+            openapiFields.add("ability_resource_max")
+            openapiFields.add("ability_resource_regen_per_second")
+            openapiFields.add("crit_damage_received_scale")
+            openapiFields.add("tech_duration")
+            openapiFields.add("tech_range")
+            openapiFields.add("tech_armor_damage_reduction")
+            openapiFields.add("bullet_armor_damage_reduction")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("max_move_speed")
+            openapiRequiredFields.add("sprint_speed")
+            openapiRequiredFields.add("crouch_speed")
+            openapiRequiredFields.add("move_acceleration")
+            openapiRequiredFields.add("light_melee_damage")
+            openapiRequiredFields.add("heavy_melee_damage")
+            openapiRequiredFields.add("max_health")
+            openapiRequiredFields.add("weapon_power")
+            openapiRequiredFields.add("reload_speed")
+            openapiRequiredFields.add("weapon_power_scale")
+            openapiRequiredFields.add("proc_build_up_rate_scale")
+            openapiRequiredFields.add("stamina")
+            openapiRequiredFields.add("base_health_regen")
+            openapiRequiredFields.add("stamina_regen_per_second")
+            openapiRequiredFields.add("ability_resource_max")
+            openapiRequiredFields.add("ability_resource_regen_per_second")
+            openapiRequiredFields.add("crit_damage_received_scale")
+            openapiRequiredFields.add("tech_duration")
+            openapiRequiredFields.add("tech_range")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to HeroStartingStatsV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in HeroStartingStatsV2 is not found in the empty JSON string", HeroStartingStatsV2.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            // validate the required field `max_move_speed`
+            HeroStartingStatV2.validateJsonElement(jsonObj["max_move_speed"])
+            // validate the required field `sprint_speed`
+            HeroStartingStatV2.validateJsonElement(jsonObj["sprint_speed"])
+            // validate the required field `crouch_speed`
+            HeroStartingStatV2.validateJsonElement(jsonObj["crouch_speed"])
+            // validate the required field `move_acceleration`
+            HeroStartingStatV2.validateJsonElement(jsonObj["move_acceleration"])
+            // validate the required field `light_melee_damage`
+            HeroStartingStatV2.validateJsonElement(jsonObj["light_melee_damage"])
+            // validate the required field `heavy_melee_damage`
+            HeroStartingStatV2.validateJsonElement(jsonObj["heavy_melee_damage"])
+            // validate the required field `max_health`
+            HeroStartingStatV2.validateJsonElement(jsonObj["max_health"])
+            // validate the required field `weapon_power`
+            HeroStartingStatV2.validateJsonElement(jsonObj["weapon_power"])
+            // validate the required field `reload_speed`
+            HeroStartingStatV2.validateJsonElement(jsonObj["reload_speed"])
+            // validate the required field `weapon_power_scale`
+            HeroStartingStatV2.validateJsonElement(jsonObj["weapon_power_scale"])
+            // validate the required field `proc_build_up_rate_scale`
+            HeroStartingStatV2.validateJsonElement(jsonObj["proc_build_up_rate_scale"])
+            // validate the required field `stamina`
+            HeroStartingStatV2.validateJsonElement(jsonObj["stamina"])
+            // validate the required field `base_health_regen`
+            HeroStartingStatV2.validateJsonElement(jsonObj["base_health_regen"])
+            // validate the required field `stamina_regen_per_second`
+            HeroStartingStatV2.validateJsonElement(jsonObj["stamina_regen_per_second"])
+            // validate the required field `ability_resource_max`
+            HeroStartingStatV2.validateJsonElement(jsonObj["ability_resource_max"])
+            // validate the required field `ability_resource_regen_per_second`
+            HeroStartingStatV2.validateJsonElement(jsonObj["ability_resource_regen_per_second"])
+            // validate the required field `crit_damage_received_scale`
+            HeroStartingStatV2.validateJsonElement(jsonObj["crit_damage_received_scale"])
+            // validate the required field `tech_duration`
+            HeroStartingStatV2.validateJsonElement(jsonObj["tech_duration"])
+            // validate the required field `tech_range`
+            HeroStartingStatV2.validateJsonElement(jsonObj["tech_range"])
+            // validate the optional field `tech_armor_damage_reduction`
+            if (jsonObj["tech_armor_damage_reduction"] != null && !jsonObj["tech_armor_damage_reduction"].isJsonNull) {
+              HeroStartingStatV2.validateJsonElement(jsonObj["tech_armor_damage_reduction"])
+            }
+            // validate the optional field `bullet_armor_damage_reduction`
+            if (jsonObj["bullet_armor_damage_reduction"] != null && !jsonObj["bullet_armor_damage_reduction"].isJsonNull) {
+              HeroStartingStatV2.validateJsonElement(jsonObj["bullet_armor_damage_reduction"])
+            }
+        }
+    }
 
 }
 

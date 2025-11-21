@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -34,23 +42,23 @@ import java.io.Serializable
 
 data class ItemStats (
 
-    @Json(name = "bucket")
+    @SerializedName("bucket")
     val bucket: kotlin.Int,
 
     /* See more: <https://assets.deadlock-api.com/v2/items> */
-    @Json(name = "item_id")
+    @SerializedName("item_id")
     val itemId: kotlin.Int,
 
-    @Json(name = "losses")
+    @SerializedName("losses")
     val losses: kotlin.Long,
 
-    @Json(name = "matches")
+    @SerializedName("matches")
     val matches: kotlin.Long,
 
-    @Json(name = "players")
+    @SerializedName("players")
     val players: kotlin.Long,
 
-    @Json(name = "wins")
+    @SerializedName("wins")
     val wins: kotlin.Long
 
 ) : Serializable {
@@ -58,6 +66,78 @@ data class ItemStats (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!ItemStats::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'ItemStats' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ItemStats::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<ItemStats>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: ItemStats) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): ItemStats  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("bucket")
+            openapiFields.add("item_id")
+            openapiFields.add("losses")
+            openapiFields.add("matches")
+            openapiFields.add("players")
+            openapiFields.add("wins")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("bucket")
+            openapiRequiredFields.add("item_id")
+            openapiRequiredFields.add("losses")
+            openapiRequiredFields.add("matches")
+            openapiRequiredFields.add("players")
+            openapiRequiredFields.add("wins")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to ItemStats
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in ItemStats is not found in the empty JSON string", ItemStats.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+        }
+    }
 
 }
 

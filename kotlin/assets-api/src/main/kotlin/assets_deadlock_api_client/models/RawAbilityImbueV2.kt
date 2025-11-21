@@ -16,8 +16,7 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
 /**
  * 
@@ -25,16 +24,15 @@ import com.squareup.moshi.JsonClass
  * Values: imbue_active,imbue_active_non_ult,imbue_modifier_value
  */
 
-@JsonClass(generateAdapter = false)
 enum class RawAbilityImbueV2(val value: kotlin.String) {
 
-    @Json(name = "imbue_active")
+    @SerializedName(value = "imbue_active")
     imbue_active("imbue_active"),
 
-    @Json(name = "imbue_active_non_ult")
+    @SerializedName(value = "imbue_active_non_ult")
     imbue_active_non_ult("imbue_active_non_ult"),
 
-    @Json(name = "imbue_modifier_value")
+    @SerializedName(value = "imbue_modifier_value")
     imbue_modifier_value("imbue_modifier_value");
 
     /**

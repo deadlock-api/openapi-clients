@@ -16,9 +16,17 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+import java.io.IOException
 
 /**
  * 
@@ -26,13 +34,143 @@ import java.io.Serializable
  */
 
 
-class AimingShotSpreadPenalty (
+data class AimingShotSpreadPenalty(var actualInstance: Any? = null) {
 
-) : Serializable {
-    companion object {
-        private const val serialVersionUID: Long = 123
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!AimingShotSpreadPenalty::class.java.isAssignableFrom(type.rawType)) {
+                return null // this class only serializes 'AimingShotSpreadPenalty' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            @Suppress("UNCHECKED_CAST")
+            val adapterkotlincollectionsListjavamathBigDecimal = gson.getDelegateAdapter(this, TypeToken.get(object : TypeToken<kotlin.collections.List<java.math.BigDecimal>>() {}.type)) as TypeAdapter<kotlin.collections.List<java.math.BigDecimal>>
+            val adapterkotlinString = gson.getDelegateAdapter(this, TypeToken.get(kotlin.String::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<AimingShotSpreadPenalty?>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter,value: AimingShotSpreadPenalty?) {
+                    if (value?.actualInstance == null) {
+                        elementAdapter.write(out, null)
+                        return
+                    }
+
+                    // check if the actual instance is of the type `kotlin.collections.List<java.math.BigDecimal>`
+                    if (value.actualInstance is List<*>) {
+                        val list = value.actualInstance as List<Any>
+                        if (!list.isEmpty() && list.get(0) is java.math.BigDecimal) {
+                            val array = adapterkotlincollectionsListjavamathBigDecimal.toJsonTree(value.actualInstance as kotlin.collections.List<java.math.BigDecimal>?).getAsJsonArray()
+                            elementAdapter.write(out, array)
+                            return
+                        }
+                    }
+                    // check if the actual instance is of the type `kotlin.String`
+                    if (value.actualInstance is kotlin.String) {
+                        val primitive = adapterkotlinString.toJsonTree(value.actualInstance as kotlin.String?).getAsJsonPrimitive()
+                        elementAdapter.write(out, primitive)
+                        return
+                    }
+                    throw IOException("Failed to serialize as the type doesn't match anyOf schemas: kotlin.String, kotlin.collections.List<java.math.BigDecimal>")
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): AimingShotSpreadPenalty {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    val errorMessages = ArrayList<String>()
+                    var actualAdapter: TypeAdapter<*>
+                    val ret = AimingShotSpreadPenalty()
+
+                    // deserialize kotlin.collections.List<java.math.BigDecimal>
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        require(jsonElement.isJsonArray) {
+                            String.format("Expected json element to be a array type in the JSON string but got `%s`", jsonElement.toString())
+                        }
+
+                        // validate array items
+                        for(element in jsonElement.getAsJsonArray()) {
+                            require(element.getAsJsonPrimitive().isNumber) {
+                                String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString())
+                            }
+                        }
+                        actualAdapter = adapterkotlincollectionsListjavamathBigDecimal
+                        ret.actualInstance = actualAdapter.fromJsonTree(jsonElement)
+                        return ret
+                        //log.log(Level.FINER, "Input data matches schema 'kotlin.collections.List<java.math.BigDecimal>'")
+                    } catch (e: Exception) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for kotlin.collections.List<java.math.BigDecimal> failed with `%s`.", e.message))
+                        //log.log(Level.FINER, "Input data does not match schema 'kotlin.collections.List<java.math.BigDecimal>'", e)
+                    }
+                    // deserialize kotlin.String
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        require(jsonElement.getAsJsonPrimitive().isString()) {
+                            String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString())
+                        }
+                        actualAdapter = adapterkotlinString
+                        ret.actualInstance = actualAdapter.fromJsonTree(jsonElement)
+                        return ret
+                        //log.log(Level.FINER, "Input data matches schema 'kotlin.String'")
+                    } catch (e: Exception) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for kotlin.String failed with `%s`.", e.message))
+                        //log.log(Level.FINER, "Input data does not match schema 'kotlin.String'", e)
+                    }
+
+                    throw IOException(String.format("Failed deserialization for AimingShotSpreadPenalty: no schema match result. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()))
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
     }
 
+    companion object {
+        /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to AimingShotSpreadPenalty
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            requireNotNull(jsonElement) {
+                "Provided json element must not be null"
+            }
+            var match = 0
+            val errorMessages = ArrayList<String>()
+            // validate the json string with kotlin.collections.List<java.math.BigDecimal>
+            try {
+                // validate the JSON object to see if any exception is thrown
+                require(jsonElement.isJsonArray) {
+                    String.format("Expected json element to be a array type in the JSON string but got `%s`", jsonElement.toString())
+                }
 
+                // validate array items
+                for(element in jsonElement.getAsJsonArray()) {
+                    require(element.getAsJsonPrimitive().isNumber) {
+                        String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString())
+                    }
+                }
+                match++
+            } catch (e: Exception) {
+                // Validation failed, continue
+                errorMessages.add(String.format("Validation for kotlin.collections.List<java.math.BigDecimal> failed with `%s`.", e.message))
+            }
+            // validate the json string with kotlin.String
+            try {
+                // validate the JSON object to see if any exception is thrown
+                require(jsonElement.getAsJsonPrimitive().isString()) {
+                    String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString())
+                }
+                match++
+            } catch (e: Exception) {
+                // Validation failed, continue
+                errorMessages.add(String.format("Validation for kotlin.String failed with `%s`.", e.message))
+            }
+
+            if (match != 1) {
+                throw IOException(String.format("Failed validation for AimingShotSpreadPenalty: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()))
+            }
+        }
+    }
 }
-

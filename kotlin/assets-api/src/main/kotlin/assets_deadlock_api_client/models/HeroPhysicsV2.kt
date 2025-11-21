@@ -16,8 +16,16 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -35,25 +43,25 @@ import java.io.Serializable
 
 data class HeroPhysicsV2 (
 
-    @Json(name = "collision_height")
+    @SerializedName("collision_height")
     val collisionHeight: java.math.BigDecimal,
 
-    @Json(name = "collision_radius")
+    @SerializedName("collision_radius")
     val collisionRadius: java.math.BigDecimal,
 
-    @Json(name = "stealth_speed_meters_per_second")
+    @SerializedName("stealth_speed_meters_per_second")
     val stealthSpeedMetersPerSecond: java.math.BigDecimal,
 
-    @Json(name = "step_height")
+    @SerializedName("step_height")
     val stepHeight: java.math.BigDecimal,
 
-    @Json(name = "footstep_sound_travel_distance_meters")
+    @SerializedName("footstep_sound_travel_distance_meters")
     val footstepSoundTravelDistanceMeters: java.math.BigDecimal? = null,
 
-    @Json(name = "step_sound_time")
+    @SerializedName("step_sound_time")
     val stepSoundTime: java.math.BigDecimal? = null,
 
-    @Json(name = "step_sound_time_sprinting")
+    @SerializedName("step_sound_time_sprinting")
     val stepSoundTimeSprinting: java.math.BigDecimal? = null
 
 ) : Serializable {
@@ -61,6 +69,77 @@ data class HeroPhysicsV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!HeroPhysicsV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'HeroPhysicsV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(HeroPhysicsV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<HeroPhysicsV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: HeroPhysicsV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): HeroPhysicsV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("collision_height")
+            openapiFields.add("collision_radius")
+            openapiFields.add("stealth_speed_meters_per_second")
+            openapiFields.add("step_height")
+            openapiFields.add("footstep_sound_travel_distance_meters")
+            openapiFields.add("step_sound_time")
+            openapiFields.add("step_sound_time_sprinting")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("collision_height")
+            openapiRequiredFields.add("collision_radius")
+            openapiRequiredFields.add("stealth_speed_meters_per_second")
+            openapiRequiredFields.add("step_height")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to HeroPhysicsV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in HeroPhysicsV2 is not found in the empty JSON string", HeroPhysicsV2.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+        }
+    }
 
 }
 

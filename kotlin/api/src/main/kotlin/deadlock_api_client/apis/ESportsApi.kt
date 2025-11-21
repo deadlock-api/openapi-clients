@@ -15,178 +15,92 @@
 
 package deadlock_api_client.apis
 
-import java.io.IOException
-import okhttp3.Call
-import okhttp3.HttpUrl
-
 import deadlock_api_client.models.ESportsMatch
 
-import com.squareup.moshi.Json
+import deadlock_api_client.infrastructure.*
+import io.ktor.client.HttpClientConfig
+import io.ktor.client.request.forms.formData
+import io.ktor.client.engine.HttpClientEngine
+import io.ktor.http.ParametersBuilder
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import java.text.DateFormat
 
-import deadlock_api_client.infrastructure.ApiClient
-import deadlock_api_client.infrastructure.ApiResponse
-import deadlock_api_client.infrastructure.ClientException
-import deadlock_api_client.infrastructure.ClientError
-import deadlock_api_client.infrastructure.ServerException
-import deadlock_api_client.infrastructure.ServerError
-import deadlock_api_client.infrastructure.MultiValueMap
-import deadlock_api_client.infrastructure.PartConfig
-import deadlock_api_client.infrastructure.RequestConfig
-import deadlock_api_client.infrastructure.RequestMethod
-import deadlock_api_client.infrastructure.ResponseType
-import deadlock_api_client.infrastructure.Success
-import deadlock_api_client.infrastructure.toMultiValue
+    open class ESportsApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
-class ESportsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
-    companion object {
-        @JvmStatic
-        val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://api.deadlock-api.com")
-        }
-    }
+        /**
+        * POST /v1/esports/ingest/match
+        * Ingest
+        *  To use this Endpoint you need to have special permissions. Please contact us if you organize E-Sports Matches and want to ingest them to us.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 1000req/h | | Key | - | | Global | 10000req/h |     
+         * @param esportsMatch  
+         * @return void
+        */
+        open suspend fun ingestMatch(esportsMatch: ESportsMatch): HttpResponse<Unit> {
 
-    /**
-     * POST /v1/esports/ingest/match
-     * Ingest
-     *  To use this Endpoint you need to have special permissions. Please contact us if you organize E-Sports Matches and want to ingest them to us.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 1000req/h | | Key | - | | Global | 10000req/h |     
-     * @param esportsMatch 
-     * @return void
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun ingestMatch(esportsMatch: ESportsMatch) : Unit {
-        val localVarResponse = ingestMatchWithHttpInfo(esportsMatch = esportsMatch)
+            val localVariableAuthNames = listOf<String>()
 
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
+            val localVariableBody = esportsMatch
 
-    /**
-     * POST /v1/esports/ingest/match
-     * Ingest
-     *  To use this Endpoint you need to have special permissions. Please contact us if you organize E-Sports Matches and want to ingest them to us.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 1000req/h | | Key | - | | Global | 10000req/h |     
-     * @param esportsMatch 
-     * @return ApiResponse<Unit?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Throws(IllegalStateException::class, IOException::class)
-    fun ingestMatchWithHttpInfo(esportsMatch: ESportsMatch) : ApiResponse<Unit?> {
-        val localVariableConfig = ingestMatchRequestConfig(esportsMatch = esportsMatch)
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        return request<ESportsMatch, Unit>(
-            localVariableConfig
-        )
-    }
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * To obtain the request config of the operation ingestMatch
-     *
-     * @param esportsMatch 
-     * @return RequestConfig
-     */
-    fun ingestMatchRequestConfig(esportsMatch: ESportsMatch) : RequestConfig<ESportsMatch> {
-        val localVariableBody = esportsMatch
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/v1/esports/ingest/match",
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.POST,
+            "/v1/esports/ingest/match",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
-    /**
-     * GET /v1/esports/matches
-     * List Matches
-     *  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @return kotlin.collections.List<ESportsMatch>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun matches() : kotlin.collections.List<ESportsMatch> {
-        val localVarResponse = matchesWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ESportsMatch>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            return jsonRequest(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
             }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
 
-    /**
-     * GET /v1/esports/matches
-     * List Matches
-     *  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @return ApiResponse<kotlin.collections.List<ESportsMatch>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun matchesWithHttpInfo() : ApiResponse<kotlin.collections.List<ESportsMatch>?> {
-        val localVariableConfig = matchesRequestConfig()
+        /**
+        * GET /v1/esports/matches
+        * List Matches
+        *  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @return kotlin.collections.List<ESportsMatch>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun matches(): HttpResponse<kotlin.collections.List<ESportsMatch>> {
 
-        return request<Unit, kotlin.collections.List<ESportsMatch>>(
-            localVariableConfig
-        )
-    }
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * To obtain the request config of the operation matches
-     *
-     * @return RequestConfig
-     */
-    fun matchesRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/esports/matches",
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+
+            val localVariableHeaders = mutableMapOf<String, String>()
+
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/esports/matches",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
+            }
 
-    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
-        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
-}
+        }

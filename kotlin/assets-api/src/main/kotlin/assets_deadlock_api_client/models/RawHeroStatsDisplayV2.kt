@@ -16,8 +16,16 @@
 package assets_deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -34,22 +42,22 @@ import java.io.Serializable
 
 data class RawHeroStatsDisplayV2 (
 
-    @Json(name = "health_header_stats")
+    @SerializedName("health_header_stats")
     val healthHeaderStats: kotlin.collections.List<kotlin.String>,
 
-    @Json(name = "health_stats")
+    @SerializedName("health_stats")
     val healthStats: kotlin.collections.List<kotlin.String>,
 
-    @Json(name = "magic_header_stats")
+    @SerializedName("magic_header_stats")
     val magicHeaderStats: kotlin.collections.List<kotlin.String>,
 
-    @Json(name = "magic_stats")
+    @SerializedName("magic_stats")
     val magicStats: kotlin.collections.List<kotlin.String>,
 
-    @Json(name = "weapon_header_stats")
+    @SerializedName("weapon_header_stats")
     val weaponHeaderStats: kotlin.collections.List<kotlin.String>,
 
-    @Json(name = "weapon_stats")
+    @SerializedName("weapon_stats")
     val weaponStats: kotlin.collections.List<kotlin.String>
 
 ) : Serializable {
@@ -57,6 +65,168 @@ data class RawHeroStatsDisplayV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!RawHeroStatsDisplayV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'RawHeroStatsDisplayV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(RawHeroStatsDisplayV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<RawHeroStatsDisplayV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: RawHeroStatsDisplayV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): RawHeroStatsDisplayV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("health_header_stats")
+            openapiFields.add("health_stats")
+            openapiFields.add("magic_header_stats")
+            openapiFields.add("magic_stats")
+            openapiFields.add("weapon_header_stats")
+            openapiFields.add("weapon_stats")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("health_header_stats")
+            openapiRequiredFields.add("health_stats")
+            openapiRequiredFields.add("magic_header_stats")
+            openapiRequiredFields.add("magic_stats")
+            openapiRequiredFields.add("weapon_header_stats")
+            openapiRequiredFields.add("weapon_stats")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to RawHeroStatsDisplayV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in RawHeroStatsDisplayV2 is not found in the empty JSON string", RawHeroStatsDisplayV2.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            // ensure the required json array is present
+            requireNotNull(jsonObj["health_header_stats"]) {
+              "Expected the field `health_header_stats` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["health_header_stats"].isJsonArray()) {
+              String.format("Expected the field `health_header_stats` to be an array in the JSON string but got `%s`", jsonObj["health_header_stats"].toString())
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["health_header_stats"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("health_header_stats").size()) {
+                require(jsonObj.getAsJsonArray("health_header_stats").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `health_header_stats` to be primitive")
+                }
+              }
+            }
+            // ensure the required json array is present
+            requireNotNull(jsonObj["health_stats"]) {
+              "Expected the field `health_stats` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["health_stats"].isJsonArray()) {
+              String.format("Expected the field `health_stats` to be an array in the JSON string but got `%s`", jsonObj["health_stats"].toString())
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["health_stats"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("health_stats").size()) {
+                require(jsonObj.getAsJsonArray("health_stats").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `health_stats` to be primitive")
+                }
+              }
+            }
+            // ensure the required json array is present
+            requireNotNull(jsonObj["magic_header_stats"]) {
+              "Expected the field `magic_header_stats` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["magic_header_stats"].isJsonArray()) {
+              String.format("Expected the field `magic_header_stats` to be an array in the JSON string but got `%s`", jsonObj["magic_header_stats"].toString())
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["magic_header_stats"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("magic_header_stats").size()) {
+                require(jsonObj.getAsJsonArray("magic_header_stats").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `magic_header_stats` to be primitive")
+                }
+              }
+            }
+            // ensure the required json array is present
+            requireNotNull(jsonObj["magic_stats"]) {
+              "Expected the field `magic_stats` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["magic_stats"].isJsonArray()) {
+              String.format("Expected the field `magic_stats` to be an array in the JSON string but got `%s`", jsonObj["magic_stats"].toString())
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["magic_stats"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("magic_stats").size()) {
+                require(jsonObj.getAsJsonArray("magic_stats").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `magic_stats` to be primitive")
+                }
+              }
+            }
+            // ensure the required json array is present
+            requireNotNull(jsonObj["weapon_header_stats"]) {
+              "Expected the field `weapon_header_stats` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["weapon_header_stats"].isJsonArray()) {
+              String.format("Expected the field `weapon_header_stats` to be an array in the JSON string but got `%s`", jsonObj["weapon_header_stats"].toString())
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["weapon_header_stats"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("weapon_header_stats").size()) {
+                require(jsonObj.getAsJsonArray("weapon_header_stats").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `weapon_header_stats` to be primitive")
+                }
+              }
+            }
+            // ensure the required json array is present
+            requireNotNull(jsonObj["weapon_stats"]) {
+              "Expected the field `weapon_stats` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["weapon_stats"].isJsonArray()) {
+              String.format("Expected the field `weapon_stats` to be an array in the JSON string but got `%s`", jsonObj["weapon_stats"].toString())
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["weapon_stats"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("weapon_stats").size()) {
+                require(jsonObj.getAsJsonArray("weapon_stats").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `weapon_stats` to be primitive")
+                }
+              }
+            }
+        }
+    }
 
 }
 

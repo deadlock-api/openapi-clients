@@ -16,8 +16,7 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
 /**
  * 
@@ -25,16 +24,15 @@ import com.squareup.moshi.JsonClass
  * Values: Team0,Team1,Spectator
  */
 
-@JsonClass(generateAdapter = false)
 enum class ActiveMatchTeam(val value: kotlin.String) {
 
-    @Json(name = "Team0")
+    @SerializedName(value = "Team0")
     Team0("Team0"),
 
-    @Json(name = "Team1")
+    @SerializedName(value = "Team1")
     Team1("Team1"),
 
-    @Json(name = "Spectator")
+    @SerializedName(value = "Spectator")
     Spectator("Spectator");
 
     /**

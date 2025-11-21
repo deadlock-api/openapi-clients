@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -34,22 +42,22 @@ import java.io.Serializable
 
 data class MatchSaltsResponse (
 
-    @Json(name = "match_id")
+    @SerializedName("match_id")
     val matchId: kotlin.Long,
 
-    @Json(name = "cluster_id")
+    @SerializedName("cluster_id")
     val clusterId: kotlin.Int? = null,
 
-    @Json(name = "demo_url")
+    @SerializedName("demo_url")
     val demoUrl: kotlin.String? = null,
 
-    @Json(name = "metadata_salt")
+    @SerializedName("metadata_salt")
     val metadataSalt: kotlin.Int? = null,
 
-    @Json(name = "metadata_url")
+    @SerializedName("metadata_url")
     val metadataUrl: kotlin.String? = null,
 
-    @Json(name = "replay_salt")
+    @SerializedName("replay_salt")
     val replaySalt: kotlin.Int? = null
 
 ) : Serializable {
@@ -57,6 +65,83 @@ data class MatchSaltsResponse (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!MatchSaltsResponse::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'MatchSaltsResponse' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(MatchSaltsResponse::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<MatchSaltsResponse>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: MatchSaltsResponse) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): MatchSaltsResponse  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("match_id")
+            openapiFields.add("cluster_id")
+            openapiFields.add("demo_url")
+            openapiFields.add("metadata_salt")
+            openapiFields.add("metadata_url")
+            openapiFields.add("replay_salt")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("match_id")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to MatchSaltsResponse
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in MatchSaltsResponse is not found in the empty JSON string", MatchSaltsResponse.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            if (jsonObj["demo_url"] != null && !jsonObj["demo_url"].isJsonNull) {
+              require(jsonObj.get("demo_url").isJsonPrimitive) {
+                String.format("Expected the field `demo_url` to be a primitive type in the JSON string but got `%s`", jsonObj["demo_url"].toString())
+              }
+            }
+            if (jsonObj["metadata_url"] != null && !jsonObj["metadata_url"].isJsonNull) {
+              require(jsonObj.get("metadata_url").isJsonPrimitive) {
+                String.format("Expected the field `metadata_url` to be a primitive type in the JSON string but got `%s`", jsonObj["metadata_url"].toString())
+              }
+            }
+        }
+    }
 
 }
 

@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -37,28 +45,28 @@ import java.io.Serializable
 data class AnalyticsAbilityOrderStats (
 
     /* See more: <https://assets.deadlock-api.com/v2/heroes> */
-    @Json(name = "abilities")
+    @SerializedName("abilities")
     val abilities: kotlin.collections.List<kotlin.Int>,
 
-    @Json(name = "losses")
+    @SerializedName("losses")
     val losses: kotlin.Long,
 
-    @Json(name = "matches")
+    @SerializedName("matches")
     val matches: kotlin.Long,
 
-    @Json(name = "players")
+    @SerializedName("players")
     val players: kotlin.Long,
 
-    @Json(name = "total_assists")
+    @SerializedName("total_assists")
     val totalAssists: kotlin.Long,
 
-    @Json(name = "total_deaths")
+    @SerializedName("total_deaths")
     val totalDeaths: kotlin.Long,
 
-    @Json(name = "total_kills")
+    @SerializedName("total_kills")
     val totalKills: kotlin.Long,
 
-    @Json(name = "wins")
+    @SerializedName("wins")
     val wins: kotlin.Long
 
 ) : Serializable {
@@ -66,6 +74,97 @@ data class AnalyticsAbilityOrderStats (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!AnalyticsAbilityOrderStats::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'AnalyticsAbilityOrderStats' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(AnalyticsAbilityOrderStats::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<AnalyticsAbilityOrderStats>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: AnalyticsAbilityOrderStats) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): AnalyticsAbilityOrderStats  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("abilities")
+            openapiFields.add("losses")
+            openapiFields.add("matches")
+            openapiFields.add("players")
+            openapiFields.add("total_assists")
+            openapiFields.add("total_deaths")
+            openapiFields.add("total_kills")
+            openapiFields.add("wins")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("abilities")
+            openapiRequiredFields.add("losses")
+            openapiRequiredFields.add("matches")
+            openapiRequiredFields.add("players")
+            openapiRequiredFields.add("total_assists")
+            openapiRequiredFields.add("total_deaths")
+            openapiRequiredFields.add("total_kills")
+            openapiRequiredFields.add("wins")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to AnalyticsAbilityOrderStats
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in AnalyticsAbilityOrderStats is not found in the empty JSON string", AnalyticsAbilityOrderStats.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            // ensure the required json array is present
+            requireNotNull(jsonObj["abilities"]) {
+              "Expected the field `abilities` to be an array in the JSON string but got `null`"
+            }
+            require(jsonObj["abilities"].isJsonArray()) {
+              String.format("Expected the field `abilities` to be an array in the JSON string but got `%s`", jsonObj["abilities"].toString())
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["abilities"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("abilities").size()) {
+                require(jsonObj.getAsJsonArray("abilities").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `abilities` to be primitive")
+                }
+              }
+            }
+        }
+    }
 
 }
 

@@ -17,8 +17,16 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -31,10 +39,10 @@ import java.io.Serializable
 
 data class AbilityTooltipDetailsInfoSectionPropertyBlockV2 (
 
-    @Json(name = "loc_string")
+    @SerializedName("loc_string")
     val locString: kotlin.String? = null,
 
-    @Json(name = "properties")
+    @SerializedName("properties")
     val properties: kotlin.collections.List<AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty>? = null
 
 ) : Serializable {
@@ -42,6 +50,78 @@ data class AbilityTooltipDetailsInfoSectionPropertyBlockV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!AbilityTooltipDetailsInfoSectionPropertyBlockV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'AbilityTooltipDetailsInfoSectionPropertyBlockV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(AbilityTooltipDetailsInfoSectionPropertyBlockV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<AbilityTooltipDetailsInfoSectionPropertyBlockV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: AbilityTooltipDetailsInfoSectionPropertyBlockV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): AbilityTooltipDetailsInfoSectionPropertyBlockV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("loc_string")
+            openapiFields.add("properties")
+
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to AbilityTooltipDetailsInfoSectionPropertyBlockV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in AbilityTooltipDetailsInfoSectionPropertyBlockV2 is not found in the empty JSON string", AbilityTooltipDetailsInfoSectionPropertyBlockV2.openapiRequiredFields.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            if (jsonObj["loc_string"] != null && !jsonObj["loc_string"].isJsonNull) {
+              require(jsonObj.get("loc_string").isJsonPrimitive) {
+                String.format("Expected the field `loc_string` to be a primitive type in the JSON string but got `%s`", jsonObj["loc_string"].toString())
+              }
+            }
+            if (jsonObj["properties"] != null && !jsonObj["properties"].isJsonNull) {
+              if (jsonObj.getAsJsonArray("properties") != null) {
+                // ensure the json data is an array
+                require(jsonObj["properties"].isJsonArray) {
+                  String.format("Expected the field `properties` to be an array in the JSON string but got `%s`", jsonObj["properties"].toString())
+                }
+
+                // validate the optional field `properties` (array)
+                for (i in 0 until jsonObj.getAsJsonArray("properties").size()) {
+                  AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.validateJsonElement(jsonObj.getAsJsonArray("properties").get(i))
+                }
+              }
+            }
+        }
+    }
 
 }
 

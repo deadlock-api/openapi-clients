@@ -16,8 +16,7 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
 /**
  * 
@@ -25,19 +24,18 @@ import com.squareup.moshi.JsonClass
  * Values: Live,Completed,Scheduled,Cancelled
  */
 
-@JsonClass(generateAdapter = false)
 enum class ESportsMatchStatus(val value: kotlin.String) {
 
-    @Json(name = "Live")
+    @SerializedName(value = "Live")
     Live("Live"),
 
-    @Json(name = "Completed")
+    @SerializedName(value = "Completed")
     Completed("Completed"),
 
-    @Json(name = "Scheduled")
+    @SerializedName(value = "Scheduled")
     Scheduled("Scheduled"),
 
-    @Json(name = "Cancelled")
+    @SerializedName(value = "Cancelled")
     Cancelled("Cancelled");
 
     /**

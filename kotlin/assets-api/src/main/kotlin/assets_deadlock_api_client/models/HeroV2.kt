@@ -30,8 +30,16 @@ import assets_deadlock_api_client.models.RawHeroScalingStatV2
 import assets_deadlock_api_client.models.RawHeroStatsDisplayV2
 import assets_deadlock_api_client.models.RawHeroStatsUIV2
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -75,103 +83,103 @@ import java.io.Serializable
 
 data class HeroV2 (
 
-    @Json(name = "id")
+    @SerializedName("id")
     val id: kotlin.Int,
 
-    @Json(name = "class_name")
+    @SerializedName("class_name")
     val className: kotlin.String,
 
-    @Json(name = "name")
+    @SerializedName("name")
     val name: kotlin.String,
 
-    @Json(name = "description")
+    @SerializedName("description")
     val description: HeroDescriptionV2,
 
-    @Json(name = "player_selectable")
+    @SerializedName("player_selectable")
     val playerSelectable: kotlin.Boolean,
 
-    @Json(name = "disabled")
+    @SerializedName("disabled")
     val disabled: kotlin.Boolean,
 
-    @Json(name = "in_development")
+    @SerializedName("in_development")
     val inDevelopment: kotlin.Boolean,
 
-    @Json(name = "needs_testing")
+    @SerializedName("needs_testing")
     val needsTesting: kotlin.Boolean,
 
-    @Json(name = "assigned_players_only")
+    @SerializedName("assigned_players_only")
     val assignedPlayersOnly: kotlin.Boolean,
 
-    @Json(name = "limited_testing")
+    @SerializedName("limited_testing")
     val limitedTesting: kotlin.Boolean,
 
-    @Json(name = "complexity")
+    @SerializedName("complexity")
     val complexity: kotlin.Int,
 
-    @Json(name = "skin")
+    @SerializedName("skin")
     val skin: kotlin.Int,
 
-    @Json(name = "images")
+    @SerializedName("images")
     val images: HeroImagesV2,
 
-    @Json(name = "items")
+    @SerializedName("items")
     val items: kotlin.collections.Map<kotlin.String, kotlin.String>,
 
-    @Json(name = "starting_stats")
+    @SerializedName("starting_stats")
     val startingStats: HeroStartingStatsV2,
 
-    @Json(name = "item_slot_info")
+    @SerializedName("item_slot_info")
     val itemSlotInfo: kotlin.collections.Map<kotlin.String, RawHeroItemSlotInfoValueV2>,
 
-    @Json(name = "physics")
+    @SerializedName("physics")
     val physics: HeroPhysicsV2,
 
-    @Json(name = "colors")
+    @SerializedName("colors")
     val colors: HeroColorsV2,
 
-    @Json(name = "shop_stat_display")
+    @SerializedName("shop_stat_display")
     val shopStatDisplay: HeroShopStatDisplayV2,
 
-    @Json(name = "stats_display")
+    @SerializedName("stats_display")
     val statsDisplay: RawHeroStatsDisplayV2,
 
-    @Json(name = "hero_stats_ui")
+    @SerializedName("hero_stats_ui")
     val heroStatsUi: RawHeroStatsUIV2,
 
-    @Json(name = "level_info")
+    @SerializedName("level_info")
     val levelInfo: kotlin.collections.Map<kotlin.String, HeroLevelInfoV2>,
 
-    @Json(name = "scaling_stats")
+    @SerializedName("scaling_stats")
     val scalingStats: kotlin.collections.Map<kotlin.String, RawHeroScalingStatV2>,
 
-    @Json(name = "purchase_bonuses")
+    @SerializedName("purchase_bonuses")
     val purchaseBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroPurchaseBonusV2>>,
 
-    @Json(name = "standard_level_up_upgrades")
+    @SerializedName("standard_level_up_upgrades")
     val standardLevelUpUpgrades: kotlin.collections.Map<kotlin.String, java.math.BigDecimal>,
 
-    @Json(name = "recommended_upgrades")
+    @SerializedName("recommended_upgrades")
     val recommendedUpgrades: kotlin.collections.List<kotlin.String>? = null,
 
-    @Json(name = "recommended_ability_order")
+    @SerializedName("recommended_ability_order")
     val recommendedAbilityOrder: kotlin.collections.List<kotlin.String>? = null,
 
-    @Json(name = "tags")
+    @SerializedName("tags")
     val tags: kotlin.collections.List<kotlin.String>? = null,
 
-    @Json(name = "gun_tag")
+    @SerializedName("gun_tag")
     val gunTag: kotlin.String? = null,
 
-    @Json(name = "hideout_rich_presence")
+    @SerializedName("hideout_rich_presence")
     val hideoutRichPresence: kotlin.String? = null,
 
-    @Json(name = "hero_type")
+    @SerializedName("hero_type")
     val heroType: HeroTypeV2? = null,
 
-    @Json(name = "prerelease_only")
+    @SerializedName("prerelease_only")
     val prereleaseOnly: kotlin.Boolean? = null,
 
-    @Json(name = "cost_bonuses")
+    @SerializedName("cost_bonuses")
     val costBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroMapModCostBonusesV2>>? = null
 
 ) : Serializable {
@@ -179,6 +187,204 @@ data class HeroV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!HeroV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'HeroV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(HeroV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<HeroV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: HeroV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): HeroV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("id")
+            openapiFields.add("class_name")
+            openapiFields.add("name")
+            openapiFields.add("description")
+            openapiFields.add("player_selectable")
+            openapiFields.add("disabled")
+            openapiFields.add("in_development")
+            openapiFields.add("needs_testing")
+            openapiFields.add("assigned_players_only")
+            openapiFields.add("limited_testing")
+            openapiFields.add("complexity")
+            openapiFields.add("skin")
+            openapiFields.add("images")
+            openapiFields.add("items")
+            openapiFields.add("starting_stats")
+            openapiFields.add("item_slot_info")
+            openapiFields.add("physics")
+            openapiFields.add("colors")
+            openapiFields.add("shop_stat_display")
+            openapiFields.add("stats_display")
+            openapiFields.add("hero_stats_ui")
+            openapiFields.add("level_info")
+            openapiFields.add("scaling_stats")
+            openapiFields.add("purchase_bonuses")
+            openapiFields.add("standard_level_up_upgrades")
+            openapiFields.add("recommended_upgrades")
+            openapiFields.add("recommended_ability_order")
+            openapiFields.add("tags")
+            openapiFields.add("gun_tag")
+            openapiFields.add("hideout_rich_presence")
+            openapiFields.add("hero_type")
+            openapiFields.add("prerelease_only")
+            openapiFields.add("cost_bonuses")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("id")
+            openapiRequiredFields.add("class_name")
+            openapiRequiredFields.add("name")
+            openapiRequiredFields.add("description")
+            openapiRequiredFields.add("player_selectable")
+            openapiRequiredFields.add("disabled")
+            openapiRequiredFields.add("in_development")
+            openapiRequiredFields.add("needs_testing")
+            openapiRequiredFields.add("assigned_players_only")
+            openapiRequiredFields.add("limited_testing")
+            openapiRequiredFields.add("complexity")
+            openapiRequiredFields.add("skin")
+            openapiRequiredFields.add("images")
+            openapiRequiredFields.add("items")
+            openapiRequiredFields.add("starting_stats")
+            openapiRequiredFields.add("item_slot_info")
+            openapiRequiredFields.add("physics")
+            openapiRequiredFields.add("colors")
+            openapiRequiredFields.add("shop_stat_display")
+            openapiRequiredFields.add("stats_display")
+            openapiRequiredFields.add("hero_stats_ui")
+            openapiRequiredFields.add("level_info")
+            openapiRequiredFields.add("scaling_stats")
+            openapiRequiredFields.add("purchase_bonuses")
+            openapiRequiredFields.add("standard_level_up_upgrades")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to HeroV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in HeroV2 is not found in the empty JSON string", HeroV2.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            require(jsonObj["class_name"].isJsonPrimitive) {
+              String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj["class_name"].toString())
+            }
+            require(jsonObj["name"].isJsonPrimitive) {
+              String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj["name"].toString())
+            }
+            // validate the required field `description`
+            HeroDescriptionV2.validateJsonElement(jsonObj["description"])
+            // validate the required field `images`
+            HeroImagesV2.validateJsonElement(jsonObj["images"])
+            // validate the required field `starting_stats`
+            HeroStartingStatsV2.validateJsonElement(jsonObj["starting_stats"])
+            // validate the required field `physics`
+            HeroPhysicsV2.validateJsonElement(jsonObj["physics"])
+            // validate the required field `colors`
+            HeroColorsV2.validateJsonElement(jsonObj["colors"])
+            // validate the required field `shop_stat_display`
+            HeroShopStatDisplayV2.validateJsonElement(jsonObj["shop_stat_display"])
+            // validate the required field `stats_display`
+            RawHeroStatsDisplayV2.validateJsonElement(jsonObj["stats_display"])
+            // validate the required field `hero_stats_ui`
+            RawHeroStatsUIV2.validateJsonElement(jsonObj["hero_stats_ui"])
+            // ensure the optional json data is an array if present
+            if (jsonObj["recommended_upgrades"] != null && !jsonObj["recommended_upgrades"].isJsonNull) {
+              require(jsonObj["recommended_upgrades"].isJsonArray()) {
+                String.format("Expected the field `recommended_upgrades` to be an array in the JSON string but got `%s`", jsonObj["recommended_upgrades"].toString())
+              }
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["recommended_upgrades"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("recommended_upgrades").size()) {
+                require(jsonObj.getAsJsonArray("recommended_upgrades").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `recommended_upgrades` to be primitive")
+                }
+              }
+            }
+            // ensure the optional json data is an array if present
+            if (jsonObj["recommended_ability_order"] != null && !jsonObj["recommended_ability_order"].isJsonNull) {
+              require(jsonObj["recommended_ability_order"].isJsonArray()) {
+                String.format("Expected the field `recommended_ability_order` to be an array in the JSON string but got `%s`", jsonObj["recommended_ability_order"].toString())
+              }
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["recommended_ability_order"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("recommended_ability_order").size()) {
+                require(jsonObj.getAsJsonArray("recommended_ability_order").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `recommended_ability_order` to be primitive")
+                }
+              }
+            }
+            // ensure the optional json data is an array if present
+            if (jsonObj["tags"] != null && !jsonObj["tags"].isJsonNull) {
+              require(jsonObj["tags"].isJsonArray()) {
+                String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj["tags"].toString())
+              }
+            }
+            // ensure the items in json array are primitive
+            if (jsonObj["tags"] != null) {
+              for (i in 0 until jsonObj.getAsJsonArray("tags").size()) {
+                require(jsonObj.getAsJsonArray("tags").get(i).isJsonPrimitive) {
+                  String.format("Expected the property in array `tags` to be primitive")
+                }
+              }
+            }
+            if (jsonObj["gun_tag"] != null && !jsonObj["gun_tag"].isJsonNull) {
+              require(jsonObj.get("gun_tag").isJsonPrimitive) {
+                String.format("Expected the field `gun_tag` to be a primitive type in the JSON string but got `%s`", jsonObj["gun_tag"].toString())
+              }
+            }
+            if (jsonObj["hideout_rich_presence"] != null && !jsonObj["hideout_rich_presence"].isJsonNull) {
+              require(jsonObj.get("hideout_rich_presence").isJsonPrimitive) {
+                String.format("Expected the field `hideout_rich_presence` to be a primitive type in the JSON string but got `%s`", jsonObj["hideout_rich_presence"].toString())
+              }
+            }
+            // validate the optional field `hero_type`
+            if (jsonObj["hero_type"] != null && !jsonObj["hero_type"].isJsonNull) {
+                require(HeroTypeV2.values().any { it.value == jsonObj["hero_type"].asString }) {
+                    String.format("Expected the field `hero_type` to be valid `HeroTypeV2` enum value in the JSON string but got `%s`", jsonObj["hero_type"].toString())
+                }
+            }
+        }
+    }
 
 }
 

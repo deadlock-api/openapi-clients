@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -33,19 +41,19 @@ import java.io.Serializable
 data class TableSize (
 
     /* Whether the table is a view. */
-    @Json(name = "is_view")
+    @SerializedName("is_view")
     val isView: kotlin.Boolean,
 
     /* Compressed size of the table in bytes. */
-    @Json(name = "data_compressed_bytes")
+    @SerializedName("data_compressed_bytes")
     val dataCompressedBytes: kotlin.Long? = null,
 
     /* Uncompressed size of the table in bytes. */
-    @Json(name = "data_uncompressed_bytes")
+    @SerializedName("data_uncompressed_bytes")
     val dataUncompressedBytes: kotlin.Long? = null,
 
     /* Number of rows in the table. */
-    @Json(name = "rows")
+    @SerializedName("rows")
     val rows: kotlin.Long? = null
 
 ) : Serializable {
@@ -53,6 +61,71 @@ data class TableSize (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!TableSize::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'TableSize' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(TableSize::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<TableSize>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: TableSize) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): TableSize  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("is_view")
+            openapiFields.add("data_compressed_bytes")
+            openapiFields.add("data_uncompressed_bytes")
+            openapiFields.add("rows")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("is_view")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to TableSize
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in TableSize is not found in the empty JSON string", TableSize.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+        }
+    }
 
 }
 

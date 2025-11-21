@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -49,83 +57,83 @@ import java.io.Serializable
 data class HeroSynergyStats (
 
     /* The number of assists by `hero_id1` when playing with `hero_id2`. */
-    @Json(name = "assists1")
+    @SerializedName("assists1")
     val assists1: kotlin.Long,
 
     /* The number of assists by `hero_id2` when playing with `hero_id1`. */
-    @Json(name = "assists2")
+    @SerializedName("assists2")
     val assists2: kotlin.Long,
 
     /* The number of creeps killed by `hero_id1` when playing with `hero_id2`. */
-    @Json(name = "creeps1")
+    @SerializedName("creeps1")
     val creeps1: kotlin.Long,
 
     /* The number of creeps killed by `hero_id2` when playing with `hero_id1`. */
-    @Json(name = "creeps2")
+    @SerializedName("creeps2")
     val creeps2: kotlin.Long,
 
     /* The number of deaths by `hero_id1` when playing with `hero_id2`. */
-    @Json(name = "deaths1")
+    @SerializedName("deaths1")
     val deaths1: kotlin.Long,
 
     /* The number of deaths by `hero_id2` when playing with `hero_id1`. */
-    @Json(name = "deaths2")
+    @SerializedName("deaths2")
     val deaths2: kotlin.Long,
 
     /* The number of denies by `hero_id1` when playing with `hero_id2`. */
-    @Json(name = "denies1")
+    @SerializedName("denies1")
     val denies1: kotlin.Long,
 
     /* The number of denies by `hero_id2` when playing with `hero_id1`. */
-    @Json(name = "denies2")
+    @SerializedName("denies2")
     val denies2: kotlin.Long,
 
     /* The ID of the first hero in the pair. */
-    @Json(name = "hero_id1")
+    @SerializedName("hero_id1")
     val heroId1: kotlin.Int,
 
     /* The ID of the second hero in the pair. */
-    @Json(name = "hero_id2")
+    @SerializedName("hero_id2")
     val heroId2: kotlin.Int,
 
     /* The number of kills by `hero_id1` when playing with `hero_id2`. */
-    @Json(name = "kills1")
+    @SerializedName("kills1")
     val kills1: kotlin.Long,
 
     /* The number of kills by `hero_id2` when playing with `hero_id1`. */
-    @Json(name = "kills2")
+    @SerializedName("kills2")
     val kills2: kotlin.Long,
 
     /* The number of last hits by `hero_id1` when playing with `hero_id2`. */
-    @Json(name = "last_hits1")
+    @SerializedName("last_hits1")
     val lastHits1: kotlin.Long,
 
     /* The number of last hits by `hero_id2` when playing with `hero_id1`. */
-    @Json(name = "last_hits2")
+    @SerializedName("last_hits2")
     val lastHits2: kotlin.Long,
 
     /* The total number of matches played where `hero_id1` and `hero_id2` were on the same team, meeting the filter criteria. */
-    @Json(name = "matches_played")
+    @SerializedName("matches_played")
     val matchesPlayed: kotlin.Long,
 
     /* The net worth of `hero_id1` when playing with `hero_id2`. */
-    @Json(name = "networth1")
+    @SerializedName("networth1")
     val networth1: kotlin.Long,
 
     /* The net worth of `hero_id2` when playing with `hero_id1`. */
-    @Json(name = "networth2")
+    @SerializedName("networth2")
     val networth2: kotlin.Long,
 
     /* The amount of objective damage dealt by `hero_id1` when playing with `hero_id2`. */
-    @Json(name = "obj_damage1")
+    @SerializedName("obj_damage1")
     val objDamage1: kotlin.Long,
 
     /* The amount of objective damage dealt by `hero_id2` when playing with `hero_id1`. */
-    @Json(name = "obj_damage2")
+    @SerializedName("obj_damage2")
     val objDamage2: kotlin.Long,
 
     /* The number of times the team won when both `hero_id1` and `hero_id2` were on the same team. */
-    @Json(name = "wins")
+    @SerializedName("wins")
     val wins: kotlin.Long
 
 ) : Serializable {
@@ -133,6 +141,106 @@ data class HeroSynergyStats (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!HeroSynergyStats::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'HeroSynergyStats' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(HeroSynergyStats::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<HeroSynergyStats>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: HeroSynergyStats) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): HeroSynergyStats  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("assists1")
+            openapiFields.add("assists2")
+            openapiFields.add("creeps1")
+            openapiFields.add("creeps2")
+            openapiFields.add("deaths1")
+            openapiFields.add("deaths2")
+            openapiFields.add("denies1")
+            openapiFields.add("denies2")
+            openapiFields.add("hero_id1")
+            openapiFields.add("hero_id2")
+            openapiFields.add("kills1")
+            openapiFields.add("kills2")
+            openapiFields.add("last_hits1")
+            openapiFields.add("last_hits2")
+            openapiFields.add("matches_played")
+            openapiFields.add("networth1")
+            openapiFields.add("networth2")
+            openapiFields.add("obj_damage1")
+            openapiFields.add("obj_damage2")
+            openapiFields.add("wins")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("assists1")
+            openapiRequiredFields.add("assists2")
+            openapiRequiredFields.add("creeps1")
+            openapiRequiredFields.add("creeps2")
+            openapiRequiredFields.add("deaths1")
+            openapiRequiredFields.add("deaths2")
+            openapiRequiredFields.add("denies1")
+            openapiRequiredFields.add("denies2")
+            openapiRequiredFields.add("hero_id1")
+            openapiRequiredFields.add("hero_id2")
+            openapiRequiredFields.add("kills1")
+            openapiRequiredFields.add("kills2")
+            openapiRequiredFields.add("last_hits1")
+            openapiRequiredFields.add("last_hits2")
+            openapiRequiredFields.add("matches_played")
+            openapiRequiredFields.add("networth1")
+            openapiRequiredFields.add("networth2")
+            openapiRequiredFields.add("obj_damage1")
+            openapiRequiredFields.add("obj_damage2")
+            openapiRequiredFields.add("wins")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to HeroSynergyStats
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in HeroSynergyStats is not found in the empty JSON string", HeroSynergyStats.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+        }
+    }
 
 }
 

@@ -15,415 +15,165 @@
 
 package deadlock_api_client.apis
 
-import java.io.IOException
-import okhttp3.Call
-import okhttp3.HttpUrl
-
 import deadlock_api_client.models.Leaderboard
 
-import com.squareup.moshi.Json
+import deadlock_api_client.infrastructure.*
+import io.ktor.client.HttpClientConfig
+import io.ktor.client.request.forms.formData
+import io.ktor.client.engine.HttpClientEngine
+import io.ktor.http.ParametersBuilder
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import java.text.DateFormat
 
-import deadlock_api_client.infrastructure.ApiClient
-import deadlock_api_client.infrastructure.ApiResponse
-import deadlock_api_client.infrastructure.ClientException
-import deadlock_api_client.infrastructure.ClientError
-import deadlock_api_client.infrastructure.ServerException
-import deadlock_api_client.infrastructure.ServerError
-import deadlock_api_client.infrastructure.MultiValueMap
-import deadlock_api_client.infrastructure.PartConfig
-import deadlock_api_client.infrastructure.RequestConfig
-import deadlock_api_client.infrastructure.RequestMethod
-import deadlock_api_client.infrastructure.ResponseType
-import deadlock_api_client.infrastructure.Success
-import deadlock_api_client.infrastructure.toMultiValue
-
-class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
-    companion object {
-        @JvmStatic
-        val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://api.deadlock-api.com")
-        }
-    }
-
-    /**
-     * enum for parameter region
-     */
-     enum class RegionLeaderboard(val value: kotlin.String) {
-         @Json(name = "Europe") Europe("Europe"),
-         @Json(name = "Asia") Asia("Asia"),
-         @Json(name = "NAmerica") NAmerica("NAmerica"),
-         @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania");
+    open class LeaderboardApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
         /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
-     }
+        * GET /v1/leaderboard/{region}
+        * Leaderboard
+        *  Returns the leaderboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @param region The region to fetch the leaderboard for. 
+         * @return Leaderboard
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun leaderboard(region: kotlin.String): HttpResponse<Leaderboard> {
 
-    /**
-     * GET /v1/leaderboard/{region}
-     * Leaderboard
-     *  Returns the leaderboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param region The region to fetch the leaderboard for.
-     * @return Leaderboard
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboard(region: RegionLeaderboard) : Leaderboard {
-        val localVarResponse = leaderboardWithHttpInfo(region = region)
+            val localVariableAuthNames = listOf<String>()
 
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Leaderboard
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * GET /v1/leaderboard/{region}
-     * Leaderboard
-     *  Returns the leaderboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param region The region to fetch the leaderboard for.
-     * @return ApiResponse<Leaderboard?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardWithHttpInfo(region: RegionLeaderboard) : ApiResponse<Leaderboard?> {
-        val localVariableConfig = leaderboardRequestConfig(region = region)
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        return request<Unit, Leaderboard>(
-            localVariableConfig
-        )
-    }
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * To obtain the request config of the operation leaderboard
-     *
-     * @param region The region to fetch the leaderboard for.
-     * @return RequestConfig
-     */
-    fun leaderboardRequestConfig(region: RegionLeaderboard) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/leaderboard/{region}".replace("{"+"region"+"}", encodeURIComponent(region.value.toString())),
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/leaderboard/{region}".replace("{" + "region" + "}", "$region"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
-    /**
-     * enum for parameter region
-     */
-     enum class RegionLeaderboardHero(val value: kotlin.String) {
-         @Json(name = "Europe") Europe("Europe"),
-         @Json(name = "Asia") Asia("Asia"),
-         @Json(name = "NAmerica") NAmerica("NAmerica"),
-         @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania");
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
+            }
 
         /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
-     }
+        * GET /v1/leaderboard/{region}/{hero_id}
+        * Hero Leaderboard
+        *  Returns the leaderboard for a specific hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @param region The region to fetch the leaderboard for. 
+         * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; 
+         * @return Leaderboard
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun leaderboardHero(region: kotlin.String, heroId: kotlin.Int): HttpResponse<Leaderboard> {
 
-    /**
-     * GET /v1/leaderboard/{region}/{hero_id}
-     * Hero Leaderboard
-     *  Returns the leaderboard for a specific hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @return Leaderboard
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboardHero(region: RegionLeaderboardHero, heroId: kotlin.Int) : Leaderboard {
-        val localVarResponse = leaderboardHeroWithHttpInfo(region = region, heroId = heroId)
+            val localVariableAuthNames = listOf<String>()
 
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Leaderboard
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * GET /v1/leaderboard/{region}/{hero_id}
-     * Hero Leaderboard
-     *  Returns the leaderboard for a specific hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @return ApiResponse<Leaderboard?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardHeroWithHttpInfo(region: RegionLeaderboardHero, heroId: kotlin.Int) : ApiResponse<Leaderboard?> {
-        val localVariableConfig = leaderboardHeroRequestConfig(region = region, heroId = heroId)
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        return request<Unit, Leaderboard>(
-            localVariableConfig
-        )
-    }
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * To obtain the request config of the operation leaderboardHero
-     *
-     * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @return RequestConfig
-     */
-    fun leaderboardHeroRequestConfig(region: RegionLeaderboardHero, heroId: kotlin.Int) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/leaderboard/{region}/{hero_id}".replace("{"+"region"+"}", encodeURIComponent(region.value.toString())).replace("{"+"hero_id"+"}", encodeURIComponent(heroId.toString())),
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/leaderboard/{region}/{hero_id}".replace("{" + "region" + "}", "$region").replace("{" + "hero_id" + "}", "$heroId"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
-    /**
-     * enum for parameter region
-     */
-     enum class RegionLeaderboardHeroRaw(val value: kotlin.String) {
-         @Json(name = "Europe") Europe("Europe"),
-         @Json(name = "Asia") Asia("Asia"),
-         @Json(name = "NAmerica") NAmerica("NAmerica"),
-         @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania");
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
+            }
 
         /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
-     }
+        * GET /v1/leaderboard/{region}/{hero_id}/raw
+        * Hero Leaderboard as Protobuf
+        *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @param region The region to fetch the leaderboard for. 
+         * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; 
+         * @return kotlin.collections.List<kotlin.Int>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun leaderboardHeroRaw(region: kotlin.String, heroId: kotlin.Int): HttpResponse<kotlin.collections.List<kotlin.Int>> {
 
-    /**
-     * GET /v1/leaderboard/{region}/{hero_id}/raw
-     * Hero Leaderboard as Protobuf
-     *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @return kotlin.collections.List<kotlin.Int>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboardHeroRaw(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int) : kotlin.collections.List<kotlin.Int> {
-        val localVarResponse = leaderboardHeroRawWithHttpInfo(region = region, heroId = heroId)
+            val localVariableAuthNames = listOf<String>()
 
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * GET /v1/leaderboard/{region}/{hero_id}/raw
-     * Hero Leaderboard as Protobuf
-     *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardHeroRawWithHttpInfo(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
-        val localVariableConfig = leaderboardHeroRawRequestConfig(region = region, heroId = heroId)
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        return request<Unit, kotlin.collections.List<kotlin.Int>>(
-            localVariableConfig
-        )
-    }
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * To obtain the request config of the operation leaderboardHeroRaw
-     *
-     * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @return RequestConfig
-     */
-    fun leaderboardHeroRawRequestConfig(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/octet-stream"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/leaderboard/{region}/{hero_id}/raw".replace("{"+"region"+"}", encodeURIComponent(region.value.toString())).replace("{"+"hero_id"+"}", encodeURIComponent(heroId.toString())),
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/leaderboard/{region}/{hero_id}/raw".replace("{" + "region" + "}", "$region").replace("{" + "hero_id" + "}", "$heroId"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
-    /**
-     * enum for parameter region
-     */
-     enum class RegionLeaderboardRaw(val value: kotlin.String) {
-         @Json(name = "Europe") Europe("Europe"),
-         @Json(name = "Asia") Asia("Asia"),
-         @Json(name = "NAmerica") NAmerica("NAmerica"),
-         @Json(name = "SAmerica") SAmerica("SAmerica"),
-         @Json(name = "Oceania") Oceania("Oceania");
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
+            }
 
         /**
-         * Override [toString()] to avoid using the enum variable name as the value, and instead use
-         * the actual value defined in the API spec file.
-         *
-         * This solves a problem when the variable name and its value are different, and ensures that
-         * the client sends the correct enum values to the server always.
-         */
-        override fun toString(): kotlin.String = "$value"
-     }
+        * GET /v1/leaderboard/{region}/raw
+        * Leaderboard as Protobuf
+        *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @param region The region to fetch the leaderboard for. 
+         * @return kotlin.collections.List<kotlin.Int>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun leaderboardRaw(region: kotlin.String): HttpResponse<kotlin.collections.List<kotlin.Int>> {
 
-    /**
-     * GET /v1/leaderboard/{region}/raw
-     * Leaderboard as Protobuf
-     *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param region The region to fetch the leaderboard for.
-     * @return kotlin.collections.List<kotlin.Int>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboardRaw(region: RegionLeaderboardRaw) : kotlin.collections.List<kotlin.Int> {
-        val localVarResponse = leaderboardRawWithHttpInfo(region = region)
+            val localVariableAuthNames = listOf<String>()
 
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * GET /v1/leaderboard/{region}/raw
-     * Leaderboard as Protobuf
-     *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param region The region to fetch the leaderboard for.
-     * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardRawWithHttpInfo(region: RegionLeaderboardRaw) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
-        val localVariableConfig = leaderboardRawRequestConfig(region = region)
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        return request<Unit, kotlin.collections.List<kotlin.Int>>(
-            localVariableConfig
-        )
-    }
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * To obtain the request config of the operation leaderboardRaw
-     *
-     * @param region The region to fetch the leaderboard for.
-     * @return RequestConfig
-     */
-    fun leaderboardRawRequestConfig(region: RegionLeaderboardRaw) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/octet-stream"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/v1/leaderboard/{region}/raw".replace("{"+"region"+"}", encodeURIComponent(region.value.toString())),
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/v1/leaderboard/{region}/raw".replace("{" + "region" + "}", "$region"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
+            )
 
+            return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+            ).wrap()
+            }
 
-    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
-        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
-}
+        }

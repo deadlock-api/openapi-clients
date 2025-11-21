@@ -20,8 +20,16 @@ import assets_deadlock_api_client.models.RawItemPropertyScaleFunctionSubclassV2
 import assets_deadlock_api_client.models.UsageFlags
 import assets_deadlock_api_client.models.Value1
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -52,64 +60,64 @@ import java.io.Serializable
 
 data class UpgradePropertyV2 (
 
-    @Json(name = "value")
+    @SerializedName("value")
     val `value`: Value1? = null,
 
-    @Json(name = "can_set_token_override")
+    @SerializedName("can_set_token_override")
     val canSetTokenOverride: kotlin.Boolean? = null,
 
-    @Json(name = "provided_property_type")
+    @SerializedName("provided_property_type")
     val providedPropertyType: kotlin.String? = null,
 
-    @Json(name = "css_class")
+    @SerializedName("css_class")
     val cssClass: kotlin.String? = null,
 
-    @Json(name = "usage_flags")
+    @SerializedName("usage_flags")
     val usageFlags: UsageFlags? = null,
 
-    @Json(name = "negative_attribute")
+    @SerializedName("negative_attribute")
     val negativeAttribute: kotlin.Boolean? = null,
 
-    @Json(name = "disable_value")
+    @SerializedName("disable_value")
     val disableValue: kotlin.String? = null,
 
-    @Json(name = "loc_token_override")
+    @SerializedName("loc_token_override")
     val locTokenOverride: kotlin.String? = null,
 
-    @Json(name = "display_units")
+    @SerializedName("display_units")
     val displayUnits: kotlin.String? = null,
 
-    @Json(name = "icon_path")
+    @SerializedName("icon_path")
     val iconPath: kotlin.String? = null,
 
-    @Json(name = "scale_function")
+    @SerializedName("scale_function")
     val scaleFunction: RawItemPropertyScaleFunctionSubclassV2? = null,
 
-    @Json(name = "prefix")
+    @SerializedName("prefix")
     val prefix: kotlin.String? = null,
 
-    @Json(name = "label")
+    @SerializedName("label")
     val label: kotlin.String? = null,
 
-    @Json(name = "postfix")
+    @SerializedName("postfix")
     val postfix: kotlin.String? = null,
 
-    @Json(name = "postvalue_label")
+    @SerializedName("postvalue_label")
     val postvalueLabel: kotlin.String? = null,
 
-    @Json(name = "conditional")
+    @SerializedName("conditional")
     val conditional: kotlin.String? = null,
 
-    @Json(name = "icon")
+    @SerializedName("icon")
     val icon: kotlin.String? = null,
 
-    @Json(name = "tooltip_section")
+    @SerializedName("tooltip_section")
     val tooltipSection: RawAbilitySectionTypeV2? = null,
 
-    @Json(name = "tooltip_is_elevated")
+    @SerializedName("tooltip_is_elevated")
     val tooltipIsElevated: kotlin.Boolean? = null,
 
-    @Json(name = "tooltip_is_important")
+    @SerializedName("tooltip_is_important")
     val tooltipIsImportant: kotlin.Boolean? = null
 
 ) : Serializable {
@@ -117,6 +125,156 @@ data class UpgradePropertyV2 (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!UpgradePropertyV2::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'UpgradePropertyV2' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(UpgradePropertyV2::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<UpgradePropertyV2>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: UpgradePropertyV2) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): UpgradePropertyV2  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("value")
+            openapiFields.add("can_set_token_override")
+            openapiFields.add("provided_property_type")
+            openapiFields.add("css_class")
+            openapiFields.add("usage_flags")
+            openapiFields.add("negative_attribute")
+            openapiFields.add("disable_value")
+            openapiFields.add("loc_token_override")
+            openapiFields.add("display_units")
+            openapiFields.add("icon_path")
+            openapiFields.add("scale_function")
+            openapiFields.add("prefix")
+            openapiFields.add("label")
+            openapiFields.add("postfix")
+            openapiFields.add("postvalue_label")
+            openapiFields.add("conditional")
+            openapiFields.add("icon")
+            openapiFields.add("tooltip_section")
+            openapiFields.add("tooltip_is_elevated")
+            openapiFields.add("tooltip_is_important")
+
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to UpgradePropertyV2
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in UpgradePropertyV2 is not found in the empty JSON string", UpgradePropertyV2.openapiRequiredFields.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            // validate the optional field `value`
+            if (jsonObj["value"] != null && !jsonObj["value"].isJsonNull) {
+              Value1.validateJsonElement(jsonObj["value"])
+            }
+            if (jsonObj["provided_property_type"] != null && !jsonObj["provided_property_type"].isJsonNull) {
+              require(jsonObj.get("provided_property_type").isJsonPrimitive) {
+                String.format("Expected the field `provided_property_type` to be a primitive type in the JSON string but got `%s`", jsonObj["provided_property_type"].toString())
+              }
+            }
+            if (jsonObj["css_class"] != null && !jsonObj["css_class"].isJsonNull) {
+              require(jsonObj.get("css_class").isJsonPrimitive) {
+                String.format("Expected the field `css_class` to be a primitive type in the JSON string but got `%s`", jsonObj["css_class"].toString())
+              }
+            }
+            // validate the optional field `usage_flags`
+            if (jsonObj["usage_flags"] != null && !jsonObj["usage_flags"].isJsonNull) {
+              UsageFlags.validateJsonElement(jsonObj["usage_flags"])
+            }
+            if (jsonObj["disable_value"] != null && !jsonObj["disable_value"].isJsonNull) {
+              require(jsonObj.get("disable_value").isJsonPrimitive) {
+                String.format("Expected the field `disable_value` to be a primitive type in the JSON string but got `%s`", jsonObj["disable_value"].toString())
+              }
+            }
+            if (jsonObj["loc_token_override"] != null && !jsonObj["loc_token_override"].isJsonNull) {
+              require(jsonObj.get("loc_token_override").isJsonPrimitive) {
+                String.format("Expected the field `loc_token_override` to be a primitive type in the JSON string but got `%s`", jsonObj["loc_token_override"].toString())
+              }
+            }
+            if (jsonObj["display_units"] != null && !jsonObj["display_units"].isJsonNull) {
+              require(jsonObj.get("display_units").isJsonPrimitive) {
+                String.format("Expected the field `display_units` to be a primitive type in the JSON string but got `%s`", jsonObj["display_units"].toString())
+              }
+            }
+            if (jsonObj["icon_path"] != null && !jsonObj["icon_path"].isJsonNull) {
+              require(jsonObj.get("icon_path").isJsonPrimitive) {
+                String.format("Expected the field `icon_path` to be a primitive type in the JSON string but got `%s`", jsonObj["icon_path"].toString())
+              }
+            }
+            // validate the optional field `scale_function`
+            if (jsonObj["scale_function"] != null && !jsonObj["scale_function"].isJsonNull) {
+              RawItemPropertyScaleFunctionSubclassV2.validateJsonElement(jsonObj["scale_function"])
+            }
+            if (jsonObj["prefix"] != null && !jsonObj["prefix"].isJsonNull) {
+              require(jsonObj.get("prefix").isJsonPrimitive) {
+                String.format("Expected the field `prefix` to be a primitive type in the JSON string but got `%s`", jsonObj["prefix"].toString())
+              }
+            }
+            if (jsonObj["label"] != null && !jsonObj["label"].isJsonNull) {
+              require(jsonObj.get("label").isJsonPrimitive) {
+                String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj["label"].toString())
+              }
+            }
+            if (jsonObj["postfix"] != null && !jsonObj["postfix"].isJsonNull) {
+              require(jsonObj.get("postfix").isJsonPrimitive) {
+                String.format("Expected the field `postfix` to be a primitive type in the JSON string but got `%s`", jsonObj["postfix"].toString())
+              }
+            }
+            if (jsonObj["postvalue_label"] != null && !jsonObj["postvalue_label"].isJsonNull) {
+              require(jsonObj.get("postvalue_label").isJsonPrimitive) {
+                String.format("Expected the field `postvalue_label` to be a primitive type in the JSON string but got `%s`", jsonObj["postvalue_label"].toString())
+              }
+            }
+            if (jsonObj["conditional"] != null && !jsonObj["conditional"].isJsonNull) {
+              require(jsonObj.get("conditional").isJsonPrimitive) {
+                String.format("Expected the field `conditional` to be a primitive type in the JSON string but got `%s`", jsonObj["conditional"].toString())
+              }
+            }
+            if (jsonObj["icon"] != null && !jsonObj["icon"].isJsonNull) {
+              require(jsonObj.get("icon").isJsonPrimitive) {
+                String.format("Expected the field `icon` to be a primitive type in the JSON string but got `%s`", jsonObj["icon"].toString())
+              }
+            }
+            // validate the optional field `tooltip_section`
+            if (jsonObj["tooltip_section"] != null && !jsonObj["tooltip_section"].isJsonNull) {
+                require(RawAbilitySectionTypeV2.values().any { it.value == jsonObj["tooltip_section"].asString }) {
+                    String.format("Expected the field `tooltip_section` to be valid `RawAbilitySectionTypeV2` enum value in the JSON string but got `%s`", jsonObj["tooltip_section"].toString())
+                }
+            }
+        }
+    }
 
 }
 

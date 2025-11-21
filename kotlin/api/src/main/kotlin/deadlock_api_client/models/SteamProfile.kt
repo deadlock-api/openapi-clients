@@ -16,8 +16,16 @@
 package deadlock_api_client.models
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -37,31 +45,31 @@ import java.io.Serializable
 
 data class SteamProfile (
 
-    @Json(name = "account_id")
+    @SerializedName("account_id")
     val accountId: kotlin.Int,
 
-    @Json(name = "avatar")
+    @SerializedName("avatar")
     val avatar: kotlin.String,
 
-    @Json(name = "avatarfull")
+    @SerializedName("avatarfull")
     val avatarfull: kotlin.String,
 
-    @Json(name = "avatarmedium")
+    @SerializedName("avatarmedium")
     val avatarmedium: kotlin.String,
 
-    @Json(name = "last_updated")
+    @SerializedName("last_updated")
     val lastUpdated: java.time.OffsetDateTime,
 
-    @Json(name = "personaname")
+    @SerializedName("personaname")
     val personaname: kotlin.String,
 
-    @Json(name = "profileurl")
+    @SerializedName("profileurl")
     val profileurl: kotlin.String,
 
-    @Json(name = "countrycode")
+    @SerializedName("countrycode")
     val countrycode: kotlin.String? = null,
 
-    @Json(name = "realname")
+    @SerializedName("realname")
     val realname: kotlin.String? = null
 
 ) : Serializable {
@@ -69,6 +77,107 @@ data class SteamProfile (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!SteamProfile::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'SteamProfile' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(SteamProfile::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<SteamProfile>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: SteamProfile) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): SteamProfile  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("account_id")
+            openapiFields.add("avatar")
+            openapiFields.add("avatarfull")
+            openapiFields.add("avatarmedium")
+            openapiFields.add("last_updated")
+            openapiFields.add("personaname")
+            openapiFields.add("profileurl")
+            openapiFields.add("countrycode")
+            openapiFields.add("realname")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("account_id")
+            openapiRequiredFields.add("avatar")
+            openapiRequiredFields.add("avatarfull")
+            openapiRequiredFields.add("avatarmedium")
+            openapiRequiredFields.add("last_updated")
+            openapiRequiredFields.add("personaname")
+            openapiRequiredFields.add("profileurl")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to SteamProfile
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in SteamProfile is not found in the empty JSON string", SteamProfile.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            require(jsonObj["avatar"].isJsonPrimitive) {
+              String.format("Expected the field `avatar` to be a primitive type in the JSON string but got `%s`", jsonObj["avatar"].toString())
+            }
+            require(jsonObj["avatarfull"].isJsonPrimitive) {
+              String.format("Expected the field `avatarfull` to be a primitive type in the JSON string but got `%s`", jsonObj["avatarfull"].toString())
+            }
+            require(jsonObj["avatarmedium"].isJsonPrimitive) {
+              String.format("Expected the field `avatarmedium` to be a primitive type in the JSON string but got `%s`", jsonObj["avatarmedium"].toString())
+            }
+            require(jsonObj["personaname"].isJsonPrimitive) {
+              String.format("Expected the field `personaname` to be a primitive type in the JSON string but got `%s`", jsonObj["personaname"].toString())
+            }
+            require(jsonObj["profileurl"].isJsonPrimitive) {
+              String.format("Expected the field `profileurl` to be a primitive type in the JSON string but got `%s`", jsonObj["profileurl"].toString())
+            }
+            if (jsonObj["countrycode"] != null && !jsonObj["countrycode"].isJsonNull) {
+              require(jsonObj.get("countrycode").isJsonPrimitive) {
+                String.format("Expected the field `countrycode` to be a primitive type in the JSON string but got `%s`", jsonObj["countrycode"].toString())
+              }
+            }
+            if (jsonObj["realname"] != null && !jsonObj["realname"].isJsonNull) {
+              require(jsonObj.get("realname").isJsonPrimitive) {
+                String.format("Expected the field `realname` to be a primitive type in the JSON string but got `%s`", jsonObj["realname"].toString())
+              }
+            }
+        }
+    }
 
 }
 

@@ -18,8 +18,16 @@ package deadlock_api_client.models
 import deadlock_api_client.models.PatchCategory
 import deadlock_api_client.models.PatchGuid
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.TypeAdapter
+import com.google.gson.TypeAdapterFactory
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonWriter
+import com.google.gson.annotations.JsonAdapter
+import java.io.IOException
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -39,31 +47,31 @@ import java.io.Serializable
 
 data class Patch (
 
-    @Json(name = "author")
+    @SerializedName("author")
     val author: kotlin.String,
 
-    @Json(name = "category")
+    @SerializedName("category")
     val category: PatchCategory,
 
-    @Json(name = "content_encoded")
+    @SerializedName("content_encoded")
     val contentEncoded: kotlin.String,
 
-    @Json(name = "dc_creator")
+    @SerializedName("dc_creator")
     val dcCreator: kotlin.String,
 
-    @Json(name = "guid")
+    @SerializedName("guid")
     val guid: PatchGuid,
 
-    @Json(name = "link")
+    @SerializedName("link")
     val link: kotlin.String,
 
-    @Json(name = "pub_date")
+    @SerializedName("pub_date")
     val pubDate: java.time.OffsetDateTime,
 
-    @Json(name = "slash_comments")
+    @SerializedName("slash_comments")
     val slashComments: kotlin.String,
 
-    @Json(name = "title")
+    @SerializedName("title")
     val title: kotlin.String
 
 ) : Serializable {
@@ -71,6 +79,106 @@ data class Patch (
         private const val serialVersionUID: Long = 123
     }
 
+
+    class CustomTypeAdapterFactory : TypeAdapterFactory {
+        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+            if (!Patch::class.java.isAssignableFrom(type.rawType)) {
+              return null // this class only serializes 'Patch' and its subtypes
+            }
+            val elementAdapter = gson.getAdapter(JsonElement::class.java)
+            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(Patch::class.java))
+
+            @Suppress("UNCHECKED_CAST")
+            return object : TypeAdapter<Patch>() {
+                @Throws(IOException::class)
+                override fun write(out: JsonWriter, value: Patch) {
+                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
+                    elementAdapter.write(out, obj)
+                }
+
+                @Throws(IOException::class)
+                override fun read(jsonReader: JsonReader): Patch  {
+                    val jsonElement = elementAdapter.read(jsonReader)
+                    validateJsonElement(jsonElement)
+                    return thisAdapter.fromJsonTree(jsonElement)
+                }
+            }.nullSafe() as TypeAdapter<T>
+        }
+    }
+
+    companion object {
+        var openapiFields = HashSet<String>()
+        var openapiRequiredFields = HashSet<String>()
+
+        init {
+            // a set of all properties/fields (JSON key names)
+            openapiFields.add("author")
+            openapiFields.add("category")
+            openapiFields.add("content_encoded")
+            openapiFields.add("dc_creator")
+            openapiFields.add("guid")
+            openapiFields.add("link")
+            openapiFields.add("pub_date")
+            openapiFields.add("slash_comments")
+            openapiFields.add("title")
+
+            // a set of required properties/fields (JSON key names)
+            openapiRequiredFields.add("author")
+            openapiRequiredFields.add("category")
+            openapiRequiredFields.add("content_encoded")
+            openapiRequiredFields.add("dc_creator")
+            openapiRequiredFields.add("guid")
+            openapiRequiredFields.add("link")
+            openapiRequiredFields.add("pub_date")
+            openapiRequiredFields.add("slash_comments")
+            openapiRequiredFields.add("title")
+        }
+
+       /**
+        * Validates the JSON Element and throws an exception if issues found
+        *
+        * @param jsonElement JSON Element
+        * @throws IOException if the JSON Element is invalid with respect to Patch
+        */
+        @Throws(IOException::class)
+        fun validateJsonElement(jsonElement: JsonElement?) {
+            if (jsonElement == null) {
+              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+                String.format("The required field(s) %s in Patch is not found in the empty JSON string", Patch.openapiRequiredFields.toString())
+              }
+            }
+
+            // check to make sure all required properties/fields are present in the JSON string
+            for (requiredField in openapiRequiredFields) {
+              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
+                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
+              }
+            }
+            val jsonObj = jsonElement!!.getAsJsonObject()
+            require(jsonObj["author"].isJsonPrimitive) {
+              String.format("Expected the field `author` to be a primitive type in the JSON string but got `%s`", jsonObj["author"].toString())
+            }
+            // validate the required field `category`
+            PatchCategory.validateJsonElement(jsonObj["category"])
+            require(jsonObj["content_encoded"].isJsonPrimitive) {
+              String.format("Expected the field `content_encoded` to be a primitive type in the JSON string but got `%s`", jsonObj["content_encoded"].toString())
+            }
+            require(jsonObj["dc_creator"].isJsonPrimitive) {
+              String.format("Expected the field `dc_creator` to be a primitive type in the JSON string but got `%s`", jsonObj["dc_creator"].toString())
+            }
+            // validate the required field `guid`
+            PatchGuid.validateJsonElement(jsonObj["guid"])
+            require(jsonObj["link"].isJsonPrimitive) {
+              String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj["link"].toString())
+            }
+            require(jsonObj["slash_comments"].isJsonPrimitive) {
+              String.format("Expected the field `slash_comments` to be a primitive type in the JSON string but got `%s`", jsonObj["slash_comments"].toString())
+            }
+            require(jsonObj["title"].isJsonPrimitive) {
+              String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj["title"].toString())
+            }
+        }
+    }
 
 }
 
