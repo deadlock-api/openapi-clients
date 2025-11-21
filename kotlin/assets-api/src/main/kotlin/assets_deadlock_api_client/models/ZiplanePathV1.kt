@@ -31,7 +31,7 @@ import java.io.Serializable
  * @param p2Points The P2 points of the path.
  * @param colorParsed 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ZiplanePathV1 (
 

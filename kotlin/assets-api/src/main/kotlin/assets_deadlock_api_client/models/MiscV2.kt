@@ -62,7 +62,7 @@ import java.io.Serializable
  * @param lifetime 
  * @param collisionRadius 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class MiscV2 (
 

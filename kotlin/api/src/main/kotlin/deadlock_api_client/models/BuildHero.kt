@@ -38,7 +38,7 @@ import java.io.Serializable
  * @param publishTimestamp 
  * @param tags 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class BuildHero (
 

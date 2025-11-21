@@ -30,7 +30,7 @@ import java.io.Serializable
  * @param team 
  * @param teamParsed 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ActiveMatchPlayer (
 

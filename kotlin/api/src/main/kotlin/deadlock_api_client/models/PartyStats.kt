@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param partySize 
  * @param wins 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class PartyStats (
 

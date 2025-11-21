@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param scalingStat 
  * @param scale 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawHeroScalingStatV2 (
 

@@ -35,7 +35,7 @@ import java.io.Serializable
  * @param percentile99 
  * @param std 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HashMapValue (
 

@@ -52,7 +52,7 @@ import java.io.Serializable
  * @param smallSubrank6 
  * @param smallSubrank6Webp 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RankImagesV2 (
 

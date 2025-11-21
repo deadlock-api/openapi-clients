@@ -30,7 +30,7 @@ import java.io.Serializable
  * @param importantProperties 
  * @param importantPropertiesWithIcon 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class UpgradeTooltipSectionAttributeV2 (
 

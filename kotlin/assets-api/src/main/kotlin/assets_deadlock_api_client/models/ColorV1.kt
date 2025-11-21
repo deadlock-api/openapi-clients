@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param blue The blue value of the color.
  * @param alpha The alpha value of the color.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ColorV1 (
 

@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param msg 
  * @param type 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ValidationError (
 

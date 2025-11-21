@@ -31,7 +31,7 @@ import java.io.Serializable
  * @param optional 
  * @param width 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class BuildHeroDetailsCategory (
 

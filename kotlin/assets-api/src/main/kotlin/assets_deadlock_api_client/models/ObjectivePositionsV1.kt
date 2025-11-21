@@ -45,7 +45,7 @@ import java.io.Serializable
  * @param team0Tier12 
  * @param team1Tier12 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ObjectivePositionsV1 (
 

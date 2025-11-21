@@ -31,7 +31,7 @@ import java.io.Serializable
  * @param numWeeklyFavorites 
  * @param rollupCategory 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class Build (
 

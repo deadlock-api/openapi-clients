@@ -75,7 +75,7 @@ import java.io.Serializable
  * @param glowColorTeam2 
  * @param glowColorTeamNeutral 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class NPCUnitV2 (
 

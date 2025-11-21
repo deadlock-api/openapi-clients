@@ -29,7 +29,7 @@ import java.io.Serializable
  * @param scalingStats 
  * @param statScale 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawItemPropertyScaleFunctionSubclassV2 (
 

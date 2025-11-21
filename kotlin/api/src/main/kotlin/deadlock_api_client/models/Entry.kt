@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param rank tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
  * @param `value` 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class Entry (
 

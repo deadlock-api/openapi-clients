@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param badgeLevel The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param totalMatches The total number of matches.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class BadgeDistribution (
 

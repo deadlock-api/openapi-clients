@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param sectionType 
  * @param sectionAttributes 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class UpgradeTooltipSectionV2 (
 

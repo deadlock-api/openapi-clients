@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param weaponStatDisplay 
  * @param displayStats 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawHeroStatsUIV2 (
 

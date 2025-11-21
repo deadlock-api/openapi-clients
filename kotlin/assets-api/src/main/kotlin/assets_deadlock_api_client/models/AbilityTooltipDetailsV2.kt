@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param infoSections 
  * @param additionalHeaderProperties 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class AbilityTooltipDetailsV2 (
 

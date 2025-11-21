@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param id 
  * @param icon 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class BuildTagV2 (
 

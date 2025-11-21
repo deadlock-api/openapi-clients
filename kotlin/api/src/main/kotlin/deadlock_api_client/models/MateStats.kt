@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param mateId 
  * @param wins 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class MateStats (
 

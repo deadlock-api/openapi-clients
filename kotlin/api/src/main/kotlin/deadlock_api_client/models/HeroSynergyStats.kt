@@ -44,7 +44,7 @@ import java.io.Serializable
  * @param objDamage2 The amount of objective damage dealt by `hero_id2` when playing with `hero_id1`.
  * @param wins The number of times the team won when both `hero_id1` and `hero_id2` were on the same team.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroSynergyStats (
 

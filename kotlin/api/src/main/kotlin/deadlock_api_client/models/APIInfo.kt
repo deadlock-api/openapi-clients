@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param tableSizes The sizes of all tables in the database.
  * @param userIngestedMatchesLast24h The number of matches ingested in the last 24 hours.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class APIInfo (
 

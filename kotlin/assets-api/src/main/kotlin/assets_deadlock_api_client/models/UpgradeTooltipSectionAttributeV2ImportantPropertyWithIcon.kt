@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param icon 
  * @param localizedName 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon (
 

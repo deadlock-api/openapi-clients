@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param x 
  * @param y 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawItemWeaponInfoBulletSpeedCurveSplineV2 (
 

@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param category 
  * @param statType 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawHeroStatsUIDisplayV2 (
 

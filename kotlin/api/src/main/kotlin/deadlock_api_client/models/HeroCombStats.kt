@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param matches 
  * @param wins 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroCombStats (
 

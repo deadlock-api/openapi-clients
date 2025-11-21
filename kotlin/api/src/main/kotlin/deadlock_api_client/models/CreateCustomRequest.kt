@@ -34,7 +34,7 @@ import java.io.Serializable
  * @param randomizeLanes 
  * @param regionMode 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class CreateCustomRequest (
 

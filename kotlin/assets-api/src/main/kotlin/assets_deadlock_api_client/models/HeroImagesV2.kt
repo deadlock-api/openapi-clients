@@ -41,7 +41,7 @@ import java.io.Serializable
  * @param backgroundImageWebp 
  * @param nameImage 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroImagesV2 (
 

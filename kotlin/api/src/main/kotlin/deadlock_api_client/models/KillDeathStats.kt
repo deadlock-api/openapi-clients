@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param positionX 
  * @param positionY 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class KillDeathStats (
 

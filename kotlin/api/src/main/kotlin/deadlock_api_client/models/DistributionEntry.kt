@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param players 
  * @param rank 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class DistributionEntry (
 

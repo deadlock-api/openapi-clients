@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param modCategories 
  * @param abilityOrder 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class BuildHeroDetails (
 

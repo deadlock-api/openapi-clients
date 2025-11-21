@@ -31,7 +31,7 @@ import java.io.Serializable
  * @param ziplinePaths The ziplane paths of the map. Each path is a list of P0, P1, and P2 points, describing the cubic spline.
  * @param radius The radius of the map.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class MapV1 (
 

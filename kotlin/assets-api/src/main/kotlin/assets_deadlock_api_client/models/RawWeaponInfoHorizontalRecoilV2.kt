@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param range 
  * @param burstExponent 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawWeaponInfoHorizontalRecoilV2 (
 

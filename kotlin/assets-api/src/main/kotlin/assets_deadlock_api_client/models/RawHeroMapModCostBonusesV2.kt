@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param bonus 
  * @param percentOnGraph 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawHeroMapModCostBonusesV2 (
 

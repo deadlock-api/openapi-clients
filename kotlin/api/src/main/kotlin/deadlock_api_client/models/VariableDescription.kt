@@ -30,7 +30,7 @@ import java.io.Serializable
  * @param name The name of the variable.
  * @param defaultLabel The default label for the variable.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class VariableDescription (
 

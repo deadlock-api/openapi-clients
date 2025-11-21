@@ -73,7 +73,7 @@ import java.io.Serializable
  * @param componentItems 
  * @param tooltipSections 
  */
-@JsonClass(generateAdapter = true)
+
 
 interface GetItemsV2ItemsGet200ResponseInner : Serializable {
     companion object {

@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param leftRelative The relative margin left of the map image.
  * @param topRelative The relative margin top of the map image.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ObjectivePositionV1 (
 

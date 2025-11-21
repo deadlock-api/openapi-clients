@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param `value` 
  * @param displayStatName 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroStartingStatV2 (
 

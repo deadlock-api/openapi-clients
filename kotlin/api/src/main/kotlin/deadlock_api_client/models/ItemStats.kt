@@ -30,7 +30,7 @@ import java.io.Serializable
  * @param players 
  * @param wins 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ItemStats (
 

@@ -44,7 +44,7 @@ import java.io.Serializable
  * @param objDamage The amount of objective damage dealt by `hero_id` when facing `enemy_hero_id`.
  * @param wins The number of times `hero_id` won the match when facing `enemy_hero_id`.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroCounterStats (
 

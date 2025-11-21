@@ -45,7 +45,7 @@ import java.io.Serializable
  * @param totalShotsMissed 
  * @param wins 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class AnalyticsHeroStats (
 

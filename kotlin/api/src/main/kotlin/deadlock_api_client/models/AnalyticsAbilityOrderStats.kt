@@ -32,7 +32,7 @@ import java.io.Serializable
  * @param totalKills 
  * @param wins 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class AnalyticsAbilityOrderStats (
 

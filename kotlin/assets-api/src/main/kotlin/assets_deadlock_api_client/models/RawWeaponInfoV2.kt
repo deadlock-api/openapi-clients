@@ -85,7 +85,7 @@ import java.io.Serializable
  * @param horizontalRecoil 
  * @param verticalRecoil 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawWeaponInfoV2 (
 

@@ -30,7 +30,7 @@ import java.io.Serializable
  * @param averageBadgeTeam0 See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param averageBadgeTeam1 See more: <https://assets.deadlock-api.com/v2/ranks>
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ClickhouseMatchInfo (
 

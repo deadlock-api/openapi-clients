@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param locString 
  * @param properties 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class AbilityTooltipDetailsInfoSectionPropertyBlockV2 (
 

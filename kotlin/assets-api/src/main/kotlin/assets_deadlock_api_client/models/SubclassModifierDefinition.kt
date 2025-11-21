@@ -26,7 +26,7 @@ import java.io.Serializable
  *
  * @param subclass 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class SubclassModifierDefinition (
 

@@ -26,7 +26,7 @@ import java.io.Serializable
  *
  * @param services Status of the services.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class Status (
 

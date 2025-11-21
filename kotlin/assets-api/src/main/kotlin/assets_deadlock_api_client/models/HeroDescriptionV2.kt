@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param role 
  * @param playstyle 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroDescriptionV2 (
 

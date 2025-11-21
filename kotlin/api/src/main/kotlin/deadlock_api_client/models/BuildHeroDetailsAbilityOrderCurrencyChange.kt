@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param delta 
  * @param `annotation` 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class BuildHeroDetailsAbilityOrderCurrencyChange (
 

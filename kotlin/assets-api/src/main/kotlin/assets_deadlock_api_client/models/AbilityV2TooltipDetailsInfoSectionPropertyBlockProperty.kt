@@ -30,7 +30,7 @@ import java.io.Serializable
  * @param statusEffectName 
  * @param importantPropertyIcon 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty (
 

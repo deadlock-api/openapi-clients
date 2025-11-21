@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param postgres Whether Postgres is reachable.
  * @param redis Whether Redis is reachable.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class StatusServices (
 

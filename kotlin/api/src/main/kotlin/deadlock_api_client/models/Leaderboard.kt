@@ -26,7 +26,7 @@ import java.io.Serializable
  *
  * @param propertyEntries The leaderboard entries.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class Leaderboard (
 

@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param matchesPlayed 
  * @param wins The amount of matches won against the enemy.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class EnemyStats (
 

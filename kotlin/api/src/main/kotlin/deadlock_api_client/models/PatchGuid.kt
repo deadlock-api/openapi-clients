@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param isPermaLink 
  * @param text 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class PatchGuid (
 

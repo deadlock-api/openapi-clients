@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param builds 
  * @param itemId See more: <https://assets.deadlock-api.com/v2/items>
  */
-@JsonClass(generateAdapter = true)
+
 
 data class BuildItemStats (
 

@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param dataUncompressedBytes Uncompressed size of the table in bytes.
  * @param rows Number of rows in the table.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class TableSize (
 

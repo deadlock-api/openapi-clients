@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param displayStats 
  * @param otherDisplayStats 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawHeroShopVitalityStatsDisplayV2 (
 

@@ -29,7 +29,7 @@ import java.io.Serializable
  * @param weaponImage 
  * @param weaponImageWebp 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroShopWeaponStatsDisplayV2 (
 

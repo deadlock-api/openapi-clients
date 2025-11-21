@@ -51,7 +51,7 @@ import java.io.Serializable
  * @param dependantAbilities 
  * @param videos 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class AbilityV2 (
 

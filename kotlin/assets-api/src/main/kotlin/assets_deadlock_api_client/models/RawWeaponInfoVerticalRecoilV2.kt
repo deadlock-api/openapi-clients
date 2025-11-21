@@ -29,7 +29,7 @@ import java.io.Serializable
  * @param burstConstant 
  * @param burstSlope 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawWeaponInfoVerticalRecoilV2 (
 

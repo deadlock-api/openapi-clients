@@ -30,7 +30,7 @@ import java.io.Serializable
  * @param metadataUrl 
  * @param replaySalt 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class MatchSaltsResponse (
 

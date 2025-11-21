@@ -48,7 +48,7 @@ import java.io.Serializable
  * @param tooltipIsElevated 
  * @param tooltipIsImportant 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class UpgradePropertyV2 (
 

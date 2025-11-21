@@ -52,7 +52,7 @@ import java.io.Serializable
  * @param timePlayed 
  * @param wins 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroStats (
 

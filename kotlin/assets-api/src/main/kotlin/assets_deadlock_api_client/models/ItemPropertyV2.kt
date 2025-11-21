@@ -44,7 +44,7 @@ import java.io.Serializable
  * @param conditional 
  * @param icon 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ItemPropertyV2 (
 

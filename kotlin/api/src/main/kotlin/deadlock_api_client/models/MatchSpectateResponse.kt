@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param broadcastUrl 
  * @param lobbyId 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class MatchSpectateResponse (
 

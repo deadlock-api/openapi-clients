@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param tier 
  * @param `value` 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawHeroPurchaseBonusV2 (
 

@@ -25,7 +25,7 @@ import java.io.Serializable
  *
  * @param matchId 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class GetCustomMatchIdResponse (
 

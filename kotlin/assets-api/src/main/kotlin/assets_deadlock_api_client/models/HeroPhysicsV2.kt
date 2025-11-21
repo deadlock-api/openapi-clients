@@ -31,7 +31,7 @@ import java.io.Serializable
  * @param stepSoundTime 
  * @param stepSoundTimeSprinting 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroPhysicsV2 (
 

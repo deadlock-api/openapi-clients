@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param active 
  * @param passive 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class UpgradeDescriptionV2 (
 

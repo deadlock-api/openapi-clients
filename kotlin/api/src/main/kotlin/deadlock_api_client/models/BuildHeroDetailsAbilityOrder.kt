@@ -26,7 +26,7 @@ import java.io.Serializable
  *
  * @param currencyChanges 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class BuildHeroDetailsAbilityOrder (
 

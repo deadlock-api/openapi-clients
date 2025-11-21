@@ -26,7 +26,7 @@ import java.io.Serializable
  *
  * @param propertyUpgrades 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawAbilityUpgradeV2 (
 

@@ -28,7 +28,7 @@ import java.io.Serializable
  * @param valueMin 
  * @param valueMax 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ModifierValue (
 

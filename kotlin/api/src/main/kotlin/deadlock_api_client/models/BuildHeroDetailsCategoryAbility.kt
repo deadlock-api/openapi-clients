@@ -29,7 +29,7 @@ import java.io.Serializable
  * @param requiredFlexSlots 
  * @param sellPriority 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class BuildHeroDetailsCategoryAbility (
 

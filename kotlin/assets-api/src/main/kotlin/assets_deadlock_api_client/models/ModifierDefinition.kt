@@ -34,7 +34,7 @@ import java.io.Serializable
  * @param modifierValues 
  * @param scriptValues 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ModifierDefinition (
 

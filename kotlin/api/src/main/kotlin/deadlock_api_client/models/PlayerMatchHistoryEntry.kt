@@ -45,7 +45,7 @@ import java.io.Serializable
  * @param teamAbandoned 
  * @param username 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class PlayerMatchHistoryEntry (
 

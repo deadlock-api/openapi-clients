@@ -35,7 +35,7 @@ import java.io.Serializable
  * @param slashComments 
  * @param title 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class Patch (
 

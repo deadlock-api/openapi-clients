@@ -34,7 +34,7 @@ import java.io.Serializable
  * @param tournamentStage The stage of the tournament.
  * @param updateId If you want to update an existing match, you can provide an update id.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ESportsMatch (
 

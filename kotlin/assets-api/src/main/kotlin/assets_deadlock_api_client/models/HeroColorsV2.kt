@@ -29,7 +29,7 @@ import java.io.Serializable
  * @param glowTeam2 
  * @param ui 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroColorsV2 (
 

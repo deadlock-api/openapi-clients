@@ -29,7 +29,7 @@ import java.io.Serializable
  * @param images 
  * @param color 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RankV2 (
 

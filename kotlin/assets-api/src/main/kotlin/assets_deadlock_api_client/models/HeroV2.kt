@@ -71,7 +71,7 @@ import java.io.Serializable
  * @param prereleaseOnly 
  * @param costBonuses 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroV2 (
 

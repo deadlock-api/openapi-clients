@@ -25,7 +25,7 @@ import java.io.Serializable
  * 
  *
  */
-@JsonClass(generateAdapter = true)
+
 
 class UsageFlags (
 

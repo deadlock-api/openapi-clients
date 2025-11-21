@@ -30,7 +30,7 @@ import java.io.Serializable
  * @param vitalityStatsDisplay 
  * @param weaponStatsDisplay 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroShopStatDisplayV2 (
 

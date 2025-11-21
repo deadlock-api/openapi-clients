@@ -29,7 +29,7 @@ import java.io.Serializable
  * @param propertiesBlock 
  * @param basicProperties 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class AbilityTooltipDetailsInfoSectionV2 (
 

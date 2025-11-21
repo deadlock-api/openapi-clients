@@ -30,7 +30,7 @@ import java.io.Serializable
  * @param weaponHeaderStats 
  * @param weaponStats 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawHeroStatsDisplayV2 (
 

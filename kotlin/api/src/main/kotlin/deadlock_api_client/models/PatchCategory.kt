@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param domain 
  * @param text 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class PatchCategory (
 

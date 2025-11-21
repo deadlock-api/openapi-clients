@@ -25,7 +25,7 @@ import java.io.Serializable
  *
  * @param maxPurchasesForTier 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawHeroItemSlotInfoValueV2 (
 

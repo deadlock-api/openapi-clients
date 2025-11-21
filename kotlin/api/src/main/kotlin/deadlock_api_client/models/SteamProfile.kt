@@ -33,7 +33,7 @@ import java.io.Serializable
  * @param countrycode 
  * @param realname 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class SteamProfile (
 

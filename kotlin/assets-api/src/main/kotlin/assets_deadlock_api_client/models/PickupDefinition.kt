@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param pickupName 
  * @param pickupWeight 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class PickupDefinition (
 

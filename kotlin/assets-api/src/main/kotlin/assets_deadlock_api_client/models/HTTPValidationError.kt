@@ -26,7 +26,7 @@ import java.io.Serializable
  *
  * @param detail 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HTTPValidationError (
 

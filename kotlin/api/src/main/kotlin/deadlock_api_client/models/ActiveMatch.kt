@@ -51,7 +51,7 @@ import java.io.Serializable
  * @param winningTeam 
  * @param winningTeamParsed 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ActiveMatch (
 

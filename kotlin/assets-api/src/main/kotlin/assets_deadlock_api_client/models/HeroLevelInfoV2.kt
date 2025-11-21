@@ -27,7 +27,7 @@ import java.io.Serializable
  * @param useStandardUpgrade 
  * @param bonusCurrencies 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroLevelInfoV2 (
 

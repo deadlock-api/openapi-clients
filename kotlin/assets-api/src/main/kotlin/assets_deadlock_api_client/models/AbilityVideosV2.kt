@@ -26,7 +26,7 @@ import java.io.Serializable
  * @param webm 
  * @param mp4 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class AbilityVideosV2 (
 

@@ -31,7 +31,7 @@ import java.io.Serializable
  * @param rank The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param startTime Start time of the match
  */
-@JsonClass(generateAdapter = true)
+
 
 data class MMRHistory (
 

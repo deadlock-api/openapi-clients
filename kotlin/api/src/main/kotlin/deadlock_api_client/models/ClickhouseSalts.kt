@@ -29,7 +29,7 @@ import java.io.Serializable
  * @param replaySalt 
  * @param username 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class ClickhouseSalts (
 

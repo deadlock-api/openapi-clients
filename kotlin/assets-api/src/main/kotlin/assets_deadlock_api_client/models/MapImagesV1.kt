@@ -29,7 +29,7 @@ import java.io.Serializable
  * @param frame The frame image of the map.
  * @param mid The mid image of the map.
  */
-@JsonClass(generateAdapter = true)
+
 
 data class MapImagesV1 (
 

@@ -38,7 +38,7 @@ import java.io.Serializable
  * @param weaponInfo 
  * @param type 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class WeaponV2 (
 

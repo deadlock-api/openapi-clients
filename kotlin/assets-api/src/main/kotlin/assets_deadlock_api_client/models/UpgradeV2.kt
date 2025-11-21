@@ -59,7 +59,7 @@ import java.io.Serializable
  * @param componentItems 
  * @param tooltipSections 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class UpgradeV2 (
 

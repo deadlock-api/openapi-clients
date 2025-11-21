@@ -31,7 +31,7 @@ import java.io.Serializable
  * @param rankedSubrank The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param topHeroIds The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes>
  */
-@JsonClass(generateAdapter = true)
+
 
 data class LeaderboardEntry (
 

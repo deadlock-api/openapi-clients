@@ -29,7 +29,7 @@ import java.io.Serializable
  * @param scaleStatFilter 
  * @param upgradeType 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class RawAbilityUpgradePropertyUpgradeV2 (
 

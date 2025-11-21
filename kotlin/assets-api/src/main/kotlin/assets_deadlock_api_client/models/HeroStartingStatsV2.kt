@@ -46,7 +46,7 @@ import java.io.Serializable
  * @param techArmorDamageReduction 
  * @param bulletArmorDamageReduction 
  */
-@JsonClass(generateAdapter = true)
+
 
 data class HeroStartingStatsV2 (
 
