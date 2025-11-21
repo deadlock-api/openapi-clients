@@ -19,16 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from assets_deadlock_api_client.models.glow_color_enemy import GlowColorEnemy
-from assets_deadlock_api_client.models.glow_color_friend import GlowColorFriend
-from assets_deadlock_api_client.models.glow_color_team1 import GlowColorTeam1
-from assets_deadlock_api_client.models.glow_color_team2 import GlowColorTeam2
-from assets_deadlock_api_client.models.glow_color_team_neutral import GlowColorTeamNeutral
-from assets_deadlock_api_client.models.health_bar_color_enemy import HealthBarColorEnemy
-from assets_deadlock_api_client.models.health_bar_color_friend import HealthBarColorFriend
-from assets_deadlock_api_client.models.health_bar_color_team1 import HealthBarColorTeam1
-from assets_deadlock_api_client.models.health_bar_color_team2 import HealthBarColorTeam2
-from assets_deadlock_api_client.models.health_bar_color_team_neutral import HealthBarColorTeamNeutral
+from assets_deadlock_api_client.models.color_v1 import ColorV1
 from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2
 from typing import Optional, Set
 from typing_extensions import Self
@@ -75,16 +66,16 @@ class NPCUnitV2(BaseModel):
     barrack_boss_dps: Optional[Union[StrictFloat, StrictInt]] = None
     player_dps: Optional[Union[StrictFloat, StrictInt]] = None
     trooper_dps: Optional[Union[StrictFloat, StrictInt]] = None
-    health_bar_color_friend: Optional[HealthBarColorFriend] = None
-    health_bar_color_enemy: Optional[HealthBarColorEnemy] = None
-    health_bar_color_team1: Optional[HealthBarColorTeam1] = None
-    health_bar_color_team2: Optional[HealthBarColorTeam2] = None
-    health_bar_color_team_neutral: Optional[HealthBarColorTeamNeutral] = None
-    glow_color_friend: Optional[GlowColorFriend] = None
-    glow_color_enemy: Optional[GlowColorEnemy] = None
-    glow_color_team1: Optional[GlowColorTeam1] = None
-    glow_color_team2: Optional[GlowColorTeam2] = None
-    glow_color_team_neutral: Optional[GlowColorTeamNeutral] = None
+    health_bar_color_friend: Optional[ColorV1] = None
+    health_bar_color_enemy: Optional[ColorV1] = None
+    health_bar_color_team1: Optional[ColorV1] = None
+    health_bar_color_team2: Optional[ColorV1] = None
+    health_bar_color_team_neutral: Optional[ColorV1] = None
+    glow_color_friend: Optional[ColorV1] = None
+    glow_color_enemy: Optional[ColorV1] = None
+    glow_color_team1: Optional[ColorV1] = None
+    glow_color_team2: Optional[ColorV1] = None
+    glow_color_team_neutral: Optional[ColorV1] = None
     id: StrictInt
     __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "m_flPlayerDamageResistPct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "walk_speed", "run_speed", "acceleration", "melee_damage", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "glow_color_friend", "glow_color_enemy", "glow_color_team1", "glow_color_team2", "glow_color_team_neutral", "id"]
 
@@ -447,16 +438,16 @@ class NPCUnitV2(BaseModel):
             "barrack_boss_dps": obj.get("barrack_boss_dps"),
             "player_dps": obj.get("player_dps"),
             "trooper_dps": obj.get("trooper_dps"),
-            "health_bar_color_friend": HealthBarColorFriend.from_dict(obj["health_bar_color_friend"]) if obj.get("health_bar_color_friend") is not None else None,
-            "health_bar_color_enemy": HealthBarColorEnemy.from_dict(obj["health_bar_color_enemy"]) if obj.get("health_bar_color_enemy") is not None else None,
-            "health_bar_color_team1": HealthBarColorTeam1.from_dict(obj["health_bar_color_team1"]) if obj.get("health_bar_color_team1") is not None else None,
-            "health_bar_color_team2": HealthBarColorTeam2.from_dict(obj["health_bar_color_team2"]) if obj.get("health_bar_color_team2") is not None else None,
-            "health_bar_color_team_neutral": HealthBarColorTeamNeutral.from_dict(obj["health_bar_color_team_neutral"]) if obj.get("health_bar_color_team_neutral") is not None else None,
-            "glow_color_friend": GlowColorFriend.from_dict(obj["glow_color_friend"]) if obj.get("glow_color_friend") is not None else None,
-            "glow_color_enemy": GlowColorEnemy.from_dict(obj["glow_color_enemy"]) if obj.get("glow_color_enemy") is not None else None,
-            "glow_color_team1": GlowColorTeam1.from_dict(obj["glow_color_team1"]) if obj.get("glow_color_team1") is not None else None,
-            "glow_color_team2": GlowColorTeam2.from_dict(obj["glow_color_team2"]) if obj.get("glow_color_team2") is not None else None,
-            "glow_color_team_neutral": GlowColorTeamNeutral.from_dict(obj["glow_color_team_neutral"]) if obj.get("glow_color_team_neutral") is not None else None,
+            "health_bar_color_friend": ColorV1.from_dict(obj["health_bar_color_friend"]) if obj.get("health_bar_color_friend") is not None else None,
+            "health_bar_color_enemy": ColorV1.from_dict(obj["health_bar_color_enemy"]) if obj.get("health_bar_color_enemy") is not None else None,
+            "health_bar_color_team1": ColorV1.from_dict(obj["health_bar_color_team1"]) if obj.get("health_bar_color_team1") is not None else None,
+            "health_bar_color_team2": ColorV1.from_dict(obj["health_bar_color_team2"]) if obj.get("health_bar_color_team2") is not None else None,
+            "health_bar_color_team_neutral": ColorV1.from_dict(obj["health_bar_color_team_neutral"]) if obj.get("health_bar_color_team_neutral") is not None else None,
+            "glow_color_friend": ColorV1.from_dict(obj["glow_color_friend"]) if obj.get("glow_color_friend") is not None else None,
+            "glow_color_enemy": ColorV1.from_dict(obj["glow_color_enemy"]) if obj.get("glow_color_enemy") is not None else None,
+            "glow_color_team1": ColorV1.from_dict(obj["glow_color_team1"]) if obj.get("glow_color_team1") is not None else None,
+            "glow_color_team2": ColorV1.from_dict(obj["glow_color_team2"]) if obj.get("glow_color_team2") is not None else None,
+            "glow_color_team_neutral": ColorV1.from_dict(obj["glow_color_team_neutral"]) if obj.get("glow_color_team_neutral") is not None else None,
             "id": obj.get("id")
         })
         return _obj

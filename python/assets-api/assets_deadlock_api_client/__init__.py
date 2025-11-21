@@ -46,19 +46,9 @@ __all__ = [
     "BuildTagV2",
     "Color",
     "ColorV1",
-    "DeadlockAssetsApiRoutesRawValidClientVersions",
+    "DeadlockAssetsApiRoutesV1ValidClientVersions",
     "GetItemsV2ItemsGet200ResponseInner",
-    "GlowColorEnemy",
-    "GlowColorFriend",
-    "GlowColorTeam1",
-    "GlowColorTeam2",
-    "GlowColorTeamNeutral",
     "HTTPValidationError",
-    "HealthBarColorEnemy",
-    "HealthBarColorFriend",
-    "HealthBarColorTeam1",
-    "HealthBarColorTeam2",
-    "HealthBarColorTeamNeutral",
     "HeroColorsV2",
     "HeroDescriptionV2",
     "HeroImagesV2",
@@ -161,19 +151,9 @@ from assets_deadlock_api_client.models.bonus import Bonus as Bonus
 from assets_deadlock_api_client.models.build_tag_v2 import BuildTagV2 as BuildTagV2
 from assets_deadlock_api_client.models.color import Color as Color
 from assets_deadlock_api_client.models.color_v1 import ColorV1 as ColorV1
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions as DeadlockAssetsApiRoutesRawValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions as DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner as GetItemsV2ItemsGet200ResponseInner
-from assets_deadlock_api_client.models.glow_color_enemy import GlowColorEnemy as GlowColorEnemy
-from assets_deadlock_api_client.models.glow_color_friend import GlowColorFriend as GlowColorFriend
-from assets_deadlock_api_client.models.glow_color_team1 import GlowColorTeam1 as GlowColorTeam1
-from assets_deadlock_api_client.models.glow_color_team2 import GlowColorTeam2 as GlowColorTeam2
-from assets_deadlock_api_client.models.glow_color_team_neutral import GlowColorTeamNeutral as GlowColorTeamNeutral
 from assets_deadlock_api_client.models.http_validation_error import HTTPValidationError as HTTPValidationError
-from assets_deadlock_api_client.models.health_bar_color_enemy import HealthBarColorEnemy as HealthBarColorEnemy
-from assets_deadlock_api_client.models.health_bar_color_friend import HealthBarColorFriend as HealthBarColorFriend
-from assets_deadlock_api_client.models.health_bar_color_team1 import HealthBarColorTeam1 as HealthBarColorTeam1
-from assets_deadlock_api_client.models.health_bar_color_team2 import HealthBarColorTeam2 as HealthBarColorTeam2
-from assets_deadlock_api_client.models.health_bar_color_team_neutral import HealthBarColorTeamNeutral as HealthBarColorTeamNeutral
 from assets_deadlock_api_client.models.hero_colors_v2 import HeroColorsV2 as HeroColorsV2
 from assets_deadlock_api_client.models.hero_description_v2 import HeroDescriptionV2 as HeroDescriptionV2
 from assets_deadlock_api_client.models.hero_images_v2 import HeroImagesV2 as HeroImagesV2

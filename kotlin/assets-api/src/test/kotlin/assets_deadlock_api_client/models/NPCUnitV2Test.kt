@@ -19,16 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.NPCUnitV2
-import assets_deadlock_api_client.models.GlowColorEnemy
-import assets_deadlock_api_client.models.GlowColorFriend
-import assets_deadlock_api_client.models.GlowColorTeam1
-import assets_deadlock_api_client.models.GlowColorTeam2
-import assets_deadlock_api_client.models.GlowColorTeamNeutral
-import assets_deadlock_api_client.models.HealthBarColorEnemy
-import assets_deadlock_api_client.models.HealthBarColorFriend
-import assets_deadlock_api_client.models.HealthBarColorTeam1
-import assets_deadlock_api_client.models.HealthBarColorTeam2
-import assets_deadlock_api_client.models.HealthBarColorTeamNeutral
+import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.RawWeaponInfoV2
 
 class NPCUnitV2Test : ShouldSpec() {

@@ -95,16 +95,16 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'barrack_boss_dps' => 'float',
         'player_dps' => 'float',
         'trooper_dps' => 'float',
-        'health_bar_color_friend' => '\OpenAPI\Client\Model\HealthBarColorFriend',
-        'health_bar_color_enemy' => '\OpenAPI\Client\Model\HealthBarColorEnemy',
-        'health_bar_color_team1' => '\OpenAPI\Client\Model\HealthBarColorTeam1',
-        'health_bar_color_team2' => '\OpenAPI\Client\Model\HealthBarColorTeam2',
-        'health_bar_color_team_neutral' => '\OpenAPI\Client\Model\HealthBarColorTeamNeutral',
-        'glow_color_friend' => '\OpenAPI\Client\Model\GlowColorFriend',
-        'glow_color_enemy' => '\OpenAPI\Client\Model\GlowColorEnemy',
-        'glow_color_team1' => '\OpenAPI\Client\Model\GlowColorTeam1',
-        'glow_color_team2' => '\OpenAPI\Client\Model\GlowColorTeam2',
-        'glow_color_team_neutral' => '\OpenAPI\Client\Model\GlowColorTeamNeutral',
+        'health_bar_color_friend' => '\OpenAPI\Client\Model\ColorV1',
+        'health_bar_color_enemy' => '\OpenAPI\Client\Model\ColorV1',
+        'health_bar_color_team1' => '\OpenAPI\Client\Model\ColorV1',
+        'health_bar_color_team2' => '\OpenAPI\Client\Model\ColorV1',
+        'health_bar_color_team_neutral' => '\OpenAPI\Client\Model\ColorV1',
+        'glow_color_friend' => '\OpenAPI\Client\Model\ColorV1',
+        'glow_color_enemy' => '\OpenAPI\Client\Model\ColorV1',
+        'glow_color_team1' => '\OpenAPI\Client\Model\ColorV1',
+        'glow_color_team2' => '\OpenAPI\Client\Model\ColorV1',
+        'glow_color_team_neutral' => '\OpenAPI\Client\Model\ColorV1',
         'id' => 'int'
     ];
 
@@ -1919,7 +1919,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets health_bar_color_friend
      *
-     * @return \OpenAPI\Client\Model\HealthBarColorFriend|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getHealthBarColorFriend()
     {
@@ -1929,7 +1929,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets health_bar_color_friend
      *
-     * @param \OpenAPI\Client\Model\HealthBarColorFriend|null $health_bar_color_friend health_bar_color_friend
+     * @param \OpenAPI\Client\Model\ColorV1|null $health_bar_color_friend health_bar_color_friend
      *
      * @return self
      */
@@ -1953,7 +1953,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets health_bar_color_enemy
      *
-     * @return \OpenAPI\Client\Model\HealthBarColorEnemy|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getHealthBarColorEnemy()
     {
@@ -1963,7 +1963,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets health_bar_color_enemy
      *
-     * @param \OpenAPI\Client\Model\HealthBarColorEnemy|null $health_bar_color_enemy health_bar_color_enemy
+     * @param \OpenAPI\Client\Model\ColorV1|null $health_bar_color_enemy health_bar_color_enemy
      *
      * @return self
      */
@@ -1987,7 +1987,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets health_bar_color_team1
      *
-     * @return \OpenAPI\Client\Model\HealthBarColorTeam1|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getHealthBarColorTeam1()
     {
@@ -1997,7 +1997,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets health_bar_color_team1
      *
-     * @param \OpenAPI\Client\Model\HealthBarColorTeam1|null $health_bar_color_team1 health_bar_color_team1
+     * @param \OpenAPI\Client\Model\ColorV1|null $health_bar_color_team1 health_bar_color_team1
      *
      * @return self
      */
@@ -2021,7 +2021,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets health_bar_color_team2
      *
-     * @return \OpenAPI\Client\Model\HealthBarColorTeam2|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getHealthBarColorTeam2()
     {
@@ -2031,7 +2031,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets health_bar_color_team2
      *
-     * @param \OpenAPI\Client\Model\HealthBarColorTeam2|null $health_bar_color_team2 health_bar_color_team2
+     * @param \OpenAPI\Client\Model\ColorV1|null $health_bar_color_team2 health_bar_color_team2
      *
      * @return self
      */
@@ -2055,7 +2055,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets health_bar_color_team_neutral
      *
-     * @return \OpenAPI\Client\Model\HealthBarColorTeamNeutral|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getHealthBarColorTeamNeutral()
     {
@@ -2065,7 +2065,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets health_bar_color_team_neutral
      *
-     * @param \OpenAPI\Client\Model\HealthBarColorTeamNeutral|null $health_bar_color_team_neutral health_bar_color_team_neutral
+     * @param \OpenAPI\Client\Model\ColorV1|null $health_bar_color_team_neutral health_bar_color_team_neutral
      *
      * @return self
      */
@@ -2089,7 +2089,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets glow_color_friend
      *
-     * @return \OpenAPI\Client\Model\GlowColorFriend|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getGlowColorFriend()
     {
@@ -2099,7 +2099,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets glow_color_friend
      *
-     * @param \OpenAPI\Client\Model\GlowColorFriend|null $glow_color_friend glow_color_friend
+     * @param \OpenAPI\Client\Model\ColorV1|null $glow_color_friend glow_color_friend
      *
      * @return self
      */
@@ -2123,7 +2123,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets glow_color_enemy
      *
-     * @return \OpenAPI\Client\Model\GlowColorEnemy|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getGlowColorEnemy()
     {
@@ -2133,7 +2133,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets glow_color_enemy
      *
-     * @param \OpenAPI\Client\Model\GlowColorEnemy|null $glow_color_enemy glow_color_enemy
+     * @param \OpenAPI\Client\Model\ColorV1|null $glow_color_enemy glow_color_enemy
      *
      * @return self
      */
@@ -2157,7 +2157,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets glow_color_team1
      *
-     * @return \OpenAPI\Client\Model\GlowColorTeam1|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getGlowColorTeam1()
     {
@@ -2167,7 +2167,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets glow_color_team1
      *
-     * @param \OpenAPI\Client\Model\GlowColorTeam1|null $glow_color_team1 glow_color_team1
+     * @param \OpenAPI\Client\Model\ColorV1|null $glow_color_team1 glow_color_team1
      *
      * @return self
      */
@@ -2191,7 +2191,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets glow_color_team2
      *
-     * @return \OpenAPI\Client\Model\GlowColorTeam2|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getGlowColorTeam2()
     {
@@ -2201,7 +2201,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets glow_color_team2
      *
-     * @param \OpenAPI\Client\Model\GlowColorTeam2|null $glow_color_team2 glow_color_team2
+     * @param \OpenAPI\Client\Model\ColorV1|null $glow_color_team2 glow_color_team2
      *
      * @return self
      */
@@ -2225,7 +2225,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets glow_color_team_neutral
      *
-     * @return \OpenAPI\Client\Model\GlowColorTeamNeutral|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getGlowColorTeamNeutral()
     {
@@ -2235,7 +2235,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets glow_color_team_neutral
      *
-     * @param \OpenAPI\Client\Model\GlowColorTeamNeutral|null $glow_color_team_neutral glow_color_team_neutral
+     * @param \OpenAPI\Client\Model\ColorV1|null $glow_color_team_neutral glow_color_team_neutral
      *
      * @return self
      */

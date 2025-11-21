@@ -45,7 +45,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       - explode: true
         in: query
@@ -97,7 +97,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -139,7 +139,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -173,7 +173,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -217,7 +217,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -258,7 +258,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -302,7 +302,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -345,7 +345,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -374,7 +374,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -411,7 +411,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -438,7 +438,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -475,7 +475,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -522,7 +522,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -556,7 +556,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -583,7 +583,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -608,7 +608,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -635,7 +635,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -659,7 +659,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -686,7 +686,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -712,7 +712,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -738,7 +738,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -764,7 +764,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -1304,6 +1304,11 @@ components:
       - label
       title: BuildTagV2
     ColorV1:
+      example:
+        red: 2
+        green: 3
+        blue: 8
+        alpha: 4
       properties:
         red:
           description: The red value of the color.
@@ -2757,25 +2762,28 @@ components:
       example:
         gold_reward: 9.702963800023566
         health_bar_color_enemy:
-        - ""
-        - ""
-        - ""
+          red: 2
+          green: 3
+          blue: 8
+          alpha: 4
         attack_t1_boss_max_range: 9.254183946267839
         t1_boss_dps: 8.761432466225475
         trooper_dps: 3.1497903714250555
         melee_duration: 8.863729185622827
         acceleration: 1.7325933120207193
         glow_color_friend:
-        - ""
-        - ""
-        - ""
+          red: 2
+          green: 3
+          blue: 8
+          alpha: 4
         gold_reward_bonus_percent_per_minute: 0.5199002018724985
         glow_color_enemy:
-        - ""
-        - ""
-        - ""
+          red: 2
+          green: 3
+          blue: 8
+          alpha: 4
         attack_trooper_max_range: 9.183123594773994
-        id: 2
+        id: 0
         t1_boss_damage_resist_pct: 4.86315908102884
         walk_speed: 0.43431398824148815
         barrack_guardian_damage_resist_pct: 4.459605034958679
@@ -2783,26 +2791,30 @@ components:
         near_death_duration: 3.901545264248647
         t2_boss_dpsmax_resist: 3.7814124730767915
         health_bar_color_team_neutral:
-        - ""
-        - ""
-        - ""
+          red: 2
+          green: 3
+          blue: 8
+          alpha: 4
         t1_boss_dpsmax_resist: 5.299143560275359
         melee_attempt_range: 6.623518433804886
         glow_color_team_neutral:
-        - ""
-        - ""
-        - ""
+          red: 2
+          green: 3
+          blue: 8
+          alpha: 4
         melee_damage: 8.28965939814297
         t2_boss_dps: 8.37823741034869
         melee_hit_range: 4.573936264232251
         glow_color_team2:
-        - ""
-        - ""
-        - ""
+          red: 2
+          green: 3
+          blue: 8
+          alpha: 4
         glow_color_team1:
-        - ""
-        - ""
-        - ""
+          red: 2
+          green: 3
+          blue: 8
+          alpha: 4
         t2_boss_dpsbase_resist: 7.606863723092579
         t2_boss_dpsmax_resist_time_in_seconds: 3.111202833403195
         sight_range_players: 9.132027271330688
@@ -2893,19 +2905,22 @@ components:
             range: null
           reload_duration: 4.078845849666752
         health_bar_color_team2:
-        - ""
-        - ""
-        - ""
+          red: 2
+          green: 3
+          blue: 8
+          alpha: 4
         health_bar_color_team1:
-        - ""
-        - ""
-        - ""
+          red: 2
+          green: 3
+          blue: 8
+          alpha: 4
         generator_boss_dps: 5.877124706116695
         run_speed: 2.9409642974827896
         health_bar_color_friend:
-        - ""
-        - ""
-        - ""
+          red: 2
+          green: 3
+          blue: 8
+          alpha: 4
         attack_t3_boss_max_range: 1.8268702177058116
         attack_t3_boss_phase2_max_range: 3.502657762086401
         sight_range_npcs: 0.8774076871421566
@@ -3032,25 +3047,25 @@ components:
           nullable: true
           type: number
         health_bar_color_friend:
-          $ref: "#/components/schemas/Health_Bar_Color_Friend"
+          $ref: "#/components/schemas/ColorV1"
         health_bar_color_enemy:
-          $ref: "#/components/schemas/Health_Bar_Color_Enemy"
+          $ref: "#/components/schemas/ColorV1"
         health_bar_color_team1:
-          $ref: "#/components/schemas/Health_Bar_Color_Team1"
+          $ref: "#/components/schemas/ColorV1"
         health_bar_color_team2:
-          $ref: "#/components/schemas/Health_Bar_Color_Team2"
+          $ref: "#/components/schemas/ColorV1"
         health_bar_color_team_neutral:
-          $ref: "#/components/schemas/Health_Bar_Color_Team_Neutral"
+          $ref: "#/components/schemas/ColorV1"
         glow_color_friend:
-          $ref: "#/components/schemas/Glow_Color_Friend"
+          $ref: "#/components/schemas/ColorV1"
         glow_color_enemy:
-          $ref: "#/components/schemas/Glow_Color_Enemy"
+          $ref: "#/components/schemas/ColorV1"
         glow_color_team1:
-          $ref: "#/components/schemas/Glow_Color_Team1"
+          $ref: "#/components/schemas/ColorV1"
         glow_color_team2:
-          $ref: "#/components/schemas/Glow_Color_Team2"
+          $ref: "#/components/schemas/ColorV1"
         glow_color_team_neutral:
-          $ref: "#/components/schemas/Glow_Color_Team_Neutral"
+          $ref: "#/components/schemas/ColorV1"
         id:
           format: int64
           readOnly: true
@@ -4427,7 +4442,7 @@ components:
       - color
       - origin
       title: ZiplanePathV1
-    deadlock_assets_api__routes__raw__ValidClientVersions:
+    deadlock_assets_api__routes__v1__ValidClientVersions:
       enum:
       - 5972
       - 5959
@@ -4518,126 +4533,6 @@ components:
         type: array
       nullable: true
       title: Color
-    Health_Bar_Color_Friend:
-      anyOf:
-      - items: {}
-        maxItems: 3
-        minItems: 3
-        type: array
-      - items: {}
-        maxItems: 4
-        minItems: 4
-        type: array
-      nullable: true
-      title: Health Bar Color Friend
-    Health_Bar_Color_Enemy:
-      anyOf:
-      - items: {}
-        maxItems: 3
-        minItems: 3
-        type: array
-      - items: {}
-        maxItems: 4
-        minItems: 4
-        type: array
-      nullable: true
-      title: Health Bar Color Enemy
-    Health_Bar_Color_Team1:
-      anyOf:
-      - items: {}
-        maxItems: 3
-        minItems: 3
-        type: array
-      - items: {}
-        maxItems: 4
-        minItems: 4
-        type: array
-      nullable: true
-      title: Health Bar Color Team1
-    Health_Bar_Color_Team2:
-      anyOf:
-      - items: {}
-        maxItems: 3
-        minItems: 3
-        type: array
-      - items: {}
-        maxItems: 4
-        minItems: 4
-        type: array
-      nullable: true
-      title: Health Bar Color Team2
-    Health_Bar_Color_Team_Neutral:
-      anyOf:
-      - items: {}
-        maxItems: 3
-        minItems: 3
-        type: array
-      - items: {}
-        maxItems: 4
-        minItems: 4
-        type: array
-      nullable: true
-      title: Health Bar Color Team Neutral
-    Glow_Color_Friend:
-      anyOf:
-      - items: {}
-        maxItems: 3
-        minItems: 3
-        type: array
-      - items: {}
-        maxItems: 4
-        minItems: 4
-        type: array
-      nullable: true
-      title: Glow Color Friend
-    Glow_Color_Enemy:
-      anyOf:
-      - items: {}
-        maxItems: 3
-        minItems: 3
-        type: array
-      - items: {}
-        maxItems: 4
-        minItems: 4
-        type: array
-      nullable: true
-      title: Glow Color Enemy
-    Glow_Color_Team1:
-      anyOf:
-      - items: {}
-        maxItems: 3
-        minItems: 3
-        type: array
-      - items: {}
-        maxItems: 4
-        minItems: 4
-        type: array
-      nullable: true
-      title: Glow Color Team1
-    Glow_Color_Team2:
-      anyOf:
-      - items: {}
-        maxItems: 3
-        minItems: 3
-        type: array
-      - items: {}
-        maxItems: 4
-        minItems: 4
-        type: array
-      nullable: true
-      title: Glow Color Team2
-    Glow_Color_Team_Neutral:
-      anyOf:
-      - items: {}
-        maxItems: 3
-        minItems: 3
-        type: array
-      - items: {}
-        maxItems: 4
-        minItems: 4
-        type: array
-      nullable: true
-      title: Glow Color Team Neutral
     Bonus:
       anyOf:
       - type: string

@@ -59,16 +59,16 @@ type NPCUnitV2 struct {
 	BarrackBossDps NullableFloat32 `json:"barrack_boss_dps,omitempty"`
 	PlayerDps NullableFloat32 `json:"player_dps,omitempty"`
 	TrooperDps NullableFloat32 `json:"trooper_dps,omitempty"`
-	HealthBarColorFriend NullableHealthBarColorFriend `json:"health_bar_color_friend,omitempty"`
-	HealthBarColorEnemy NullableHealthBarColorEnemy `json:"health_bar_color_enemy,omitempty"`
-	HealthBarColorTeam1 NullableHealthBarColorTeam1 `json:"health_bar_color_team1,omitempty"`
-	HealthBarColorTeam2 NullableHealthBarColorTeam2 `json:"health_bar_color_team2,omitempty"`
-	HealthBarColorTeamNeutral NullableHealthBarColorTeamNeutral `json:"health_bar_color_team_neutral,omitempty"`
-	GlowColorFriend NullableGlowColorFriend `json:"glow_color_friend,omitempty"`
-	GlowColorEnemy NullableGlowColorEnemy `json:"glow_color_enemy,omitempty"`
-	GlowColorTeam1 NullableGlowColorTeam1 `json:"glow_color_team1,omitempty"`
-	GlowColorTeam2 NullableGlowColorTeam2 `json:"glow_color_team2,omitempty"`
-	GlowColorTeamNeutral NullableGlowColorTeamNeutral `json:"glow_color_team_neutral,omitempty"`
+	HealthBarColorFriend NullableColorV1 `json:"health_bar_color_friend,omitempty"`
+	HealthBarColorEnemy NullableColorV1 `json:"health_bar_color_enemy,omitempty"`
+	HealthBarColorTeam1 NullableColorV1 `json:"health_bar_color_team1,omitempty"`
+	HealthBarColorTeam2 NullableColorV1 `json:"health_bar_color_team2,omitempty"`
+	HealthBarColorTeamNeutral NullableColorV1 `json:"health_bar_color_team_neutral,omitempty"`
+	GlowColorFriend NullableColorV1 `json:"glow_color_friend,omitempty"`
+	GlowColorEnemy NullableColorV1 `json:"glow_color_enemy,omitempty"`
+	GlowColorTeam1 NullableColorV1 `json:"glow_color_team1,omitempty"`
+	GlowColorTeam2 NullableColorV1 `json:"glow_color_team2,omitempty"`
+	GlowColorTeamNeutral NullableColorV1 `json:"glow_color_team_neutral,omitempty"`
 	Id int64 `json:"id"`
 }
 
@@ -1672,9 +1672,9 @@ func (o *NPCUnitV2) UnsetTrooperDps() {
 }
 
 // GetHealthBarColorFriend returns the HealthBarColorFriend field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetHealthBarColorFriend() HealthBarColorFriend {
+func (o *NPCUnitV2) GetHealthBarColorFriend() ColorV1 {
 	if o == nil || IsNil(o.HealthBarColorFriend.Get()) {
-		var ret HealthBarColorFriend
+		var ret ColorV1
 		return ret
 	}
 	return *o.HealthBarColorFriend.Get()
@@ -1683,7 +1683,7 @@ func (o *NPCUnitV2) GetHealthBarColorFriend() HealthBarColorFriend {
 // GetHealthBarColorFriendOk returns a tuple with the HealthBarColorFriend field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetHealthBarColorFriendOk() (*HealthBarColorFriend, bool) {
+func (o *NPCUnitV2) GetHealthBarColorFriendOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1699,8 +1699,8 @@ func (o *NPCUnitV2) HasHealthBarColorFriend() bool {
 	return false
 }
 
-// SetHealthBarColorFriend gets a reference to the given NullableHealthBarColorFriend and assigns it to the HealthBarColorFriend field.
-func (o *NPCUnitV2) SetHealthBarColorFriend(v HealthBarColorFriend) {
+// SetHealthBarColorFriend gets a reference to the given NullableColorV1 and assigns it to the HealthBarColorFriend field.
+func (o *NPCUnitV2) SetHealthBarColorFriend(v ColorV1) {
 	o.HealthBarColorFriend.Set(&v)
 }
 // SetHealthBarColorFriendNil sets the value for HealthBarColorFriend to be an explicit nil
@@ -1714,9 +1714,9 @@ func (o *NPCUnitV2) UnsetHealthBarColorFriend() {
 }
 
 // GetHealthBarColorEnemy returns the HealthBarColorEnemy field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetHealthBarColorEnemy() HealthBarColorEnemy {
+func (o *NPCUnitV2) GetHealthBarColorEnemy() ColorV1 {
 	if o == nil || IsNil(o.HealthBarColorEnemy.Get()) {
-		var ret HealthBarColorEnemy
+		var ret ColorV1
 		return ret
 	}
 	return *o.HealthBarColorEnemy.Get()
@@ -1725,7 +1725,7 @@ func (o *NPCUnitV2) GetHealthBarColorEnemy() HealthBarColorEnemy {
 // GetHealthBarColorEnemyOk returns a tuple with the HealthBarColorEnemy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetHealthBarColorEnemyOk() (*HealthBarColorEnemy, bool) {
+func (o *NPCUnitV2) GetHealthBarColorEnemyOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1741,8 +1741,8 @@ func (o *NPCUnitV2) HasHealthBarColorEnemy() bool {
 	return false
 }
 
-// SetHealthBarColorEnemy gets a reference to the given NullableHealthBarColorEnemy and assigns it to the HealthBarColorEnemy field.
-func (o *NPCUnitV2) SetHealthBarColorEnemy(v HealthBarColorEnemy) {
+// SetHealthBarColorEnemy gets a reference to the given NullableColorV1 and assigns it to the HealthBarColorEnemy field.
+func (o *NPCUnitV2) SetHealthBarColorEnemy(v ColorV1) {
 	o.HealthBarColorEnemy.Set(&v)
 }
 // SetHealthBarColorEnemyNil sets the value for HealthBarColorEnemy to be an explicit nil
@@ -1756,9 +1756,9 @@ func (o *NPCUnitV2) UnsetHealthBarColorEnemy() {
 }
 
 // GetHealthBarColorTeam1 returns the HealthBarColorTeam1 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetHealthBarColorTeam1() HealthBarColorTeam1 {
+func (o *NPCUnitV2) GetHealthBarColorTeam1() ColorV1 {
 	if o == nil || IsNil(o.HealthBarColorTeam1.Get()) {
-		var ret HealthBarColorTeam1
+		var ret ColorV1
 		return ret
 	}
 	return *o.HealthBarColorTeam1.Get()
@@ -1767,7 +1767,7 @@ func (o *NPCUnitV2) GetHealthBarColorTeam1() HealthBarColorTeam1 {
 // GetHealthBarColorTeam1Ok returns a tuple with the HealthBarColorTeam1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetHealthBarColorTeam1Ok() (*HealthBarColorTeam1, bool) {
+func (o *NPCUnitV2) GetHealthBarColorTeam1Ok() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1783,8 +1783,8 @@ func (o *NPCUnitV2) HasHealthBarColorTeam1() bool {
 	return false
 }
 
-// SetHealthBarColorTeam1 gets a reference to the given NullableHealthBarColorTeam1 and assigns it to the HealthBarColorTeam1 field.
-func (o *NPCUnitV2) SetHealthBarColorTeam1(v HealthBarColorTeam1) {
+// SetHealthBarColorTeam1 gets a reference to the given NullableColorV1 and assigns it to the HealthBarColorTeam1 field.
+func (o *NPCUnitV2) SetHealthBarColorTeam1(v ColorV1) {
 	o.HealthBarColorTeam1.Set(&v)
 }
 // SetHealthBarColorTeam1Nil sets the value for HealthBarColorTeam1 to be an explicit nil
@@ -1798,9 +1798,9 @@ func (o *NPCUnitV2) UnsetHealthBarColorTeam1() {
 }
 
 // GetHealthBarColorTeam2 returns the HealthBarColorTeam2 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetHealthBarColorTeam2() HealthBarColorTeam2 {
+func (o *NPCUnitV2) GetHealthBarColorTeam2() ColorV1 {
 	if o == nil || IsNil(o.HealthBarColorTeam2.Get()) {
-		var ret HealthBarColorTeam2
+		var ret ColorV1
 		return ret
 	}
 	return *o.HealthBarColorTeam2.Get()
@@ -1809,7 +1809,7 @@ func (o *NPCUnitV2) GetHealthBarColorTeam2() HealthBarColorTeam2 {
 // GetHealthBarColorTeam2Ok returns a tuple with the HealthBarColorTeam2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetHealthBarColorTeam2Ok() (*HealthBarColorTeam2, bool) {
+func (o *NPCUnitV2) GetHealthBarColorTeam2Ok() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1825,8 +1825,8 @@ func (o *NPCUnitV2) HasHealthBarColorTeam2() bool {
 	return false
 }
 
-// SetHealthBarColorTeam2 gets a reference to the given NullableHealthBarColorTeam2 and assigns it to the HealthBarColorTeam2 field.
-func (o *NPCUnitV2) SetHealthBarColorTeam2(v HealthBarColorTeam2) {
+// SetHealthBarColorTeam2 gets a reference to the given NullableColorV1 and assigns it to the HealthBarColorTeam2 field.
+func (o *NPCUnitV2) SetHealthBarColorTeam2(v ColorV1) {
 	o.HealthBarColorTeam2.Set(&v)
 }
 // SetHealthBarColorTeam2Nil sets the value for HealthBarColorTeam2 to be an explicit nil
@@ -1840,9 +1840,9 @@ func (o *NPCUnitV2) UnsetHealthBarColorTeam2() {
 }
 
 // GetHealthBarColorTeamNeutral returns the HealthBarColorTeamNeutral field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetHealthBarColorTeamNeutral() HealthBarColorTeamNeutral {
+func (o *NPCUnitV2) GetHealthBarColorTeamNeutral() ColorV1 {
 	if o == nil || IsNil(o.HealthBarColorTeamNeutral.Get()) {
-		var ret HealthBarColorTeamNeutral
+		var ret ColorV1
 		return ret
 	}
 	return *o.HealthBarColorTeamNeutral.Get()
@@ -1851,7 +1851,7 @@ func (o *NPCUnitV2) GetHealthBarColorTeamNeutral() HealthBarColorTeamNeutral {
 // GetHealthBarColorTeamNeutralOk returns a tuple with the HealthBarColorTeamNeutral field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetHealthBarColorTeamNeutralOk() (*HealthBarColorTeamNeutral, bool) {
+func (o *NPCUnitV2) GetHealthBarColorTeamNeutralOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1867,8 +1867,8 @@ func (o *NPCUnitV2) HasHealthBarColorTeamNeutral() bool {
 	return false
 }
 
-// SetHealthBarColorTeamNeutral gets a reference to the given NullableHealthBarColorTeamNeutral and assigns it to the HealthBarColorTeamNeutral field.
-func (o *NPCUnitV2) SetHealthBarColorTeamNeutral(v HealthBarColorTeamNeutral) {
+// SetHealthBarColorTeamNeutral gets a reference to the given NullableColorV1 and assigns it to the HealthBarColorTeamNeutral field.
+func (o *NPCUnitV2) SetHealthBarColorTeamNeutral(v ColorV1) {
 	o.HealthBarColorTeamNeutral.Set(&v)
 }
 // SetHealthBarColorTeamNeutralNil sets the value for HealthBarColorTeamNeutral to be an explicit nil
@@ -1882,9 +1882,9 @@ func (o *NPCUnitV2) UnsetHealthBarColorTeamNeutral() {
 }
 
 // GetGlowColorFriend returns the GlowColorFriend field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetGlowColorFriend() GlowColorFriend {
+func (o *NPCUnitV2) GetGlowColorFriend() ColorV1 {
 	if o == nil || IsNil(o.GlowColorFriend.Get()) {
-		var ret GlowColorFriend
+		var ret ColorV1
 		return ret
 	}
 	return *o.GlowColorFriend.Get()
@@ -1893,7 +1893,7 @@ func (o *NPCUnitV2) GetGlowColorFriend() GlowColorFriend {
 // GetGlowColorFriendOk returns a tuple with the GlowColorFriend field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetGlowColorFriendOk() (*GlowColorFriend, bool) {
+func (o *NPCUnitV2) GetGlowColorFriendOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1909,8 +1909,8 @@ func (o *NPCUnitV2) HasGlowColorFriend() bool {
 	return false
 }
 
-// SetGlowColorFriend gets a reference to the given NullableGlowColorFriend and assigns it to the GlowColorFriend field.
-func (o *NPCUnitV2) SetGlowColorFriend(v GlowColorFriend) {
+// SetGlowColorFriend gets a reference to the given NullableColorV1 and assigns it to the GlowColorFriend field.
+func (o *NPCUnitV2) SetGlowColorFriend(v ColorV1) {
 	o.GlowColorFriend.Set(&v)
 }
 // SetGlowColorFriendNil sets the value for GlowColorFriend to be an explicit nil
@@ -1924,9 +1924,9 @@ func (o *NPCUnitV2) UnsetGlowColorFriend() {
 }
 
 // GetGlowColorEnemy returns the GlowColorEnemy field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetGlowColorEnemy() GlowColorEnemy {
+func (o *NPCUnitV2) GetGlowColorEnemy() ColorV1 {
 	if o == nil || IsNil(o.GlowColorEnemy.Get()) {
-		var ret GlowColorEnemy
+		var ret ColorV1
 		return ret
 	}
 	return *o.GlowColorEnemy.Get()
@@ -1935,7 +1935,7 @@ func (o *NPCUnitV2) GetGlowColorEnemy() GlowColorEnemy {
 // GetGlowColorEnemyOk returns a tuple with the GlowColorEnemy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetGlowColorEnemyOk() (*GlowColorEnemy, bool) {
+func (o *NPCUnitV2) GetGlowColorEnemyOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1951,8 +1951,8 @@ func (o *NPCUnitV2) HasGlowColorEnemy() bool {
 	return false
 }
 
-// SetGlowColorEnemy gets a reference to the given NullableGlowColorEnemy and assigns it to the GlowColorEnemy field.
-func (o *NPCUnitV2) SetGlowColorEnemy(v GlowColorEnemy) {
+// SetGlowColorEnemy gets a reference to the given NullableColorV1 and assigns it to the GlowColorEnemy field.
+func (o *NPCUnitV2) SetGlowColorEnemy(v ColorV1) {
 	o.GlowColorEnemy.Set(&v)
 }
 // SetGlowColorEnemyNil sets the value for GlowColorEnemy to be an explicit nil
@@ -1966,9 +1966,9 @@ func (o *NPCUnitV2) UnsetGlowColorEnemy() {
 }
 
 // GetGlowColorTeam1 returns the GlowColorTeam1 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetGlowColorTeam1() GlowColorTeam1 {
+func (o *NPCUnitV2) GetGlowColorTeam1() ColorV1 {
 	if o == nil || IsNil(o.GlowColorTeam1.Get()) {
-		var ret GlowColorTeam1
+		var ret ColorV1
 		return ret
 	}
 	return *o.GlowColorTeam1.Get()
@@ -1977,7 +1977,7 @@ func (o *NPCUnitV2) GetGlowColorTeam1() GlowColorTeam1 {
 // GetGlowColorTeam1Ok returns a tuple with the GlowColorTeam1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetGlowColorTeam1Ok() (*GlowColorTeam1, bool) {
+func (o *NPCUnitV2) GetGlowColorTeam1Ok() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1993,8 +1993,8 @@ func (o *NPCUnitV2) HasGlowColorTeam1() bool {
 	return false
 }
 
-// SetGlowColorTeam1 gets a reference to the given NullableGlowColorTeam1 and assigns it to the GlowColorTeam1 field.
-func (o *NPCUnitV2) SetGlowColorTeam1(v GlowColorTeam1) {
+// SetGlowColorTeam1 gets a reference to the given NullableColorV1 and assigns it to the GlowColorTeam1 field.
+func (o *NPCUnitV2) SetGlowColorTeam1(v ColorV1) {
 	o.GlowColorTeam1.Set(&v)
 }
 // SetGlowColorTeam1Nil sets the value for GlowColorTeam1 to be an explicit nil
@@ -2008,9 +2008,9 @@ func (o *NPCUnitV2) UnsetGlowColorTeam1() {
 }
 
 // GetGlowColorTeam2 returns the GlowColorTeam2 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetGlowColorTeam2() GlowColorTeam2 {
+func (o *NPCUnitV2) GetGlowColorTeam2() ColorV1 {
 	if o == nil || IsNil(o.GlowColorTeam2.Get()) {
-		var ret GlowColorTeam2
+		var ret ColorV1
 		return ret
 	}
 	return *o.GlowColorTeam2.Get()
@@ -2019,7 +2019,7 @@ func (o *NPCUnitV2) GetGlowColorTeam2() GlowColorTeam2 {
 // GetGlowColorTeam2Ok returns a tuple with the GlowColorTeam2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetGlowColorTeam2Ok() (*GlowColorTeam2, bool) {
+func (o *NPCUnitV2) GetGlowColorTeam2Ok() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2035,8 +2035,8 @@ func (o *NPCUnitV2) HasGlowColorTeam2() bool {
 	return false
 }
 
-// SetGlowColorTeam2 gets a reference to the given NullableGlowColorTeam2 and assigns it to the GlowColorTeam2 field.
-func (o *NPCUnitV2) SetGlowColorTeam2(v GlowColorTeam2) {
+// SetGlowColorTeam2 gets a reference to the given NullableColorV1 and assigns it to the GlowColorTeam2 field.
+func (o *NPCUnitV2) SetGlowColorTeam2(v ColorV1) {
 	o.GlowColorTeam2.Set(&v)
 }
 // SetGlowColorTeam2Nil sets the value for GlowColorTeam2 to be an explicit nil
@@ -2050,9 +2050,9 @@ func (o *NPCUnitV2) UnsetGlowColorTeam2() {
 }
 
 // GetGlowColorTeamNeutral returns the GlowColorTeamNeutral field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetGlowColorTeamNeutral() GlowColorTeamNeutral {
+func (o *NPCUnitV2) GetGlowColorTeamNeutral() ColorV1 {
 	if o == nil || IsNil(o.GlowColorTeamNeutral.Get()) {
-		var ret GlowColorTeamNeutral
+		var ret ColorV1
 		return ret
 	}
 	return *o.GlowColorTeamNeutral.Get()
@@ -2061,7 +2061,7 @@ func (o *NPCUnitV2) GetGlowColorTeamNeutral() GlowColorTeamNeutral {
 // GetGlowColorTeamNeutralOk returns a tuple with the GlowColorTeamNeutral field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetGlowColorTeamNeutralOk() (*GlowColorTeamNeutral, bool) {
+func (o *NPCUnitV2) GetGlowColorTeamNeutralOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2077,8 +2077,8 @@ func (o *NPCUnitV2) HasGlowColorTeamNeutral() bool {
 	return false
 }
 
-// SetGlowColorTeamNeutral gets a reference to the given NullableGlowColorTeamNeutral and assigns it to the GlowColorTeamNeutral field.
-func (o *NPCUnitV2) SetGlowColorTeamNeutral(v GlowColorTeamNeutral) {
+// SetGlowColorTeamNeutral gets a reference to the given NullableColorV1 and assigns it to the GlowColorTeamNeutral field.
+func (o *NPCUnitV2) SetGlowColorTeamNeutral(v ColorV1) {
 	o.GlowColorTeamNeutral.Set(&v)
 }
 // SetGlowColorTeamNeutralNil sets the value for GlowColorTeamNeutral to be an explicit nil

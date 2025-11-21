@@ -90,25 +90,25 @@ pub struct NpcUnitV2 {
     #[serde(rename = "trooper_dps", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub trooper_dps: Option<Option<f64>>,
     #[serde(rename = "health_bar_color_friend", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub health_bar_color_friend: Option<Option<Box<models::HealthBarColorFriend>>>,
+    pub health_bar_color_friend: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "health_bar_color_enemy", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub health_bar_color_enemy: Option<Option<Box<models::HealthBarColorEnemy>>>,
+    pub health_bar_color_enemy: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "health_bar_color_team1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub health_bar_color_team1: Option<Option<Box<models::HealthBarColorTeam1>>>,
+    pub health_bar_color_team1: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "health_bar_color_team2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub health_bar_color_team2: Option<Option<Box<models::HealthBarColorTeam2>>>,
+    pub health_bar_color_team2: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "health_bar_color_team_neutral", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub health_bar_color_team_neutral: Option<Option<Box<models::HealthBarColorTeamNeutral>>>,
+    pub health_bar_color_team_neutral: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "glow_color_friend", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub glow_color_friend: Option<Option<Box<models::GlowColorFriend>>>,
+    pub glow_color_friend: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "glow_color_enemy", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub glow_color_enemy: Option<Option<Box<models::GlowColorEnemy>>>,
+    pub glow_color_enemy: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "glow_color_team1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub glow_color_team1: Option<Option<Box<models::GlowColorTeam1>>>,
+    pub glow_color_team1: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "glow_color_team2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub glow_color_team2: Option<Option<Box<models::GlowColorTeam2>>>,
+    pub glow_color_team2: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "glow_color_team_neutral", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub glow_color_team_neutral: Option<Option<Box<models::GlowColorTeamNeutral>>>,
+    pub glow_color_team_neutral: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "id")]
     pub id: i64,
 }

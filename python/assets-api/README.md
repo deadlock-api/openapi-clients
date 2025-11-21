@@ -87,7 +87,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = assets_deadlock_api_client.HeroesApi(api_client)
     name = 'name_example' # str | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Hero By Name
@@ -145,19 +145,9 @@ Class | Method | HTTP request | Description
  - [BuildTagV2](docs/BuildTagV2.md)
  - [Color](docs/Color.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
- - [GlowColorEnemy](docs/GlowColorEnemy.md)
- - [GlowColorFriend](docs/GlowColorFriend.md)
- - [GlowColorTeam1](docs/GlowColorTeam1.md)
- - [GlowColorTeam2](docs/GlowColorTeam2.md)
- - [GlowColorTeamNeutral](docs/GlowColorTeamNeutral.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
- - [HealthBarColorEnemy](docs/HealthBarColorEnemy.md)
- - [HealthBarColorFriend](docs/HealthBarColorFriend.md)
- - [HealthBarColorTeam1](docs/HealthBarColorTeam1.md)
- - [HealthBarColorTeam2](docs/HealthBarColorTeam2.md)
- - [HealthBarColorTeamNeutral](docs/HealthBarColorTeamNeutral.md)
  - [HeroColorsV2](docs/HeroColorsV2.md)
  - [HeroDescriptionV2](docs/HeroDescriptionV2.md)
  - [HeroImagesV2](docs/HeroImagesV2.md)

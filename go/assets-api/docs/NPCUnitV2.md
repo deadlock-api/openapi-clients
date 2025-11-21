@@ -42,16 +42,16 @@ Name | Type | Description | Notes
 **BarrackBossDps** | Pointer to **NullableFloat32** |  | [optional] 
 **PlayerDps** | Pointer to **NullableFloat32** |  | [optional] 
 **TrooperDps** | Pointer to **NullableFloat32** |  | [optional] 
-**HealthBarColorFriend** | Pointer to [**NullableHealthBarColorFriend**](HealthBarColorFriend.md) |  | [optional] 
-**HealthBarColorEnemy** | Pointer to [**NullableHealthBarColorEnemy**](HealthBarColorEnemy.md) |  | [optional] 
-**HealthBarColorTeam1** | Pointer to [**NullableHealthBarColorTeam1**](HealthBarColorTeam1.md) |  | [optional] 
-**HealthBarColorTeam2** | Pointer to [**NullableHealthBarColorTeam2**](HealthBarColorTeam2.md) |  | [optional] 
-**HealthBarColorTeamNeutral** | Pointer to [**NullableHealthBarColorTeamNeutral**](HealthBarColorTeamNeutral.md) |  | [optional] 
-**GlowColorFriend** | Pointer to [**NullableGlowColorFriend**](GlowColorFriend.md) |  | [optional] 
-**GlowColorEnemy** | Pointer to [**NullableGlowColorEnemy**](GlowColorEnemy.md) |  | [optional] 
-**GlowColorTeam1** | Pointer to [**NullableGlowColorTeam1**](GlowColorTeam1.md) |  | [optional] 
-**GlowColorTeam2** | Pointer to [**NullableGlowColorTeam2**](GlowColorTeam2.md) |  | [optional] 
-**GlowColorTeamNeutral** | Pointer to [**NullableGlowColorTeamNeutral**](GlowColorTeamNeutral.md) |  | [optional] 
+**HealthBarColorFriend** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**HealthBarColorEnemy** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**HealthBarColorTeam1** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**HealthBarColorTeam2** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**HealthBarColorTeamNeutral** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**GlowColorFriend** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**GlowColorEnemy** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**GlowColorTeam1** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**GlowColorTeam2** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**GlowColorTeamNeutral** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
 **Id** | **int64** |  | [readonly] 
 
 ## Methods
@@ -1390,20 +1390,20 @@ HasTrooperDps returns a boolean if a field has been set.
 UnsetTrooperDps ensures that no value is present for TrooperDps, not even an explicit nil
 ### GetHealthBarColorFriend
 
-`func (o *NPCUnitV2) GetHealthBarColorFriend() HealthBarColorFriend`
+`func (o *NPCUnitV2) GetHealthBarColorFriend() ColorV1`
 
 GetHealthBarColorFriend returns the HealthBarColorFriend field if non-nil, zero value otherwise.
 
 ### GetHealthBarColorFriendOk
 
-`func (o *NPCUnitV2) GetHealthBarColorFriendOk() (*HealthBarColorFriend, bool)`
+`func (o *NPCUnitV2) GetHealthBarColorFriendOk() (*ColorV1, bool)`
 
 GetHealthBarColorFriendOk returns a tuple with the HealthBarColorFriend field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHealthBarColorFriend
 
-`func (o *NPCUnitV2) SetHealthBarColorFriend(v HealthBarColorFriend)`
+`func (o *NPCUnitV2) SetHealthBarColorFriend(v ColorV1)`
 
 SetHealthBarColorFriend sets HealthBarColorFriend field to given value.
 
@@ -1425,20 +1425,20 @@ HasHealthBarColorFriend returns a boolean if a field has been set.
 UnsetHealthBarColorFriend ensures that no value is present for HealthBarColorFriend, not even an explicit nil
 ### GetHealthBarColorEnemy
 
-`func (o *NPCUnitV2) GetHealthBarColorEnemy() HealthBarColorEnemy`
+`func (o *NPCUnitV2) GetHealthBarColorEnemy() ColorV1`
 
 GetHealthBarColorEnemy returns the HealthBarColorEnemy field if non-nil, zero value otherwise.
 
 ### GetHealthBarColorEnemyOk
 
-`func (o *NPCUnitV2) GetHealthBarColorEnemyOk() (*HealthBarColorEnemy, bool)`
+`func (o *NPCUnitV2) GetHealthBarColorEnemyOk() (*ColorV1, bool)`
 
 GetHealthBarColorEnemyOk returns a tuple with the HealthBarColorEnemy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHealthBarColorEnemy
 
-`func (o *NPCUnitV2) SetHealthBarColorEnemy(v HealthBarColorEnemy)`
+`func (o *NPCUnitV2) SetHealthBarColorEnemy(v ColorV1)`
 
 SetHealthBarColorEnemy sets HealthBarColorEnemy field to given value.
 
@@ -1460,20 +1460,20 @@ HasHealthBarColorEnemy returns a boolean if a field has been set.
 UnsetHealthBarColorEnemy ensures that no value is present for HealthBarColorEnemy, not even an explicit nil
 ### GetHealthBarColorTeam1
 
-`func (o *NPCUnitV2) GetHealthBarColorTeam1() HealthBarColorTeam1`
+`func (o *NPCUnitV2) GetHealthBarColorTeam1() ColorV1`
 
 GetHealthBarColorTeam1 returns the HealthBarColorTeam1 field if non-nil, zero value otherwise.
 
 ### GetHealthBarColorTeam1Ok
 
-`func (o *NPCUnitV2) GetHealthBarColorTeam1Ok() (*HealthBarColorTeam1, bool)`
+`func (o *NPCUnitV2) GetHealthBarColorTeam1Ok() (*ColorV1, bool)`
 
 GetHealthBarColorTeam1Ok returns a tuple with the HealthBarColorTeam1 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHealthBarColorTeam1
 
-`func (o *NPCUnitV2) SetHealthBarColorTeam1(v HealthBarColorTeam1)`
+`func (o *NPCUnitV2) SetHealthBarColorTeam1(v ColorV1)`
 
 SetHealthBarColorTeam1 sets HealthBarColorTeam1 field to given value.
 
@@ -1495,20 +1495,20 @@ HasHealthBarColorTeam1 returns a boolean if a field has been set.
 UnsetHealthBarColorTeam1 ensures that no value is present for HealthBarColorTeam1, not even an explicit nil
 ### GetHealthBarColorTeam2
 
-`func (o *NPCUnitV2) GetHealthBarColorTeam2() HealthBarColorTeam2`
+`func (o *NPCUnitV2) GetHealthBarColorTeam2() ColorV1`
 
 GetHealthBarColorTeam2 returns the HealthBarColorTeam2 field if non-nil, zero value otherwise.
 
 ### GetHealthBarColorTeam2Ok
 
-`func (o *NPCUnitV2) GetHealthBarColorTeam2Ok() (*HealthBarColorTeam2, bool)`
+`func (o *NPCUnitV2) GetHealthBarColorTeam2Ok() (*ColorV1, bool)`
 
 GetHealthBarColorTeam2Ok returns a tuple with the HealthBarColorTeam2 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHealthBarColorTeam2
 
-`func (o *NPCUnitV2) SetHealthBarColorTeam2(v HealthBarColorTeam2)`
+`func (o *NPCUnitV2) SetHealthBarColorTeam2(v ColorV1)`
 
 SetHealthBarColorTeam2 sets HealthBarColorTeam2 field to given value.
 
@@ -1530,20 +1530,20 @@ HasHealthBarColorTeam2 returns a boolean if a field has been set.
 UnsetHealthBarColorTeam2 ensures that no value is present for HealthBarColorTeam2, not even an explicit nil
 ### GetHealthBarColorTeamNeutral
 
-`func (o *NPCUnitV2) GetHealthBarColorTeamNeutral() HealthBarColorTeamNeutral`
+`func (o *NPCUnitV2) GetHealthBarColorTeamNeutral() ColorV1`
 
 GetHealthBarColorTeamNeutral returns the HealthBarColorTeamNeutral field if non-nil, zero value otherwise.
 
 ### GetHealthBarColorTeamNeutralOk
 
-`func (o *NPCUnitV2) GetHealthBarColorTeamNeutralOk() (*HealthBarColorTeamNeutral, bool)`
+`func (o *NPCUnitV2) GetHealthBarColorTeamNeutralOk() (*ColorV1, bool)`
 
 GetHealthBarColorTeamNeutralOk returns a tuple with the HealthBarColorTeamNeutral field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHealthBarColorTeamNeutral
 
-`func (o *NPCUnitV2) SetHealthBarColorTeamNeutral(v HealthBarColorTeamNeutral)`
+`func (o *NPCUnitV2) SetHealthBarColorTeamNeutral(v ColorV1)`
 
 SetHealthBarColorTeamNeutral sets HealthBarColorTeamNeutral field to given value.
 
@@ -1565,20 +1565,20 @@ HasHealthBarColorTeamNeutral returns a boolean if a field has been set.
 UnsetHealthBarColorTeamNeutral ensures that no value is present for HealthBarColorTeamNeutral, not even an explicit nil
 ### GetGlowColorFriend
 
-`func (o *NPCUnitV2) GetGlowColorFriend() GlowColorFriend`
+`func (o *NPCUnitV2) GetGlowColorFriend() ColorV1`
 
 GetGlowColorFriend returns the GlowColorFriend field if non-nil, zero value otherwise.
 
 ### GetGlowColorFriendOk
 
-`func (o *NPCUnitV2) GetGlowColorFriendOk() (*GlowColorFriend, bool)`
+`func (o *NPCUnitV2) GetGlowColorFriendOk() (*ColorV1, bool)`
 
 GetGlowColorFriendOk returns a tuple with the GlowColorFriend field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlowColorFriend
 
-`func (o *NPCUnitV2) SetGlowColorFriend(v GlowColorFriend)`
+`func (o *NPCUnitV2) SetGlowColorFriend(v ColorV1)`
 
 SetGlowColorFriend sets GlowColorFriend field to given value.
 
@@ -1600,20 +1600,20 @@ HasGlowColorFriend returns a boolean if a field has been set.
 UnsetGlowColorFriend ensures that no value is present for GlowColorFriend, not even an explicit nil
 ### GetGlowColorEnemy
 
-`func (o *NPCUnitV2) GetGlowColorEnemy() GlowColorEnemy`
+`func (o *NPCUnitV2) GetGlowColorEnemy() ColorV1`
 
 GetGlowColorEnemy returns the GlowColorEnemy field if non-nil, zero value otherwise.
 
 ### GetGlowColorEnemyOk
 
-`func (o *NPCUnitV2) GetGlowColorEnemyOk() (*GlowColorEnemy, bool)`
+`func (o *NPCUnitV2) GetGlowColorEnemyOk() (*ColorV1, bool)`
 
 GetGlowColorEnemyOk returns a tuple with the GlowColorEnemy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlowColorEnemy
 
-`func (o *NPCUnitV2) SetGlowColorEnemy(v GlowColorEnemy)`
+`func (o *NPCUnitV2) SetGlowColorEnemy(v ColorV1)`
 
 SetGlowColorEnemy sets GlowColorEnemy field to given value.
 
@@ -1635,20 +1635,20 @@ HasGlowColorEnemy returns a boolean if a field has been set.
 UnsetGlowColorEnemy ensures that no value is present for GlowColorEnemy, not even an explicit nil
 ### GetGlowColorTeam1
 
-`func (o *NPCUnitV2) GetGlowColorTeam1() GlowColorTeam1`
+`func (o *NPCUnitV2) GetGlowColorTeam1() ColorV1`
 
 GetGlowColorTeam1 returns the GlowColorTeam1 field if non-nil, zero value otherwise.
 
 ### GetGlowColorTeam1Ok
 
-`func (o *NPCUnitV2) GetGlowColorTeam1Ok() (*GlowColorTeam1, bool)`
+`func (o *NPCUnitV2) GetGlowColorTeam1Ok() (*ColorV1, bool)`
 
 GetGlowColorTeam1Ok returns a tuple with the GlowColorTeam1 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlowColorTeam1
 
-`func (o *NPCUnitV2) SetGlowColorTeam1(v GlowColorTeam1)`
+`func (o *NPCUnitV2) SetGlowColorTeam1(v ColorV1)`
 
 SetGlowColorTeam1 sets GlowColorTeam1 field to given value.
 
@@ -1670,20 +1670,20 @@ HasGlowColorTeam1 returns a boolean if a field has been set.
 UnsetGlowColorTeam1 ensures that no value is present for GlowColorTeam1, not even an explicit nil
 ### GetGlowColorTeam2
 
-`func (o *NPCUnitV2) GetGlowColorTeam2() GlowColorTeam2`
+`func (o *NPCUnitV2) GetGlowColorTeam2() ColorV1`
 
 GetGlowColorTeam2 returns the GlowColorTeam2 field if non-nil, zero value otherwise.
 
 ### GetGlowColorTeam2Ok
 
-`func (o *NPCUnitV2) GetGlowColorTeam2Ok() (*GlowColorTeam2, bool)`
+`func (o *NPCUnitV2) GetGlowColorTeam2Ok() (*ColorV1, bool)`
 
 GetGlowColorTeam2Ok returns a tuple with the GlowColorTeam2 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlowColorTeam2
 
-`func (o *NPCUnitV2) SetGlowColorTeam2(v GlowColorTeam2)`
+`func (o *NPCUnitV2) SetGlowColorTeam2(v ColorV1)`
 
 SetGlowColorTeam2 sets GlowColorTeam2 field to given value.
 
@@ -1705,20 +1705,20 @@ HasGlowColorTeam2 returns a boolean if a field has been set.
 UnsetGlowColorTeam2 ensures that no value is present for GlowColorTeam2, not even an explicit nil
 ### GetGlowColorTeamNeutral
 
-`func (o *NPCUnitV2) GetGlowColorTeamNeutral() GlowColorTeamNeutral`
+`func (o *NPCUnitV2) GetGlowColorTeamNeutral() ColorV1`
 
 GetGlowColorTeamNeutral returns the GlowColorTeamNeutral field if non-nil, zero value otherwise.
 
 ### GetGlowColorTeamNeutralOk
 
-`func (o *NPCUnitV2) GetGlowColorTeamNeutralOk() (*GlowColorTeamNeutral, bool)`
+`func (o *NPCUnitV2) GetGlowColorTeamNeutralOk() (*ColorV1, bool)`
 
 GetGlowColorTeamNeutralOk returns a tuple with the GlowColorTeamNeutral field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlowColorTeamNeutral
 
-`func (o *NPCUnitV2) SetGlowColorTeamNeutral(v GlowColorTeamNeutral)`
+`func (o *NPCUnitV2) SetGlowColorTeamNeutral(v ColorV1)`
 
 SetGlowColorTeamNeutral sets GlowColorTeamNeutral field to given value.
 

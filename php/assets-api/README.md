@@ -73,7 +73,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions
 
 try {
     $result = $apiInstance->getBuildTagsV2BuildTagsGet($language, $client_version);
@@ -129,19 +129,9 @@ Class | Method | HTTP request | Description
 - [BuildTagV2](docs/Model/BuildTagV2.md)
 - [Color](docs/Model/Color.md)
 - [ColorV1](docs/Model/ColorV1.md)
-- [DeadlockAssetsApiRoutesRawValidClientVersions](docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+- [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
 - [GetItemsV2ItemsGet200ResponseInner](docs/Model/GetItemsV2ItemsGet200ResponseInner.md)
-- [GlowColorEnemy](docs/Model/GlowColorEnemy.md)
-- [GlowColorFriend](docs/Model/GlowColorFriend.md)
-- [GlowColorTeam1](docs/Model/GlowColorTeam1.md)
-- [GlowColorTeam2](docs/Model/GlowColorTeam2.md)
-- [GlowColorTeamNeutral](docs/Model/GlowColorTeamNeutral.md)
 - [HTTPValidationError](docs/Model/HTTPValidationError.md)
-- [HealthBarColorEnemy](docs/Model/HealthBarColorEnemy.md)
-- [HealthBarColorFriend](docs/Model/HealthBarColorFriend.md)
-- [HealthBarColorTeam1](docs/Model/HealthBarColorTeam1.md)
-- [HealthBarColorTeam2](docs/Model/HealthBarColorTeam2.md)
-- [HealthBarColorTeamNeutral](docs/Model/HealthBarColorTeamNeutral.md)
 - [HeroColorsV2](docs/Model/HeroColorsV2.md)
 - [HeroDescriptionV2](docs/Model/HeroDescriptionV2.md)
 - [HeroImagesV2](docs/Model/HeroImagesV2.md)

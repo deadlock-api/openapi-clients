@@ -43,16 +43,16 @@
 | **barrackBossDps** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **playerDps** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **trooperDps** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
-| **healthBarColorFriend** | [**HealthBarColorFriend**](HealthBarColorFriend.md) |  |  [optional] |
-| **healthBarColorEnemy** | [**HealthBarColorEnemy**](HealthBarColorEnemy.md) |  |  [optional] |
-| **healthBarColorTeam1** | [**HealthBarColorTeam1**](HealthBarColorTeam1.md) |  |  [optional] |
-| **healthBarColorTeam2** | [**HealthBarColorTeam2**](HealthBarColorTeam2.md) |  |  [optional] |
-| **healthBarColorTeamNeutral** | [**HealthBarColorTeamNeutral**](HealthBarColorTeamNeutral.md) |  |  [optional] |
-| **glowColorFriend** | [**GlowColorFriend**](GlowColorFriend.md) |  |  [optional] |
-| **glowColorEnemy** | [**GlowColorEnemy**](GlowColorEnemy.md) |  |  [optional] |
-| **glowColorTeam1** | [**GlowColorTeam1**](GlowColorTeam1.md) |  |  [optional] |
-| **glowColorTeam2** | [**GlowColorTeam2**](GlowColorTeam2.md) |  |  [optional] |
-| **glowColorTeamNeutral** | [**GlowColorTeamNeutral**](GlowColorTeamNeutral.md) |  |  [optional] |
+| **healthBarColorFriend** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **healthBarColorEnemy** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **healthBarColorTeam1** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **healthBarColorTeam2** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **healthBarColorTeamNeutral** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **glowColorFriend** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **glowColorEnemy** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **glowColorTeam1** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **glowColorTeam2** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **glowColorTeamNeutral** | [**ColorV1**](ColorV1.md) |  |  [optional] |
 
 
 

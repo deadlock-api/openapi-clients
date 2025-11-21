@@ -15,16 +15,7 @@
 
 package assets_deadlock_api_client.models
 
-import assets_deadlock_api_client.models.GlowColorEnemy
-import assets_deadlock_api_client.models.GlowColorFriend
-import assets_deadlock_api_client.models.GlowColorTeam1
-import assets_deadlock_api_client.models.GlowColorTeam2
-import assets_deadlock_api_client.models.GlowColorTeamNeutral
-import assets_deadlock_api_client.models.HealthBarColorEnemy
-import assets_deadlock_api_client.models.HealthBarColorFriend
-import assets_deadlock_api_client.models.HealthBarColorTeam1
-import assets_deadlock_api_client.models.HealthBarColorTeam2
-import assets_deadlock_api_client.models.HealthBarColorTeamNeutral
+import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.RawWeaponInfoV2
 
 import com.squareup.moshi.Json
@@ -205,34 +196,34 @@ data class NPCUnitV2 (
     val trooperDps: java.math.BigDecimal? = null,
 
     @Json(name = "health_bar_color_friend")
-    val healthBarColorFriend: HealthBarColorFriend? = null,
+    val healthBarColorFriend: ColorV1? = null,
 
     @Json(name = "health_bar_color_enemy")
-    val healthBarColorEnemy: HealthBarColorEnemy? = null,
+    val healthBarColorEnemy: ColorV1? = null,
 
     @Json(name = "health_bar_color_team1")
-    val healthBarColorTeam1: HealthBarColorTeam1? = null,
+    val healthBarColorTeam1: ColorV1? = null,
 
     @Json(name = "health_bar_color_team2")
-    val healthBarColorTeam2: HealthBarColorTeam2? = null,
+    val healthBarColorTeam2: ColorV1? = null,
 
     @Json(name = "health_bar_color_team_neutral")
-    val healthBarColorTeamNeutral: HealthBarColorTeamNeutral? = null,
+    val healthBarColorTeamNeutral: ColorV1? = null,
 
     @Json(name = "glow_color_friend")
-    val glowColorFriend: GlowColorFriend? = null,
+    val glowColorFriend: ColorV1? = null,
 
     @Json(name = "glow_color_enemy")
-    val glowColorEnemy: GlowColorEnemy? = null,
+    val glowColorEnemy: ColorV1? = null,
 
     @Json(name = "glow_color_team1")
-    val glowColorTeam1: GlowColorTeam1? = null,
+    val glowColorTeam1: ColorV1? = null,
 
     @Json(name = "glow_color_team2")
-    val glowColorTeam2: GlowColorTeam2? = null,
+    val glowColorTeam2: ColorV1? = null,
 
     @Json(name = "glow_color_team_neutral")
-    val glowColorTeamNeutral: GlowColorTeamNeutral? = null
+    val glowColorTeamNeutral: ColorV1? = null
 
 ) {
 
