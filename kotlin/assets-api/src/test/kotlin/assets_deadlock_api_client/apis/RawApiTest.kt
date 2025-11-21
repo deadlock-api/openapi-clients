@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.apis.RawApi
-import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
+import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesRawValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
 
 class RawApiTest : ShouldSpec() {
@@ -30,7 +30,7 @@ class RawApiTest : ShouldSpec() {
         // to test getGenericDataRawGenericDataGet
         should("test getGenericDataRawGenericDataGet") {
             // uncomment below to test getGenericDataRawGenericDataGet
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : kotlin.Any = apiInstance.getGenericDataRawGenericDataGet(clientVersion)
             //result shouldBe ("TODO")
         }
@@ -38,7 +38,7 @@ class RawApiTest : ShouldSpec() {
         // to test getRawHeroesRawHeroesGet
         should("test getRawHeroesRawHeroesGet") {
             // uncomment below to test getRawHeroesRawHeroesGet
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : kotlin.Any = apiInstance.getRawHeroesRawHeroesGet(clientVersion)
             //result shouldBe ("TODO")
         }
@@ -46,7 +46,7 @@ class RawApiTest : ShouldSpec() {
         // to test getRawItemsRawItemsGet
         should("test getRawItemsRawItemsGet") {
             // uncomment below to test getRawItemsRawItemsGet
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : kotlin.Any = apiInstance.getRawItemsRawItemsGet(clientVersion)
             //result shouldBe ("TODO")
         }

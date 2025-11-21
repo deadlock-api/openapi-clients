@@ -1,4 +1,4 @@
-# DeadlockAssetsApiRoutesV2ValidClientVersions
+# DeadlockAssetsApiRoutesRawValidClientVersions
 
 
 ## Enum
@@ -70,5 +70,3 @@
 * `NUMBER_5527` (value: `5527`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

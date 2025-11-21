@@ -22,7 +22,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MiscEntitiesApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getMiscEntitiesV2MiscEntitiesGet(
     clientVersion
@@ -33,7 +33,7 @@ const { status, data } = await apiInstance.getMiscEntitiesV2MiscEntitiesGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesRawValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -74,7 +74,7 @@ const configuration = new Configuration();
 const apiInstance = new MiscEntitiesApi(configuration);
 
 let idOrClassName: string; // (default to undefined)
-let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getMiscEntityV2MiscEntitiesIdOrClassNameGet(
     idOrClassName,
@@ -87,7 +87,7 @@ const { status, data } = await apiInstance.getMiscEntityV2MiscEntitiesIdOrClassN
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **idOrClassName** | [**string**] |  | defaults to undefined|
-| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesRawValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type

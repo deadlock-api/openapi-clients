@@ -17,19 +17,19 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`get_generic_data_raw_generic_data_get`]
 #[derive(Clone, Debug)]
 pub struct GetGenericDataRawGenericDataGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_raw_heroes_raw_heroes_get`]
 #[derive(Clone, Debug)]
 pub struct GetRawHeroesRawHeroesGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_raw_items_raw_items_get`]
 #[derive(Clone, Debug)]
 pub struct GetRawItemsRawItemsGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
 }
 
 
