@@ -16,7 +16,7 @@ pub struct MiscV2 {
     #[serde(rename = "class_name")]
     pub class_name: String,
     #[serde(rename = "color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub color: Option<Option<Box<models::Color>>>,
+    pub color: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "initial_spawn_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub initial_spawn_time: Option<Option<f64>>,
     #[serde(rename = "respawn_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

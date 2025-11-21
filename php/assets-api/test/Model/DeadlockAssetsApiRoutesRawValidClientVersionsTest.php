@@ -1,6 +1,6 @@
 <?php
 /**
- * ColorTest
+ * DeadlockAssetsApiRoutesRawValidClientVersionsTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ColorTest Class Doc Comment
+ * DeadlockAssetsApiRoutesRawValidClientVersionsTest Class Doc Comment
  *
  * @category    Class
- * @description Color
+ * @description DeadlockAssetsApiRoutesRawValidClientVersions
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ColorTest extends TestCase
+class DeadlockAssetsApiRoutesRawValidClientVersionsTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class ColorTest extends TestCase
     }
 
     /**
-     * Test "Color"
+     * Test "DeadlockAssetsApiRoutesRawValidClientVersions"
      */
-    public function testColor()
+    public function testDeadlockAssetsApiRoutesRawValidClientVersions()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

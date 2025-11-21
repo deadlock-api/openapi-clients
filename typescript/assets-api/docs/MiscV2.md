@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **class_name** | **string** |  | [default to undefined]
-**color** | [**Color**](Color.md) |  | [optional] [default to undefined]
+**color** | [**ColorV1**](ColorV1.md) |  | [optional] [default to undefined]
 **initial_spawn_time** | **number** |  | [optional] [default to undefined]
 **respawn_time** | **number** |  | [optional] [default to undefined]
 **spawn_interval** | **number** |  | [optional] [default to undefined]

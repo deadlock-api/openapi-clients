@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **class_name** | **String** |  | 
-**color** | Option<[**models::Color**](Color.md)> |  | [optional]
+**color** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
 **initial_spawn_time** | Option<**f64**> |  | [optional]
 **respawn_time** | Option<**f64**> |  | [optional]
 **spawn_interval** | Option<**f64**> |  | [optional]

@@ -14,10 +14,10 @@
 
 import unittest
 
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
 
-class TestDeadlockAssetsApiRoutesV1ValidClientVersions(unittest.TestCase):
-    """DeadlockAssetsApiRoutesV1ValidClientVersions unit test stubs"""
+class TestDeadlockAssetsApiRoutesRawValidClientVersions(unittest.TestCase):
+    """DeadlockAssetsApiRoutesRawValidClientVersions unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,9 +25,9 @@ class TestDeadlockAssetsApiRoutesV1ValidClientVersions(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testDeadlockAssetsApiRoutesV1ValidClientVersions(self):
-        """Test DeadlockAssetsApiRoutesV1ValidClientVersions"""
-        # inst = DeadlockAssetsApiRoutesV1ValidClientVersions()
+    def testDeadlockAssetsApiRoutesRawValidClientVersions(self):
+        """Test DeadlockAssetsApiRoutesRawValidClientVersions"""
+        # inst = DeadlockAssetsApiRoutesRawValidClientVersions()
 
 if __name__ == '__main__':
     unittest.main()

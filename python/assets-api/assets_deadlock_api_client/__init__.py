@@ -44,9 +44,8 @@ __all__ = [
     "AimingShotSpreadPenalty",
     "Bonus",
     "BuildTagV2",
-    "Color",
     "ColorV1",
-    "DeadlockAssetsApiRoutesV1ValidClientVersions",
+    "DeadlockAssetsApiRoutesRawValidClientVersions",
     "GetItemsV2ItemsGet200ResponseInner",
     "HTTPValidationError",
     "HeroColorsV2",
@@ -149,9 +148,8 @@ from assets_deadlock_api_client.models.ability_videos_v2 import AbilityVideosV2 
 from assets_deadlock_api_client.models.aiming_shot_spread_penalty import AimingShotSpreadPenalty as AimingShotSpreadPenalty
 from assets_deadlock_api_client.models.bonus import Bonus as Bonus
 from assets_deadlock_api_client.models.build_tag_v2 import BuildTagV2 as BuildTagV2
-from assets_deadlock_api_client.models.color import Color as Color
 from assets_deadlock_api_client.models.color_v1 import ColorV1 as ColorV1
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions as DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions as DeadlockAssetsApiRoutesRawValidClientVersions
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner as GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.http_validation_error import HTTPValidationError as HTTPValidationError
 from assets_deadlock_api_client.models.hero_colors_v2 import HeroColorsV2 as HeroColorsV2

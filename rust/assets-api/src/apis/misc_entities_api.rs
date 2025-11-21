@@ -17,14 +17,14 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`get_misc_entities_v2_misc_entities_get`]
 #[derive(Clone, Debug)]
 pub struct GetMiscEntitiesV2MiscEntitiesGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV1ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_misc_entity_v2_misc_entities_id_or_class_name_get`]
 #[derive(Clone, Debug)]
 pub struct GetMiscEntityV2MiscEntitiesIdOrClassNameGetParams {
     pub id_or_class_name: String,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV1ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
 }
 
 

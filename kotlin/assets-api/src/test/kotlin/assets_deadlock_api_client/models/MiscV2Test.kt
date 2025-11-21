@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.MiscV2
-import assets_deadlock_api_client.models.Color
+import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.PickupDefinition
 import assets_deadlock_api_client.models.SubclassModifierDefinition
 

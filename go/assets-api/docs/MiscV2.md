@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassName** | **string** |  | 
-**Color** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
+**Color** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
 **InitialSpawnTime** | Pointer to **NullableFloat32** |  | [optional] 
 **RespawnTime** | Pointer to **NullableFloat32** |  | [optional] 
 **SpawnInterval** | Pointer to **NullableFloat32** |  | [optional] 
@@ -81,20 +81,20 @@ SetClassName sets ClassName field to given value.
 
 ### GetColor
 
-`func (o *MiscV2) GetColor() Color`
+`func (o *MiscV2) GetColor() ColorV1`
 
 GetColor returns the Color field if non-nil, zero value otherwise.
 
 ### GetColorOk
 
-`func (o *MiscV2) GetColorOk() (*Color, bool)`
+`func (o *MiscV2) GetColorOk() (*ColorV1, bool)`
 
 GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetColor
 
-`func (o *MiscV2) SetColor(v Color)`
+`func (o *MiscV2) SetColor(v ColorV1)`
 
 SetColor sets Color field to given value.
 

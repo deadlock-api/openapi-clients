@@ -58,7 +58,7 @@ class MiscV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'class_name' => 'string',
-        'color' => '\OpenAPI\Client\Model\Color',
+        'color' => '\OpenAPI\Client\Model\ColorV1',
         'initial_spawn_time' => 'float',
         'respawn_time' => 'float',
         'spawn_interval' => 'float',
@@ -563,7 +563,7 @@ class MiscV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets color
      *
-     * @return \OpenAPI\Client\Model\Color|null
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getColor()
     {
@@ -573,7 +573,7 @@ class MiscV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets color
      *
-     * @param \OpenAPI\Client\Model\Color|null $color color
+     * @param \OpenAPI\Client\Model\ColorV1|null $color color
      *
      * @return self
      */

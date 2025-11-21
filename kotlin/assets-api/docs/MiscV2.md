@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **className** | **kotlin.String** |  |  |
 | **id** | **kotlin.Long** |  |  [readonly] |
-| **color** | [**Color**](Color.md) |  |  [optional] |
+| **color** | [**ColorV1**](ColorV1.md) |  |  [optional] |
 | **initialSpawnTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **respawnTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **spawnInterval** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

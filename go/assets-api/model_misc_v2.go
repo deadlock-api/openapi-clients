@@ -22,7 +22,7 @@ var _ MappedNullable = &MiscV2{}
 // MiscV2 struct for MiscV2
 type MiscV2 struct {
 	ClassName string `json:"class_name"`
-	Color NullableColor `json:"color,omitempty"`
+	Color NullableColorV1 `json:"color,omitempty"`
 	InitialSpawnTime NullableFloat32 `json:"initial_spawn_time,omitempty"`
 	RespawnTime NullableFloat32 `json:"respawn_time,omitempty"`
 	SpawnInterval NullableFloat32 `json:"spawn_interval,omitempty"`
@@ -104,9 +104,9 @@ func (o *MiscV2) SetClassName(v string) {
 }
 
 // GetColor returns the Color field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MiscV2) GetColor() Color {
+func (o *MiscV2) GetColor() ColorV1 {
 	if o == nil || IsNil(o.Color.Get()) {
-		var ret Color
+		var ret ColorV1
 		return ret
 	}
 	return *o.Color.Get()
@@ -115,7 +115,7 @@ func (o *MiscV2) GetColor() Color {
 // GetColorOk returns a tuple with the Color field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MiscV2) GetColorOk() (*Color, bool) {
+func (o *MiscV2) GetColorOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -131,8 +131,8 @@ func (o *MiscV2) HasColor() bool {
 	return false
 }
 
-// SetColor gets a reference to the given NullableColor and assigns it to the Color field.
-func (o *MiscV2) SetColor(v Color) {
+// SetColor gets a reference to the given NullableColorV1 and assigns it to the Color field.
+func (o *MiscV2) SetColor(v ColorV1) {
 	o.Color.Set(&v)
 }
 // SetColorNil sets the value for Color to be an explicit nil

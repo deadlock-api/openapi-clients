@@ -36,7 +36,11 @@ class TestMiscV2(unittest.TestCase):
         if include_optional:
             return MiscV2(
                 class_name = '',
-                color = None,
+                color = assets_deadlock_api_client.models.color_v1.ColorV1(
+                    red = 0.0, 
+                    green = 0.0, 
+                    blue = 0.0, 
+                    alpha = 0.0, ),
                 initial_spawn_time = 1.337,
                 respawn_time = 1.337,
                 spawn_interval = 1.337,

@@ -14,9 +14,8 @@ docs/AbilityVideosV2.md
 docs/AimingShotSpreadPenalty.md
 docs/Bonus.md
 docs/BuildTagV2.md
-docs/Color.md
 docs/ColorV1.md
-docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
+docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
 docs/DefaultApi.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/HeroColorsV2.md
@@ -113,9 +112,8 @@ src/models/ability_videos_v2.rs
 src/models/aiming_shot_spread_penalty.rs
 src/models/bonus.rs
 src/models/build_tag_v2.rs
-src/models/color.rs
 src/models/color_v1.rs
-src/models/deadlock_assets_api__routes__v1__valid_client_versions.rs
+src/models/deadlock_assets_api__routes__raw__valid_client_versions.rs
 src/models/get_items_v2_items_get_200_response_inner.rs
 src/models/hero_colors_v2.rs
 src/models/hero_description_v2.rs

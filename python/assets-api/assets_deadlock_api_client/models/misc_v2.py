@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from assets_deadlock_api_client.models.color import Color
+from assets_deadlock_api_client.models.color_v1 import ColorV1
 from assets_deadlock_api_client.models.pickup_definition import PickupDefinition
 from assets_deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition
 from typing import Optional, Set
@@ -30,7 +30,7 @@ class MiscV2(BaseModel):
     MiscV2
     """ # noqa: E501
     class_name: StrictStr
-    color: Optional[Color] = None
+    color: Optional[ColorV1] = None
     initial_spawn_time: Optional[Union[StrictFloat, StrictInt]] = None
     respawn_time: Optional[Union[StrictFloat, StrictInt]] = None
     spawn_interval: Optional[Union[StrictFloat, StrictInt]] = None
@@ -312,7 +312,7 @@ class MiscV2(BaseModel):
 
         _obj = cls.model_validate({
             "class_name": obj.get("class_name"),
-            "color": Color.from_dict(obj["color"]) if obj.get("color") is not None else None,
+            "color": ColorV1.from_dict(obj["color"]) if obj.get("color") is not None else None,
             "initial_spawn_time": obj.get("initial_spawn_time"),
             "respawn_time": obj.get("respawn_time"),
             "spawn_interval": obj.get("spawn_interval"),

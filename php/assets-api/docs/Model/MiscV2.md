@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **class_name** | **string** |  |
-**color** | [**\OpenAPI\Client\Model\Color**](Color.md) |  | [optional]
+**color** | [**\OpenAPI\Client\Model\ColorV1**](ColorV1.md) |  | [optional]
 **initial_spawn_time** | **float** |  | [optional]
 **respawn_time** | **float** |  | [optional]
 **spawn_interval** | **float** |  | [optional]

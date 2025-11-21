@@ -15,7 +15,7 @@
 
 package assets_deadlock_api_client.models
 
-import assets_deadlock_api_client.models.Color
+import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.PickupDefinition
 import assets_deadlock_api_client.models.SubclassModifierDefinition
 
@@ -72,7 +72,7 @@ data class MiscV2 (
     val id: kotlin.Long,
 
     @Json(name = "color")
-    val color: Color? = null,
+    val color: ColorV1? = null,
 
     @Json(name = "initial_spawn_time")
     val initialSpawnTime: java.math.BigDecimal? = null,

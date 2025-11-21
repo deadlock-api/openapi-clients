@@ -12,39 +12,57 @@
 """  # noqa: E501
 
 
-import unittest
+from __future__ import annotations
+import json
+from enum import Enum
+from typing_extensions import Self
 
-from assets_deadlock_api_client.models.color import Color
 
-class TestColor(unittest.TestCase):
-    """Color unit test stubs"""
+class DeadlockAssetsApiRoutesRawValidClientVersions(int, Enum):
+    """
+    DeadlockAssetsApiRoutesRawValidClientVersions
+    """
 
-    def setUp(self):
-        pass
+    """
+    allowed enum values
+    """
+    NUMBER_5972 = 5972
+    NUMBER_5959 = 5959
+    NUMBER_5945 = 5945
+    NUMBER_5920 = 5920
+    NUMBER_5902 = 5902
+    NUMBER_5885 = 5885
+    NUMBER_5878 = 5878
+    NUMBER_5869 = 5869
+    NUMBER_5852 = 5852
+    NUMBER_5831 = 5831
+    NUMBER_5826 = 5826
+    NUMBER_5818 = 5818
+    NUMBER_5789 = 5789
+    NUMBER_5748 = 5748
+    NUMBER_5723 = 5723
+    NUMBER_5712 = 5712
+    NUMBER_5710 = 5710
+    NUMBER_5690 = 5690
+    NUMBER_5675 = 5675
+    NUMBER_5668 = 5668
+    NUMBER_5664 = 5664
+    NUMBER_5658 = 5658
+    NUMBER_5650 = 5650
+    NUMBER_5636 = 5636
+    NUMBER_5624 = 5624
+    NUMBER_5615 = 5615
+    NUMBER_5602 = 5602
+    NUMBER_5583 = 5583
+    NUMBER_5554 = 5554
+    NUMBER_5538 = 5538
+    NUMBER_5533 = 5533
+    NUMBER_5529 = 5529
+    NUMBER_5527 = 5527
 
-    def tearDown(self):
-        pass
+    @classmethod
+    def from_json(cls, json_str: str) -> Self:
+        """Create an instance of DeadlockAssetsApiRoutesRawValidClientVersions from a JSON string"""
+        return cls(json.loads(json_str))
 
-    def make_instance(self, include_optional) -> Color:
-        """Test Color
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `Color`
-        """
-        model = Color()
-        if include_optional:
-            return Color(
-            )
-        else:
-            return Color(
-        )
-        """
 
-    def testColor(self):
-        """Test Color"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
-
-if __name__ == '__main__':
-    unittest.main()
