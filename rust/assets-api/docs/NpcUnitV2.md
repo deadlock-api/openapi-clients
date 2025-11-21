@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **sight_range_npcs** | Option<**f64**> |  | [optional]
 **gold_reward** | Option<**f64**> |  | [optional]
 **gold_reward_bonus_percent_per_minute** | Option<**f64**> |  | [optional]
-**m_fl_player_damage_resist_pct** | Option<**f64**> |  | [optional]
+**player_damage_resist_pct** | Option<**f64**> |  | [optional]
 **trooper_damage_resist_pct** | Option<**f64**> |  | [optional]
 **t1_boss_damage_resist_pct** | Option<**f64**> |  | [optional]
 **t2_boss_damage_resist_pct** | Option<**f64**> |  | [optional]

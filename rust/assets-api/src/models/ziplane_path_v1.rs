@@ -28,16 +28,19 @@ pub struct ZiplanePathV1 {
     /// The P2 points of the path.
     #[serde(rename = "P2_points")]
     pub p2_points: Vec<Vec<serde_json::Value>>,
+    #[serde(rename = "color_parsed")]
+    pub color_parsed: Box<models::ColorV1>,
 }
 
 impl ZiplanePathV1 {
-    pub fn new(origin: Vec<serde_json::Value>, color: String, p0_points: Vec<Vec<serde_json::Value>>, p1_points: Vec<Vec<serde_json::Value>>, p2_points: Vec<Vec<serde_json::Value>>) -> ZiplanePathV1 {
+    pub fn new(origin: Vec<serde_json::Value>, color: String, p0_points: Vec<Vec<serde_json::Value>>, p1_points: Vec<Vec<serde_json::Value>>, p2_points: Vec<Vec<serde_json::Value>>, color_parsed: models::ColorV1) -> ZiplanePathV1 {
         ZiplanePathV1 {
             origin,
             color,
             p0_points,
             p1_points,
             p2_points,
+            color_parsed: Box::new(color_parsed),
         }
     }
 }

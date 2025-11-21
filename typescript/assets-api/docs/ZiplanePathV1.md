@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **P0_points** | **Array&lt;Array&lt;any&gt;&gt;** | The P0 points of the path. | [default to undefined]
 **P1_points** | **Array&lt;Array&lt;any&gt;&gt;** | The P1 points of the path. | [default to undefined]
 **P2_points** | **Array&lt;Array&lt;any&gt;&gt;** | The P2 points of the path. | [default to undefined]
+**color_parsed** | [**ColorV1**](ColorV1.md) |  | [readonly] [default to undefined]
 
 ## Example
 
@@ -22,6 +23,7 @@ const instance: ZiplanePathV1 = {
     P0_points,
     P1_points,
     P2_points,
+    color_parsed,
 };
 ```
 

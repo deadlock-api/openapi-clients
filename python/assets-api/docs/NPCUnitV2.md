@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **sight_range_npcs** | **float** |  | [optional] 
 **gold_reward** | **float** |  | [optional] 
 **gold_reward_bonus_percent_per_minute** | **float** |  | [optional] 
-**m_fl_player_damage_resist_pct** | **float** |  | [optional] 
+**player_damage_resist_pct** | **float** |  | [optional] 
 **trooper_damage_resist_pct** | **float** |  | [optional] 
 **t1_boss_damage_resist_pct** | **float** |  | [optional] 
 **t2_boss_damage_resist_pct** | **float** |  | [optional] 

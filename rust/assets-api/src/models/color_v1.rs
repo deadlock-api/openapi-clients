@@ -15,20 +15,20 @@ use serde::{Deserialize, Serialize};
 pub struct ColorV1 {
     /// The red value of the color.
     #[serde(rename = "red")]
-    pub red: i32,
+    pub red: u8,
     /// The green value of the color.
     #[serde(rename = "green")]
-    pub green: i32,
+    pub green: u8,
     /// The blue value of the color.
     #[serde(rename = "blue")]
-    pub blue: i32,
+    pub blue: u8,
     /// The alpha value of the color.
     #[serde(rename = "alpha")]
-    pub alpha: i32,
+    pub alpha: u8,
 }
 
 impl ColorV1 {
-    pub fn new(red: i32, green: i32, blue: i32, alpha: i32) -> ColorV1 {
+    pub fn new(red: u8, green: u8, blue: u8, alpha: u8) -> ColorV1 {
         ColorV1 {
             red,
             green,

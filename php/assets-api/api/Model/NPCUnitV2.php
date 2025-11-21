@@ -64,7 +64,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'sight_range_npcs' => 'float',
         'gold_reward' => 'float',
         'gold_reward_bonus_percent_per_minute' => 'float',
-        'm_fl_player_damage_resist_pct' => 'float',
+        'player_damage_resist_pct' => 'float',
         'trooper_damage_resist_pct' => 'float',
         't1_boss_damage_resist_pct' => 'float',
         't2_boss_damage_resist_pct' => 'float',
@@ -123,7 +123,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'sight_range_npcs' => null,
         'gold_reward' => null,
         'gold_reward_bonus_percent_per_minute' => null,
-        'm_fl_player_damage_resist_pct' => null,
+        'player_damage_resist_pct' => null,
         'trooper_damage_resist_pct' => null,
         't1_boss_damage_resist_pct' => null,
         't2_boss_damage_resist_pct' => null,
@@ -180,7 +180,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'sight_range_npcs' => true,
         'gold_reward' => true,
         'gold_reward_bonus_percent_per_minute' => true,
-        'm_fl_player_damage_resist_pct' => true,
+        'player_damage_resist_pct' => true,
         'trooper_damage_resist_pct' => true,
         't1_boss_damage_resist_pct' => true,
         't2_boss_damage_resist_pct' => true,
@@ -317,7 +317,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'sight_range_npcs' => 'sight_range_npcs',
         'gold_reward' => 'gold_reward',
         'gold_reward_bonus_percent_per_minute' => 'gold_reward_bonus_percent_per_minute',
-        'm_fl_player_damage_resist_pct' => 'm_flPlayerDamageResistPct',
+        'player_damage_resist_pct' => 'player_damage_resist_pct',
         'trooper_damage_resist_pct' => 'trooper_damage_resist_pct',
         't1_boss_damage_resist_pct' => 't1_boss_damage_resist_pct',
         't2_boss_damage_resist_pct' => 't2_boss_damage_resist_pct',
@@ -374,7 +374,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'sight_range_npcs' => 'setSightRangeNpcs',
         'gold_reward' => 'setGoldReward',
         'gold_reward_bonus_percent_per_minute' => 'setGoldRewardBonusPercentPerMinute',
-        'm_fl_player_damage_resist_pct' => 'setMFlPlayerDamageResistPct',
+        'player_damage_resist_pct' => 'setPlayerDamageResistPct',
         'trooper_damage_resist_pct' => 'setTrooperDamageResistPct',
         't1_boss_damage_resist_pct' => 'setT1BossDamageResistPct',
         't2_boss_damage_resist_pct' => 'setT2BossDamageResistPct',
@@ -431,7 +431,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'sight_range_npcs' => 'getSightRangeNpcs',
         'gold_reward' => 'getGoldReward',
         'gold_reward_bonus_percent_per_minute' => 'getGoldRewardBonusPercentPerMinute',
-        'm_fl_player_damage_resist_pct' => 'getMFlPlayerDamageResistPct',
+        'player_damage_resist_pct' => 'getPlayerDamageResistPct',
         'trooper_damage_resist_pct' => 'getTrooperDamageResistPct',
         't1_boss_damage_resist_pct' => 'getT1BossDamageResistPct',
         't2_boss_damage_resist_pct' => 'getT2BossDamageResistPct',
@@ -539,7 +539,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('sight_range_npcs', $data ?? [], null);
         $this->setIfExists('gold_reward', $data ?? [], null);
         $this->setIfExists('gold_reward_bonus_percent_per_minute', $data ?? [], null);
-        $this->setIfExists('m_fl_player_damage_resist_pct', $data ?? [], null);
+        $this->setIfExists('player_damage_resist_pct', $data ?? [], null);
         $this->setIfExists('trooper_damage_resist_pct', $data ?? [], null);
         $this->setIfExists('t1_boss_damage_resist_pct', $data ?? [], null);
         $this->setIfExists('t2_boss_damage_resist_pct', $data ?? [], null);
@@ -863,35 +863,35 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets m_fl_player_damage_resist_pct
+     * Gets player_damage_resist_pct
      *
      * @return float|null
      */
-    public function getMFlPlayerDamageResistPct()
+    public function getPlayerDamageResistPct()
     {
-        return $this->container['m_fl_player_damage_resist_pct'];
+        return $this->container['player_damage_resist_pct'];
     }
 
     /**
-     * Sets m_fl_player_damage_resist_pct
+     * Sets player_damage_resist_pct
      *
-     * @param float|null $m_fl_player_damage_resist_pct m_fl_player_damage_resist_pct
+     * @param float|null $player_damage_resist_pct player_damage_resist_pct
      *
      * @return self
      */
-    public function setMFlPlayerDamageResistPct($m_fl_player_damage_resist_pct)
+    public function setPlayerDamageResistPct($player_damage_resist_pct)
     {
-        if (is_null($m_fl_player_damage_resist_pct)) {
-            array_push($this->openAPINullablesSetToNull, 'm_fl_player_damage_resist_pct');
+        if (is_null($player_damage_resist_pct)) {
+            array_push($this->openAPINullablesSetToNull, 'player_damage_resist_pct');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('m_fl_player_damage_resist_pct', $nullablesSetToNull);
+            $index = array_search('player_damage_resist_pct', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['m_fl_player_damage_resist_pct'] = $m_fl_player_damage_resist_pct;
+        $this->container['player_damage_resist_pct'] = $player_damage_resist_pct;
 
         return $this;
     }

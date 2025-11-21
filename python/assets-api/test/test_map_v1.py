@@ -87,7 +87,12 @@ class TestMapV1(unittest.TestCase):
                             [
                                 null
                                 ]
-                            ], )
+                            ], 
+                        color_parsed = assets_deadlock_api_client.models.color_v1.ColorV1(
+                            red = 0.0, 
+                            green = 0.0, 
+                            blue = 0.0, 
+                            alpha = 0.0, ), )
                     ]
             )
         else:
@@ -143,7 +148,12 @@ class TestMapV1(unittest.TestCase):
                             [
                                 null
                                 ]
-                            ], )
+                            ], 
+                        color_parsed = assets_deadlock_api_client.models.color_v1.ColorV1(
+                            red = 0.0, 
+                            green = 0.0, 
+                            blue = 0.0, 
+                            alpha = 0.0, ), )
                     ],
         )
         """

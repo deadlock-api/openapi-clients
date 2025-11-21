@@ -75,10 +75,10 @@ class NPCUnitV2Test : ShouldSpec() {
             //modelInstance.goldRewardBonusPercentPerMinute shouldBe ("TODO")
         }
 
-        // to test the property `mFlPlayerDamageResistPct`
-        should("test mFlPlayerDamageResistPct") {
+        // to test the property `playerDamageResistPct`
+        should("test playerDamageResistPct") {
             // uncomment below to test the property
-            //modelInstance.mFlPlayerDamageResistPct shouldBe ("TODO")
+            //modelInstance.playerDamageResistPct shouldBe ("TODO")
         }
 
         // to test the property `trooperDamageResistPct`

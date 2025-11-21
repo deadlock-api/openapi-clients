@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **SightRangeNpcs** | Pointer to **NullableFloat32** |  | [optional] 
 **GoldReward** | Pointer to **NullableFloat32** |  | [optional] 
 **GoldRewardBonusPercentPerMinute** | Pointer to **NullableFloat32** |  | [optional] 
-**MFlPlayerDamageResistPct** | Pointer to **NullableFloat32** |  | [optional] 
+**PlayerDamageResistPct** | Pointer to **NullableFloat32** |  | [optional] 
 **TrooperDamageResistPct** | Pointer to **NullableFloat32** |  | [optional] 
 **T1BossDamageResistPct** | Pointer to **NullableFloat32** |  | [optional] 
 **T2BossDamageResistPct** | Pointer to **NullableFloat32** |  | [optional] 
@@ -303,41 +303,41 @@ HasGoldRewardBonusPercentPerMinute returns a boolean if a field has been set.
 `func (o *NPCUnitV2) UnsetGoldRewardBonusPercentPerMinute()`
 
 UnsetGoldRewardBonusPercentPerMinute ensures that no value is present for GoldRewardBonusPercentPerMinute, not even an explicit nil
-### GetMFlPlayerDamageResistPct
+### GetPlayerDamageResistPct
 
-`func (o *NPCUnitV2) GetMFlPlayerDamageResistPct() float32`
+`func (o *NPCUnitV2) GetPlayerDamageResistPct() float32`
 
-GetMFlPlayerDamageResistPct returns the MFlPlayerDamageResistPct field if non-nil, zero value otherwise.
+GetPlayerDamageResistPct returns the PlayerDamageResistPct field if non-nil, zero value otherwise.
 
-### GetMFlPlayerDamageResistPctOk
+### GetPlayerDamageResistPctOk
 
-`func (o *NPCUnitV2) GetMFlPlayerDamageResistPctOk() (*float32, bool)`
+`func (o *NPCUnitV2) GetPlayerDamageResistPctOk() (*float32, bool)`
 
-GetMFlPlayerDamageResistPctOk returns a tuple with the MFlPlayerDamageResistPct field if it's non-nil, zero value otherwise
+GetPlayerDamageResistPctOk returns a tuple with the PlayerDamageResistPct field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMFlPlayerDamageResistPct
+### SetPlayerDamageResistPct
 
-`func (o *NPCUnitV2) SetMFlPlayerDamageResistPct(v float32)`
+`func (o *NPCUnitV2) SetPlayerDamageResistPct(v float32)`
 
-SetMFlPlayerDamageResistPct sets MFlPlayerDamageResistPct field to given value.
+SetPlayerDamageResistPct sets PlayerDamageResistPct field to given value.
 
-### HasMFlPlayerDamageResistPct
+### HasPlayerDamageResistPct
 
-`func (o *NPCUnitV2) HasMFlPlayerDamageResistPct() bool`
+`func (o *NPCUnitV2) HasPlayerDamageResistPct() bool`
 
-HasMFlPlayerDamageResistPct returns a boolean if a field has been set.
+HasPlayerDamageResistPct returns a boolean if a field has been set.
 
-### SetMFlPlayerDamageResistPctNil
+### SetPlayerDamageResistPctNil
 
-`func (o *NPCUnitV2) SetMFlPlayerDamageResistPctNil(b bool)`
+`func (o *NPCUnitV2) SetPlayerDamageResistPctNil(b bool)`
 
- SetMFlPlayerDamageResistPctNil sets the value for MFlPlayerDamageResistPct to be an explicit nil
+ SetPlayerDamageResistPctNil sets the value for PlayerDamageResistPct to be an explicit nil
 
-### UnsetMFlPlayerDamageResistPct
-`func (o *NPCUnitV2) UnsetMFlPlayerDamageResistPct()`
+### UnsetPlayerDamageResistPct
+`func (o *NPCUnitV2) UnsetPlayerDamageResistPct()`
 
-UnsetMFlPlayerDamageResistPct ensures that no value is present for MFlPlayerDamageResistPct, not even an explicit nil
+UnsetPlayerDamageResistPct ensures that no value is present for PlayerDamageResistPct, not even an explicit nil
 ### GetTrooperDamageResistPct
 
 `func (o *NPCUnitV2) GetTrooperDamageResistPct() float32`

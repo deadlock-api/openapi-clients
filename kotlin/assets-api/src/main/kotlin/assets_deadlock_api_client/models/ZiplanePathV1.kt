@@ -15,6 +15,7 @@
 
 package assets_deadlock_api_client.models
 
+import assets_deadlock_api_client.models.ColorV1
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -27,6 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param p0Points The P0 points of the path.
  * @param p1Points The P1 points of the path.
  * @param p2Points The P2 points of the path.
+ * @param colorParsed 
  */
 
 
@@ -50,7 +52,10 @@ data class ZiplanePathV1 (
 
     /* The P2 points of the path. */
     @Json(name = "P2_points")
-    val p2Points: kotlin.collections.List<kotlin.collections.List<kotlin.Any>>
+    val p2Points: kotlin.collections.List<kotlin.collections.List<kotlin.Any>>,
+
+    @Json(name = "color_parsed")
+    val colorParsed: ColorV1
 
 ) {
 

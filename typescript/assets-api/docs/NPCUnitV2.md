@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **sight_range_npcs** | **number** |  | [optional] [default to undefined]
 **gold_reward** | **number** |  | [optional] [default to undefined]
 **gold_reward_bonus_percent_per_minute** | **number** |  | [optional] [default to undefined]
-**m_flPlayerDamageResistPct** | **number** |  | [optional] [default to undefined]
+**player_damage_resist_pct** | **number** |  | [optional] [default to undefined]
 **trooper_damage_resist_pct** | **number** |  | [optional] [default to undefined]
 **t1_boss_damage_resist_pct** | **number** |  | [optional] [default to undefined]
 **t2_boss_damage_resist_pct** | **number** |  | [optional] [default to undefined]
@@ -68,7 +68,7 @@ const instance: NPCUnitV2 = {
     sight_range_npcs,
     gold_reward,
     gold_reward_bonus_percent_per_minute,
-    m_flPlayerDamageResistPct,
+    player_damage_resist_pct,
     trooper_damage_resist_pct,
     t1_boss_damage_resist_pct,
     t2_boss_damage_resist_pct,

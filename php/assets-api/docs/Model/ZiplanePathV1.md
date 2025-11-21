@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **p0_points** | **mixed[][]** | The P0 points of the path. |
 **p1_points** | **mixed[][]** | The P1 points of the path. |
 **p2_points** | **mixed[][]** | The P2 points of the path. |
+**color_parsed** | [**\OpenAPI\Client\Model\ColorV1**](ColorV1.md) |  | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

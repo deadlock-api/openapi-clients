@@ -526,7 +526,7 @@ export interface NPCUnitV2 {
     'sight_range_npcs'?: number | null;
     'gold_reward'?: number | null;
     'gold_reward_bonus_percent_per_minute'?: number | null;
-    'm_flPlayerDamageResistPct'?: number | null;
+    'player_damage_resist_pct'?: number | null;
     'trooper_damage_resist_pct'?: number | null;
     't1_boss_damage_resist_pct'?: number | null;
     't2_boss_damage_resist_pct'?: number | null;
@@ -976,6 +976,7 @@ export interface ZiplanePathV1 {
      * The P2 points of the path.
      */
     'P2_points': Array<Array<any>>;
+    'color_parsed': ColorV1;
 }
 
 /**

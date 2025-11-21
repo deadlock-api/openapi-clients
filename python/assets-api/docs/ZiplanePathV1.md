@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **p0_points** | **List[List[object]]** | The P0 points of the path. | 
 **p1_points** | **List[List[object]]** | The P1 points of the path. | 
 **p2_points** | **List[List[object]]** | The P2 points of the path. | 
+**color_parsed** | [**ColorV1**](ColorV1.md) |  | [readonly] 
 
 ## Example
 

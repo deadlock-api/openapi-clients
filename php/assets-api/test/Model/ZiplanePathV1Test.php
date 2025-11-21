@@ -123,4 +123,13 @@ class ZiplanePathV1Test extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "color_parsed"
+     */
+    public function testPropertyColorParsed()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

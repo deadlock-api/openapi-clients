@@ -31,6 +31,7 @@ type ZiplanePathV1 struct {
 	P1Points [][]interface{} `json:"P1_points"`
 	// The P2 points of the path.
 	P2Points [][]interface{} `json:"P2_points"`
+	ColorParsed ColorV1 `json:"color_parsed"`
 }
 
 type _ZiplanePathV1 ZiplanePathV1
@@ -39,13 +40,14 @@ type _ZiplanePathV1 ZiplanePathV1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewZiplanePathV1(origin []interface{}, color string, p0Points [][]interface{}, p1Points [][]interface{}, p2Points [][]interface{}) *ZiplanePathV1 {
+func NewZiplanePathV1(origin []interface{}, color string, p0Points [][]interface{}, p1Points [][]interface{}, p2Points [][]interface{}, colorParsed ColorV1) *ZiplanePathV1 {
 	this := ZiplanePathV1{}
 	this.Origin = origin
 	this.Color = color
 	this.P0Points = p0Points
 	this.P1Points = p1Points
 	this.P2Points = p2Points
+	this.ColorParsed = colorParsed
 	return &this
 }
 
@@ -177,6 +179,30 @@ func (o *ZiplanePathV1) SetP2Points(v [][]interface{}) {
 	o.P2Points = v
 }
 
+// GetColorParsed returns the ColorParsed field value
+func (o *ZiplanePathV1) GetColorParsed() ColorV1 {
+	if o == nil {
+		var ret ColorV1
+		return ret
+	}
+
+	return o.ColorParsed
+}
+
+// GetColorParsedOk returns a tuple with the ColorParsed field value
+// and a boolean to check if the value has been set.
+func (o *ZiplanePathV1) GetColorParsedOk() (*ColorV1, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ColorParsed, true
+}
+
+// SetColorParsed sets field value
+func (o *ZiplanePathV1) SetColorParsed(v ColorV1) {
+	o.ColorParsed = v
+}
+
 func (o ZiplanePathV1) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -192,6 +218,7 @@ func (o ZiplanePathV1) ToMap() (map[string]interface{}, error) {
 	toSerialize["P0_points"] = o.P0Points
 	toSerialize["P1_points"] = o.P1Points
 	toSerialize["P2_points"] = o.P2Points
+	toSerialize["color_parsed"] = o.ColorParsed
 	return toSerialize, nil
 }
 
@@ -205,6 +232,7 @@ func (o *ZiplanePathV1) UnmarshalJSON(data []byte) (err error) {
 		"P0_points",
 		"P1_points",
 		"P2_points",
+		"color_parsed",
 	}
 
 	allProperties := make(map[string]interface{})

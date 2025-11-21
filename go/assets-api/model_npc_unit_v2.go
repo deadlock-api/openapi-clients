@@ -28,7 +28,7 @@ type NPCUnitV2 struct {
 	SightRangeNpcs NullableFloat32 `json:"sight_range_npcs,omitempty"`
 	GoldReward NullableFloat32 `json:"gold_reward,omitempty"`
 	GoldRewardBonusPercentPerMinute NullableFloat32 `json:"gold_reward_bonus_percent_per_minute,omitempty"`
-	MFlPlayerDamageResistPct NullableFloat32 `json:"m_flPlayerDamageResistPct,omitempty"`
+	PlayerDamageResistPct NullableFloat32 `json:"player_damage_resist_pct,omitempty"`
 	TrooperDamageResistPct NullableFloat32 `json:"trooper_damage_resist_pct,omitempty"`
 	T1BossDamageResistPct NullableFloat32 `json:"t1_boss_damage_resist_pct,omitempty"`
 	T2BossDamageResistPct NullableFloat32 `json:"t2_boss_damage_resist_pct,omitempty"`
@@ -369,46 +369,46 @@ func (o *NPCUnitV2) UnsetGoldRewardBonusPercentPerMinute() {
 	o.GoldRewardBonusPercentPerMinute.Unset()
 }
 
-// GetMFlPlayerDamageResistPct returns the MFlPlayerDamageResistPct field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetMFlPlayerDamageResistPct() float32 {
-	if o == nil || IsNil(o.MFlPlayerDamageResistPct.Get()) {
+// GetPlayerDamageResistPct returns the PlayerDamageResistPct field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetPlayerDamageResistPct() float32 {
+	if o == nil || IsNil(o.PlayerDamageResistPct.Get()) {
 		var ret float32
 		return ret
 	}
-	return *o.MFlPlayerDamageResistPct.Get()
+	return *o.PlayerDamageResistPct.Get()
 }
 
-// GetMFlPlayerDamageResistPctOk returns a tuple with the MFlPlayerDamageResistPct field value if set, nil otherwise
+// GetPlayerDamageResistPctOk returns a tuple with the PlayerDamageResistPct field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetMFlPlayerDamageResistPctOk() (*float32, bool) {
+func (o *NPCUnitV2) GetPlayerDamageResistPctOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.MFlPlayerDamageResistPct.Get(), o.MFlPlayerDamageResistPct.IsSet()
+	return o.PlayerDamageResistPct.Get(), o.PlayerDamageResistPct.IsSet()
 }
 
-// HasMFlPlayerDamageResistPct returns a boolean if a field has been set.
-func (o *NPCUnitV2) HasMFlPlayerDamageResistPct() bool {
-	if o != nil && o.MFlPlayerDamageResistPct.IsSet() {
+// HasPlayerDamageResistPct returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasPlayerDamageResistPct() bool {
+	if o != nil && o.PlayerDamageResistPct.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMFlPlayerDamageResistPct gets a reference to the given NullableFloat32 and assigns it to the MFlPlayerDamageResistPct field.
-func (o *NPCUnitV2) SetMFlPlayerDamageResistPct(v float32) {
-	o.MFlPlayerDamageResistPct.Set(&v)
+// SetPlayerDamageResistPct gets a reference to the given NullableFloat32 and assigns it to the PlayerDamageResistPct field.
+func (o *NPCUnitV2) SetPlayerDamageResistPct(v float32) {
+	o.PlayerDamageResistPct.Set(&v)
 }
-// SetMFlPlayerDamageResistPctNil sets the value for MFlPlayerDamageResistPct to be an explicit nil
-func (o *NPCUnitV2) SetMFlPlayerDamageResistPctNil() {
-	o.MFlPlayerDamageResistPct.Set(nil)
+// SetPlayerDamageResistPctNil sets the value for PlayerDamageResistPct to be an explicit nil
+func (o *NPCUnitV2) SetPlayerDamageResistPctNil() {
+	o.PlayerDamageResistPct.Set(nil)
 }
 
-// UnsetMFlPlayerDamageResistPct ensures that no value is present for MFlPlayerDamageResistPct, not even an explicit nil
-func (o *NPCUnitV2) UnsetMFlPlayerDamageResistPct() {
-	o.MFlPlayerDamageResistPct.Unset()
+// UnsetPlayerDamageResistPct ensures that no value is present for PlayerDamageResistPct, not even an explicit nil
+func (o *NPCUnitV2) UnsetPlayerDamageResistPct() {
+	o.PlayerDamageResistPct.Unset()
 }
 
 // GetTrooperDamageResistPct returns the TrooperDamageResistPct field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2144,8 +2144,8 @@ func (o NPCUnitV2) ToMap() (map[string]interface{}, error) {
 	if o.GoldRewardBonusPercentPerMinute.IsSet() {
 		toSerialize["gold_reward_bonus_percent_per_minute"] = o.GoldRewardBonusPercentPerMinute.Get()
 	}
-	if o.MFlPlayerDamageResistPct.IsSet() {
-		toSerialize["m_flPlayerDamageResistPct"] = o.MFlPlayerDamageResistPct.Get()
+	if o.PlayerDamageResistPct.IsSet() {
+		toSerialize["player_damage_resist_pct"] = o.PlayerDamageResistPct.Get()
 	}
 	if o.TrooperDamageResistPct.IsSet() {
 		toSerialize["trooper_damage_resist_pct"] = o.TrooperDamageResistPct.Get()

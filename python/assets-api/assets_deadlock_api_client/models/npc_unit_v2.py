@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.color_v1 import ColorV1
 from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2
@@ -35,7 +35,7 @@ class NPCUnitV2(BaseModel):
     sight_range_npcs: Optional[Union[StrictFloat, StrictInt]] = None
     gold_reward: Optional[Union[StrictFloat, StrictInt]] = None
     gold_reward_bonus_percent_per_minute: Optional[Union[StrictFloat, StrictInt]] = None
-    m_fl_player_damage_resist_pct: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="m_flPlayerDamageResistPct")
+    player_damage_resist_pct: Optional[Union[StrictFloat, StrictInt]] = None
     trooper_damage_resist_pct: Optional[Union[StrictFloat, StrictInt]] = None
     t1_boss_damage_resist_pct: Optional[Union[StrictFloat, StrictInt]] = None
     t2_boss_damage_resist_pct: Optional[Union[StrictFloat, StrictInt]] = None
@@ -77,7 +77,7 @@ class NPCUnitV2(BaseModel):
     glow_color_team2: Optional[ColorV1] = None
     glow_color_team_neutral: Optional[ColorV1] = None
     id: StrictInt
-    __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "m_flPlayerDamageResistPct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "walk_speed", "run_speed", "acceleration", "melee_damage", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "glow_color_friend", "glow_color_enemy", "glow_color_team1", "glow_color_team2", "glow_color_team_neutral", "id"]
+    __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "player_damage_resist_pct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "walk_speed", "run_speed", "acceleration", "melee_damage", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "glow_color_friend", "glow_color_enemy", "glow_color_team1", "glow_color_team2", "glow_color_team_neutral", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -183,10 +183,10 @@ class NPCUnitV2(BaseModel):
         if self.gold_reward_bonus_percent_per_minute is None and "gold_reward_bonus_percent_per_minute" in self.model_fields_set:
             _dict['gold_reward_bonus_percent_per_minute'] = None
 
-        # set to None if m_fl_player_damage_resist_pct (nullable) is None
+        # set to None if player_damage_resist_pct (nullable) is None
         # and model_fields_set contains the field
-        if self.m_fl_player_damage_resist_pct is None and "m_fl_player_damage_resist_pct" in self.model_fields_set:
-            _dict['m_flPlayerDamageResistPct'] = None
+        if self.player_damage_resist_pct is None and "player_damage_resist_pct" in self.model_fields_set:
+            _dict['player_damage_resist_pct'] = None
 
         # set to None if trooper_damage_resist_pct (nullable) is None
         # and model_fields_set contains the field
@@ -407,7 +407,7 @@ class NPCUnitV2(BaseModel):
             "sight_range_npcs": obj.get("sight_range_npcs"),
             "gold_reward": obj.get("gold_reward"),
             "gold_reward_bonus_percent_per_minute": obj.get("gold_reward_bonus_percent_per_minute"),
-            "m_flPlayerDamageResistPct": obj.get("m_flPlayerDamageResistPct"),
+            "player_damage_resist_pct": obj.get("player_damage_resist_pct"),
             "trooper_damage_resist_pct": obj.get("trooper_damage_resist_pct"),
             "t1_boss_damage_resist_pct": obj.get("t1_boss_damage_resist_pct"),
             "t2_boss_damage_resist_pct": obj.get("t2_boss_damage_resist_pct"),

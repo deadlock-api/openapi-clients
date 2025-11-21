@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from assets_deadlock_api_client.models.color_v1 import ColorV1
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +33,8 @@ class ZiplanePathV1(BaseModel):
     p0_points: List[Annotated[List[Any], Field(min_length=3, max_length=3)]] = Field(description="The P0 points of the path.", alias="P0_points")
     p1_points: List[Annotated[List[Any], Field(min_length=3, max_length=3)]] = Field(description="The P1 points of the path.", alias="P1_points")
     p2_points: List[Annotated[List[Any], Field(min_length=3, max_length=3)]] = Field(description="The P2 points of the path.", alias="P2_points")
-    __properties: ClassVar[List[str]] = ["origin", "color", "P0_points", "P1_points", "P2_points"]
+    color_parsed: ColorV1
+    __properties: ClassVar[List[str]] = ["origin", "color", "P0_points", "P1_points", "P2_points", "color_parsed"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -64,8 +66,10 @@ class ZiplanePathV1(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "color_parsed",
         ])
 
         _dict = self.model_dump(
@@ -73,6 +77,9 @@ class ZiplanePathV1(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of color_parsed
+        if self.color_parsed:
+            _dict['color_parsed'] = self.color_parsed.to_dict()
         return _dict
 
     @classmethod
@@ -89,7 +96,8 @@ class ZiplanePathV1(BaseModel):
             "color": obj.get("color"),
             "P0_points": obj.get("P0_points"),
             "P1_points": obj.get("P1_points"),
-            "P2_points": obj.get("P2_points")
+            "P2_points": obj.get("P2_points"),
+            "color_parsed": ColorV1.from_dict(obj["color_parsed"]) if obj.get("color_parsed") is not None else None
         })
         return _obj
 

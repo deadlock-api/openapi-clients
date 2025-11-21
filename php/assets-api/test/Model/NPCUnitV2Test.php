@@ -143,9 +143,9 @@ class NPCUnitV2Test extends TestCase
     }
 
     /**
-     * Test attribute "m_fl_player_damage_resist_pct"
+     * Test attribute "player_damage_resist_pct"
      */
-    public function testPropertyMFlPlayerDamageResistPct()
+    public function testPropertyPlayerDamageResistPct()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -32,7 +32,7 @@ import com.squareup.moshi.JsonClass
  * @param sightRangeNpcs 
  * @param goldReward 
  * @param goldRewardBonusPercentPerMinute 
- * @param mFlPlayerDamageResistPct 
+ * @param playerDamageResistPct 
  * @param trooperDamageResistPct 
  * @param t1BossDamageResistPct 
  * @param t2BossDamageResistPct 
@@ -102,8 +102,8 @@ data class NPCUnitV2 (
     @Json(name = "gold_reward_bonus_percent_per_minute")
     val goldRewardBonusPercentPerMinute: java.math.BigDecimal? = null,
 
-    @Json(name = "m_flPlayerDamageResistPct")
-    val mFlPlayerDamageResistPct: java.math.BigDecimal? = null,
+    @Json(name = "player_damage_resist_pct")
+    val playerDamageResistPct: java.math.BigDecimal? = null,
 
     @Json(name = "trooper_damage_resist_pct")
     val trooperDamageResistPct: java.math.BigDecimal? = null,

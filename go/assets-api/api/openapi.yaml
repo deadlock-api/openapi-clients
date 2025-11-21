@@ -1305,25 +1305,33 @@ components:
       title: BuildTagV2
     ColorV1:
       example:
-        red: 2
-        green: 3
-        blue: 8
-        alpha: 4
+        red: 60
+        green: 97
+        blue: 221
+        alpha: 115
       properties:
         red:
           description: The red value of the color.
+          maximum: 255.0
+          minimum: 0.0
           title: Red
           type: integer
         green:
           description: The green value of the color.
+          maximum: 255.0
+          minimum: 0.0
           title: Green
           type: integer
         blue:
           description: The blue value of the color.
+          maximum: 255.0
+          minimum: 0.0
           title: Blue
           type: integer
         alpha:
           description: The alpha value of the color.
+          maximum: 255.0
+          minimum: 0.0
           title: Alpha
           type: integer
       required:
@@ -2344,6 +2352,11 @@ components:
           - ""
           - ""
           - ""
+          color_parsed:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
           P1_points:
           - - ""
             - ""
@@ -2370,6 +2383,11 @@ components:
           - ""
           - ""
           - ""
+          color_parsed:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
           P1_points:
           - - ""
             - ""
@@ -2762,26 +2780,26 @@ components:
       example:
         gold_reward: 9.702963800023566
         health_bar_color_enemy:
-          red: 2
-          green: 3
-          blue: 8
-          alpha: 4
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         attack_t1_boss_max_range: 9.254183946267839
         t1_boss_dps: 8.761432466225475
         trooper_dps: 3.1497903714250555
         melee_duration: 8.863729185622827
         acceleration: 1.7325933120207193
         glow_color_friend:
-          red: 2
-          green: 3
-          blue: 8
-          alpha: 4
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         gold_reward_bonus_percent_per_minute: 0.5199002018724985
         glow_color_enemy:
-          red: 2
-          green: 3
-          blue: 8
-          alpha: 4
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         attack_trooper_max_range: 9.183123594773994
         id: 0
         t1_boss_damage_resist_pct: 4.86315908102884
@@ -2791,30 +2809,31 @@ components:
         near_death_duration: 3.901545264248647
         t2_boss_dpsmax_resist: 3.7814124730767915
         health_bar_color_team_neutral:
-          red: 2
-          green: 3
-          blue: 8
-          alpha: 4
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         t1_boss_dpsmax_resist: 5.299143560275359
         melee_attempt_range: 6.623518433804886
+        player_damage_resist_pct: 7.933506881737151
         glow_color_team_neutral:
-          red: 2
-          green: 3
-          blue: 8
-          alpha: 4
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         melee_damage: 8.28965939814297
         t2_boss_dps: 8.37823741034869
         melee_hit_range: 4.573936264232251
         glow_color_team2:
-          red: 2
-          green: 3
-          blue: 8
-          alpha: 4
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         glow_color_team1:
-          red: 2
-          green: 3
-          blue: 8
-          alpha: 4
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         t2_boss_dpsbase_resist: 7.606863723092579
         t2_boss_dpsmax_resist_time_in_seconds: 3.111202833403195
         sight_range_players: 9.132027271330688
@@ -2905,22 +2924,22 @@ components:
             range: null
           reload_duration: 4.078845849666752
         health_bar_color_team2:
-          red: 2
-          green: 3
-          blue: 8
-          alpha: 4
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         health_bar_color_team1:
-          red: 2
-          green: 3
-          blue: 8
-          alpha: 4
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         generator_boss_dps: 5.877124706116695
         run_speed: 2.9409642974827896
         health_bar_color_friend:
-          red: 2
-          green: 3
-          blue: 8
-          alpha: 4
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         attack_t3_boss_max_range: 1.8268702177058116
         attack_t3_boss_phase2_max_range: 3.502657762086401
         sight_range_npcs: 0.8774076871421566
@@ -2930,7 +2949,6 @@ components:
         t1_boss_dpsbase_resist: 0.4182561061793122
         t1_boss_dpsmax_resist_time_in_seconds: 5.312489704336296
         barrack_boss_dps: 7.835035282970782
-        m_flPlayerDamageResistPct: 7.933506881737151
         t2_boss_damage_resist_pct: 6.073898085781152
       properties:
         class_name:
@@ -2953,7 +2971,7 @@ components:
         gold_reward_bonus_percent_per_minute:
           nullable: true
           type: number
-        m_flPlayerDamageResistPct:
+        player_damage_resist_pct:
           nullable: true
           type: number
         trooper_damage_resist_pct:
@@ -4386,6 +4404,11 @@ components:
         - ""
         - ""
         - ""
+        color_parsed:
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
         P1_points:
         - - ""
           - ""
@@ -4435,11 +4458,14 @@ components:
             minItems: 3
             type: array
           type: array
+        color_parsed:
+          $ref: "#/components/schemas/ColorV1"
       required:
       - P0_points
       - P1_points
       - P2_points
       - color
+      - color_parsed
       - origin
       title: ZiplanePathV1
     deadlock_assets_api__routes__v1__ValidClientVersions:

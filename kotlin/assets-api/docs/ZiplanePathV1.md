@@ -9,6 +9,7 @@
 | **p0Points** | **kotlin.collections.List&lt;kotlin.collections.List&lt;kotlin.Any&gt;&gt;** | The P0 points of the path. |  |
 | **p1Points** | **kotlin.collections.List&lt;kotlin.collections.List&lt;kotlin.Any&gt;&gt;** | The P1 points of the path. |  |
 | **p2Points** | **kotlin.collections.List&lt;kotlin.collections.List&lt;kotlin.Any&gt;&gt;** | The P2 points of the path. |  |
+| **colorParsed** | [**ColorV1**](ColorV1.md) |  |  [readonly] |
 
 
 

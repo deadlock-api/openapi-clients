@@ -27,8 +27,8 @@ pub struct NpcUnitV2 {
     pub gold_reward: Option<Option<f64>>,
     #[serde(rename = "gold_reward_bonus_percent_per_minute", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub gold_reward_bonus_percent_per_minute: Option<Option<f64>>,
-    #[serde(rename = "m_flPlayerDamageResistPct", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub m_fl_player_damage_resist_pct: Option<Option<f64>>,
+    #[serde(rename = "player_damage_resist_pct", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub player_damage_resist_pct: Option<Option<f64>>,
     #[serde(rename = "trooper_damage_resist_pct", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub trooper_damage_resist_pct: Option<Option<f64>>,
     #[serde(rename = "t1_boss_damage_resist_pct", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -123,7 +123,7 @@ impl NpcUnitV2 {
             sight_range_npcs: None,
             gold_reward: None,
             gold_reward_bonus_percent_per_minute: None,
-            m_fl_player_damage_resist_pct: None,
+            player_damage_resist_pct: None,
             trooper_damage_resist_pct: None,
             t1_boss_damage_resist_pct: None,
             t2_boss_damage_resist_pct: None,

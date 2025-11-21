@@ -35,17 +35,17 @@ class TestColorV1(unittest.TestCase):
         model = ColorV1()
         if include_optional:
             return ColorV1(
-                red = 56,
-                green = 56,
-                blue = 56,
-                alpha = 56
+                red = 0.0,
+                green = 0.0,
+                blue = 0.0,
+                alpha = 0.0
             )
         else:
             return ColorV1(
-                red = 56,
-                green = 56,
-                blue = 56,
-                alpha = 56,
+                red = 0.0,
+                green = 0.0,
+                blue = 0.0,
+                alpha = 0.0,
         )
         """
 

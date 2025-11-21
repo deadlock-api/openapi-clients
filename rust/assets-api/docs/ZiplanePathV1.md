@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **p0_points** | [**Vec<Vec<serde_json::Value>>**](Vec.md) | The P0 points of the path. | 
 **p1_points** | [**Vec<Vec<serde_json::Value>>**](Vec.md) | The P1 points of the path. | 
 **p2_points** | [**Vec<Vec<serde_json::Value>>**](Vec.md) | The P2 points of the path. | 
+**color_parsed** | [**models::ColorV1**](ColorV1.md) |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

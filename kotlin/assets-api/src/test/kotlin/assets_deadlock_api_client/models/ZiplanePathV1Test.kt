@@ -19,6 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.ZiplanePathV1
+import assets_deadlock_api_client.models.ColorV1
 
 class ZiplanePathV1Test : ShouldSpec() {
     init {
@@ -53,6 +54,12 @@ class ZiplanePathV1Test : ShouldSpec() {
         should("test p2Points") {
             // uncomment below to test the property
             //modelInstance.p2Points shouldBe ("TODO")
+        }
+
+        // to test the property `colorParsed`
+        should("test colorParsed") {
+            // uncomment below to test the property
+            //modelInstance.colorParsed shouldBe ("TODO")
         }
 
     }

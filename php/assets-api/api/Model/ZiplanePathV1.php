@@ -61,7 +61,8 @@ class ZiplanePathV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => 'string',
         'p0_points' => 'mixed[][]',
         'p1_points' => 'mixed[][]',
-        'p2_points' => 'mixed[][]'
+        'p2_points' => 'mixed[][]',
+        'color_parsed' => '\OpenAPI\Client\Model\ColorV1'
     ];
 
     /**
@@ -76,7 +77,8 @@ class ZiplanePathV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => null,
         'p0_points' => null,
         'p1_points' => null,
-        'p2_points' => null
+        'p2_points' => null,
+        'color_parsed' => null
     ];
 
     /**
@@ -89,7 +91,8 @@ class ZiplanePathV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => false,
         'p0_points' => false,
         'p1_points' => false,
-        'p2_points' => false
+        'p2_points' => false,
+        'color_parsed' => false
     ];
 
     /**
@@ -182,7 +185,8 @@ class ZiplanePathV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => 'color',
         'p0_points' => 'P0_points',
         'p1_points' => 'P1_points',
-        'p2_points' => 'P2_points'
+        'p2_points' => 'P2_points',
+        'color_parsed' => 'color_parsed'
     ];
 
     /**
@@ -195,7 +199,8 @@ class ZiplanePathV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => 'setColor',
         'p0_points' => 'setP0Points',
         'p1_points' => 'setP1Points',
-        'p2_points' => 'setP2Points'
+        'p2_points' => 'setP2Points',
+        'color_parsed' => 'setColorParsed'
     ];
 
     /**
@@ -208,7 +213,8 @@ class ZiplanePathV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => 'getColor',
         'p0_points' => 'getP0Points',
         'p1_points' => 'getP1Points',
-        'p2_points' => 'getP2Points'
+        'p2_points' => 'getP2Points',
+        'color_parsed' => 'getColorParsed'
     ];
 
     /**
@@ -273,6 +279,7 @@ class ZiplanePathV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('p0_points', $data ?? [], null);
         $this->setIfExists('p1_points', $data ?? [], null);
         $this->setIfExists('p2_points', $data ?? [], null);
+        $this->setIfExists('color_parsed', $data ?? [], null);
     }
 
     /**
@@ -324,6 +331,9 @@ class ZiplanePathV1 implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['p2_points'] === null) {
             $invalidProperties[] = "'p2_points' can't be null";
+        }
+        if ($this->container['color_parsed'] === null) {
+            $invalidProperties[] = "'color_parsed' can't be null";
         }
         return $invalidProperties;
     }
@@ -478,6 +488,33 @@ class ZiplanePathV1 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable p2_points cannot be null');
         }
         $this->container['p2_points'] = $p2_points;
+
+        return $this;
+    }
+
+    /**
+     * Gets color_parsed
+     *
+     * @return \OpenAPI\Client\Model\ColorV1
+     */
+    public function getColorParsed()
+    {
+        return $this->container['color_parsed'];
+    }
+
+    /**
+     * Sets color_parsed
+     *
+     * @param \OpenAPI\Client\Model\ColorV1 $color_parsed color_parsed
+     *
+     * @return self
+     */
+    public function setColorParsed($color_parsed)
+    {
+        if (is_null($color_parsed)) {
+            throw new \InvalidArgumentException('non-nullable color_parsed cannot be null');
+        }
+        $this->container['color_parsed'] = $color_parsed;
 
         return $this;
     }

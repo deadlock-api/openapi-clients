@@ -9,12 +9,13 @@ Name | Type | Description | Notes
 **P0Points** | **[][]interface{}** | The P0 points of the path. | 
 **P1Points** | **[][]interface{}** | The P1 points of the path. | 
 **P2Points** | **[][]interface{}** | The P2 points of the path. | 
+**ColorParsed** | [**ColorV1**](ColorV1.md) |  | [readonly] 
 
 ## Methods
 
 ### NewZiplanePathV1
 
-`func NewZiplanePathV1(origin []interface{}, color string, p0Points [][]interface{}, p1Points [][]interface{}, p2Points [][]interface{}, ) *ZiplanePathV1`
+`func NewZiplanePathV1(origin []interface{}, color string, p0Points [][]interface{}, p1Points [][]interface{}, p2Points [][]interface{}, colorParsed ColorV1, ) *ZiplanePathV1`
 
 NewZiplanePathV1 instantiates a new ZiplanePathV1 object
 This constructor will assign default values to properties that have it defined,
@@ -127,6 +128,26 @@ and a boolean to check if the value has been set.
 `func (o *ZiplanePathV1) SetP2Points(v [][]interface{})`
 
 SetP2Points sets P2Points field to given value.
+
+
+### GetColorParsed
+
+`func (o *ZiplanePathV1) GetColorParsed() ColorV1`
+
+GetColorParsed returns the ColorParsed field if non-nil, zero value otherwise.
+
+### GetColorParsedOk
+
+`func (o *ZiplanePathV1) GetColorParsedOk() (*ColorV1, bool)`
+
+GetColorParsedOk returns a tuple with the ColorParsed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColorParsed
+
+`func (o *ZiplanePathV1) SetColorParsed(v ColorV1)`
+
+SetColorParsed sets ColorParsed field to given value.
 
 
 

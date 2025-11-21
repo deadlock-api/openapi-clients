@@ -12,7 +12,7 @@
 | **sightRangeNpcs** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **goldReward** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **goldRewardBonusPercentPerMinute** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
-| **mFlPlayerDamageResistPct** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **playerDamageResistPct** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **trooperDamageResistPct** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **t1BossDamageResistPct** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **t2BossDamageResistPct** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
