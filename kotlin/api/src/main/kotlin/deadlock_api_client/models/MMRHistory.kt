@@ -16,16 +16,8 @@
 package deadlock_api_client.models
 
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -43,30 +35,30 @@ import java.io.Serializable
 
 data class MMRHistory (
 
-    @SerializedName("account_id")
+    @Json(name = "account_id")
     val accountId: kotlin.Int,
 
     /* Extracted from the rank the division (rank // 10) */
-    @SerializedName("division")
+    @Json(name = "division")
     val division: kotlin.Int,
 
     /* Extracted from the rank the division tier (rank % 10) */
-    @SerializedName("division_tier")
+    @Json(name = "division_tier")
     val divisionTier: kotlin.Int,
 
-    @SerializedName("match_id")
+    @Json(name = "match_id")
     val matchId: kotlin.Long,
 
     /* Player Score is the index for the rank array (internally used for the rank regression) */
-    @SerializedName("player_score")
+    @Json(name = "player_score")
     val playerScore: kotlin.Double,
 
     /* The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> */
-    @SerializedName("rank")
+    @Json(name = "rank")
     val rank: kotlin.Int,
 
     /* Start time of the match */
-    @SerializedName("start_time")
+    @Json(name = "start_time")
     val startTime: kotlin.Int
 
 ) : Serializable {
@@ -74,80 +66,6 @@ data class MMRHistory (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!MMRHistory::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'MMRHistory' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(MMRHistory::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<MMRHistory>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: MMRHistory) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): MMRHistory  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("account_id")
-            openapiFields.add("division")
-            openapiFields.add("division_tier")
-            openapiFields.add("match_id")
-            openapiFields.add("player_score")
-            openapiFields.add("rank")
-            openapiFields.add("start_time")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("account_id")
-            openapiRequiredFields.add("division")
-            openapiRequiredFields.add("division_tier")
-            openapiRequiredFields.add("match_id")
-            openapiRequiredFields.add("player_score")
-            openapiRequiredFields.add("rank")
-            openapiRequiredFields.add("start_time")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to MMRHistory
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in MMRHistory is not found in the empty JSON string", MMRHistory.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-        }
-    }
 
 }
 

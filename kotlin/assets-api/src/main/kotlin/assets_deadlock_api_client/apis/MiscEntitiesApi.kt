@@ -15,101 +15,199 @@
 
 package assets_deadlock_api_client.apis
 
+import java.io.IOException
+import okhttp3.Call
+import okhttp3.HttpUrl
+
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.MiscV2
 import assets_deadlock_api_client.models.NPCUnitV2
 
-import assets_deadlock_api_client.infrastructure.*
-import io.ktor.client.HttpClientConfig
-import io.ktor.client.request.forms.formData
-import io.ktor.client.engine.HttpClientEngine
-import io.ktor.http.ParametersBuilder
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import java.text.DateFormat
+import com.squareup.moshi.Json
 
-    open class MiscEntitiesApi(
-    baseUrl: String = ApiClient.BASE_URL,
-    httpClientEngine: HttpClientEngine? = null,
-    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
-    ) : ApiClient(
-        baseUrl,
-        httpClientEngine,
-        httpClientConfig,
-        jsonBlock,
-    ) {
+import assets_deadlock_api_client.infrastructure.ApiClient
+import assets_deadlock_api_client.infrastructure.ApiResponse
+import assets_deadlock_api_client.infrastructure.ClientException
+import assets_deadlock_api_client.infrastructure.ClientError
+import assets_deadlock_api_client.infrastructure.ServerException
+import assets_deadlock_api_client.infrastructure.ServerError
+import assets_deadlock_api_client.infrastructure.MultiValueMap
+import assets_deadlock_api_client.infrastructure.PartConfig
+import assets_deadlock_api_client.infrastructure.RequestConfig
+import assets_deadlock_api_client.infrastructure.RequestMethod
+import assets_deadlock_api_client.infrastructure.ResponseType
+import assets_deadlock_api_client.infrastructure.Success
+import assets_deadlock_api_client.infrastructure.toMultiValue
 
-        /**
-        * GET /v2/misc-entities
-        * Get Misc Entities
-        * 
-         * @param clientVersion  (optional)
-         * @return kotlin.collections.List<MiscV2>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun getMiscEntitiesV2MiscEntitiesGet(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<kotlin.collections.List<MiscV2>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v2/misc-entities",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v2/misc-entities/{id_or_class_name}
-        * Get Misc Entity
-        * 
-         * @param idOrClassName  
-         * @param clientVersion  (optional)
-         * @return NPCUnitV2
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<NPCUnitV2> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v2/misc-entities/{id_or_class_name}".replace("{" + "id_or_class_name" + "}", "$idOrClassName"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
+class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+    companion object {
+        @JvmStatic
+        val defaultBasePath: String by lazy {
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://assets.deadlock-api.com")
         }
+    }
+
+    /**
+     * GET /v2/misc-entities
+     * Get Misc Entities
+     * 
+     * @param clientVersion  (optional)
+     * @return kotlin.collections.List<MiscV2>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getMiscEntitiesV2MiscEntitiesGet(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<MiscV2> {
+        val localVarResponse = getMiscEntitiesV2MiscEntitiesGetWithHttpInfo(clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MiscV2>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/misc-entities
+     * Get Misc Entities
+     * 
+     * @param clientVersion  (optional)
+     * @return ApiResponse<kotlin.collections.List<MiscV2>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getMiscEntitiesV2MiscEntitiesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<MiscV2>?> {
+        val localVariableConfig = getMiscEntitiesV2MiscEntitiesGetRequestConfig(clientVersion = clientVersion)
+
+        return request<Unit, kotlin.collections.List<MiscV2>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getMiscEntitiesV2MiscEntitiesGet
+     *
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getMiscEntitiesV2MiscEntitiesGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/misc-entities",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v2/misc-entities/{id_or_class_name}
+     * Get Misc Entity
+     * 
+     * @param idOrClassName 
+     * @param clientVersion  (optional)
+     * @return NPCUnitV2
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : NPCUnitV2 {
+        val localVarResponse = getMiscEntityV2MiscEntitiesIdOrClassNameGetWithHttpInfo(idOrClassName = idOrClassName, clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as NPCUnitV2
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/misc-entities/{id_or_class_name}
+     * Get Misc Entity
+     * 
+     * @param idOrClassName 
+     * @param clientVersion  (optional)
+     * @return ApiResponse<NPCUnitV2?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getMiscEntityV2MiscEntitiesIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<NPCUnitV2?> {
+        val localVariableConfig = getMiscEntityV2MiscEntitiesIdOrClassNameGetRequestConfig(idOrClassName = idOrClassName, clientVersion = clientVersion)
+
+        return request<Unit, NPCUnitV2>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getMiscEntityV2MiscEntitiesIdOrClassNameGet
+     *
+     * @param idOrClassName 
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getMiscEntityV2MiscEntitiesIdOrClassNameGetRequestConfig(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/misc-entities/{id_or_class_name}".replace("{"+"id_or_class_name"+"}", encodeURIComponent(idOrClassName.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+
+    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
+        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
+}

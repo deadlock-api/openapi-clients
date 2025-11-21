@@ -15,59 +15,108 @@
 
 package deadlock_api_client.apis
 
+import java.io.IOException
+import okhttp3.Call
+import okhttp3.HttpUrl
+
 import deadlock_api_client.models.ClickhouseSalts
 
-import deadlock_api_client.infrastructure.*
-import io.ktor.client.HttpClientConfig
-import io.ktor.client.request.forms.formData
-import io.ktor.client.engine.HttpClientEngine
-import io.ktor.http.ParametersBuilder
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import java.text.DateFormat
+import com.squareup.moshi.Json
 
-    open class InternalApi(
-    baseUrl: String = ApiClient.BASE_URL,
-    httpClientEngine: HttpClientEngine? = null,
-    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
-    ) : ApiClient(
-        baseUrl,
-        httpClientEngine,
-        httpClientConfig,
-        jsonBlock,
-    ) {
+import deadlock_api_client.infrastructure.ApiClient
+import deadlock_api_client.infrastructure.ApiResponse
+import deadlock_api_client.infrastructure.ClientException
+import deadlock_api_client.infrastructure.ClientError
+import deadlock_api_client.infrastructure.ServerException
+import deadlock_api_client.infrastructure.ServerError
+import deadlock_api_client.infrastructure.MultiValueMap
+import deadlock_api_client.infrastructure.PartConfig
+import deadlock_api_client.infrastructure.RequestConfig
+import deadlock_api_client.infrastructure.RequestMethod
+import deadlock_api_client.infrastructure.ResponseType
+import deadlock_api_client.infrastructure.Success
+import deadlock_api_client.infrastructure.toMultiValue
 
-        /**
-        * POST /v1/matches/salts
-        * Match Salts Ingest
-        *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - &#x60;match_id&#x60;: The match ID - &#x60;cluster_id&#x60;: The cluster ID - &#x60;metadata_salt&#x60;: The metadata salt - &#x60;replay_salt&#x60;: The replay salt - &#x60;username&#x60;: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @param clickhouseSalts  
-         * @return void
-        */
-        open suspend fun ingestSalts(clickhouseSalts: kotlin.collections.List<ClickhouseSalts>): HttpResponse<Unit> {
+class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+    companion object {
+        @JvmStatic
+        val defaultBasePath: String by lazy {
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://api.deadlock-api.com")
+        }
+    }
 
-            val localVariableAuthNames = listOf<String>()
+    /**
+     * POST /v1/matches/salts
+     * Match Salts Ingest
+     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - &#x60;match_id&#x60;: The match ID - &#x60;cluster_id&#x60;: The cluster ID - &#x60;metadata_salt&#x60;: The metadata salt - &#x60;replay_salt&#x60;: The replay salt - &#x60;username&#x60;: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param clickhouseSalts 
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun ingestSalts(clickhouseSalts: kotlin.collections.List<ClickhouseSalts>) : Unit {
+        val localVarResponse = ingestSaltsWithHttpInfo(clickhouseSalts = clickhouseSalts)
 
-            val localVariableBody = clickhouseSalts
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
 
-            val localVariableQuery = mutableMapOf<String, List<String>>()
+    /**
+     * POST /v1/matches/salts
+     * Match Salts Ingest
+     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - &#x60;match_id&#x60;: The match ID - &#x60;cluster_id&#x60;: The cluster ID - &#x60;metadata_salt&#x60;: The metadata salt - &#x60;replay_salt&#x60;: The replay salt - &#x60;username&#x60;: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param clickhouseSalts 
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun ingestSaltsWithHttpInfo(clickhouseSalts: kotlin.collections.List<ClickhouseSalts>) : ApiResponse<Unit?> {
+        val localVariableConfig = ingestSaltsRequestConfig(clickhouseSalts = clickhouseSalts)
 
-            val localVariableHeaders = mutableMapOf<String, String>()
+        return request<kotlin.collections.List<ClickhouseSalts>, Unit>(
+            localVariableConfig
+        )
+    }
 
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.POST,
-            "/v1/matches/salts",
+    /**
+     * To obtain the request config of the operation ingestSalts
+     *
+     * @param clickhouseSalts 
+     * @return RequestConfig
+     */
+    fun ingestSaltsRequestConfig(clickhouseSalts: kotlin.collections.List<ClickhouseSalts>) : RequestConfig<kotlin.collections.List<ClickhouseSalts>> {
+        val localVariableBody = clickhouseSalts
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/v1/matches/salts",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-            )
+            body = localVariableBody
+        )
+    }
 
-            return jsonRequest(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
 
-        }
+    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
+        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
+}

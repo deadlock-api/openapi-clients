@@ -15,145 +15,304 @@
 
 package assets_deadlock_api_client.apis
 
+import java.io.IOException
+import okhttp3.Call
+import okhttp3.HttpUrl
+
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.HeroV2
 import assets_deadlock_api_client.models.Language
 
-import assets_deadlock_api_client.infrastructure.*
-import io.ktor.client.HttpClientConfig
-import io.ktor.client.request.forms.formData
-import io.ktor.client.engine.HttpClientEngine
-import io.ktor.http.ParametersBuilder
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import java.text.DateFormat
+import com.squareup.moshi.Json
 
-    open class HeroesApi(
-    baseUrl: String = ApiClient.BASE_URL,
-    httpClientEngine: HttpClientEngine? = null,
-    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
-    ) : ApiClient(
-        baseUrl,
-        httpClientEngine,
-        httpClientConfig,
-        jsonBlock,
-    ) {
+import assets_deadlock_api_client.infrastructure.ApiClient
+import assets_deadlock_api_client.infrastructure.ApiResponse
+import assets_deadlock_api_client.infrastructure.ClientException
+import assets_deadlock_api_client.infrastructure.ClientError
+import assets_deadlock_api_client.infrastructure.ServerException
+import assets_deadlock_api_client.infrastructure.ServerError
+import assets_deadlock_api_client.infrastructure.MultiValueMap
+import assets_deadlock_api_client.infrastructure.PartConfig
+import assets_deadlock_api_client.infrastructure.RequestConfig
+import assets_deadlock_api_client.infrastructure.RequestMethod
+import assets_deadlock_api_client.infrastructure.ResponseType
+import assets_deadlock_api_client.infrastructure.Success
+import assets_deadlock_api_client.infrastructure.toMultiValue
 
-        /**
-        * GET /v2/heroes/by-name/{name}
-        * Get Hero By Name
-        * 
-         * @param name  
-         * @param language  (optional)
-         * @param clientVersion  (optional)
-         * @return HeroV2
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun getHeroByNameV2HeroesByNameNameGet(name: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<HeroV2> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            language?.apply { localVariableQuery["language"] = listOf("$language") }
-            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v2/heroes/by-name/{name}".replace("{" + "name" + "}", "$name"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v2/heroes/{id}
-        * Get Hero
-        * 
-         * @param id  
-         * @param language  (optional)
-         * @param clientVersion  (optional)
-         * @return HeroV2
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun getHeroV2HeroesIdGet(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<HeroV2> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            language?.apply { localVariableQuery["language"] = listOf("$language") }
-            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v2/heroes/{id}".replace("{" + "id" + "}", "$id"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v2/heroes
-        * Get Heroes
-        * 
-         * @param language  (optional)
-         * @param clientVersion  (optional)
-         * @param onlyActive  (optional)
-         * @return kotlin.collections.List<HeroV2>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun getHeroesV2HeroesGet(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?, onlyActive: kotlin.Boolean?): HttpResponse<kotlin.collections.List<HeroV2>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            language?.apply { localVariableQuery["language"] = listOf("$language") }
-            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
-            onlyActive?.apply { localVariableQuery["only_active"] = listOf("$onlyActive") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v2/heroes",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
+class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+    companion object {
+        @JvmStatic
+        val defaultBasePath: String by lazy {
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://assets.deadlock-api.com")
         }
+    }
+
+    /**
+     * GET /v2/heroes/by-name/{name}
+     * Get Hero By Name
+     * 
+     * @param name 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return HeroV2
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getHeroByNameV2HeroesByNameNameGet(name: kotlin.String, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : HeroV2 {
+        val localVarResponse = getHeroByNameV2HeroesByNameNameGetWithHttpInfo(name = name, language = language, clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as HeroV2
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/heroes/by-name/{name}
+     * Get Hero By Name
+     * 
+     * @param name 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return ApiResponse<HeroV2?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getHeroByNameV2HeroesByNameNameGetWithHttpInfo(name: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<HeroV2?> {
+        val localVariableConfig = getHeroByNameV2HeroesByNameNameGetRequestConfig(name = name, language = language, clientVersion = clientVersion)
+
+        return request<Unit, HeroV2>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getHeroByNameV2HeroesByNameNameGet
+     *
+     * @param name 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getHeroByNameV2HeroesByNameNameGetRequestConfig(name: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (language != null) {
+                    put("language", listOf(language.toString()))
+                }
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/heroes/by-name/{name}".replace("{"+"name"+"}", encodeURIComponent(name.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v2/heroes/{id}
+     * Get Hero
+     * 
+     * @param id 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return HeroV2
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getHeroV2HeroesIdGet(id: kotlin.Int, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : HeroV2 {
+        val localVarResponse = getHeroV2HeroesIdGetWithHttpInfo(id = id, language = language, clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as HeroV2
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/heroes/{id}
+     * Get Hero
+     * 
+     * @param id 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return ApiResponse<HeroV2?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getHeroV2HeroesIdGetWithHttpInfo(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<HeroV2?> {
+        val localVariableConfig = getHeroV2HeroesIdGetRequestConfig(id = id, language = language, clientVersion = clientVersion)
+
+        return request<Unit, HeroV2>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getHeroV2HeroesIdGet
+     *
+     * @param id 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getHeroV2HeroesIdGetRequestConfig(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (language != null) {
+                    put("language", listOf(language.toString()))
+                }
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/heroes/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v2/heroes
+     * Get Heroes
+     * 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @param onlyActive  (optional)
+     * @return kotlin.collections.List<HeroV2>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getHeroesV2HeroesGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null, onlyActive: kotlin.Boolean? = null) : kotlin.collections.List<HeroV2> {
+        val localVarResponse = getHeroesV2HeroesGetWithHttpInfo(language = language, clientVersion = clientVersion, onlyActive = onlyActive)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<HeroV2>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/heroes
+     * Get Heroes
+     * 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @param onlyActive  (optional)
+     * @return ApiResponse<kotlin.collections.List<HeroV2>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getHeroesV2HeroesGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?, onlyActive: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<HeroV2>?> {
+        val localVariableConfig = getHeroesV2HeroesGetRequestConfig(language = language, clientVersion = clientVersion, onlyActive = onlyActive)
+
+        return request<Unit, kotlin.collections.List<HeroV2>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getHeroesV2HeroesGet
+     *
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @param onlyActive  (optional)
+     * @return RequestConfig
+     */
+    fun getHeroesV2HeroesGetRequestConfig(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?, onlyActive: kotlin.Boolean?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (language != null) {
+                    put("language", listOf(language.toString()))
+                }
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+                if (onlyActive != null) {
+                    put("only_active", listOf(onlyActive.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/heroes",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+
+    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
+        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
+}

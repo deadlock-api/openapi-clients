@@ -24,16 +24,8 @@ import assets_deadlock_api_client.models.UpgradeDescriptionV2
 import assets_deadlock_api_client.models.UpgradePropertyV2
 import assets_deadlock_api_client.models.UpgradeTooltipSectionV2
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -71,85 +63,85 @@ import java.io.Serializable
 
 data class UpgradeV2 (
 
-    @SerializedName("id")
+    @Json(name = "id")
     val id: kotlin.Int,
 
-    @SerializedName("class_name")
+    @Json(name = "class_name")
     val className: kotlin.String,
 
-    @SerializedName("name")
+    @Json(name = "name")
     val name: kotlin.String,
 
-    @SerializedName("item_slot_type")
+    @Json(name = "item_slot_type")
     val itemSlotType: ItemSlotTypeV2,
 
-    @SerializedName("item_tier")
+    @Json(name = "item_tier")
     val itemTier: ItemTierV2,
 
-    @SerializedName("activation")
+    @Json(name = "activation")
     val activation: RawAbilityActivationV2,
 
-    @SerializedName("is_active_item")
+    @Json(name = "is_active_item")
     val isActiveItem: kotlin.Boolean,
 
-    @SerializedName("shopable")
+    @Json(name = "shopable")
     val shopable: kotlin.Boolean,
 
-    @SerializedName("cost")
+    @Json(name = "cost")
     val cost: kotlin.Int?,
 
-    @SerializedName("start_trained")
+    @Json(name = "start_trained")
     val startTrained: kotlin.Boolean? = null,
 
-    @SerializedName("image")
+    @Json(name = "image")
     val image: kotlin.String? = null,
 
-    @SerializedName("image_webp")
+    @Json(name = "image_webp")
     val imageWebp: kotlin.String? = null,
 
-    @SerializedName("hero")
+    @Json(name = "hero")
     val hero: kotlin.Int? = null,
 
-    @SerializedName("heroes")
+    @Json(name = "heroes")
     val heroes: kotlin.collections.List<kotlin.Int>? = null,
 
-    @SerializedName("update_time")
+    @Json(name = "update_time")
     val updateTime: kotlin.Int? = null,
 
-    @SerializedName("properties")
+    @Json(name = "properties")
     val properties: kotlin.collections.Map<kotlin.String, UpgradePropertyV2>? = null,
 
-    @SerializedName("weapon_info")
+    @Json(name = "weapon_info")
     val weaponInfo: RawItemWeaponInfoV2? = null,
 
-    @SerializedName("type")
+    @Json(name = "type")
     val type: UpgradeV2.Type? = Type.upgrade,
 
-    @SerializedName("shop_image")
+    @Json(name = "shop_image")
     val shopImage: kotlin.String? = null,
 
-    @SerializedName("shop_image_webp")
+    @Json(name = "shop_image_webp")
     val shopImageWebp: kotlin.String? = null,
 
-    @SerializedName("shop_image_small")
+    @Json(name = "shop_image_small")
     val shopImageSmall: kotlin.String? = null,
 
-    @SerializedName("shop_image_small_webp")
+    @Json(name = "shop_image_small_webp")
     val shopImageSmallWebp: kotlin.String? = null,
 
-    @SerializedName("disabled")
+    @Json(name = "disabled")
     val disabled: kotlin.Boolean? = null,
 
-    @SerializedName("description")
+    @Json(name = "description")
     val description: UpgradeDescriptionV2? = null,
 
-    @SerializedName("imbue")
+    @Json(name = "imbue")
     val imbue: RawAbilityImbueV2? = null,
 
-    @SerializedName("component_items")
+    @Json(name = "component_items")
     val componentItems: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerializedName("tooltip_sections")
+    @Json(name = "tooltip_sections")
     val tooltipSections: kotlin.collections.List<UpgradeTooltipSectionV2>? = null
 
 ) : Serializable {
@@ -162,218 +154,9 @@ data class UpgradeV2 (
      *
      * Values: upgrade
      */
+    @JsonClass(generateAdapter = false)
     enum class Type(val value: kotlin.String) {
-        @SerializedName(value = "upgrade") upgrade("upgrade");
-    }
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!UpgradeV2::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'UpgradeV2' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(UpgradeV2::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<UpgradeV2>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: UpgradeV2) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): UpgradeV2  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("id")
-            openapiFields.add("class_name")
-            openapiFields.add("name")
-            openapiFields.add("item_slot_type")
-            openapiFields.add("item_tier")
-            openapiFields.add("activation")
-            openapiFields.add("is_active_item")
-            openapiFields.add("shopable")
-            openapiFields.add("cost")
-            openapiFields.add("start_trained")
-            openapiFields.add("image")
-            openapiFields.add("image_webp")
-            openapiFields.add("hero")
-            openapiFields.add("heroes")
-            openapiFields.add("update_time")
-            openapiFields.add("properties")
-            openapiFields.add("weapon_info")
-            openapiFields.add("type")
-            openapiFields.add("shop_image")
-            openapiFields.add("shop_image_webp")
-            openapiFields.add("shop_image_small")
-            openapiFields.add("shop_image_small_webp")
-            openapiFields.add("disabled")
-            openapiFields.add("description")
-            openapiFields.add("imbue")
-            openapiFields.add("component_items")
-            openapiFields.add("tooltip_sections")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("id")
-            openapiRequiredFields.add("class_name")
-            openapiRequiredFields.add("name")
-            openapiRequiredFields.add("item_slot_type")
-            openapiRequiredFields.add("item_tier")
-            openapiRequiredFields.add("activation")
-            openapiRequiredFields.add("is_active_item")
-            openapiRequiredFields.add("shopable")
-            openapiRequiredFields.add("cost")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to UpgradeV2
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in UpgradeV2 is not found in the empty JSON string", UpgradeV2.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            require(jsonObj["class_name"].isJsonPrimitive) {
-              String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj["class_name"].toString())
-            }
-            require(jsonObj["name"].isJsonPrimitive) {
-              String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj["name"].toString())
-            }
-            // validate the required field `item_slot_type`
-            require(ItemSlotTypeV2.values().any { it.value == jsonObj["item_slot_type"].asString }) {
-                String.format("Expected the field `item_slot_type` to be valid `ItemSlotTypeV2` enum value in the JSON string but got `%s`", jsonObj["item_slot_type"].toString())
-            }
-            // validate the required field `item_tier`
-            require(ItemTierV2.values().any { it.value == jsonObj["item_tier"].asString }) {
-                String.format("Expected the field `item_tier` to be valid `ItemTierV2` enum value in the JSON string but got `%s`", jsonObj["item_tier"].toString())
-            }
-            // validate the required field `activation`
-            require(RawAbilityActivationV2.values().any { it.value == jsonObj["activation"].asString }) {
-                String.format("Expected the field `activation` to be valid `RawAbilityActivationV2` enum value in the JSON string but got `%s`", jsonObj["activation"].toString())
-            }
-            if (jsonObj["image"] != null && !jsonObj["image"].isJsonNull) {
-              require(jsonObj.get("image").isJsonPrimitive) {
-                String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj["image"].toString())
-              }
-            }
-            if (jsonObj["image_webp"] != null && !jsonObj["image_webp"].isJsonNull) {
-              require(jsonObj.get("image_webp").isJsonPrimitive) {
-                String.format("Expected the field `image_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["image_webp"].toString())
-              }
-            }
-            // ensure the optional json data is an array if present
-            if (jsonObj["heroes"] != null && !jsonObj["heroes"].isJsonNull) {
-              require(jsonObj["heroes"].isJsonArray()) {
-                String.format("Expected the field `heroes` to be an array in the JSON string but got `%s`", jsonObj["heroes"].toString())
-              }
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["heroes"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("heroes").size()) {
-                require(jsonObj.getAsJsonArray("heroes").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `heroes` to be primitive")
-                }
-              }
-            }
-            // validate the optional field `weapon_info`
-            if (jsonObj["weapon_info"] != null && !jsonObj["weapon_info"].isJsonNull) {
-              RawItemWeaponInfoV2.validateJsonElement(jsonObj["weapon_info"])
-            }
-            if (jsonObj["type"] != null && !jsonObj["type"].isJsonNull) {
-              require(jsonObj.get("type").isJsonPrimitive) {
-                String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj["type"].toString())
-              }
-            }
-            // validate the optional field `type`
-            if (jsonObj["type"] != null && !jsonObj["type"].isJsonNull) {
-                require(Type.values().any { it.value == jsonObj["type"].asString }) {
-                    String.format("Expected the field `type` to be valid `Type` enum value in the JSON string but got `%s`", jsonObj["type"].toString())
-                }
-            }
-            if (jsonObj["shop_image"] != null && !jsonObj["shop_image"].isJsonNull) {
-              require(jsonObj.get("shop_image").isJsonPrimitive) {
-                String.format("Expected the field `shop_image` to be a primitive type in the JSON string but got `%s`", jsonObj["shop_image"].toString())
-              }
-            }
-            if (jsonObj["shop_image_webp"] != null && !jsonObj["shop_image_webp"].isJsonNull) {
-              require(jsonObj.get("shop_image_webp").isJsonPrimitive) {
-                String.format("Expected the field `shop_image_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["shop_image_webp"].toString())
-              }
-            }
-            if (jsonObj["shop_image_small"] != null && !jsonObj["shop_image_small"].isJsonNull) {
-              require(jsonObj.get("shop_image_small").isJsonPrimitive) {
-                String.format("Expected the field `shop_image_small` to be a primitive type in the JSON string but got `%s`", jsonObj["shop_image_small"].toString())
-              }
-            }
-            if (jsonObj["shop_image_small_webp"] != null && !jsonObj["shop_image_small_webp"].isJsonNull) {
-              require(jsonObj.get("shop_image_small_webp").isJsonPrimitive) {
-                String.format("Expected the field `shop_image_small_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["shop_image_small_webp"].toString())
-              }
-            }
-            // validate the optional field `description`
-            if (jsonObj["description"] != null && !jsonObj["description"].isJsonNull) {
-              UpgradeDescriptionV2.validateJsonElement(jsonObj["description"])
-            }
-            // validate the optional field `imbue`
-            if (jsonObj["imbue"] != null && !jsonObj["imbue"].isJsonNull) {
-                require(RawAbilityImbueV2.values().any { it.value == jsonObj["imbue"].asString }) {
-                    String.format("Expected the field `imbue` to be valid `RawAbilityImbueV2` enum value in the JSON string but got `%s`", jsonObj["imbue"].toString())
-                }
-            }
-            // ensure the optional json data is an array if present
-            if (jsonObj["component_items"] != null && !jsonObj["component_items"].isJsonNull) {
-              require(jsonObj["component_items"].isJsonArray()) {
-                String.format("Expected the field `component_items` to be an array in the JSON string but got `%s`", jsonObj["component_items"].toString())
-              }
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["component_items"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("component_items").size()) {
-                require(jsonObj.getAsJsonArray("component_items").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `component_items` to be primitive")
-                }
-              }
-            }
-            if (jsonObj["tooltip_sections"] != null && !jsonObj["tooltip_sections"].isJsonNull) {
-              if (jsonObj.getAsJsonArray("tooltip_sections") != null) {
-                // ensure the json data is an array
-                require(jsonObj["tooltip_sections"].isJsonArray) {
-                  String.format("Expected the field `tooltip_sections` to be an array in the JSON string but got `%s`", jsonObj["tooltip_sections"].toString())
-                }
-
-                // validate the optional field `tooltip_sections` (array)
-                for (i in 0 until jsonObj.getAsJsonArray("tooltip_sections").size()) {
-                  UpgradeTooltipSectionV2.validateJsonElement(jsonObj.getAsJsonArray("tooltip_sections").get(i))
-                }
-              }
-            }
-        }
+        @Json(name = "upgrade") upgrade("upgrade");
     }
 
 }

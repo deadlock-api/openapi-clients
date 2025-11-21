@@ -18,16 +18,8 @@ package assets_deadlock_api_client.models
 import assets_deadlock_api_client.models.ItemPropertyV2
 import assets_deadlock_api_client.models.RawWeaponInfoV2
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -50,40 +42,40 @@ import java.io.Serializable
 
 data class WeaponV2 (
 
-    @SerializedName("id")
+    @Json(name = "id")
     val id: kotlin.Int,
 
-    @SerializedName("class_name")
+    @Json(name = "class_name")
     val className: kotlin.String,
 
-    @SerializedName("name")
+    @Json(name = "name")
     val name: kotlin.String,
 
-    @SerializedName("start_trained")
+    @Json(name = "start_trained")
     val startTrained: kotlin.Boolean? = null,
 
-    @SerializedName("image")
+    @Json(name = "image")
     val image: kotlin.String? = null,
 
-    @SerializedName("image_webp")
+    @Json(name = "image_webp")
     val imageWebp: kotlin.String? = null,
 
-    @SerializedName("hero")
+    @Json(name = "hero")
     val hero: kotlin.Int? = null,
 
-    @SerializedName("heroes")
+    @Json(name = "heroes")
     val heroes: kotlin.collections.List<kotlin.Int>? = null,
 
-    @SerializedName("update_time")
+    @Json(name = "update_time")
     val updateTime: kotlin.Int? = null,
 
-    @SerializedName("properties")
+    @Json(name = "properties")
     val properties: kotlin.collections.Map<kotlin.String, ItemPropertyV2>? = null,
 
-    @SerializedName("weapon_info")
+    @Json(name = "weapon_info")
     val weaponInfo: RawWeaponInfoV2? = null,
 
-    @SerializedName("type")
+    @Json(name = "type")
     val type: WeaponV2.Type? = Type.weapon
 
 ) : Serializable {
@@ -96,128 +88,9 @@ data class WeaponV2 (
      *
      * Values: weapon
      */
+    @JsonClass(generateAdapter = false)
     enum class Type(val value: kotlin.String) {
-        @SerializedName(value = "weapon") weapon("weapon");
-    }
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!WeaponV2::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'WeaponV2' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(WeaponV2::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<WeaponV2>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: WeaponV2) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): WeaponV2  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("id")
-            openapiFields.add("class_name")
-            openapiFields.add("name")
-            openapiFields.add("start_trained")
-            openapiFields.add("image")
-            openapiFields.add("image_webp")
-            openapiFields.add("hero")
-            openapiFields.add("heroes")
-            openapiFields.add("update_time")
-            openapiFields.add("properties")
-            openapiFields.add("weapon_info")
-            openapiFields.add("type")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("id")
-            openapiRequiredFields.add("class_name")
-            openapiRequiredFields.add("name")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to WeaponV2
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in WeaponV2 is not found in the empty JSON string", WeaponV2.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            require(jsonObj["class_name"].isJsonPrimitive) {
-              String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj["class_name"].toString())
-            }
-            require(jsonObj["name"].isJsonPrimitive) {
-              String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj["name"].toString())
-            }
-            if (jsonObj["image"] != null && !jsonObj["image"].isJsonNull) {
-              require(jsonObj.get("image").isJsonPrimitive) {
-                String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj["image"].toString())
-              }
-            }
-            if (jsonObj["image_webp"] != null && !jsonObj["image_webp"].isJsonNull) {
-              require(jsonObj.get("image_webp").isJsonPrimitive) {
-                String.format("Expected the field `image_webp` to be a primitive type in the JSON string but got `%s`", jsonObj["image_webp"].toString())
-              }
-            }
-            // ensure the optional json data is an array if present
-            if (jsonObj["heroes"] != null && !jsonObj["heroes"].isJsonNull) {
-              require(jsonObj["heroes"].isJsonArray()) {
-                String.format("Expected the field `heroes` to be an array in the JSON string but got `%s`", jsonObj["heroes"].toString())
-              }
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["heroes"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("heroes").size()) {
-                require(jsonObj.getAsJsonArray("heroes").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `heroes` to be primitive")
-                }
-              }
-            }
-            // validate the optional field `weapon_info`
-            if (jsonObj["weapon_info"] != null && !jsonObj["weapon_info"].isJsonNull) {
-              RawWeaponInfoV2.validateJsonElement(jsonObj["weapon_info"])
-            }
-            if (jsonObj["type"] != null && !jsonObj["type"].isJsonNull) {
-              require(jsonObj.get("type").isJsonPrimitive) {
-                String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj["type"].toString())
-              }
-            }
-            // validate the optional field `type`
-            if (jsonObj["type"] != null && !jsonObj["type"].isJsonNull) {
-                require(Type.values().any { it.value == jsonObj["type"].asString }) {
-                    String.format("Expected the field `type` to be valid `Type` enum value in the JSON string but got `%s`", jsonObj["type"].toString())
-                }
-            }
-        }
+        @Json(name = "weapon") weapon("weapon");
     }
 
 }

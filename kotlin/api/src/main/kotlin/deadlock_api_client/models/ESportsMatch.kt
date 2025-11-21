@@ -17,16 +17,8 @@ package deadlock_api_client.models
 
 import deadlock_api_client.models.ESportsMatchStatus
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -47,39 +39,39 @@ import java.io.Serializable
 data class ESportsMatch (
 
     /* The provider of the match data. Some string that identifies the source of the data. */
-    @SerializedName("provider")
+    @Json(name = "provider")
     val provider: kotlin.String,
 
     /* Valve's match id of the match. */
-    @SerializedName("match_id")
+    @Json(name = "match_id")
     val matchId: kotlin.Long? = null,
 
     /* The scheduled date of the match. */
-    @SerializedName("scheduled_date")
+    @Json(name = "scheduled_date")
     val scheduledDate: java.time.OffsetDateTime? = null,
 
     /* The status of the match, e.g. live, completed, scheduled, cancelled. */
-    @SerializedName("status")
+    @Json(name = "status")
     val status: ESportsMatchStatus? = null,
 
     /* The name of the first team. */
-    @SerializedName("team0_name")
+    @Json(name = "team0_name")
     val team0Name: kotlin.String? = null,
 
     /* The name of the second team. */
-    @SerializedName("team1_name")
+    @Json(name = "team1_name")
     val team1Name: kotlin.String? = null,
 
     /* The name of the tournament. */
-    @SerializedName("tournament_name")
+    @Json(name = "tournament_name")
     val tournamentName: kotlin.String? = null,
 
     /* The stage of the tournament. */
-    @SerializedName("tournament_stage")
+    @Json(name = "tournament_stage")
     val tournamentStage: kotlin.String? = null,
 
     /* If you want to update an existing match, you can provide an update id. */
-    @SerializedName("update_id")
+    @Json(name = "update_id")
     val updateId: java.util.UUID? = null
 
 ) : Serializable {
@@ -87,110 +79,6 @@ data class ESportsMatch (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!ESportsMatch::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'ESportsMatch' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ESportsMatch::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<ESportsMatch>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: ESportsMatch) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): ESportsMatch  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("provider")
-            openapiFields.add("match_id")
-            openapiFields.add("scheduled_date")
-            openapiFields.add("status")
-            openapiFields.add("team0_name")
-            openapiFields.add("team1_name")
-            openapiFields.add("tournament_name")
-            openapiFields.add("tournament_stage")
-            openapiFields.add("update_id")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("provider")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to ESportsMatch
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in ESportsMatch is not found in the empty JSON string", ESportsMatch.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            require(jsonObj["provider"].isJsonPrimitive) {
-              String.format("Expected the field `provider` to be a primitive type in the JSON string but got `%s`", jsonObj["provider"].toString())
-            }
-            // validate the optional field `status`
-            if (jsonObj["status"] != null && !jsonObj["status"].isJsonNull) {
-                require(ESportsMatchStatus.values().any { it.value == jsonObj["status"].asString }) {
-                    String.format("Expected the field `status` to be valid `ESportsMatchStatus` enum value in the JSON string but got `%s`", jsonObj["status"].toString())
-                }
-            }
-            if (jsonObj["team0_name"] != null && !jsonObj["team0_name"].isJsonNull) {
-              require(jsonObj.get("team0_name").isJsonPrimitive) {
-                String.format("Expected the field `team0_name` to be a primitive type in the JSON string but got `%s`", jsonObj["team0_name"].toString())
-              }
-            }
-            if (jsonObj["team1_name"] != null && !jsonObj["team1_name"].isJsonNull) {
-              require(jsonObj.get("team1_name").isJsonPrimitive) {
-                String.format("Expected the field `team1_name` to be a primitive type in the JSON string but got `%s`", jsonObj["team1_name"].toString())
-              }
-            }
-            if (jsonObj["tournament_name"] != null && !jsonObj["tournament_name"].isJsonNull) {
-              require(jsonObj.get("tournament_name").isJsonPrimitive) {
-                String.format("Expected the field `tournament_name` to be a primitive type in the JSON string but got `%s`", jsonObj["tournament_name"].toString())
-              }
-            }
-            if (jsonObj["tournament_stage"] != null && !jsonObj["tournament_stage"].isJsonNull) {
-              require(jsonObj.get("tournament_stage").isJsonPrimitive) {
-                String.format("Expected the field `tournament_stage` to be a primitive type in the JSON string but got `%s`", jsonObj["tournament_stage"].toString())
-              }
-            }
-            if (jsonObj["update_id"] != null && !jsonObj["update_id"].isJsonNull) {
-              require(jsonObj.get("update_id").isJsonPrimitive) {
-                String.format("Expected the field `update_id` to be a primitive type in the JSON string but got `%s`", jsonObj["update_id"].toString())
-              }
-            }
-        }
-    }
 
 }
 

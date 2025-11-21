@@ -16,7 +16,8 @@
 package deadlock_api_client.models
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 
@@ -24,30 +25,31 @@ import com.google.gson.annotations.SerializedName
  * Values: Invalid,Unranked,PrivateLobby,CoopBot,Ranked,ServerTest,Tutorial,HeroLabs
  */
 
+@JsonClass(generateAdapter = false)
 enum class ActiveMatchMode(val value: kotlin.String) {
 
-    @SerializedName(value = "Invalid")
+    @Json(name = "Invalid")
     Invalid("Invalid"),
 
-    @SerializedName(value = "Unranked")
+    @Json(name = "Unranked")
     Unranked("Unranked"),
 
-    @SerializedName(value = "PrivateLobby")
+    @Json(name = "PrivateLobby")
     PrivateLobby("PrivateLobby"),
 
-    @SerializedName(value = "CoopBot")
+    @Json(name = "CoopBot")
     CoopBot("CoopBot"),
 
-    @SerializedName(value = "Ranked")
+    @Json(name = "Ranked")
     Ranked("Ranked"),
 
-    @SerializedName(value = "ServerTest")
+    @Json(name = "ServerTest")
     ServerTest("ServerTest"),
 
-    @SerializedName(value = "Tutorial")
+    @Json(name = "Tutorial")
     Tutorial("Tutorial"),
 
-    @SerializedName(value = "HeroLabs")
+    @Json(name = "HeroLabs")
     HeroLabs("HeroLabs");
 
     /**

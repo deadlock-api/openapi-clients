@@ -16,7 +16,8 @@
 package assets_deadlock_api_client.models
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 
@@ -24,105 +25,106 @@ import com.google.gson.annotations.SerializedName
  * Values: _5972,_5959,_5945,_5920,_5902,_5885,_5878,_5869,_5852,_5831,_5826,_5818,_5789,_5748,_5723,_5712,_5710,_5690,_5675,_5668,_5664,_5658,_5650,_5636,_5624,_5615,_5602,_5583,_5554,_5538,_5533,_5529,_5527
  */
 
+@JsonClass(generateAdapter = false)
 enum class DeadlockAssetsApiRoutesV1ValidClientVersions(val value: kotlin.Int) {
 
-    @SerializedName(value = "5972")
+    @Json(name = "5972")
     _5972(5972),
 
-    @SerializedName(value = "5959")
+    @Json(name = "5959")
     _5959(5959),
 
-    @SerializedName(value = "5945")
+    @Json(name = "5945")
     _5945(5945),
 
-    @SerializedName(value = "5920")
+    @Json(name = "5920")
     _5920(5920),
 
-    @SerializedName(value = "5902")
+    @Json(name = "5902")
     _5902(5902),
 
-    @SerializedName(value = "5885")
+    @Json(name = "5885")
     _5885(5885),
 
-    @SerializedName(value = "5878")
+    @Json(name = "5878")
     _5878(5878),
 
-    @SerializedName(value = "5869")
+    @Json(name = "5869")
     _5869(5869),
 
-    @SerializedName(value = "5852")
+    @Json(name = "5852")
     _5852(5852),
 
-    @SerializedName(value = "5831")
+    @Json(name = "5831")
     _5831(5831),
 
-    @SerializedName(value = "5826")
+    @Json(name = "5826")
     _5826(5826),
 
-    @SerializedName(value = "5818")
+    @Json(name = "5818")
     _5818(5818),
 
-    @SerializedName(value = "5789")
+    @Json(name = "5789")
     _5789(5789),
 
-    @SerializedName(value = "5748")
+    @Json(name = "5748")
     _5748(5748),
 
-    @SerializedName(value = "5723")
+    @Json(name = "5723")
     _5723(5723),
 
-    @SerializedName(value = "5712")
+    @Json(name = "5712")
     _5712(5712),
 
-    @SerializedName(value = "5710")
+    @Json(name = "5710")
     _5710(5710),
 
-    @SerializedName(value = "5690")
+    @Json(name = "5690")
     _5690(5690),
 
-    @SerializedName(value = "5675")
+    @Json(name = "5675")
     _5675(5675),
 
-    @SerializedName(value = "5668")
+    @Json(name = "5668")
     _5668(5668),
 
-    @SerializedName(value = "5664")
+    @Json(name = "5664")
     _5664(5664),
 
-    @SerializedName(value = "5658")
+    @Json(name = "5658")
     _5658(5658),
 
-    @SerializedName(value = "5650")
+    @Json(name = "5650")
     _5650(5650),
 
-    @SerializedName(value = "5636")
+    @Json(name = "5636")
     _5636(5636),
 
-    @SerializedName(value = "5624")
+    @Json(name = "5624")
     _5624(5624),
 
-    @SerializedName(value = "5615")
+    @Json(name = "5615")
     _5615(5615),
 
-    @SerializedName(value = "5602")
+    @Json(name = "5602")
     _5602(5602),
 
-    @SerializedName(value = "5583")
+    @Json(name = "5583")
     _5583(5583),
 
-    @SerializedName(value = "5554")
+    @Json(name = "5554")
     _5554(5554),
 
-    @SerializedName(value = "5538")
+    @Json(name = "5538")
     _5538(5538),
 
-    @SerializedName(value = "5533")
+    @Json(name = "5533")
     _5533(5533),
 
-    @SerializedName(value = "5529")
+    @Json(name = "5529")
     _5529(5529),
 
-    @SerializedName(value = "5527")
+    @Json(name = "5527")
     _5527(5527);
 
     /**

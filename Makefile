@@ -54,7 +54,7 @@ generate-api-kotlin:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p kotlin/api
 	@echo "--> Generating Kotlin client for the main API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g kotlin -o kotlin/api/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client,idea=true,artifactId=deadlock_api_client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients,omitGradleWrapper=true,serializableModel=true,serializationLibrary=gson,generateOneOfAnyOfWrappers=true,library=jvm-ktor
+	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g kotlin -o kotlin/api/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client,idea=true,artifactId=deadlock_api_client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients,omitGradleWrapper=true,serializableModel=true
 	@echo "--> Adding publishing configuration..."
 	@echo "" >> kotlin/api/build.gradle
 	@echo "publishing {" >> kotlin/api/build.gradle
@@ -70,7 +70,7 @@ generate-assets-api-kotlin:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p kotlin/assets-api
 	@echo "--> Generating Kotlin client for the assets API..."
-	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g kotlin -o kotlin/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client,idea=true,artifactId=assets_deadlock_api_client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients,omitGradleWrapper=true,serializableModel=true,serializationLibrary=gson,generateOneOfAnyOfWrappers=true,library=jvm-ktor
+	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g kotlin -o kotlin/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client,idea=true,artifactId=assets_deadlock_api_client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients,omitGradleWrapper=true,serializableModel=true
 	@echo "--> Adding publishing configuration..."
 	@echo "" >> kotlin/assets-api/build.gradle
 	@echo "publishing {" >> kotlin/assets-api/build.gradle

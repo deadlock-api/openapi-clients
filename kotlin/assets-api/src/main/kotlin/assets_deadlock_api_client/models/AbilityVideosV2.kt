@@ -16,16 +16,8 @@
 package assets_deadlock_api_client.models
 
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -38,10 +30,10 @@ import java.io.Serializable
 
 data class AbilityVideosV2 (
 
-    @SerializedName("webm")
+    @Json(name = "webm")
     val webm: kotlin.String? = null,
 
-    @SerializedName("mp4")
+    @Json(name = "mp4")
     val mp4: kotlin.String? = null
 
 ) : Serializable {
@@ -49,70 +41,6 @@ data class AbilityVideosV2 (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!AbilityVideosV2::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'AbilityVideosV2' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(AbilityVideosV2::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<AbilityVideosV2>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: AbilityVideosV2) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): AbilityVideosV2  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("webm")
-            openapiFields.add("mp4")
-
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to AbilityVideosV2
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in AbilityVideosV2 is not found in the empty JSON string", AbilityVideosV2.openapiRequiredFields.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            if (jsonObj["webm"] != null && !jsonObj["webm"].isJsonNull) {
-              require(jsonObj.get("webm").isJsonPrimitive) {
-                String.format("Expected the field `webm` to be a primitive type in the JSON string but got `%s`", jsonObj["webm"].toString())
-              }
-            }
-            if (jsonObj["mp4"] != null && !jsonObj["mp4"].isJsonNull) {
-              require(jsonObj.get("mp4").isJsonPrimitive) {
-                String.format("Expected the field `mp4` to be a primitive type in the JSON string but got `%s`", jsonObj["mp4"].toString())
-              }
-            }
-        }
-    }
 
 }
 

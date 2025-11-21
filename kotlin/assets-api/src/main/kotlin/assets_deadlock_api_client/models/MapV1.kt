@@ -19,16 +19,8 @@ import assets_deadlock_api_client.models.MapImagesV1
 import assets_deadlock_api_client.models.ObjectivePositionsV1
 import assets_deadlock_api_client.models.ZiplanePathV1
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -44,18 +36,18 @@ import java.io.Serializable
 data class MapV1 (
 
     /* The images of the map. */
-    @SerializedName("images")
+    @Json(name = "images")
     val images: MapImagesV1,
 
-    @SerializedName("objective_positions")
+    @Json(name = "objective_positions")
     val objectivePositions: ObjectivePositionsV1,
 
     /* The ziplane paths of the map. Each path is a list of P0, P1, and P2 points, describing the cubic spline. */
-    @SerializedName("zipline_paths")
+    @Json(name = "zipline_paths")
     val ziplinePaths: kotlin.collections.List<ZiplanePathV1>,
 
     /* The radius of the map. */
-    @SerializedName("radius")
+    @Json(name = "radius")
     val radius: kotlin.Int? = 10752
 
 ) : Serializable {
@@ -63,86 +55,6 @@ data class MapV1 (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!MapV1::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'MapV1' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(MapV1::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<MapV1>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: MapV1) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): MapV1  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("images")
-            openapiFields.add("objective_positions")
-            openapiFields.add("zipline_paths")
-            openapiFields.add("radius")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("images")
-            openapiRequiredFields.add("objective_positions")
-            openapiRequiredFields.add("zipline_paths")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to MapV1
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in MapV1 is not found in the empty JSON string", MapV1.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // validate the required field `images`
-            MapImagesV1.validateJsonElement(jsonObj["images"])
-            // validate the required field `objective_positions`
-            ObjectivePositionsV1.validateJsonElement(jsonObj["objective_positions"])
-            // ensure the json data is an array
-            if (!jsonObj.get("zipline_paths").isJsonArray) {
-              throw IllegalArgumentException(String.format("Expected the field `zipline_paths` to be an array in the JSON string but got `%s`", jsonObj["zipline_paths"].toString()))
-            }
-
-            // validate the required field `zipline_paths` (array)
-            for (i in 0 until jsonObj.getAsJsonArray("zipline_paths").size()) {
-              ZiplanePathV1.validateJsonElement(jsonObj.getAsJsonArray("zipline_paths").get(i))
-            }
-        }
-    }
 
 }
 

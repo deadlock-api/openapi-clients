@@ -17,16 +17,8 @@ package deadlock_api_client.models
 
 import deadlock_api_client.models.ActiveMatchTeam
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -42,20 +34,20 @@ import java.io.Serializable
 
 data class ActiveMatchPlayer (
 
-    @SerializedName("abandoned")
+    @Json(name = "abandoned")
     val abandoned: kotlin.Boolean? = null,
 
-    @SerializedName("account_id")
+    @Json(name = "account_id")
     val accountId: kotlin.Int? = null,
 
     /* See more: <https://assets.deadlock-api.com/v2/heroes> */
-    @SerializedName("hero_id")
+    @Json(name = "hero_id")
     val heroId: kotlin.Int? = null,
 
-    @SerializedName("team")
+    @Json(name = "team")
     val team: kotlin.Int? = null,
 
-    @SerializedName("team_parsed")
+    @Json(name = "team_parsed")
     val teamParsed: ActiveMatchTeam? = null
 
 ) : Serializable {
@@ -63,69 +55,6 @@ data class ActiveMatchPlayer (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!ActiveMatchPlayer::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'ActiveMatchPlayer' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ActiveMatchPlayer::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<ActiveMatchPlayer>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: ActiveMatchPlayer) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): ActiveMatchPlayer  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("abandoned")
-            openapiFields.add("account_id")
-            openapiFields.add("hero_id")
-            openapiFields.add("team")
-            openapiFields.add("team_parsed")
-
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to ActiveMatchPlayer
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in ActiveMatchPlayer is not found in the empty JSON string", ActiveMatchPlayer.openapiRequiredFields.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // validate the optional field `team_parsed`
-            if (jsonObj["team_parsed"] != null && !jsonObj["team_parsed"].isJsonNull) {
-                require(ActiveMatchTeam.values().any { it.value == jsonObj["team_parsed"].asString }) {
-                    String.format("Expected the field `team_parsed` to be valid `ActiveMatchTeam` enum value in the JSON string but got `%s`", jsonObj["team_parsed"].toString())
-                }
-            }
-        }
-    }
 
 }
 

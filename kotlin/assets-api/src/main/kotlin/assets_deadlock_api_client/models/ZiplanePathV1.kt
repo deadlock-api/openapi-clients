@@ -17,16 +17,8 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ColorV1
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -44,26 +36,26 @@ import java.io.Serializable
 data class ZiplanePathV1 (
 
     /* The origin of the path. */
-    @SerializedName("origin")
+    @Json(name = "origin")
     val origin: kotlin.collections.List<kotlin.Any>,
 
     /* The color of the path. */
-    @SerializedName("color")
+    @Json(name = "color")
     val color: kotlin.String,
 
     /* The P0 points of the path. */
-    @SerializedName("P0_points")
+    @Json(name = "P0_points")
     val p0Points: kotlin.collections.List<kotlin.collections.List<kotlin.Any>>,
 
     /* The P1 points of the path. */
-    @SerializedName("P1_points")
+    @Json(name = "P1_points")
     val p1Points: kotlin.collections.List<kotlin.collections.List<kotlin.Any>>,
 
     /* The P2 points of the path. */
-    @SerializedName("P2_points")
+    @Json(name = "P2_points")
     val p2Points: kotlin.collections.List<kotlin.collections.List<kotlin.Any>>,
 
-    @SerializedName("color_parsed")
+    @Json(name = "color_parsed")
     val colorParsed: ColorV1
 
 ) : Serializable {
@@ -71,111 +63,6 @@ data class ZiplanePathV1 (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!ZiplanePathV1::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'ZiplanePathV1' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ZiplanePathV1::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<ZiplanePathV1>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: ZiplanePathV1) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): ZiplanePathV1  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("origin")
-            openapiFields.add("color")
-            openapiFields.add("P0_points")
-            openapiFields.add("P1_points")
-            openapiFields.add("P2_points")
-            openapiFields.add("color_parsed")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("origin")
-            openapiRequiredFields.add("color")
-            openapiRequiredFields.add("P0_points")
-            openapiRequiredFields.add("P1_points")
-            openapiRequiredFields.add("P2_points")
-            openapiRequiredFields.add("color_parsed")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to ZiplanePathV1
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in ZiplanePathV1 is not found in the empty JSON string", ZiplanePathV1.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // ensure the required json array is present
-            requireNotNull(jsonObj["origin"]) {
-              "Expected the field `origin` to be an array in the JSON string but got `null`"
-            }
-            require(jsonObj["origin"].isJsonArray()) {
-              String.format("Expected the field `origin` to be an array in the JSON string but got `%s`", jsonObj["origin"].toString())
-            }
-            require(jsonObj["color"].isJsonPrimitive) {
-              String.format("Expected the field `color` to be a primitive type in the JSON string but got `%s`", jsonObj["color"].toString())
-            }
-            // ensure the required json array is present
-            requireNotNull(jsonObj["P0_points"]) {
-              "Expected the field `P0_points` to be an array in the JSON string but got `null`"
-            }
-            require(jsonObj["P0_points"].isJsonArray()) {
-              String.format("Expected the field `P0_points` to be an array in the JSON string but got `%s`", jsonObj["P0_points"].toString())
-            }
-            // ensure the required json array is present
-            requireNotNull(jsonObj["P1_points"]) {
-              "Expected the field `P1_points` to be an array in the JSON string but got `null`"
-            }
-            require(jsonObj["P1_points"].isJsonArray()) {
-              String.format("Expected the field `P1_points` to be an array in the JSON string but got `%s`", jsonObj["P1_points"].toString())
-            }
-            // ensure the required json array is present
-            requireNotNull(jsonObj["P2_points"]) {
-              "Expected the field `P2_points` to be an array in the JSON string but got `null`"
-            }
-            require(jsonObj["P2_points"].isJsonArray()) {
-              String.format("Expected the field `P2_points` to be an array in the JSON string but got `%s`", jsonObj["P2_points"].toString())
-            }
-            // validate the required field `color_parsed`
-            ColorV1.validateJsonElement(jsonObj["color_parsed"])
-        }
-    }
 
 }
 

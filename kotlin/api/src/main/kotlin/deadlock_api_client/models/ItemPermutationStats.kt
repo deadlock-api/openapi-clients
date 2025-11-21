@@ -16,16 +16,8 @@
 package deadlock_api_client.models
 
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -41,16 +33,16 @@ import java.io.Serializable
 data class ItemPermutationStats (
 
     /* See more: <https://assets.deadlock-api.com/v2/items> */
-    @SerializedName("item_ids")
+    @Json(name = "item_ids")
     val itemIds: kotlin.collections.List<kotlin.Int>,
 
-    @SerializedName("losses")
+    @Json(name = "losses")
     val losses: kotlin.Long,
 
-    @SerializedName("matches")
+    @Json(name = "matches")
     val matches: kotlin.Long,
 
-    @SerializedName("wins")
+    @Json(name = "wins")
     val wins: kotlin.Long
 
 ) : Serializable {
@@ -58,89 +50,6 @@ data class ItemPermutationStats (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!ItemPermutationStats::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'ItemPermutationStats' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ItemPermutationStats::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<ItemPermutationStats>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: ItemPermutationStats) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): ItemPermutationStats  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("item_ids")
-            openapiFields.add("losses")
-            openapiFields.add("matches")
-            openapiFields.add("wins")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("item_ids")
-            openapiRequiredFields.add("losses")
-            openapiRequiredFields.add("matches")
-            openapiRequiredFields.add("wins")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to ItemPermutationStats
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in ItemPermutationStats is not found in the empty JSON string", ItemPermutationStats.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // ensure the required json array is present
-            requireNotNull(jsonObj["item_ids"]) {
-              "Expected the field `item_ids` to be an array in the JSON string but got `null`"
-            }
-            require(jsonObj["item_ids"].isJsonArray()) {
-              String.format("Expected the field `item_ids` to be an array in the JSON string but got `%s`", jsonObj["item_ids"].toString())
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["item_ids"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("item_ids").size()) {
-                require(jsonObj.getAsJsonArray("item_ids").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `item_ids` to be primitive")
-                }
-              }
-            }
-        }
-    }
 
 }
 

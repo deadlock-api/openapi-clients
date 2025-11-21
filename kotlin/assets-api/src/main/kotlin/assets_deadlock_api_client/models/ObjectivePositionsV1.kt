@@ -17,16 +17,8 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ObjectivePositionV1
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -57,64 +49,64 @@ import java.io.Serializable
 
 data class ObjectivePositionsV1 (
 
-    @SerializedName("team0_core")
+    @Json(name = "team0_core")
     val team0Core: ObjectivePositionV1,
 
-    @SerializedName("team1_core")
+    @Json(name = "team1_core")
     val team1Core: ObjectivePositionV1,
 
-    @SerializedName("team0_titan")
+    @Json(name = "team0_titan")
     val team0Titan: ObjectivePositionV1,
 
-    @SerializedName("team1_titan")
+    @Json(name = "team1_titan")
     val team1Titan: ObjectivePositionV1,
 
-    @SerializedName("team0_tier2_1")
+    @Json(name = "team0_tier2_1")
     val team0Tier21: ObjectivePositionV1,
 
-    @SerializedName("team0_tier2_3")
+    @Json(name = "team0_tier2_3")
     val team0Tier23: ObjectivePositionV1,
 
-    @SerializedName("team0_tier2_4")
+    @Json(name = "team0_tier2_4")
     val team0Tier24: ObjectivePositionV1,
 
-    @SerializedName("team1_tier2_1")
+    @Json(name = "team1_tier2_1")
     val team1Tier21: ObjectivePositionV1,
 
-    @SerializedName("team1_tier2_3")
+    @Json(name = "team1_tier2_3")
     val team1Tier23: ObjectivePositionV1,
 
-    @SerializedName("team1_tier2_4")
+    @Json(name = "team1_tier2_4")
     val team1Tier24: ObjectivePositionV1,
 
-    @SerializedName("team0_tier1_1")
+    @Json(name = "team0_tier1_1")
     val team0Tier11: ObjectivePositionV1,
 
-    @SerializedName("team0_tier1_3")
+    @Json(name = "team0_tier1_3")
     val team0Tier13: ObjectivePositionV1,
 
-    @SerializedName("team0_tier1_4")
+    @Json(name = "team0_tier1_4")
     val team0Tier14: ObjectivePositionV1,
 
-    @SerializedName("team1_tier1_1")
+    @Json(name = "team1_tier1_1")
     val team1Tier11: ObjectivePositionV1,
 
-    @SerializedName("team1_tier1_3")
+    @Json(name = "team1_tier1_3")
     val team1Tier13: ObjectivePositionV1,
 
-    @SerializedName("team1_tier1_4")
+    @Json(name = "team1_tier1_4")
     val team1Tier14: ObjectivePositionV1,
 
-    @SerializedName("team0_tier2_2")
+    @Json(name = "team0_tier2_2")
     val team0Tier22: ObjectivePositionV1? = null,
 
-    @SerializedName("team1_tier2_2")
+    @Json(name = "team1_tier2_2")
     val team1Tier22: ObjectivePositionV1? = null,
 
-    @SerializedName("team0_tier1_2")
+    @Json(name = "team0_tier1_2")
     val team0Tier12: ObjectivePositionV1? = null,
 
-    @SerializedName("team1_tier1_2")
+    @Json(name = "team1_tier1_2")
     val team1Tier12: ObjectivePositionV1? = null
 
 ) : Serializable {
@@ -122,150 +114,6 @@ data class ObjectivePositionsV1 (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!ObjectivePositionsV1::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'ObjectivePositionsV1' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ObjectivePositionsV1::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<ObjectivePositionsV1>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: ObjectivePositionsV1) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): ObjectivePositionsV1  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("team0_core")
-            openapiFields.add("team1_core")
-            openapiFields.add("team0_titan")
-            openapiFields.add("team1_titan")
-            openapiFields.add("team0_tier2_1")
-            openapiFields.add("team0_tier2_3")
-            openapiFields.add("team0_tier2_4")
-            openapiFields.add("team1_tier2_1")
-            openapiFields.add("team1_tier2_3")
-            openapiFields.add("team1_tier2_4")
-            openapiFields.add("team0_tier1_1")
-            openapiFields.add("team0_tier1_3")
-            openapiFields.add("team0_tier1_4")
-            openapiFields.add("team1_tier1_1")
-            openapiFields.add("team1_tier1_3")
-            openapiFields.add("team1_tier1_4")
-            openapiFields.add("team0_tier2_2")
-            openapiFields.add("team1_tier2_2")
-            openapiFields.add("team0_tier1_2")
-            openapiFields.add("team1_tier1_2")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("team0_core")
-            openapiRequiredFields.add("team1_core")
-            openapiRequiredFields.add("team0_titan")
-            openapiRequiredFields.add("team1_titan")
-            openapiRequiredFields.add("team0_tier2_1")
-            openapiRequiredFields.add("team0_tier2_3")
-            openapiRequiredFields.add("team0_tier2_4")
-            openapiRequiredFields.add("team1_tier2_1")
-            openapiRequiredFields.add("team1_tier2_3")
-            openapiRequiredFields.add("team1_tier2_4")
-            openapiRequiredFields.add("team0_tier1_1")
-            openapiRequiredFields.add("team0_tier1_3")
-            openapiRequiredFields.add("team0_tier1_4")
-            openapiRequiredFields.add("team1_tier1_1")
-            openapiRequiredFields.add("team1_tier1_3")
-            openapiRequiredFields.add("team1_tier1_4")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to ObjectivePositionsV1
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in ObjectivePositionsV1 is not found in the empty JSON string", ObjectivePositionsV1.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // validate the required field `team0_core`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team0_core"])
-            // validate the required field `team1_core`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team1_core"])
-            // validate the required field `team0_titan`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team0_titan"])
-            // validate the required field `team1_titan`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team1_titan"])
-            // validate the required field `team0_tier2_1`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team0_tier2_1"])
-            // validate the required field `team0_tier2_3`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team0_tier2_3"])
-            // validate the required field `team0_tier2_4`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team0_tier2_4"])
-            // validate the required field `team1_tier2_1`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team1_tier2_1"])
-            // validate the required field `team1_tier2_3`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team1_tier2_3"])
-            // validate the required field `team1_tier2_4`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team1_tier2_4"])
-            // validate the required field `team0_tier1_1`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team0_tier1_1"])
-            // validate the required field `team0_tier1_3`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team0_tier1_3"])
-            // validate the required field `team0_tier1_4`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team0_tier1_4"])
-            // validate the required field `team1_tier1_1`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team1_tier1_1"])
-            // validate the required field `team1_tier1_3`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team1_tier1_3"])
-            // validate the required field `team1_tier1_4`
-            ObjectivePositionV1.validateJsonElement(jsonObj["team1_tier1_4"])
-            // validate the optional field `team0_tier2_2`
-            if (jsonObj["team0_tier2_2"] != null && !jsonObj["team0_tier2_2"].isJsonNull) {
-              ObjectivePositionV1.validateJsonElement(jsonObj["team0_tier2_2"])
-            }
-            // validate the optional field `team1_tier2_2`
-            if (jsonObj["team1_tier2_2"] != null && !jsonObj["team1_tier2_2"].isJsonNull) {
-              ObjectivePositionV1.validateJsonElement(jsonObj["team1_tier2_2"])
-            }
-            // validate the optional field `team0_tier1_2`
-            if (jsonObj["team0_tier1_2"] != null && !jsonObj["team0_tier1_2"].isJsonNull) {
-              ObjectivePositionV1.validateJsonElement(jsonObj["team0_tier1_2"])
-            }
-            // validate the optional field `team1_tier1_2`
-            if (jsonObj["team1_tier1_2"] != null && !jsonObj["team1_tier1_2"].isJsonNull) {
-              ObjectivePositionV1.validateJsonElement(jsonObj["team1_tier1_2"])
-            }
-        }
-    }
 
 }
 

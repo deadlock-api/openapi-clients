@@ -15,275 +15,609 @@
 
 package deadlock_api_client.apis
 
+import java.io.IOException
+import okhttp3.Call
+import okhttp3.HttpUrl
+
 import deadlock_api_client.models.DistributionEntry
 import deadlock_api_client.models.MMRHistory
 
-import deadlock_api_client.infrastructure.*
-import io.ktor.client.HttpClientConfig
-import io.ktor.client.request.forms.formData
-import io.ktor.client.engine.HttpClientEngine
-import io.ktor.http.ParametersBuilder
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import java.text.DateFormat
+import com.squareup.moshi.Json
 
-    open class MMRApi(
-    baseUrl: String = ApiClient.BASE_URL,
-    httpClientEngine: HttpClientEngine? = null,
-    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
-    ) : ApiClient(
-        baseUrl,
-        httpClientEngine,
-        httpClientConfig,
-        jsonBlock,
-    ) {
+import deadlock_api_client.infrastructure.ApiClient
+import deadlock_api_client.infrastructure.ApiResponse
+import deadlock_api_client.infrastructure.ClientException
+import deadlock_api_client.infrastructure.ClientError
+import deadlock_api_client.infrastructure.ServerException
+import deadlock_api_client.infrastructure.ServerError
+import deadlock_api_client.infrastructure.MultiValueMap
+import deadlock_api_client.infrastructure.PartConfig
+import deadlock_api_client.infrastructure.RequestConfig
+import deadlock_api_client.infrastructure.RequestMethod
+import deadlock_api_client.infrastructure.ResponseType
+import deadlock_api_client.infrastructure.Success
+import deadlock_api_client.infrastructure.toMultiValue
 
-        /**
-        * GET /v1/players/mmr/{hero_id}
-        * Batch Hero MMR
-        *  Batch Player Hero MMR 
-         * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; 
-         * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. 
-         * @param maxMatchId Filter matches based on their ID. (optional)
-         * @return kotlin.collections.List<MMRHistory>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun heroMmr(heroId: kotlin.Int, accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long?): HttpResponse<kotlin.collections.List<MMRHistory>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            accountIds?.apply { localVariableQuery["account_ids"] = toMultiValue(this, "multi") }
-            maxMatchId?.apply { localVariableQuery["max_match_id"] = listOf("$maxMatchId") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/mmr/{hero_id}".replace("{" + "hero_id" + "}", "$heroId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/mmr/distribution/{hero_id}
-        * Hero MMR Distribution
-        *  Player Hero MMR Distribution 
-         * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; 
-         * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761091200L)
-         * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-         * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
-         * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
-         * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
-         * @param minMatchId Filter matches based on their ID. (optional)
-         * @param maxMatchId Filter matches based on their ID. (optional)
-         * @return kotlin.collections.List<DistributionEntry>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun heroMmrDistribution(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?): HttpResponse<kotlin.collections.List<DistributionEntry>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            minUnixTimestamp?.apply { localVariableQuery["min_unix_timestamp"] = listOf("$minUnixTimestamp") }
-            maxUnixTimestamp?.apply { localVariableQuery["max_unix_timestamp"] = listOf("$maxUnixTimestamp") }
-            minDurationS?.apply { localVariableQuery["min_duration_s"] = listOf("$minDurationS") }
-            maxDurationS?.apply { localVariableQuery["max_duration_s"] = listOf("$maxDurationS") }
-            isHighSkillRangeParties?.apply { localVariableQuery["is_high_skill_range_parties"] = listOf("$isHighSkillRangeParties") }
-            isLowPriPool?.apply { localVariableQuery["is_low_pri_pool"] = listOf("$isLowPriPool") }
-            isNewPlayerPool?.apply { localVariableQuery["is_new_player_pool"] = listOf("$isNewPlayerPool") }
-            minMatchId?.apply { localVariableQuery["min_match_id"] = listOf("$minMatchId") }
-            maxMatchId?.apply { localVariableQuery["max_match_id"] = listOf("$maxMatchId") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/mmr/distribution/{hero_id}".replace("{" + "hero_id" + "}", "$heroId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/{account_id}/mmr-history/{hero_id}
-        * Hero MMR History
-        * Player Hero MMR History
-         * @param accountId The players &#x60;SteamID3&#x60; 
-         * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; 
-         * @return kotlin.collections.List<MMRHistory>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun heroMmrHistory(accountId: kotlin.Int, heroId: kotlin.Int): HttpResponse<kotlin.collections.List<MMRHistory>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/{account_id}/mmr-history/{hero_id}".replace("{" + "account_id" + "}", "$accountId").replace("{" + "hero_id" + "}", "$heroId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/mmr
-        * Batch MMR
-        *  Batch Player MMR 
-         * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. 
-         * @param maxMatchId Filter matches based on their ID. (optional)
-         * @return kotlin.collections.List<MMRHistory>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun mmr(accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long?): HttpResponse<kotlin.collections.List<MMRHistory>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            accountIds?.apply { localVariableQuery["account_ids"] = toMultiValue(this, "multi") }
-            maxMatchId?.apply { localVariableQuery["max_match_id"] = listOf("$maxMatchId") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/mmr",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/mmr/distribution
-        * MMR Distribution
-        *  Player MMR Distribution 
-         * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761091200L)
-         * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-         * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
-         * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
-         * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
-         * @param minMatchId Filter matches based on their ID. (optional)
-         * @param maxMatchId Filter matches based on their ID. (optional)
-         * @return kotlin.collections.List<DistributionEntry>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun mmrDistribution(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?): HttpResponse<kotlin.collections.List<DistributionEntry>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            minUnixTimestamp?.apply { localVariableQuery["min_unix_timestamp"] = listOf("$minUnixTimestamp") }
-            maxUnixTimestamp?.apply { localVariableQuery["max_unix_timestamp"] = listOf("$maxUnixTimestamp") }
-            minDurationS?.apply { localVariableQuery["min_duration_s"] = listOf("$minDurationS") }
-            maxDurationS?.apply { localVariableQuery["max_duration_s"] = listOf("$maxDurationS") }
-            isHighSkillRangeParties?.apply { localVariableQuery["is_high_skill_range_parties"] = listOf("$isHighSkillRangeParties") }
-            isLowPriPool?.apply { localVariableQuery["is_low_pri_pool"] = listOf("$isLowPriPool") }
-            isNewPlayerPool?.apply { localVariableQuery["is_new_player_pool"] = listOf("$isNewPlayerPool") }
-            minMatchId?.apply { localVariableQuery["min_match_id"] = listOf("$minMatchId") }
-            maxMatchId?.apply { localVariableQuery["max_match_id"] = listOf("$maxMatchId") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/mmr/distribution",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/{account_id}/mmr-history
-        * MMR History
-        * Player MMR History
-         * @param accountId The players &#x60;SteamID3&#x60; 
-         * @return kotlin.collections.List<MMRHistory>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun mmrHistory(accountId: kotlin.Int): HttpResponse<kotlin.collections.List<MMRHistory>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/{account_id}/mmr-history".replace("{" + "account_id" + "}", "$accountId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
+class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+    companion object {
+        @JvmStatic
+        val defaultBasePath: String by lazy {
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://api.deadlock-api.com")
         }
+    }
+
+    /**
+     * GET /v1/players/mmr/{hero_id}
+     * Batch Hero MMR
+     *  Batch Player Hero MMR 
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return kotlin.collections.List<MMRHistory>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun heroMmr(heroId: kotlin.Int, accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<MMRHistory> {
+        val localVarResponse = heroMmrWithHttpInfo(heroId = heroId, accountIds = accountIds, maxMatchId = maxMatchId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MMRHistory>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/mmr/{hero_id}
+     * Batch Hero MMR
+     *  Batch Player Hero MMR 
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun heroMmrWithHttpInfo(heroId: kotlin.Int, accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<MMRHistory>?> {
+        val localVariableConfig = heroMmrRequestConfig(heroId = heroId, accountIds = accountIds, maxMatchId = maxMatchId)
+
+        return request<Unit, kotlin.collections.List<MMRHistory>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation heroMmr
+     *
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return RequestConfig
+     */
+    fun heroMmrRequestConfig(heroId: kotlin.Int, accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/mmr/{hero_id}".replace("{"+"hero_id"+"}", encodeURIComponent(heroId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/mmr/distribution/{hero_id}
+     * Hero MMR Distribution
+     *  Player Hero MMR Distribution 
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761091200L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
+     * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return kotlin.collections.List<DistributionEntry>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun heroMmrDistribution(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long? = 1761091200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<DistributionEntry> {
+        val localVarResponse = heroMmrDistributionWithHttpInfo(heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<DistributionEntry>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/mmr/distribution/{hero_id}
+     * Hero MMR Distribution
+     *  Player Hero MMR Distribution 
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761091200L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
+     * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return ApiResponse<kotlin.collections.List<DistributionEntry>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun heroMmrDistributionWithHttpInfo(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<DistributionEntry>?> {
+        val localVariableConfig = heroMmrDistributionRequestConfig(heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return request<Unit, kotlin.collections.List<DistributionEntry>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation heroMmrDistribution
+     *
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761091200L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
+     * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return RequestConfig
+     */
+    fun heroMmrDistributionRequestConfig(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (minUnixTimestamp != null) {
+                    put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
+                }
+                if (maxUnixTimestamp != null) {
+                    put("max_unix_timestamp", listOf(maxUnixTimestamp.toString()))
+                }
+                if (minDurationS != null) {
+                    put("min_duration_s", listOf(minDurationS.toString()))
+                }
+                if (maxDurationS != null) {
+                    put("max_duration_s", listOf(maxDurationS.toString()))
+                }
+                if (isHighSkillRangeParties != null) {
+                    put("is_high_skill_range_parties", listOf(isHighSkillRangeParties.toString()))
+                }
+                if (isLowPriPool != null) {
+                    put("is_low_pri_pool", listOf(isLowPriPool.toString()))
+                }
+                if (isNewPlayerPool != null) {
+                    put("is_new_player_pool", listOf(isNewPlayerPool.toString()))
+                }
+                if (minMatchId != null) {
+                    put("min_match_id", listOf(minMatchId.toString()))
+                }
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/mmr/distribution/{hero_id}".replace("{"+"hero_id"+"}", encodeURIComponent(heroId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/{account_id}/mmr-history/{hero_id}
+     * Hero MMR History
+     * Player Hero MMR History
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @return kotlin.collections.List<MMRHistory>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun heroMmrHistory(accountId: kotlin.Int, heroId: kotlin.Int) : kotlin.collections.List<MMRHistory> {
+        val localVarResponse = heroMmrHistoryWithHttpInfo(accountId = accountId, heroId = heroId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MMRHistory>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/mmr-history/{hero_id}
+     * Hero MMR History
+     * Player Hero MMR History
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun heroMmrHistoryWithHttpInfo(accountId: kotlin.Int, heroId: kotlin.Int) : ApiResponse<kotlin.collections.List<MMRHistory>?> {
+        val localVariableConfig = heroMmrHistoryRequestConfig(accountId = accountId, heroId = heroId)
+
+        return request<Unit, kotlin.collections.List<MMRHistory>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation heroMmrHistory
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @return RequestConfig
+     */
+    fun heroMmrHistoryRequestConfig(accountId: kotlin.Int, heroId: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/mmr-history/{hero_id}".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())).replace("{"+"hero_id"+"}", encodeURIComponent(heroId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/mmr
+     * Batch MMR
+     *  Batch Player MMR 
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return kotlin.collections.List<MMRHistory>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun mmr(accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<MMRHistory> {
+        val localVarResponse = mmrWithHttpInfo(accountIds = accountIds, maxMatchId = maxMatchId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MMRHistory>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/mmr
+     * Batch MMR
+     *  Batch Player MMR 
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun mmrWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<MMRHistory>?> {
+        val localVariableConfig = mmrRequestConfig(accountIds = accountIds, maxMatchId = maxMatchId)
+
+        return request<Unit, kotlin.collections.List<MMRHistory>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation mmr
+     *
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return RequestConfig
+     */
+    fun mmrRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/mmr",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/mmr/distribution
+     * MMR Distribution
+     *  Player MMR Distribution 
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761091200L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
+     * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return kotlin.collections.List<DistributionEntry>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun mmrDistribution(minUnixTimestamp: kotlin.Long? = 1761091200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<DistributionEntry> {
+        val localVarResponse = mmrDistributionWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<DistributionEntry>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/mmr/distribution
+     * MMR Distribution
+     *  Player MMR Distribution 
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761091200L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
+     * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return ApiResponse<kotlin.collections.List<DistributionEntry>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun mmrDistributionWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<DistributionEntry>?> {
+        val localVariableConfig = mmrDistributionRequestConfig(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return request<Unit, kotlin.collections.List<DistributionEntry>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation mmrDistribution
+     *
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761091200L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
+     * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return RequestConfig
+     */
+    fun mmrDistributionRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (minUnixTimestamp != null) {
+                    put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
+                }
+                if (maxUnixTimestamp != null) {
+                    put("max_unix_timestamp", listOf(maxUnixTimestamp.toString()))
+                }
+                if (minDurationS != null) {
+                    put("min_duration_s", listOf(minDurationS.toString()))
+                }
+                if (maxDurationS != null) {
+                    put("max_duration_s", listOf(maxDurationS.toString()))
+                }
+                if (isHighSkillRangeParties != null) {
+                    put("is_high_skill_range_parties", listOf(isHighSkillRangeParties.toString()))
+                }
+                if (isLowPriPool != null) {
+                    put("is_low_pri_pool", listOf(isLowPriPool.toString()))
+                }
+                if (isNewPlayerPool != null) {
+                    put("is_new_player_pool", listOf(isNewPlayerPool.toString()))
+                }
+                if (minMatchId != null) {
+                    put("min_match_id", listOf(minMatchId.toString()))
+                }
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/mmr/distribution",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/{account_id}/mmr-history
+     * MMR History
+     * Player MMR History
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return kotlin.collections.List<MMRHistory>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun mmrHistory(accountId: kotlin.Int) : kotlin.collections.List<MMRHistory> {
+        val localVarResponse = mmrHistoryWithHttpInfo(accountId = accountId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MMRHistory>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/mmr-history
+     * MMR History
+     * Player MMR History
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun mmrHistoryWithHttpInfo(accountId: kotlin.Int) : ApiResponse<kotlin.collections.List<MMRHistory>?> {
+        val localVariableConfig = mmrHistoryRequestConfig(accountId = accountId)
+
+        return request<Unit, kotlin.collections.List<MMRHistory>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation mmrHistory
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return RequestConfig
+     */
+    fun mmrHistoryRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/mmr-history".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+
+    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
+        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
+}

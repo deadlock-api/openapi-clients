@@ -19,16 +19,8 @@ import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.PickupDefinition
 import assets_deadlock_api_client.models.SubclassModifierDefinition
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -74,109 +66,109 @@ import java.io.Serializable
 
 data class MiscV2 (
 
-    @SerializedName("class_name")
+    @Json(name = "class_name")
     val className: kotlin.String,
 
-    @SerializedName("id")
+    @Json(name = "id")
     val id: kotlin.Long,
 
-    @SerializedName("color")
+    @Json(name = "color")
     val color: ColorV1? = null,
 
-    @SerializedName("initial_spawn_time")
+    @Json(name = "initial_spawn_time")
     val initialSpawnTime: java.math.BigDecimal? = null,
 
-    @SerializedName("respawn_time")
+    @Json(name = "respawn_time")
     val respawnTime: java.math.BigDecimal? = null,
 
-    @SerializedName("spawn_interval")
+    @Json(name = "spawn_interval")
     val spawnInterval: java.math.BigDecimal? = null,
 
-    @SerializedName("initial_spawn_delay_in_seconds")
+    @Json(name = "initial_spawn_delay_in_seconds")
     val initialSpawnDelayInSeconds: kotlin.Int? = null,
 
-    @SerializedName("spawn_interval_in_seconds")
+    @Json(name = "spawn_interval_in_seconds")
     val spawnIntervalInSeconds: kotlin.Int? = null,
 
-    @SerializedName("match_time_mins_for_level2_pickups")
+    @Json(name = "match_time_mins_for_level2_pickups")
     val matchTimeMinsForLevel2Pickups: kotlin.Int? = null,
 
-    @SerializedName("match_time_mins_for_level3_pickups")
+    @Json(name = "match_time_mins_for_level3_pickups")
     val matchTimeMinsForLevel3Pickups: kotlin.Int? = null,
 
-    @SerializedName("loot_list_deck_size")
+    @Json(name = "loot_list_deck_size")
     val lootListDeckSize: kotlin.Int? = null,
 
-    @SerializedName("initial_spawn_delay_seconds")
+    @Json(name = "initial_spawn_delay_seconds")
     val initialSpawnDelaySeconds: kotlin.Int? = null,
 
-    @SerializedName("health")
+    @Json(name = "health")
     val health: kotlin.Int? = null,
 
-    @SerializedName("break_on_dodge_touch")
+    @Json(name = "break_on_dodge_touch")
     val breakOnDodgeTouch: kotlin.Boolean? = null,
 
-    @SerializedName("solid_after_death")
+    @Json(name = "solid_after_death")
     val solidAfterDeath: kotlin.Boolean? = null,
 
-    @SerializedName("render_after_death")
+    @Json(name = "render_after_death")
     val renderAfterDeath: kotlin.Boolean? = null,
 
-    @SerializedName("damaged_by_abilities")
+    @Json(name = "damaged_by_abilities")
     val damagedByAbilities: kotlin.Boolean? = null,
 
-    @SerializedName("damaged_by_melee")
+    @Json(name = "damaged_by_melee")
     val damagedByMelee: kotlin.Boolean? = null,
 
-    @SerializedName("damaged_by_bullets")
+    @Json(name = "damaged_by_bullets")
     val damagedByBullets: kotlin.Boolean? = null,
 
-    @SerializedName("is_mantleable")
+    @Json(name = "is_mantleable")
     val isMantleable: kotlin.Boolean? = null,
 
-    @SerializedName("primary_drop_chance")
+    @Json(name = "primary_drop_chance")
     val primaryDropChance: java.math.BigDecimal? = null,
 
-    @SerializedName("primary_pickups")
+    @Json(name = "primary_pickups")
     val primaryPickups: kotlin.collections.List<PickupDefinition>? = null,
 
-    @SerializedName("m_vecPickups_lv2")
+    @Json(name = "m_vecPickups_lv2")
     val mVecPickupsLv2: kotlin.collections.List<PickupDefinition>? = null,
 
-    @SerializedName("m_vecPickups_lv3")
+    @Json(name = "m_vecPickups_lv3")
     val mVecPickupsLv3: kotlin.collections.List<PickupDefinition>? = null,
 
-    @SerializedName("roll_type")
+    @Json(name = "roll_type")
     val rollType: kotlin.String? = null,
 
-    @SerializedName("gold_amount")
+    @Json(name = "gold_amount")
     val goldAmount: java.math.BigDecimal? = null,
 
-    @SerializedName("gold_per_minute_amount")
+    @Json(name = "gold_per_minute_amount")
     val goldPerMinuteAmount: java.math.BigDecimal? = null,
 
-    @SerializedName("modifier")
+    @Json(name = "modifier")
     val modifier: SubclassModifierDefinition? = null,
 
-    @SerializedName("pickup_radius")
+    @Json(name = "pickup_radius")
     val pickupRadius: java.math.BigDecimal? = null,
 
-    @SerializedName("expiration_duration")
+    @Json(name = "expiration_duration")
     val expirationDuration: java.math.BigDecimal? = null,
 
-    @SerializedName("show_on_minimap")
+    @Json(name = "show_on_minimap")
     val showOnMinimap: kotlin.Boolean? = null,
 
-    @SerializedName("orb_spawn_delay_min")
+    @Json(name = "orb_spawn_delay_min")
     val orbSpawnDelayMin: java.math.BigDecimal? = null,
 
-    @SerializedName("orb_spawn_delay_max")
+    @Json(name = "orb_spawn_delay_max")
     val orbSpawnDelayMax: java.math.BigDecimal? = null,
 
-    @SerializedName("lifetime")
+    @Json(name = "lifetime")
     val lifetime: java.math.BigDecimal? = null,
 
-    @SerializedName("collision_radius")
+    @Json(name = "collision_radius")
     val collisionRadius: java.math.BigDecimal? = null
 
 ) : Serializable {
@@ -184,158 +176,6 @@ data class MiscV2 (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!MiscV2::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'MiscV2' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(MiscV2::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<MiscV2>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: MiscV2) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): MiscV2  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("class_name")
-            openapiFields.add("id")
-            openapiFields.add("color")
-            openapiFields.add("initial_spawn_time")
-            openapiFields.add("respawn_time")
-            openapiFields.add("spawn_interval")
-            openapiFields.add("initial_spawn_delay_in_seconds")
-            openapiFields.add("spawn_interval_in_seconds")
-            openapiFields.add("match_time_mins_for_level2_pickups")
-            openapiFields.add("match_time_mins_for_level3_pickups")
-            openapiFields.add("loot_list_deck_size")
-            openapiFields.add("initial_spawn_delay_seconds")
-            openapiFields.add("health")
-            openapiFields.add("break_on_dodge_touch")
-            openapiFields.add("solid_after_death")
-            openapiFields.add("render_after_death")
-            openapiFields.add("damaged_by_abilities")
-            openapiFields.add("damaged_by_melee")
-            openapiFields.add("damaged_by_bullets")
-            openapiFields.add("is_mantleable")
-            openapiFields.add("primary_drop_chance")
-            openapiFields.add("primary_pickups")
-            openapiFields.add("m_vecPickups_lv2")
-            openapiFields.add("m_vecPickups_lv3")
-            openapiFields.add("roll_type")
-            openapiFields.add("gold_amount")
-            openapiFields.add("gold_per_minute_amount")
-            openapiFields.add("modifier")
-            openapiFields.add("pickup_radius")
-            openapiFields.add("expiration_duration")
-            openapiFields.add("show_on_minimap")
-            openapiFields.add("orb_spawn_delay_min")
-            openapiFields.add("orb_spawn_delay_max")
-            openapiFields.add("lifetime")
-            openapiFields.add("collision_radius")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("class_name")
-            openapiRequiredFields.add("id")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to MiscV2
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in MiscV2 is not found in the empty JSON string", MiscV2.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            require(jsonObj["class_name"].isJsonPrimitive) {
-              String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj["class_name"].toString())
-            }
-            // validate the optional field `color`
-            if (jsonObj["color"] != null && !jsonObj["color"].isJsonNull) {
-              ColorV1.validateJsonElement(jsonObj["color"])
-            }
-            if (jsonObj["primary_pickups"] != null && !jsonObj["primary_pickups"].isJsonNull) {
-              if (jsonObj.getAsJsonArray("primary_pickups") != null) {
-                // ensure the json data is an array
-                require(jsonObj["primary_pickups"].isJsonArray) {
-                  String.format("Expected the field `primary_pickups` to be an array in the JSON string but got `%s`", jsonObj["primary_pickups"].toString())
-                }
-
-                // validate the optional field `primary_pickups` (array)
-                for (i in 0 until jsonObj.getAsJsonArray("primary_pickups").size()) {
-                  PickupDefinition.validateJsonElement(jsonObj.getAsJsonArray("primary_pickups").get(i))
-                }
-              }
-            }
-            if (jsonObj["m_vecPickups_lv2"] != null && !jsonObj["m_vecPickups_lv2"].isJsonNull) {
-              if (jsonObj.getAsJsonArray("m_vecPickups_lv2") != null) {
-                // ensure the json data is an array
-                require(jsonObj["m_vecPickups_lv2"].isJsonArray) {
-                  String.format("Expected the field `m_vecPickups_lv2` to be an array in the JSON string but got `%s`", jsonObj["m_vecPickups_lv2"].toString())
-                }
-
-                // validate the optional field `m_vecPickups_lv2` (array)
-                for (i in 0 until jsonObj.getAsJsonArray("m_vecPickups_lv2").size()) {
-                  PickupDefinition.validateJsonElement(jsonObj.getAsJsonArray("m_vecPickups_lv2").get(i))
-                }
-              }
-            }
-            if (jsonObj["m_vecPickups_lv3"] != null && !jsonObj["m_vecPickups_lv3"].isJsonNull) {
-              if (jsonObj.getAsJsonArray("m_vecPickups_lv3") != null) {
-                // ensure the json data is an array
-                require(jsonObj["m_vecPickups_lv3"].isJsonArray) {
-                  String.format("Expected the field `m_vecPickups_lv3` to be an array in the JSON string but got `%s`", jsonObj["m_vecPickups_lv3"].toString())
-                }
-
-                // validate the optional field `m_vecPickups_lv3` (array)
-                for (i in 0 until jsonObj.getAsJsonArray("m_vecPickups_lv3").size()) {
-                  PickupDefinition.validateJsonElement(jsonObj.getAsJsonArray("m_vecPickups_lv3").get(i))
-                }
-              }
-            }
-            if (jsonObj["roll_type"] != null && !jsonObj["roll_type"].isJsonNull) {
-              require(jsonObj.get("roll_type").isJsonPrimitive) {
-                String.format("Expected the field `roll_type` to be a primitive type in the JSON string but got `%s`", jsonObj["roll_type"].toString())
-              }
-            }
-            // validate the optional field `modifier`
-            if (jsonObj["modifier"] != null && !jsonObj["modifier"].isJsonNull) {
-              SubclassModifierDefinition.validateJsonElement(jsonObj["modifier"])
-            }
-        }
-    }
 
 }
 

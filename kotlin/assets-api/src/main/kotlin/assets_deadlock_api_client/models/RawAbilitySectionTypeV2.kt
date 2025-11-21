@@ -16,7 +16,8 @@
 package assets_deadlock_api_client.models
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 
@@ -24,15 +25,16 @@ import com.google.gson.annotations.SerializedName
  * Values: innate,active,passive
  */
 
+@JsonClass(generateAdapter = false)
 enum class RawAbilitySectionTypeV2(val value: kotlin.String) {
 
-    @SerializedName(value = "innate")
+    @Json(name = "innate")
     innate("innate"),
 
-    @SerializedName(value = "active")
+    @Json(name = "active")
     active("active"),
 
-    @SerializedName(value = "passive")
+    @Json(name = "passive")
     passive("passive");
 
     /**

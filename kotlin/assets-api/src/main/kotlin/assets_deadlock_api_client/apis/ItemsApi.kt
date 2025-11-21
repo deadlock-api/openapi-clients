@@ -15,6 +15,10 @@
 
 package assets_deadlock_api_client.apis
 
+import java.io.IOException
+import okhttp3.Call
+import okhttp3.HttpUrl
+
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets_deadlock_api_client.models.GetItemsV2ItemsGet200ResponseInner
 import assets_deadlock_api_client.models.HTTPValidationError
@@ -23,214 +27,463 @@ import assets_deadlock_api_client.models.ItemTypeV2
 import assets_deadlock_api_client.models.Language
 import assets_deadlock_api_client.models.ResponseGetItemV2ItemsIdOrClassNameGet
 
-import assets_deadlock_api_client.infrastructure.*
-import io.ktor.client.HttpClientConfig
-import io.ktor.client.request.forms.formData
-import io.ktor.client.engine.HttpClientEngine
-import io.ktor.http.ParametersBuilder
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import java.text.DateFormat
+import com.squareup.moshi.Json
 
-    open class ItemsApi(
-    baseUrl: String = ApiClient.BASE_URL,
-    httpClientEngine: HttpClientEngine? = null,
-    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
-    ) : ApiClient(
-        baseUrl,
-        httpClientEngine,
-        httpClientConfig,
-        jsonBlock,
-    ) {
+import assets_deadlock_api_client.infrastructure.ApiClient
+import assets_deadlock_api_client.infrastructure.ApiResponse
+import assets_deadlock_api_client.infrastructure.ClientException
+import assets_deadlock_api_client.infrastructure.ClientError
+import assets_deadlock_api_client.infrastructure.ServerException
+import assets_deadlock_api_client.infrastructure.ServerError
+import assets_deadlock_api_client.infrastructure.MultiValueMap
+import assets_deadlock_api_client.infrastructure.PartConfig
+import assets_deadlock_api_client.infrastructure.RequestConfig
+import assets_deadlock_api_client.infrastructure.RequestMethod
+import assets_deadlock_api_client.infrastructure.ResponseType
+import assets_deadlock_api_client.infrastructure.Success
+import assets_deadlock_api_client.infrastructure.toMultiValue
 
-        /**
-        * GET /v2/items/{id_or_class_name}
-        * Get Item
-        * 
-         * @param idOrClassName  
-         * @param language  (optional)
-         * @param clientVersion  (optional)
-         * @return ResponseGetItemV2ItemsIdOrClassNameGet
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun getItemV2ItemsIdOrClassNameGet(idOrClassName: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<ResponseGetItemV2ItemsIdOrClassNameGet> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            language?.apply { localVariableQuery["language"] = listOf("$language") }
-            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v2/items/{id_or_class_name}".replace("{" + "id_or_class_name" + "}", "$idOrClassName"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v2/items/by-hero-id/{id}
-        * Get Items By Hero Id
-        * 
-         * @param id  
-         * @param language  (optional)
-         * @param clientVersion  (optional)
-         * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun getItemsByHeroIdV2ItemsByHeroIdIdGet(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            language?.apply { localVariableQuery["language"] = listOf("$language") }
-            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v2/items/by-hero-id/{id}".replace("{" + "id" + "}", "$id"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v2/items/by-slot-type/{slot_type}
-        * Get Items By Slot Type
-        * 
-         * @param slotType  
-         * @param language  (optional)
-         * @param clientVersion  (optional)
-         * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            language?.apply { localVariableQuery["language"] = listOf("$language") }
-            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v2/items/by-slot-type/{slot_type}".replace("{" + "slot_type" + "}", "$slotType"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v2/items/by-type/{type}
-        * Get Items By Type
-        * 
-         * @param type  
-         * @param language  (optional)
-         * @param clientVersion  (optional)
-         * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            language?.apply { localVariableQuery["language"] = listOf("$language") }
-            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v2/items/by-type/{type}".replace("{" + "type" + "}", "$type"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v2/items
-        * Get Items
-        * 
-         * @param language  (optional)
-         * @param clientVersion  (optional)
-         * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun getItemsV2ItemsGet(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?): HttpResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            language?.apply { localVariableQuery["language"] = listOf("$language") }
-            clientVersion?.apply { localVariableQuery["client_version"] = listOf("$clientVersion") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v2/items",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
+class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+    companion object {
+        @JvmStatic
+        val defaultBasePath: String by lazy {
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://assets.deadlock-api.com")
         }
+    }
+
+    /**
+     * GET /v2/items/{id_or_class_name}
+     * Get Item
+     * 
+     * @param idOrClassName 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return ResponseGetItemV2ItemsIdOrClassNameGet
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getItemV2ItemsIdOrClassNameGet(idOrClassName: kotlin.String, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : ResponseGetItemV2ItemsIdOrClassNameGet {
+        val localVarResponse = getItemV2ItemsIdOrClassNameGetWithHttpInfo(idOrClassName = idOrClassName, language = language, clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ResponseGetItemV2ItemsIdOrClassNameGet
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/items/{id_or_class_name}
+     * Get Item
+     * 
+     * @param idOrClassName 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return ApiResponse<ResponseGetItemV2ItemsIdOrClassNameGet?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getItemV2ItemsIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<ResponseGetItemV2ItemsIdOrClassNameGet?> {
+        val localVariableConfig = getItemV2ItemsIdOrClassNameGetRequestConfig(idOrClassName = idOrClassName, language = language, clientVersion = clientVersion)
+
+        return request<Unit, ResponseGetItemV2ItemsIdOrClassNameGet>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getItemV2ItemsIdOrClassNameGet
+     *
+     * @param idOrClassName 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getItemV2ItemsIdOrClassNameGetRequestConfig(idOrClassName: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (language != null) {
+                    put("language", listOf(language.toString()))
+                }
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/items/{id_or_class_name}".replace("{"+"id_or_class_name"+"}", encodeURIComponent(idOrClassName.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v2/items/by-hero-id/{id}
+     * Get Items By Hero Id
+     * 
+     * @param id 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getItemsByHeroIdV2ItemsByHeroIdIdGet(id: kotlin.Int, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+        val localVarResponse = getItemsByHeroIdV2ItemsByHeroIdIdGetWithHttpInfo(id = id, language = language, clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/items/by-hero-id/{id}
+     * Get Items By Hero Id
+     * 
+     * @param id 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getItemsByHeroIdV2ItemsByHeroIdIdGetWithHttpInfo(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+        val localVariableConfig = getItemsByHeroIdV2ItemsByHeroIdIdGetRequestConfig(id = id, language = language, clientVersion = clientVersion)
+
+        return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getItemsByHeroIdV2ItemsByHeroIdIdGet
+     *
+     * @param id 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getItemsByHeroIdV2ItemsByHeroIdIdGetRequestConfig(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (language != null) {
+                    put("language", listOf(language.toString()))
+                }
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/items/by-hero-id/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v2/items/by-slot-type/{slot_type}
+     * Get Items By Slot Type
+     * 
+     * @param slotType 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+        val localVarResponse = getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetWithHttpInfo(slotType = slotType, language = language, clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/items/by-slot-type/{slot_type}
+     * Get Items By Slot Type
+     * 
+     * @param slotType 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetWithHttpInfo(slotType: ItemSlotTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+        val localVariableConfig = getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequestConfig(slotType = slotType, language = language, clientVersion = clientVersion)
+
+        return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet
+     *
+     * @param slotType 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequestConfig(slotType: ItemSlotTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (language != null) {
+                    put("language", listOf(language.toString()))
+                }
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/items/by-slot-type/{slot_type}".replace("{"+"slot_type"+"}", encodeURIComponent(slotType.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v2/items/by-type/{type}
+     * Get Items By Type
+     * 
+     * @param type 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+        val localVarResponse = getItemsByTypeV2ItemsByTypeTypeGetWithHttpInfo(type = type, language = language, clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/items/by-type/{type}
+     * Get Items By Type
+     * 
+     * @param type 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getItemsByTypeV2ItemsByTypeTypeGetWithHttpInfo(type: ItemTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+        val localVariableConfig = getItemsByTypeV2ItemsByTypeTypeGetRequestConfig(type = type, language = language, clientVersion = clientVersion)
+
+        return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getItemsByTypeV2ItemsByTypeTypeGet
+     *
+     * @param type 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getItemsByTypeV2ItemsByTypeTypeGetRequestConfig(type: ItemTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (language != null) {
+                    put("language", listOf(language.toString()))
+                }
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/items/by-type/{type}".replace("{"+"type"+"}", encodeURIComponent(type.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v2/items
+     * Get Items
+     * 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getItemsV2ItemsGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+        val localVarResponse = getItemsV2ItemsGetWithHttpInfo(language = language, clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/items
+     * Get Items
+     * 
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getItemsV2ItemsGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+        val localVariableConfig = getItemsV2ItemsGetRequestConfig(language = language, clientVersion = clientVersion)
+
+        return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getItemsV2ItemsGet
+     *
+     * @param language  (optional)
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getItemsV2ItemsGetRequestConfig(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (language != null) {
+                    put("language", listOf(language.toString()))
+                }
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/items",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+
+    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
+        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
+}

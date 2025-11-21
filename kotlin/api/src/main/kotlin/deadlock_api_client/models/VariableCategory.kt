@@ -16,7 +16,8 @@
 package deadlock_api_client.models
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 
@@ -24,24 +25,25 @@ import com.google.gson.annotations.SerializedName
  * Values: General,Daily,Hero,Item,Leaderboard,Overall
  */
 
+@JsonClass(generateAdapter = false)
 enum class VariableCategory(val value: kotlin.String) {
 
-    @SerializedName(value = "General")
+    @Json(name = "General")
     General("General"),
 
-    @SerializedName(value = "Daily")
+    @Json(name = "Daily")
     Daily("Daily"),
 
-    @SerializedName(value = "Hero")
+    @Json(name = "Hero")
     Hero("Hero"),
 
-    @SerializedName(value = "Item")
+    @Json(name = "Item")
     Item("Item"),
 
-    @SerializedName(value = "Leaderboard")
+    @Json(name = "Leaderboard")
     Leaderboard("Leaderboard"),
 
-    @SerializedName(value = "Overall")
+    @Json(name = "Overall")
     Overall("Overall");
 
     /**

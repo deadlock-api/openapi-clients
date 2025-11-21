@@ -16,16 +16,8 @@
 package assets_deadlock_api_client.models
 
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -39,13 +31,13 @@ import java.io.Serializable
 
 data class HeroLevelInfoV2 (
 
-    @SerializedName("required_gold")
+    @Json(name = "required_gold")
     val requiredGold: kotlin.Int,
 
-    @SerializedName("use_standard_upgrade")
+    @Json(name = "use_standard_upgrade")
     val useStandardUpgrade: kotlin.Boolean? = null,
 
-    @SerializedName("bonus_currencies")
+    @Json(name = "bonus_currencies")
     val bonusCurrencies: kotlin.collections.List<kotlin.String>? = null
 
 ) : Serializable {
@@ -53,84 +45,6 @@ data class HeroLevelInfoV2 (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!HeroLevelInfoV2::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'HeroLevelInfoV2' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(HeroLevelInfoV2::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<HeroLevelInfoV2>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: HeroLevelInfoV2) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): HeroLevelInfoV2  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("required_gold")
-            openapiFields.add("use_standard_upgrade")
-            openapiFields.add("bonus_currencies")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("required_gold")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to HeroLevelInfoV2
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in HeroLevelInfoV2 is not found in the empty JSON string", HeroLevelInfoV2.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // ensure the optional json data is an array if present
-            if (jsonObj["bonus_currencies"] != null && !jsonObj["bonus_currencies"].isJsonNull) {
-              require(jsonObj["bonus_currencies"].isJsonArray()) {
-                String.format("Expected the field `bonus_currencies` to be an array in the JSON string but got `%s`", jsonObj["bonus_currencies"].toString())
-              }
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["bonus_currencies"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("bonus_currencies").size()) {
-                require(jsonObj.getAsJsonArray("bonus_currencies").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `bonus_currencies` to be primitive")
-                }
-              }
-            }
-        }
-    }
 
 }
 

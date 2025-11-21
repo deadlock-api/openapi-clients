@@ -16,7 +16,8 @@
 package assets_deadlock_api_client.models
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 
@@ -24,15 +25,16 @@ import com.google.gson.annotations.SerializedName
  * Values: weapon,spirit,vitality
  */
 
+@JsonClass(generateAdapter = false)
 enum class ItemSlotTypeV2(val value: kotlin.String) {
 
-    @SerializedName(value = "weapon")
+    @Json(name = "weapon")
     weapon("weapon"),
 
-    @SerializedName(value = "spirit")
+    @Json(name = "spirit")
     spirit("spirit"),
 
-    @SerializedName(value = "vitality")
+    @Json(name = "vitality")
     vitality("vitality");
 
     /**

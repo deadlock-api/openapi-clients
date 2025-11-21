@@ -16,7 +16,8 @@
 package assets_deadlock_api_client.models
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 
@@ -24,24 +25,25 @@ import com.google.gson.annotations.SerializedName
  * Values: hold_toggle,instant_cast,on_button_is_down,passive,press,press_toggle
  */
 
+@JsonClass(generateAdapter = false)
 enum class RawAbilityActivationV2(val value: kotlin.String) {
 
-    @SerializedName(value = "hold_toggle")
+    @Json(name = "hold_toggle")
     hold_toggle("hold_toggle"),
 
-    @SerializedName(value = "instant_cast")
+    @Json(name = "instant_cast")
     instant_cast("instant_cast"),
 
-    @SerializedName(value = "on_button_is_down")
+    @Json(name = "on_button_is_down")
     on_button_is_down("on_button_is_down"),
 
-    @SerializedName(value = "passive")
+    @Json(name = "passive")
     passive("passive"),
 
-    @SerializedName(value = "press")
+    @Json(name = "press")
     press("press"),
 
-    @SerializedName(value = "press_toggle")
+    @Json(name = "press_toggle")
     press_toggle("press_toggle");
 
     /**

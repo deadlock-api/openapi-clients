@@ -21,16 +21,8 @@ import assets_deadlock_api_client.models.RawWeaponInfoHorizontalRecoilV2
 import assets_deadlock_api_client.models.RawWeaponInfoVerticalRecoilV2
 import assets_deadlock_api_client.models.StandingShotSpreadPenalty
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -97,172 +89,172 @@ import java.io.Serializable
 
 data class RawWeaponInfoV2 (
 
-    @SerializedName("can_zoom")
+    @Json(name = "can_zoom")
     val canZoom: kotlin.Boolean? = null,
 
-    @SerializedName("bullet_damage")
+    @Json(name = "bullet_damage")
     val bulletDamage: java.math.BigDecimal? = null,
 
-    @SerializedName("bullet_gravity_scale")
+    @Json(name = "bullet_gravity_scale")
     val bulletGravityScale: java.math.BigDecimal? = null,
 
-    @SerializedName("bullet_inherit_shooter_velocity_scale")
+    @Json(name = "bullet_inherit_shooter_velocity_scale")
     val bulletInheritShooterVelocityScale: java.math.BigDecimal? = null,
 
-    @SerializedName("bullet_lifetime")
+    @Json(name = "bullet_lifetime")
     val bulletLifetime: java.math.BigDecimal? = null,
 
-    @SerializedName("bullet_radius")
+    @Json(name = "bullet_radius")
     val bulletRadius: java.math.BigDecimal? = null,
 
-    @SerializedName("bullet_radius_vs_world")
+    @Json(name = "bullet_radius_vs_world")
     val bulletRadiusVsWorld: java.math.BigDecimal? = null,
 
-    @SerializedName("bullet_reflect_amount")
+    @Json(name = "bullet_reflect_amount")
     val bulletReflectAmount: java.math.BigDecimal? = null,
 
-    @SerializedName("bullet_reflect_scale")
+    @Json(name = "bullet_reflect_scale")
     val bulletReflectScale: java.math.BigDecimal? = null,
 
-    @SerializedName("bullet_whiz_distance")
+    @Json(name = "bullet_whiz_distance")
     val bulletWhizDistance: java.math.BigDecimal? = null,
 
-    @SerializedName("burst_shot_cooldown")
+    @Json(name = "burst_shot_cooldown")
     val burstShotCooldown: java.math.BigDecimal? = null,
 
-    @SerializedName("crit_bonus_against_npcs")
+    @Json(name = "crit_bonus_against_npcs")
     val critBonusAgainstNpcs: java.math.BigDecimal? = null,
 
-    @SerializedName("crit_bonus_end")
+    @Json(name = "crit_bonus_end")
     val critBonusEnd: java.math.BigDecimal? = null,
 
-    @SerializedName("crit_bonus_end_range")
+    @Json(name = "crit_bonus_end_range")
     val critBonusEndRange: java.math.BigDecimal? = null,
 
-    @SerializedName("crit_bonus_start")
+    @Json(name = "crit_bonus_start")
     val critBonusStart: java.math.BigDecimal? = null,
 
-    @SerializedName("crit_bonus_start_range")
+    @Json(name = "crit_bonus_start_range")
     val critBonusStartRange: java.math.BigDecimal? = null,
 
-    @SerializedName("cycle_time")
+    @Json(name = "cycle_time")
     val cycleTime: java.math.BigDecimal? = null,
 
-    @SerializedName("intra_burst_cycle_time")
+    @Json(name = "intra_burst_cycle_time")
     val intraBurstCycleTime: java.math.BigDecimal? = null,
 
-    @SerializedName("max_spin_cycle_time")
+    @Json(name = "max_spin_cycle_time")
     val maxSpinCycleTime: java.math.BigDecimal? = null,
 
-    @SerializedName("damage_falloff_bias")
+    @Json(name = "damage_falloff_bias")
     val damageFalloffBias: java.math.BigDecimal? = null,
 
-    @SerializedName("damage_falloff_end_range")
+    @Json(name = "damage_falloff_end_range")
     val damageFalloffEndRange: java.math.BigDecimal? = null,
 
-    @SerializedName("damage_falloff_end_scale")
+    @Json(name = "damage_falloff_end_scale")
     val damageFalloffEndScale: java.math.BigDecimal? = null,
 
-    @SerializedName("damage_falloff_start_range")
+    @Json(name = "damage_falloff_start_range")
     val damageFalloffStartRange: java.math.BigDecimal? = null,
 
-    @SerializedName("damage_falloff_start_scale")
+    @Json(name = "damage_falloff_start_scale")
     val damageFalloffStartScale: java.math.BigDecimal? = null,
 
-    @SerializedName("horizontal_punch")
+    @Json(name = "horizontal_punch")
     val horizontalPunch: java.math.BigDecimal? = null,
 
-    @SerializedName("range")
+    @Json(name = "range")
     val range: java.math.BigDecimal? = null,
 
-    @SerializedName("recoil_recovery_delay_factor")
+    @Json(name = "recoil_recovery_delay_factor")
     val recoilRecoveryDelayFactor: java.math.BigDecimal? = null,
 
-    @SerializedName("recoil_recovery_speed")
+    @Json(name = "recoil_recovery_speed")
     val recoilRecoverySpeed: java.math.BigDecimal? = null,
 
-    @SerializedName("recoil_shot_index_recovery_time_factor")
+    @Json(name = "recoil_shot_index_recovery_time_factor")
     val recoilShotIndexRecoveryTimeFactor: java.math.BigDecimal? = null,
 
-    @SerializedName("recoil_speed")
+    @Json(name = "recoil_speed")
     val recoilSpeed: java.math.BigDecimal? = null,
 
-    @SerializedName("reload_move_speed")
+    @Json(name = "reload_move_speed")
     val reloadMoveSpeed: java.math.BigDecimal? = null,
 
-    @SerializedName("scatter_yaw_scale")
+    @Json(name = "scatter_yaw_scale")
     val scatterYawScale: java.math.BigDecimal? = null,
 
-    @SerializedName("aiming_shot_spread_penalty")
+    @Json(name = "aiming_shot_spread_penalty")
     val aimingShotSpreadPenalty: AimingShotSpreadPenalty? = null,
 
-    @SerializedName("standing_shot_spread_penalty")
+    @Json(name = "standing_shot_spread_penalty")
     val standingShotSpreadPenalty: StandingShotSpreadPenalty? = null,
 
-    @SerializedName("shoot_move_speed_percent")
+    @Json(name = "shoot_move_speed_percent")
     val shootMoveSpeedPercent: java.math.BigDecimal? = null,
 
-    @SerializedName("shoot_spread_penalty_decay")
+    @Json(name = "shoot_spread_penalty_decay")
     val shootSpreadPenaltyDecay: java.math.BigDecimal? = null,
 
-    @SerializedName("shoot_spread_penalty_decay_delay")
+    @Json(name = "shoot_spread_penalty_decay_delay")
     val shootSpreadPenaltyDecayDelay: java.math.BigDecimal? = null,
 
-    @SerializedName("shoot_spread_penalty_per_shot")
+    @Json(name = "shoot_spread_penalty_per_shot")
     val shootSpreadPenaltyPerShot: java.math.BigDecimal? = null,
 
-    @SerializedName("shooting_up_spread_penalty")
+    @Json(name = "shooting_up_spread_penalty")
     val shootingUpSpreadPenalty: java.math.BigDecimal? = null,
 
-    @SerializedName("vertical_punch")
+    @Json(name = "vertical_punch")
     val verticalPunch: java.math.BigDecimal? = null,
 
-    @SerializedName("zoom_fov")
+    @Json(name = "zoom_fov")
     val zoomFov: java.math.BigDecimal? = null,
 
-    @SerializedName("zoom_move_speed_percent")
+    @Json(name = "zoom_move_speed_percent")
     val zoomMoveSpeedPercent: java.math.BigDecimal? = null,
 
-    @SerializedName("bullets")
+    @Json(name = "bullets")
     val bullets: kotlin.Int? = null,
 
-    @SerializedName("reload_single_bullets_initial_delay")
+    @Json(name = "reload_single_bullets_initial_delay")
     val reloadSingleBulletsInitialDelay: java.math.BigDecimal? = null,
 
-    @SerializedName("reload_single_bullets")
+    @Json(name = "reload_single_bullets")
     val reloadSingleBullets: kotlin.Boolean? = null,
 
-    @SerializedName("reload_single_bullets_allow_cancel")
+    @Json(name = "reload_single_bullets_allow_cancel")
     val reloadSingleBulletsAllowCancel: kotlin.Boolean? = null,
 
-    @SerializedName("burst_shot_count")
+    @Json(name = "burst_shot_count")
     val burstShotCount: kotlin.Int? = null,
 
-    @SerializedName("clip_size")
+    @Json(name = "clip_size")
     val clipSize: kotlin.Int? = null,
 
-    @SerializedName("spread")
+    @Json(name = "spread")
     val spread: java.math.BigDecimal? = null,
 
-    @SerializedName("standing_spread")
+    @Json(name = "standing_spread")
     val standingSpread: java.math.BigDecimal? = null,
 
-    @SerializedName("low_ammo_indicator_threshold")
+    @Json(name = "low_ammo_indicator_threshold")
     val lowAmmoIndicatorThreshold: java.math.BigDecimal? = null,
 
-    @SerializedName("recoil_seed")
+    @Json(name = "recoil_seed")
     val recoilSeed: java.math.BigDecimal? = null,
 
-    @SerializedName("reload_duration")
+    @Json(name = "reload_duration")
     val reloadDuration: java.math.BigDecimal? = null,
 
-    @SerializedName("bullet_speed_curve")
+    @Json(name = "bullet_speed_curve")
     val bulletSpeedCurve: RawItemWeaponInfoBulletSpeedCurveV2? = null,
 
-    @SerializedName("horizontal_recoil")
+    @Json(name = "horizontal_recoil")
     val horizontalRecoil: RawWeaponInfoHorizontalRecoilV2? = null,
 
-    @SerializedName("vertical_recoil")
+    @Json(name = "vertical_recoil")
     val verticalRecoil: RawWeaponInfoVerticalRecoilV2? = null
 
 ) : Serializable {
@@ -270,134 +262,6 @@ data class RawWeaponInfoV2 (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!RawWeaponInfoV2::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'RawWeaponInfoV2' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(RawWeaponInfoV2::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<RawWeaponInfoV2>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: RawWeaponInfoV2) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): RawWeaponInfoV2  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("can_zoom")
-            openapiFields.add("bullet_damage")
-            openapiFields.add("bullet_gravity_scale")
-            openapiFields.add("bullet_inherit_shooter_velocity_scale")
-            openapiFields.add("bullet_lifetime")
-            openapiFields.add("bullet_radius")
-            openapiFields.add("bullet_radius_vs_world")
-            openapiFields.add("bullet_reflect_amount")
-            openapiFields.add("bullet_reflect_scale")
-            openapiFields.add("bullet_whiz_distance")
-            openapiFields.add("burst_shot_cooldown")
-            openapiFields.add("crit_bonus_against_npcs")
-            openapiFields.add("crit_bonus_end")
-            openapiFields.add("crit_bonus_end_range")
-            openapiFields.add("crit_bonus_start")
-            openapiFields.add("crit_bonus_start_range")
-            openapiFields.add("cycle_time")
-            openapiFields.add("intra_burst_cycle_time")
-            openapiFields.add("max_spin_cycle_time")
-            openapiFields.add("damage_falloff_bias")
-            openapiFields.add("damage_falloff_end_range")
-            openapiFields.add("damage_falloff_end_scale")
-            openapiFields.add("damage_falloff_start_range")
-            openapiFields.add("damage_falloff_start_scale")
-            openapiFields.add("horizontal_punch")
-            openapiFields.add("range")
-            openapiFields.add("recoil_recovery_delay_factor")
-            openapiFields.add("recoil_recovery_speed")
-            openapiFields.add("recoil_shot_index_recovery_time_factor")
-            openapiFields.add("recoil_speed")
-            openapiFields.add("reload_move_speed")
-            openapiFields.add("scatter_yaw_scale")
-            openapiFields.add("aiming_shot_spread_penalty")
-            openapiFields.add("standing_shot_spread_penalty")
-            openapiFields.add("shoot_move_speed_percent")
-            openapiFields.add("shoot_spread_penalty_decay")
-            openapiFields.add("shoot_spread_penalty_decay_delay")
-            openapiFields.add("shoot_spread_penalty_per_shot")
-            openapiFields.add("shooting_up_spread_penalty")
-            openapiFields.add("vertical_punch")
-            openapiFields.add("zoom_fov")
-            openapiFields.add("zoom_move_speed_percent")
-            openapiFields.add("bullets")
-            openapiFields.add("reload_single_bullets_initial_delay")
-            openapiFields.add("reload_single_bullets")
-            openapiFields.add("reload_single_bullets_allow_cancel")
-            openapiFields.add("burst_shot_count")
-            openapiFields.add("clip_size")
-            openapiFields.add("spread")
-            openapiFields.add("standing_spread")
-            openapiFields.add("low_ammo_indicator_threshold")
-            openapiFields.add("recoil_seed")
-            openapiFields.add("reload_duration")
-            openapiFields.add("bullet_speed_curve")
-            openapiFields.add("horizontal_recoil")
-            openapiFields.add("vertical_recoil")
-
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to RawWeaponInfoV2
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in RawWeaponInfoV2 is not found in the empty JSON string", RawWeaponInfoV2.openapiRequiredFields.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // validate the optional field `aiming_shot_spread_penalty`
-            if (jsonObj["aiming_shot_spread_penalty"] != null && !jsonObj["aiming_shot_spread_penalty"].isJsonNull) {
-              AimingShotSpreadPenalty.validateJsonElement(jsonObj["aiming_shot_spread_penalty"])
-            }
-            // validate the optional field `standing_shot_spread_penalty`
-            if (jsonObj["standing_shot_spread_penalty"] != null && !jsonObj["standing_shot_spread_penalty"].isJsonNull) {
-              StandingShotSpreadPenalty.validateJsonElement(jsonObj["standing_shot_spread_penalty"])
-            }
-            // validate the optional field `bullet_speed_curve`
-            if (jsonObj["bullet_speed_curve"] != null && !jsonObj["bullet_speed_curve"].isJsonNull) {
-              RawItemWeaponInfoBulletSpeedCurveV2.validateJsonElement(jsonObj["bullet_speed_curve"])
-            }
-            // validate the optional field `horizontal_recoil`
-            if (jsonObj["horizontal_recoil"] != null && !jsonObj["horizontal_recoil"].isJsonNull) {
-              RawWeaponInfoHorizontalRecoilV2.validateJsonElement(jsonObj["horizontal_recoil"])
-            }
-            // validate the optional field `vertical_recoil`
-            if (jsonObj["vertical_recoil"] != null && !jsonObj["vertical_recoil"].isJsonNull) {
-              RawWeaponInfoVerticalRecoilV2.validateJsonElement(jsonObj["vertical_recoil"])
-            }
-        }
-    }
 
 }
 

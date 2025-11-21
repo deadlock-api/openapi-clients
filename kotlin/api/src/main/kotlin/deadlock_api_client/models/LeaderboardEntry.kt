@@ -16,16 +16,8 @@
 package deadlock_api_client.models
 
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -44,31 +36,31 @@ import java.io.Serializable
 data class LeaderboardEntry (
 
     /* The account name of the player. */
-    @SerializedName("account_name")
+    @Json(name = "account_name")
     val accountName: kotlin.String? = null,
 
     /* The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> */
-    @SerializedName("badge_level")
+    @Json(name = "badge_level")
     val badgeLevel: kotlin.Int? = null,
 
     /* The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.** */
-    @SerializedName("possible_account_ids")
+    @Json(name = "possible_account_ids")
     val possibleAccountIds: kotlin.collections.List<kotlin.Int>? = null,
 
     /* The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> */
-    @SerializedName("rank")
+    @Json(name = "rank")
     val rank: kotlin.Int? = null,
 
     /* The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks> */
-    @SerializedName("ranked_rank")
+    @Json(name = "ranked_rank")
     val rankedRank: kotlin.Int? = null,
 
     /* The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks> */
-    @SerializedName("ranked_subrank")
+    @Json(name = "ranked_subrank")
     val rankedSubrank: kotlin.Int? = null,
 
     /* The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes> */
-    @SerializedName("top_hero_ids")
+    @Json(name = "top_hero_ids")
     val topHeroIds: kotlin.collections.List<kotlin.Int>? = null
 
 ) : Serializable {
@@ -76,98 +68,6 @@ data class LeaderboardEntry (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!LeaderboardEntry::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'LeaderboardEntry' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(LeaderboardEntry::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<LeaderboardEntry>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: LeaderboardEntry) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): LeaderboardEntry  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("account_name")
-            openapiFields.add("badge_level")
-            openapiFields.add("possible_account_ids")
-            openapiFields.add("rank")
-            openapiFields.add("ranked_rank")
-            openapiFields.add("ranked_subrank")
-            openapiFields.add("top_hero_ids")
-
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to LeaderboardEntry
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in LeaderboardEntry is not found in the empty JSON string", LeaderboardEntry.openapiRequiredFields.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            if (jsonObj["account_name"] != null && !jsonObj["account_name"].isJsonNull) {
-              require(jsonObj.get("account_name").isJsonPrimitive) {
-                String.format("Expected the field `account_name` to be a primitive type in the JSON string but got `%s`", jsonObj["account_name"].toString())
-              }
-            }
-            // ensure the optional json data is an array if present
-            if (jsonObj["possible_account_ids"] != null && !jsonObj["possible_account_ids"].isJsonNull) {
-              require(jsonObj["possible_account_ids"].isJsonArray()) {
-                String.format("Expected the field `possible_account_ids` to be an array in the JSON string but got `%s`", jsonObj["possible_account_ids"].toString())
-              }
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["possible_account_ids"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("possible_account_ids").size()) {
-                require(jsonObj.getAsJsonArray("possible_account_ids").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `possible_account_ids` to be primitive")
-                }
-              }
-            }
-            // ensure the optional json data is an array if present
-            if (jsonObj["top_hero_ids"] != null && !jsonObj["top_hero_ids"].isJsonNull) {
-              require(jsonObj["top_hero_ids"].isJsonArray()) {
-                String.format("Expected the field `top_hero_ids` to be an array in the JSON string but got `%s`", jsonObj["top_hero_ids"].toString())
-              }
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["top_hero_ids"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("top_hero_ids").size()) {
-                require(jsonObj.getAsJsonArray("top_hero_ids").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `top_hero_ids` to be primitive")
-                }
-              }
-            }
-        }
-    }
 
 }
 

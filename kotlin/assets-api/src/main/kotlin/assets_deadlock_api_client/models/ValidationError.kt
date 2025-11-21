@@ -17,16 +17,8 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ValidationErrorLocInner
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -40,13 +32,13 @@ import java.io.Serializable
 
 data class ValidationError (
 
-    @SerializedName("loc")
+    @Json(name = "loc")
     val loc: kotlin.collections.List<ValidationErrorLocInner>,
 
-    @SerializedName("msg")
+    @Json(name = "msg")
     val msg: kotlin.String,
 
-    @SerializedName("type")
+    @Json(name = "type")
     val type: kotlin.String
 
 ) : Serializable {
@@ -54,87 +46,6 @@ data class ValidationError (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!ValidationError::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'ValidationError' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ValidationError::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<ValidationError>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: ValidationError) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): ValidationError  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("loc")
-            openapiFields.add("msg")
-            openapiFields.add("type")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("loc")
-            openapiRequiredFields.add("msg")
-            openapiRequiredFields.add("type")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to ValidationError
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in ValidationError is not found in the empty JSON string", ValidationError.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // ensure the json data is an array
-            if (!jsonObj.get("loc").isJsonArray) {
-              throw IllegalArgumentException(String.format("Expected the field `loc` to be an array in the JSON string but got `%s`", jsonObj["loc"].toString()))
-            }
-
-            // validate the required field `loc` (array)
-            for (i in 0 until jsonObj.getAsJsonArray("loc").size()) {
-              ValidationErrorLocInner.validateJsonElement(jsonObj.getAsJsonArray("loc").get(i))
-            }
-            require(jsonObj["msg"].isJsonPrimitive) {
-              String.format("Expected the field `msg` to be a primitive type in the JSON string but got `%s`", jsonObj["msg"].toString())
-            }
-            require(jsonObj["type"].isJsonPrimitive) {
-              String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj["type"].toString())
-            }
-        }
-    }
 
 }
 

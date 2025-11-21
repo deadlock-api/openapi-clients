@@ -31,167 +31,134 @@ import assets_deadlock_api_client.models.UpgradeTooltipSectionV2
 import assets_deadlock_api_client.models.UpgradeV2
 import assets_deadlock_api_client.models.WeaponV2
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
-import java.io.IOException
 
 /**
  * 
  *
+ * @param id 
+ * @param className 
+ * @param name 
+ * @param description 
+ * @param itemSlotType 
+ * @param itemTier 
+ * @param activation 
+ * @param isActiveItem 
+ * @param shopable 
+ * @param cost 
+ * @param startTrained 
+ * @param image 
+ * @param imageWebp 
+ * @param hero 
+ * @param heroes 
+ * @param updateTime 
+ * @param properties 
+ * @param weaponInfo 
+ * @param type 
+ * @param behaviours 
+ * @param tooltipDetails 
+ * @param upgrades 
+ * @param abilityType 
+ * @param bossDamageScale 
+ * @param dependantAbilities 
+ * @param videos 
+ * @param shopImage 
+ * @param shopImageWebp 
+ * @param shopImageSmall 
+ * @param shopImageSmallWebp 
+ * @param disabled 
+ * @param imbue 
+ * @param componentItems 
+ * @param tooltipSections 
  */
 
 
-data class GetItemsV2ItemsGet200ResponseInner(var actualInstance: Any? = null) {
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!GetItemsV2ItemsGet200ResponseInner::class.java.isAssignableFrom(type.rawType)) {
-                return null // this class only serializes 'GetItemsV2ItemsGet200ResponseInner' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val adapterAbilityV2 = gson.getDelegateAdapter(this, TypeToken.get(AbilityV2::class.java))
-            val adapterWeaponV2 = gson.getDelegateAdapter(this, TypeToken.get(WeaponV2::class.java))
-            val adapterUpgradeV2 = gson.getDelegateAdapter(this, TypeToken.get(UpgradeV2::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<GetItemsV2ItemsGet200ResponseInner?>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter,value: GetItemsV2ItemsGet200ResponseInner?) {
-                    if (value?.actualInstance == null) {
-                        elementAdapter.write(out, null)
-                        return
-                    }
-
-                    // check if the actual instance is of the type `AbilityV2`
-                    if (value.actualInstance is AbilityV2) {
-                        val element = adapterAbilityV2.toJsonTree(value.actualInstance as AbilityV2?)
-                        elementAdapter.write(out, element)
-                        return
-                    }
-                    // check if the actual instance is of the type `WeaponV2`
-                    if (value.actualInstance is WeaponV2) {
-                        val element = adapterWeaponV2.toJsonTree(value.actualInstance as WeaponV2?)
-                        elementAdapter.write(out, element)
-                        return
-                    }
-                    // check if the actual instance is of the type `UpgradeV2`
-                    if (value.actualInstance is UpgradeV2) {
-                        val element = adapterUpgradeV2.toJsonTree(value.actualInstance as UpgradeV2?)
-                        elementAdapter.write(out, element)
-                        return
-                    }
-                    throw IOException("Failed to serialize as the type doesn't match oneOf schemas: AbilityV2, UpgradeV2, WeaponV2")
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): GetItemsV2ItemsGet200ResponseInner {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    var match = 0
-                    val errorMessages = ArrayList<String>()
-                    var actualAdapter: TypeAdapter<*> = elementAdapter
-
-                    // deserialize AbilityV2
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        AbilityV2.validateJsonElement(jsonElement)
-                        actualAdapter = adapterAbilityV2
-                        match++
-                        //log.log(Level.FINER, "Input data matches schema 'AbilityV2'")
-                    } catch (e: Exception) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for AbilityV2 failed with `%s`.", e.message))
-                        //log.log(Level.FINER, "Input data does not match schema 'AbilityV2'", e)
-                    }
-                    // deserialize WeaponV2
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        WeaponV2.validateJsonElement(jsonElement)
-                        actualAdapter = adapterWeaponV2
-                        match++
-                        //log.log(Level.FINER, "Input data matches schema 'WeaponV2'")
-                    } catch (e: Exception) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for WeaponV2 failed with `%s`.", e.message))
-                        //log.log(Level.FINER, "Input data does not match schema 'WeaponV2'", e)
-                    }
-                    // deserialize UpgradeV2
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        UpgradeV2.validateJsonElement(jsonElement)
-                        actualAdapter = adapterUpgradeV2
-                        match++
-                        //log.log(Level.FINER, "Input data matches schema 'UpgradeV2'")
-                    } catch (e: Exception) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for UpgradeV2 failed with `%s`.", e.message))
-                        //log.log(Level.FINER, "Input data does not match schema 'UpgradeV2'", e)
-                    }
-
-                    if (match == 1) {
-                        val ret = GetItemsV2ItemsGet200ResponseInner()
-                        ret.actualInstance = actualAdapter.fromJsonTree(jsonElement)
-                        return ret
-                    }
-
-                    throw IOException(String.format("Failed deserialization for GetItemsV2ItemsGet200ResponseInner: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()))
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
+interface GetItemsV2ItemsGet200ResponseInner : Serializable {
     companion object {
-        /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to GetItemsV2ItemsGet200ResponseInner
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            requireNotNull(jsonElement) {
-                "Provided json element must not be null"
-            }
-            var match = 0
-            val errorMessages = ArrayList<String>()
-            // validate the json string with AbilityV2
-            try {
-                // validate the JSON object to see if any exception is thrown
-                AbilityV2.validateJsonElement(jsonElement)
-                match++
-            } catch (e: Exception) {
-                // Validation failed, continue
-                errorMessages.add(String.format("Validation for AbilityV2 failed with `%s`.", e.message))
-            }
-            // validate the json string with WeaponV2
-            try {
-                // validate the JSON object to see if any exception is thrown
-                WeaponV2.validateJsonElement(jsonElement)
-                match++
-            } catch (e: Exception) {
-                // Validation failed, continue
-                errorMessages.add(String.format("Validation for WeaponV2 failed with `%s`.", e.message))
-            }
-            // validate the json string with UpgradeV2
-            try {
-                // validate the JSON object to see if any exception is thrown
-                UpgradeV2.validateJsonElement(jsonElement)
-                match++
-            } catch (e: Exception) {
-                // Validation failed, continue
-                errorMessages.add(String.format("Validation for UpgradeV2 failed with `%s`.", e.message))
-            }
-
-            if (match != 1) {
-                throw IOException(String.format("Failed validation for GetItemsV2ItemsGet200ResponseInner: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()))
-            }
-        }
+        private const val serialVersionUID: Long = 123
     }
+
+    @Json(name = "id")
+    val id: kotlin.Int
+    @Json(name = "class_name")
+    val className: kotlin.String
+    @Json(name = "name")
+    val name: kotlin.String
+    @Json(name = "description")
+    val description: UpgradeDescriptionV2
+    @Json(name = "item_slot_type")
+    val itemSlotType: ItemSlotTypeV2
+    @Json(name = "item_tier")
+    val itemTier: ItemTierV2
+    @Json(name = "activation")
+    val activation: RawAbilityActivationV2
+    @Json(name = "is_active_item")
+    val isActiveItem: kotlin.Boolean
+    @Json(name = "shopable")
+    val shopable: kotlin.Boolean
+    @Json(name = "cost")
+    val cost: kotlin.Int
+    @Json(name = "start_trained")
+    val startTrained: kotlin.Boolean?
+    @Json(name = "image")
+    val image: kotlin.String?
+    @Json(name = "image_webp")
+    val imageWebp: kotlin.String?
+    @Json(name = "hero")
+    val hero: kotlin.Int?
+    @Json(name = "heroes")
+    val heroes: kotlin.collections.List<kotlin.Int>?
+    @Json(name = "update_time")
+    val updateTime: kotlin.Int?
+    @Json(name = "properties")
+    val properties: kotlin.collections.Map<kotlin.String, UpgradePropertyV2>?
+    @Json(name = "weapon_info")
+    val weaponInfo: RawItemWeaponInfoV2?
+    @Json(name = "type")
+    val type: GetItemsV2ItemsGet200ResponseInner.Type?
+    @Json(name = "behaviours")
+    val behaviours: kotlin.collections.List<kotlin.String>?
+    @Json(name = "tooltip_details")
+    val tooltipDetails: AbilityTooltipDetailsV2?
+    @Json(name = "upgrades")
+    val upgrades: kotlin.collections.List<RawAbilityUpgradeV2>?
+    @Json(name = "ability_type")
+    val abilityType: AbilityTypeV2?
+    @Json(name = "boss_damage_scale")
+    val bossDamageScale: java.math.BigDecimal?
+    @Json(name = "dependant_abilities")
+    val dependantAbilities: kotlin.collections.List<kotlin.String>?
+    @Json(name = "videos")
+    val videos: AbilityVideosV2?
+    @Json(name = "shop_image")
+    val shopImage: kotlin.String?
+    @Json(name = "shop_image_webp")
+    val shopImageWebp: kotlin.String?
+    @Json(name = "shop_image_small")
+    val shopImageSmall: kotlin.String?
+    @Json(name = "shop_image_small_webp")
+    val shopImageSmallWebp: kotlin.String?
+    @Json(name = "disabled")
+    val disabled: kotlin.Boolean?
+    @Json(name = "imbue")
+    val imbue: RawAbilityImbueV2?
+    @Json(name = "component_items")
+    val componentItems: kotlin.collections.List<kotlin.String>?
+    @Json(name = "tooltip_sections")
+    val tooltipSections: kotlin.collections.List<UpgradeTooltipSectionV2>?
+    /**
+     * 
+     *
+     * Values: ability,weapon,upgrade
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "ability") ability("ability"),
+        @Json(name = "weapon") weapon("weapon"),
+        @Json(name = "upgrade") upgrade("upgrade");
+    }
+
 }
+

@@ -17,16 +17,8 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -42,19 +34,19 @@ import java.io.Serializable
 
 data class UpgradeTooltipSectionAttributeV2 (
 
-    @SerializedName("loc_string")
+    @Json(name = "loc_string")
     val locString: kotlin.String? = null,
 
-    @SerializedName("properties")
+    @Json(name = "properties")
     val properties: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerializedName("elevated_properties")
+    @Json(name = "elevated_properties")
     val elevatedProperties: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerializedName("important_properties")
+    @Json(name = "important_properties")
     val importantProperties: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerializedName("important_properties_with_icon")
+    @Json(name = "important_properties_with_icon")
     val importantPropertiesWithIcon: kotlin.collections.List<UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon>? = null
 
 ) : Serializable {
@@ -62,123 +54,6 @@ data class UpgradeTooltipSectionAttributeV2 (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!UpgradeTooltipSectionAttributeV2::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'UpgradeTooltipSectionAttributeV2' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(UpgradeTooltipSectionAttributeV2::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<UpgradeTooltipSectionAttributeV2>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: UpgradeTooltipSectionAttributeV2) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): UpgradeTooltipSectionAttributeV2  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("loc_string")
-            openapiFields.add("properties")
-            openapiFields.add("elevated_properties")
-            openapiFields.add("important_properties")
-            openapiFields.add("important_properties_with_icon")
-
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to UpgradeTooltipSectionAttributeV2
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in UpgradeTooltipSectionAttributeV2 is not found in the empty JSON string", UpgradeTooltipSectionAttributeV2.openapiRequiredFields.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            if (jsonObj["loc_string"] != null && !jsonObj["loc_string"].isJsonNull) {
-              require(jsonObj.get("loc_string").isJsonPrimitive) {
-                String.format("Expected the field `loc_string` to be a primitive type in the JSON string but got `%s`", jsonObj["loc_string"].toString())
-              }
-            }
-            // ensure the optional json data is an array if present
-            if (jsonObj["properties"] != null && !jsonObj["properties"].isJsonNull) {
-              require(jsonObj["properties"].isJsonArray()) {
-                String.format("Expected the field `properties` to be an array in the JSON string but got `%s`", jsonObj["properties"].toString())
-              }
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["properties"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("properties").size()) {
-                require(jsonObj.getAsJsonArray("properties").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `properties` to be primitive")
-                }
-              }
-            }
-            // ensure the optional json data is an array if present
-            if (jsonObj["elevated_properties"] != null && !jsonObj["elevated_properties"].isJsonNull) {
-              require(jsonObj["elevated_properties"].isJsonArray()) {
-                String.format("Expected the field `elevated_properties` to be an array in the JSON string but got `%s`", jsonObj["elevated_properties"].toString())
-              }
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["elevated_properties"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("elevated_properties").size()) {
-                require(jsonObj.getAsJsonArray("elevated_properties").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `elevated_properties` to be primitive")
-                }
-              }
-            }
-            // ensure the optional json data is an array if present
-            if (jsonObj["important_properties"] != null && !jsonObj["important_properties"].isJsonNull) {
-              require(jsonObj["important_properties"].isJsonArray()) {
-                String.format("Expected the field `important_properties` to be an array in the JSON string but got `%s`", jsonObj["important_properties"].toString())
-              }
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["important_properties"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("important_properties").size()) {
-                require(jsonObj.getAsJsonArray("important_properties").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `important_properties` to be primitive")
-                }
-              }
-            }
-            if (jsonObj["important_properties_with_icon"] != null && !jsonObj["important_properties_with_icon"].isJsonNull) {
-              if (jsonObj.getAsJsonArray("important_properties_with_icon") != null) {
-                // ensure the json data is an array
-                require(jsonObj["important_properties_with_icon"].isJsonArray) {
-                  String.format("Expected the field `important_properties_with_icon` to be an array in the JSON string but got `%s`", jsonObj["important_properties_with_icon"].toString())
-                }
-
-                // validate the optional field `important_properties_with_icon` (array)
-                for (i in 0 until jsonObj.getAsJsonArray("important_properties_with_icon").size()) {
-                  UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon.validateJsonElement(jsonObj.getAsJsonArray("important_properties_with_icon").get(i))
-                }
-              }
-            }
-        }
-    }
 
 }
 

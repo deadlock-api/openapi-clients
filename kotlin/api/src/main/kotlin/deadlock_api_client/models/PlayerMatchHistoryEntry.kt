@@ -16,16 +16,8 @@
 package deadlock_api_client.models
 
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -57,68 +49,68 @@ import java.io.Serializable
 
 data class PlayerMatchHistoryEntry (
 
-    @SerializedName("account_id")
+    @Json(name = "account_id")
     val accountId: kotlin.Int,
 
-    @SerializedName("denies")
+    @Json(name = "denies")
     val denies: kotlin.Int,
 
-    @SerializedName("game_mode")
+    @Json(name = "game_mode")
     val gameMode: kotlin.Int,
 
     /* See more: <https://assets.deadlock-api.com/v2/heroes> */
-    @SerializedName("hero_id")
+    @Json(name = "hero_id")
     val heroId: kotlin.Int,
 
-    @SerializedName("hero_level")
+    @Json(name = "hero_level")
     val heroLevel: kotlin.Int,
 
-    @SerializedName("last_hits")
+    @Json(name = "last_hits")
     val lastHits: kotlin.Int,
 
-    @SerializedName("match_duration_s")
+    @Json(name = "match_duration_s")
     val matchDurationS: kotlin.Int,
 
-    @SerializedName("match_id")
+    @Json(name = "match_id")
     val matchId: kotlin.Long,
 
-    @SerializedName("match_mode")
+    @Json(name = "match_mode")
     val matchMode: kotlin.Int,
 
-    @SerializedName("match_result")
+    @Json(name = "match_result")
     val matchResult: kotlin.Int,
 
-    @SerializedName("net_worth")
+    @Json(name = "net_worth")
     val netWorth: kotlin.Int,
 
-    @SerializedName("objectives_mask_team0")
+    @Json(name = "objectives_mask_team0")
     val objectivesMaskTeam0: kotlin.Int,
 
-    @SerializedName("objectives_mask_team1")
+    @Json(name = "objectives_mask_team1")
     val objectivesMaskTeam1: kotlin.Int,
 
-    @SerializedName("player_assists")
+    @Json(name = "player_assists")
     val playerAssists: kotlin.Int,
 
-    @SerializedName("player_deaths")
+    @Json(name = "player_deaths")
     val playerDeaths: kotlin.Int,
 
-    @SerializedName("player_kills")
+    @Json(name = "player_kills")
     val playerKills: kotlin.Int,
 
-    @SerializedName("player_team")
+    @Json(name = "player_team")
     val playerTeam: kotlin.Int,
 
-    @SerializedName("start_time")
+    @Json(name = "start_time")
     val startTime: kotlin.Int,
 
-    @SerializedName("abandoned_time_s")
+    @Json(name = "abandoned_time_s")
     val abandonedTimeS: kotlin.Int? = null,
 
-    @SerializedName("team_abandoned")
+    @Json(name = "team_abandoned")
     val teamAbandoned: kotlin.Boolean? = null,
 
-    @SerializedName("username")
+    @Json(name = "username")
     val username: kotlin.String? = null
 
 ) : Serializable {
@@ -126,110 +118,6 @@ data class PlayerMatchHistoryEntry (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!PlayerMatchHistoryEntry::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'PlayerMatchHistoryEntry' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(PlayerMatchHistoryEntry::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<PlayerMatchHistoryEntry>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: PlayerMatchHistoryEntry) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): PlayerMatchHistoryEntry  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("account_id")
-            openapiFields.add("denies")
-            openapiFields.add("game_mode")
-            openapiFields.add("hero_id")
-            openapiFields.add("hero_level")
-            openapiFields.add("last_hits")
-            openapiFields.add("match_duration_s")
-            openapiFields.add("match_id")
-            openapiFields.add("match_mode")
-            openapiFields.add("match_result")
-            openapiFields.add("net_worth")
-            openapiFields.add("objectives_mask_team0")
-            openapiFields.add("objectives_mask_team1")
-            openapiFields.add("player_assists")
-            openapiFields.add("player_deaths")
-            openapiFields.add("player_kills")
-            openapiFields.add("player_team")
-            openapiFields.add("start_time")
-            openapiFields.add("abandoned_time_s")
-            openapiFields.add("team_abandoned")
-            openapiFields.add("username")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("account_id")
-            openapiRequiredFields.add("denies")
-            openapiRequiredFields.add("game_mode")
-            openapiRequiredFields.add("hero_id")
-            openapiRequiredFields.add("hero_level")
-            openapiRequiredFields.add("last_hits")
-            openapiRequiredFields.add("match_duration_s")
-            openapiRequiredFields.add("match_id")
-            openapiRequiredFields.add("match_mode")
-            openapiRequiredFields.add("match_result")
-            openapiRequiredFields.add("net_worth")
-            openapiRequiredFields.add("objectives_mask_team0")
-            openapiRequiredFields.add("objectives_mask_team1")
-            openapiRequiredFields.add("player_assists")
-            openapiRequiredFields.add("player_deaths")
-            openapiRequiredFields.add("player_kills")
-            openapiRequiredFields.add("player_team")
-            openapiRequiredFields.add("start_time")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to PlayerMatchHistoryEntry
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in PlayerMatchHistoryEntry is not found in the empty JSON string", PlayerMatchHistoryEntry.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            if (jsonObj["username"] != null && !jsonObj["username"].isJsonNull) {
-              require(jsonObj.get("username").isJsonPrimitive) {
-                String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj["username"].toString())
-              }
-            }
-        }
-    }
 
 }
 

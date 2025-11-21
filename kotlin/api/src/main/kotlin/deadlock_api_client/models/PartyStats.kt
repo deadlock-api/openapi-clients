@@ -16,16 +16,8 @@
 package deadlock_api_client.models
 
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -40,16 +32,16 @@ import java.io.Serializable
 
 data class PartyStats (
 
-    @SerializedName("matches")
+    @Json(name = "matches")
     val matches: kotlin.collections.List<kotlin.Long>,
 
-    @SerializedName("matches_played")
+    @Json(name = "matches_played")
     val matchesPlayed: kotlin.Long,
 
-    @SerializedName("party_size")
+    @Json(name = "party_size")
     val partySize: kotlin.Long,
 
-    @SerializedName("wins")
+    @Json(name = "wins")
     val wins: kotlin.Long
 
 ) : Serializable {
@@ -57,89 +49,6 @@ data class PartyStats (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!PartyStats::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'PartyStats' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(PartyStats::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<PartyStats>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: PartyStats) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): PartyStats  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("matches")
-            openapiFields.add("matches_played")
-            openapiFields.add("party_size")
-            openapiFields.add("wins")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("matches")
-            openapiRequiredFields.add("matches_played")
-            openapiRequiredFields.add("party_size")
-            openapiRequiredFields.add("wins")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to PartyStats
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in PartyStats is not found in the empty JSON string", PartyStats.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // ensure the required json array is present
-            requireNotNull(jsonObj["matches"]) {
-              "Expected the field `matches` to be an array in the JSON string but got `null`"
-            }
-            require(jsonObj["matches"].isJsonArray()) {
-              String.format("Expected the field `matches` to be an array in the JSON string but got `%s`", jsonObj["matches"].toString())
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["matches"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("matches").size()) {
-                require(jsonObj.getAsJsonArray("matches").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `matches` to be primitive")
-                }
-              }
-            }
-        }
-    }
 
 }
 

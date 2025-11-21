@@ -16,7 +16,8 @@
 package deadlock_api_client.models
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 
@@ -24,24 +25,25 @@ import com.google.gson.annotations.SerializedName
  * Values: row,europe,se_asia,s_america,russia,oceania
  */
 
+@JsonClass(generateAdapter = false)
 enum class RegionMode(val value: kotlin.String) {
 
-    @SerializedName(value = "row")
+    @Json(name = "row")
     row("row"),
 
-    @SerializedName(value = "europe")
+    @Json(name = "europe")
     europe("europe"),
 
-    @SerializedName(value = "se_asia")
+    @Json(name = "se_asia")
     se_asia("se_asia"),
 
-    @SerializedName(value = "s_america")
+    @Json(name = "s_america")
     s_america("s_america"),
 
-    @SerializedName(value = "russia")
+    @Json(name = "russia")
     russia("russia"),
 
-    @SerializedName(value = "oceania")
+    @Json(name = "oceania")
     oceania("oceania");
 
     /**

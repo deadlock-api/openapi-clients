@@ -15,6 +15,10 @@
 
 package deadlock_api_client.apis
 
+import java.io.IOException
+import okhttp3.Call
+import okhttp3.HttpUrl
+
 import deadlock_api_client.models.EnemyStats
 import deadlock_api_client.models.HeroStats
 import deadlock_api_client.models.MateStats
@@ -22,338 +26,775 @@ import deadlock_api_client.models.PartyStats
 import deadlock_api_client.models.PlayerMatchHistoryEntry
 import deadlock_api_client.models.SteamProfile
 
-import deadlock_api_client.infrastructure.*
-import io.ktor.client.HttpClientConfig
-import io.ktor.client.request.forms.formData
-import io.ktor.client.engine.HttpClientEngine
-import io.ktor.http.ParametersBuilder
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import java.text.DateFormat
+import com.squareup.moshi.Json
 
-    open class PlayersApi(
-    baseUrl: String = ApiClient.BASE_URL,
-    httpClientEngine: HttpClientEngine? = null,
-    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-    jsonBlock: GsonBuilder.() -> Unit = ApiClient.JSON_DEFAULT,
-    ) : ApiClient(
-        baseUrl,
-        httpClientEngine,
-        httpClientConfig,
-        jsonBlock,
-    ) {
+import deadlock_api_client.infrastructure.ApiClient
+import deadlock_api_client.infrastructure.ApiResponse
+import deadlock_api_client.infrastructure.ClientException
+import deadlock_api_client.infrastructure.ClientError
+import deadlock_api_client.infrastructure.ServerException
+import deadlock_api_client.infrastructure.ServerError
+import deadlock_api_client.infrastructure.MultiValueMap
+import deadlock_api_client.infrastructure.PartConfig
+import deadlock_api_client.infrastructure.RequestConfig
+import deadlock_api_client.infrastructure.RequestMethod
+import deadlock_api_client.infrastructure.ResponseType
+import deadlock_api_client.infrastructure.Success
+import deadlock_api_client.infrastructure.toMultiValue
 
-        /**
-        * GET /v1/players/{account_id}/enemy-stats
-        * Enemy Stats
-        *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @param accountId The players &#x60;SteamID3&#x60; 
-         * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-         * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-         * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param minMatchId Filter matches based on their ID. (optional)
-         * @param maxMatchId Filter matches based on their ID. (optional)
-         * @param minMatchesPlayed Filter based on the number of matches played. (optional)
-         * @param maxMatchesPlayed Filter based on the number of matches played. (optional)
-         * @return kotlin.collections.List<EnemyStats>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun enemyStats(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?): HttpResponse<kotlin.collections.List<EnemyStats>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            minUnixTimestamp?.apply { localVariableQuery["min_unix_timestamp"] = listOf("$minUnixTimestamp") }
-            maxUnixTimestamp?.apply { localVariableQuery["max_unix_timestamp"] = listOf("$maxUnixTimestamp") }
-            minDurationS?.apply { localVariableQuery["min_duration_s"] = listOf("$minDurationS") }
-            maxDurationS?.apply { localVariableQuery["max_duration_s"] = listOf("$maxDurationS") }
-            minMatchId?.apply { localVariableQuery["min_match_id"] = listOf("$minMatchId") }
-            maxMatchId?.apply { localVariableQuery["max_match_id"] = listOf("$maxMatchId") }
-            minMatchesPlayed?.apply { localVariableQuery["min_matches_played"] = listOf("$minMatchesPlayed") }
-            maxMatchesPlayed?.apply { localVariableQuery["max_matches_played"] = listOf("$maxMatchesPlayed") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/{account_id}/enemy-stats".replace("{" + "account_id" + "}", "$accountId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/{account_id}/match-history
-        * Match History
-        *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: 100req/s&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Key | 50req/min &amp; 1000req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 2000req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
-         * @param accountId The players &#x60;SteamID3&#x60; 
-         * @param forceRefetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
-         * @param onlyStoredHistory Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
-         * @return kotlin.collections.List<PlayerMatchHistoryEntry>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun matchHistory(accountId: kotlin.Int, forceRefetch: kotlin.Boolean?, onlyStoredHistory: kotlin.Boolean?): HttpResponse<kotlin.collections.List<PlayerMatchHistoryEntry>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            forceRefetch?.apply { localVariableQuery["force_refetch"] = listOf("$forceRefetch") }
-            onlyStoredHistory?.apply { localVariableQuery["only_stored_history"] = listOf("$onlyStoredHistory") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/{account_id}/match-history".replace("{" + "account_id" + "}", "$accountId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/{account_id}/mate-stats
-        * Mate Stats
-        *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @param accountId The players &#x60;SteamID3&#x60; 
-         * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-         * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-         * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param minMatchId Filter matches based on their ID. (optional)
-         * @param maxMatchId Filter matches based on their ID. (optional)
-         * @param minMatchesPlayed Filter based on the number of matches played. (optional)
-         * @param maxMatchesPlayed Filter based on the number of matches played. (optional)
-         * @param sameParty Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)
-         * @return kotlin.collections.List<MateStats>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun mateStats(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?): HttpResponse<kotlin.collections.List<MateStats>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            minUnixTimestamp?.apply { localVariableQuery["min_unix_timestamp"] = listOf("$minUnixTimestamp") }
-            maxUnixTimestamp?.apply { localVariableQuery["max_unix_timestamp"] = listOf("$maxUnixTimestamp") }
-            minDurationS?.apply { localVariableQuery["min_duration_s"] = listOf("$minDurationS") }
-            maxDurationS?.apply { localVariableQuery["max_duration_s"] = listOf("$maxDurationS") }
-            minMatchId?.apply { localVariableQuery["min_match_id"] = listOf("$minMatchId") }
-            maxMatchId?.apply { localVariableQuery["max_match_id"] = listOf("$maxMatchId") }
-            minMatchesPlayed?.apply { localVariableQuery["min_matches_played"] = listOf("$minMatchesPlayed") }
-            maxMatchesPlayed?.apply { localVariableQuery["max_matches_played"] = listOf("$maxMatchesPlayed") }
-            sameParty?.apply { localVariableQuery["same_party"] = listOf("$sameParty") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/{account_id}/mate-stats".replace("{" + "account_id" + "}", "$accountId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/{account_id}/party-stats
-        * Party Stats
-        *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @param accountId The players &#x60;SteamID3&#x60; 
-         * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-         * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-         * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param minMatchId Filter matches based on their ID. (optional)
-         * @param maxMatchId Filter matches based on their ID. (optional)
-         * @return kotlin.collections.List<PartyStats>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun partyStats(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?): HttpResponse<kotlin.collections.List<PartyStats>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            minUnixTimestamp?.apply { localVariableQuery["min_unix_timestamp"] = listOf("$minUnixTimestamp") }
-            maxUnixTimestamp?.apply { localVariableQuery["max_unix_timestamp"] = listOf("$maxUnixTimestamp") }
-            minDurationS?.apply { localVariableQuery["min_duration_s"] = listOf("$minDurationS") }
-            maxDurationS?.apply { localVariableQuery["max_duration_s"] = listOf("$maxDurationS") }
-            minMatchId?.apply { localVariableQuery["min_match_id"] = listOf("$minMatchId") }
-            maxMatchId?.apply { localVariableQuery["max_match_id"] = listOf("$maxMatchId") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/{account_id}/party-stats".replace("{" + "account_id" + "}", "$accountId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/hero-stats
-        * Hero Stats
-        *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. 
-         * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-         * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-         * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
-         * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
-         * @param minNetworth Filter players based on their net worth. (optional)
-         * @param maxNetworth Filter players based on their net worth. (optional)
-         * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-         * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-         * @param minMatchId Filter matches based on their ID. (optional)
-         * @param maxMatchId Filter matches based on their ID. (optional)
-         * @return kotlin.collections.List<HeroStats>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun playerHeroStats(accountIds: kotlin.collections.List<kotlin.Int>, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?): HttpResponse<kotlin.collections.List<HeroStats>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            accountIds?.apply { localVariableQuery["account_ids"] = toMultiValue(this, "multi") }
-            heroIds?.apply { localVariableQuery["hero_ids"] = listOf("$heroIds") }
-            minUnixTimestamp?.apply { localVariableQuery["min_unix_timestamp"] = listOf("$minUnixTimestamp") }
-            maxUnixTimestamp?.apply { localVariableQuery["max_unix_timestamp"] = listOf("$maxUnixTimestamp") }
-            minDurationS?.apply { localVariableQuery["min_duration_s"] = listOf("$minDurationS") }
-            maxDurationS?.apply { localVariableQuery["max_duration_s"] = listOf("$maxDurationS") }
-            minNetworth?.apply { localVariableQuery["min_networth"] = listOf("$minNetworth") }
-            maxNetworth?.apply { localVariableQuery["max_networth"] = listOf("$maxNetworth") }
-            minAverageBadge?.apply { localVariableQuery["min_average_badge"] = listOf("$minAverageBadge") }
-            maxAverageBadge?.apply { localVariableQuery["max_average_badge"] = listOf("$maxAverageBadge") }
-            minMatchId?.apply { localVariableQuery["min_match_id"] = listOf("$minMatchId") }
-            maxMatchId?.apply { localVariableQuery["max_match_id"] = listOf("$maxMatchId") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/hero-stats",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/steam
-        * Batch Steam Profile
-        *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. 
-         * @return kotlin.collections.List<SteamProfile>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun steam(accountIds: kotlin.collections.List<kotlin.Long>): HttpResponse<kotlin.collections.List<SteamProfile>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            accountIds?.apply { localVariableQuery["account_ids"] = toMultiValue(this, "multi") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/steam",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
-        /**
-        * GET /v1/players/steam-search
-        * Steam Profile Search
-        *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @param searchQuery Search query for Steam profiles. 
-         * @return kotlin.collections.List<SteamProfile>
-        */
-            @Suppress("UNCHECKED_CAST")
-        open suspend fun steamSearch(searchQuery: kotlin.String): HttpResponse<kotlin.collections.List<SteamProfile>> {
-
-            val localVariableAuthNames = listOf<String>()
-
-            val localVariableBody = 
-                    io.ktor.client.utils.EmptyContent
-
-            val localVariableQuery = mutableMapOf<String, List<String>>()
-            searchQuery?.apply { localVariableQuery["search_query"] = listOf("$searchQuery") }
-
-            val localVariableHeaders = mutableMapOf<String, String>()
-
-            val localVariableConfig = RequestConfig<kotlin.Any?>(
-            RequestMethod.GET,
-            "/v1/players/steam-search",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            )
-
-            return request(
-            localVariableConfig,
-            localVariableBody,
-            localVariableAuthNames
-            ).wrap()
-            }
-
+class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+    companion object {
+        @JvmStatic
+        val defaultBasePath: String by lazy {
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://api.deadlock-api.com")
         }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/enemy-stats
+     * Enemy Stats
+     *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @param minMatchesPlayed Filter based on the number of matches played. (optional)
+     * @param maxMatchesPlayed Filter based on the number of matches played. (optional)
+     * @return kotlin.collections.List<EnemyStats>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun enemyStats(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatchesPlayed: kotlin.Long? = null, maxMatchesPlayed: kotlin.Long? = null) : kotlin.collections.List<EnemyStats> {
+        val localVarResponse = enemyStatsWithHttpInfo(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<EnemyStats>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/enemy-stats
+     * Enemy Stats
+     *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @param minMatchesPlayed Filter based on the number of matches played. (optional)
+     * @param maxMatchesPlayed Filter based on the number of matches played. (optional)
+     * @return ApiResponse<kotlin.collections.List<EnemyStats>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun enemyStatsWithHttpInfo(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?) : ApiResponse<kotlin.collections.List<EnemyStats>?> {
+        val localVariableConfig = enemyStatsRequestConfig(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed)
+
+        return request<Unit, kotlin.collections.List<EnemyStats>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation enemyStats
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @param minMatchesPlayed Filter based on the number of matches played. (optional)
+     * @param maxMatchesPlayed Filter based on the number of matches played. (optional)
+     * @return RequestConfig
+     */
+    fun enemyStatsRequestConfig(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (minUnixTimestamp != null) {
+                    put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
+                }
+                if (maxUnixTimestamp != null) {
+                    put("max_unix_timestamp", listOf(maxUnixTimestamp.toString()))
+                }
+                if (minDurationS != null) {
+                    put("min_duration_s", listOf(minDurationS.toString()))
+                }
+                if (maxDurationS != null) {
+                    put("max_duration_s", listOf(maxDurationS.toString()))
+                }
+                if (minMatchId != null) {
+                    put("min_match_id", listOf(minMatchId.toString()))
+                }
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+                if (minMatchesPlayed != null) {
+                    put("min_matches_played", listOf(minMatchesPlayed.toString()))
+                }
+                if (maxMatchesPlayed != null) {
+                    put("max_matches_played", listOf(maxMatchesPlayed.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/enemy-stats".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/{account_id}/match-history
+     * Match History
+     *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: 100req/s&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Key | 50req/min &amp; 1000req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 2000req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param forceRefetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
+     * @param onlyStoredHistory Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
+     * @return kotlin.collections.List<PlayerMatchHistoryEntry>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun matchHistory(accountId: kotlin.Int, forceRefetch: kotlin.Boolean? = null, onlyStoredHistory: kotlin.Boolean? = null) : kotlin.collections.List<PlayerMatchHistoryEntry> {
+        val localVarResponse = matchHistoryWithHttpInfo(accountId = accountId, forceRefetch = forceRefetch, onlyStoredHistory = onlyStoredHistory)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PlayerMatchHistoryEntry>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/match-history
+     * Match History
+     *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: 100req/s&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Key | 50req/min &amp; 1000req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 2000req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param forceRefetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
+     * @param onlyStoredHistory Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
+     * @return ApiResponse<kotlin.collections.List<PlayerMatchHistoryEntry>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun matchHistoryWithHttpInfo(accountId: kotlin.Int, forceRefetch: kotlin.Boolean?, onlyStoredHistory: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<PlayerMatchHistoryEntry>?> {
+        val localVariableConfig = matchHistoryRequestConfig(accountId = accountId, forceRefetch = forceRefetch, onlyStoredHistory = onlyStoredHistory)
+
+        return request<Unit, kotlin.collections.List<PlayerMatchHistoryEntry>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation matchHistory
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param forceRefetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
+     * @param onlyStoredHistory Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
+     * @return RequestConfig
+     */
+    fun matchHistoryRequestConfig(accountId: kotlin.Int, forceRefetch: kotlin.Boolean?, onlyStoredHistory: kotlin.Boolean?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (forceRefetch != null) {
+                    put("force_refetch", listOf(forceRefetch.toString()))
+                }
+                if (onlyStoredHistory != null) {
+                    put("only_stored_history", listOf(onlyStoredHistory.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/match-history".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/{account_id}/mate-stats
+     * Mate Stats
+     *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @param minMatchesPlayed Filter based on the number of matches played. (optional)
+     * @param maxMatchesPlayed Filter based on the number of matches played. (optional)
+     * @param sameParty Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)
+     * @return kotlin.collections.List<MateStats>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun mateStats(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatchesPlayed: kotlin.Long? = null, maxMatchesPlayed: kotlin.Long? = null, sameParty: kotlin.Boolean? = true) : kotlin.collections.List<MateStats> {
+        val localVarResponse = mateStatsWithHttpInfo(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed, sameParty = sameParty)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MateStats>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/mate-stats
+     * Mate Stats
+     *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @param minMatchesPlayed Filter based on the number of matches played. (optional)
+     * @param maxMatchesPlayed Filter based on the number of matches played. (optional)
+     * @param sameParty Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)
+     * @return ApiResponse<kotlin.collections.List<MateStats>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun mateStatsWithHttpInfo(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MateStats>?> {
+        val localVariableConfig = mateStatsRequestConfig(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed, sameParty = sameParty)
+
+        return request<Unit, kotlin.collections.List<MateStats>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation mateStats
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @param minMatchesPlayed Filter based on the number of matches played. (optional)
+     * @param maxMatchesPlayed Filter based on the number of matches played. (optional)
+     * @param sameParty Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)
+     * @return RequestConfig
+     */
+    fun mateStatsRequestConfig(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (minUnixTimestamp != null) {
+                    put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
+                }
+                if (maxUnixTimestamp != null) {
+                    put("max_unix_timestamp", listOf(maxUnixTimestamp.toString()))
+                }
+                if (minDurationS != null) {
+                    put("min_duration_s", listOf(minDurationS.toString()))
+                }
+                if (maxDurationS != null) {
+                    put("max_duration_s", listOf(maxDurationS.toString()))
+                }
+                if (minMatchId != null) {
+                    put("min_match_id", listOf(minMatchId.toString()))
+                }
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+                if (minMatchesPlayed != null) {
+                    put("min_matches_played", listOf(minMatchesPlayed.toString()))
+                }
+                if (maxMatchesPlayed != null) {
+                    put("max_matches_played", listOf(maxMatchesPlayed.toString()))
+                }
+                if (sameParty != null) {
+                    put("same_party", listOf(sameParty.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/mate-stats".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/{account_id}/party-stats
+     * Party Stats
+     *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return kotlin.collections.List<PartyStats>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun partyStats(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<PartyStats> {
+        val localVarResponse = partyStatsWithHttpInfo(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PartyStats>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/party-stats
+     * Party Stats
+     *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return ApiResponse<kotlin.collections.List<PartyStats>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun partyStatsWithHttpInfo(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<PartyStats>?> {
+        val localVariableConfig = partyStatsRequestConfig(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return request<Unit, kotlin.collections.List<PartyStats>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation partyStats
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return RequestConfig
+     */
+    fun partyStatsRequestConfig(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (minUnixTimestamp != null) {
+                    put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
+                }
+                if (maxUnixTimestamp != null) {
+                    put("max_unix_timestamp", listOf(maxUnixTimestamp.toString()))
+                }
+                if (minDurationS != null) {
+                    put("min_duration_s", listOf(minDurationS.toString()))
+                }
+                if (maxDurationS != null) {
+                    put("max_duration_s", listOf(maxDurationS.toString()))
+                }
+                if (minMatchId != null) {
+                    put("min_match_id", listOf(minMatchId.toString()))
+                }
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/party-stats".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/hero-stats
+     * Hero Stats
+     *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minNetworth Filter players based on their net worth. (optional)
+     * @param maxNetworth Filter players based on their net worth. (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return kotlin.collections.List<HeroStats>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun playerHeroStats(accountIds: kotlin.collections.List<kotlin.Int>, heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<HeroStats> {
+        val localVarResponse = playerHeroStatsWithHttpInfo(accountIds = accountIds, heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<HeroStats>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/hero-stats
+     * Hero Stats
+     *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minNetworth Filter players based on their net worth. (optional)
+     * @param maxNetworth Filter players based on their net worth. (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return ApiResponse<kotlin.collections.List<HeroStats>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun playerHeroStatsWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<HeroStats>?> {
+        val localVariableConfig = playerHeroStatsRequestConfig(accountIds = accountIds, heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return request<Unit, kotlin.collections.List<HeroStats>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation playerHeroStats
+     *
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minNetworth Filter players based on their net worth. (optional)
+     * @param maxNetworth Filter players based on their net worth. (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return RequestConfig
+     */
+    fun playerHeroStatsRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+                if (heroIds != null) {
+                    put("hero_ids", listOf(heroIds.toString()))
+                }
+                if (minUnixTimestamp != null) {
+                    put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
+                }
+                if (maxUnixTimestamp != null) {
+                    put("max_unix_timestamp", listOf(maxUnixTimestamp.toString()))
+                }
+                if (minDurationS != null) {
+                    put("min_duration_s", listOf(minDurationS.toString()))
+                }
+                if (maxDurationS != null) {
+                    put("max_duration_s", listOf(maxDurationS.toString()))
+                }
+                if (minNetworth != null) {
+                    put("min_networth", listOf(minNetworth.toString()))
+                }
+                if (maxNetworth != null) {
+                    put("max_networth", listOf(maxNetworth.toString()))
+                }
+                if (minAverageBadge != null) {
+                    put("min_average_badge", listOf(minAverageBadge.toString()))
+                }
+                if (maxAverageBadge != null) {
+                    put("max_average_badge", listOf(maxAverageBadge.toString()))
+                }
+                if (minMatchId != null) {
+                    put("min_match_id", listOf(minMatchId.toString()))
+                }
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/hero-stats",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/steam
+     * Batch Steam Profile
+     *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @return kotlin.collections.List<SteamProfile>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun steam(accountIds: kotlin.collections.List<kotlin.Long>) : kotlin.collections.List<SteamProfile> {
+        val localVarResponse = steamWithHttpInfo(accountIds = accountIds)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<SteamProfile>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/steam
+     * Batch Steam Profile
+     *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @return ApiResponse<kotlin.collections.List<SteamProfile>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun steamWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Long>) : ApiResponse<kotlin.collections.List<SteamProfile>?> {
+        val localVariableConfig = steamRequestConfig(accountIds = accountIds)
+
+        return request<Unit, kotlin.collections.List<SteamProfile>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation steam
+     *
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @return RequestConfig
+     */
+    fun steamRequestConfig(accountIds: kotlin.collections.List<kotlin.Long>) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/steam",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/steam-search
+     * Steam Profile Search
+     *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param searchQuery Search query for Steam profiles.
+     * @return kotlin.collections.List<SteamProfile>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun steamSearch(searchQuery: kotlin.String) : kotlin.collections.List<SteamProfile> {
+        val localVarResponse = steamSearchWithHttpInfo(searchQuery = searchQuery)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<SteamProfile>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/steam-search
+     * Steam Profile Search
+     *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param searchQuery Search query for Steam profiles.
+     * @return ApiResponse<kotlin.collections.List<SteamProfile>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun steamSearchWithHttpInfo(searchQuery: kotlin.String) : ApiResponse<kotlin.collections.List<SteamProfile>?> {
+        val localVariableConfig = steamSearchRequestConfig(searchQuery = searchQuery)
+
+        return request<Unit, kotlin.collections.List<SteamProfile>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation steamSearch
+     *
+     * @param searchQuery Search query for Steam profiles.
+     * @return RequestConfig
+     */
+    fun steamSearchRequestConfig(searchQuery: kotlin.String) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("search_query", listOf(searchQuery.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/steam-search",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+
+    private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
+        HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]
+}

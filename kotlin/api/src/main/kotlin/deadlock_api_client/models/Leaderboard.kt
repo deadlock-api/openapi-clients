@@ -17,16 +17,8 @@ package deadlock_api_client.models
 
 import deadlock_api_client.models.LeaderboardEntry
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -39,7 +31,7 @@ import java.io.Serializable
 data class Leaderboard (
 
     /* The leaderboard entries. */
-    @SerializedName("entries")
+    @Json(name = "entries")
     val propertyEntries: kotlin.collections.List<LeaderboardEntry>
 
 ) : Serializable {
@@ -47,77 +39,6 @@ data class Leaderboard (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!Leaderboard::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'Leaderboard' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(Leaderboard::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<Leaderboard>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: Leaderboard) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): Leaderboard  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("entries")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("entries")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to Leaderboard
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in Leaderboard is not found in the empty JSON string", Leaderboard.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // ensure the json data is an array
-            if (!jsonObj.get("entries").isJsonArray) {
-              throw IllegalArgumentException(String.format("Expected the field `entries` to be an array in the JSON string but got `%s`", jsonObj["entries"].toString()))
-            }
-
-            // validate the required field `entries` (array)
-            for (i in 0 until jsonObj.getAsJsonArray("entries").size()) {
-              LeaderboardEntry.validateJsonElement(jsonObj.getAsJsonArray("entries").get(i))
-            }
-        }
-    }
 
 }
 

@@ -17,16 +17,8 @@ package deadlock_api_client.models
 
 import deadlock_api_client.models.BuildHero
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -43,22 +35,22 @@ import java.io.Serializable
 
 data class Build (
 
-    @SerializedName("hero_build")
+    @Json(name = "hero_build")
     val heroBuild: BuildHero,
 
-    @SerializedName("num_favorites")
+    @Json(name = "num_favorites")
     val numFavorites: kotlin.Int? = null,
 
-    @SerializedName("num_ignores")
+    @Json(name = "num_ignores")
     val numIgnores: kotlin.Int? = null,
 
-    @SerializedName("num_reports")
+    @Json(name = "num_reports")
     val numReports: kotlin.Int? = null,
 
-    @SerializedName("num_weekly_favorites")
+    @Json(name = "num_weekly_favorites")
     val numWeeklyFavorites: kotlin.Int? = null,
 
-    @SerializedName("rollup_category")
+    @Json(name = "rollup_category")
     val rollupCategory: kotlin.Int? = null
 
 ) : Serializable {
@@ -66,75 +58,6 @@ data class Build (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!Build::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'Build' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(Build::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<Build>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: Build) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): Build  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("hero_build")
-            openapiFields.add("num_favorites")
-            openapiFields.add("num_ignores")
-            openapiFields.add("num_reports")
-            openapiFields.add("num_weekly_favorites")
-            openapiFields.add("rollup_category")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("hero_build")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to Build
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in Build is not found in the empty JSON string", Build.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // validate the required field `hero_build`
-            BuildHero.validateJsonElement(jsonObj["hero_build"])
-        }
-    }
 
 }
 

@@ -21,16 +21,8 @@ import deadlock_api_client.models.ActiveMatchPlayer
 import deadlock_api_client.models.ActiveMatchRegionMode
 import deadlock_api_client.models.ActiveMatchTeam
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -63,70 +55,70 @@ import java.io.Serializable
 
 data class ActiveMatch (
 
-    @SerializedName("players")
+    @Json(name = "players")
     val players: kotlin.collections.List<ActiveMatchPlayer>,
 
-    @SerializedName("compat_version")
+    @Json(name = "compat_version")
     val compatVersion: kotlin.Int? = null,
 
-    @SerializedName("duration_s")
+    @Json(name = "duration_s")
     val durationS: kotlin.Int? = null,
 
-    @SerializedName("game_mode")
+    @Json(name = "game_mode")
     val gameMode: kotlin.Int? = null,
 
-    @SerializedName("game_mode_parsed")
+    @Json(name = "game_mode_parsed")
     val gameModeParsed: ActiveMatchGameMode? = null,
 
-    @SerializedName("game_mode_version")
+    @Json(name = "game_mode_version")
     val gameModeVersion: kotlin.Int? = null,
 
-    @SerializedName("lobby_id")
+    @Json(name = "lobby_id")
     val lobbyId: kotlin.Long? = null,
 
-    @SerializedName("match_id")
+    @Json(name = "match_id")
     val matchId: kotlin.Long? = null,
 
-    @SerializedName("match_mode")
+    @Json(name = "match_mode")
     val matchMode: kotlin.Int? = null,
 
-    @SerializedName("match_mode_parsed")
+    @Json(name = "match_mode_parsed")
     val matchModeParsed: ActiveMatchMode? = null,
 
-    @SerializedName("match_score")
+    @Json(name = "match_score")
     val matchScore: kotlin.Int? = null,
 
-    @SerializedName("net_worth_team_0")
+    @Json(name = "net_worth_team_0")
     val netWorthTeam0: kotlin.Int? = null,
 
-    @SerializedName("net_worth_team_1")
+    @Json(name = "net_worth_team_1")
     val netWorthTeam1: kotlin.Int? = null,
 
-    @SerializedName("objectives_mask_team0")
+    @Json(name = "objectives_mask_team0")
     val objectivesMaskTeam0: kotlin.Long? = null,
 
-    @SerializedName("objectives_mask_team1")
+    @Json(name = "objectives_mask_team1")
     val objectivesMaskTeam1: kotlin.Long? = null,
 
-    @SerializedName("open_spectator_slots")
+    @Json(name = "open_spectator_slots")
     val openSpectatorSlots: kotlin.Int? = null,
 
-    @SerializedName("region_mode")
+    @Json(name = "region_mode")
     val regionMode: kotlin.Int? = null,
 
-    @SerializedName("region_mode_parsed")
+    @Json(name = "region_mode_parsed")
     val regionModeParsed: ActiveMatchRegionMode? = null,
 
-    @SerializedName("spectators")
+    @Json(name = "spectators")
     val spectators: kotlin.Int? = null,
 
-    @SerializedName("start_time")
+    @Json(name = "start_time")
     val startTime: kotlin.Int? = null,
 
-    @SerializedName("winning_team")
+    @Json(name = "winning_team")
     val winningTeam: kotlin.Int? = null,
 
-    @SerializedName("winning_team_parsed")
+    @Json(name = "winning_team_parsed")
     val winningTeamParsed: ActiveMatchTeam? = null
 
 ) : Serializable {
@@ -134,122 +126,6 @@ data class ActiveMatch (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!ActiveMatch::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'ActiveMatch' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ActiveMatch::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<ActiveMatch>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: ActiveMatch) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): ActiveMatch  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("players")
-            openapiFields.add("compat_version")
-            openapiFields.add("duration_s")
-            openapiFields.add("game_mode")
-            openapiFields.add("game_mode_parsed")
-            openapiFields.add("game_mode_version")
-            openapiFields.add("lobby_id")
-            openapiFields.add("match_id")
-            openapiFields.add("match_mode")
-            openapiFields.add("match_mode_parsed")
-            openapiFields.add("match_score")
-            openapiFields.add("net_worth_team_0")
-            openapiFields.add("net_worth_team_1")
-            openapiFields.add("objectives_mask_team0")
-            openapiFields.add("objectives_mask_team1")
-            openapiFields.add("open_spectator_slots")
-            openapiFields.add("region_mode")
-            openapiFields.add("region_mode_parsed")
-            openapiFields.add("spectators")
-            openapiFields.add("start_time")
-            openapiFields.add("winning_team")
-            openapiFields.add("winning_team_parsed")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("players")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to ActiveMatch
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in ActiveMatch is not found in the empty JSON string", ActiveMatch.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // ensure the json data is an array
-            if (!jsonObj.get("players").isJsonArray) {
-              throw IllegalArgumentException(String.format("Expected the field `players` to be an array in the JSON string but got `%s`", jsonObj["players"].toString()))
-            }
-
-            // validate the required field `players` (array)
-            for (i in 0 until jsonObj.getAsJsonArray("players").size()) {
-              ActiveMatchPlayer.validateJsonElement(jsonObj.getAsJsonArray("players").get(i))
-            }
-            // validate the optional field `game_mode_parsed`
-            if (jsonObj["game_mode_parsed"] != null && !jsonObj["game_mode_parsed"].isJsonNull) {
-                require(ActiveMatchGameMode.values().any { it.value == jsonObj["game_mode_parsed"].asString }) {
-                    String.format("Expected the field `game_mode_parsed` to be valid `ActiveMatchGameMode` enum value in the JSON string but got `%s`", jsonObj["game_mode_parsed"].toString())
-                }
-            }
-            // validate the optional field `match_mode_parsed`
-            if (jsonObj["match_mode_parsed"] != null && !jsonObj["match_mode_parsed"].isJsonNull) {
-                require(ActiveMatchMode.values().any { it.value == jsonObj["match_mode_parsed"].asString }) {
-                    String.format("Expected the field `match_mode_parsed` to be valid `ActiveMatchMode` enum value in the JSON string but got `%s`", jsonObj["match_mode_parsed"].toString())
-                }
-            }
-            // validate the optional field `region_mode_parsed`
-            if (jsonObj["region_mode_parsed"] != null && !jsonObj["region_mode_parsed"].isJsonNull) {
-                require(ActiveMatchRegionMode.values().any { it.value == jsonObj["region_mode_parsed"].asString }) {
-                    String.format("Expected the field `region_mode_parsed` to be valid `ActiveMatchRegionMode` enum value in the JSON string but got `%s`", jsonObj["region_mode_parsed"].toString())
-                }
-            }
-            // validate the optional field `winning_team_parsed`
-            if (jsonObj["winning_team_parsed"] != null && !jsonObj["winning_team_parsed"].isJsonNull) {
-                require(ActiveMatchTeam.values().any { it.value == jsonObj["winning_team_parsed"].asString }) {
-                    String.format("Expected the field `winning_team_parsed` to be valid `ActiveMatchTeam` enum value in the JSON string but got `%s`", jsonObj["winning_team_parsed"].toString())
-                }
-            }
-        }
-    }
 
 }
 

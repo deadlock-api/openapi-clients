@@ -17,16 +17,8 @@ package deadlock_api_client.models
 
 import deadlock_api_client.models.TableSize
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -41,15 +33,15 @@ import java.io.Serializable
 data class APIInfo (
 
     /* The number of matches fetched in the last 24 hours. */
-    @SerializedName("fetched_matches_per_day")
+    @Json(name = "fetched_matches_per_day")
     val fetchedMatchesPerDay: kotlin.Long? = null,
 
     /* The sizes of all tables in the database. */
-    @SerializedName("table_sizes")
+    @Json(name = "table_sizes")
     val tableSizes: kotlin.collections.Map<kotlin.String, TableSize>? = null,
 
     /* The number of matches ingested in the last 24 hours. */
-    @SerializedName("user_ingested_matches_last24h")
+    @Json(name = "user_ingested_matches_last24h")
     @Deprecated(message = "This property is deprecated.")
     val userIngestedMatchesLast24h: kotlin.Long? = null
 
@@ -58,61 +50,6 @@ data class APIInfo (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!APIInfo::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'APIInfo' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(APIInfo::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<APIInfo>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: APIInfo) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): APIInfo  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("fetched_matches_per_day")
-            openapiFields.add("table_sizes")
-            openapiFields.add("user_ingested_matches_last24h")
-
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to APIInfo
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in APIInfo is not found in the empty JSON string", APIInfo.openapiRequiredFields.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-        }
-    }
 
 }
 

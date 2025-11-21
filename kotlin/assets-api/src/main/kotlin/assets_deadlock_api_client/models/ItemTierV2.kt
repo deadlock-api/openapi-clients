@@ -16,7 +16,8 @@
 package assets_deadlock_api_client.models
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 
@@ -24,18 +25,19 @@ import com.google.gson.annotations.SerializedName
  * Values: _1,_2,_3,_4
  */
 
+@JsonClass(generateAdapter = false)
 enum class ItemTierV2(val value: kotlin.Int) {
 
-    @SerializedName(value = "1")
+    @Json(name = "1")
     _1(1),
 
-    @SerializedName(value = "2")
+    @Json(name = "2")
     _2(2),
 
-    @SerializedName(value = "3")
+    @Json(name = "3")
     _3(3),
 
-    @SerializedName(value = "4")
+    @Json(name = "4")
     _4(4);
 
     /**

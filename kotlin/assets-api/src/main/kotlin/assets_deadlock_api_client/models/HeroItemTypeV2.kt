@@ -16,7 +16,8 @@
 package assets_deadlock_api_client.models
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 
@@ -24,54 +25,55 @@ import com.google.gson.annotations.SerializedName
  * Values: weapon_primary,weapon_secondary,weapon_melee,ability_mantle,ability_jump,ability_slide,ability_zip_line,ability_zip_line_boost,ability_climb_rope,ability_innate1,ability_innate2,ability_innate3,signature1,signature2,signature3,signature4
  */
 
+@JsonClass(generateAdapter = false)
 enum class HeroItemTypeV2(val value: kotlin.String) {
 
-    @SerializedName(value = "weapon_primary")
+    @Json(name = "weapon_primary")
     weapon_primary("weapon_primary"),
 
-    @SerializedName(value = "weapon_secondary")
+    @Json(name = "weapon_secondary")
     weapon_secondary("weapon_secondary"),
 
-    @SerializedName(value = "weapon_melee")
+    @Json(name = "weapon_melee")
     weapon_melee("weapon_melee"),
 
-    @SerializedName(value = "ability_mantle")
+    @Json(name = "ability_mantle")
     ability_mantle("ability_mantle"),
 
-    @SerializedName(value = "ability_jump")
+    @Json(name = "ability_jump")
     ability_jump("ability_jump"),
 
-    @SerializedName(value = "ability_slide")
+    @Json(name = "ability_slide")
     ability_slide("ability_slide"),
 
-    @SerializedName(value = "ability_zip_line")
+    @Json(name = "ability_zip_line")
     ability_zip_line("ability_zip_line"),
 
-    @SerializedName(value = "ability_zip_line_boost")
+    @Json(name = "ability_zip_line_boost")
     ability_zip_line_boost("ability_zip_line_boost"),
 
-    @SerializedName(value = "ability_climb_rope")
+    @Json(name = "ability_climb_rope")
     ability_climb_rope("ability_climb_rope"),
 
-    @SerializedName(value = "ability_innate1")
+    @Json(name = "ability_innate1")
     ability_innate1("ability_innate1"),
 
-    @SerializedName(value = "ability_innate2")
+    @Json(name = "ability_innate2")
     ability_innate2("ability_innate2"),
 
-    @SerializedName(value = "ability_innate3")
+    @Json(name = "ability_innate3")
     ability_innate3("ability_innate3"),
 
-    @SerializedName(value = "signature1")
+    @Json(name = "signature1")
     signature1("signature1"),
 
-    @SerializedName(value = "signature2")
+    @Json(name = "signature2")
     signature2("signature2"),
 
-    @SerializedName(value = "signature3")
+    @Json(name = "signature3")
     signature3("signature3"),
 
-    @SerializedName(value = "signature4")
+    @Json(name = "signature4")
     signature4("signature4");
 
     /**

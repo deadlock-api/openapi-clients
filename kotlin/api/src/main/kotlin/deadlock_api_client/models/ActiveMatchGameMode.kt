@@ -16,7 +16,8 @@
 package deadlock_api_client.models
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 
@@ -24,18 +25,19 @@ import com.google.gson.annotations.SerializedName
  * Values: KECitadelGameModeInvalid,KECitadelGameModeNormal,KECitadelGameMode1v1Test,KECitadelGameModeSandbox
  */
 
+@JsonClass(generateAdapter = false)
 enum class ActiveMatchGameMode(val value: kotlin.String) {
 
-    @SerializedName(value = "KECitadelGameModeInvalid")
+    @Json(name = "KECitadelGameModeInvalid")
     KECitadelGameModeInvalid("KECitadelGameModeInvalid"),
 
-    @SerializedName(value = "KECitadelGameModeNormal")
+    @Json(name = "KECitadelGameModeNormal")
     KECitadelGameModeNormal("KECitadelGameModeNormal"),
 
-    @SerializedName(value = "KECitadelGameMode1v1Test")
+    @Json(name = "KECitadelGameMode1v1Test")
     KECitadelGameMode1v1Test("KECitadelGameMode1v1Test"),
 
-    @SerializedName(value = "KECitadelGameModeSandbox")
+    @Json(name = "KECitadelGameModeSandbox")
     KECitadelGameModeSandbox("KECitadelGameModeSandbox");
 
     /**

@@ -16,17 +16,9 @@
 package assets_deadlock_api_client.models
 
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
-import java.io.IOException
 
 /**
  * 
@@ -34,125 +26,13 @@ import java.io.IOException
  */
 
 
-data class Value(var actualInstance: Any? = null) {
+class Value (
 
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!Value::class.java.isAssignableFrom(type.rawType)) {
-                return null // this class only serializes 'Value' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val adapterkotlinInt = gson.getDelegateAdapter(this, TypeToken.get(kotlin.Int::class.java))
-            val adapterjavamathBigDecimal = gson.getDelegateAdapter(this, TypeToken.get(java.math.BigDecimal::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<Value?>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter,value: Value?) {
-                    if (value?.actualInstance == null) {
-                        elementAdapter.write(out, null)
-                        return
-                    }
-
-                    // check if the actual instance is of the type `kotlin.Int`
-                    if (value.actualInstance is kotlin.Int) {
-                        val primitive = adapterkotlinInt.toJsonTree(value.actualInstance as kotlin.Int?).getAsJsonPrimitive()
-                        elementAdapter.write(out, primitive)
-                        return
-                    }
-                    // check if the actual instance is of the type `java.math.BigDecimal`
-                    if (value.actualInstance is java.math.BigDecimal) {
-                        val element = adapterjavamathBigDecimal.toJsonTree(value.actualInstance as java.math.BigDecimal?)
-                        elementAdapter.write(out, element)
-                        return
-                    }
-                    throw IOException("Failed to serialize as the type doesn't match anyOf schemas: java.math.BigDecimal, kotlin.Int")
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): Value {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    val errorMessages = ArrayList<String>()
-                    var actualAdapter: TypeAdapter<*>
-                    val ret = Value()
-
-                    // deserialize kotlin.Int
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        require(jsonElement.getAsJsonPrimitive().isNumber()) {
-                            String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString())
-                        }
-                        actualAdapter = adapterkotlinInt
-                        ret.actualInstance = actualAdapter.fromJsonTree(jsonElement)
-                        return ret
-                        //log.log(Level.FINER, "Input data matches schema 'kotlin.Int'")
-                    } catch (e: Exception) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for kotlin.Int failed with `%s`.", e.message))
-                        //log.log(Level.FINER, "Input data does not match schema 'kotlin.Int'", e)
-                    }
-                    // deserialize java.math.BigDecimal
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        require(jsonElement.getAsJsonPrimitive().isNumber()) {
-                            String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString())
-                        }
-                        actualAdapter = adapterjavamathBigDecimal
-                        ret.actualInstance = actualAdapter.fromJsonTree(jsonElement)
-                        return ret
-                        //log.log(Level.FINER, "Input data matches schema 'java.math.BigDecimal'")
-                    } catch (e: Exception) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for java.math.BigDecimal failed with `%s`.", e.message))
-                        //log.log(Level.FINER, "Input data does not match schema 'java.math.BigDecimal'", e)
-                    }
-
-                    throw IOException(String.format("Failed deserialization for Value: no schema match result. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()))
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
+) : Serializable {
     companion object {
-        /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to Value
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            requireNotNull(jsonElement) {
-                "Provided json element must not be null"
-            }
-            var match = 0
-            val errorMessages = ArrayList<String>()
-            // validate the json string with kotlin.Int
-            try {
-                // validate the JSON object to see if any exception is thrown
-                require(jsonElement.getAsJsonPrimitive().isNumber()) {
-                    String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString())
-                }
-                match++
-            } catch (e: Exception) {
-                // Validation failed, continue
-                errorMessages.add(String.format("Validation for kotlin.Int failed with `%s`.", e.message))
-            }
-            // validate the json string with java.math.BigDecimal
-            try {
-                // validate the JSON object to see if any exception is thrown
-                require(jsonElement.getAsJsonPrimitive().isNumber()) {
-                    String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString())
-                }
-                match++
-            } catch (e: Exception) {
-                // Validation failed, continue
-                errorMessages.add(String.format("Validation for java.math.BigDecimal failed with `%s`.", e.message))
-            }
-
-            if (match != 1) {
-                throw IOException(String.format("Failed validation for Value: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()))
-            }
-        }
+        private const val serialVersionUID: Long = 123
     }
+
+
 }
+

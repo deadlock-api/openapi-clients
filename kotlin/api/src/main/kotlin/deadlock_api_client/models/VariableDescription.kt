@@ -17,16 +17,8 @@ package deadlock_api_client.models
 
 import deadlock_api_client.models.VariableCategory
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.TypeAdapter
-import com.google.gson.TypeAdapterFactory
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.google.gson.stream.JsonWriter
-import com.google.gson.annotations.JsonAdapter
-import java.io.IOException
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
@@ -43,23 +35,23 @@ import java.io.Serializable
 data class VariableDescription (
 
     /* The category of the variable. */
-    @SerializedName("category")
+    @Json(name = "category")
     val category: VariableCategory,
 
     /* The description of the variable. */
-    @SerializedName("description")
+    @Json(name = "description")
     val description: kotlin.String,
 
     /* Extra arguments that can be passed to the variable. */
-    @SerializedName("extra_args")
+    @Json(name = "extra_args")
     val extraArgs: kotlin.collections.List<kotlin.String>,
 
     /* The name of the variable. */
-    @SerializedName("name")
+    @Json(name = "name")
     val name: kotlin.String,
 
     /* The default label for the variable. */
-    @SerializedName("default_label")
+    @Json(name = "default_label")
     val defaultLabel: kotlin.String? = null
 
 ) : Serializable {
@@ -67,105 +59,6 @@ data class VariableDescription (
         private const val serialVersionUID: Long = 123
     }
 
-
-    class CustomTypeAdapterFactory : TypeAdapterFactory {
-        override fun <T> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
-            if (!VariableDescription::class.java.isAssignableFrom(type.rawType)) {
-              return null // this class only serializes 'VariableDescription' and its subtypes
-            }
-            val elementAdapter = gson.getAdapter(JsonElement::class.java)
-            val thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(VariableDescription::class.java))
-
-            @Suppress("UNCHECKED_CAST")
-            return object : TypeAdapter<VariableDescription>() {
-                @Throws(IOException::class)
-                override fun write(out: JsonWriter, value: VariableDescription) {
-                    val obj = thisAdapter.toJsonTree(value).getAsJsonObject()
-                    elementAdapter.write(out, obj)
-                }
-
-                @Throws(IOException::class)
-                override fun read(jsonReader: JsonReader): VariableDescription  {
-                    val jsonElement = elementAdapter.read(jsonReader)
-                    validateJsonElement(jsonElement)
-                    return thisAdapter.fromJsonTree(jsonElement)
-                }
-            }.nullSafe() as TypeAdapter<T>
-        }
-    }
-
-    companion object {
-        var openapiFields = HashSet<String>()
-        var openapiRequiredFields = HashSet<String>()
-
-        init {
-            // a set of all properties/fields (JSON key names)
-            openapiFields.add("category")
-            openapiFields.add("description")
-            openapiFields.add("extra_args")
-            openapiFields.add("name")
-            openapiFields.add("default_label")
-
-            // a set of required properties/fields (JSON key names)
-            openapiRequiredFields.add("category")
-            openapiRequiredFields.add("description")
-            openapiRequiredFields.add("extra_args")
-            openapiRequiredFields.add("name")
-        }
-
-       /**
-        * Validates the JSON Element and throws an exception if issues found
-        *
-        * @param jsonElement JSON Element
-        * @throws IOException if the JSON Element is invalid with respect to VariableDescription
-        */
-        @Throws(IOException::class)
-        fun validateJsonElement(jsonElement: JsonElement?) {
-            if (jsonElement == null) {
-              require(openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-                String.format("The required field(s) %s in VariableDescription is not found in the empty JSON string", VariableDescription.openapiRequiredFields.toString())
-              }
-            }
-
-            // check to make sure all required properties/fields are present in the JSON string
-            for (requiredField in openapiRequiredFields) {
-              requireNotNull(jsonElement!!.getAsJsonObject()[requiredField]) {
-                String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString())
-              }
-            }
-            val jsonObj = jsonElement!!.getAsJsonObject()
-            // validate the required field `category`
-            require(VariableCategory.values().any { it.value == jsonObj["category"].asString }) {
-                String.format("Expected the field `category` to be valid `VariableCategory` enum value in the JSON string but got `%s`", jsonObj["category"].toString())
-            }
-            require(jsonObj["description"].isJsonPrimitive) {
-              String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj["description"].toString())
-            }
-            // ensure the required json array is present
-            requireNotNull(jsonObj["extra_args"]) {
-              "Expected the field `extra_args` to be an array in the JSON string but got `null`"
-            }
-            require(jsonObj["extra_args"].isJsonArray()) {
-              String.format("Expected the field `extra_args` to be an array in the JSON string but got `%s`", jsonObj["extra_args"].toString())
-            }
-            // ensure the items in json array are primitive
-            if (jsonObj["extra_args"] != null) {
-              for (i in 0 until jsonObj.getAsJsonArray("extra_args").size()) {
-                require(jsonObj.getAsJsonArray("extra_args").get(i).isJsonPrimitive) {
-                  String.format("Expected the property in array `extra_args` to be primitive")
-                }
-              }
-            }
-            require(jsonObj["name"].isJsonPrimitive) {
-              String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj["name"].toString())
-            }
-            if (jsonObj["default_label"] != null && !jsonObj["default_label"].isJsonNull) {
-              require(jsonObj.get("default_label").isJsonPrimitive) {
-                String.format("Expected the field `default_label` to be a primitive type in the JSON string but got `%s`", jsonObj["default_label"].toString())
-              }
-            }
-        }
-    }
 
 }
 
