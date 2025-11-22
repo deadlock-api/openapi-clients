@@ -40,7 +40,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import assets_deadlock_api_client "github.com/GIT_USER_ID/GIT_REPO_ID"
+import assets_deadlock_api_client "github.com/deadlock-api/openapi-clients"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

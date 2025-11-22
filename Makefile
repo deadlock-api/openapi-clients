@@ -7,6 +7,8 @@ generate-api-python:
 	@mkdir -p python/api
 	@echo "--> Generating Python client for the main API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g python -o python/api/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in python/api/..."
+	@find python/api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Main API client generated successfully in python/api/"
 
 generate-assets-api-python:
@@ -14,6 +16,8 @@ generate-assets-api-python:
 	@mkdir -p python/assets-api
 	@echo "--> Generating Python client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g python -o python/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in python/assets-api/..."
+	@find python/assets-api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Assets API client generated successfully in python/assets-api/"
 
 
@@ -24,6 +28,8 @@ generate-api-typescript:
 	@mkdir -p typescript/api
 	@echo "--> Generating Typescript client for the main API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g typescript-axios -o typescript/api/ --skip-validate-spec --additional-properties=npmName=deadlock_api_client,useSingleRequestParameter=true
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in typescript/api/..."
+	@find typescript/api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Main API client generated successfully in typescript/api/"
 
 generate-assets-api-typescript:
@@ -31,6 +37,8 @@ generate-assets-api-typescript:
 	@mkdir -p typescript/assets-api
 	@echo "--> Generating Typescript client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g typescript-axios -o typescript/assets-api/ --skip-validate-spec --additional-properties=npmName=assets_deadlock_api_client,useSingleRequestParameter=true
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in typescript/assets-api/..."
+	@find typescript/assets-api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 
 rust: generate-api-rust generate-assets-api-rust
 
@@ -39,6 +47,8 @@ generate-api-rust:
 	@mkdir -p rust/api
 	@echo "--> Generating Rust client for the main API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g rust -o rust/api/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client,useSingleRequestParameter=true,preferUnsignedInt=true,bestFitInt=true
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in rust/api/..."
+	@find rust/api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Main API client generated successfully in rust/api/"
 
 generate-assets-api-rust:
@@ -46,6 +56,8 @@ generate-assets-api-rust:
 	@mkdir -p rust/assets-api
 	@echo "--> Generating Rust client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g rust -o rust/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client,useSingleRequestParameter=true,preferUnsignedInt=true,bestFitInt=true
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in rust/assets-api/..."
+	@find rust/assets-api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Assets API client generated successfully in rust/assets-api/"
 
 kotlin: generate-api-kotlin generate-assets-api-kotlin
@@ -64,6 +76,8 @@ generate-api-kotlin:
 	@echo "        }" >> kotlin/api/build.gradle
 	@echo "    }" >> kotlin/api/build.gradle
 	@echo "}" >> kotlin/api/build.gradle
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in kotlin/api/..."
+	@find kotlin/api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Main API client generated successfully in kotlin/api/"
 
 generate-assets-api-kotlin:
@@ -80,6 +94,8 @@ generate-assets-api-kotlin:
 	@echo "        }" >> kotlin/assets-api/build.gradle
 	@echo "    }" >> kotlin/assets-api/build.gradle
 	@echo "}" >> kotlin/assets-api/build.gradle
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in kotlin/assets-api/..."
+	@find kotlin/assets-api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Assets API client generated successfully in kotlin/assets-api/"
 
 go: generate-api-go generate-assets-api-go
@@ -89,6 +105,8 @@ generate-api-go:
 	@mkdir -p go/api
 	@echo "--> Generating Go client for the main API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g go -o go/api/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in go/api/..."
+	@find go/api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Main API client generated successfully in go/api/"
 
 generate-assets-api-go:
@@ -96,6 +114,8 @@ generate-assets-api-go:
 	@mkdir -p go/assets-api
 	@echo "--> Generating Go client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g go -o go/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in go/assets-api/..."
+	@find go/assets-api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Assets API client generated successfully in go/assets-api/"
 
 php: generate-api-php generate-assets-api-php
@@ -105,6 +125,8 @@ generate-api-php:
 	@mkdir -p php/api
 	@echo "--> Generating PHP client for the main API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g php -o php/api/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client,srcBasePath=api,licenseName=MIT,developerOrganization=deadlock-api,developerOrganizationUrl=https://deadlock-api.com
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in php/api/..."
+	@find php/api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Main API client generated successfully in php/api/"
 
 generate-assets-api-php:
@@ -112,6 +134,8 @@ generate-assets-api-php:
 	@mkdir -p php/assets-api
 	@echo "--> Generating PHP client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g php -o php/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client,srcBasePath=api,licenseName=MIT,developerOrganization=deadlock-api,developerOrganizationUrl=https://deadlock-api.com
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in php/assets-api/..."
+	@find php/assets-api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Assets API client generated successfully in php/assets-api/"
 
 jetbrains-client: generate-api-jetbrains-client generate-assets-api-jetbrains-client
@@ -121,6 +145,8 @@ generate-api-jetbrains-client:
 	@mkdir -p jetbrains-client/api
 	@echo "--> Generating Jetbrains client for the main API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://api.deadlock-api.com/openapi.json -g jetbrains-http-client -o jetbrains-client/api/ --skip-validate-spec
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in jetbrains-client/api/..."
+	@find jetbrains-client/api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Main API client generated successfully in jetbrains-client/api/"
 
 generate-assets-api-jetbrains-client:
@@ -128,6 +154,8 @@ generate-assets-api-jetbrains-client:
 	@mkdir -p jetbrains-client/assets-api
 	@echo "--> Generating Jetbrains client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate -i https://assets.deadlock-api.com/openapi.json -g jetbrains-http-client -o jetbrains-client/assets-api/ --skip-validate-spec
+	@echo "--> Fixing GIT_REPO_ID and GIT_USER_ID in jetbrains-client/assets-api/..."
+	@find jetbrains-client/assets-api -type f -exec sed -i 's/GIT_USER_ID/deadlock-api/g;s/GIT_REPO_ID/openapi-clients/g' {} +
 	@echo "--> Assets API client generated successfully in jetbrains-client/assets-api/"
 
 # Target to clean up all generated directories.
