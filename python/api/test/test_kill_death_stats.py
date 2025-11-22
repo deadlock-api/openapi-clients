@@ -36,6 +36,7 @@ class TestKillDeathStats(unittest.TestCase):
         if include_optional:
             return KillDeathStats(
                 deaths = 0,
+                killer_team = 0,
                 kills = 0,
                 position_x = 56,
                 position_y = 56
@@ -43,6 +44,7 @@ class TestKillDeathStats(unittest.TestCase):
         else:
             return KillDeathStats(
                 deaths = 0,
+                killer_team = 0,
                 kills = 0,
                 position_x = 56,
                 position_y = 56,

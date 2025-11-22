@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deaths** | **number** |  | [default to undefined]
+**killer_team** | **number** |  | [default to undefined]
 **kills** | **number** |  | [default to undefined]
 **position_x** | **number** |  | [default to undefined]
 **position_y** | **number** |  | [default to undefined]
@@ -17,6 +18,7 @@ import { KillDeathStats } from 'deadlock_api_client';
 
 const instance: KillDeathStats = {
     deaths,
+    killer_team,
     kills,
     position_x,
     position_y,

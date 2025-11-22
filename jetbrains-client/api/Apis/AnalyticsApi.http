@@ -52,7 +52,7 @@ Accept: application/json
 
 ### Kill Death Stats
 ## Kill Death Stats
-GET https://api.deadlock-api.com/v1/analytics/kill-death-stats?team={{team}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&accountIds={{accountIds}}&heroIds={{heroIds}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minKillsPerRaster={{minKillsPerRaster}}&maxKillsPerRaster={{maxKillsPerRaster}}&minDeathsPerRaster={{minDeathsPerRaster}}&maxDeathsPerRaster={{maxDeathsPerRaster}}&minGameTimeS={{minGameTimeS}}&maxGameTimeS={{maxGameTimeS}}
+GET https://api.deadlock-api.com/v1/analytics/kill-death-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&accountIds={{accountIds}}&heroIds={{heroIds}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minKillsPerRaster={{minKillsPerRaster}}&maxKillsPerRaster={{maxKillsPerRaster}}&minDeathsPerRaster={{minDeathsPerRaster}}&maxDeathsPerRaster={{maxDeathsPerRaster}}&minGameTimeS={{minGameTimeS}}&maxGameTimeS={{maxGameTimeS}}
 Accept: application/json
 
 ### Player Scoreboard

@@ -2807,7 +2807,6 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 type ApiKillDeathStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	team *int32
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
 	minDurationS *int64
@@ -2829,12 +2828,6 @@ type ApiKillDeathStatsRequest struct {
 	maxDeathsPerRaster *int32
 	minGameTimeS *int32
 	maxGameTimeS *int32
-}
-
-// Filter by team number.
-func (r ApiKillDeathStatsRequest) Team(team int32) ApiKillDeathStatsRequest {
-	r.team = &team
-	return r
 }
 
 // Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -3012,9 +3005,6 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.team != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "team", r.team, "form", "")
-	}
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {

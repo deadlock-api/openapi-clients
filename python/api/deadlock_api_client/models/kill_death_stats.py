@@ -28,10 +28,11 @@ class KillDeathStats(BaseModel):
     KillDeathStats
     """ # noqa: E501
     deaths: Annotated[int, Field(strict=True, ge=0)]
+    killer_team: Annotated[int, Field(strict=True, ge=0)]
     kills: Annotated[int, Field(strict=True, ge=0)]
     position_x: StrictInt
     position_y: StrictInt
-    __properties: ClassVar[List[str]] = ["deaths", "kills", "position_x", "position_y"]
+    __properties: ClassVar[List[str]] = ["deaths", "killer_team", "kills", "position_x", "position_y"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +86,7 @@ class KillDeathStats(BaseModel):
 
         _obj = cls.model_validate({
             "deaths": obj.get("deaths"),
+            "killer_team": obj.get("killer_team"),
             "kills": obj.get("kills"),
             "position_x": obj.get("position_x"),
             "position_y": obj.get("position_y")

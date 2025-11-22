@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Deaths** | **int64** |  | 
+**KillerTeam** | **int32** |  | 
 **Kills** | **int64** |  | 
 **PositionX** | **int32** |  | 
 **PositionY** | **int32** |  | 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewKillDeathStats
 
-`func NewKillDeathStats(deaths int64, kills int64, positionX int32, positionY int32, ) *KillDeathStats`
+`func NewKillDeathStats(deaths int64, killerTeam int32, kills int64, positionX int32, positionY int32, ) *KillDeathStats`
 
 NewKillDeathStats instantiates a new KillDeathStats object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +47,26 @@ and a boolean to check if the value has been set.
 `func (o *KillDeathStats) SetDeaths(v int64)`
 
 SetDeaths sets Deaths field to given value.
+
+
+### GetKillerTeam
+
+`func (o *KillDeathStats) GetKillerTeam() int32`
+
+GetKillerTeam returns the KillerTeam field if non-nil, zero value otherwise.
+
+### GetKillerTeamOk
+
+`func (o *KillDeathStats) GetKillerTeamOk() (*int32, bool)`
+
+GetKillerTeamOk returns a tuple with the KillerTeam field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKillerTeam
+
+`func (o *KillDeathStats) SetKillerTeam(v int32)`
+
+SetKillerTeam sets KillerTeam field to given value.
 
 
 ### GetKills

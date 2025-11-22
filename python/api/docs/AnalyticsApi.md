@@ -1100,7 +1100,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **kill_death_stats**
-> List[KillDeathStats] kill_death_stats(team=team, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, account_ids=account_ids, hero_ids=hero_ids, min_networth=min_networth, max_networth=max_networth, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_kills_per_raster=min_kills_per_raster, max_kills_per_raster=max_kills_per_raster, min_deaths_per_raster=min_deaths_per_raster, max_deaths_per_raster=max_deaths_per_raster, min_game_time_s=min_game_time_s, max_game_time_s=max_game_time_s)
+> List[KillDeathStats] kill_death_stats(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, account_ids=account_ids, hero_ids=hero_ids, min_networth=min_networth, max_networth=max_networth, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_kills_per_raster=min_kills_per_raster, max_kills_per_raster=max_kills_per_raster, min_deaths_per_raster=min_deaths_per_raster, max_deaths_per_raster=max_deaths_per_raster, min_game_time_s=min_game_time_s, max_game_time_s=max_game_time_s)
 
 Kill Death Stats
 
@@ -1135,7 +1135,6 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
-    team = 56 # int | Filter by team number. (optional)
     min_unix_timestamp = 1761177600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1761177600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1160,7 +1159,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Kill Death Stats
-        api_response = api_instance.kill_death_stats(team=team, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, account_ids=account_ids, hero_ids=hero_ids, min_networth=min_networth, max_networth=max_networth, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_kills_per_raster=min_kills_per_raster, max_kills_per_raster=max_kills_per_raster, min_deaths_per_raster=min_deaths_per_raster, max_deaths_per_raster=max_deaths_per_raster, min_game_time_s=min_game_time_s, max_game_time_s=max_game_time_s)
+        api_response = api_instance.kill_death_stats(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, account_ids=account_ids, hero_ids=hero_ids, min_networth=min_networth, max_networth=max_networth, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_kills_per_raster=min_kills_per_raster, max_kills_per_raster=max_kills_per_raster, min_deaths_per_raster=min_deaths_per_raster, max_deaths_per_raster=max_deaths_per_raster, min_game_time_s=min_game_time_s, max_game_time_s=max_game_time_s)
         print("The response of AnalyticsApi->kill_death_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -1174,7 +1173,6 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **team** | **int**| Filter by team number. | [optional] 
  **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761177600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 

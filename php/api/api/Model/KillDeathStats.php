@@ -58,6 +58,7 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'deaths' => 'int',
+        'killer_team' => 'int',
         'kills' => 'int',
         'position_x' => 'int',
         'position_y' => 'int'
@@ -72,6 +73,7 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'deaths' => 'int64',
+        'killer_team' => 'int32',
         'kills' => 'int64',
         'position_x' => 'int32',
         'position_y' => 'int32'
@@ -84,6 +86,7 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'deaths' => false,
+        'killer_team' => false,
         'kills' => false,
         'position_x' => false,
         'position_y' => false
@@ -176,6 +179,7 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'deaths' => 'deaths',
+        'killer_team' => 'killer_team',
         'kills' => 'kills',
         'position_x' => 'position_x',
         'position_y' => 'position_y'
@@ -188,6 +192,7 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'deaths' => 'setDeaths',
+        'killer_team' => 'setKillerTeam',
         'kills' => 'setKills',
         'position_x' => 'setPositionX',
         'position_y' => 'setPositionY'
@@ -200,6 +205,7 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'deaths' => 'getDeaths',
+        'killer_team' => 'getKillerTeam',
         'kills' => 'getKills',
         'position_x' => 'getPositionX',
         'position_y' => 'getPositionY'
@@ -263,6 +269,7 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('deaths', $data ?? [], null);
+        $this->setIfExists('killer_team', $data ?? [], null);
         $this->setIfExists('kills', $data ?? [], null);
         $this->setIfExists('position_x', $data ?? [], null);
         $this->setIfExists('position_y', $data ?? [], null);
@@ -300,6 +307,13 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (($this->container['deaths'] < 0)) {
             $invalidProperties[] = "invalid value for 'deaths', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['killer_team'] === null) {
+            $invalidProperties[] = "'killer_team' can't be null";
+        }
+        if (($this->container['killer_team'] < 0)) {
+            $invalidProperties[] = "invalid value for 'killer_team', must be bigger than or equal to 0.";
         }
 
         if ($this->container['kills'] === null) {
@@ -358,6 +372,38 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['deaths'] = $deaths;
+
+        return $this;
+    }
+
+    /**
+     * Gets killer_team
+     *
+     * @return int
+     */
+    public function getKillerTeam()
+    {
+        return $this->container['killer_team'];
+    }
+
+    /**
+     * Sets killer_team
+     *
+     * @param int $killer_team killer_team
+     *
+     * @return self
+     */
+    public function setKillerTeam($killer_team)
+    {
+        if (is_null($killer_team)) {
+            throw new \InvalidArgumentException('non-nullable killer_team cannot be null');
+        }
+
+        if (($killer_team < 0)) {
+            throw new \InvalidArgumentException('invalid value for $killer_team when calling KillDeathStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['killer_team'] = $killer_team;
 
         return $this;
     }

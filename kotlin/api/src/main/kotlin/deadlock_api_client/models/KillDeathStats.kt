@@ -24,6 +24,7 @@ import java.io.Serializable
  * 
  *
  * @param deaths 
+ * @param killerTeam 
  * @param kills 
  * @param positionX 
  * @param positionY 
@@ -34,6 +35,9 @@ data class KillDeathStats (
 
     @Json(name = "deaths")
     val deaths: kotlin.Long,
+
+    @Json(name = "killer_team")
+    val killerTeam: kotlin.Int,
 
     @Json(name = "kills")
     val kills: kotlin.Long,

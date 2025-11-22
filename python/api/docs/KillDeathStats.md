@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deaths** | **int** |  | 
+**killer_team** | **int** |  | 
 **kills** | **int** |  | 
 **position_x** | **int** |  | 
 **position_y** | **int** |  | 

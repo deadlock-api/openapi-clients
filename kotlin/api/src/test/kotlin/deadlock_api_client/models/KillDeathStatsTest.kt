@@ -31,6 +31,12 @@ class KillDeathStatsTest : ShouldSpec() {
             //modelInstance.deaths shouldBe ("TODO")
         }
 
+        // to test the property `killerTeam`
+        should("test killerTeam") {
+            // uncomment below to test the property
+            //modelInstance.killerTeam shouldBe ("TODO")
+        }
+
         // to test the property `kills`
         should("test kills") {
             // uncomment below to test the property

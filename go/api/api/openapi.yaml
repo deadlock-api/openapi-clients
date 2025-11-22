@@ -1904,18 +1904,6 @@ paths:
         | IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
       operationId: kill_death_stats
       parameters:
-      - description: Filter by team number.
-        explode: true
-        in: query
-        name: team
-        required: false
-        schema:
-          format: int32
-          maximum: 1
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -7174,12 +7162,17 @@ components:
     KillDeathStats:
       example:
         kills: 0
-        position_x: 1
+        position_x: 5
+        killer_team: 0
         position_y: 5
         deaths: 0
       properties:
         deaths:
           format: int64
+          minimum: 0
+          type: integer
+        killer_team:
+          format: int32
           minimum: 0
           type: integer
         kills:
@@ -7194,6 +7187,7 @@ components:
           type: integer
       required:
       - deaths
+      - killer_team
       - kills
       - position_x
       - position_y

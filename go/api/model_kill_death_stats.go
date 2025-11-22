@@ -22,6 +22,7 @@ var _ MappedNullable = &KillDeathStats{}
 // KillDeathStats struct for KillDeathStats
 type KillDeathStats struct {
 	Deaths int64 `json:"deaths"`
+	KillerTeam int32 `json:"killer_team"`
 	Kills int64 `json:"kills"`
 	PositionX int32 `json:"position_x"`
 	PositionY int32 `json:"position_y"`
@@ -33,9 +34,10 @@ type _KillDeathStats KillDeathStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewKillDeathStats(deaths int64, kills int64, positionX int32, positionY int32) *KillDeathStats {
+func NewKillDeathStats(deaths int64, killerTeam int32, kills int64, positionX int32, positionY int32) *KillDeathStats {
 	this := KillDeathStats{}
 	this.Deaths = deaths
+	this.KillerTeam = killerTeam
 	this.Kills = kills
 	this.PositionX = positionX
 	this.PositionY = positionY
@@ -72,6 +74,30 @@ func (o *KillDeathStats) GetDeathsOk() (*int64, bool) {
 // SetDeaths sets field value
 func (o *KillDeathStats) SetDeaths(v int64) {
 	o.Deaths = v
+}
+
+// GetKillerTeam returns the KillerTeam field value
+func (o *KillDeathStats) GetKillerTeam() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.KillerTeam
+}
+
+// GetKillerTeamOk returns a tuple with the KillerTeam field value
+// and a boolean to check if the value has been set.
+func (o *KillDeathStats) GetKillerTeamOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KillerTeam, true
+}
+
+// SetKillerTeam sets field value
+func (o *KillDeathStats) SetKillerTeam(v int32) {
+	o.KillerTeam = v
 }
 
 // GetKills returns the Kills field value
@@ -157,6 +183,7 @@ func (o KillDeathStats) MarshalJSON() ([]byte, error) {
 func (o KillDeathStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["deaths"] = o.Deaths
+	toSerialize["killer_team"] = o.KillerTeam
 	toSerialize["kills"] = o.Kills
 	toSerialize["position_x"] = o.PositionX
 	toSerialize["position_y"] = o.PositionY
@@ -169,6 +196,7 @@ func (o *KillDeathStats) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"deaths",
+		"killer_team",
 		"kills",
 		"position_x",
 		"position_y",

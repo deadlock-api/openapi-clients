@@ -89,6 +89,15 @@ class KillDeathStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "killer_team"
+     */
+    public function testPropertyKillerTeam()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "kills"
      */
     public function testPropertyKills()

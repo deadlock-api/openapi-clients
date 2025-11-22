@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deaths** | **u64** |  | 
+**killer_team** | **u32** |  | 
 **kills** | **u64** |  | 
 **position_x** | **i32** |  | 
 **position_y** | **i32** |  | 

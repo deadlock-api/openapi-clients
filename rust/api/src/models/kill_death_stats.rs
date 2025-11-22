@@ -15,6 +15,8 @@ use serde::{Deserialize, Serialize};
 pub struct KillDeathStats {
     #[serde(rename = "deaths")]
     pub deaths: u64,
+    #[serde(rename = "killer_team")]
+    pub killer_team: u32,
     #[serde(rename = "kills")]
     pub kills: u64,
     #[serde(rename = "position_x")]
@@ -24,9 +26,10 @@ pub struct KillDeathStats {
 }
 
 impl KillDeathStats {
-    pub fn new(deaths: u64, kills: u64, position_x: i32, position_y: i32) -> KillDeathStats {
+    pub fn new(deaths: u64, killer_team: u32, kills: u64, position_x: i32, position_y: i32) -> KillDeathStats {
         KillDeathStats {
             deaths,
+            killer_team,
             kills,
             position_x,
             position_y,
