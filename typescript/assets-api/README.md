@@ -54,6 +54,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getBuildTagsV2BuildTagsGet**](docs/DefaultApi.md#getbuildtagsv2buildtagsget) | **GET** /v2/build-tags | Get Build Tags
 *DefaultApi* | [**getClientVersionsV2ClientVersionsGet**](docs/DefaultApi.md#getclientversionsv2clientversionsget) | **GET** /v2/client-versions | Get Client Versions
 *DefaultApi* | [**getColorsV1ColorsGet**](docs/DefaultApi.md#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors
+*DefaultApi* | [**getGenericDataV2GenericDataGet**](docs/DefaultApi.md#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**getIconsV1IconsGet**](docs/DefaultApi.md#geticonsv1iconsget) | **GET** /v1/icons | Get Icons
 *DefaultApi* | [**getMapV1MapGet**](docs/DefaultApi.md#getmapv1mapget) | **GET** /v1/map | Get Map
 *DefaultApi* | [**getRanksV2RanksGet**](docs/DefaultApi.md#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks
@@ -71,7 +72,6 @@ Class | Method | HTTP request | Description
 *MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](docs/MiscEntitiesApi.md#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
 *NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](docs/NPCUnitsApi.md#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit
 *NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](docs/NPCUnitsApi.md#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units
-*RawApi* | [**getGenericDataRawGenericDataGet**](docs/RawApi.md#getgenericdatarawgenericdataget) | **GET** /raw/generic_data | Get Generic Data
 *RawApi* | [**getRawHeroesRawHeroesGet**](docs/RawApi.md#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes
 *RawApi* | [**getRawItemsRawItemsGet**](docs/RawApi.md#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items
 
@@ -91,9 +91,13 @@ Class | Method | HTTP request | Description
  - [BuildTagV2](docs/BuildTagV2.md)
  - [ColorV1](docs/ColorV1.md)
  - [Curve](docs/Curve.md)
+ - [DamageFlashV2](docs/DamageFlashV2.md)
  - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
  - [ExpirationDuration](docs/ExpirationDuration.md)
+ - [FlashDataV2](docs/FlashDataV2.md)
+ - [GenericDataV2](docs/GenericDataV2.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
+ - [GlitchSettingsV2](docs/GlitchSettingsV2.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HeroColorsV2](docs/HeroColorsV2.md)
  - [HeroDescriptionV2](docs/HeroDescriptionV2.md)
@@ -107,17 +111,22 @@ Class | Method | HTTP request | Description
  - [HeroStartingStatsV2](docs/HeroStartingStatsV2.md)
  - [HeroTypeV2](docs/HeroTypeV2.md)
  - [HeroV2](docs/HeroV2.md)
+ - [ItemGroup](docs/ItemGroup.md)
  - [ItemPropertyV2](docs/ItemPropertyV2.md)
  - [ItemSlotTypeV2](docs/ItemSlotTypeV2.md)
  - [ItemTierV2](docs/ItemTierV2.md)
  - [ItemTypeV2](docs/ItemTypeV2.md)
+ - [LaneInfoV2](docs/LaneInfoV2.md)
  - [Language](docs/Language.md)
  - [MapImagesV1](docs/MapImagesV1.md)
  - [MapV1](docs/MapV1.md)
+ - [MiniMapOffsets](docs/MiniMapOffsets.md)
  - [MiscV2](docs/MiscV2.md)
  - [ModifierDefinition](docs/ModifierDefinition.md)
  - [ModifierValue](docs/ModifierValue.md)
  - [NPCUnitV2](docs/NPCUnitV2.md)
+ - [NewPlayerMetricsV2](docs/NewPlayerMetricsV2.md)
+ - [ObjectiveParams](docs/ObjectiveParams.md)
  - [ObjectivePositionV1](docs/ObjectivePositionV1.md)
  - [ObjectivePositionsV1](docs/ObjectivePositionsV1.md)
  - [PickupDefinition](docs/PickupDefinition.md)
@@ -146,6 +155,7 @@ Class | Method | HTTP request | Description
  - [RawWeaponInfoHorizontalRecoilV2](docs/RawWeaponInfoHorizontalRecoilV2.md)
  - [RawWeaponInfoV2](docs/RawWeaponInfoV2.md)
  - [RawWeaponInfoVerticalRecoilV2](docs/RawWeaponInfoVerticalRecoilV2.md)
+ - [RejuvParams](docs/RejuvParams.md)
  - [ResponseGetItemV2ItemsIdOrClassNameGet](docs/ResponseGetItemV2ItemsIdOrClassNameGet.md)
  - [StandingShotSpreadPenalty](docs/StandingShotSpreadPenalty.md)
  - [StatsUsageFlagV2](docs/StatsUsageFlagV2.md)

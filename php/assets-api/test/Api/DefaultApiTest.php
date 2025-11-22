@@ -108,6 +108,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for getGenericDataV2GenericDataGet
+     *
+     * Get Generic Data.
+     *
+     */
+    public function testGetGenericDataV2GenericDataGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getIconsV1IconsGet
      *
      * Get Icons.

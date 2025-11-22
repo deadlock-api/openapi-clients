@@ -22,6 +22,7 @@ import assets_deadlock_api_client.apis.DefaultApi
 import assets_deadlock_api_client.models.BuildTagV2
 import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesRawValidClientVersions
+import assets_deadlock_api_client.models.GenericDataV2
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.Language
 import assets_deadlock_api_client.models.MapV1
@@ -53,6 +54,14 @@ class DefaultApiTest : ShouldSpec() {
             // uncomment below to test getColorsV1ColorsGet
             //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
             //val result : kotlin.collections.Map<kotlin.String, ColorV1> = apiInstance.getColorsV1ColorsGet(clientVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getGenericDataV2GenericDataGet
+        should("test getGenericDataV2GenericDataGet") {
+            // uncomment below to test getGenericDataV2GenericDataGet
+            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
+            //val result : GenericDataV2 = apiInstance.getGenericDataV2GenericDataGet(clientVersion)
             //result shouldBe ("TODO")
         }
 

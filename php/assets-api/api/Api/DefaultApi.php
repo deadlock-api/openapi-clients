@@ -83,6 +83,9 @@ class DefaultApi
         'getColorsV1ColorsGet' => [
             'application/json',
         ],
+        'getGenericDataV2GenericDataGet' => [
+            'application/json',
+        ],
         'getIconsV1IconsGet' => [
             'application/json',
         ],
@@ -891,6 +894,283 @@ class DefaultApi
 
 
         $resourcePath = '/v1/colors';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $client_version,
+            'client_version', // param base name
+            'DeadlockAssetsApiRoutesRawValidClientVersions', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getGenericDataV2GenericDataGet
+     *
+     * Get Generic Data
+     *
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version client_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGenericDataV2GenericDataGet'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\GenericDataV2|\OpenAPI\Client\Model\HTTPValidationError
+     */
+    public function getGenericDataV2GenericDataGet($client_version = null, string $contentType = self::contentTypes['getGenericDataV2GenericDataGet'][0])
+    {
+        list($response) = $this->getGenericDataV2GenericDataGetWithHttpInfo($client_version, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getGenericDataV2GenericDataGetWithHttpInfo
+     *
+     * Get Generic Data
+     *
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGenericDataV2GenericDataGet'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\GenericDataV2|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getGenericDataV2GenericDataGetWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getGenericDataV2GenericDataGet'][0])
+    {
+        $request = $this->getGenericDataV2GenericDataGetRequest($client_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\GenericDataV2',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\GenericDataV2',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GenericDataV2',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getGenericDataV2GenericDataGetAsync
+     *
+     * Get Generic Data
+     *
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGenericDataV2GenericDataGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getGenericDataV2GenericDataGetAsync($client_version = null, string $contentType = self::contentTypes['getGenericDataV2GenericDataGet'][0])
+    {
+        return $this->getGenericDataV2GenericDataGetAsyncWithHttpInfo($client_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getGenericDataV2GenericDataGetAsyncWithHttpInfo
+     *
+     * Get Generic Data
+     *
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGenericDataV2GenericDataGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getGenericDataV2GenericDataGetAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getGenericDataV2GenericDataGet'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\GenericDataV2';
+        $request = $this->getGenericDataV2GenericDataGetRequest($client_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getGenericDataV2GenericDataGet'
+     *
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGenericDataV2GenericDataGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getGenericDataV2GenericDataGetRequest($client_version = null, string $contentType = self::contentTypes['getGenericDataV2GenericDataGet'][0])
+    {
+
+
+
+        $resourcePath = '/v2/generic-data';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

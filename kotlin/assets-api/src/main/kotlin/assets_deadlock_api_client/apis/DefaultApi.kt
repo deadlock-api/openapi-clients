@@ -22,6 +22,7 @@ import okhttp3.HttpUrl
 import assets_deadlock_api_client.models.BuildTagV2
 import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesRawValidClientVersions
+import assets_deadlock_api_client.models.GenericDataV2
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.Language
 import assets_deadlock_api_client.models.MapV1
@@ -276,6 +277,84 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/colors",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v2/generic-data
+     * Get Generic Data
+     * 
+     * @param clientVersion  (optional)
+     * @return GenericDataV2
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getGenericDataV2GenericDataGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : GenericDataV2 {
+        val localVarResponse = getGenericDataV2GenericDataGetWithHttpInfo(clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as GenericDataV2
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/generic-data
+     * Get Generic Data
+     * 
+     * @param clientVersion  (optional)
+     * @return ApiResponse<GenericDataV2?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getGenericDataV2GenericDataGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<GenericDataV2?> {
+        val localVariableConfig = getGenericDataV2GenericDataGetRequestConfig(clientVersion = clientVersion)
+
+        return request<Unit, GenericDataV2>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getGenericDataV2GenericDataGet
+     *
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getGenericDataV2GenericDataGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/generic-data",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

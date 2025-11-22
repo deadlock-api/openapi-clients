@@ -257,6 +257,7 @@ class AnalyticsApiTest : ShouldSpec() {
         // to test killDeathStats
         should("test killDeathStats") {
             // uncomment below to test killDeathStats
+            //val team : kotlin.Int = 56 // kotlin.Int | Filter by team number.
             //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
             //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
             //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
@@ -278,7 +279,7 @@ class AnalyticsApiTest : ShouldSpec() {
             //val maxDeathsPerRaster : kotlin.Int = 56 // kotlin.Int | Filter Raster cells based on maximum deaths.
             //val minGameTimeS : kotlin.Int = 56 // kotlin.Int | Filter kills based on their game time.
             //val maxGameTimeS : kotlin.Int = 56 // kotlin.Int | Filter kills based on their game time.
-            //val result : kotlin.collections.List<KillDeathStats> = apiInstance.killDeathStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, accountIds, heroIds, minNetworth, maxNetworth, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, minAverageBadge, maxAverageBadge, minKillsPerRaster, maxKillsPerRaster, minDeathsPerRaster, maxDeathsPerRaster, minGameTimeS, maxGameTimeS)
+            //val result : kotlin.collections.List<KillDeathStats> = apiInstance.killDeathStats(team, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, accountIds, heroIds, minNetworth, maxNetworth, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, minAverageBadge, maxAverageBadge, minKillsPerRaster, maxKillsPerRaster, minDeathsPerRaster, maxDeathsPerRaster, minGameTimeS, maxGameTimeS)
             //result shouldBe ("TODO")
         }
 

@@ -93,6 +93,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getBuildTagsV2BuildTagsGet**](docs/Api/DefaultApi.md#getbuildtagsv2buildtagsget) | **GET** /v2/build-tags | Get Build Tags
 *DefaultApi* | [**getClientVersionsV2ClientVersionsGet**](docs/Api/DefaultApi.md#getclientversionsv2clientversionsget) | **GET** /v2/client-versions | Get Client Versions
 *DefaultApi* | [**getColorsV1ColorsGet**](docs/Api/DefaultApi.md#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors
+*DefaultApi* | [**getGenericDataV2GenericDataGet**](docs/Api/DefaultApi.md#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**getIconsV1IconsGet**](docs/Api/DefaultApi.md#geticonsv1iconsget) | **GET** /v1/icons | Get Icons
 *DefaultApi* | [**getMapV1MapGet**](docs/Api/DefaultApi.md#getmapv1mapget) | **GET** /v1/map | Get Map
 *DefaultApi* | [**getRanksV2RanksGet**](docs/Api/DefaultApi.md#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks
@@ -110,7 +111,6 @@ Class | Method | HTTP request | Description
 *MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](docs/Api/MiscEntitiesApi.md#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
 *NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](docs/Api/NPCUnitsApi.md#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit
 *NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](docs/Api/NPCUnitsApi.md#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units
-*RawApi* | [**getGenericDataRawGenericDataGet**](docs/Api/RawApi.md#getgenericdatarawgenericdataget) | **GET** /raw/generic_data | Get Generic Data
 *RawApi* | [**getRawHeroesRawHeroesGet**](docs/Api/RawApi.md#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes
 *RawApi* | [**getRawItemsRawItemsGet**](docs/Api/RawApi.md#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items
 
@@ -129,9 +129,13 @@ Class | Method | HTTP request | Description
 - [BuildTagV2](docs/Model/BuildTagV2.md)
 - [ColorV1](docs/Model/ColorV1.md)
 - [Curve](docs/Model/Curve.md)
+- [DamageFlashV2](docs/Model/DamageFlashV2.md)
 - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md)
 - [ExpirationDuration](docs/Model/ExpirationDuration.md)
+- [FlashDataV2](docs/Model/FlashDataV2.md)
+- [GenericDataV2](docs/Model/GenericDataV2.md)
 - [GetItemsV2ItemsGet200ResponseInner](docs/Model/GetItemsV2ItemsGet200ResponseInner.md)
+- [GlitchSettingsV2](docs/Model/GlitchSettingsV2.md)
 - [HTTPValidationError](docs/Model/HTTPValidationError.md)
 - [HeroColorsV2](docs/Model/HeroColorsV2.md)
 - [HeroDescriptionV2](docs/Model/HeroDescriptionV2.md)
@@ -145,17 +149,22 @@ Class | Method | HTTP request | Description
 - [HeroStartingStatsV2](docs/Model/HeroStartingStatsV2.md)
 - [HeroTypeV2](docs/Model/HeroTypeV2.md)
 - [HeroV2](docs/Model/HeroV2.md)
+- [ItemGroup](docs/Model/ItemGroup.md)
 - [ItemPropertyV2](docs/Model/ItemPropertyV2.md)
 - [ItemSlotTypeV2](docs/Model/ItemSlotTypeV2.md)
 - [ItemTierV2](docs/Model/ItemTierV2.md)
 - [ItemTypeV2](docs/Model/ItemTypeV2.md)
+- [LaneInfoV2](docs/Model/LaneInfoV2.md)
 - [Language](docs/Model/Language.md)
 - [MapImagesV1](docs/Model/MapImagesV1.md)
 - [MapV1](docs/Model/MapV1.md)
+- [MiniMapOffsets](docs/Model/MiniMapOffsets.md)
 - [MiscV2](docs/Model/MiscV2.md)
 - [ModifierDefinition](docs/Model/ModifierDefinition.md)
 - [ModifierValue](docs/Model/ModifierValue.md)
 - [NPCUnitV2](docs/Model/NPCUnitV2.md)
+- [NewPlayerMetricsV2](docs/Model/NewPlayerMetricsV2.md)
+- [ObjectiveParams](docs/Model/ObjectiveParams.md)
 - [ObjectivePositionV1](docs/Model/ObjectivePositionV1.md)
 - [ObjectivePositionsV1](docs/Model/ObjectivePositionsV1.md)
 - [PickupDefinition](docs/Model/PickupDefinition.md)
@@ -184,6 +193,7 @@ Class | Method | HTTP request | Description
 - [RawWeaponInfoHorizontalRecoilV2](docs/Model/RawWeaponInfoHorizontalRecoilV2.md)
 - [RawWeaponInfoV2](docs/Model/RawWeaponInfoV2.md)
 - [RawWeaponInfoVerticalRecoilV2](docs/Model/RawWeaponInfoVerticalRecoilV2.md)
+- [RejuvParams](docs/Model/RejuvParams.md)
 - [ResponseGetItemV2ItemsIdOrClassNameGet](docs/Model/ResponseGetItemV2ItemsIdOrClassNameGet.md)
 - [StandingShotSpreadPenalty](docs/Model/StandingShotSpreadPenalty.md)
 - [StatsUsageFlagV2](docs/Model/StatsUsageFlagV2.md)

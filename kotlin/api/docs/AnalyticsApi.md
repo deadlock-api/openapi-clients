@@ -755,7 +755,7 @@ No authorization required
 
 <a id="killDeathStats"></a>
 # **killDeathStats**
-> kotlin.collections.List&lt;KillDeathStats&gt; killDeathStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, accountIds, heroIds, minNetworth, maxNetworth, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, minAverageBadge, maxAverageBadge, minKillsPerRaster, maxKillsPerRaster, minDeathsPerRaster, maxDeathsPerRaster, minGameTimeS, maxGameTimeS)
+> kotlin.collections.List&lt;KillDeathStats&gt; killDeathStats(team, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, accountIds, heroIds, minNetworth, maxNetworth, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, minAverageBadge, maxAverageBadge, minKillsPerRaster, maxKillsPerRaster, minDeathsPerRaster, maxDeathsPerRaster, minGameTimeS, maxGameTimeS)
 
 Kill Death Stats
 
@@ -768,6 +768,7 @@ Kill Death Stats
 //import deadlock_api_client.models.*
 
 val apiInstance = AnalyticsApi()
+val team : kotlin.Int = 56 // kotlin.Int | Filter by team number.
 val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
 val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
@@ -790,7 +791,7 @@ val maxDeathsPerRaster : kotlin.Int = 56 // kotlin.Int | Filter Raster cells bas
 val minGameTimeS : kotlin.Int = 56 // kotlin.Int | Filter kills based on their game time.
 val maxGameTimeS : kotlin.Int = 56 // kotlin.Int | Filter kills based on their game time.
 try {
-    val result : kotlin.collections.List<KillDeathStats> = apiInstance.killDeathStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, accountIds, heroIds, minNetworth, maxNetworth, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, minAverageBadge, maxAverageBadge, minKillsPerRaster, maxKillsPerRaster, minDeathsPerRaster, maxDeathsPerRaster, minGameTimeS, maxGameTimeS)
+    val result : kotlin.collections.List<KillDeathStats> = apiInstance.killDeathStats(team, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, accountIds, heroIds, minNetworth, maxNetworth, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, minAverageBadge, maxAverageBadge, minKillsPerRaster, maxKillsPerRaster, minDeathsPerRaster, maxDeathsPerRaster, minGameTimeS, maxGameTimeS)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#killDeathStats")
@@ -802,6 +803,7 @@ try {
 ```
 
 ### Parameters
+| **team** | **kotlin.Int**| Filter by team number. | [optional] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1761177600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

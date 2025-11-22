@@ -26,13 +26,6 @@ class TestRawApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_get_generic_data_raw_generic_data_get(self) -> None:
-        """Test case for get_generic_data_raw_generic_data_get
-
-        Get Generic Data
-        """
-        pass
-
     def test_get_raw_heroes_raw_heroes_get(self) -> None:
         """Test case for get_raw_heroes_raw_heroes_get
 

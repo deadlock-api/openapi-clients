@@ -361,6 +361,8 @@ pub struct ItemStatsParams {
 /// struct for passing parameters to the method [`kill_death_stats`]
 #[derive(Clone, Debug)]
 pub struct KillDeathStatsParams {
+    /// Filter by team number.
+    pub team: Option<u32>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -1438,6 +1440,9 @@ pub async fn kill_death_stats(configuration: &configuration::Configuration, para
     let uri_str = format!("{}/v1/analytics/kill-death-stats", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.team {
+        req_builder = req_builder.query(&[("team", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }

@@ -47,6 +47,13 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_get_generic_data_v2_generic_data_get(self) -> None:
+        """Test case for get_generic_data_v2_generic_data_get
+
+        Get Generic Data
+        """
+        pass
+
     def test_get_icons_v1_icons_get(self) -> None:
         """Test case for get_icons_v1_icons_get
 

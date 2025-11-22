@@ -46,9 +46,13 @@ __all__ = [
     "BuildTagV2",
     "ColorV1",
     "Curve",
+    "DamageFlashV2",
     "DeadlockAssetsApiRoutesRawValidClientVersions",
     "ExpirationDuration",
+    "FlashDataV2",
+    "GenericDataV2",
     "GetItemsV2ItemsGet200ResponseInner",
+    "GlitchSettingsV2",
     "HTTPValidationError",
     "HeroColorsV2",
     "HeroDescriptionV2",
@@ -62,17 +66,22 @@ __all__ = [
     "HeroStartingStatsV2",
     "HeroTypeV2",
     "HeroV2",
+    "ItemGroup",
     "ItemPropertyV2",
     "ItemSlotTypeV2",
     "ItemTierV2",
     "ItemTypeV2",
+    "LaneInfoV2",
     "Language",
     "MapImagesV1",
     "MapV1",
+    "MiniMapOffsets",
     "MiscV2",
     "ModifierDefinition",
     "ModifierValue",
     "NPCUnitV2",
+    "NewPlayerMetricsV2",
+    "ObjectiveParams",
     "ObjectivePositionV1",
     "ObjectivePositionsV1",
     "PickupDefinition",
@@ -101,6 +110,7 @@ __all__ = [
     "RawWeaponInfoHorizontalRecoilV2",
     "RawWeaponInfoV2",
     "RawWeaponInfoVerticalRecoilV2",
+    "RejuvParams",
     "ResponseGetItemV2ItemsIdOrClassNameGet",
     "StandingShotSpreadPenalty",
     "StatsUsageFlagV2",
@@ -153,9 +163,13 @@ from assets_deadlock_api_client.models.bonus import Bonus as Bonus
 from assets_deadlock_api_client.models.build_tag_v2 import BuildTagV2 as BuildTagV2
 from assets_deadlock_api_client.models.color_v1 import ColorV1 as ColorV1
 from assets_deadlock_api_client.models.curve import Curve as Curve
+from assets_deadlock_api_client.models.damage_flash_v2 import DamageFlashV2 as DamageFlashV2
 from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions as DeadlockAssetsApiRoutesRawValidClientVersions
 from assets_deadlock_api_client.models.expiration_duration import ExpirationDuration as ExpirationDuration
+from assets_deadlock_api_client.models.flash_data_v2 import FlashDataV2 as FlashDataV2
+from assets_deadlock_api_client.models.generic_data_v2 import GenericDataV2 as GenericDataV2
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner as GetItemsV2ItemsGet200ResponseInner
+from assets_deadlock_api_client.models.glitch_settings_v2 import GlitchSettingsV2 as GlitchSettingsV2
 from assets_deadlock_api_client.models.http_validation_error import HTTPValidationError as HTTPValidationError
 from assets_deadlock_api_client.models.hero_colors_v2 import HeroColorsV2 as HeroColorsV2
 from assets_deadlock_api_client.models.hero_description_v2 import HeroDescriptionV2 as HeroDescriptionV2
@@ -169,17 +183,22 @@ from assets_deadlock_api_client.models.hero_starting_stat_v2 import HeroStarting
 from assets_deadlock_api_client.models.hero_starting_stats_v2 import HeroStartingStatsV2 as HeroStartingStatsV2
 from assets_deadlock_api_client.models.hero_type_v2 import HeroTypeV2 as HeroTypeV2
 from assets_deadlock_api_client.models.hero_v2 import HeroV2 as HeroV2
+from assets_deadlock_api_client.models.item_group import ItemGroup as ItemGroup
 from assets_deadlock_api_client.models.item_property_v2 import ItemPropertyV2 as ItemPropertyV2
 from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2 as ItemSlotTypeV2
 from assets_deadlock_api_client.models.item_tier_v2 import ItemTierV2 as ItemTierV2
 from assets_deadlock_api_client.models.item_type_v2 import ItemTypeV2 as ItemTypeV2
+from assets_deadlock_api_client.models.lane_info_v2 import LaneInfoV2 as LaneInfoV2
 from assets_deadlock_api_client.models.language import Language as Language
 from assets_deadlock_api_client.models.map_images_v1 import MapImagesV1 as MapImagesV1
 from assets_deadlock_api_client.models.map_v1 import MapV1 as MapV1
+from assets_deadlock_api_client.models.mini_map_offsets import MiniMapOffsets as MiniMapOffsets
 from assets_deadlock_api_client.models.misc_v2 import MiscV2 as MiscV2
 from assets_deadlock_api_client.models.modifier_definition import ModifierDefinition as ModifierDefinition
 from assets_deadlock_api_client.models.modifier_value import ModifierValue as ModifierValue
 from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2 as NPCUnitV2
+from assets_deadlock_api_client.models.new_player_metrics_v2 import NewPlayerMetricsV2 as NewPlayerMetricsV2
+from assets_deadlock_api_client.models.objective_params import ObjectiveParams as ObjectiveParams
 from assets_deadlock_api_client.models.objective_position_v1 import ObjectivePositionV1 as ObjectivePositionV1
 from assets_deadlock_api_client.models.objective_positions_v1 import ObjectivePositionsV1 as ObjectivePositionsV1
 from assets_deadlock_api_client.models.pickup_definition import PickupDefinition as PickupDefinition
@@ -208,6 +227,7 @@ from assets_deadlock_api_client.models.raw_item_weapon_info_v2 import RawItemWea
 from assets_deadlock_api_client.models.raw_weapon_info_horizontal_recoil_v2 import RawWeaponInfoHorizontalRecoilV2 as RawWeaponInfoHorizontalRecoilV2
 from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2 as RawWeaponInfoV2
 from assets_deadlock_api_client.models.raw_weapon_info_vertical_recoil_v2 import RawWeaponInfoVerticalRecoilV2 as RawWeaponInfoVerticalRecoilV2
+from assets_deadlock_api_client.models.rejuv_params import RejuvParams as RejuvParams
 from assets_deadlock_api_client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet as ResponseGetItemV2ItemsIdOrClassNameGet
 from assets_deadlock_api_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty as StandingShotSpreadPenalty
 from assets_deadlock_api_client.models.stats_usage_flag_v2 import StatsUsageFlagV2 as StatsUsageFlagV2

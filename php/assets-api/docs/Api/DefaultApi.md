@@ -9,6 +9,7 @@ All URIs are relative to https://assets.deadlock-api.com, except if the operatio
 | [**getBuildTagsV2BuildTagsGet()**](DefaultApi.md#getBuildTagsV2BuildTagsGet) | **GET** /v2/build-tags | Get Build Tags |
 | [**getClientVersionsV2ClientVersionsGet()**](DefaultApi.md#getClientVersionsV2ClientVersionsGet) | **GET** /v2/client-versions | Get Client Versions |
 | [**getColorsV1ColorsGet()**](DefaultApi.md#getColorsV1ColorsGet) | **GET** /v1/colors | Get Colors |
+| [**getGenericDataV2GenericDataGet()**](DefaultApi.md#getGenericDataV2GenericDataGet) | **GET** /v2/generic-data | Get Generic Data |
 | [**getIconsV1IconsGet()**](DefaultApi.md#getIconsV1IconsGet) | **GET** /v1/icons | Get Icons |
 | [**getMapV1MapGet()**](DefaultApi.md#getMapV1MapGet) | **GET** /v1/map | Get Map |
 | [**getRanksV2RanksGet()**](DefaultApi.md#getRanksV2RanksGet) | **GET** /v2/ranks | Get Ranks |
@@ -163,6 +164,60 @@ try {
 ### Return type
 
 [**array<string,\OpenAPI\Client\Model\ColorV1>**](../Model/ColorV1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getGenericDataV2GenericDataGet()`
+
+```php
+getGenericDataV2GenericDataGet($client_version): \OpenAPI\Client\Model\GenericDataV2
+```
+
+Get Generic Data
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+
+try {
+    $result = $apiInstance->getGenericDataV2GenericDataGet($client_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getGenericDataV2GenericDataGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions**](../Model/.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\GenericDataV2**](../Model/GenericDataV2.md)
 
 ### Authorization
 

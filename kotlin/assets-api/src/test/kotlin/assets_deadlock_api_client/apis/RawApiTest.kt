@@ -27,14 +27,6 @@ class RawApiTest : ShouldSpec() {
         // uncomment below to create an instance of RawApi
         //val apiInstance = RawApi()
 
-        // to test getGenericDataRawGenericDataGet
-        should("test getGenericDataRawGenericDataGet") {
-            // uncomment below to test getGenericDataRawGenericDataGet
-            //val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
-            //val result : kotlin.Any = apiInstance.getGenericDataRawGenericDataGet(clientVersion)
-            //result shouldBe ("TODO")
-        }
-
         // to test getRawHeroesRawHeroesGet
         should("test getRawHeroesRawHeroesGet") {
             // uncomment below to test getRawHeroesRawHeroesGet

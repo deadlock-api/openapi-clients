@@ -574,6 +574,31 @@ paths:
                 $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Get Build Tags
+  /v2/generic-data:
+    get:
+      operationId: get_generic_data_v2_generic_data_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenericDataV2"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Generic Data
   /v1/map:
     get:
       operationId: get_map_v1_map_get
@@ -753,32 +778,6 @@ paths:
                 $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Get Raw Items
-      tags:
-      - Raw
-  /raw/generic_data:
-    get:
-      operationId: get_generic_data_raw_generic_data_get
-      parameters:
-      - explode: true
-        in: query
-        name: client_version
-        required: false
-        schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/HTTPValidationError"
-          description: Validation Error
-      summary: Get Generic Data
       tags:
       - Raw
 components:
@@ -1352,6 +1351,494 @@ components:
           nullable: true
           type: number
       title: Curve
+    DamageFlashV2:
+      example:
+        healing_damage:
+          duration: 0.8008281904610115
+          coverage: 6.027456183070403
+          hardness: 1.4658129805029452
+          brightness: 5.962133916683182
+          color:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          brightness_in_light_sensitivity_mode: 5.637376656633329
+        tech_damage:
+          duration: 0.8008281904610115
+          coverage: 6.027456183070403
+          hardness: 1.4658129805029452
+          brightness: 5.962133916683182
+          color:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          brightness_in_light_sensitivity_mode: 5.637376656633329
+        melee_damage:
+          duration: 0.8008281904610115
+          coverage: 6.027456183070403
+          hardness: 1.4658129805029452
+          brightness: 5.962133916683182
+          color:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          brightness_in_light_sensitivity_mode: 5.637376656633329
+        crit_damage:
+          duration: 0.8008281904610115
+          coverage: 6.027456183070403
+          hardness: 1.4658129805029452
+          brightness: 5.962133916683182
+          color:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          brightness_in_light_sensitivity_mode: 5.637376656633329
+        bullet_damage:
+          duration: 0.8008281904610115
+          coverage: 6.027456183070403
+          hardness: 1.4658129805029452
+          brightness: 5.962133916683182
+          color:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          brightness_in_light_sensitivity_mode: 5.637376656633329
+      properties:
+        bullet_damage:
+          $ref: "#/components/schemas/FlashDataV2"
+        tech_damage:
+          $ref: "#/components/schemas/FlashDataV2"
+        healing_damage:
+          $ref: "#/components/schemas/FlashDataV2"
+        crit_damage:
+          $ref: "#/components/schemas/FlashDataV2"
+        melee_damage:
+          $ref: "#/components/schemas/FlashDataV2"
+      required:
+      - bullet_damage
+      - crit_damage
+      - healing_damage
+      - melee_damage
+      - tech_damage
+      title: DamageFlashV2
+    FlashDataV2:
+      example:
+        duration: 0.8008281904610115
+        coverage: 6.027456183070403
+        hardness: 1.4658129805029452
+        brightness: 5.962133916683182
+        color:
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
+        brightness_in_light_sensitivity_mode: 5.637376656633329
+      properties:
+        duration:
+          title: Duration
+          type: number
+        coverage:
+          title: Coverage
+          type: number
+        hardness:
+          title: Hardness
+          type: number
+        brightness:
+          title: Brightness
+          type: number
+        color:
+          $ref: "#/components/schemas/ColorV1"
+        brightness_in_light_sensitivity_mode:
+          nullable: true
+          type: number
+      required:
+      - brightness
+      - color
+      - coverage
+      - duration
+      - hardness
+      title: FlashDataV2
+    GenericDataV2:
+      example:
+        trooper_kill_gold_share_frac:
+        - 3.5571952270680973
+        - 3.5571952270680973
+        lane_info:
+        - css_class: css_class
+          objective_color:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          color:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          minimap_zipline_color_override:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          lane_name: lane_name
+        - css_class: css_class
+          objective_color:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          color:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          minimap_zipline_color_override:
+            red: 60
+            green: 97
+            blue: 221
+            alpha: 115
+          lane_name: lane_name
+        enemy_objectives_and_zipline_color:
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
+        hero_kill_gold_share_frac:
+        - 6.965117697638846
+        - 6.965117697638846
+        new_player_metrics:
+        - abilities_upgraded: 8
+          net_worth: 7
+          last_hits: 9
+          skill_tier_name: skill_tier_name
+          boss_damage: 4
+          orbs_denied: 6
+          player_damage: 5
+          orbs_secured: 9
+          damage_taken: 1
+          mods_purchased: 9
+        - abilities_upgraded: 8
+          net_worth: 7
+          last_hits: 9
+          skill_tier_name: skill_tier_name
+          boss_damage: 4
+          orbs_denied: 6
+          player_damage: 5
+          orbs_secured: 9
+          damage_taken: 1
+          mods_purchased: 9
+        targeting_spring_strength:
+        - 2.8841621266687802
+        - 2.8841621266687802
+        rejuv_params:
+          rejuvinator_expiration_warning_timing: 8.969578798196912
+          rejuvinator_buff_duration: 7.740351818741173
+          rejuvinator_rebirth_duration:
+          - 3.2588565619047607
+          - 3.2588565619047607
+          rejuvinator_drop_duration: 3.0576100241049344
+          player_respawn_mult:
+          - 5.533258397034986
+          - 5.533258397034986
+          rejuvinator_drop_height: 3.0205796992916243
+          trooper_health_mult:
+          - 7.04836565559697
+          - 7.04836565559697
+        glitch_settings:
+          uantize_type: 7.061401241503109
+          breakup_strength: 6.84685269835264
+          strength: 2.3021358869347655
+          quantize_scale: 9.301444243932576
+          distort_strength: 1.2315135367772556
+          scanline_strength: 1.4894159098541704
+          quantize_strength: 3.616076749251911
+          frame_rate: 2.027123023002322
+          speed: 4.145608029883936
+          jump_strength: 7.386281948385884
+          white_noise_strength: 1.0246457001441578
+        enemy_zipline_color:
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
+        item_price_per_tier:
+        - 6
+        - 6
+        mini_map_offsets:
+        - lane_index: 0
+          entity_class: entity_class
+          offset_2d:
+          - 4.078845849666752
+          - 4.078845849666752
+        - lane_index: 0
+          entity_class: entity_class
+          offset_2d:
+          - 4.078845849666752
+          - 4.078845849666752
+        weapon_groups:
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        armor_groups:
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        minimap_team_combine_color:
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
+        objective_params:
+          tier1_gold_orbs: 6
+          tier2_gold_kill: 3
+          patron_phase1_gold_orbs: 4
+          shrines_gold_kill: 7
+          base_guardians_gold_orbs: 0
+          tier1_gold_kill: 5
+          tier2_gold_orbs: 3
+          patron_phase1_gold_kill: 0
+          shrines_gold_orbs: 6
+          near_player_split_pct: 6.878052220127876
+          gold_per_orb: 6
+          base_guardians_gold_kill: 7
+        damage_flash:
+          healing_damage:
+            duration: 0.8008281904610115
+            coverage: 6.027456183070403
+            hardness: 1.4658129805029452
+            brightness: 5.962133916683182
+            color:
+              red: 60
+              green: 97
+              blue: 221
+              alpha: 115
+            brightness_in_light_sensitivity_mode: 5.637376656633329
+          tech_damage:
+            duration: 0.8008281904610115
+            coverage: 6.027456183070403
+            hardness: 1.4658129805029452
+            brightness: 5.962133916683182
+            color:
+              red: 60
+              green: 97
+              blue: 221
+              alpha: 115
+            brightness_in_light_sensitivity_mode: 5.637376656633329
+          melee_damage:
+            duration: 0.8008281904610115
+            coverage: 6.027456183070403
+            hardness: 1.4658129805029452
+            brightness: 5.962133916683182
+            color:
+              red: 60
+              green: 97
+              blue: 221
+              alpha: 115
+            brightness_in_light_sensitivity_mode: 5.637376656633329
+          crit_damage:
+            duration: 0.8008281904610115
+            coverage: 6.027456183070403
+            hardness: 1.4658129805029452
+            brightness: 5.962133916683182
+            color:
+              red: 60
+              green: 97
+              blue: 221
+              alpha: 115
+            brightness_in_light_sensitivity_mode: 5.637376656633329
+          bullet_damage:
+            duration: 0.8008281904610115
+            coverage: 6.027456183070403
+            hardness: 1.4658129805029452
+            brightness: 5.962133916683182
+            color:
+              red: 60
+              green: 97
+              blue: 221
+              alpha: 115
+            brightness_in_light_sensitivity_mode: 5.637376656633329
+        enemy_objectives_color:
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
+        aim_spring_strength:
+        - 1.284659006116532
+        - 1.284659006116532
+        minimap_team_rebels_color:
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
+        spirit_groups:
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+      properties:
+        damage_flash:
+          $ref: "#/components/schemas/DamageFlashV2"
+        glitch_settings:
+          $ref: "#/components/schemas/GlitchSettingsV2"
+        lane_info:
+          items:
+            $ref: "#/components/schemas/LaneInfoV2"
+          type: array
+        new_player_metrics:
+          items:
+            $ref: "#/components/schemas/NewPlayerMetricsV2"
+          type: array
+        minimap_team_rebels_color:
+          $ref: "#/components/schemas/ColorV1"
+        minimap_team_combine_color:
+          $ref: "#/components/schemas/ColorV1"
+        enemy_objectives_and_zipline_color:
+          $ref: "#/components/schemas/ColorV1"
+        enemy_objectives_color:
+          $ref: "#/components/schemas/ColorV1"
+        enemy_zipline_color:
+          $ref: "#/components/schemas/ColorV1"
+        item_price_per_tier:
+          items:
+            type: integer
+          type: array
+        trooper_kill_gold_share_frac:
+          items:
+            type: number
+          type: array
+        hero_kill_gold_share_frac:
+          items:
+            type: number
+          type: array
+        aim_spring_strength:
+          items:
+            type: number
+          type: array
+        targeting_spring_strength:
+          items:
+            type: number
+          type: array
+        objective_params:
+          $ref: "#/components/schemas/ObjectiveParams"
+        rejuv_params:
+          $ref: "#/components/schemas/RejuvParams"
+        mini_map_offsets:
+          items:
+            $ref: "#/components/schemas/MiniMapOffsets"
+          type: array
+        weapon_groups:
+          items:
+            $ref: "#/components/schemas/ItemGroup"
+          type: array
+        armor_groups:
+          items:
+            $ref: "#/components/schemas/ItemGroup"
+          type: array
+        spirit_groups:
+          items:
+            $ref: "#/components/schemas/ItemGroup"
+          type: array
+      required:
+      - aim_spring_strength
+      - armor_groups
+      - damage_flash
+      - enemy_objectives_and_zipline_color
+      - enemy_objectives_color
+      - enemy_zipline_color
+      - glitch_settings
+      - hero_kill_gold_share_frac
+      - item_price_per_tier
+      - lane_info
+      - mini_map_offsets
+      - minimap_team_combine_color
+      - minimap_team_rebels_color
+      - new_player_metrics
+      - objective_params
+      - rejuv_params
+      - spirit_groups
+      - targeting_spring_strength
+      - trooper_kill_gold_share_frac
+      - weapon_groups
+      title: GenericDataV2
+    GlitchSettingsV2:
+      example:
+        uantize_type: 7.061401241503109
+        breakup_strength: 6.84685269835264
+        strength: 2.3021358869347655
+        quantize_scale: 9.301444243932576
+        distort_strength: 1.2315135367772556
+        scanline_strength: 1.4894159098541704
+        quantize_strength: 3.616076749251911
+        frame_rate: 2.027123023002322
+        speed: 4.145608029883936
+        jump_strength: 7.386281948385884
+        white_noise_strength: 1.0246457001441578
+      properties:
+        strength:
+          title: Strength
+          type: number
+        uantize_type:
+          title: Uantize Type
+          type: number
+        quantize_scale:
+          title: Quantize Scale
+          type: number
+        quantize_strength:
+          title: Quantize Strength
+          type: number
+        frame_rate:
+          title: Frame Rate
+          type: number
+        speed:
+          title: Speed
+          type: number
+        jump_strength:
+          title: Jump Strength
+          type: number
+        distort_strength:
+          title: Distort Strength
+          type: number
+        white_noise_strength:
+          title: White Noise Strength
+          type: number
+        scanline_strength:
+          title: Scanline Strength
+          type: number
+        breakup_strength:
+          title: Breakup Strength
+          type: number
+      required:
+      - breakup_strength
+      - distort_strength
+      - frame_rate
+      - jump_strength
+      - quantize_scale
+      - quantize_strength
+      - scanline_strength
+      - speed
+      - strength
+      - uantize_type
+      - white_noise_strength
+      title: GlitchSettingsV2
     HTTPValidationError:
       example:
         detail:
@@ -2178,6 +2665,24 @@ components:
       - starting_stats
       - stats_display
       title: HeroV2
+    ItemGroup:
+      example:
+        shop_group: shop_group
+        upgrades:
+        - upgrades
+        - upgrades
+      properties:
+        shop_group:
+          title: Shop Group
+          type: string
+        upgrades:
+          items:
+            type: string
+          type: array
+      required:
+      - shop_group
+      - upgrades
+      title: ItemGroup
     ItemPropertyV2:
       example:
         conditional: conditional
@@ -2280,6 +2785,42 @@ components:
       - armor
       title: ItemTypeV2
       type: string
+    LaneInfoV2:
+      example:
+        css_class: css_class
+        objective_color:
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
+        color:
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
+        minimap_zipline_color_override:
+          red: 60
+          green: 97
+          blue: 221
+          alpha: 115
+        lane_name: lane_name
+      properties:
+        lane_name:
+          title: Lane Name
+          type: string
+        css_class:
+          nullable: true
+          type: string
+        color:
+          $ref: "#/components/schemas/ColorV1"
+        minimap_zipline_color_override:
+          $ref: "#/components/schemas/ColorV1"
+        objective_color:
+          $ref: "#/components/schemas/ColorV1"
+      required:
+      - color
+      - lane_name
+      title: LaneInfoV2
     Language:
       enum:
       - brazilian
@@ -2503,6 +3044,28 @@ components:
       - objective_positions
       - zipline_paths
       title: MapV1
+    MiniMapOffsets:
+      example:
+        lane_index: 0
+        entity_class: entity_class
+        offset_2d:
+        - 4.078845849666752
+        - 4.078845849666752
+      properties:
+        entity_class:
+          title: Entity Class
+          type: string
+        offset_2d:
+          items:
+            type: number
+          type: array
+        lane_index:
+          nullable: true
+          type: integer
+      required:
+      - entity_class
+      - offset_2d
+      title: MiniMapOffsets
     MiscV2:
       example:
         initial_spawn_time: 0.8008281904610115
@@ -3108,6 +3671,126 @@ components:
       - class_name
       - id
       title: NPCUnitV2
+    NewPlayerMetricsV2:
+      example:
+        abilities_upgraded: 8
+        net_worth: 7
+        last_hits: 9
+        skill_tier_name: skill_tier_name
+        boss_damage: 4
+        orbs_denied: 6
+        player_damage: 5
+        orbs_secured: 9
+        damage_taken: 1
+        mods_purchased: 9
+      properties:
+        skill_tier_name:
+          title: Skill Tier Name
+          type: string
+        net_worth:
+          title: Net Worth
+          type: integer
+        damage_taken:
+          title: Damage Taken
+          type: integer
+        boss_damage:
+          title: Boss Damage
+          type: integer
+        player_damage:
+          title: Player Damage
+          type: integer
+        last_hits:
+          title: Last Hits
+          type: integer
+        orbs_secured:
+          title: Orbs Secured
+          type: integer
+        orbs_denied:
+          title: Orbs Denied
+          type: integer
+        abilities_upgraded:
+          title: Abilities Upgraded
+          type: integer
+        mods_purchased:
+          title: Mods Purchased
+          type: integer
+      required:
+      - abilities_upgraded
+      - boss_damage
+      - damage_taken
+      - last_hits
+      - mods_purchased
+      - net_worth
+      - orbs_denied
+      - orbs_secured
+      - player_damage
+      - skill_tier_name
+      title: NewPlayerMetricsV2
+    ObjectiveParams:
+      example:
+        tier1_gold_orbs: 6
+        tier2_gold_kill: 3
+        patron_phase1_gold_orbs: 4
+        shrines_gold_kill: 7
+        base_guardians_gold_orbs: 0
+        tier1_gold_kill: 5
+        tier2_gold_orbs: 3
+        patron_phase1_gold_kill: 0
+        shrines_gold_orbs: 6
+        near_player_split_pct: 6.878052220127876
+        gold_per_orb: 6
+        base_guardians_gold_kill: 7
+      properties:
+        gold_per_orb:
+          title: Gold Per Orb
+          type: integer
+        near_player_split_pct:
+          title: Near Player Split Pct
+          type: number
+        tier1_gold_kill:
+          title: Tier1 Gold Kill
+          type: integer
+        tier1_gold_orbs:
+          title: Tier1 Gold Orbs
+          type: integer
+        tier2_gold_kill:
+          title: Tier2 Gold Kill
+          type: integer
+        tier2_gold_orbs:
+          title: Tier2 Gold Orbs
+          type: integer
+        base_guardians_gold_kill:
+          title: Base Guardians Gold Kill
+          type: integer
+        base_guardians_gold_orbs:
+          title: Base Guardians Gold Orbs
+          type: integer
+        shrines_gold_kill:
+          title: Shrines Gold Kill
+          type: integer
+        shrines_gold_orbs:
+          title: Shrines Gold Orbs
+          type: integer
+        patron_phase1_gold_kill:
+          title: Patron Phase1 Gold Kill
+          type: integer
+        patron_phase1_gold_orbs:
+          title: Patron Phase1 Gold Orbs
+          type: integer
+      required:
+      - base_guardians_gold_kill
+      - base_guardians_gold_orbs
+      - gold_per_orb
+      - near_player_split_pct
+      - patron_phase1_gold_kill
+      - patron_phase1_gold_orbs
+      - shrines_gold_kill
+      - shrines_gold_orbs
+      - tier1_gold_kill
+      - tier1_gold_orbs
+      - tier2_gold_kill
+      - tier2_gold_orbs
+      title: ObjectiveParams
     ObjectivePositionV1:
       example:
         top_relative: 1.4658129805029452
@@ -4071,6 +4754,55 @@ components:
           nullable: true
           type: number
       title: RawWeaponInfoVerticalRecoilV2
+    RejuvParams:
+      example:
+        rejuvinator_expiration_warning_timing: 8.969578798196912
+        rejuvinator_buff_duration: 7.740351818741173
+        rejuvinator_rebirth_duration:
+        - 3.2588565619047607
+        - 3.2588565619047607
+        rejuvinator_drop_duration: 3.0576100241049344
+        player_respawn_mult:
+        - 5.533258397034986
+        - 5.533258397034986
+        rejuvinator_drop_height: 3.0205796992916243
+        trooper_health_mult:
+        - 7.04836565559697
+        - 7.04836565559697
+      properties:
+        rejuvinator_expiration_warning_timing:
+          title: Rejuvinator Expiration Warning Timing
+          type: number
+        rejuvinator_buff_duration:
+          title: Rejuvinator Buff Duration
+          type: number
+        rejuvinator_drop_height:
+          title: Rejuvinator Drop Height
+          type: number
+        rejuvinator_drop_duration:
+          title: Rejuvinator Drop Duration
+          type: number
+        trooper_health_mult:
+          items:
+            type: number
+          type: array
+        player_respawn_mult:
+          items:
+            type: number
+          type: array
+        rejuvinator_rebirth_duration:
+          items:
+            type: number
+          type: array
+      required:
+      - player_respawn_mult
+      - rejuvinator_buff_duration
+      - rejuvinator_drop_duration
+      - rejuvinator_drop_height
+      - rejuvinator_expiration_warning_timing
+      - rejuvinator_rebirth_duration
+      - trooper_health_mult
+      title: RejuvParams
     StatsUsageFlagV2:
       enum:
       - ConditionallyApplied

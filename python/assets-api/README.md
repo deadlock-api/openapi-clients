@@ -117,12 +117,12 @@ Class | Method | HTTP request | Description
 *MiscEntitiesApi* | [**get_misc_entity_v2_misc_entities_id_or_class_name_get**](docs/MiscEntitiesApi.md#get_misc_entity_v2_misc_entities_id_or_class_name_get) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
 *NPCUnitsApi* | [**get_npc_unit_v2_npc_units_id_or_class_name_get**](docs/NPCUnitsApi.md#get_npc_unit_v2_npc_units_id_or_class_name_get) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit
 *NPCUnitsApi* | [**get_npc_units_v2_npc_units_get**](docs/NPCUnitsApi.md#get_npc_units_v2_npc_units_get) | **GET** /v2/npc-units | Get Npc Units
-*RawApi* | [**get_generic_data_raw_generic_data_get**](docs/RawApi.md#get_generic_data_raw_generic_data_get) | **GET** /raw/generic_data | Get Generic Data
 *RawApi* | [**get_raw_heroes_raw_heroes_get**](docs/RawApi.md#get_raw_heroes_raw_heroes_get) | **GET** /raw/heroes | Get Raw Heroes
 *RawApi* | [**get_raw_items_raw_items_get**](docs/RawApi.md#get_raw_items_raw_items_get) | **GET** /raw/items | Get Raw Items
 *DefaultApi* | [**get_build_tags_v2_build_tags_get**](docs/DefaultApi.md#get_build_tags_v2_build_tags_get) | **GET** /v2/build-tags | Get Build Tags
 *DefaultApi* | [**get_client_versions_v2_client_versions_get**](docs/DefaultApi.md#get_client_versions_v2_client_versions_get) | **GET** /v2/client-versions | Get Client Versions
 *DefaultApi* | [**get_colors_v1_colors_get**](docs/DefaultApi.md#get_colors_v1_colors_get) | **GET** /v1/colors | Get Colors
+*DefaultApi* | [**get_generic_data_v2_generic_data_get**](docs/DefaultApi.md#get_generic_data_v2_generic_data_get) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**get_icons_v1_icons_get**](docs/DefaultApi.md#get_icons_v1_icons_get) | **GET** /v1/icons | Get Icons
 *DefaultApi* | [**get_map_v1_map_get**](docs/DefaultApi.md#get_map_v1_map_get) | **GET** /v1/map | Get Map
 *DefaultApi* | [**get_ranks_v2_ranks_get**](docs/DefaultApi.md#get_ranks_v2_ranks_get) | **GET** /v2/ranks | Get Ranks
@@ -145,9 +145,13 @@ Class | Method | HTTP request | Description
  - [BuildTagV2](docs/BuildTagV2.md)
  - [ColorV1](docs/ColorV1.md)
  - [Curve](docs/Curve.md)
+ - [DamageFlashV2](docs/DamageFlashV2.md)
  - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
  - [ExpirationDuration](docs/ExpirationDuration.md)
+ - [FlashDataV2](docs/FlashDataV2.md)
+ - [GenericDataV2](docs/GenericDataV2.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
+ - [GlitchSettingsV2](docs/GlitchSettingsV2.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HeroColorsV2](docs/HeroColorsV2.md)
  - [HeroDescriptionV2](docs/HeroDescriptionV2.md)
@@ -161,17 +165,22 @@ Class | Method | HTTP request | Description
  - [HeroStartingStatsV2](docs/HeroStartingStatsV2.md)
  - [HeroTypeV2](docs/HeroTypeV2.md)
  - [HeroV2](docs/HeroV2.md)
+ - [ItemGroup](docs/ItemGroup.md)
  - [ItemPropertyV2](docs/ItemPropertyV2.md)
  - [ItemSlotTypeV2](docs/ItemSlotTypeV2.md)
  - [ItemTierV2](docs/ItemTierV2.md)
  - [ItemTypeV2](docs/ItemTypeV2.md)
+ - [LaneInfoV2](docs/LaneInfoV2.md)
  - [Language](docs/Language.md)
  - [MapImagesV1](docs/MapImagesV1.md)
  - [MapV1](docs/MapV1.md)
+ - [MiniMapOffsets](docs/MiniMapOffsets.md)
  - [MiscV2](docs/MiscV2.md)
  - [ModifierDefinition](docs/ModifierDefinition.md)
  - [ModifierValue](docs/ModifierValue.md)
  - [NPCUnitV2](docs/NPCUnitV2.md)
+ - [NewPlayerMetricsV2](docs/NewPlayerMetricsV2.md)
+ - [ObjectiveParams](docs/ObjectiveParams.md)
  - [ObjectivePositionV1](docs/ObjectivePositionV1.md)
  - [ObjectivePositionsV1](docs/ObjectivePositionsV1.md)
  - [PickupDefinition](docs/PickupDefinition.md)
@@ -200,6 +209,7 @@ Class | Method | HTTP request | Description
  - [RawWeaponInfoHorizontalRecoilV2](docs/RawWeaponInfoHorizontalRecoilV2.md)
  - [RawWeaponInfoV2](docs/RawWeaponInfoV2.md)
  - [RawWeaponInfoVerticalRecoilV2](docs/RawWeaponInfoVerticalRecoilV2.md)
+ - [RejuvParams](docs/RejuvParams.md)
  - [ResponseGetItemV2ItemsIdOrClassNameGet](docs/ResponseGetItemV2ItemsIdOrClassNameGet.md)
  - [StandingShotSpreadPenalty](docs/StandingShotSpreadPenalty.md)
  - [StatsUsageFlagV2](docs/StatsUsageFlagV2.md)

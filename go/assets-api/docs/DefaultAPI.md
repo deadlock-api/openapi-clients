@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetBuildTagsV2BuildTagsGet**](DefaultAPI.md#GetBuildTagsV2BuildTagsGet) | **Get** /v2/build-tags | Get Build Tags
 [**GetClientVersionsV2ClientVersionsGet**](DefaultAPI.md#GetClientVersionsV2ClientVersionsGet) | **Get** /v2/client-versions | Get Client Versions
 [**GetColorsV1ColorsGet**](DefaultAPI.md#GetColorsV1ColorsGet) | **Get** /v1/colors | Get Colors
+[**GetGenericDataV2GenericDataGet**](DefaultAPI.md#GetGenericDataV2GenericDataGet) | **Get** /v2/generic-data | Get Generic Data
 [**GetIconsV1IconsGet**](DefaultAPI.md#GetIconsV1IconsGet) | **Get** /v1/icons | Get Icons
 [**GetMapV1MapGet**](DefaultAPI.md#GetMapV1MapGet) | **Get** /v1/map | Get Map
 [**GetRanksV2RanksGet**](DefaultAPI.md#GetRanksV2RanksGet) | **Get** /v2/ranks | Get Ranks
@@ -189,6 +190,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**map[string]ColorV1**](ColorV1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetGenericDataV2GenericDataGet
+
+> GenericDataV2 GetGenericDataV2GenericDataGet(ctx).ClientVersion(clientVersion).Execute()
+
+Get Generic Data
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(5983) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetGenericDataV2GenericDataGet(context.Background()).ClientVersion(clientVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetGenericDataV2GenericDataGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetGenericDataV2GenericDataGet`: GenericDataV2
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetGenericDataV2GenericDataGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGenericDataV2GenericDataGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](DeadlockAssetsApiRoutesRawValidClientVersions.md) |  | 
+
+### Return type
+
+[**GenericDataV2**](GenericDataV2.md)
 
 ### Authorization
 

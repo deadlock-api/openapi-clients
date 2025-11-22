@@ -72,18 +72,6 @@ class RawApiTest extends TestCase
     }
 
     /**
-     * Test case for getGenericDataRawGenericDataGet
-     *
-     * Get Generic Data.
-     *
-     */
-    public function testGetGenericDataRawGenericDataGet()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for getRawHeroesRawHeroesGet
      *
      * Get Raw Heroes.

@@ -14,12 +14,6 @@ use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
-/// struct for passing parameters to the method [`get_generic_data_raw_generic_data_get`]
-#[derive(Clone, Debug)]
-pub struct GetGenericDataRawGenericDataGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
-}
-
 /// struct for passing parameters to the method [`get_raw_heroes_raw_heroes_get`]
 #[derive(Clone, Debug)]
 pub struct GetRawHeroesRawHeroesGetParams {
@@ -32,14 +26,6 @@ pub struct GetRawItemsRawItemsGetParams {
     pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
 }
 
-
-/// struct for typed errors of method [`get_generic_data_raw_generic_data_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetGenericDataRawGenericDataGetError {
-    Status422(models::HttpValidationError),
-    UnknownValue(serde_json::Value),
-}
 
 /// struct for typed errors of method [`get_raw_heroes_raw_heroes_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -57,43 +43,6 @@ pub enum GetRawItemsRawItemsGetError {
     UnknownValue(serde_json::Value),
 }
 
-
-pub async fn get_generic_data_raw_generic_data_get(configuration: &configuration::Configuration, params: GetGenericDataRawGenericDataGetParams) -> Result<serde_json::Value, Error<GetGenericDataRawGenericDataGetError>> {
-
-    let uri_str = format!("{}/raw/generic_data", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `serde_json::Value`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `serde_json::Value`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetGenericDataRawGenericDataGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
 
 pub async fn get_raw_heroes_raw_heroes_get(configuration: &configuration::Configuration, params: GetRawHeroesRawHeroesGetParams) -> Result<serde_json::Value, Error<GetRawHeroesRawHeroesGetError>> {
 

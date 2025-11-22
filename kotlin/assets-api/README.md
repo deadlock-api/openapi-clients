@@ -66,6 +66,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 | *DefaultApi* | [**getBuildTagsV2BuildTagsGet**](docs/DefaultApi.md#getbuildtagsv2buildtagsget) | **GET** /v2/build-tags | Get Build Tags |
 | *DefaultApi* | [**getClientVersionsV2ClientVersionsGet**](docs/DefaultApi.md#getclientversionsv2clientversionsget) | **GET** /v2/client-versions | Get Client Versions |
 | *DefaultApi* | [**getColorsV1ColorsGet**](docs/DefaultApi.md#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors |
+| *DefaultApi* | [**getGenericDataV2GenericDataGet**](docs/DefaultApi.md#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data |
 | *DefaultApi* | [**getIconsV1IconsGet**](docs/DefaultApi.md#geticonsv1iconsget) | **GET** /v1/icons | Get Icons |
 | *DefaultApi* | [**getMapV1MapGet**](docs/DefaultApi.md#getmapv1mapget) | **GET** /v1/map | Get Map |
 | *DefaultApi* | [**getRanksV2RanksGet**](docs/DefaultApi.md#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks |
@@ -83,7 +84,6 @@ All URIs are relative to *https://assets.deadlock-api.com*
 | *MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](docs/MiscEntitiesApi.md#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity |
 | *NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](docs/NPCUnitsApi.md#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit |
 | *NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](docs/NPCUnitsApi.md#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units |
-| *RawApi* | [**getGenericDataRawGenericDataGet**](docs/RawApi.md#getgenericdatarawgenericdataget) | **GET** /raw/generic_data | Get Generic Data |
 | *RawApi* | [**getRawHeroesRawHeroesGet**](docs/RawApi.md#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes |
 | *RawApi* | [**getRawItemsRawItemsGet**](docs/RawApi.md#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items |
 
@@ -104,9 +104,13 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets_deadlock_api_client.models.BuildTagV2](docs/BuildTagV2.md)
  - [assets_deadlock_api_client.models.ColorV1](docs/ColorV1.md)
  - [assets_deadlock_api_client.models.Curve](docs/Curve.md)
+ - [assets_deadlock_api_client.models.DamageFlashV2](docs/DamageFlashV2.md)
  - [assets_deadlock_api_client.models.DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
  - [assets_deadlock_api_client.models.ExpirationDuration](docs/ExpirationDuration.md)
+ - [assets_deadlock_api_client.models.FlashDataV2](docs/FlashDataV2.md)
+ - [assets_deadlock_api_client.models.GenericDataV2](docs/GenericDataV2.md)
  - [assets_deadlock_api_client.models.GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
+ - [assets_deadlock_api_client.models.GlitchSettingsV2](docs/GlitchSettingsV2.md)
  - [assets_deadlock_api_client.models.HTTPValidationError](docs/HTTPValidationError.md)
  - [assets_deadlock_api_client.models.HeroColorsV2](docs/HeroColorsV2.md)
  - [assets_deadlock_api_client.models.HeroDescriptionV2](docs/HeroDescriptionV2.md)
@@ -120,17 +124,22 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets_deadlock_api_client.models.HeroStartingStatsV2](docs/HeroStartingStatsV2.md)
  - [assets_deadlock_api_client.models.HeroTypeV2](docs/HeroTypeV2.md)
  - [assets_deadlock_api_client.models.HeroV2](docs/HeroV2.md)
+ - [assets_deadlock_api_client.models.ItemGroup](docs/ItemGroup.md)
  - [assets_deadlock_api_client.models.ItemPropertyV2](docs/ItemPropertyV2.md)
  - [assets_deadlock_api_client.models.ItemSlotTypeV2](docs/ItemSlotTypeV2.md)
  - [assets_deadlock_api_client.models.ItemTierV2](docs/ItemTierV2.md)
  - [assets_deadlock_api_client.models.ItemTypeV2](docs/ItemTypeV2.md)
+ - [assets_deadlock_api_client.models.LaneInfoV2](docs/LaneInfoV2.md)
  - [assets_deadlock_api_client.models.Language](docs/Language.md)
  - [assets_deadlock_api_client.models.MapImagesV1](docs/MapImagesV1.md)
  - [assets_deadlock_api_client.models.MapV1](docs/MapV1.md)
+ - [assets_deadlock_api_client.models.MiniMapOffsets](docs/MiniMapOffsets.md)
  - [assets_deadlock_api_client.models.MiscV2](docs/MiscV2.md)
  - [assets_deadlock_api_client.models.ModifierDefinition](docs/ModifierDefinition.md)
  - [assets_deadlock_api_client.models.ModifierValue](docs/ModifierValue.md)
  - [assets_deadlock_api_client.models.NPCUnitV2](docs/NPCUnitV2.md)
+ - [assets_deadlock_api_client.models.NewPlayerMetricsV2](docs/NewPlayerMetricsV2.md)
+ - [assets_deadlock_api_client.models.ObjectiveParams](docs/ObjectiveParams.md)
  - [assets_deadlock_api_client.models.ObjectivePositionV1](docs/ObjectivePositionV1.md)
  - [assets_deadlock_api_client.models.ObjectivePositionsV1](docs/ObjectivePositionsV1.md)
  - [assets_deadlock_api_client.models.PickupDefinition](docs/PickupDefinition.md)
@@ -159,6 +168,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets_deadlock_api_client.models.RawWeaponInfoHorizontalRecoilV2](docs/RawWeaponInfoHorizontalRecoilV2.md)
  - [assets_deadlock_api_client.models.RawWeaponInfoV2](docs/RawWeaponInfoV2.md)
  - [assets_deadlock_api_client.models.RawWeaponInfoVerticalRecoilV2](docs/RawWeaponInfoVerticalRecoilV2.md)
+ - [assets_deadlock_api_client.models.RejuvParams](docs/RejuvParams.md)
  - [assets_deadlock_api_client.models.ResponseGetItemV2ItemsIdOrClassNameGet](docs/ResponseGetItemV2ItemsIdOrClassNameGet.md)
  - [assets_deadlock_api_client.models.StandingShotSpreadPenalty](docs/StandingShotSpreadPenalty.md)
  - [assets_deadlock_api_client.models.StatsUsageFlagV2](docs/StatsUsageFlagV2.md)

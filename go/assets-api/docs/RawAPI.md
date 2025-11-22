@@ -4,74 +4,9 @@ All URIs are relative to *https://assets.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetGenericDataRawGenericDataGet**](RawAPI.md#GetGenericDataRawGenericDataGet) | **Get** /raw/generic_data | Get Generic Data
 [**GetRawHeroesRawHeroesGet**](RawAPI.md#GetRawHeroesRawHeroesGet) | **Get** /raw/heroes | Get Raw Heroes
 [**GetRawItemsRawItemsGet**](RawAPI.md#GetRawItemsRawItemsGet) | **Get** /raw/items | Get Raw Items
 
-
-
-## GetGenericDataRawGenericDataGet
-
-> interface{} GetGenericDataRawGenericDataGet(ctx).ClientVersion(clientVersion).Execute()
-
-Get Generic Data
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/deadlock-api/openapi-clients"
-)
-
-func main() {
-	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(5983) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RawAPI.GetGenericDataRawGenericDataGet(context.Background()).ClientVersion(clientVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RawAPI.GetGenericDataRawGenericDataGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetGenericDataRawGenericDataGet`: interface{}
-	fmt.Fprintf(os.Stdout, "Response from `RawAPI.GetGenericDataRawGenericDataGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetGenericDataRawGenericDataGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](DeadlockAssetsApiRoutesRawValidClientVersions.md) |  | 
-
-### Return type
-
-**interface{}**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## GetRawHeroesRawHeroesGet

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_build_tags_v2_build_tags_get**](DefaultApi.md#get_build_tags_v2_build_tags_get) | **GET** /v2/build-tags | Get Build Tags
 [**get_client_versions_v2_client_versions_get**](DefaultApi.md#get_client_versions_v2_client_versions_get) | **GET** /v2/client-versions | Get Client Versions
 [**get_colors_v1_colors_get**](DefaultApi.md#get_colors_v1_colors_get) | **GET** /v1/colors | Get Colors
+[**get_generic_data_v2_generic_data_get**](DefaultApi.md#get_generic_data_v2_generic_data_get) | **GET** /v2/generic-data | Get Generic Data
 [**get_icons_v1_icons_get**](DefaultApi.md#get_icons_v1_icons_get) | **GET** /v1/icons | Get Icons
 [**get_map_v1_map_get**](DefaultApi.md#get_map_v1_map_get) | **GET** /v1/map | Get Map
 [**get_ranks_v2_ranks_get**](DefaultApi.md#get_ranks_v2_ranks_get) | **GET** /v2/ranks | Get Ranks
@@ -84,6 +85,34 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**std::collections::HashMap<String, models::ColorV1>**](ColorV1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_generic_data_v2_generic_data_get
+
+> models::GenericDataV2 get_generic_data_v2_generic_data_get(client_version)
+Get Generic Data
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
+
+### Return type
+
+[**models::GenericDataV2**](GenericDataV2.md)
 
 ### Authorization
 

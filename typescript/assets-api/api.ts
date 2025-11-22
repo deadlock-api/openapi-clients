@@ -132,6 +132,13 @@ export interface Curve {
     'base'?: number | null;
     'per_minute_after_start'?: number | null;
 }
+export interface DamageFlashV2 {
+    'bullet_damage': FlashDataV2;
+    'tech_damage': FlashDataV2;
+    'healing_damage': FlashDataV2;
+    'crit_damage': FlashDataV2;
+    'melee_damage': FlashDataV2;
+}
 
 export const DeadlockAssetsApiRoutesRawValidClientVersions = {
     NUMBER_5983: 5983,
@@ -177,11 +184,54 @@ export interface ExpirationDuration {
     'base'?: number;
     'per_minute_after_start'?: number;
 }
+export interface FlashDataV2 {
+    'duration': number;
+    'coverage': number;
+    'hardness': number;
+    'brightness': number;
+    'color': ColorV1;
+    'brightness_in_light_sensitivity_mode'?: number | null;
+}
+export interface GenericDataV2 {
+    'damage_flash': DamageFlashV2;
+    'glitch_settings': GlitchSettingsV2;
+    'lane_info': Array<LaneInfoV2>;
+    'new_player_metrics': Array<NewPlayerMetricsV2>;
+    'minimap_team_rebels_color': ColorV1;
+    'minimap_team_combine_color': ColorV1;
+    'enemy_objectives_and_zipline_color': ColorV1;
+    'enemy_objectives_color': ColorV1;
+    'enemy_zipline_color': ColorV1;
+    'item_price_per_tier': Array<number>;
+    'trooper_kill_gold_share_frac': Array<number>;
+    'hero_kill_gold_share_frac': Array<number>;
+    'aim_spring_strength': Array<number>;
+    'targeting_spring_strength': Array<number>;
+    'objective_params': ObjectiveParams;
+    'rejuv_params': RejuvParams;
+    'mini_map_offsets': Array<MiniMapOffsets>;
+    'weapon_groups': Array<ItemGroup>;
+    'armor_groups': Array<ItemGroup>;
+    'spirit_groups': Array<ItemGroup>;
+}
 /**
  * @type GetItemsV2ItemsGet200ResponseInner
  */
 export type GetItemsV2ItemsGet200ResponseInner = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
 
+export interface GlitchSettingsV2 {
+    'strength': number;
+    'uantize_type': number;
+    'quantize_scale': number;
+    'quantize_strength': number;
+    'frame_rate': number;
+    'speed': number;
+    'jump_strength': number;
+    'distort_strength': number;
+    'white_noise_strength': number;
+    'scanline_strength': number;
+    'breakup_strength': number;
+}
 export interface HTTPValidationError {
     'detail'?: Array<ValidationError>;
 }
@@ -340,6 +390,10 @@ export interface HeroV2 {
 }
 
 
+export interface ItemGroup {
+    'shop_group': string;
+    'upgrades': Array<string>;
+}
 export interface ItemPropertyV2 {
     'value'?: Value1 | null;
     'can_set_token_override'?: boolean | null;
@@ -392,6 +446,13 @@ export const ItemTypeV2 = {
 export type ItemTypeV2 = typeof ItemTypeV2[keyof typeof ItemTypeV2];
 
 
+export interface LaneInfoV2 {
+    'lane_name': string;
+    'css_class'?: string | null;
+    'color': ColorV1;
+    'minimap_zipline_color_override'?: ColorV1 | null;
+    'objective_color'?: ColorV1 | null;
+}
 
 export const Language = {
     Brazilian: 'brazilian',
@@ -464,6 +525,11 @@ export interface MapV1 {
      * The ziplane paths of the map. Each path is a list of P0, P1, and P2 points, describing the cubic spline.
      */
     'zipline_paths': Array<ZiplanePathV1>;
+}
+export interface MiniMapOffsets {
+    'entity_class': string;
+    'offset_2d': Array<number>;
+    'lane_index'?: number | null;
 }
 export interface MiscV2 {
     'class_name': string;
@@ -575,6 +641,32 @@ export interface NPCUnitV2 {
     'glow_color_team2'?: ColorV1 | null;
     'glow_color_team_neutral'?: ColorV1 | null;
     'id': number;
+}
+export interface NewPlayerMetricsV2 {
+    'skill_tier_name': string;
+    'net_worth': number;
+    'damage_taken': number;
+    'boss_damage': number;
+    'player_damage': number;
+    'last_hits': number;
+    'orbs_secured': number;
+    'orbs_denied': number;
+    'abilities_upgraded': number;
+    'mods_purchased': number;
+}
+export interface ObjectiveParams {
+    'gold_per_orb': number;
+    'near_player_split_pct': number;
+    'tier1_gold_kill': number;
+    'tier1_gold_orbs': number;
+    'tier2_gold_kill': number;
+    'tier2_gold_orbs': number;
+    'base_guardians_gold_kill': number;
+    'base_guardians_gold_orbs': number;
+    'shrines_gold_kill': number;
+    'shrines_gold_orbs': number;
+    'patron_phase1_gold_kill': number;
+    'patron_phase1_gold_orbs': number;
 }
 export interface ObjectivePositionV1 {
     /**
@@ -824,6 +916,15 @@ export interface RawWeaponInfoVerticalRecoilV2 {
     'burst_exponent'?: number | null;
     'burst_constant'?: number | null;
     'burst_slope'?: number | null;
+}
+export interface RejuvParams {
+    'rejuvinator_expiration_warning_timing': number;
+    'rejuvinator_buff_duration': number;
+    'rejuvinator_drop_height': number;
+    'rejuvinator_drop_duration': number;
+    'trooper_health_mult': Array<number>;
+    'player_respawn_mult': Array<number>;
+    'rejuvinator_rebirth_duration': Array<number>;
 }
 /**
  * @type ResponseGetItemV2ItemsIdOrClassNameGet
@@ -1099,6 +1200,41 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @summary Get Generic Data
+         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGenericDataV2GenericDataGet: async (clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v2/generic-data`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Get Icons
          * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -1327,6 +1463,19 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Get Generic Data
+         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getGenericDataV2GenericDataGet(clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericDataV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getGenericDataV2GenericDataGet(clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getGenericDataV2GenericDataGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Get Icons
          * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -1431,6 +1580,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
+         * @summary Get Generic Data
+         * @param {DefaultApiGetGenericDataV2GenericDataGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGenericDataV2GenericDataGet(requestParameters: DefaultApiGetGenericDataV2GenericDataGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<GenericDataV2> {
+            return localVarFp.getGenericDataV2GenericDataGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Get Icons
          * @param {DefaultApiGetIconsV1IconsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -1495,6 +1654,13 @@ export interface DefaultApiGetBuildTagsV2BuildTagsGetRequest {
  * Request parameters for getColorsV1ColorsGet operation in DefaultApi.
  */
 export interface DefaultApiGetColorsV1ColorsGetRequest {
+    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
+}
+
+/**
+ * Request parameters for getGenericDataV2GenericDataGet operation in DefaultApi.
+ */
+export interface DefaultApiGetGenericDataV2GenericDataGetRequest {
     readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
 }
 
@@ -1569,6 +1735,17 @@ export class DefaultApi extends BaseAPI {
      */
     public getColorsV1ColorsGet(requestParameters: DefaultApiGetColorsV1ColorsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getColorsV1ColorsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Generic Data
+     * @param {DefaultApiGetGenericDataV2GenericDataGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getGenericDataV2GenericDataGet(requestParameters: DefaultApiGetGenericDataV2GenericDataGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getGenericDataV2GenericDataGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2808,41 +2985,6 @@ export const RawApiAxiosParamCreator = function (configuration?: Configuration) 
     return {
         /**
          * 
-         * @summary Get Generic Data
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getGenericDataRawGenericDataGet: async (clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/raw/generic_data`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (clientVersion !== undefined) {
-                localVarQueryParameter['client_version'] = clientVersion;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
          * @summary Get Raw Heroes
          * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -2922,19 +3064,6 @@ export const RawApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @summary Get Generic Data
-         * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getGenericDataRawGenericDataGet(clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getGenericDataRawGenericDataGet(clientVersion, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RawApi.getGenericDataRawGenericDataGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
          * @summary Get Raw Heroes
          * @param {DeadlockAssetsApiRoutesRawValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -2970,16 +3099,6 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
     return {
         /**
          * 
-         * @summary Get Generic Data
-         * @param {RawApiGetGenericDataRawGenericDataGetRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getGenericDataRawGenericDataGet(requestParameters: RawApiGetGenericDataRawGenericDataGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getGenericDataRawGenericDataGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
          * @summary Get Raw Heroes
          * @param {RawApiGetRawHeroesRawHeroesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3002,13 +3121,6 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
 };
 
 /**
- * Request parameters for getGenericDataRawGenericDataGet operation in RawApi.
- */
-export interface RawApiGetGenericDataRawGenericDataGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesRawValidClientVersions | null
-}
-
-/**
  * Request parameters for getRawHeroesRawHeroesGet operation in RawApi.
  */
 export interface RawApiGetRawHeroesRawHeroesGetRequest {
@@ -3026,17 +3138,6 @@ export interface RawApiGetRawItemsRawItemsGetRequest {
  * RawApi - object-oriented interface
  */
 export class RawApi extends BaseAPI {
-    /**
-     * 
-     * @summary Get Generic Data
-     * @param {RawApiGetGenericDataRawGenericDataGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getGenericDataRawGenericDataGet(requestParameters: RawApiGetGenericDataRawGenericDataGetRequest = {}, options?: RawAxiosRequestConfig) {
-        return RawApiFp(this.configuration).getGenericDataRawGenericDataGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * 
      * @summary Get Raw Heroes

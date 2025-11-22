@@ -7,6 +7,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 | [**getBuildTagsV2BuildTagsGet**](DefaultApi.md#getBuildTagsV2BuildTagsGet) | **GET** /v2/build-tags | Get Build Tags |
 | [**getClientVersionsV2ClientVersionsGet**](DefaultApi.md#getClientVersionsV2ClientVersionsGet) | **GET** /v2/client-versions | Get Client Versions |
 | [**getColorsV1ColorsGet**](DefaultApi.md#getColorsV1ColorsGet) | **GET** /v1/colors | Get Colors |
+| [**getGenericDataV2GenericDataGet**](DefaultApi.md#getGenericDataV2GenericDataGet) | **GET** /v2/generic-data | Get Generic Data |
 | [**getIconsV1IconsGet**](DefaultApi.md#getIconsV1IconsGet) | **GET** /v1/icons | Get Icons |
 | [**getMapV1MapGet**](DefaultApi.md#getMapV1MapGet) | **GET** /v1/map | Get Map |
 | [**getRanksV2RanksGet**](DefaultApi.md#getRanksV2RanksGet) | **GET** /v2/ranks | Get Ranks |
@@ -135,6 +136,50 @@ try {
 ### Return type
 
 [**kotlin.collections.Map&lt;kotlin.String, ColorV1&gt;**](ColorV1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getGenericDataV2GenericDataGet"></a>
+# **getGenericDataV2GenericDataGet**
+> GenericDataV2 getGenericDataV2GenericDataGet(clientVersion)
+
+Get Generic Data
+
+### Example
+```kotlin
+// Import classes:
+//import assets_deadlock_api_client.infrastructure.*
+//import assets_deadlock_api_client.models.*
+
+val apiInstance = DefaultApi()
+val clientVersion : DeadlockAssetsApiRoutesRawValidClientVersions =  // DeadlockAssetsApiRoutesRawValidClientVersions | 
+try {
+    val result : GenericDataV2 = apiInstance.getGenericDataV2GenericDataGet(clientVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#getGenericDataV2GenericDataGet")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#getGenericDataV2GenericDataGet")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)|  | [optional] [enum: 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+
+### Return type
+
+[**GenericDataV2**](GenericDataV2.md)
 
 ### Authorization
 
