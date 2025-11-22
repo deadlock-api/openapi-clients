@@ -20,12 +20,12 @@ type VariableCategory string
 
 // List of VariableCategory
 const (
-	GENERAL VariableCategory = "General"
-	DAILY VariableCategory = "Daily"
-	HERO VariableCategory = "Hero"
-	ITEM VariableCategory = "Item"
-	LEADERBOARD VariableCategory = "Leaderboard"
-	OVERALL VariableCategory = "Overall"
+	VARIABLECATEGORY_GENERAL VariableCategory = "General"
+	VARIABLECATEGORY_DAILY VariableCategory = "Daily"
+	VARIABLECATEGORY_HERO VariableCategory = "Hero"
+	VARIABLECATEGORY_ITEM VariableCategory = "Item"
+	VARIABLECATEGORY_LEADERBOARD VariableCategory = "Leaderboard"
+	VARIABLECATEGORY_OVERALL VariableCategory = "Overall"
 )
 
 // All allowed values of VariableCategory enum

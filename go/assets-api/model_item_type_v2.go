@@ -20,11 +20,11 @@ type ItemTypeV2 string
 
 // List of ItemTypeV2
 const (
-	WEAPON ItemTypeV2 = "weapon"
-	ABILITY ItemTypeV2 = "ability"
-	UPGRADE ItemTypeV2 = "upgrade"
-	TECH ItemTypeV2 = "tech"
-	ARMOR ItemTypeV2 = "armor"
+	ITEMTYPEV2_WEAPON ItemTypeV2 = "weapon"
+	ITEMTYPEV2_ABILITY ItemTypeV2 = "ability"
+	ITEMTYPEV2_UPGRADE ItemTypeV2 = "upgrade"
+	ITEMTYPEV2_TECH ItemTypeV2 = "tech"
+	ITEMTYPEV2_ARMOR ItemTypeV2 = "armor"
 )
 
 // All allowed values of ItemTypeV2 enum

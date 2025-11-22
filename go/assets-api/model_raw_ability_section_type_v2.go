@@ -20,9 +20,9 @@ type RawAbilitySectionTypeV2 string
 
 // List of RawAbilitySectionTypeV2
 const (
-	INNATE RawAbilitySectionTypeV2 = "innate"
-	ACTIVE RawAbilitySectionTypeV2 = "active"
-	PASSIVE RawAbilitySectionTypeV2 = "passive"
+	RAWABILITYSECTIONTYPEV2_INNATE RawAbilitySectionTypeV2 = "innate"
+	RAWABILITYSECTIONTYPEV2_ACTIVE RawAbilitySectionTypeV2 = "active"
+	RAWABILITYSECTIONTYPEV2_PASSIVE RawAbilitySectionTypeV2 = "passive"
 )
 
 // All allowed values of RawAbilitySectionTypeV2 enum

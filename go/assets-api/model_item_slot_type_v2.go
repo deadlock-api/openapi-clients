@@ -20,9 +20,9 @@ type ItemSlotTypeV2 string
 
 // List of ItemSlotTypeV2
 const (
-	WEAPON ItemSlotTypeV2 = "weapon"
-	SPIRIT ItemSlotTypeV2 = "spirit"
-	VITALITY ItemSlotTypeV2 = "vitality"
+	ITEMSLOTTYPEV2_WEAPON ItemSlotTypeV2 = "weapon"
+	ITEMSLOTTYPEV2_SPIRIT ItemSlotTypeV2 = "spirit"
+	ITEMSLOTTYPEV2_VITALITY ItemSlotTypeV2 = "vitality"
 )
 
 // All allowed values of ItemSlotTypeV2 enum

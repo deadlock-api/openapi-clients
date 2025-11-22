@@ -20,12 +20,12 @@ type RawAbilityActivationV2 string
 
 // List of RawAbilityActivationV2
 const (
-	HOLD_TOGGLE RawAbilityActivationV2 = "hold_toggle"
-	INSTANT_CAST RawAbilityActivationV2 = "instant_cast"
-	ON_BUTTON_IS_DOWN RawAbilityActivationV2 = "on_button_is_down"
-	PASSIVE RawAbilityActivationV2 = "passive"
-	PRESS RawAbilityActivationV2 = "press"
-	PRESS_TOGGLE RawAbilityActivationV2 = "press_toggle"
+	RAWABILITYACTIVATIONV2_HOLD_TOGGLE RawAbilityActivationV2 = "hold_toggle"
+	RAWABILITYACTIVATIONV2_INSTANT_CAST RawAbilityActivationV2 = "instant_cast"
+	RAWABILITYACTIVATIONV2_ON_BUTTON_IS_DOWN RawAbilityActivationV2 = "on_button_is_down"
+	RAWABILITYACTIVATIONV2_PASSIVE RawAbilityActivationV2 = "passive"
+	RAWABILITYACTIVATIONV2_PRESS RawAbilityActivationV2 = "press"
+	RAWABILITYACTIVATIONV2_PRESS_TOGGLE RawAbilityActivationV2 = "press_toggle"
 )
 
 // All allowed values of RawAbilityActivationV2 enum

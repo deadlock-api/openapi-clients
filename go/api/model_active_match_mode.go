@@ -20,14 +20,14 @@ type ActiveMatchMode string
 
 // List of ActiveMatchMode
 const (
-	INVALID ActiveMatchMode = "Invalid"
-	UNRANKED ActiveMatchMode = "Unranked"
-	PRIVATE_LOBBY ActiveMatchMode = "PrivateLobby"
-	COOP_BOT ActiveMatchMode = "CoopBot"
-	RANKED ActiveMatchMode = "Ranked"
-	SERVER_TEST ActiveMatchMode = "ServerTest"
-	TUTORIAL ActiveMatchMode = "Tutorial"
-	HERO_LABS ActiveMatchMode = "HeroLabs"
+	ACTIVEMATCHMODE_INVALID ActiveMatchMode = "Invalid"
+	ACTIVEMATCHMODE_UNRANKED ActiveMatchMode = "Unranked"
+	ACTIVEMATCHMODE_PRIVATE_LOBBY ActiveMatchMode = "PrivateLobby"
+	ACTIVEMATCHMODE_COOP_BOT ActiveMatchMode = "CoopBot"
+	ACTIVEMATCHMODE_RANKED ActiveMatchMode = "Ranked"
+	ACTIVEMATCHMODE_SERVER_TEST ActiveMatchMode = "ServerTest"
+	ACTIVEMATCHMODE_TUTORIAL ActiveMatchMode = "Tutorial"
+	ACTIVEMATCHMODE_HERO_LABS ActiveMatchMode = "HeroLabs"
 )
 
 // All allowed values of ActiveMatchMode enum

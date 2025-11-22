@@ -20,12 +20,12 @@ type RegionMode string
 
 // List of RegionMode
 const (
-	ROW RegionMode = "row"
-	EUROPE RegionMode = "europe"
-	SE_ASIA RegionMode = "se_asia"
-	S_AMERICA RegionMode = "s_america"
-	RUSSIA RegionMode = "russia"
-	OCEANIA RegionMode = "oceania"
+	REGIONMODE_ROW RegionMode = "row"
+	REGIONMODE_EUROPE RegionMode = "europe"
+	REGIONMODE_SE_ASIA RegionMode = "se_asia"
+	REGIONMODE_S_AMERICA RegionMode = "s_america"
+	REGIONMODE_RUSSIA RegionMode = "russia"
+	REGIONMODE_OCEANIA RegionMode = "oceania"
 )
 
 // All allowed values of RegionMode enum

@@ -20,10 +20,10 @@ type ESportsMatchStatus string
 
 // List of ESportsMatchStatus
 const (
-	LIVE ESportsMatchStatus = "Live"
-	COMPLETED ESportsMatchStatus = "Completed"
-	SCHEDULED ESportsMatchStatus = "Scheduled"
-	CANCELLED ESportsMatchStatus = "Cancelled"
+	ESPORTSMATCHSTATUS_LIVE ESportsMatchStatus = "Live"
+	ESPORTSMATCHSTATUS_COMPLETED ESportsMatchStatus = "Completed"
+	ESPORTSMATCHSTATUS_SCHEDULED ESportsMatchStatus = "Scheduled"
+	ESPORTSMATCHSTATUS_CANCELLED ESportsMatchStatus = "Cancelled"
 )
 
 // All allowed values of ESportsMatchStatus enum

@@ -20,9 +20,9 @@ type RawAbilityImbueV2 string
 
 // List of RawAbilityImbueV2
 const (
-	IMBUE_ACTIVE RawAbilityImbueV2 = "imbue_active"
-	IMBUE_ACTIVE_NON_ULT RawAbilityImbueV2 = "imbue_active_non_ult"
-	IMBUE_MODIFIER_VALUE RawAbilityImbueV2 = "imbue_modifier_value"
+	RAWABILITYIMBUEV2_IMBUE_ACTIVE RawAbilityImbueV2 = "imbue_active"
+	RAWABILITYIMBUEV2_IMBUE_ACTIVE_NON_ULT RawAbilityImbueV2 = "imbue_active_non_ult"
+	RAWABILITYIMBUEV2_IMBUE_MODIFIER_VALUE RawAbilityImbueV2 = "imbue_modifier_value"
 )
 
 // All allowed values of RawAbilityImbueV2 enum

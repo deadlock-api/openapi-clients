@@ -20,10 +20,10 @@ type HeroTypeV2 string
 
 // List of HeroTypeV2
 const (
-	ASSASSIN HeroTypeV2 = "assassin"
-	BRAWLER HeroTypeV2 = "brawler"
-	MARKSMAN HeroTypeV2 = "marksman"
-	MYSTIC HeroTypeV2 = "mystic"
+	HEROTYPEV2_ASSASSIN HeroTypeV2 = "assassin"
+	HEROTYPEV2_BRAWLER HeroTypeV2 = "brawler"
+	HEROTYPEV2_MARKSMAN HeroTypeV2 = "marksman"
+	HEROTYPEV2_MYSTIC HeroTypeV2 = "mystic"
 )
 
 // All allowed values of HeroTypeV2 enum

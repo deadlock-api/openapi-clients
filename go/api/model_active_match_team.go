@@ -20,9 +20,9 @@ type ActiveMatchTeam string
 
 // List of ActiveMatchTeam
 const (
-	TEAM0 ActiveMatchTeam = "Team0"
-	TEAM1 ActiveMatchTeam = "Team1"
-	SPECTATOR ActiveMatchTeam = "Spectator"
+	ACTIVEMATCHTEAM_TEAM0 ActiveMatchTeam = "Team0"
+	ACTIVEMATCHTEAM_TEAM1 ActiveMatchTeam = "Team1"
+	ACTIVEMATCHTEAM_SPECTATOR ActiveMatchTeam = "Spectator"
 )
 
 // All allowed values of ActiveMatchTeam enum

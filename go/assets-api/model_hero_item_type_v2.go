@@ -20,22 +20,22 @@ type HeroItemTypeV2 string
 
 // List of HeroItemTypeV2
 const (
-	WEAPON_PRIMARY HeroItemTypeV2 = "weapon_primary"
-	WEAPON_SECONDARY HeroItemTypeV2 = "weapon_secondary"
-	WEAPON_MELEE HeroItemTypeV2 = "weapon_melee"
-	ABILITY_MANTLE HeroItemTypeV2 = "ability_mantle"
-	ABILITY_JUMP HeroItemTypeV2 = "ability_jump"
-	ABILITY_SLIDE HeroItemTypeV2 = "ability_slide"
-	ABILITY_ZIP_LINE HeroItemTypeV2 = "ability_zip_line"
-	ABILITY_ZIP_LINE_BOOST HeroItemTypeV2 = "ability_zip_line_boost"
-	ABILITY_CLIMB_ROPE HeroItemTypeV2 = "ability_climb_rope"
-	ABILITY_INNATE1 HeroItemTypeV2 = "ability_innate1"
-	ABILITY_INNATE2 HeroItemTypeV2 = "ability_innate2"
-	ABILITY_INNATE3 HeroItemTypeV2 = "ability_innate3"
-	SIGNATURE1 HeroItemTypeV2 = "signature1"
-	SIGNATURE2 HeroItemTypeV2 = "signature2"
-	SIGNATURE3 HeroItemTypeV2 = "signature3"
-	SIGNATURE4 HeroItemTypeV2 = "signature4"
+	HEROITEMTYPEV2_WEAPON_PRIMARY HeroItemTypeV2 = "weapon_primary"
+	HEROITEMTYPEV2_WEAPON_SECONDARY HeroItemTypeV2 = "weapon_secondary"
+	HEROITEMTYPEV2_WEAPON_MELEE HeroItemTypeV2 = "weapon_melee"
+	HEROITEMTYPEV2_ABILITY_MANTLE HeroItemTypeV2 = "ability_mantle"
+	HEROITEMTYPEV2_ABILITY_JUMP HeroItemTypeV2 = "ability_jump"
+	HEROITEMTYPEV2_ABILITY_SLIDE HeroItemTypeV2 = "ability_slide"
+	HEROITEMTYPEV2_ABILITY_ZIP_LINE HeroItemTypeV2 = "ability_zip_line"
+	HEROITEMTYPEV2_ABILITY_ZIP_LINE_BOOST HeroItemTypeV2 = "ability_zip_line_boost"
+	HEROITEMTYPEV2_ABILITY_CLIMB_ROPE HeroItemTypeV2 = "ability_climb_rope"
+	HEROITEMTYPEV2_ABILITY_INNATE1 HeroItemTypeV2 = "ability_innate1"
+	HEROITEMTYPEV2_ABILITY_INNATE2 HeroItemTypeV2 = "ability_innate2"
+	HEROITEMTYPEV2_ABILITY_INNATE3 HeroItemTypeV2 = "ability_innate3"
+	HEROITEMTYPEV2_SIGNATURE1 HeroItemTypeV2 = "signature1"
+	HEROITEMTYPEV2_SIGNATURE2 HeroItemTypeV2 = "signature2"
+	HEROITEMTYPEV2_SIGNATURE3 HeroItemTypeV2 = "signature3"
+	HEROITEMTYPEV2_SIGNATURE4 HeroItemTypeV2 = "signature4"
 )
 
 // All allowed values of HeroItemTypeV2 enum

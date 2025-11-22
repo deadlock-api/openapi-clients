@@ -20,10 +20,10 @@ type StatsUsageFlagV2 string
 
 // List of StatsUsageFlagV2
 const (
-	CONDITIONALLY_APPLIED StatsUsageFlagV2 = "ConditionallyApplied"
-	CONDITIONALLY_ENEMY_APPLIED StatsUsageFlagV2 = "ConditionallyEnemyApplied"
-	INTRINSICALLY_PROVIDED_IN_ABILITY StatsUsageFlagV2 = "IntrinsicallyProvidedInAbility"
-	INTRINSICALLY_PROVIDED_IN_MODIFIER StatsUsageFlagV2 = "IntrinsicallyProvidedInModifier"
+	STATSUSAGEFLAGV2_CONDITIONALLY_APPLIED StatsUsageFlagV2 = "ConditionallyApplied"
+	STATSUSAGEFLAGV2_CONDITIONALLY_ENEMY_APPLIED StatsUsageFlagV2 = "ConditionallyEnemyApplied"
+	STATSUSAGEFLAGV2_INTRINSICALLY_PROVIDED_IN_ABILITY StatsUsageFlagV2 = "IntrinsicallyProvidedInAbility"
+	STATSUSAGEFLAGV2_INTRINSICALLY_PROVIDED_IN_MODIFIER StatsUsageFlagV2 = "IntrinsicallyProvidedInModifier"
 )
 
 // All allowed values of StatsUsageFlagV2 enum

@@ -20,12 +20,12 @@ type AbilityTypeV2 string
 
 // List of AbilityTypeV2
 const (
-	INNATE AbilityTypeV2 = "innate"
-	ITEM AbilityTypeV2 = "item"
-	SIGNATURE AbilityTypeV2 = "signature"
-	ULTIMATE AbilityTypeV2 = "ultimate"
-	WEAPON AbilityTypeV2 = "weapon"
-	MELEE AbilityTypeV2 = "melee"
+	ABILITYTYPEV2_INNATE AbilityTypeV2 = "innate"
+	ABILITYTYPEV2_ITEM AbilityTypeV2 = "item"
+	ABILITYTYPEV2_SIGNATURE AbilityTypeV2 = "signature"
+	ABILITYTYPEV2_ULTIMATE AbilityTypeV2 = "ultimate"
+	ABILITYTYPEV2_WEAPON AbilityTypeV2 = "weapon"
+	ABILITYTYPEV2_MELEE AbilityTypeV2 = "melee"
 )
 
 // All allowed values of AbilityTypeV2 enum

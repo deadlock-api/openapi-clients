@@ -20,10 +20,10 @@ type ActiveMatchGameMode string
 
 // List of ActiveMatchGameMode
 const (
-	KE_CITADEL_GAME_MODE_INVALID ActiveMatchGameMode = "KECitadelGameModeInvalid"
-	KE_CITADEL_GAME_MODE_NORMAL ActiveMatchGameMode = "KECitadelGameModeNormal"
-	KE_CITADEL_GAME_MODE1V1_TEST ActiveMatchGameMode = "KECitadelGameMode1v1Test"
-	KE_CITADEL_GAME_MODE_SANDBOX ActiveMatchGameMode = "KECitadelGameModeSandbox"
+	ACTIVEMATCHGAMEMODE_KE_CITADEL_GAME_MODE_INVALID ActiveMatchGameMode = "KECitadelGameModeInvalid"
+	ACTIVEMATCHGAMEMODE_KE_CITADEL_GAME_MODE_NORMAL ActiveMatchGameMode = "KECitadelGameModeNormal"
+	ACTIVEMATCHGAMEMODE_KE_CITADEL_GAME_MODE1V1_TEST ActiveMatchGameMode = "KECitadelGameMode1v1Test"
+	ACTIVEMATCHGAMEMODE_KE_CITADEL_GAME_MODE_SANDBOX ActiveMatchGameMode = "KECitadelGameModeSandbox"
 )
 
 // All allowed values of ActiveMatchGameMode enum

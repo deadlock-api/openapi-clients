@@ -20,10 +20,10 @@ type ItemTierV2 int32
 
 // List of ItemTierV2
 const (
-	_1 ItemTierV2 = 1
-	_2 ItemTierV2 = 2
-	_3 ItemTierV2 = 3
-	_4 ItemTierV2 = 4
+	ITEMTIERV2__1 ItemTierV2 = 1
+	ITEMTIERV2__2 ItemTierV2 = 2
+	ITEMTIERV2__3 ItemTierV2 = 3
+	ITEMTIERV2__4 ItemTierV2 = 4
 )
 
 // All allowed values of ItemTierV2 enum
