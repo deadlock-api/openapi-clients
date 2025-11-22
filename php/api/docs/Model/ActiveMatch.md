@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **open_spectator_slots** | **int** |  | [optional]
 **players** | [**\OpenAPI\Client\Model\ActiveMatchPlayer[]**](ActiveMatchPlayer.md) |  |
 **region_mode** | **int** |  | [optional]
-**region_mode_parsed** | [**\OpenAPI\Client\Model\ActiveMatchRegionMode**](ActiveMatchRegionMode.md) |  | [optional]
+**region_mode_parsed** | [**\OpenAPI\Client\Model\RegionMode**](RegionMode.md) |  | [optional]
 **spectators** | **int** |  | [optional]
 **start_time** | **int** |  | [optional]
 **winning_team** | **int** |  | [optional]

@@ -74,7 +74,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'open_spectator_slots' => 'int',
         'players' => '\OpenAPI\Client\Model\ActiveMatchPlayer[]',
         'region_mode' => 'int',
-        'region_mode_parsed' => '\OpenAPI\Client\Model\ActiveMatchRegionMode',
+        'region_mode_parsed' => '\OpenAPI\Client\Model\RegionMode',
         'spectators' => 'int',
         'start_time' => 'int',
         'winning_team' => 'int',
@@ -1120,7 +1120,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets region_mode_parsed
      *
-     * @return \OpenAPI\Client\Model\ActiveMatchRegionMode|null
+     * @return \OpenAPI\Client\Model\RegionMode|null
      */
     public function getRegionModeParsed()
     {
@@ -1130,7 +1130,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets region_mode_parsed
      *
-     * @param \OpenAPI\Client\Model\ActiveMatchRegionMode|null $region_mode_parsed region_mode_parsed
+     * @param \OpenAPI\Client\Model\RegionMode|null $region_mode_parsed region_mode_parsed
      *
      * @return self
      */

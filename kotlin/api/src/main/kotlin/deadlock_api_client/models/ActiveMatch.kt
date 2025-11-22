@@ -18,8 +18,8 @@ package deadlock_api_client.models
 import deadlock_api_client.models.ActiveMatchGameMode
 import deadlock_api_client.models.ActiveMatchMode
 import deadlock_api_client.models.ActiveMatchPlayer
-import deadlock_api_client.models.ActiveMatchRegionMode
 import deadlock_api_client.models.ActiveMatchTeam
+import deadlock_api_client.models.RegionMode
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -107,7 +107,7 @@ data class ActiveMatch (
     val regionMode: kotlin.Int? = null,
 
     @Json(name = "region_mode_parsed")
-    val regionModeParsed: ActiveMatchRegionMode? = null,
+    val regionModeParsed: RegionMode? = null,
 
     @Json(name = "spectators")
     val spectators: kotlin.Int? = null,

@@ -23,7 +23,6 @@ docs/ActiveMatch.md
 docs/ActiveMatchGameMode.md
 docs/ActiveMatchMode.md
 docs/ActiveMatchPlayer.md
-docs/ActiveMatchRegionMode.md
 docs/ActiveMatchTeam.md
 docs/AnalyticsAPI.md
 docs/AnalyticsAbilityOrderStats.md
@@ -92,7 +91,6 @@ model_active_match.go
 model_active_match_game_mode.go
 model_active_match_mode.go
 model_active_match_player.go
-model_active_match_region_mode.go
 model_active_match_team.go
 model_analytics_ability_order_stats.go
 model_analytics_hero_stats.go

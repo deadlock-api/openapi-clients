@@ -21,7 +21,7 @@
 | **objectivesMaskTeam1** | **kotlin.Long** |  |  [optional] |
 | **openSpectatorSlots** | **kotlin.Int** |  |  [optional] |
 | **regionMode** | **kotlin.Int** |  |  [optional] |
-| **regionModeParsed** | [**ActiveMatchRegionMode**](ActiveMatchRegionMode.md) |  |  [optional] |
+| **regionModeParsed** | [**RegionMode**](RegionMode.md) |  |  [optional] |
 | **spectators** | **kotlin.Int** |  |  [optional] |
 | **startTime** | **kotlin.Int** |  |  [optional] |
 | **winningTeam** | **kotlin.Int** |  |  [optional] |

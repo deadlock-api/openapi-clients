@@ -130,7 +130,6 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ActiveMatchGameMode](docs/ActiveMatchGameMode.md)
  - [deadlock_api_client.models.ActiveMatchMode](docs/ActiveMatchMode.md)
  - [deadlock_api_client.models.ActiveMatchPlayer](docs/ActiveMatchPlayer.md)
- - [deadlock_api_client.models.ActiveMatchRegionMode](docs/ActiveMatchRegionMode.md)
  - [deadlock_api_client.models.ActiveMatchTeam](docs/ActiveMatchTeam.md)
  - [deadlock_api_client.models.AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
  - [deadlock_api_client.models.AnalyticsHeroStats](docs/AnalyticsHeroStats.md)

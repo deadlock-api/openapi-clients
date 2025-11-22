@@ -38,7 +38,7 @@ type ActiveMatch struct {
 	OpenSpectatorSlots NullableInt32 `json:"open_spectator_slots,omitempty"`
 	Players []ActiveMatchPlayer `json:"players"`
 	RegionMode NullableInt32 `json:"region_mode,omitempty"`
-	RegionModeParsed NullableActiveMatchRegionMode `json:"region_mode_parsed,omitempty"`
+	RegionModeParsed NullableRegionMode `json:"region_mode_parsed,omitempty"`
 	Spectators NullableInt32 `json:"spectators,omitempty"`
 	StartTime NullableInt32 `json:"start_time,omitempty"`
 	WinningTeam NullableInt32 `json:"winning_team,omitempty"`
@@ -762,9 +762,9 @@ func (o *ActiveMatch) UnsetRegionMode() {
 }
 
 // GetRegionModeParsed returns the RegionModeParsed field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatch) GetRegionModeParsed() ActiveMatchRegionMode {
+func (o *ActiveMatch) GetRegionModeParsed() RegionMode {
 	if o == nil || IsNil(o.RegionModeParsed.Get()) {
-		var ret ActiveMatchRegionMode
+		var ret RegionMode
 		return ret
 	}
 	return *o.RegionModeParsed.Get()
@@ -773,7 +773,7 @@ func (o *ActiveMatch) GetRegionModeParsed() ActiveMatchRegionMode {
 // GetRegionModeParsedOk returns a tuple with the RegionModeParsed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatch) GetRegionModeParsedOk() (*ActiveMatchRegionMode, bool) {
+func (o *ActiveMatch) GetRegionModeParsedOk() (*RegionMode, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -789,8 +789,8 @@ func (o *ActiveMatch) HasRegionModeParsed() bool {
 	return false
 }
 
-// SetRegionModeParsed gets a reference to the given NullableActiveMatchRegionMode and assigns it to the RegionModeParsed field.
-func (o *ActiveMatch) SetRegionModeParsed(v ActiveMatchRegionMode) {
+// SetRegionModeParsed gets a reference to the given NullableRegionMode and assigns it to the RegionModeParsed field.
+func (o *ActiveMatch) SetRegionModeParsed(v RegionMode) {
 	o.RegionModeParsed.Set(&v)
 }
 // SetRegionModeParsedNil sets the value for RegionModeParsed to be an explicit nil

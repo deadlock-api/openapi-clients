@@ -22,8 +22,8 @@ import deadlock_api_client.models.ActiveMatch
 import deadlock_api_client.models.ActiveMatchGameMode
 import deadlock_api_client.models.ActiveMatchMode
 import deadlock_api_client.models.ActiveMatchPlayer
-import deadlock_api_client.models.ActiveMatchRegionMode
 import deadlock_api_client.models.ActiveMatchTeam
+import deadlock_api_client.models.RegionMode
 
 class ActiveMatchTest : ShouldSpec() {
     init {

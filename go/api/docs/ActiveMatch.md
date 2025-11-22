@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **OpenSpectatorSlots** | Pointer to **NullableInt32** |  | [optional] 
 **Players** | [**[]ActiveMatchPlayer**](ActiveMatchPlayer.md) |  | 
 **RegionMode** | Pointer to **NullableInt32** |  | [optional] 
-**RegionModeParsed** | Pointer to [**NullableActiveMatchRegionMode**](ActiveMatchRegionMode.md) |  | [optional] 
+**RegionModeParsed** | Pointer to [**NullableRegionMode**](RegionMode.md) |  | [optional] 
 **Spectators** | Pointer to **NullableInt32** |  | [optional] 
 **StartTime** | Pointer to **NullableInt32** |  | [optional] 
 **WinningTeam** | Pointer to **NullableInt32** |  | [optional] 
@@ -628,20 +628,20 @@ HasRegionMode returns a boolean if a field has been set.
 UnsetRegionMode ensures that no value is present for RegionMode, not even an explicit nil
 ### GetRegionModeParsed
 
-`func (o *ActiveMatch) GetRegionModeParsed() ActiveMatchRegionMode`
+`func (o *ActiveMatch) GetRegionModeParsed() RegionMode`
 
 GetRegionModeParsed returns the RegionModeParsed field if non-nil, zero value otherwise.
 
 ### GetRegionModeParsedOk
 
-`func (o *ActiveMatch) GetRegionModeParsedOk() (*ActiveMatchRegionMode, bool)`
+`func (o *ActiveMatch) GetRegionModeParsedOk() (*RegionMode, bool)`
 
 GetRegionModeParsedOk returns a tuple with the RegionModeParsed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRegionModeParsed
 
-`func (o *ActiveMatch) SetRegionModeParsed(v ActiveMatchRegionMode)`
+`func (o *ActiveMatch) SetRegionModeParsed(v RegionMode)`
 
 SetRegionModeParsed sets RegionModeParsed field to given value.
 

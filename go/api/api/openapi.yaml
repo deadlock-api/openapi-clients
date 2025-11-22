@@ -5545,7 +5545,7 @@ components:
         net_worth_team_0: 0
         lobby_id: 0
         duration_s: 0
-        region_mode_parsed: Row
+        region_mode_parsed: row
         start_time: 0
         open_spectator_slots: 0
         match_mode: 7
@@ -5629,7 +5629,7 @@ components:
           nullable: true
           type: integer
         region_mode_parsed:
-          $ref: "#/components/schemas/ActiveMatchRegionMode"
+          $ref: "#/components/schemas/RegionMode"
         spectators:
           format: int32
           minimum: 0
@@ -5694,15 +5694,6 @@ components:
           type: integer
         team_parsed:
           $ref: "#/components/schemas/ActiveMatchTeam"
-    ActiveMatchRegionMode:
-      enum:
-      - Row
-      - Europe
-      - SeAsia
-      - SAmerica
-      - Russia
-      - Oceania
-      type: string
     ActiveMatchTeam:
       enum:
       - Team0

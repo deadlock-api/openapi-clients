@@ -25,7 +25,6 @@ api/Model/ActiveMatch.php
 api/Model/ActiveMatchGameMode.php
 api/Model/ActiveMatchMode.php
 api/Model/ActiveMatchPlayer.php
-api/Model/ActiveMatchRegionMode.php
 api/Model/ActiveMatchTeam.php
 api/Model/AnalyticsAbilityOrderStats.php
 api/Model/AnalyticsHeroStats.php
@@ -95,7 +94,6 @@ docs/Model/ActiveMatch.md
 docs/Model/ActiveMatchGameMode.md
 docs/Model/ActiveMatchMode.md
 docs/Model/ActiveMatchPlayer.md
-docs/Model/ActiveMatchRegionMode.md
 docs/Model/ActiveMatchTeam.md
 docs/Model/AnalyticsAbilityOrderStats.md
 docs/Model/AnalyticsHeroStats.md
@@ -163,7 +161,6 @@ test/Model/APIInfoTest.php
 test/Model/ActiveMatchGameModeTest.php
 test/Model/ActiveMatchModeTest.php
 test/Model/ActiveMatchPlayerTest.php
-test/Model/ActiveMatchRegionModeTest.php
 test/Model/ActiveMatchTeamTest.php
 test/Model/ActiveMatchTest.php
 test/Model/AnalyticsAbilityOrderStatsTest.php

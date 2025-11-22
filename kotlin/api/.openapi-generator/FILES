@@ -6,7 +6,6 @@ docs/ActiveMatch.md
 docs/ActiveMatchGameMode.md
 docs/ActiveMatchMode.md
 docs/ActiveMatchPlayer.md
-docs/ActiveMatchRegionMode.md
 docs/ActiveMatchTeam.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsApi.md
@@ -104,7 +103,6 @@ src/main/kotlin/deadlock_api_client/models/ActiveMatch.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchGameMode.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchMode.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchPlayer.kt
-src/main/kotlin/deadlock_api_client/models/ActiveMatchRegionMode.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchTeam.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderStats.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsHeroStats.kt
@@ -170,7 +168,6 @@ src/test/kotlin/deadlock_api_client/models/APIInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchGameModeTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchModeTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchPlayerTest.kt
-src/test/kotlin/deadlock_api_client/models/ActiveMatchRegionModeTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchTeamTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderStatsTest.kt
