@@ -56,7 +56,7 @@ export interface ActiveMatch {
     'open_spectator_slots'?: number | null;
     'players': Array<ActiveMatchPlayer>;
     'region_mode'?: number | null;
-    'region_mode_parsed'?: ActiveMatchRegionMode | null;
+    'region_mode_parsed'?: RegionMode | null;
     'spectators'?: number | null;
     'start_time'?: number | null;
     'winning_team'?: number | null;
@@ -100,19 +100,6 @@ export interface ActiveMatchPlayer {
     'team'?: number | null;
     'team_parsed'?: ActiveMatchTeam | null;
 }
-
-
-
-export const ActiveMatchRegionMode = {
-    Row: 'Row',
-    Europe: 'Europe',
-    SeAsia: 'SeAsia',
-    SAmerica: 'SAmerica',
-    Russia: 'Russia',
-    Oceania: 'Oceania'
-} as const;
-
-export type ActiveMatchRegionMode = typeof ActiveMatchRegionMode[keyof typeof ActiveMatchRegionMode];
 
 
 

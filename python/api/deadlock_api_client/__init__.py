@@ -45,7 +45,6 @@ __all__ = [
     "ActiveMatchGameMode",
     "ActiveMatchMode",
     "ActiveMatchPlayer",
-    "ActiveMatchRegionMode",
     "ActiveMatchTeam",
     "AnalyticsAbilityOrderStats",
     "AnalyticsHeroStats",
@@ -128,7 +127,6 @@ from deadlock_api_client.models.active_match import ActiveMatch as ActiveMatch
 from deadlock_api_client.models.active_match_game_mode import ActiveMatchGameMode as ActiveMatchGameMode
 from deadlock_api_client.models.active_match_mode import ActiveMatchMode as ActiveMatchMode
 from deadlock_api_client.models.active_match_player import ActiveMatchPlayer as ActiveMatchPlayer
-from deadlock_api_client.models.active_match_region_mode import ActiveMatchRegionMode as ActiveMatchRegionMode
 from deadlock_api_client.models.active_match_team import ActiveMatchTeam as ActiveMatchTeam
 from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats as AnalyticsAbilityOrderStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats as AnalyticsHeroStats

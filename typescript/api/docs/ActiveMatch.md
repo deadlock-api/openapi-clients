@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **open_spectator_slots** | **number** |  | [optional] [default to undefined]
 **players** | [**Array&lt;ActiveMatchPlayer&gt;**](ActiveMatchPlayer.md) |  | [default to undefined]
 **region_mode** | **number** |  | [optional] [default to undefined]
-**region_mode_parsed** | [**ActiveMatchRegionMode**](ActiveMatchRegionMode.md) |  | [optional] [default to undefined]
+**region_mode_parsed** | [**RegionMode**](RegionMode.md) |  | [optional] [default to undefined]
 **spectators** | **number** |  | [optional] [default to undefined]
 **start_time** | **number** |  | [optional] [default to undefined]
 **winning_team** | **number** |  | [optional] [default to undefined]

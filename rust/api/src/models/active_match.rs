@@ -48,7 +48,7 @@ pub struct ActiveMatch {
     #[serde(rename = "region_mode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub region_mode: Option<Option<i32>>,
     #[serde(rename = "region_mode_parsed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub region_mode_parsed: Option<Option<models::ActiveMatchRegionMode>>,
+    pub region_mode_parsed: Option<Option<models::RegionMode>>,
     #[serde(rename = "spectators", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub spectators: Option<Option<u32>>,
     #[serde(rename = "start_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

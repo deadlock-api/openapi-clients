@@ -6,8 +6,6 @@ pub mod active_match_mode;
 pub use self::active_match_mode::ActiveMatchMode;
 pub mod active_match_player;
 pub use self::active_match_player::ActiveMatchPlayer;
-pub mod active_match_region_mode;
-pub use self::active_match_region_mode::ActiveMatchRegionMode;
 pub mod active_match_team;
 pub use self::active_match_team::ActiveMatchTeam;
 pub mod analytics_ability_order_stats;

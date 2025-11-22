@@ -117,7 +117,6 @@ Class | Method | HTTP request | Description
  - [ActiveMatchGameMode](docs/ActiveMatchGameMode.md)
  - [ActiveMatchMode](docs/ActiveMatchMode.md)
  - [ActiveMatchPlayer](docs/ActiveMatchPlayer.md)
- - [ActiveMatchRegionMode](docs/ActiveMatchRegionMode.md)
  - [ActiveMatchTeam](docs/ActiveMatchTeam.md)
  - [AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
  - [AnalyticsHeroStats](docs/AnalyticsHeroStats.md)

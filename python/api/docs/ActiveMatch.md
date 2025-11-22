@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **open_spectator_slots** | **int** |  | [optional] 
 **players** | [**List[ActiveMatchPlayer]**](ActiveMatchPlayer.md) |  | 
 **region_mode** | **int** |  | [optional] 
-**region_mode_parsed** | [**ActiveMatchRegionMode**](ActiveMatchRegionMode.md) |  | [optional] 
+**region_mode_parsed** | [**RegionMode**](RegionMode.md) |  | [optional] 
 **spectators** | **int** |  | [optional] 
 **start_time** | **int** |  | [optional] 
 **winning_team** | **int** |  | [optional] 

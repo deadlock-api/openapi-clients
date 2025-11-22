@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **open_spectator_slots** | Option<**u32**> |  | [optional]
 **players** | [**Vec<models::ActiveMatchPlayer>**](ActiveMatchPlayer.md) |  | 
 **region_mode** | Option<**i32**> |  | [optional]
-**region_mode_parsed** | Option<[**models::ActiveMatchRegionMode**](ActiveMatchRegionMode.md)> |  | [optional]
+**region_mode_parsed** | Option<[**models::RegionMode**](RegionMode.md)> |  | [optional]
 **spectators** | Option<**u32**> |  | [optional]
 **start_time** | Option<**u32**> |  | [optional]
 **winning_team** | Option<**i32**> |  | [optional]

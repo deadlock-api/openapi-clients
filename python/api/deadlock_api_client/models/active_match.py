@@ -23,8 +23,8 @@ from typing_extensions import Annotated
 from deadlock_api_client.models.active_match_game_mode import ActiveMatchGameMode
 from deadlock_api_client.models.active_match_mode import ActiveMatchMode
 from deadlock_api_client.models.active_match_player import ActiveMatchPlayer
-from deadlock_api_client.models.active_match_region_mode import ActiveMatchRegionMode
 from deadlock_api_client.models.active_match_team import ActiveMatchTeam
+from deadlock_api_client.models.region_mode import RegionMode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -49,7 +49,7 @@ class ActiveMatch(BaseModel):
     open_spectator_slots: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     players: List[ActiveMatchPlayer]
     region_mode: Optional[StrictInt] = None
-    region_mode_parsed: Optional[ActiveMatchRegionMode] = None
+    region_mode_parsed: Optional[RegionMode] = None
     spectators: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     start_time: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     winning_team: Optional[StrictInt] = None

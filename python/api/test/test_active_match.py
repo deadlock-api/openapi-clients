@@ -59,7 +59,7 @@ class TestActiveMatch(unittest.TestCase):
                         team_parsed = 'Team0', )
                     ],
                 region_mode = 56,
-                region_mode_parsed = 'Row',
+                region_mode_parsed = 'row',
                 spectators = 0,
                 start_time = 0,
                 winning_team = 56,
