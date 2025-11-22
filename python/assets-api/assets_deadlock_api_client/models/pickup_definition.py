@@ -24,7 +24,7 @@ from typing_extensions import Self
 
 class PickupDefinition(BaseModel):
     """
-    Schema for items inside m_vecPrimaryPickups
+    PickupDefinition
     """ # noqa: E501
     pickup_name: Optional[StrictStr] = None
     pickup_weight: Optional[Union[StrictFloat, StrictInt]] = None

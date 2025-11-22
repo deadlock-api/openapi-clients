@@ -87,7 +87,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = assets_deadlock_api_client.HeroesApi(api_client)
     name = 'name_example' # str | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
     try:
         # Get Hero By Name
@@ -144,7 +144,9 @@ Class | Method | HTTP request | Description
  - [Bonus](docs/Bonus.md)
  - [BuildTagV2](docs/BuildTagV2.md)
  - [ColorV1](docs/ColorV1.md)
- - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
+ - [Curve](docs/Curve.md)
+ - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [ExpirationDuration](docs/ExpirationDuration.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HeroColorsV2](docs/HeroColorsV2.md)
@@ -173,6 +175,7 @@ Class | Method | HTTP request | Description
  - [ObjectivePositionV1](docs/ObjectivePositionV1.md)
  - [ObjectivePositionsV1](docs/ObjectivePositionsV1.md)
  - [PickupDefinition](docs/PickupDefinition.md)
+ - [PickupRadius](docs/PickupRadius.md)
  - [Range](docs/Range.md)
  - [RankImagesV2](docs/RankImagesV2.md)
  - [RankV2](docs/RankV2.md)

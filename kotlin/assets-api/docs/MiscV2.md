@@ -32,8 +32,8 @@
 | **goldAmount** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **goldPerMinuteAmount** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **modifier** | [**SubclassModifierDefinition**](SubclassModifierDefinition.md) |  |  [optional] |
-| **pickupRadius** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
-| **expirationDuration** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **pickupRadius** | [**PickupRadius**](PickupRadius.md) |  |  [optional] |
+| **expirationDuration** | [**ExpirationDuration**](ExpirationDuration.md) |  |  [optional] |
 | **showOnMinimap** | **kotlin.Boolean** |  |  [optional] |
 | **orbSpawnDelayMin** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **orbSpawnDelayMax** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

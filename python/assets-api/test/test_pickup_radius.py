@@ -14,10 +14,10 @@
 
 import unittest
 
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets_deadlock_api_client.models.pickup_radius import PickupRadius
 
-class TestDeadlockAssetsApiRoutesV1ValidClientVersions(unittest.TestCase):
-    """DeadlockAssetsApiRoutesV1ValidClientVersions unit test stubs"""
+class TestPickupRadius(unittest.TestCase):
+    """PickupRadius unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,9 +25,28 @@ class TestDeadlockAssetsApiRoutesV1ValidClientVersions(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testDeadlockAssetsApiRoutesV1ValidClientVersions(self):
-        """Test DeadlockAssetsApiRoutesV1ValidClientVersions"""
-        # inst = DeadlockAssetsApiRoutesV1ValidClientVersions()
+    def make_instance(self, include_optional) -> PickupRadius:
+        """Test PickupRadius
+            include_optional is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # uncomment below to create an instance of `PickupRadius`
+        """
+        model = PickupRadius()
+        if include_optional:
+            return PickupRadius(
+                base = 1.337,
+                per_minute_after_start = 1.337
+            )
+        else:
+            return PickupRadius(
+        )
+        """
+
+    def testPickupRadius(self):
+        """Test PickupRadius"""
+        # inst_req_only = self.make_instance(include_optional=False)
+        # inst_req_and_optional = self.make_instance(include_optional=True)
 
 if __name__ == '__main__':
     unittest.main()

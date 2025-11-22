@@ -73,7 +73,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
 
 try {
     $result = $apiInstance->getBuildTagsV2BuildTagsGet($language, $client_version);
@@ -128,7 +128,9 @@ Class | Method | HTTP request | Description
 - [Bonus](docs/Model/Bonus.md)
 - [BuildTagV2](docs/Model/BuildTagV2.md)
 - [ColorV1](docs/Model/ColorV1.md)
-- [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
+- [Curve](docs/Model/Curve.md)
+- [DeadlockAssetsApiRoutesRawValidClientVersions](docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+- [ExpirationDuration](docs/Model/ExpirationDuration.md)
 - [GetItemsV2ItemsGet200ResponseInner](docs/Model/GetItemsV2ItemsGet200ResponseInner.md)
 - [HTTPValidationError](docs/Model/HTTPValidationError.md)
 - [HeroColorsV2](docs/Model/HeroColorsV2.md)
@@ -157,6 +159,7 @@ Class | Method | HTTP request | Description
 - [ObjectivePositionV1](docs/Model/ObjectivePositionV1.md)
 - [ObjectivePositionsV1](docs/Model/ObjectivePositionsV1.md)
 - [PickupDefinition](docs/Model/PickupDefinition.md)
+- [PickupRadius](docs/Model/PickupRadius.md)
 - [Range](docs/Model/Range.md)
 - [RankImagesV2](docs/Model/RankImagesV2.md)
 - [RankV2](docs/Model/RankV2.md)

@@ -31,8 +31,8 @@ Name | Type | Description | Notes
 **GoldAmount** | Pointer to **NullableFloat32** |  | [optional] 
 **GoldPerMinuteAmount** | Pointer to **NullableFloat32** |  | [optional] 
 **Modifier** | Pointer to [**NullableSubclassModifierDefinition**](SubclassModifierDefinition.md) |  | [optional] 
-**PickupRadius** | Pointer to **NullableFloat32** |  | [optional] 
-**ExpirationDuration** | Pointer to **NullableFloat32** |  | [optional] 
+**PickupRadius** | Pointer to [**NullablePickupRadius**](PickupRadius.md) |  | [optional] 
+**ExpirationDuration** | Pointer to [**NullableExpirationDuration**](ExpirationDuration.md) |  | [optional] 
 **ShowOnMinimap** | Pointer to **NullableBool** |  | [optional] 
 **OrbSpawnDelayMin** | Pointer to **NullableFloat32** |  | [optional] 
 **OrbSpawnDelayMax** | Pointer to **NullableFloat32** |  | [optional] 
@@ -991,20 +991,20 @@ HasModifier returns a boolean if a field has been set.
 UnsetModifier ensures that no value is present for Modifier, not even an explicit nil
 ### GetPickupRadius
 
-`func (o *MiscV2) GetPickupRadius() float32`
+`func (o *MiscV2) GetPickupRadius() PickupRadius`
 
 GetPickupRadius returns the PickupRadius field if non-nil, zero value otherwise.
 
 ### GetPickupRadiusOk
 
-`func (o *MiscV2) GetPickupRadiusOk() (*float32, bool)`
+`func (o *MiscV2) GetPickupRadiusOk() (*PickupRadius, bool)`
 
 GetPickupRadiusOk returns a tuple with the PickupRadius field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPickupRadius
 
-`func (o *MiscV2) SetPickupRadius(v float32)`
+`func (o *MiscV2) SetPickupRadius(v PickupRadius)`
 
 SetPickupRadius sets PickupRadius field to given value.
 
@@ -1026,20 +1026,20 @@ HasPickupRadius returns a boolean if a field has been set.
 UnsetPickupRadius ensures that no value is present for PickupRadius, not even an explicit nil
 ### GetExpirationDuration
 
-`func (o *MiscV2) GetExpirationDuration() float32`
+`func (o *MiscV2) GetExpirationDuration() ExpirationDuration`
 
 GetExpirationDuration returns the ExpirationDuration field if non-nil, zero value otherwise.
 
 ### GetExpirationDurationOk
 
-`func (o *MiscV2) GetExpirationDurationOk() (*float32, bool)`
+`func (o *MiscV2) GetExpirationDurationOk() (*ExpirationDuration, bool)`
 
 GetExpirationDurationOk returns a tuple with the ExpirationDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpirationDuration
 
-`func (o *MiscV2) SetExpirationDuration(v float32)`
+`func (o *MiscV2) SetExpirationDuration(v ExpirationDuration)`
 
 SetExpirationDuration sets ExpirationDuration field to given value.
 

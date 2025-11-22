@@ -23,8 +23,10 @@ docs/AimingShotSpreadPenalty.md
 docs/Bonus.md
 docs/BuildTagV2.md
 docs/ColorV1.md
-docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
+docs/Curve.md
+docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
 docs/DefaultAPI.md
+docs/ExpirationDuration.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/HTTPValidationError.md
 docs/HeroColorsV2.md
@@ -57,6 +59,7 @@ docs/NPCUnitsAPI.md
 docs/ObjectivePositionV1.md
 docs/ObjectivePositionsV1.md
 docs/PickupDefinition.md
+docs/PickupRadius.md
 docs/Range.md
 docs/RankImagesV2.md
 docs/RankV2.md
@@ -114,7 +117,9 @@ model_aiming_shot_spread_penalty.go
 model_bonus.go
 model_build_tag_v2.go
 model_color_v1.go
-model_deadlock_assets_api__routes__v1__valid_client_versions.go
+model_curve.go
+model_deadlock_assets_api__routes__raw__valid_client_versions.go
+model_expiration_duration.go
 model_get_items_v2_items_get_200_response_inner.go
 model_hero_colors_v2.go
 model_hero_description_v2.go
@@ -143,6 +148,7 @@ model_npc_unit_v2.go
 model_objective_position_v1.go
 model_objective_positions_v1.go
 model_pickup_definition.go
+model_pickup_radius.go
 model_range.go
 model_rank_images_v2.go
 model_rank_v2.go

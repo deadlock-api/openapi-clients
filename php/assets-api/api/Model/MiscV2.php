@@ -84,8 +84,8 @@ class MiscV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'gold_amount' => 'float',
         'gold_per_minute_amount' => 'float',
         'modifier' => '\OpenAPI\Client\Model\SubclassModifierDefinition',
-        'pickup_radius' => 'float',
-        'expiration_duration' => 'float',
+        'pickup_radius' => '\OpenAPI\Client\Model\PickupRadius',
+        'expiration_duration' => '\OpenAPI\Client\Model\ExpirationDuration',
         'show_on_minimap' => 'bool',
         'orb_spawn_delay_min' => 'float',
         'orb_spawn_delay_max' => 'float',
@@ -1447,7 +1447,7 @@ class MiscV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pickup_radius
      *
-     * @return float|null
+     * @return \OpenAPI\Client\Model\PickupRadius|null
      */
     public function getPickupRadius()
     {
@@ -1457,7 +1457,7 @@ class MiscV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pickup_radius
      *
-     * @param float|null $pickup_radius pickup_radius
+     * @param \OpenAPI\Client\Model\PickupRadius|null $pickup_radius pickup_radius
      *
      * @return self
      */
@@ -1481,7 +1481,7 @@ class MiscV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets expiration_duration
      *
-     * @return float|null
+     * @return \OpenAPI\Client\Model\ExpirationDuration|null
      */
     public function getExpirationDuration()
     {
@@ -1491,7 +1491,7 @@ class MiscV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets expiration_duration
      *
-     * @param float|null $expiration_duration expiration_duration
+     * @param \OpenAPI\Client\Model\ExpirationDuration|null $expiration_duration expiration_duration
      *
      * @return self
      */

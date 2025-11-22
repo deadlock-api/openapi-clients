@@ -48,8 +48,8 @@ type MiscV2 struct {
 	GoldAmount NullableFloat32 `json:"gold_amount,omitempty"`
 	GoldPerMinuteAmount NullableFloat32 `json:"gold_per_minute_amount,omitempty"`
 	Modifier NullableSubclassModifierDefinition `json:"modifier,omitempty"`
-	PickupRadius NullableFloat32 `json:"pickup_radius,omitempty"`
-	ExpirationDuration NullableFloat32 `json:"expiration_duration,omitempty"`
+	PickupRadius NullablePickupRadius `json:"pickup_radius,omitempty"`
+	ExpirationDuration NullableExpirationDuration `json:"expiration_duration,omitempty"`
 	ShowOnMinimap NullableBool `json:"show_on_minimap,omitempty"`
 	OrbSpawnDelayMin NullableFloat32 `json:"orb_spawn_delay_min,omitempty"`
 	OrbSpawnDelayMax NullableFloat32 `json:"orb_spawn_delay_max,omitempty"`
@@ -1169,9 +1169,9 @@ func (o *MiscV2) UnsetModifier() {
 }
 
 // GetPickupRadius returns the PickupRadius field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MiscV2) GetPickupRadius() float32 {
+func (o *MiscV2) GetPickupRadius() PickupRadius {
 	if o == nil || IsNil(o.PickupRadius.Get()) {
-		var ret float32
+		var ret PickupRadius
 		return ret
 	}
 	return *o.PickupRadius.Get()
@@ -1180,7 +1180,7 @@ func (o *MiscV2) GetPickupRadius() float32 {
 // GetPickupRadiusOk returns a tuple with the PickupRadius field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MiscV2) GetPickupRadiusOk() (*float32, bool) {
+func (o *MiscV2) GetPickupRadiusOk() (*PickupRadius, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1196,8 +1196,8 @@ func (o *MiscV2) HasPickupRadius() bool {
 	return false
 }
 
-// SetPickupRadius gets a reference to the given NullableFloat32 and assigns it to the PickupRadius field.
-func (o *MiscV2) SetPickupRadius(v float32) {
+// SetPickupRadius gets a reference to the given NullablePickupRadius and assigns it to the PickupRadius field.
+func (o *MiscV2) SetPickupRadius(v PickupRadius) {
 	o.PickupRadius.Set(&v)
 }
 // SetPickupRadiusNil sets the value for PickupRadius to be an explicit nil
@@ -1211,9 +1211,9 @@ func (o *MiscV2) UnsetPickupRadius() {
 }
 
 // GetExpirationDuration returns the ExpirationDuration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MiscV2) GetExpirationDuration() float32 {
+func (o *MiscV2) GetExpirationDuration() ExpirationDuration {
 	if o == nil || IsNil(o.ExpirationDuration.Get()) {
-		var ret float32
+		var ret ExpirationDuration
 		return ret
 	}
 	return *o.ExpirationDuration.Get()
@@ -1222,7 +1222,7 @@ func (o *MiscV2) GetExpirationDuration() float32 {
 // GetExpirationDurationOk returns a tuple with the ExpirationDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MiscV2) GetExpirationDurationOk() (*float32, bool) {
+func (o *MiscV2) GetExpirationDurationOk() (*ExpirationDuration, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1238,8 +1238,8 @@ func (o *MiscV2) HasExpirationDuration() bool {
 	return false
 }
 
-// SetExpirationDuration gets a reference to the given NullableFloat32 and assigns it to the ExpirationDuration field.
-func (o *MiscV2) SetExpirationDuration(v float32) {
+// SetExpirationDuration gets a reference to the given NullableExpirationDuration and assigns it to the ExpirationDuration field.
+func (o *MiscV2) SetExpirationDuration(v ExpirationDuration) {
 	o.ExpirationDuration.Set(&v)
 }
 // SetExpirationDurationNil sets the value for ExpirationDuration to be an explicit nil

@@ -16,7 +16,9 @@
 package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ColorV1
+import assets_deadlock_api_client.models.ExpirationDuration
 import assets_deadlock_api_client.models.PickupDefinition
+import assets_deadlock_api_client.models.PickupRadius
 import assets_deadlock_api_client.models.SubclassModifierDefinition
 
 import com.squareup.moshi.Json
@@ -151,10 +153,10 @@ data class MiscV2 (
     val modifier: SubclassModifierDefinition? = null,
 
     @Json(name = "pickup_radius")
-    val pickupRadius: java.math.BigDecimal? = null,
+    val pickupRadius: PickupRadius? = null,
 
     @Json(name = "expiration_duration")
-    val expirationDuration: java.math.BigDecimal? = null,
+    val expirationDuration: ExpirationDuration? = null,
 
     @Json(name = "show_on_minimap")
     val showOnMinimap: kotlin.Boolean? = null,

@@ -17,7 +17,7 @@ import (
 // checks if the PickupDefinition type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PickupDefinition{}
 
-// PickupDefinition Schema for items inside m_vecPrimaryPickups
+// PickupDefinition struct for PickupDefinition
 type PickupDefinition struct {
 	PickupName NullableString `json:"pickup_name,omitempty"`
 	PickupWeight NullableFloat32 `json:"pickup_weight,omitempty"`

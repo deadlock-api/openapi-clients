@@ -20,7 +20,9 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.color_v1 import ColorV1
+from assets_deadlock_api_client.models.expiration_duration import ExpirationDuration
 from assets_deadlock_api_client.models.pickup_definition import PickupDefinition
+from assets_deadlock_api_client.models.pickup_radius import PickupRadius
 from assets_deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition
 from typing import Optional, Set
 from typing_extensions import Self
@@ -56,8 +58,8 @@ class MiscV2(BaseModel):
     gold_amount: Optional[Union[StrictFloat, StrictInt]] = None
     gold_per_minute_amount: Optional[Union[StrictFloat, StrictInt]] = None
     modifier: Optional[SubclassModifierDefinition] = None
-    pickup_radius: Optional[Union[StrictFloat, StrictInt]] = None
-    expiration_duration: Optional[Union[StrictFloat, StrictInt]] = None
+    pickup_radius: Optional[PickupRadius] = None
+    expiration_duration: Optional[ExpirationDuration] = None
     show_on_minimap: Optional[StrictBool] = None
     orb_spawn_delay_min: Optional[Union[StrictFloat, StrictInt]] = None
     orb_spawn_delay_max: Optional[Union[StrictFloat, StrictInt]] = None
@@ -134,6 +136,12 @@ class MiscV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of modifier
         if self.modifier:
             _dict['modifier'] = self.modifier.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of pickup_radius
+        if self.pickup_radius:
+            _dict['pickup_radius'] = self.pickup_radius.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of expiration_duration
+        if self.expiration_duration:
+            _dict['expiration_duration'] = self.expiration_duration.to_dict()
         # set to None if color (nullable) is None
         # and model_fields_set contains the field
         if self.color is None and "color" in self.model_fields_set:
@@ -338,8 +346,8 @@ class MiscV2(BaseModel):
             "gold_amount": obj.get("gold_amount"),
             "gold_per_minute_amount": obj.get("gold_per_minute_amount"),
             "modifier": SubclassModifierDefinition.from_dict(obj["modifier"]) if obj.get("modifier") is not None else None,
-            "pickup_radius": obj.get("pickup_radius"),
-            "expiration_duration": obj.get("expiration_duration"),
+            "pickup_radius": PickupRadius.from_dict(obj["pickup_radius"]) if obj.get("pickup_radius") is not None else None,
+            "expiration_duration": ExpirationDuration.from_dict(obj["expiration_duration"]) if obj.get("expiration_duration") is not None else None,
             "show_on_minimap": obj.get("show_on_minimap"),
             "orb_spawn_delay_min": obj.get("orb_spawn_delay_min"),
             "orb_spawn_delay_max": obj.get("orb_spawn_delay_max"),

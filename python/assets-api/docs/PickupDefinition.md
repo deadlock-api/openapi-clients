@@ -1,6 +1,5 @@
 # PickupDefinition
 
-Schema for items inside m_vecPrimaryPickups
 
 ## Properties
 

@@ -21,7 +21,7 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * Schema for items inside m_vecPrimaryPickups
+ * 
  *
  * @param pickupName 
  * @param pickupWeight 

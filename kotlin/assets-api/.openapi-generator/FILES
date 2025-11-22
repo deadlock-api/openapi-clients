@@ -13,8 +13,10 @@ docs/AimingShotSpreadPenalty.md
 docs/Bonus.md
 docs/BuildTagV2.md
 docs/ColorV1.md
-docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
+docs/Curve.md
+docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
 docs/DefaultApi.md
+docs/ExpirationDuration.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/HTTPValidationError.md
 docs/HeroColorsV2.md
@@ -47,6 +49,7 @@ docs/NPCUnitsApi.md
 docs/ObjectivePositionV1.md
 docs/ObjectivePositionsV1.md
 docs/PickupDefinition.md
+docs/PickupRadius.md
 docs/Range.md
 docs/RankImagesV2.md
 docs/RankV2.md
@@ -125,7 +128,9 @@ src/main/kotlin/assets_deadlock_api_client/models/AimingShotSpreadPenalty.kt
 src/main/kotlin/assets_deadlock_api_client/models/Bonus.kt
 src/main/kotlin/assets_deadlock_api_client/models/BuildTagV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/ColorV1.kt
-src/main/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesV1ValidClientVersions.kt
+src/main/kotlin/assets_deadlock_api_client/models/Curve.kt
+src/main/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesRawValidClientVersions.kt
+src/main/kotlin/assets_deadlock_api_client/models/ExpirationDuration.kt
 src/main/kotlin/assets_deadlock_api_client/models/GetItemsV2ItemsGet200ResponseInner.kt
 src/main/kotlin/assets_deadlock_api_client/models/HTTPValidationError.kt
 src/main/kotlin/assets_deadlock_api_client/models/HeroColorsV2.kt
@@ -154,6 +159,7 @@ src/main/kotlin/assets_deadlock_api_client/models/NPCUnitV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/ObjectivePositionV1.kt
 src/main/kotlin/assets_deadlock_api_client/models/ObjectivePositionsV1.kt
 src/main/kotlin/assets_deadlock_api_client/models/PickupDefinition.kt
+src/main/kotlin/assets_deadlock_api_client/models/PickupRadius.kt
 src/main/kotlin/assets_deadlock_api_client/models/Range.kt
 src/main/kotlin/assets_deadlock_api_client/models/RankImagesV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/RankV2.kt
@@ -213,7 +219,9 @@ src/test/kotlin/assets_deadlock_api_client/models/AimingShotSpreadPenaltyTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/BonusTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/BuildTagV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/ColorV1Test.kt
-src/test/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesV1ValidClientVersionsTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/CurveTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesRawValidClientVersionsTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/ExpirationDurationTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/GetItemsV2ItemsGet200ResponseInnerTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/HTTPValidationErrorTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/HeroColorsV2Test.kt
@@ -242,6 +250,7 @@ src/test/kotlin/assets_deadlock_api_client/models/NPCUnitV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/ObjectivePositionV1Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/ObjectivePositionsV1Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/PickupDefinitionTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/PickupRadiusTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/RangeTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/RankImagesV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/RankV2Test.kt

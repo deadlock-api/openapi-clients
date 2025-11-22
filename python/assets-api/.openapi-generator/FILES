@@ -29,7 +29,9 @@ assets_deadlock_api_client/models/aiming_shot_spread_penalty.py
 assets_deadlock_api_client/models/bonus.py
 assets_deadlock_api_client/models/build_tag_v2.py
 assets_deadlock_api_client/models/color_v1.py
-assets_deadlock_api_client/models/deadlock_assets_api_routes_v1_valid_client_versions.py
+assets_deadlock_api_client/models/curve.py
+assets_deadlock_api_client/models/deadlock_assets_api_routes_raw_valid_client_versions.py
+assets_deadlock_api_client/models/expiration_duration.py
 assets_deadlock_api_client/models/get_items_v2_items_get200_response_inner.py
 assets_deadlock_api_client/models/hero_colors_v2.py
 assets_deadlock_api_client/models/hero_description_v2.py
@@ -58,6 +60,7 @@ assets_deadlock_api_client/models/npc_unit_v2.py
 assets_deadlock_api_client/models/objective_position_v1.py
 assets_deadlock_api_client/models/objective_positions_v1.py
 assets_deadlock_api_client/models/pickup_definition.py
+assets_deadlock_api_client/models/pickup_radius.py
 assets_deadlock_api_client/models/range.py
 assets_deadlock_api_client/models/rank_images_v2.py
 assets_deadlock_api_client/models/rank_v2.py
@@ -113,8 +116,10 @@ docs/AimingShotSpreadPenalty.md
 docs/Bonus.md
 docs/BuildTagV2.md
 docs/ColorV1.md
-docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
+docs/Curve.md
+docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
 docs/DefaultApi.md
+docs/ExpirationDuration.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/HTTPValidationError.md
 docs/HeroColorsV2.md
@@ -147,6 +152,7 @@ docs/NPCUnitsApi.md
 docs/ObjectivePositionV1.md
 docs/ObjectivePositionsV1.md
 docs/PickupDefinition.md
+docs/PickupRadius.md
 docs/Range.md
 docs/RankImagesV2.md
 docs/RankV2.md
@@ -208,8 +214,10 @@ test/test_aiming_shot_spread_penalty.py
 test/test_bonus.py
 test/test_build_tag_v2.py
 test/test_color_v1.py
-test/test_deadlock_assets_api_routes_v1_valid_client_versions.py
+test/test_curve.py
+test/test_deadlock_assets_api_routes_raw_valid_client_versions.py
 test/test_default_api.py
+test/test_expiration_duration.py
 test/test_get_items_v2_items_get200_response_inner.py
 test/test_hero_colors_v2.py
 test/test_hero_description_v2.py
@@ -242,6 +250,7 @@ test/test_npc_units_api.py
 test/test_objective_position_v1.py
 test/test_objective_positions_v1.py
 test/test_pickup_definition.py
+test/test_pickup_radius.py
 test/test_range.py
 test/test_rank_images_v2.py
 test/test_rank_v2.py

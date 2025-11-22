@@ -20,7 +20,9 @@ import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.MiscV2
 import assets_deadlock_api_client.models.ColorV1
+import assets_deadlock_api_client.models.ExpirationDuration
 import assets_deadlock_api_client.models.PickupDefinition
+import assets_deadlock_api_client.models.PickupRadius
 import assets_deadlock_api_client.models.SubclassModifierDefinition
 
 class MiscV2Test : ShouldSpec() {

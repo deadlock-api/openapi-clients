@@ -68,9 +68,9 @@ pub struct MiscV2 {
     #[serde(rename = "modifier", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub modifier: Option<Option<Box<models::SubclassModifierDefinition>>>,
     #[serde(rename = "pickup_radius", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub pickup_radius: Option<Option<f64>>,
+    pub pickup_radius: Option<Option<Box<models::PickupRadius>>>,
     #[serde(rename = "expiration_duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub expiration_duration: Option<Option<f64>>,
+    pub expiration_duration: Option<Option<Box<models::ExpirationDuration>>>,
     #[serde(rename = "show_on_minimap", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub show_on_minimap: Option<Option<bool>>,
     #[serde(rename = "orb_spawn_delay_min", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

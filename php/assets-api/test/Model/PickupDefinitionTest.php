@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PickupDefinitionTest Class Doc Comment
  *
  * @category    Class
- * @description Schema for items inside m_vecPrimaryPickups
+ * @description PickupDefinition
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

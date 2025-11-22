@@ -102,8 +102,8 @@ class TestMiscV2(unittest.TestCase):
                                 value_min = 1.337, 
                                 value_max = 1.337, )
                             ], ), ),
-                pickup_radius = 1.337,
-                expiration_duration = 1.337,
+                pickup_radius = None,
+                expiration_duration = None,
                 show_on_minimap = True,
                 orb_spawn_delay_min = 1.337,
                 orb_spawn_delay_max = 1.337,

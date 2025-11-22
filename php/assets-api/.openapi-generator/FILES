@@ -25,7 +25,9 @@ api/Model/AimingShotSpreadPenalty.php
 api/Model/Bonus.php
 api/Model/BuildTagV2.php
 api/Model/ColorV1.php
-api/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.php
+api/Model/Curve.php
+api/Model/DeadlockAssetsApiRoutesRawValidClientVersions.php
+api/Model/ExpirationDuration.php
 api/Model/GetItemsV2ItemsGet200ResponseInner.php
 api/Model/HTTPValidationError.php
 api/Model/HeroColorsV2.php
@@ -55,6 +57,7 @@ api/Model/NPCUnitV2.php
 api/Model/ObjectivePositionV1.php
 api/Model/ObjectivePositionsV1.php
 api/Model/PickupDefinition.php
+api/Model/PickupRadius.php
 api/Model/Range.php
 api/Model/RankImagesV2.php
 api/Model/RankV2.php
@@ -116,7 +119,9 @@ docs/Model/AimingShotSpreadPenalty.md
 docs/Model/Bonus.md
 docs/Model/BuildTagV2.md
 docs/Model/ColorV1.md
-docs/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.md
+docs/Model/Curve.md
+docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md
+docs/Model/ExpirationDuration.md
 docs/Model/GetItemsV2ItemsGet200ResponseInner.md
 docs/Model/HTTPValidationError.md
 docs/Model/HeroColorsV2.md
@@ -145,6 +150,7 @@ docs/Model/NPCUnitV2.md
 docs/Model/ObjectivePositionV1.md
 docs/Model/ObjectivePositionsV1.md
 docs/Model/PickupDefinition.md
+docs/Model/PickupRadius.md
 docs/Model/Range.md
 docs/Model/RankImagesV2.md
 docs/Model/RankV2.md
@@ -206,7 +212,9 @@ test/Model/AimingShotSpreadPenaltyTest.php
 test/Model/BonusTest.php
 test/Model/BuildTagV2Test.php
 test/Model/ColorV1Test.php
-test/Model/DeadlockAssetsApiRoutesV1ValidClientVersionsTest.php
+test/Model/CurveTest.php
+test/Model/DeadlockAssetsApiRoutesRawValidClientVersionsTest.php
+test/Model/ExpirationDurationTest.php
 test/Model/GetItemsV2ItemsGet200ResponseInnerTest.php
 test/Model/HTTPValidationErrorTest.php
 test/Model/HeroColorsV2Test.php
@@ -235,6 +243,7 @@ test/Model/NPCUnitV2Test.php
 test/Model/ObjectivePositionV1Test.php
 test/Model/ObjectivePositionsV1Test.php
 test/Model/PickupDefinitionTest.php
+test/Model/PickupRadiusTest.php
 test/Model/RangeTest.php
 test/Model/RankImagesV2Test.php
 test/Model/RankV2Test.php

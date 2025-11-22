@@ -11,7 +11,6 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// PickupDefinition : Schema for items inside m_vecPrimaryPickups
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PickupDefinition {
     #[serde(rename = "pickup_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -21,7 +20,6 @@ pub struct PickupDefinition {
 }
 
 impl PickupDefinition {
-    /// Schema for items inside m_vecPrimaryPickups
     pub fn new() -> PickupDefinition {
         PickupDefinition {
             pickup_name: None,

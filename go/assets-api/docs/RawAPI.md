@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.deadlock_assets_api__routes__v1__ValidClientVersions(5972) // DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(5983) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -54,7 +54,7 @@ Other parameters are passed through a pointer to a apiGetGenericDataRawGenericDa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](DeadlockAssetsApiRoutesV1ValidClientVersions.md) |  | 
+ **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](DeadlockAssetsApiRoutesRawValidClientVersions.md) |  | 
 
 ### Return type
 
@@ -93,7 +93,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.deadlock_assets_api__routes__v1__ValidClientVersions(5972) // DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(5983) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -118,7 +118,7 @@ Other parameters are passed through a pointer to a apiGetRawHeroesRawHeroesGetRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](DeadlockAssetsApiRoutesV1ValidClientVersions.md) |  | 
+ **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](DeadlockAssetsApiRoutesRawValidClientVersions.md) |  | 
 
 ### Return type
 
@@ -157,7 +157,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.deadlock_assets_api__routes__v1__ValidClientVersions(5972) // DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(5983) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -182,7 +182,7 @@ Other parameters are passed through a pointer to a apiGetRawItemsRawItemsGetRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](DeadlockAssetsApiRoutesV1ValidClientVersions.md) |  | 
+ **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](DeadlockAssetsApiRoutesRawValidClientVersions.md) |  | 
 
 ### Return type
 
