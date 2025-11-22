@@ -1,4 +1,4 @@
-module github.com/deadlock-api/openapi-clients
+module github.com/deadlock-api/openapi-clients/go/api
 
 go 1.23
 

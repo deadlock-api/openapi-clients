@@ -90,6 +90,7 @@ generate-api-go:
 	@mkdir -p go/api
 	@echo "--> Generating Go client for the main API..."
 	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://api.deadlock-api.com/openapi.json -g go -o go/api/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client
+	@sed -i 's|module github.com/deadlock-api/openapi-clients|module github.com/deadlock-api/openapi-clients/go/api|' go/api/go.mod
 	@echo "--> Main API client generated successfully in go/api/"
 
 generate-assets-api-go:
@@ -97,6 +98,7 @@ generate-assets-api-go:
 	@mkdir -p go/assets-api
 	@echo "--> Generating Go client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://assets.deadlock-api.com/openapi.json -g go -o go/assets-api/ --skip-validate-spec --additional-properties=packageName=assets_deadlock_api_client
+	@sed -i 's|module github.com/deadlock-api/openapi-clients|module github.com/deadlock-api/openapi-clients/go/assets-api|' go/assets-api/go.mod
 	@echo "--> Assets API client generated successfully in go/assets-api/"
 
 php: generate-api-php generate-assets-api-php
