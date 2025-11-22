@@ -956,7 +956,7 @@ No authorization required
 
 ## KillDeathStats
 
-> []KillDeathStats KillDeathStats(ctx).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).AccountIds(accountIds).HeroIds(heroIds).MinNetworth(minNetworth).MaxNetworth(maxNetworth).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinKillsPerRaster(minKillsPerRaster).MaxKillsPerRaster(maxKillsPerRaster).MinDeathsPerRaster(minDeathsPerRaster).MaxDeathsPerRaster(maxDeathsPerRaster).MinGameTimeS(minGameTimeS).MaxGameTimeS(maxGameTimeS).Execute()
+> []KillDeathStats KillDeathStats(ctx).Team(team).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).AccountIds(accountIds).HeroIds(heroIds).MinNetworth(minNetworth).MaxNetworth(maxNetworth).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinKillsPerRaster(minKillsPerRaster).MaxKillsPerRaster(maxKillsPerRaster).MinDeathsPerRaster(minDeathsPerRaster).MaxDeathsPerRaster(maxDeathsPerRaster).MinGameTimeS(minGameTimeS).MaxGameTimeS(maxGameTimeS).Execute()
 
 Kill Death Stats
 
@@ -975,6 +975,7 @@ import (
 )
 
 func main() {
+	team := int32(56) // int32 | Filter by team number. (optional)
 	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1761177600)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -999,7 +1000,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.KillDeathStats(context.Background()).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).AccountIds(accountIds).HeroIds(heroIds).MinNetworth(minNetworth).MaxNetworth(maxNetworth).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinKillsPerRaster(minKillsPerRaster).MaxKillsPerRaster(maxKillsPerRaster).MinDeathsPerRaster(minDeathsPerRaster).MaxDeathsPerRaster(maxDeathsPerRaster).MinGameTimeS(minGameTimeS).MaxGameTimeS(maxGameTimeS).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.KillDeathStats(context.Background()).Team(team).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).AccountIds(accountIds).HeroIds(heroIds).MinNetworth(minNetworth).MaxNetworth(maxNetworth).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinKillsPerRaster(minKillsPerRaster).MaxKillsPerRaster(maxKillsPerRaster).MinDeathsPerRaster(minDeathsPerRaster).MaxDeathsPerRaster(maxDeathsPerRaster).MinGameTimeS(minGameTimeS).MaxGameTimeS(maxGameTimeS).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.KillDeathStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1020,6 +1021,7 @@ Other parameters are passed through a pointer to a apiKillDeathStatsRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **team** | **int32** | Filter by team number. | 
  **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1761177600]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 

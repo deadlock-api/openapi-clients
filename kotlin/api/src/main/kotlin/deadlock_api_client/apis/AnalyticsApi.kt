@@ -1800,6 +1800,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * GET /v1/analytics/kill-death-stats
      * Kill Death Stats
      *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param team Filter by team number. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761177600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1830,8 +1831,8 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun killDeathStats(minUnixTimestamp: kotlin.Long? = 1761177600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroIds: kotlin.String? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minKillsPerRaster: kotlin.Int? = 1, maxKillsPerRaster: kotlin.Int? = null, minDeathsPerRaster: kotlin.Int? = 1, maxDeathsPerRaster: kotlin.Int? = null, minGameTimeS: kotlin.Int? = null, maxGameTimeS: kotlin.Int? = null) : kotlin.collections.List<KillDeathStats> {
-        val localVarResponse = killDeathStatsWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, accountIds = accountIds, heroIds = heroIds, minNetworth = minNetworth, maxNetworth = maxNetworth, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minKillsPerRaster = minKillsPerRaster, maxKillsPerRaster = maxKillsPerRaster, minDeathsPerRaster = minDeathsPerRaster, maxDeathsPerRaster = maxDeathsPerRaster, minGameTimeS = minGameTimeS, maxGameTimeS = maxGameTimeS)
+    fun killDeathStats(team: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1761177600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroIds: kotlin.String? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minKillsPerRaster: kotlin.Int? = 1, maxKillsPerRaster: kotlin.Int? = null, minDeathsPerRaster: kotlin.Int? = 1, maxDeathsPerRaster: kotlin.Int? = null, minGameTimeS: kotlin.Int? = null, maxGameTimeS: kotlin.Int? = null) : kotlin.collections.List<KillDeathStats> {
+        val localVarResponse = killDeathStatsWithHttpInfo(team = team, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, accountIds = accountIds, heroIds = heroIds, minNetworth = minNetworth, maxNetworth = maxNetworth, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minKillsPerRaster = minKillsPerRaster, maxKillsPerRaster = maxKillsPerRaster, minDeathsPerRaster = minDeathsPerRaster, maxDeathsPerRaster = maxDeathsPerRaster, minGameTimeS = minGameTimeS, maxGameTimeS = maxGameTimeS)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<KillDeathStats>
@@ -1852,6 +1853,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * GET /v1/analytics/kill-death-stats
      * Kill Death Stats
      *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param team Filter by team number. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761177600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1879,8 +1881,8 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun killDeathStatsWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minKillsPerRaster: kotlin.Int?, maxKillsPerRaster: kotlin.Int?, minDeathsPerRaster: kotlin.Int?, maxDeathsPerRaster: kotlin.Int?, minGameTimeS: kotlin.Int?, maxGameTimeS: kotlin.Int?) : ApiResponse<kotlin.collections.List<KillDeathStats>?> {
-        val localVariableConfig = killDeathStatsRequestConfig(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, accountIds = accountIds, heroIds = heroIds, minNetworth = minNetworth, maxNetworth = maxNetworth, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minKillsPerRaster = minKillsPerRaster, maxKillsPerRaster = maxKillsPerRaster, minDeathsPerRaster = minDeathsPerRaster, maxDeathsPerRaster = maxDeathsPerRaster, minGameTimeS = minGameTimeS, maxGameTimeS = maxGameTimeS)
+    fun killDeathStatsWithHttpInfo(team: kotlin.Int?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minKillsPerRaster: kotlin.Int?, maxKillsPerRaster: kotlin.Int?, minDeathsPerRaster: kotlin.Int?, maxDeathsPerRaster: kotlin.Int?, minGameTimeS: kotlin.Int?, maxGameTimeS: kotlin.Int?) : ApiResponse<kotlin.collections.List<KillDeathStats>?> {
+        val localVariableConfig = killDeathStatsRequestConfig(team = team, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, accountIds = accountIds, heroIds = heroIds, minNetworth = minNetworth, maxNetworth = maxNetworth, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minKillsPerRaster = minKillsPerRaster, maxKillsPerRaster = maxKillsPerRaster, minDeathsPerRaster = minDeathsPerRaster, maxDeathsPerRaster = maxDeathsPerRaster, minGameTimeS = minGameTimeS, maxGameTimeS = maxGameTimeS)
 
         return request<Unit, kotlin.collections.List<KillDeathStats>>(
             localVariableConfig
@@ -1890,6 +1892,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * To obtain the request config of the operation killDeathStats
      *
+     * @param team Filter by team number. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761177600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1913,10 +1916,13 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param maxGameTimeS Filter kills based on their game time. (optional)
      * @return RequestConfig
      */
-    fun killDeathStatsRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minKillsPerRaster: kotlin.Int?, maxKillsPerRaster: kotlin.Int?, minDeathsPerRaster: kotlin.Int?, maxDeathsPerRaster: kotlin.Int?, minGameTimeS: kotlin.Int?, maxGameTimeS: kotlin.Int?) : RequestConfig<Unit> {
+    fun killDeathStatsRequestConfig(team: kotlin.Int?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minKillsPerRaster: kotlin.Int?, maxKillsPerRaster: kotlin.Int?, minDeathsPerRaster: kotlin.Int?, maxDeathsPerRaster: kotlin.Int?, minGameTimeS: kotlin.Int?, maxGameTimeS: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (team != null) {
+                    put("team", listOf(team.toString()))
+                }
                 if (minUnixTimestamp != null) {
                     put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
                 }

@@ -975,6 +975,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
+let team: number; //Filter by team number. (optional) (default to undefined)
 let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1761177600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -998,6 +999,7 @@ let minGameTimeS: number; //Filter kills based on their game time. (optional) (d
 let maxGameTimeS: number; //Filter kills based on their game time. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.killDeathStats(
+    team,
     minUnixTimestamp,
     maxUnixTimestamp,
     minDurationS,
@@ -1026,6 +1028,7 @@ const { status, data } = await apiInstance.killDeathStats(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
+| **team** | [**number**] | Filter by team number. | (optional) defaults to undefined|
 | **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1761177600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|

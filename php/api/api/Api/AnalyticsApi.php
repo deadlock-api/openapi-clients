@@ -5325,6 +5325,7 @@ class AnalyticsApi
      *
      * Kill Death Stats
      *
+     * @param  int|null $team Filter by team number. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761177600)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5352,9 +5353,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\KillDeathStats[]
      */
-    public function killDeathStats($min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStats($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
-        list($response) = $this->killDeathStatsWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
+        list($response) = $this->killDeathStatsWithHttpInfo($team, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
         return $response;
     }
 
@@ -5363,6 +5364,7 @@ class AnalyticsApi
      *
      * Kill Death Stats
      *
+     * @param  int|null $team Filter by team number. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761177600)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5390,9 +5392,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\KillDeathStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function killDeathStatsWithHttpInfo($min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsWithHttpInfo($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
-        $request = $this->killDeathStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
+        $request = $this->killDeathStatsRequest($team, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5468,6 +5470,7 @@ class AnalyticsApi
      *
      * Kill Death Stats
      *
+     * @param  int|null $team Filter by team number. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761177600)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5494,9 +5497,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function killDeathStatsAsync($min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsAsync($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
-        return $this->killDeathStatsAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType)
+        return $this->killDeathStatsAsyncWithHttpInfo($team, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5509,6 +5512,7 @@ class AnalyticsApi
      *
      * Kill Death Stats
      *
+     * @param  int|null $team Filter by team number. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761177600)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5535,10 +5539,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function killDeathStatsAsyncWithHttpInfo($min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsAsyncWithHttpInfo($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\KillDeathStats[]';
-        $request = $this->killDeathStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
+        $request = $this->killDeathStatsRequest($team, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5579,6 +5583,7 @@ class AnalyticsApi
     /**
      * Create request for operation 'killDeathStats'
      *
+     * @param  int|null $team Filter by team number. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1761177600)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5605,9 +5610,16 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function killDeathStatsRequest($min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsRequest($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
 
+        if ($team !== null && $team > 1) {
+            throw new \InvalidArgumentException('invalid value for "$team" when calling AnalyticsApi.killDeathStats, must be smaller than or equal to 1.');
+        }
+        if ($team !== null && $team < 0) {
+            throw new \InvalidArgumentException('invalid value for "$team" when calling AnalyticsApi.killDeathStats, must be bigger than or equal to 0.');
+        }
+        
 
 
         if ($min_duration_s !== null && $min_duration_s > 7000) {
@@ -5697,6 +5709,15 @@ class AnalyticsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $team,
+            'team', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $min_unix_timestamp,

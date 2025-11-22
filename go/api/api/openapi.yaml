@@ -1904,6 +1904,18 @@ paths:
         | IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
       operationId: kill_death_stats
       parameters:
+      - description: Filter by team number.
+        explode: true
+        in: query
+        name: team
+        required: false
+        schema:
+          format: int32
+          maximum: 1
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
