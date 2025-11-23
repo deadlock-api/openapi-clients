@@ -991,9 +991,9 @@ let minMatchId: number; //Filter matches based on their ID. (optional) (default 
 let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let minAverageBadge: number; //Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
 let maxAverageBadge: number; //Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
-let minKillsPerRaster: number; //Filter Raster cells based on minimum kills. (optional) (default to 1)
+let minKillsPerRaster: number; //Filter Raster cells based on minimum kills. (optional) (default to undefined)
 let maxKillsPerRaster: number; //Filter Raster cells based on maximum kills. (optional) (default to undefined)
-let minDeathsPerRaster: number; //Filter Raster cells based on minimum deaths. (optional) (default to 1)
+let minDeathsPerRaster: number; //Filter Raster cells based on minimum deaths. (optional) (default to undefined)
 let maxDeathsPerRaster: number; //Filter Raster cells based on maximum deaths. (optional) (default to undefined)
 let minGameTimeS: number; //Filter kills based on their game time. (optional) (default to undefined)
 let maxGameTimeS: number; //Filter kills based on their game time. (optional) (default to undefined)
@@ -1044,9 +1044,9 @@ const { status, data } = await apiInstance.killDeathStats(
 | **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **minAverageBadge** | [**number**] | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
 | **maxAverageBadge** | [**number**] | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
-| **minKillsPerRaster** | [**number**] | Filter Raster cells based on minimum kills. | (optional) defaults to 1|
+| **minKillsPerRaster** | [**number**] | Filter Raster cells based on minimum kills. | (optional) defaults to undefined|
 | **maxKillsPerRaster** | [**number**] | Filter Raster cells based on maximum kills. | (optional) defaults to undefined|
-| **minDeathsPerRaster** | [**number**] | Filter Raster cells based on minimum deaths. | (optional) defaults to 1|
+| **minDeathsPerRaster** | [**number**] | Filter Raster cells based on minimum deaths. | (optional) defaults to undefined|
 | **maxDeathsPerRaster** | [**number**] | Filter Raster cells based on maximum deaths. | (optional) defaults to undefined|
 | **minGameTimeS** | [**number**] | Filter kills based on their game time. | (optional) defaults to undefined|
 | **maxGameTimeS** | [**number**] | Filter kills based on their game time. | (optional) defaults to undefined|

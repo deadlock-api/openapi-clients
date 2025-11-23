@@ -485,9 +485,9 @@ Name | Type | Description  | Required | Notes
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
-**min_kills_per_raster** | Option<**u32**> | Filter Raster cells based on minimum kills. |  |[default to 1]
+**min_kills_per_raster** | Option<**u32**> | Filter Raster cells based on minimum kills. |  |
 **max_kills_per_raster** | Option<**u32**> | Filter Raster cells based on maximum kills. |  |
-**min_deaths_per_raster** | Option<**u32**> | Filter Raster cells based on minimum deaths. |  |[default to 1]
+**min_deaths_per_raster** | Option<**u32**> | Filter Raster cells based on minimum deaths. |  |
 **max_deaths_per_raster** | Option<**u32**> | Filter Raster cells based on maximum deaths. |  |
 **min_game_time_s** | Option<**u32**> | Filter kills based on their game time. |  |
 **max_game_time_s** | Option<**u32**> | Filter kills based on their game time. |  |

@@ -5341,9 +5341,9 @@ class AnalyticsApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional, default to 1)
+     * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional)
      * @param  int|null $max_kills_per_raster Filter Raster cells based on maximum kills. (optional)
-     * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional, default to 1)
+     * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional)
      * @param  int|null $max_deaths_per_raster Filter Raster cells based on maximum deaths. (optional)
      * @param  int|null $min_game_time_s Filter kills based on their game time. (optional)
      * @param  int|null $max_game_time_s Filter kills based on their game time. (optional)
@@ -5353,7 +5353,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\KillDeathStats[]
      */
-    public function killDeathStats($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStats($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         list($response) = $this->killDeathStatsWithHttpInfo($team, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
         return $response;
@@ -5380,9 +5380,9 @@ class AnalyticsApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional, default to 1)
+     * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional)
      * @param  int|null $max_kills_per_raster Filter Raster cells based on maximum kills. (optional)
-     * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional, default to 1)
+     * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional)
      * @param  int|null $max_deaths_per_raster Filter Raster cells based on maximum deaths. (optional)
      * @param  int|null $min_game_time_s Filter kills based on their game time. (optional)
      * @param  int|null $max_game_time_s Filter kills based on their game time. (optional)
@@ -5392,7 +5392,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\KillDeathStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function killDeathStatsWithHttpInfo($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsWithHttpInfo($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         $request = $this->killDeathStatsRequest($team, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
 
@@ -5486,9 +5486,9 @@ class AnalyticsApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional, default to 1)
+     * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional)
      * @param  int|null $max_kills_per_raster Filter Raster cells based on maximum kills. (optional)
-     * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional, default to 1)
+     * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional)
      * @param  int|null $max_deaths_per_raster Filter Raster cells based on maximum deaths. (optional)
      * @param  int|null $min_game_time_s Filter kills based on their game time. (optional)
      * @param  int|null $max_game_time_s Filter kills based on their game time. (optional)
@@ -5497,7 +5497,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function killDeathStatsAsync($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsAsync($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         return $this->killDeathStatsAsyncWithHttpInfo($team, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType)
             ->then(
@@ -5528,9 +5528,9 @@ class AnalyticsApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional, default to 1)
+     * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional)
      * @param  int|null $max_kills_per_raster Filter Raster cells based on maximum kills. (optional)
-     * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional, default to 1)
+     * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional)
      * @param  int|null $max_deaths_per_raster Filter Raster cells based on maximum deaths. (optional)
      * @param  int|null $min_game_time_s Filter kills based on their game time. (optional)
      * @param  int|null $max_game_time_s Filter kills based on their game time. (optional)
@@ -5539,7 +5539,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function killDeathStatsAsyncWithHttpInfo($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsAsyncWithHttpInfo($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\KillDeathStats[]';
         $request = $this->killDeathStatsRequest($team, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
@@ -5599,9 +5599,9 @@ class AnalyticsApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional, default to 1)
+     * @param  int|null $min_kills_per_raster Filter Raster cells based on minimum kills. (optional)
      * @param  int|null $max_kills_per_raster Filter Raster cells based on maximum kills. (optional)
-     * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional, default to 1)
+     * @param  int|null $min_deaths_per_raster Filter Raster cells based on minimum deaths. (optional)
      * @param  int|null $max_deaths_per_raster Filter Raster cells based on maximum deaths. (optional)
      * @param  int|null $min_game_time_s Filter kills based on their game time. (optional)
      * @param  int|null $max_game_time_s Filter kills based on their game time. (optional)
@@ -5610,7 +5610,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function killDeathStatsRequest($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = 1, $max_kills_per_raster = null, $min_deaths_per_raster = 1, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsRequest($team = null, $min_unix_timestamp = 1761177600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
 
         if ($team !== null && $team > 1) {

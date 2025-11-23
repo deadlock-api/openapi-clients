@@ -1816,9 +1816,9 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param minKillsPerRaster Filter Raster cells based on minimum kills. (optional, default to 1)
+     * @param minKillsPerRaster Filter Raster cells based on minimum kills. (optional)
      * @param maxKillsPerRaster Filter Raster cells based on maximum kills. (optional)
-     * @param minDeathsPerRaster Filter Raster cells based on minimum deaths. (optional, default to 1)
+     * @param minDeathsPerRaster Filter Raster cells based on minimum deaths. (optional)
      * @param maxDeathsPerRaster Filter Raster cells based on maximum deaths. (optional)
      * @param minGameTimeS Filter kills based on their game time. (optional)
      * @param maxGameTimeS Filter kills based on their game time. (optional)
@@ -1831,7 +1831,7 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun killDeathStats(team: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1761177600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroIds: kotlin.String? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minKillsPerRaster: kotlin.Int? = 1, maxKillsPerRaster: kotlin.Int? = null, minDeathsPerRaster: kotlin.Int? = 1, maxDeathsPerRaster: kotlin.Int? = null, minGameTimeS: kotlin.Int? = null, maxGameTimeS: kotlin.Int? = null) : kotlin.collections.List<KillDeathStats> {
+    fun killDeathStats(team: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1761177600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroIds: kotlin.String? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minKillsPerRaster: kotlin.Int? = null, maxKillsPerRaster: kotlin.Int? = null, minDeathsPerRaster: kotlin.Int? = null, maxDeathsPerRaster: kotlin.Int? = null, minGameTimeS: kotlin.Int? = null, maxGameTimeS: kotlin.Int? = null) : kotlin.collections.List<KillDeathStats> {
         val localVarResponse = killDeathStatsWithHttpInfo(team = team, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, accountIds = accountIds, heroIds = heroIds, minNetworth = minNetworth, maxNetworth = maxNetworth, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minKillsPerRaster = minKillsPerRaster, maxKillsPerRaster = maxKillsPerRaster, minDeathsPerRaster = minDeathsPerRaster, maxDeathsPerRaster = maxDeathsPerRaster, minGameTimeS = minGameTimeS, maxGameTimeS = maxGameTimeS)
 
         return when (localVarResponse.responseType) {
@@ -1869,9 +1869,9 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param minKillsPerRaster Filter Raster cells based on minimum kills. (optional, default to 1)
+     * @param minKillsPerRaster Filter Raster cells based on minimum kills. (optional)
      * @param maxKillsPerRaster Filter Raster cells based on maximum kills. (optional)
-     * @param minDeathsPerRaster Filter Raster cells based on minimum deaths. (optional, default to 1)
+     * @param minDeathsPerRaster Filter Raster cells based on minimum deaths. (optional)
      * @param maxDeathsPerRaster Filter Raster cells based on maximum deaths. (optional)
      * @param minGameTimeS Filter kills based on their game time. (optional)
      * @param maxGameTimeS Filter kills based on their game time. (optional)
@@ -1908,9 +1908,9 @@ class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
      * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param minKillsPerRaster Filter Raster cells based on minimum kills. (optional, default to 1)
+     * @param minKillsPerRaster Filter Raster cells based on minimum kills. (optional)
      * @param maxKillsPerRaster Filter Raster cells based on maximum kills. (optional)
-     * @param minDeathsPerRaster Filter Raster cells based on minimum deaths. (optional, default to 1)
+     * @param minDeathsPerRaster Filter Raster cells based on minimum deaths. (optional)
      * @param maxDeathsPerRaster Filter Raster cells based on maximum deaths. (optional)
      * @param minGameTimeS Filter kills based on their game time. (optional)
      * @param maxGameTimeS Filter kills based on their game time. (optional)

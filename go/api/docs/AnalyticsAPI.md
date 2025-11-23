@@ -991,9 +991,9 @@ func main() {
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-	minKillsPerRaster := int32(56) // int32 | Filter Raster cells based on minimum kills. (optional) (default to 1)
+	minKillsPerRaster := int32(56) // int32 | Filter Raster cells based on minimum kills. (optional)
 	maxKillsPerRaster := int32(56) // int32 | Filter Raster cells based on maximum kills. (optional)
-	minDeathsPerRaster := int32(56) // int32 | Filter Raster cells based on minimum deaths. (optional) (default to 1)
+	minDeathsPerRaster := int32(56) // int32 | Filter Raster cells based on minimum deaths. (optional)
 	maxDeathsPerRaster := int32(56) // int32 | Filter Raster cells based on maximum deaths. (optional)
 	minGameTimeS := int32(56) // int32 | Filter kills based on their game time. (optional)
 	maxGameTimeS := int32(56) // int32 | Filter kills based on their game time. (optional)
@@ -1037,9 +1037,9 @@ Name | Type | Description  | Notes
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
- **minKillsPerRaster** | **int32** | Filter Raster cells based on minimum kills. | [default to 1]
+ **minKillsPerRaster** | **int32** | Filter Raster cells based on minimum kills. | 
  **maxKillsPerRaster** | **int32** | Filter Raster cells based on maximum kills. | 
- **minDeathsPerRaster** | **int32** | Filter Raster cells based on minimum deaths. | [default to 1]
+ **minDeathsPerRaster** | **int32** | Filter Raster cells based on minimum deaths. | 
  **maxDeathsPerRaster** | **int32** | Filter Raster cells based on maximum deaths. | 
  **minGameTimeS** | **int32** | Filter kills based on their game time. | 
  **maxGameTimeS** | **int32** | Filter kills based on their game time. | 

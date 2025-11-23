@@ -894,9 +894,9 @@ $min_match_id = 56; // int | Filter matches based on their ID.
 $max_match_id = 56; // int | Filter matches based on their ID.
 $min_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 $max_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
-$min_kills_per_raster = 1; // int | Filter Raster cells based on minimum kills.
+$min_kills_per_raster = 56; // int | Filter Raster cells based on minimum kills.
 $max_kills_per_raster = 56; // int | Filter Raster cells based on maximum kills.
-$min_deaths_per_raster = 1; // int | Filter Raster cells based on minimum deaths.
+$min_deaths_per_raster = 56; // int | Filter Raster cells based on minimum deaths.
 $max_deaths_per_raster = 56; // int | Filter Raster cells based on maximum deaths.
 $min_game_time_s = 56; // int | Filter kills based on their game time.
 $max_game_time_s = 56; // int | Filter kills based on their game time.
@@ -929,9 +929,9 @@ try {
 | **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **min_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
 | **max_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **min_kills_per_raster** | **int**| Filter Raster cells based on minimum kills. | [optional] [default to 1] |
+| **min_kills_per_raster** | **int**| Filter Raster cells based on minimum kills. | [optional] |
 | **max_kills_per_raster** | **int**| Filter Raster cells based on maximum kills. | [optional] |
-| **min_deaths_per_raster** | **int**| Filter Raster cells based on minimum deaths. | [optional] [default to 1] |
+| **min_deaths_per_raster** | **int**| Filter Raster cells based on minimum deaths. | [optional] |
 | **max_deaths_per_raster** | **int**| Filter Raster cells based on maximum deaths. | [optional] |
 | **min_game_time_s** | **int**| Filter kills based on their game time. | [optional] |
 | **max_game_time_s** | **int**| Filter kills based on their game time. | [optional] |

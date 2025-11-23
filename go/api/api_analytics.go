@@ -3074,20 +3074,12 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	}
 	if r.minKillsPerRaster != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_kills_per_raster", r.minKillsPerRaster, "form", "")
-	} else {
-        var defaultValue int32 = 1
-        parameterAddToHeaderOrQuery(localVarQueryParams, "min_kills_per_raster", defaultValue, "form", "")
-        r.minKillsPerRaster = &defaultValue
 	}
 	if r.maxKillsPerRaster != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_kills_per_raster", r.maxKillsPerRaster, "form", "")
 	}
 	if r.minDeathsPerRaster != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_deaths_per_raster", r.minDeathsPerRaster, "form", "")
-	} else {
-        var defaultValue int32 = 1
-        parameterAddToHeaderOrQuery(localVarQueryParams, "min_deaths_per_raster", defaultValue, "form", "")
-        r.minDeathsPerRaster = &defaultValue
 	}
 	if r.maxDeathsPerRaster != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_deaths_per_raster", r.maxDeathsPerRaster, "form", "")

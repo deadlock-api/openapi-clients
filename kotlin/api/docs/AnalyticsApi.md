@@ -819,9 +819,9 @@ try {
 | **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
 | **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
-| **minKillsPerRaster** | **kotlin.Int**| Filter Raster cells based on minimum kills. | [optional] [default to 1] |
+| **minKillsPerRaster** | **kotlin.Int**| Filter Raster cells based on minimum kills. | [optional] |
 | **maxKillsPerRaster** | **kotlin.Int**| Filter Raster cells based on maximum kills. | [optional] |
-| **minDeathsPerRaster** | **kotlin.Int**| Filter Raster cells based on minimum deaths. | [optional] [default to 1] |
+| **minDeathsPerRaster** | **kotlin.Int**| Filter Raster cells based on minimum deaths. | [optional] |
 | **maxDeathsPerRaster** | **kotlin.Int**| Filter Raster cells based on maximum deaths. | [optional] |
 | **minGameTimeS** | **kotlin.Int**| Filter kills based on their game time. | [optional] |
 | Name | Type | Description  | Notes |
