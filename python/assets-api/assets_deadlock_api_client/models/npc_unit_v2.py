@@ -21,6 +21,10 @@ from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.color_v1 import ColorV1
 from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2
+from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier
+from assets_deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers
+from assets_deadlock_api_client.models.subclass_ranged_armor_modifier import SubclassRangedArmorModifier
+from assets_deadlock_api_client.models.subclass_trooper_damage_reduction import SubclassTrooperDamageReduction
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,6 +35,13 @@ class NPCUnitV2(BaseModel):
     class_name: StrictStr
     weapon_info: Optional[RawWeaponInfoV2] = None
     max_health: Optional[StrictInt] = None
+    max_health_final: Optional[StrictInt] = None
+    max_health_generator: Optional[StrictInt] = None
+    enemy_trooper_protection_range: Optional[Union[StrictFloat, StrictInt]] = None
+    backdoor_bullet_resist_modifier: Optional[SubclassBulletResistModifier] = None
+    enemy_trooper_damage_reduction: Optional[SubclassTrooperDamageReduction] = None
+    ranged_armor_modifier: Optional[SubclassRangedArmorModifier] = None
+    intrinsic_modifiers: Optional[List[SubclassIntrinsicModifiers]] = None
     sight_range_players: Optional[Union[StrictFloat, StrictInt]] = None
     sight_range_npcs: Optional[Union[StrictFloat, StrictInt]] = None
     gold_reward: Optional[Union[StrictFloat, StrictInt]] = None
@@ -77,7 +88,7 @@ class NPCUnitV2(BaseModel):
     glow_color_team2: Optional[ColorV1] = None
     glow_color_team_neutral: Optional[ColorV1] = None
     id: StrictInt
-    __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "player_damage_resist_pct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "walk_speed", "run_speed", "acceleration", "melee_damage", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "glow_color_friend", "glow_color_enemy", "glow_color_team1", "glow_color_team2", "glow_color_team_neutral", "id"]
+    __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "max_health_final", "max_health_generator", "enemy_trooper_protection_range", "backdoor_bullet_resist_modifier", "enemy_trooper_damage_reduction", "ranged_armor_modifier", "intrinsic_modifiers", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "player_damage_resist_pct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "walk_speed", "run_speed", "acceleration", "melee_damage", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "glow_color_friend", "glow_color_enemy", "glow_color_team1", "glow_color_team2", "glow_color_team_neutral", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -123,6 +134,22 @@ class NPCUnitV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of weapon_info
         if self.weapon_info:
             _dict['weapon_info'] = self.weapon_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of backdoor_bullet_resist_modifier
+        if self.backdoor_bullet_resist_modifier:
+            _dict['backdoor_bullet_resist_modifier'] = self.backdoor_bullet_resist_modifier.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of enemy_trooper_damage_reduction
+        if self.enemy_trooper_damage_reduction:
+            _dict['enemy_trooper_damage_reduction'] = self.enemy_trooper_damage_reduction.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of ranged_armor_modifier
+        if self.ranged_armor_modifier:
+            _dict['ranged_armor_modifier'] = self.ranged_armor_modifier.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in intrinsic_modifiers (list)
+        _items = []
+        if self.intrinsic_modifiers:
+            for _item_intrinsic_modifiers in self.intrinsic_modifiers:
+                if _item_intrinsic_modifiers:
+                    _items.append(_item_intrinsic_modifiers.to_dict())
+            _dict['intrinsic_modifiers'] = _items
         # override the default output from pydantic by calling `to_dict()` of health_bar_color_friend
         if self.health_bar_color_friend:
             _dict['health_bar_color_friend'] = self.health_bar_color_friend.to_dict()
@@ -162,6 +189,41 @@ class NPCUnitV2(BaseModel):
         # and model_fields_set contains the field
         if self.max_health is None and "max_health" in self.model_fields_set:
             _dict['max_health'] = None
+
+        # set to None if max_health_final (nullable) is None
+        # and model_fields_set contains the field
+        if self.max_health_final is None and "max_health_final" in self.model_fields_set:
+            _dict['max_health_final'] = None
+
+        # set to None if max_health_generator (nullable) is None
+        # and model_fields_set contains the field
+        if self.max_health_generator is None and "max_health_generator" in self.model_fields_set:
+            _dict['max_health_generator'] = None
+
+        # set to None if enemy_trooper_protection_range (nullable) is None
+        # and model_fields_set contains the field
+        if self.enemy_trooper_protection_range is None and "enemy_trooper_protection_range" in self.model_fields_set:
+            _dict['enemy_trooper_protection_range'] = None
+
+        # set to None if backdoor_bullet_resist_modifier (nullable) is None
+        # and model_fields_set contains the field
+        if self.backdoor_bullet_resist_modifier is None and "backdoor_bullet_resist_modifier" in self.model_fields_set:
+            _dict['backdoor_bullet_resist_modifier'] = None
+
+        # set to None if enemy_trooper_damage_reduction (nullable) is None
+        # and model_fields_set contains the field
+        if self.enemy_trooper_damage_reduction is None and "enemy_trooper_damage_reduction" in self.model_fields_set:
+            _dict['enemy_trooper_damage_reduction'] = None
+
+        # set to None if ranged_armor_modifier (nullable) is None
+        # and model_fields_set contains the field
+        if self.ranged_armor_modifier is None and "ranged_armor_modifier" in self.model_fields_set:
+            _dict['ranged_armor_modifier'] = None
+
+        # set to None if intrinsic_modifiers (nullable) is None
+        # and model_fields_set contains the field
+        if self.intrinsic_modifiers is None and "intrinsic_modifiers" in self.model_fields_set:
+            _dict['intrinsic_modifiers'] = None
 
         # set to None if sight_range_players (nullable) is None
         # and model_fields_set contains the field
@@ -403,6 +465,13 @@ class NPCUnitV2(BaseModel):
             "class_name": obj.get("class_name"),
             "weapon_info": RawWeaponInfoV2.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None,
             "max_health": obj.get("max_health"),
+            "max_health_final": obj.get("max_health_final"),
+            "max_health_generator": obj.get("max_health_generator"),
+            "enemy_trooper_protection_range": obj.get("enemy_trooper_protection_range"),
+            "backdoor_bullet_resist_modifier": SubclassBulletResistModifier.from_dict(obj["backdoor_bullet_resist_modifier"]) if obj.get("backdoor_bullet_resist_modifier") is not None else None,
+            "enemy_trooper_damage_reduction": SubclassTrooperDamageReduction.from_dict(obj["enemy_trooper_damage_reduction"]) if obj.get("enemy_trooper_damage_reduction") is not None else None,
+            "ranged_armor_modifier": SubclassRangedArmorModifier.from_dict(obj["ranged_armor_modifier"]) if obj.get("ranged_armor_modifier") is not None else None,
+            "intrinsic_modifiers": [SubclassIntrinsicModifiers.from_dict(_item) for _item in obj["intrinsic_modifiers"]] if obj.get("intrinsic_modifiers") is not None else None,
             "sight_range_players": obj.get("sight_range_players"),
             "sight_range_npcs": obj.get("sight_range_npcs"),
             "gold_reward": obj.get("gold_reward"),

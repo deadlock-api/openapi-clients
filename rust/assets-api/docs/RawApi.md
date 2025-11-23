@@ -19,7 +19,7 @@ Get Raw Heroes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -47,7 +47,7 @@ Get Raw Items
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 

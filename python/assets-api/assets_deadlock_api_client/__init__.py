@@ -44,10 +44,11 @@ __all__ = [
     "AimingShotSpreadPenalty",
     "Bonus",
     "BuildTagV2",
+    "BulletResistModifier",
     "ColorV1",
     "Curve",
     "DamageFlashV2",
-    "DeadlockAssetsApiRoutesRawValidClientVersions",
+    "DeadlockAssetsApiRoutesV2ValidClientVersions",
     "ExpirationDuration",
     "FlashDataV2",
     "GenericDataV2",
@@ -66,6 +67,7 @@ __all__ = [
     "HeroStartingStatsV2",
     "HeroTypeV2",
     "HeroV2",
+    "IntrinsicModifiers",
     "ItemGroup",
     "ItemPropertyV2",
     "ItemSlotTypeV2",
@@ -87,6 +89,7 @@ __all__ = [
     "PickupDefinition",
     "PickupRadius",
     "Range",
+    "RangedArmorModifier",
     "RankImagesV2",
     "RankV2",
     "RawAbilityActivationV2",
@@ -112,9 +115,15 @@ __all__ = [
     "RawWeaponInfoVerticalRecoilV2",
     "RejuvParams",
     "ResponseGetItemV2ItemsIdOrClassNameGet",
+    "ScriptValues",
     "StandingShotSpreadPenalty",
     "StatsUsageFlagV2",
+    "SubclassBulletResistModifier",
+    "SubclassIntrinsicModifiers",
     "SubclassModifierDefinition",
+    "SubclassRangedArmorModifier",
+    "SubclassTrooperDamageReduction",
+    "TrooperDamageReduction",
     "UpgradeDescriptionV2",
     "UpgradePropertyV2",
     "UpgradeTooltipSectionAttributeV2",
@@ -161,10 +170,11 @@ from assets_deadlock_api_client.models.ability_videos_v2 import AbilityVideosV2 
 from assets_deadlock_api_client.models.aiming_shot_spread_penalty import AimingShotSpreadPenalty as AimingShotSpreadPenalty
 from assets_deadlock_api_client.models.bonus import Bonus as Bonus
 from assets_deadlock_api_client.models.build_tag_v2 import BuildTagV2 as BuildTagV2
+from assets_deadlock_api_client.models.bullet_resist_modifier import BulletResistModifier as BulletResistModifier
 from assets_deadlock_api_client.models.color_v1 import ColorV1 as ColorV1
 from assets_deadlock_api_client.models.curve import Curve as Curve
 from assets_deadlock_api_client.models.damage_flash_v2 import DamageFlashV2 as DamageFlashV2
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions as DeadlockAssetsApiRoutesRawValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions as DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets_deadlock_api_client.models.expiration_duration import ExpirationDuration as ExpirationDuration
 from assets_deadlock_api_client.models.flash_data_v2 import FlashDataV2 as FlashDataV2
 from assets_deadlock_api_client.models.generic_data_v2 import GenericDataV2 as GenericDataV2
@@ -183,6 +193,7 @@ from assets_deadlock_api_client.models.hero_starting_stat_v2 import HeroStarting
 from assets_deadlock_api_client.models.hero_starting_stats_v2 import HeroStartingStatsV2 as HeroStartingStatsV2
 from assets_deadlock_api_client.models.hero_type_v2 import HeroTypeV2 as HeroTypeV2
 from assets_deadlock_api_client.models.hero_v2 import HeroV2 as HeroV2
+from assets_deadlock_api_client.models.intrinsic_modifiers import IntrinsicModifiers as IntrinsicModifiers
 from assets_deadlock_api_client.models.item_group import ItemGroup as ItemGroup
 from assets_deadlock_api_client.models.item_property_v2 import ItemPropertyV2 as ItemPropertyV2
 from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2 as ItemSlotTypeV2
@@ -204,6 +215,7 @@ from assets_deadlock_api_client.models.objective_positions_v1 import ObjectivePo
 from assets_deadlock_api_client.models.pickup_definition import PickupDefinition as PickupDefinition
 from assets_deadlock_api_client.models.pickup_radius import PickupRadius as PickupRadius
 from assets_deadlock_api_client.models.range import Range as Range
+from assets_deadlock_api_client.models.ranged_armor_modifier import RangedArmorModifier as RangedArmorModifier
 from assets_deadlock_api_client.models.rank_images_v2 import RankImagesV2 as RankImagesV2
 from assets_deadlock_api_client.models.rank_v2 import RankV2 as RankV2
 from assets_deadlock_api_client.models.raw_ability_activation_v2 import RawAbilityActivationV2 as RawAbilityActivationV2
@@ -229,9 +241,15 @@ from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2
 from assets_deadlock_api_client.models.raw_weapon_info_vertical_recoil_v2 import RawWeaponInfoVerticalRecoilV2 as RawWeaponInfoVerticalRecoilV2
 from assets_deadlock_api_client.models.rejuv_params import RejuvParams as RejuvParams
 from assets_deadlock_api_client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet as ResponseGetItemV2ItemsIdOrClassNameGet
+from assets_deadlock_api_client.models.script_values import ScriptValues as ScriptValues
 from assets_deadlock_api_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty as StandingShotSpreadPenalty
 from assets_deadlock_api_client.models.stats_usage_flag_v2 import StatsUsageFlagV2 as StatsUsageFlagV2
+from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier as SubclassBulletResistModifier
+from assets_deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers as SubclassIntrinsicModifiers
 from assets_deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition as SubclassModifierDefinition
+from assets_deadlock_api_client.models.subclass_ranged_armor_modifier import SubclassRangedArmorModifier as SubclassRangedArmorModifier
+from assets_deadlock_api_client.models.subclass_trooper_damage_reduction import SubclassTrooperDamageReduction as SubclassTrooperDamageReduction
+from assets_deadlock_api_client.models.trooper_damage_reduction import TrooperDamageReduction as TrooperDamageReduction
 from assets_deadlock_api_client.models.upgrade_description_v2 import UpgradeDescriptionV2 as UpgradeDescriptionV2
 from assets_deadlock_api_client.models.upgrade_property_v2 import UpgradePropertyV2 as UpgradePropertyV2
 from assets_deadlock_api_client.models.upgrade_tooltip_section_attribute_v2 import UpgradeTooltipSectionAttributeV2 as UpgradeTooltipSectionAttributeV2

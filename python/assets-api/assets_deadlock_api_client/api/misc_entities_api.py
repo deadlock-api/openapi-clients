@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 from typing import List, Optional
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
 from assets_deadlock_api_client.models.misc_v2 import MiscV2
 from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2
 
@@ -43,7 +43,7 @@ class MiscEntitiesApi:
     @validate_call
     def get_misc_entities_v2_misc_entities_get(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -61,7 +61,7 @@ class MiscEntitiesApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -110,7 +110,7 @@ class MiscEntitiesApi:
     @validate_call
     def get_misc_entities_v2_misc_entities_get_with_http_info(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -128,7 +128,7 @@ class MiscEntitiesApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -177,7 +177,7 @@ class MiscEntitiesApi:
     @validate_call
     def get_misc_entities_v2_misc_entities_get_without_preload_content(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -195,7 +195,7 @@ class MiscEntitiesApi:
 
 
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -306,7 +306,7 @@ class MiscEntitiesApi:
     def get_misc_entity_v2_misc_entities_id_or_class_name_get(
         self,
         id_or_class_name: StrictStr,
-        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -326,7 +326,7 @@ class MiscEntitiesApi:
         :param id_or_class_name: (required)
         :type id_or_class_name: str
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -377,7 +377,7 @@ class MiscEntitiesApi:
     def get_misc_entity_v2_misc_entities_id_or_class_name_get_with_http_info(
         self,
         id_or_class_name: StrictStr,
-        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -397,7 +397,7 @@ class MiscEntitiesApi:
         :param id_or_class_name: (required)
         :type id_or_class_name: str
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -448,7 +448,7 @@ class MiscEntitiesApi:
     def get_misc_entity_v2_misc_entities_id_or_class_name_get_without_preload_content(
         self,
         id_or_class_name: StrictStr,
-        client_version: Optional[DeadlockAssetsApiRoutesRawValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesV2ValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -468,7 +468,7 @@ class MiscEntitiesApi:
         :param id_or_class_name: (required)
         :type id_or_class_name: str
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesRawValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesV2ValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

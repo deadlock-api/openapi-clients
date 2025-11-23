@@ -8,6 +8,13 @@ Name | Type | Description | Notes
 **class_name** | **str** |  | 
 **weapon_info** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] 
 **max_health** | **int** |  | [optional] 
+**max_health_final** | **int** |  | [optional] 
+**max_health_generator** | **int** |  | [optional] 
+**enemy_trooper_protection_range** | **float** |  | [optional] 
+**backdoor_bullet_resist_modifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] 
+**enemy_trooper_damage_reduction** | [**SubclassTrooperDamageReduction**](SubclassTrooperDamageReduction.md) |  | [optional] 
+**ranged_armor_modifier** | [**SubclassRangedArmorModifier**](SubclassRangedArmorModifier.md) |  | [optional] 
+**intrinsic_modifiers** | [**List[SubclassIntrinsicModifiers]**](SubclassIntrinsicModifiers.md) |  | [optional] 
 **sight_range_players** | **float** |  | [optional] 
 **sight_range_npcs** | **float** |  | [optional] 
 **gold_reward** | **float** |  | [optional] 

@@ -112,6 +112,30 @@ class TestNPCUnitV2(unittest.TestCase):
                         burst_constant = 1.337, 
                         burst_slope = 1.337, ), ),
                 max_health = 56,
+                max_health_final = 56,
+                max_health_generator = 56,
+                enemy_trooper_protection_range = 1.337,
+                backdoor_bullet_resist_modifier = assets_deadlock_api_client.models.subclass_bullet_resist_modifier.SubclassBulletResistModifier(
+                    subclass = assets_deadlock_api_client.models.bullet_resist_modifier.BulletResistModifier(
+                        bullet_resist = 56, 
+                        bullet_resist_reduction_per_hero = 56, ), ),
+                enemy_trooper_damage_reduction = assets_deadlock_api_client.models.subclass_trooper_damage_reduction.SubclassTrooperDamageReduction(
+                    subclass = assets_deadlock_api_client.models.trooper_damage_reduction.TrooperDamageReduction(
+                        damage_reduction_for_troopers = 1.337, ), ),
+                ranged_armor_modifier = assets_deadlock_api_client.models.subclass_ranged_armor_modifier.SubclassRangedArmorModifier(
+                    subclass = assets_deadlock_api_client.models.ranged_armor_modifier.RangedArmorModifier(
+                        range_min = 1.337, 
+                        range_max = 1.337, 
+                        invuln_range = 1.337, ), ),
+                intrinsic_modifiers = [
+                    assets_deadlock_api_client.models.subclass_intrinsic_modifiers.SubclassIntrinsicModifiers(
+                        subclass = assets_deadlock_api_client.models.intrinsic_modifiers.IntrinsicModifiers(
+                            script_values = [
+                                assets_deadlock_api_client.models.script_values.ScriptValues(
+                                    modifier_value = '', 
+                                    value = 1.337, )
+                                ], ), )
+                    ],
                 sight_range_players = 1.337,
                 sight_range_npcs = 1.337,
                 gold_reward = 1.337,

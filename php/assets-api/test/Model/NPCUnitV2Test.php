@@ -107,6 +107,69 @@ class NPCUnitV2Test extends TestCase
     }
 
     /**
+     * Test attribute "max_health_final"
+     */
+    public function testPropertyMaxHealthFinal()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_health_generator"
+     */
+    public function testPropertyMaxHealthGenerator()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enemy_trooper_protection_range"
+     */
+    public function testPropertyEnemyTrooperProtectionRange()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "backdoor_bullet_resist_modifier"
+     */
+    public function testPropertyBackdoorBulletResistModifier()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enemy_trooper_damage_reduction"
+     */
+    public function testPropertyEnemyTrooperDamageReduction()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ranged_armor_modifier"
+     */
+    public function testPropertyRangedArmorModifier()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "intrinsic_modifiers"
+     */
+    public function testPropertyIntrinsicModifiers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "sight_range_players"
      */
     public function testPropertySightRangePlayers()

@@ -17,6 +17,10 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.RawWeaponInfoV2
+import assets_deadlock_api_client.models.SubclassBulletResistModifier
+import assets_deadlock_api_client.models.SubclassIntrinsicModifiers
+import assets_deadlock_api_client.models.SubclassRangedArmorModifier
+import assets_deadlock_api_client.models.SubclassTrooperDamageReduction
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -29,6 +33,13 @@ import java.io.Serializable
  * @param id 
  * @param weaponInfo 
  * @param maxHealth 
+ * @param maxHealthFinal 
+ * @param maxHealthGenerator 
+ * @param enemyTrooperProtectionRange 
+ * @param backdoorBulletResistModifier 
+ * @param enemyTrooperDamageReduction 
+ * @param rangedArmorModifier 
+ * @param intrinsicModifiers 
  * @param sightRangePlayers 
  * @param sightRangeNpcs 
  * @param goldReward 
@@ -90,6 +101,27 @@ data class NPCUnitV2 (
 
     @Json(name = "max_health")
     val maxHealth: kotlin.Int? = null,
+
+    @Json(name = "max_health_final")
+    val maxHealthFinal: kotlin.Int? = null,
+
+    @Json(name = "max_health_generator")
+    val maxHealthGenerator: kotlin.Int? = null,
+
+    @Json(name = "enemy_trooper_protection_range")
+    val enemyTrooperProtectionRange: java.math.BigDecimal? = null,
+
+    @Json(name = "backdoor_bullet_resist_modifier")
+    val backdoorBulletResistModifier: SubclassBulletResistModifier? = null,
+
+    @Json(name = "enemy_trooper_damage_reduction")
+    val enemyTrooperDamageReduction: SubclassTrooperDamageReduction? = null,
+
+    @Json(name = "ranged_armor_modifier")
+    val rangedArmorModifier: SubclassRangedArmorModifier? = null,
+
+    @Json(name = "intrinsic_modifiers")
+    val intrinsicModifiers: kotlin.collections.List<SubclassIntrinsicModifiers>? = null,
 
     @Json(name = "sight_range_players")
     val sightRangePlayers: java.math.BigDecimal? = null,

@@ -19,6 +19,20 @@ pub struct NpcUnitV2 {
     pub weapon_info: Option<Option<Box<models::RawWeaponInfoV2>>>,
     #[serde(rename = "max_health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub max_health: Option<Option<i32>>,
+    #[serde(rename = "max_health_final", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub max_health_final: Option<Option<i32>>,
+    #[serde(rename = "max_health_generator", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub max_health_generator: Option<Option<i32>>,
+    #[serde(rename = "enemy_trooper_protection_range", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub enemy_trooper_protection_range: Option<Option<f64>>,
+    #[serde(rename = "backdoor_bullet_resist_modifier", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub backdoor_bullet_resist_modifier: Option<Option<Box<models::SubclassBulletResistModifier>>>,
+    #[serde(rename = "enemy_trooper_damage_reduction", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub enemy_trooper_damage_reduction: Option<Option<Box<models::SubclassTrooperDamageReduction>>>,
+    #[serde(rename = "ranged_armor_modifier", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub ranged_armor_modifier: Option<Option<Box<models::SubclassRangedArmorModifier>>>,
+    #[serde(rename = "intrinsic_modifiers", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub intrinsic_modifiers: Option<Option<Vec<models::SubclassIntrinsicModifiers>>>,
     #[serde(rename = "sight_range_players", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub sight_range_players: Option<Option<f64>>,
     #[serde(rename = "sight_range_npcs", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -119,6 +133,13 @@ impl NpcUnitV2 {
             class_name,
             weapon_info: None,
             max_health: None,
+            max_health_final: None,
+            max_health_generator: None,
+            enemy_trooper_protection_range: None,
+            backdoor_bullet_resist_modifier: None,
+            enemy_trooper_damage_reduction: None,
+            ranged_armor_modifier: None,
+            intrinsic_modifiers: None,
             sight_range_players: None,
             sight_range_npcs: None,
             gold_reward: None,

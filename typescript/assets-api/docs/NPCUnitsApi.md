@@ -23,7 +23,7 @@ const configuration = new Configuration();
 const apiInstance = new NPCUnitsApi(configuration);
 
 let idOrClassName: string; // (default to undefined)
-let clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getNpcUnitV2NpcUnitsIdOrClassNameGet(
     idOrClassName,
@@ -36,7 +36,7 @@ const { status, data } = await apiInstance.getNpcUnitV2NpcUnitsIdOrClassNameGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **idOrClassName** | [**string**] |  | defaults to undefined|
-| **clientVersion** | **DeadlockAssetsApiRoutesRawValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -76,7 +76,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new NPCUnitsApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getNpcUnitsV2NpcUnitsGet(
     clientVersion
@@ -87,7 +87,7 @@ const { status, data } = await apiInstance.getNpcUnitsV2NpcUnitsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesRawValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type

@@ -21,6 +21,10 @@ import io.kotlintest.specs.ShouldSpec
 import assets_deadlock_api_client.models.NPCUnitV2
 import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.RawWeaponInfoV2
+import assets_deadlock_api_client.models.SubclassBulletResistModifier
+import assets_deadlock_api_client.models.SubclassIntrinsicModifiers
+import assets_deadlock_api_client.models.SubclassRangedArmorModifier
+import assets_deadlock_api_client.models.SubclassTrooperDamageReduction
 
 class NPCUnitV2Test : ShouldSpec() {
     init {
@@ -49,6 +53,48 @@ class NPCUnitV2Test : ShouldSpec() {
         should("test maxHealth") {
             // uncomment below to test the property
             //modelInstance.maxHealth shouldBe ("TODO")
+        }
+
+        // to test the property `maxHealthFinal`
+        should("test maxHealthFinal") {
+            // uncomment below to test the property
+            //modelInstance.maxHealthFinal shouldBe ("TODO")
+        }
+
+        // to test the property `maxHealthGenerator`
+        should("test maxHealthGenerator") {
+            // uncomment below to test the property
+            //modelInstance.maxHealthGenerator shouldBe ("TODO")
+        }
+
+        // to test the property `enemyTrooperProtectionRange`
+        should("test enemyTrooperProtectionRange") {
+            // uncomment below to test the property
+            //modelInstance.enemyTrooperProtectionRange shouldBe ("TODO")
+        }
+
+        // to test the property `backdoorBulletResistModifier`
+        should("test backdoorBulletResistModifier") {
+            // uncomment below to test the property
+            //modelInstance.backdoorBulletResistModifier shouldBe ("TODO")
+        }
+
+        // to test the property `enemyTrooperDamageReduction`
+        should("test enemyTrooperDamageReduction") {
+            // uncomment below to test the property
+            //modelInstance.enemyTrooperDamageReduction shouldBe ("TODO")
+        }
+
+        // to test the property `rangedArmorModifier`
+        should("test rangedArmorModifier") {
+            // uncomment below to test the property
+            //modelInstance.rangedArmorModifier shouldBe ("TODO")
+        }
+
+        // to test the property `intrinsicModifiers`
+        should("test intrinsicModifiers") {
+            // uncomment below to test the property
+            //modelInstance.intrinsicModifiers shouldBe ("TODO")
         }
 
         // to test the property `sightRangePlayers`

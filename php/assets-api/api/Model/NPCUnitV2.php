@@ -60,6 +60,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'string',
         'weapon_info' => '\OpenAPI\Client\Model\RawWeaponInfoV2',
         'max_health' => 'int',
+        'max_health_final' => 'int',
+        'max_health_generator' => 'int',
+        'enemy_trooper_protection_range' => 'float',
+        'backdoor_bullet_resist_modifier' => '\OpenAPI\Client\Model\SubclassBulletResistModifier',
+        'enemy_trooper_damage_reduction' => '\OpenAPI\Client\Model\SubclassTrooperDamageReduction',
+        'ranged_armor_modifier' => '\OpenAPI\Client\Model\SubclassRangedArmorModifier',
+        'intrinsic_modifiers' => '\OpenAPI\Client\Model\SubclassIntrinsicModifiers[]',
         'sight_range_players' => 'float',
         'sight_range_npcs' => 'float',
         'gold_reward' => 'float',
@@ -119,6 +126,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => null,
         'weapon_info' => null,
         'max_health' => null,
+        'max_health_final' => null,
+        'max_health_generator' => null,
+        'enemy_trooper_protection_range' => null,
+        'backdoor_bullet_resist_modifier' => null,
+        'enemy_trooper_damage_reduction' => null,
+        'ranged_armor_modifier' => null,
+        'intrinsic_modifiers' => null,
         'sight_range_players' => null,
         'sight_range_npcs' => null,
         'gold_reward' => null,
@@ -176,6 +190,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => false,
         'weapon_info' => true,
         'max_health' => true,
+        'max_health_final' => true,
+        'max_health_generator' => true,
+        'enemy_trooper_protection_range' => true,
+        'backdoor_bullet_resist_modifier' => true,
+        'enemy_trooper_damage_reduction' => true,
+        'ranged_armor_modifier' => true,
+        'intrinsic_modifiers' => true,
         'sight_range_players' => true,
         'sight_range_npcs' => true,
         'gold_reward' => true,
@@ -313,6 +334,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'class_name',
         'weapon_info' => 'weapon_info',
         'max_health' => 'max_health',
+        'max_health_final' => 'max_health_final',
+        'max_health_generator' => 'max_health_generator',
+        'enemy_trooper_protection_range' => 'enemy_trooper_protection_range',
+        'backdoor_bullet_resist_modifier' => 'backdoor_bullet_resist_modifier',
+        'enemy_trooper_damage_reduction' => 'enemy_trooper_damage_reduction',
+        'ranged_armor_modifier' => 'ranged_armor_modifier',
+        'intrinsic_modifiers' => 'intrinsic_modifiers',
         'sight_range_players' => 'sight_range_players',
         'sight_range_npcs' => 'sight_range_npcs',
         'gold_reward' => 'gold_reward',
@@ -370,6 +398,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'setClassName',
         'weapon_info' => 'setWeaponInfo',
         'max_health' => 'setMaxHealth',
+        'max_health_final' => 'setMaxHealthFinal',
+        'max_health_generator' => 'setMaxHealthGenerator',
+        'enemy_trooper_protection_range' => 'setEnemyTrooperProtectionRange',
+        'backdoor_bullet_resist_modifier' => 'setBackdoorBulletResistModifier',
+        'enemy_trooper_damage_reduction' => 'setEnemyTrooperDamageReduction',
+        'ranged_armor_modifier' => 'setRangedArmorModifier',
+        'intrinsic_modifiers' => 'setIntrinsicModifiers',
         'sight_range_players' => 'setSightRangePlayers',
         'sight_range_npcs' => 'setSightRangeNpcs',
         'gold_reward' => 'setGoldReward',
@@ -427,6 +462,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'getClassName',
         'weapon_info' => 'getWeaponInfo',
         'max_health' => 'getMaxHealth',
+        'max_health_final' => 'getMaxHealthFinal',
+        'max_health_generator' => 'getMaxHealthGenerator',
+        'enemy_trooper_protection_range' => 'getEnemyTrooperProtectionRange',
+        'backdoor_bullet_resist_modifier' => 'getBackdoorBulletResistModifier',
+        'enemy_trooper_damage_reduction' => 'getEnemyTrooperDamageReduction',
+        'ranged_armor_modifier' => 'getRangedArmorModifier',
+        'intrinsic_modifiers' => 'getIntrinsicModifiers',
         'sight_range_players' => 'getSightRangePlayers',
         'sight_range_npcs' => 'getSightRangeNpcs',
         'gold_reward' => 'getGoldReward',
@@ -535,6 +577,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('class_name', $data ?? [], null);
         $this->setIfExists('weapon_info', $data ?? [], null);
         $this->setIfExists('max_health', $data ?? [], null);
+        $this->setIfExists('max_health_final', $data ?? [], null);
+        $this->setIfExists('max_health_generator', $data ?? [], null);
+        $this->setIfExists('enemy_trooper_protection_range', $data ?? [], null);
+        $this->setIfExists('backdoor_bullet_resist_modifier', $data ?? [], null);
+        $this->setIfExists('enemy_trooper_damage_reduction', $data ?? [], null);
+        $this->setIfExists('ranged_armor_modifier', $data ?? [], null);
+        $this->setIfExists('intrinsic_modifiers', $data ?? [], null);
         $this->setIfExists('sight_range_players', $data ?? [], null);
         $this->setIfExists('sight_range_npcs', $data ?? [], null);
         $this->setIfExists('gold_reward', $data ?? [], null);
@@ -722,6 +771,244 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['max_health'] = $max_health;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_health_final
+     *
+     * @return int|null
+     */
+    public function getMaxHealthFinal()
+    {
+        return $this->container['max_health_final'];
+    }
+
+    /**
+     * Sets max_health_final
+     *
+     * @param int|null $max_health_final max_health_final
+     *
+     * @return self
+     */
+    public function setMaxHealthFinal($max_health_final)
+    {
+        if (is_null($max_health_final)) {
+            array_push($this->openAPINullablesSetToNull, 'max_health_final');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('max_health_final', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['max_health_final'] = $max_health_final;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_health_generator
+     *
+     * @return int|null
+     */
+    public function getMaxHealthGenerator()
+    {
+        return $this->container['max_health_generator'];
+    }
+
+    /**
+     * Sets max_health_generator
+     *
+     * @param int|null $max_health_generator max_health_generator
+     *
+     * @return self
+     */
+    public function setMaxHealthGenerator($max_health_generator)
+    {
+        if (is_null($max_health_generator)) {
+            array_push($this->openAPINullablesSetToNull, 'max_health_generator');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('max_health_generator', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['max_health_generator'] = $max_health_generator;
+
+        return $this;
+    }
+
+    /**
+     * Gets enemy_trooper_protection_range
+     *
+     * @return float|null
+     */
+    public function getEnemyTrooperProtectionRange()
+    {
+        return $this->container['enemy_trooper_protection_range'];
+    }
+
+    /**
+     * Sets enemy_trooper_protection_range
+     *
+     * @param float|null $enemy_trooper_protection_range enemy_trooper_protection_range
+     *
+     * @return self
+     */
+    public function setEnemyTrooperProtectionRange($enemy_trooper_protection_range)
+    {
+        if (is_null($enemy_trooper_protection_range)) {
+            array_push($this->openAPINullablesSetToNull, 'enemy_trooper_protection_range');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enemy_trooper_protection_range', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['enemy_trooper_protection_range'] = $enemy_trooper_protection_range;
+
+        return $this;
+    }
+
+    /**
+     * Gets backdoor_bullet_resist_modifier
+     *
+     * @return \OpenAPI\Client\Model\SubclassBulletResistModifier|null
+     */
+    public function getBackdoorBulletResistModifier()
+    {
+        return $this->container['backdoor_bullet_resist_modifier'];
+    }
+
+    /**
+     * Sets backdoor_bullet_resist_modifier
+     *
+     * @param \OpenAPI\Client\Model\SubclassBulletResistModifier|null $backdoor_bullet_resist_modifier backdoor_bullet_resist_modifier
+     *
+     * @return self
+     */
+    public function setBackdoorBulletResistModifier($backdoor_bullet_resist_modifier)
+    {
+        if (is_null($backdoor_bullet_resist_modifier)) {
+            array_push($this->openAPINullablesSetToNull, 'backdoor_bullet_resist_modifier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('backdoor_bullet_resist_modifier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['backdoor_bullet_resist_modifier'] = $backdoor_bullet_resist_modifier;
+
+        return $this;
+    }
+
+    /**
+     * Gets enemy_trooper_damage_reduction
+     *
+     * @return \OpenAPI\Client\Model\SubclassTrooperDamageReduction|null
+     */
+    public function getEnemyTrooperDamageReduction()
+    {
+        return $this->container['enemy_trooper_damage_reduction'];
+    }
+
+    /**
+     * Sets enemy_trooper_damage_reduction
+     *
+     * @param \OpenAPI\Client\Model\SubclassTrooperDamageReduction|null $enemy_trooper_damage_reduction enemy_trooper_damage_reduction
+     *
+     * @return self
+     */
+    public function setEnemyTrooperDamageReduction($enemy_trooper_damage_reduction)
+    {
+        if (is_null($enemy_trooper_damage_reduction)) {
+            array_push($this->openAPINullablesSetToNull, 'enemy_trooper_damage_reduction');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enemy_trooper_damage_reduction', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['enemy_trooper_damage_reduction'] = $enemy_trooper_damage_reduction;
+
+        return $this;
+    }
+
+    /**
+     * Gets ranged_armor_modifier
+     *
+     * @return \OpenAPI\Client\Model\SubclassRangedArmorModifier|null
+     */
+    public function getRangedArmorModifier()
+    {
+        return $this->container['ranged_armor_modifier'];
+    }
+
+    /**
+     * Sets ranged_armor_modifier
+     *
+     * @param \OpenAPI\Client\Model\SubclassRangedArmorModifier|null $ranged_armor_modifier ranged_armor_modifier
+     *
+     * @return self
+     */
+    public function setRangedArmorModifier($ranged_armor_modifier)
+    {
+        if (is_null($ranged_armor_modifier)) {
+            array_push($this->openAPINullablesSetToNull, 'ranged_armor_modifier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ranged_armor_modifier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ranged_armor_modifier'] = $ranged_armor_modifier;
+
+        return $this;
+    }
+
+    /**
+     * Gets intrinsic_modifiers
+     *
+     * @return \OpenAPI\Client\Model\SubclassIntrinsicModifiers[]|null
+     */
+    public function getIntrinsicModifiers()
+    {
+        return $this->container['intrinsic_modifiers'];
+    }
+
+    /**
+     * Sets intrinsic_modifiers
+     *
+     * @param \OpenAPI\Client\Model\SubclassIntrinsicModifiers[]|null $intrinsic_modifiers intrinsic_modifiers
+     *
+     * @return self
+     */
+    public function setIntrinsicModifiers($intrinsic_modifiers)
+    {
+        if (is_null($intrinsic_modifiers)) {
+            array_push($this->openAPINullablesSetToNull, 'intrinsic_modifiers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('intrinsic_modifiers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['intrinsic_modifiers'] = $intrinsic_modifiers;
 
         return $this;
     }

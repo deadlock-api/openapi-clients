@@ -7,6 +7,13 @@ Name | Type | Description | Notes
 **class_name** | **string** |  |
 **weapon_info** | [**\OpenAPI\Client\Model\RawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional]
 **max_health** | **int** |  | [optional]
+**max_health_final** | **int** |  | [optional]
+**max_health_generator** | **int** |  | [optional]
+**enemy_trooper_protection_range** | **float** |  | [optional]
+**backdoor_bullet_resist_modifier** | [**\OpenAPI\Client\Model\SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional]
+**enemy_trooper_damage_reduction** | [**\OpenAPI\Client\Model\SubclassTrooperDamageReduction**](SubclassTrooperDamageReduction.md) |  | [optional]
+**ranged_armor_modifier** | [**\OpenAPI\Client\Model\SubclassRangedArmorModifier**](SubclassRangedArmorModifier.md) |  | [optional]
+**intrinsic_modifiers** | [**\OpenAPI\Client\Model\SubclassIntrinsicModifiers[]**](SubclassIntrinsicModifiers.md) |  | [optional]
 **sight_range_players** | **float** |  | [optional]
 **sight_range_npcs** | **float** |  | [optional]
 **gold_reward** | **float** |  | [optional]

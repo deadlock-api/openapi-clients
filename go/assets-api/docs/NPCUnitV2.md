@@ -7,6 +7,13 @@ Name | Type | Description | Notes
 **ClassName** | **string** |  | 
 **WeaponInfo** | Pointer to [**NullableRawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] 
 **MaxHealth** | Pointer to **NullableInt32** |  | [optional] 
+**MaxHealthFinal** | Pointer to **NullableInt32** |  | [optional] 
+**MaxHealthGenerator** | Pointer to **NullableInt32** |  | [optional] 
+**EnemyTrooperProtectionRange** | Pointer to **NullableFloat32** |  | [optional] 
+**BackdoorBulletResistModifier** | Pointer to [**NullableSubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] 
+**EnemyTrooperDamageReduction** | Pointer to [**NullableSubclassTrooperDamageReduction**](SubclassTrooperDamageReduction.md) |  | [optional] 
+**RangedArmorModifier** | Pointer to [**NullableSubclassRangedArmorModifier**](SubclassRangedArmorModifier.md) |  | [optional] 
+**IntrinsicModifiers** | Pointer to [**[]SubclassIntrinsicModifiers**](SubclassIntrinsicModifiers.md) |  | [optional] 
 **SightRangePlayers** | Pointer to **NullableFloat32** |  | [optional] 
 **SightRangeNpcs** | Pointer to **NullableFloat32** |  | [optional] 
 **GoldReward** | Pointer to **NullableFloat32** |  | [optional] 
@@ -163,6 +170,251 @@ HasMaxHealth returns a boolean if a field has been set.
 `func (o *NPCUnitV2) UnsetMaxHealth()`
 
 UnsetMaxHealth ensures that no value is present for MaxHealth, not even an explicit nil
+### GetMaxHealthFinal
+
+`func (o *NPCUnitV2) GetMaxHealthFinal() int32`
+
+GetMaxHealthFinal returns the MaxHealthFinal field if non-nil, zero value otherwise.
+
+### GetMaxHealthFinalOk
+
+`func (o *NPCUnitV2) GetMaxHealthFinalOk() (*int32, bool)`
+
+GetMaxHealthFinalOk returns a tuple with the MaxHealthFinal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxHealthFinal
+
+`func (o *NPCUnitV2) SetMaxHealthFinal(v int32)`
+
+SetMaxHealthFinal sets MaxHealthFinal field to given value.
+
+### HasMaxHealthFinal
+
+`func (o *NPCUnitV2) HasMaxHealthFinal() bool`
+
+HasMaxHealthFinal returns a boolean if a field has been set.
+
+### SetMaxHealthFinalNil
+
+`func (o *NPCUnitV2) SetMaxHealthFinalNil(b bool)`
+
+ SetMaxHealthFinalNil sets the value for MaxHealthFinal to be an explicit nil
+
+### UnsetMaxHealthFinal
+`func (o *NPCUnitV2) UnsetMaxHealthFinal()`
+
+UnsetMaxHealthFinal ensures that no value is present for MaxHealthFinal, not even an explicit nil
+### GetMaxHealthGenerator
+
+`func (o *NPCUnitV2) GetMaxHealthGenerator() int32`
+
+GetMaxHealthGenerator returns the MaxHealthGenerator field if non-nil, zero value otherwise.
+
+### GetMaxHealthGeneratorOk
+
+`func (o *NPCUnitV2) GetMaxHealthGeneratorOk() (*int32, bool)`
+
+GetMaxHealthGeneratorOk returns a tuple with the MaxHealthGenerator field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxHealthGenerator
+
+`func (o *NPCUnitV2) SetMaxHealthGenerator(v int32)`
+
+SetMaxHealthGenerator sets MaxHealthGenerator field to given value.
+
+### HasMaxHealthGenerator
+
+`func (o *NPCUnitV2) HasMaxHealthGenerator() bool`
+
+HasMaxHealthGenerator returns a boolean if a field has been set.
+
+### SetMaxHealthGeneratorNil
+
+`func (o *NPCUnitV2) SetMaxHealthGeneratorNil(b bool)`
+
+ SetMaxHealthGeneratorNil sets the value for MaxHealthGenerator to be an explicit nil
+
+### UnsetMaxHealthGenerator
+`func (o *NPCUnitV2) UnsetMaxHealthGenerator()`
+
+UnsetMaxHealthGenerator ensures that no value is present for MaxHealthGenerator, not even an explicit nil
+### GetEnemyTrooperProtectionRange
+
+`func (o *NPCUnitV2) GetEnemyTrooperProtectionRange() float32`
+
+GetEnemyTrooperProtectionRange returns the EnemyTrooperProtectionRange field if non-nil, zero value otherwise.
+
+### GetEnemyTrooperProtectionRangeOk
+
+`func (o *NPCUnitV2) GetEnemyTrooperProtectionRangeOk() (*float32, bool)`
+
+GetEnemyTrooperProtectionRangeOk returns a tuple with the EnemyTrooperProtectionRange field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnemyTrooperProtectionRange
+
+`func (o *NPCUnitV2) SetEnemyTrooperProtectionRange(v float32)`
+
+SetEnemyTrooperProtectionRange sets EnemyTrooperProtectionRange field to given value.
+
+### HasEnemyTrooperProtectionRange
+
+`func (o *NPCUnitV2) HasEnemyTrooperProtectionRange() bool`
+
+HasEnemyTrooperProtectionRange returns a boolean if a field has been set.
+
+### SetEnemyTrooperProtectionRangeNil
+
+`func (o *NPCUnitV2) SetEnemyTrooperProtectionRangeNil(b bool)`
+
+ SetEnemyTrooperProtectionRangeNil sets the value for EnemyTrooperProtectionRange to be an explicit nil
+
+### UnsetEnemyTrooperProtectionRange
+`func (o *NPCUnitV2) UnsetEnemyTrooperProtectionRange()`
+
+UnsetEnemyTrooperProtectionRange ensures that no value is present for EnemyTrooperProtectionRange, not even an explicit nil
+### GetBackdoorBulletResistModifier
+
+`func (o *NPCUnitV2) GetBackdoorBulletResistModifier() SubclassBulletResistModifier`
+
+GetBackdoorBulletResistModifier returns the BackdoorBulletResistModifier field if non-nil, zero value otherwise.
+
+### GetBackdoorBulletResistModifierOk
+
+`func (o *NPCUnitV2) GetBackdoorBulletResistModifierOk() (*SubclassBulletResistModifier, bool)`
+
+GetBackdoorBulletResistModifierOk returns a tuple with the BackdoorBulletResistModifier field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackdoorBulletResistModifier
+
+`func (o *NPCUnitV2) SetBackdoorBulletResistModifier(v SubclassBulletResistModifier)`
+
+SetBackdoorBulletResistModifier sets BackdoorBulletResistModifier field to given value.
+
+### HasBackdoorBulletResistModifier
+
+`func (o *NPCUnitV2) HasBackdoorBulletResistModifier() bool`
+
+HasBackdoorBulletResistModifier returns a boolean if a field has been set.
+
+### SetBackdoorBulletResistModifierNil
+
+`func (o *NPCUnitV2) SetBackdoorBulletResistModifierNil(b bool)`
+
+ SetBackdoorBulletResistModifierNil sets the value for BackdoorBulletResistModifier to be an explicit nil
+
+### UnsetBackdoorBulletResistModifier
+`func (o *NPCUnitV2) UnsetBackdoorBulletResistModifier()`
+
+UnsetBackdoorBulletResistModifier ensures that no value is present for BackdoorBulletResistModifier, not even an explicit nil
+### GetEnemyTrooperDamageReduction
+
+`func (o *NPCUnitV2) GetEnemyTrooperDamageReduction() SubclassTrooperDamageReduction`
+
+GetEnemyTrooperDamageReduction returns the EnemyTrooperDamageReduction field if non-nil, zero value otherwise.
+
+### GetEnemyTrooperDamageReductionOk
+
+`func (o *NPCUnitV2) GetEnemyTrooperDamageReductionOk() (*SubclassTrooperDamageReduction, bool)`
+
+GetEnemyTrooperDamageReductionOk returns a tuple with the EnemyTrooperDamageReduction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnemyTrooperDamageReduction
+
+`func (o *NPCUnitV2) SetEnemyTrooperDamageReduction(v SubclassTrooperDamageReduction)`
+
+SetEnemyTrooperDamageReduction sets EnemyTrooperDamageReduction field to given value.
+
+### HasEnemyTrooperDamageReduction
+
+`func (o *NPCUnitV2) HasEnemyTrooperDamageReduction() bool`
+
+HasEnemyTrooperDamageReduction returns a boolean if a field has been set.
+
+### SetEnemyTrooperDamageReductionNil
+
+`func (o *NPCUnitV2) SetEnemyTrooperDamageReductionNil(b bool)`
+
+ SetEnemyTrooperDamageReductionNil sets the value for EnemyTrooperDamageReduction to be an explicit nil
+
+### UnsetEnemyTrooperDamageReduction
+`func (o *NPCUnitV2) UnsetEnemyTrooperDamageReduction()`
+
+UnsetEnemyTrooperDamageReduction ensures that no value is present for EnemyTrooperDamageReduction, not even an explicit nil
+### GetRangedArmorModifier
+
+`func (o *NPCUnitV2) GetRangedArmorModifier() SubclassRangedArmorModifier`
+
+GetRangedArmorModifier returns the RangedArmorModifier field if non-nil, zero value otherwise.
+
+### GetRangedArmorModifierOk
+
+`func (o *NPCUnitV2) GetRangedArmorModifierOk() (*SubclassRangedArmorModifier, bool)`
+
+GetRangedArmorModifierOk returns a tuple with the RangedArmorModifier field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRangedArmorModifier
+
+`func (o *NPCUnitV2) SetRangedArmorModifier(v SubclassRangedArmorModifier)`
+
+SetRangedArmorModifier sets RangedArmorModifier field to given value.
+
+### HasRangedArmorModifier
+
+`func (o *NPCUnitV2) HasRangedArmorModifier() bool`
+
+HasRangedArmorModifier returns a boolean if a field has been set.
+
+### SetRangedArmorModifierNil
+
+`func (o *NPCUnitV2) SetRangedArmorModifierNil(b bool)`
+
+ SetRangedArmorModifierNil sets the value for RangedArmorModifier to be an explicit nil
+
+### UnsetRangedArmorModifier
+`func (o *NPCUnitV2) UnsetRangedArmorModifier()`
+
+UnsetRangedArmorModifier ensures that no value is present for RangedArmorModifier, not even an explicit nil
+### GetIntrinsicModifiers
+
+`func (o *NPCUnitV2) GetIntrinsicModifiers() []SubclassIntrinsicModifiers`
+
+GetIntrinsicModifiers returns the IntrinsicModifiers field if non-nil, zero value otherwise.
+
+### GetIntrinsicModifiersOk
+
+`func (o *NPCUnitV2) GetIntrinsicModifiersOk() (*[]SubclassIntrinsicModifiers, bool)`
+
+GetIntrinsicModifiersOk returns a tuple with the IntrinsicModifiers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIntrinsicModifiers
+
+`func (o *NPCUnitV2) SetIntrinsicModifiers(v []SubclassIntrinsicModifiers)`
+
+SetIntrinsicModifiers sets IntrinsicModifiers field to given value.
+
+### HasIntrinsicModifiers
+
+`func (o *NPCUnitV2) HasIntrinsicModifiers() bool`
+
+HasIntrinsicModifiers returns a boolean if a field has been set.
+
+### SetIntrinsicModifiersNil
+
+`func (o *NPCUnitV2) SetIntrinsicModifiersNil(b bool)`
+
+ SetIntrinsicModifiersNil sets the value for IntrinsicModifiers to be an explicit nil
+
+### UnsetIntrinsicModifiers
+`func (o *NPCUnitV2) UnsetIntrinsicModifiers()`
+
+UnsetIntrinsicModifiers ensures that no value is present for IntrinsicModifiers, not even an explicit nil
 ### GetSightRangePlayers
 
 `func (o *NPCUnitV2) GetSightRangePlayers() float32`

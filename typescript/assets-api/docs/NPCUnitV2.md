@@ -8,6 +8,13 @@ Name | Type | Description | Notes
 **class_name** | **string** |  | [default to undefined]
 **weapon_info** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] [default to undefined]
 **max_health** | **number** |  | [optional] [default to undefined]
+**max_health_final** | **number** |  | [optional] [default to undefined]
+**max_health_generator** | **number** |  | [optional] [default to undefined]
+**enemy_trooper_protection_range** | **number** |  | [optional] [default to undefined]
+**backdoor_bullet_resist_modifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] [default to undefined]
+**enemy_trooper_damage_reduction** | [**SubclassTrooperDamageReduction**](SubclassTrooperDamageReduction.md) |  | [optional] [default to undefined]
+**ranged_armor_modifier** | [**SubclassRangedArmorModifier**](SubclassRangedArmorModifier.md) |  | [optional] [default to undefined]
+**intrinsic_modifiers** | [**Array&lt;SubclassIntrinsicModifiers&gt;**](SubclassIntrinsicModifiers.md) |  | [optional] [default to undefined]
 **sight_range_players** | **number** |  | [optional] [default to undefined]
 **sight_range_npcs** | **number** |  | [optional] [default to undefined]
 **gold_reward** | **number** |  | [optional] [default to undefined]
@@ -64,6 +71,13 @@ const instance: NPCUnitV2 = {
     class_name,
     weapon_info,
     max_health,
+    max_health_final,
+    max_health_generator,
+    enemy_trooper_protection_range,
+    backdoor_bullet_resist_modifier,
+    enemy_trooper_damage_reduction,
+    ranged_armor_modifier,
+    intrinsic_modifiers,
     sight_range_players,
     sight_range_npcs,
     gold_reward,

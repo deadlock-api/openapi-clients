@@ -8,6 +8,13 @@
 | **id** | **kotlin.Long** |  |  [readonly] |
 | **weaponInfo** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  |  [optional] |
 | **maxHealth** | **kotlin.Int** |  |  [optional] |
+| **maxHealthFinal** | **kotlin.Int** |  |  [optional] |
+| **maxHealthGenerator** | **kotlin.Int** |  |  [optional] |
+| **enemyTrooperProtectionRange** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **backdoorBulletResistModifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  |  [optional] |
+| **enemyTrooperDamageReduction** | [**SubclassTrooperDamageReduction**](SubclassTrooperDamageReduction.md) |  |  [optional] |
+| **rangedArmorModifier** | [**SubclassRangedArmorModifier**](SubclassRangedArmorModifier.md) |  |  [optional] |
+| **intrinsicModifiers** | [**kotlin.collections.List&lt;SubclassIntrinsicModifiers&gt;**](SubclassIntrinsicModifiers.md) |  |  [optional] |
 | **sightRangePlayers** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **sightRangeNpcs** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **goldReward** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

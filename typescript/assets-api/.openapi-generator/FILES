@@ -17,10 +17,11 @@ docs/AbilityVideosV2.md
 docs/AimingShotSpreadPenalty.md
 docs/Bonus.md
 docs/BuildTagV2.md
+docs/BulletResistModifier.md
 docs/ColorV1.md
 docs/Curve.md
 docs/DamageFlashV2.md
-docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md
 docs/DefaultApi.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -41,6 +42,7 @@ docs/HeroStartingStatsV2.md
 docs/HeroTypeV2.md
 docs/HeroV2.md
 docs/HeroesApi.md
+docs/IntrinsicModifiers.md
 docs/ItemGroup.md
 docs/ItemPropertyV2.md
 docs/ItemSlotTypeV2.md
@@ -65,6 +67,7 @@ docs/ObjectivePositionsV1.md
 docs/PickupDefinition.md
 docs/PickupRadius.md
 docs/Range.md
+docs/RangedArmorModifier.md
 docs/RankImagesV2.md
 docs/RankV2.md
 docs/RawAbilityActivationV2.md
@@ -91,9 +94,15 @@ docs/RawWeaponInfoV2.md
 docs/RawWeaponInfoVerticalRecoilV2.md
 docs/RejuvParams.md
 docs/ResponseGetItemV2ItemsIdOrClassNameGet.md
+docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
+docs/SubclassBulletResistModifier.md
+docs/SubclassIntrinsicModifiers.md
 docs/SubclassModifierDefinition.md
+docs/SubclassRangedArmorModifier.md
+docs/SubclassTrooperDamageReduction.md
+docs/TrooperDamageReduction.md
 docs/UpgradeDescriptionV2.md
 docs/UpgradePropertyV2.md
 docs/UpgradeTooltipSectionAttributeV2.md

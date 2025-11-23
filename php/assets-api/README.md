@@ -73,7 +73,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV2ValidClientVersions
 
 try {
     $result = $apiInstance->getBuildTagsV2BuildTagsGet($language, $client_version);
@@ -127,10 +127,11 @@ Class | Method | HTTP request | Description
 - [AimingShotSpreadPenalty](docs/Model/AimingShotSpreadPenalty.md)
 - [Bonus](docs/Model/Bonus.md)
 - [BuildTagV2](docs/Model/BuildTagV2.md)
+- [BulletResistModifier](docs/Model/BulletResistModifier.md)
 - [ColorV1](docs/Model/ColorV1.md)
 - [Curve](docs/Model/Curve.md)
 - [DamageFlashV2](docs/Model/DamageFlashV2.md)
-- [DeadlockAssetsApiRoutesRawValidClientVersions](docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+- [DeadlockAssetsApiRoutesV2ValidClientVersions](docs/Model/DeadlockAssetsApiRoutesV2ValidClientVersions.md)
 - [ExpirationDuration](docs/Model/ExpirationDuration.md)
 - [FlashDataV2](docs/Model/FlashDataV2.md)
 - [GenericDataV2](docs/Model/GenericDataV2.md)
@@ -149,6 +150,7 @@ Class | Method | HTTP request | Description
 - [HeroStartingStatsV2](docs/Model/HeroStartingStatsV2.md)
 - [HeroTypeV2](docs/Model/HeroTypeV2.md)
 - [HeroV2](docs/Model/HeroV2.md)
+- [IntrinsicModifiers](docs/Model/IntrinsicModifiers.md)
 - [ItemGroup](docs/Model/ItemGroup.md)
 - [ItemPropertyV2](docs/Model/ItemPropertyV2.md)
 - [ItemSlotTypeV2](docs/Model/ItemSlotTypeV2.md)
@@ -170,6 +172,7 @@ Class | Method | HTTP request | Description
 - [PickupDefinition](docs/Model/PickupDefinition.md)
 - [PickupRadius](docs/Model/PickupRadius.md)
 - [Range](docs/Model/Range.md)
+- [RangedArmorModifier](docs/Model/RangedArmorModifier.md)
 - [RankImagesV2](docs/Model/RankImagesV2.md)
 - [RankV2](docs/Model/RankV2.md)
 - [RawAbilityActivationV2](docs/Model/RawAbilityActivationV2.md)
@@ -195,9 +198,15 @@ Class | Method | HTTP request | Description
 - [RawWeaponInfoVerticalRecoilV2](docs/Model/RawWeaponInfoVerticalRecoilV2.md)
 - [RejuvParams](docs/Model/RejuvParams.md)
 - [ResponseGetItemV2ItemsIdOrClassNameGet](docs/Model/ResponseGetItemV2ItemsIdOrClassNameGet.md)
+- [ScriptValues](docs/Model/ScriptValues.md)
 - [StandingShotSpreadPenalty](docs/Model/StandingShotSpreadPenalty.md)
 - [StatsUsageFlagV2](docs/Model/StatsUsageFlagV2.md)
+- [SubclassBulletResistModifier](docs/Model/SubclassBulletResistModifier.md)
+- [SubclassIntrinsicModifiers](docs/Model/SubclassIntrinsicModifiers.md)
 - [SubclassModifierDefinition](docs/Model/SubclassModifierDefinition.md)
+- [SubclassRangedArmorModifier](docs/Model/SubclassRangedArmorModifier.md)
+- [SubclassTrooperDamageReduction](docs/Model/SubclassTrooperDamageReduction.md)
+- [TrooperDamageReduction](docs/Model/TrooperDamageReduction.md)
 - [UpgradeDescriptionV2](docs/Model/UpgradeDescriptionV2.md)
 - [UpgradePropertyV2](docs/Model/UpgradePropertyV2.md)
 - [UpgradeTooltipSectionAttributeV2](docs/Model/UpgradeTooltipSectionAttributeV2.md)
