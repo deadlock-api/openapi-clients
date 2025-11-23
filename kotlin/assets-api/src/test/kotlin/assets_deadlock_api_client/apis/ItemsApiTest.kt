@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.apis.ItemsApi
-import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
+import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets_deadlock_api_client.models.GetItemsV2ItemsGet200ResponseInner
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.ItemSlotTypeV2
@@ -37,7 +37,7 @@ class ItemsApiTest : ShouldSpec() {
             // uncomment below to test getItemV2ItemsIdOrClassNameGet
             //val idOrClassName : kotlin.String = idOrClassName_example // kotlin.String | 
             //val language : Language =  // Language | 
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
             //val result : ResponseGetItemV2ItemsIdOrClassNameGet = apiInstance.getItemV2ItemsIdOrClassNameGet(idOrClassName, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -47,7 +47,7 @@ class ItemsApiTest : ShouldSpec() {
             // uncomment below to test getItemsByHeroIdV2ItemsByHeroIdIdGet
             //val id : kotlin.Int = 56 // kotlin.Int | 
             //val language : Language =  // Language | 
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
             //val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -57,7 +57,7 @@ class ItemsApiTest : ShouldSpec() {
             // uncomment below to test getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet
             //val slotType : ItemSlotTypeV2 =  // ItemSlotTypeV2 | 
             //val language : Language =  // Language | 
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
             //val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -67,7 +67,7 @@ class ItemsApiTest : ShouldSpec() {
             // uncomment below to test getItemsByTypeV2ItemsByTypeTypeGet
             //val type : ItemTypeV2 =  // ItemTypeV2 | 
             //val language : Language =  // Language | 
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
             //val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -76,7 +76,7 @@ class ItemsApiTest : ShouldSpec() {
         should("test getItemsV2ItemsGet") {
             // uncomment below to test getItemsV2ItemsGet
             //val language : Language =  // Language | 
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
             //val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsV2ItemsGet(language, clientVersion)
             //result shouldBe ("TODO")
         }

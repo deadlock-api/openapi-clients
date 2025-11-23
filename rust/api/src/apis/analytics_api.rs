@@ -355,7 +355,11 @@ pub struct ItemStatsParams {
     /// Filter for matches with a specific player account ID.
     pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<u32>>
+    pub account_ids: Option<Vec<u32>>,
+    /// Filter items bought after this game time (seconds).
+    pub min_bought_at_s: Option<u32>,
+    /// Filter items bought before this game time (seconds).
+    pub max_bought_at_s: Option<u32>
 }
 
 /// struct for passing parameters to the method [`kill_death_stats`]
@@ -1404,6 +1408,12 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
+    }
+    if let Some(ref param_value) = params.min_bought_at_s {
+        req_builder = req_builder.query(&[("min_bought_at_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_bought_at_s {
+        req_builder = req_builder.query(&[("max_bought_at_s", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

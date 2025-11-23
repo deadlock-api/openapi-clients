@@ -18,7 +18,7 @@ docs/BulletResistModifier.md
 docs/ColorV1.md
 docs/Curve.md
 docs/DamageFlashV2.md
-docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
 docs/DefaultApi.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -138,7 +138,7 @@ src/models/bullet_resist_modifier.rs
 src/models/color_v1.rs
 src/models/curve.rs
 src/models/damage_flash_v2.rs
-src/models/deadlock_assets_api__routes__v2__valid_client_versions.rs
+src/models/deadlock_assets_api__routes__v1__valid_client_versions.rs
 src/models/expiration_duration.rs
 src/models/flash_data_v2.rs
 src/models/generic_data_v2.rs

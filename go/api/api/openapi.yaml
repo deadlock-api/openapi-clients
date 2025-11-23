@@ -109,7 +109,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -314,7 +314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -446,7 +446,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -494,7 +494,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -730,7 +730,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -969,7 +969,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -1217,7 +1217,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -1482,7 +1482,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -1694,7 +1694,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -1881,6 +1881,28 @@ paths:
           nullable: true
           type: array
         style: form
+      - description: Filter items bought after this game time (seconds).
+        explode: true
+        in: query
+        name: min_bought_at_s
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter items bought before this game time (seconds).
+        explode: true
+        in: query
+        name: max_bought_at_s
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -1923,7 +1945,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -2195,7 +2217,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -2478,7 +2500,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -4556,7 +4578,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer
@@ -4675,7 +4697,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1761177600
+          default: 1761264000
           format: int64
           nullable: true
           type: integer

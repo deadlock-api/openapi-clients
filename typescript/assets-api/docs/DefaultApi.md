@@ -30,7 +30,7 @@ const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
 let language: Language; // (optional) (default to undefined)
-let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getBuildTagsV2BuildTagsGet(
     language,
@@ -43,7 +43,7 @@ const { status, data } = await apiInstance.getBuildTagsV2BuildTagsGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **language** | **Language** |  | (optional) defaults to undefined|
-| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -126,7 +126,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getColorsV1ColorsGet(
     clientVersion
@@ -137,7 +137,7 @@ const { status, data } = await apiInstance.getColorsV1ColorsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -177,7 +177,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getGenericDataV2GenericDataGet(
     clientVersion
@@ -188,7 +188,7 @@ const { status, data } = await apiInstance.getGenericDataV2GenericDataGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -228,7 +228,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getIconsV1IconsGet(
     clientVersion
@@ -239,7 +239,7 @@ const { status, data } = await apiInstance.getIconsV1IconsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -279,7 +279,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getMapV1MapGet(
     clientVersion
@@ -290,7 +290,7 @@ const { status, data } = await apiInstance.getMapV1MapGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -331,7 +331,7 @@ const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
 let language: Language; // (optional) (default to undefined)
-let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getRanksV2RanksGet(
     language,
@@ -344,7 +344,7 @@ const { status, data } = await apiInstance.getRanksV2RanksGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **language** | **Language** |  | (optional) defaults to undefined|
-| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -384,7 +384,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getSoundsV1SoundsGet(
     clientVersion
@@ -395,7 +395,7 @@ const { status, data } = await apiInstance.getSoundsV1SoundsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -435,7 +435,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getSteamInfoV1SteamInfoGet(
     clientVersion
@@ -446,7 +446,7 @@ const { status, data } = await apiInstance.getSteamInfoV1SteamInfoGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV2ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type

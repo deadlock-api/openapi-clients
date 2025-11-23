@@ -4519,6 +4519,8 @@ class AnalyticsApi:
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        min_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought after this game time (seconds).")] = None,
+        max_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought before this game time (seconds).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4574,6 +4576,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param min_bought_at_s: Filter items bought after this game time (seconds).
+        :type min_bought_at_s: int
+        :param max_bought_at_s: Filter items bought before this game time (seconds).
+        :type max_bought_at_s: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4616,6 +4622,8 @@ class AnalyticsApi:
             max_matches=max_matches,
             account_id=account_id,
             account_ids=account_ids,
+            min_bought_at_s=min_bought_at_s,
+            max_bought_at_s=max_bought_at_s,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4660,6 +4668,8 @@ class AnalyticsApi:
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        min_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought after this game time (seconds).")] = None,
+        max_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought before this game time (seconds).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4715,6 +4725,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param min_bought_at_s: Filter items bought after this game time (seconds).
+        :type min_bought_at_s: int
+        :param max_bought_at_s: Filter items bought before this game time (seconds).
+        :type max_bought_at_s: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4757,6 +4771,8 @@ class AnalyticsApi:
             max_matches=max_matches,
             account_id=account_id,
             account_ids=account_ids,
+            min_bought_at_s=min_bought_at_s,
+            max_bought_at_s=max_bought_at_s,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4801,6 +4817,8 @@ class AnalyticsApi:
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        min_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought after this game time (seconds).")] = None,
+        max_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought before this game time (seconds).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4856,6 +4874,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param min_bought_at_s: Filter items bought after this game time (seconds).
+        :type min_bought_at_s: int
+        :param max_bought_at_s: Filter items bought before this game time (seconds).
+        :type max_bought_at_s: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4898,6 +4920,8 @@ class AnalyticsApi:
             max_matches=max_matches,
             account_id=account_id,
             account_ids=account_ids,
+            min_bought_at_s=min_bought_at_s,
+            max_bought_at_s=max_bought_at_s,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4937,6 +4961,8 @@ class AnalyticsApi:
         max_matches,
         account_id,
         account_ids,
+        min_bought_at_s,
+        max_bought_at_s,
         _request_auth,
         _content_type,
         _headers,
@@ -5037,6 +5063,14 @@ class AnalyticsApi:
         if account_ids is not None:
             
             _query_params.append(('account_ids', account_ids))
+            
+        if min_bought_at_s is not None:
+            
+            _query_params.append(('min_bought_at_s', min_bought_at_s))
+            
+        if max_bought_at_s is not None:
+            
+            _query_params.append(('max_bought_at_s', max_bought_at_s))
             
         # process the header parameters
         # process the form parameters

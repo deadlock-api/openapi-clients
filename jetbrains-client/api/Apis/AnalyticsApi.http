@@ -47,7 +47,7 @@ Accept: application/json
 
 ### Item Stats
 ## Item Stats
-GET https://api.deadlock-api.com/v1/analytics/item-stats?bucket={{bucket}}&heroIds={{heroIds}}&heroId={{heroId}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountId={{accountId}}&accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/analytics/item-stats?bucket={{bucket}}&heroIds={{heroIds}}&heroId={{heroId}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountId={{accountId}}&accountIds={{accountIds}}&minBoughtAtS={{minBoughtAtS}}&maxBoughtAtS={{maxBoughtAtS}}
 Accept: application/json
 
 ### Kill Death Stats

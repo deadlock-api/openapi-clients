@@ -26,7 +26,7 @@ Get Build Tags
 ```python
 import assets_deadlock_api_client
 from assets_deadlock_api_client.models.build_tag_v2 import BuildTagV2
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
@@ -43,7 +43,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Build Tags
@@ -62,7 +62,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -158,7 +158,7 @@ Get Colors
 ```python
 import assets_deadlock_api_client
 from assets_deadlock_api_client.models.color_v1 import ColorV1
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -173,7 +173,7 @@ configuration = assets_deadlock_api_client.Configuration(
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Colors
@@ -191,7 +191,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -225,7 +225,7 @@ Get Generic Data
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.models.generic_data_v2 import GenericDataV2
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
@@ -241,7 +241,7 @@ configuration = assets_deadlock_api_client.Configuration(
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Generic Data
@@ -259,7 +259,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -293,7 +293,7 @@ Get Icons
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -308,7 +308,7 @@ configuration = assets_deadlock_api_client.Configuration(
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Icons
@@ -326,7 +326,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -360,7 +360,7 @@ Get Map
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.models.map_v1 import MapV1
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
@@ -376,7 +376,7 @@ configuration = assets_deadlock_api_client.Configuration(
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Map
@@ -394,7 +394,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -428,7 +428,7 @@ Get Ranks
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.models.rank_v2 import RankV2
 from assets_deadlock_api_client.rest import ApiException
@@ -446,7 +446,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Ranks
@@ -465,7 +465,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -499,7 +499,7 @@ Get Sounds
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -514,7 +514,7 @@ configuration = assets_deadlock_api_client.Configuration(
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Sounds
@@ -532,7 +532,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -566,7 +566,7 @@ Get Steam Info
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -581,7 +581,7 @@ configuration = assets_deadlock_api_client.Configuration(
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Steam Info
@@ -599,7 +599,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 

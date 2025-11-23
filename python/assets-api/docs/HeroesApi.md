@@ -19,7 +19,7 @@ Get Hero By Name
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.models.hero_v2 import HeroV2
 from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
@@ -38,7 +38,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = assets_deadlock_api_client.HeroesApi(api_client)
     name = 'name_example' # str | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Hero By Name
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -92,7 +92,7 @@ Get Hero
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.models.hero_v2 import HeroV2
 from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
@@ -111,7 +111,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = assets_deadlock_api_client.HeroesApi(api_client)
     id = 56 # int | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Hero
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
 
 ### Return type
 
@@ -165,7 +165,7 @@ Get Heroes
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v2_valid_client_versions import DeadlockAssetsApiRoutesV2ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.models.hero_v2 import HeroV2
 from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
@@ -183,7 +183,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.HeroesApi(api_client)
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV2ValidClientVersions() # DeadlockAssetsApiRoutesV2ValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
     only_active = True # bool |  (optional)
 
     try:
@@ -203,7 +203,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](.md)|  | [optional] 
- **client_version** | [**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)|  | [optional] 
+ **client_version** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)|  | [optional] 
  **only_active** | **bool**|  | [optional] 
 
 ### Return type

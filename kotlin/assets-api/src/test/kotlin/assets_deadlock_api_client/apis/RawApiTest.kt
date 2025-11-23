@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.apis.RawApi
-import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
+import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
 
 class RawApiTest : ShouldSpec() {
@@ -30,7 +30,7 @@ class RawApiTest : ShouldSpec() {
         // to test getRawHeroesRawHeroesGet
         should("test getRawHeroesRawHeroesGet") {
             // uncomment below to test getRawHeroesRawHeroesGet
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
             //val result : kotlin.Any = apiInstance.getRawHeroesRawHeroesGet(clientVersion)
             //result shouldBe ("TODO")
         }
@@ -38,7 +38,7 @@ class RawApiTest : ShouldSpec() {
         // to test getRawItemsRawItemsGet
         should("test getRawItemsRawItemsGet") {
             // uncomment below to test getRawItemsRawItemsGet
-            //val clientVersion : DeadlockAssetsApiRoutesV2ValidClientVersions =  // DeadlockAssetsApiRoutesV2ValidClientVersions | 
+            //val clientVersion : DeadlockAssetsApiRoutesV1ValidClientVersions =  // DeadlockAssetsApiRoutesV1ValidClientVersions | 
             //val result : kotlin.Any = apiInstance.getRawItemsRawItemsGet(clientVersion)
             //result shouldBe ("TODO")
         }
