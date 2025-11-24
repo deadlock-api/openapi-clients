@@ -28,7 +28,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(6002) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(6008) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -93,7 +93,7 @@ import (
 
 func main() {
 	idOrClassName := "idOrClassName_example" // string | 
-	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(6002) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(6008) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

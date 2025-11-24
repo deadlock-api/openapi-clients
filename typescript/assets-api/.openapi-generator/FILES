@@ -61,9 +61,11 @@ docs/ModifierValue.md
 docs/NPCUnitV2.md
 docs/NPCUnitsApi.md
 docs/NewPlayerMetricsV2.md
+docs/ObjectiveHealthGrowthPhase.md
 docs/ObjectiveParams.md
 docs/ObjectivePositionV1.md
 docs/ObjectivePositionsV1.md
+docs/ObjectiveRegen.md
 docs/PickupDefinition.md
 docs/PickupRadius.md
 docs/Range.md
@@ -100,6 +102,8 @@ docs/StatsUsageFlagV2.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassIntrinsicModifiers.md
 docs/SubclassModifierDefinition.md
+docs/SubclassObjectiveHealthGrowthPhase.md
+docs/SubclassObjectiveRegen.md
 docs/SubclassRangedArmorModifier.md
 docs/SubclassTrooperDamageReduction.md
 docs/TrooperDamageReduction.md

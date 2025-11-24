@@ -8,10 +8,15 @@
 | **id** | **kotlin.Long** |  |  [readonly] |
 | **weaponInfo** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  |  [optional] |
 | **maxHealth** | **kotlin.Int** |  |  [optional] |
+| **phase2Health** | **kotlin.Int** |  |  [optional] |
+| **boundAbilities** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** |  |  [optional] |
 | **maxHealthFinal** | **kotlin.Int** |  |  [optional] |
 | **maxHealthGenerator** | **kotlin.Int** |  |  [optional] |
 | **enemyTrooperProtectionRange** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **backdoorBulletResistModifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  |  [optional] |
+| **objectiveRegen** | [**SubclassObjectiveRegen**](SubclassObjectiveRegen.md) |  |  [optional] |
+| **objectiveHealthGrowthPhase1** | [**SubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  |  [optional] |
+| **objectiveHealthGrowthPhase2** | [**SubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  |  [optional] |
 | **enemyTrooperDamageReduction** | [**SubclassTrooperDamageReduction**](SubclassTrooperDamageReduction.md) |  |  [optional] |
 | **rangedArmorModifier** | [**SubclassRangedArmorModifier**](SubclassRangedArmorModifier.md) |  |  [optional] |
 | **intrinsicModifiers** | [**kotlin.collections.List&lt;SubclassIntrinsicModifiers&gt;**](SubclassIntrinsicModifiers.md) |  |  [optional] |
@@ -26,6 +31,13 @@
 | **t3BossDamageResistPct** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **barrackGuardianDamageResistPct** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **nearDeathDuration** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **laserDpstoPlayers** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **laserDpsmaxHealth** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **noShieldLaserDpstoPlayers** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **stompDamage** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **stompDamageMaxHealthPercent** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **stunDuration** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **stompImpactRadius** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **walkSpeed** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **runSpeed** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **acceleration** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

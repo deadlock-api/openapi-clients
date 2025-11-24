@@ -107,6 +107,24 @@ class NPCUnitV2Test extends TestCase
     }
 
     /**
+     * Test attribute "phase2_health"
+     */
+    public function testPropertyPhase2Health()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bound_abilities"
+     */
+    public function testPropertyBoundAbilities()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "max_health_final"
      */
     public function testPropertyMaxHealthFinal()
@@ -137,6 +155,33 @@ class NPCUnitV2Test extends TestCase
      * Test attribute "backdoor_bullet_resist_modifier"
      */
     public function testPropertyBackdoorBulletResistModifier()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "objective_regen"
+     */
+    public function testPropertyObjectiveRegen()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "objective_health_growth_phase1"
+     */
+    public function testPropertyObjectiveHealthGrowthPhase1()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "objective_health_growth_phase2"
+     */
+    public function testPropertyObjectiveHealthGrowthPhase2()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -263,6 +308,69 @@ class NPCUnitV2Test extends TestCase
      * Test attribute "near_death_duration"
      */
     public function testPropertyNearDeathDuration()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "laser_dpsto_players"
+     */
+    public function testPropertyLaserDpstoPlayers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "laser_dpsmax_health"
+     */
+    public function testPropertyLaserDpsmaxHealth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "no_shield_laser_dpsto_players"
+     */
+    public function testPropertyNoShieldLaserDpstoPlayers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "stomp_damage"
+     */
+    public function testPropertyStompDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "stomp_damage_max_health_percent"
+     */
+    public function testPropertyStompDamageMaxHealthPercent()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "stun_duration"
+     */
+    public function testPropertyStunDuration()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "stomp_impact_radius"
+     */
+    public function testPropertyStompImpactRadius()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -60,10 +60,15 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'string',
         'weapon_info' => '\OpenAPI\Client\Model\RawWeaponInfoV2',
         'max_health' => 'int',
+        'phase2_health' => 'int',
+        'bound_abilities' => 'array<string,string>',
         'max_health_final' => 'int',
         'max_health_generator' => 'int',
         'enemy_trooper_protection_range' => 'float',
         'backdoor_bullet_resist_modifier' => '\OpenAPI\Client\Model\SubclassBulletResistModifier',
+        'objective_regen' => '\OpenAPI\Client\Model\SubclassObjectiveRegen',
+        'objective_health_growth_phase1' => '\OpenAPI\Client\Model\SubclassObjectiveHealthGrowthPhase',
+        'objective_health_growth_phase2' => '\OpenAPI\Client\Model\SubclassObjectiveHealthGrowthPhase',
         'enemy_trooper_damage_reduction' => '\OpenAPI\Client\Model\SubclassTrooperDamageReduction',
         'ranged_armor_modifier' => '\OpenAPI\Client\Model\SubclassRangedArmorModifier',
         'intrinsic_modifiers' => '\OpenAPI\Client\Model\SubclassIntrinsicModifiers[]',
@@ -78,6 +83,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => 'float',
         'barrack_guardian_damage_resist_pct' => 'float',
         'near_death_duration' => 'float',
+        'laser_dpsto_players' => 'float',
+        'laser_dpsmax_health' => 'float',
+        'no_shield_laser_dpsto_players' => 'float',
+        'stomp_damage' => 'float',
+        'stomp_damage_max_health_percent' => 'float',
+        'stun_duration' => 'float',
+        'stomp_impact_radius' => 'float',
         'walk_speed' => 'float',
         'run_speed' => 'float',
         'acceleration' => 'float',
@@ -126,10 +138,15 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => null,
         'weapon_info' => null,
         'max_health' => null,
+        'phase2_health' => null,
+        'bound_abilities' => null,
         'max_health_final' => null,
         'max_health_generator' => null,
         'enemy_trooper_protection_range' => null,
         'backdoor_bullet_resist_modifier' => null,
+        'objective_regen' => null,
+        'objective_health_growth_phase1' => null,
+        'objective_health_growth_phase2' => null,
         'enemy_trooper_damage_reduction' => null,
         'ranged_armor_modifier' => null,
         'intrinsic_modifiers' => null,
@@ -144,6 +161,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => null,
         'barrack_guardian_damage_resist_pct' => null,
         'near_death_duration' => null,
+        'laser_dpsto_players' => null,
+        'laser_dpsmax_health' => null,
+        'no_shield_laser_dpsto_players' => null,
+        'stomp_damage' => null,
+        'stomp_damage_max_health_percent' => null,
+        'stun_duration' => null,
+        'stomp_impact_radius' => null,
         'walk_speed' => null,
         'run_speed' => null,
         'acceleration' => null,
@@ -190,10 +214,15 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => false,
         'weapon_info' => true,
         'max_health' => true,
+        'phase2_health' => true,
+        'bound_abilities' => true,
         'max_health_final' => true,
         'max_health_generator' => true,
         'enemy_trooper_protection_range' => true,
         'backdoor_bullet_resist_modifier' => true,
+        'objective_regen' => true,
+        'objective_health_growth_phase1' => true,
+        'objective_health_growth_phase2' => true,
         'enemy_trooper_damage_reduction' => true,
         'ranged_armor_modifier' => true,
         'intrinsic_modifiers' => true,
@@ -208,6 +237,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => true,
         'barrack_guardian_damage_resist_pct' => true,
         'near_death_duration' => true,
+        'laser_dpsto_players' => true,
+        'laser_dpsmax_health' => true,
+        'no_shield_laser_dpsto_players' => true,
+        'stomp_damage' => true,
+        'stomp_damage_max_health_percent' => true,
+        'stun_duration' => true,
+        'stomp_impact_radius' => true,
         'walk_speed' => true,
         'run_speed' => true,
         'acceleration' => true,
@@ -334,10 +370,15 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'class_name',
         'weapon_info' => 'weapon_info',
         'max_health' => 'max_health',
+        'phase2_health' => 'phase2_health',
+        'bound_abilities' => 'bound_abilities',
         'max_health_final' => 'max_health_final',
         'max_health_generator' => 'max_health_generator',
         'enemy_trooper_protection_range' => 'enemy_trooper_protection_range',
         'backdoor_bullet_resist_modifier' => 'backdoor_bullet_resist_modifier',
+        'objective_regen' => 'objective_regen',
+        'objective_health_growth_phase1' => 'objective_health_growth_phase1',
+        'objective_health_growth_phase2' => 'objective_health_growth_phase2',
         'enemy_trooper_damage_reduction' => 'enemy_trooper_damage_reduction',
         'ranged_armor_modifier' => 'ranged_armor_modifier',
         'intrinsic_modifiers' => 'intrinsic_modifiers',
@@ -352,6 +393,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => 't3_boss_damage_resist_pct',
         'barrack_guardian_damage_resist_pct' => 'barrack_guardian_damage_resist_pct',
         'near_death_duration' => 'near_death_duration',
+        'laser_dpsto_players' => 'laser_dpsto_players',
+        'laser_dpsmax_health' => 'laser_dpsmax_health',
+        'no_shield_laser_dpsto_players' => 'no_shield_laser_dpsto_players',
+        'stomp_damage' => 'stomp_damage',
+        'stomp_damage_max_health_percent' => 'stomp_damage_max_health_percent',
+        'stun_duration' => 'stun_duration',
+        'stomp_impact_radius' => 'stomp_impact_radius',
         'walk_speed' => 'walk_speed',
         'run_speed' => 'run_speed',
         'acceleration' => 'acceleration',
@@ -398,10 +446,15 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'setClassName',
         'weapon_info' => 'setWeaponInfo',
         'max_health' => 'setMaxHealth',
+        'phase2_health' => 'setPhase2Health',
+        'bound_abilities' => 'setBoundAbilities',
         'max_health_final' => 'setMaxHealthFinal',
         'max_health_generator' => 'setMaxHealthGenerator',
         'enemy_trooper_protection_range' => 'setEnemyTrooperProtectionRange',
         'backdoor_bullet_resist_modifier' => 'setBackdoorBulletResistModifier',
+        'objective_regen' => 'setObjectiveRegen',
+        'objective_health_growth_phase1' => 'setObjectiveHealthGrowthPhase1',
+        'objective_health_growth_phase2' => 'setObjectiveHealthGrowthPhase2',
         'enemy_trooper_damage_reduction' => 'setEnemyTrooperDamageReduction',
         'ranged_armor_modifier' => 'setRangedArmorModifier',
         'intrinsic_modifiers' => 'setIntrinsicModifiers',
@@ -416,6 +469,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => 'setT3BossDamageResistPct',
         'barrack_guardian_damage_resist_pct' => 'setBarrackGuardianDamageResistPct',
         'near_death_duration' => 'setNearDeathDuration',
+        'laser_dpsto_players' => 'setLaserDpstoPlayers',
+        'laser_dpsmax_health' => 'setLaserDpsmaxHealth',
+        'no_shield_laser_dpsto_players' => 'setNoShieldLaserDpstoPlayers',
+        'stomp_damage' => 'setStompDamage',
+        'stomp_damage_max_health_percent' => 'setStompDamageMaxHealthPercent',
+        'stun_duration' => 'setStunDuration',
+        'stomp_impact_radius' => 'setStompImpactRadius',
         'walk_speed' => 'setWalkSpeed',
         'run_speed' => 'setRunSpeed',
         'acceleration' => 'setAcceleration',
@@ -462,10 +522,15 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'getClassName',
         'weapon_info' => 'getWeaponInfo',
         'max_health' => 'getMaxHealth',
+        'phase2_health' => 'getPhase2Health',
+        'bound_abilities' => 'getBoundAbilities',
         'max_health_final' => 'getMaxHealthFinal',
         'max_health_generator' => 'getMaxHealthGenerator',
         'enemy_trooper_protection_range' => 'getEnemyTrooperProtectionRange',
         'backdoor_bullet_resist_modifier' => 'getBackdoorBulletResistModifier',
+        'objective_regen' => 'getObjectiveRegen',
+        'objective_health_growth_phase1' => 'getObjectiveHealthGrowthPhase1',
+        'objective_health_growth_phase2' => 'getObjectiveHealthGrowthPhase2',
         'enemy_trooper_damage_reduction' => 'getEnemyTrooperDamageReduction',
         'ranged_armor_modifier' => 'getRangedArmorModifier',
         'intrinsic_modifiers' => 'getIntrinsicModifiers',
@@ -480,6 +545,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => 'getT3BossDamageResistPct',
         'barrack_guardian_damage_resist_pct' => 'getBarrackGuardianDamageResistPct',
         'near_death_duration' => 'getNearDeathDuration',
+        'laser_dpsto_players' => 'getLaserDpstoPlayers',
+        'laser_dpsmax_health' => 'getLaserDpsmaxHealth',
+        'no_shield_laser_dpsto_players' => 'getNoShieldLaserDpstoPlayers',
+        'stomp_damage' => 'getStompDamage',
+        'stomp_damage_max_health_percent' => 'getStompDamageMaxHealthPercent',
+        'stun_duration' => 'getStunDuration',
+        'stomp_impact_radius' => 'getStompImpactRadius',
         'walk_speed' => 'getWalkSpeed',
         'run_speed' => 'getRunSpeed',
         'acceleration' => 'getAcceleration',
@@ -577,10 +649,15 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('class_name', $data ?? [], null);
         $this->setIfExists('weapon_info', $data ?? [], null);
         $this->setIfExists('max_health', $data ?? [], null);
+        $this->setIfExists('phase2_health', $data ?? [], null);
+        $this->setIfExists('bound_abilities', $data ?? [], null);
         $this->setIfExists('max_health_final', $data ?? [], null);
         $this->setIfExists('max_health_generator', $data ?? [], null);
         $this->setIfExists('enemy_trooper_protection_range', $data ?? [], null);
         $this->setIfExists('backdoor_bullet_resist_modifier', $data ?? [], null);
+        $this->setIfExists('objective_regen', $data ?? [], null);
+        $this->setIfExists('objective_health_growth_phase1', $data ?? [], null);
+        $this->setIfExists('objective_health_growth_phase2', $data ?? [], null);
         $this->setIfExists('enemy_trooper_damage_reduction', $data ?? [], null);
         $this->setIfExists('ranged_armor_modifier', $data ?? [], null);
         $this->setIfExists('intrinsic_modifiers', $data ?? [], null);
@@ -595,6 +672,13 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('t3_boss_damage_resist_pct', $data ?? [], null);
         $this->setIfExists('barrack_guardian_damage_resist_pct', $data ?? [], null);
         $this->setIfExists('near_death_duration', $data ?? [], null);
+        $this->setIfExists('laser_dpsto_players', $data ?? [], null);
+        $this->setIfExists('laser_dpsmax_health', $data ?? [], null);
+        $this->setIfExists('no_shield_laser_dpsto_players', $data ?? [], null);
+        $this->setIfExists('stomp_damage', $data ?? [], null);
+        $this->setIfExists('stomp_damage_max_health_percent', $data ?? [], null);
+        $this->setIfExists('stun_duration', $data ?? [], null);
+        $this->setIfExists('stomp_impact_radius', $data ?? [], null);
         $this->setIfExists('walk_speed', $data ?? [], null);
         $this->setIfExists('run_speed', $data ?? [], null);
         $this->setIfExists('acceleration', $data ?? [], null);
@@ -776,6 +860,74 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets phase2_health
+     *
+     * @return int|null
+     */
+    public function getPhase2Health()
+    {
+        return $this->container['phase2_health'];
+    }
+
+    /**
+     * Sets phase2_health
+     *
+     * @param int|null $phase2_health phase2_health
+     *
+     * @return self
+     */
+    public function setPhase2Health($phase2_health)
+    {
+        if (is_null($phase2_health)) {
+            array_push($this->openAPINullablesSetToNull, 'phase2_health');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phase2_health', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['phase2_health'] = $phase2_health;
+
+        return $this;
+    }
+
+    /**
+     * Gets bound_abilities
+     *
+     * @return array<string,string>|null
+     */
+    public function getBoundAbilities()
+    {
+        return $this->container['bound_abilities'];
+    }
+
+    /**
+     * Sets bound_abilities
+     *
+     * @param array<string,string>|null $bound_abilities bound_abilities
+     *
+     * @return self
+     */
+    public function setBoundAbilities($bound_abilities)
+    {
+        if (is_null($bound_abilities)) {
+            array_push($this->openAPINullablesSetToNull, 'bound_abilities');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bound_abilities', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bound_abilities'] = $bound_abilities;
+
+        return $this;
+    }
+
+    /**
      * Gets max_health_final
      *
      * @return int|null
@@ -907,6 +1059,108 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['backdoor_bullet_resist_modifier'] = $backdoor_bullet_resist_modifier;
+
+        return $this;
+    }
+
+    /**
+     * Gets objective_regen
+     *
+     * @return \OpenAPI\Client\Model\SubclassObjectiveRegen|null
+     */
+    public function getObjectiveRegen()
+    {
+        return $this->container['objective_regen'];
+    }
+
+    /**
+     * Sets objective_regen
+     *
+     * @param \OpenAPI\Client\Model\SubclassObjectiveRegen|null $objective_regen objective_regen
+     *
+     * @return self
+     */
+    public function setObjectiveRegen($objective_regen)
+    {
+        if (is_null($objective_regen)) {
+            array_push($this->openAPINullablesSetToNull, 'objective_regen');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('objective_regen', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['objective_regen'] = $objective_regen;
+
+        return $this;
+    }
+
+    /**
+     * Gets objective_health_growth_phase1
+     *
+     * @return \OpenAPI\Client\Model\SubclassObjectiveHealthGrowthPhase|null
+     */
+    public function getObjectiveHealthGrowthPhase1()
+    {
+        return $this->container['objective_health_growth_phase1'];
+    }
+
+    /**
+     * Sets objective_health_growth_phase1
+     *
+     * @param \OpenAPI\Client\Model\SubclassObjectiveHealthGrowthPhase|null $objective_health_growth_phase1 objective_health_growth_phase1
+     *
+     * @return self
+     */
+    public function setObjectiveHealthGrowthPhase1($objective_health_growth_phase1)
+    {
+        if (is_null($objective_health_growth_phase1)) {
+            array_push($this->openAPINullablesSetToNull, 'objective_health_growth_phase1');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('objective_health_growth_phase1', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['objective_health_growth_phase1'] = $objective_health_growth_phase1;
+
+        return $this;
+    }
+
+    /**
+     * Gets objective_health_growth_phase2
+     *
+     * @return \OpenAPI\Client\Model\SubclassObjectiveHealthGrowthPhase|null
+     */
+    public function getObjectiveHealthGrowthPhase2()
+    {
+        return $this->container['objective_health_growth_phase2'];
+    }
+
+    /**
+     * Sets objective_health_growth_phase2
+     *
+     * @param \OpenAPI\Client\Model\SubclassObjectiveHealthGrowthPhase|null $objective_health_growth_phase2 objective_health_growth_phase2
+     *
+     * @return self
+     */
+    public function setObjectiveHealthGrowthPhase2($objective_health_growth_phase2)
+    {
+        if (is_null($objective_health_growth_phase2)) {
+            array_push($this->openAPINullablesSetToNull, 'objective_health_growth_phase2');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('objective_health_growth_phase2', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['objective_health_growth_phase2'] = $objective_health_growth_phase2;
 
         return $this;
     }
@@ -1383,6 +1637,244 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['near_death_duration'] = $near_death_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets laser_dpsto_players
+     *
+     * @return float|null
+     */
+    public function getLaserDpstoPlayers()
+    {
+        return $this->container['laser_dpsto_players'];
+    }
+
+    /**
+     * Sets laser_dpsto_players
+     *
+     * @param float|null $laser_dpsto_players laser_dpsto_players
+     *
+     * @return self
+     */
+    public function setLaserDpstoPlayers($laser_dpsto_players)
+    {
+        if (is_null($laser_dpsto_players)) {
+            array_push($this->openAPINullablesSetToNull, 'laser_dpsto_players');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('laser_dpsto_players', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['laser_dpsto_players'] = $laser_dpsto_players;
+
+        return $this;
+    }
+
+    /**
+     * Gets laser_dpsmax_health
+     *
+     * @return float|null
+     */
+    public function getLaserDpsmaxHealth()
+    {
+        return $this->container['laser_dpsmax_health'];
+    }
+
+    /**
+     * Sets laser_dpsmax_health
+     *
+     * @param float|null $laser_dpsmax_health laser_dpsmax_health
+     *
+     * @return self
+     */
+    public function setLaserDpsmaxHealth($laser_dpsmax_health)
+    {
+        if (is_null($laser_dpsmax_health)) {
+            array_push($this->openAPINullablesSetToNull, 'laser_dpsmax_health');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('laser_dpsmax_health', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['laser_dpsmax_health'] = $laser_dpsmax_health;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_shield_laser_dpsto_players
+     *
+     * @return float|null
+     */
+    public function getNoShieldLaserDpstoPlayers()
+    {
+        return $this->container['no_shield_laser_dpsto_players'];
+    }
+
+    /**
+     * Sets no_shield_laser_dpsto_players
+     *
+     * @param float|null $no_shield_laser_dpsto_players no_shield_laser_dpsto_players
+     *
+     * @return self
+     */
+    public function setNoShieldLaserDpstoPlayers($no_shield_laser_dpsto_players)
+    {
+        if (is_null($no_shield_laser_dpsto_players)) {
+            array_push($this->openAPINullablesSetToNull, 'no_shield_laser_dpsto_players');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('no_shield_laser_dpsto_players', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['no_shield_laser_dpsto_players'] = $no_shield_laser_dpsto_players;
+
+        return $this;
+    }
+
+    /**
+     * Gets stomp_damage
+     *
+     * @return float|null
+     */
+    public function getStompDamage()
+    {
+        return $this->container['stomp_damage'];
+    }
+
+    /**
+     * Sets stomp_damage
+     *
+     * @param float|null $stomp_damage stomp_damage
+     *
+     * @return self
+     */
+    public function setStompDamage($stomp_damage)
+    {
+        if (is_null($stomp_damage)) {
+            array_push($this->openAPINullablesSetToNull, 'stomp_damage');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('stomp_damage', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['stomp_damage'] = $stomp_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets stomp_damage_max_health_percent
+     *
+     * @return float|null
+     */
+    public function getStompDamageMaxHealthPercent()
+    {
+        return $this->container['stomp_damage_max_health_percent'];
+    }
+
+    /**
+     * Sets stomp_damage_max_health_percent
+     *
+     * @param float|null $stomp_damage_max_health_percent stomp_damage_max_health_percent
+     *
+     * @return self
+     */
+    public function setStompDamageMaxHealthPercent($stomp_damage_max_health_percent)
+    {
+        if (is_null($stomp_damage_max_health_percent)) {
+            array_push($this->openAPINullablesSetToNull, 'stomp_damage_max_health_percent');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('stomp_damage_max_health_percent', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['stomp_damage_max_health_percent'] = $stomp_damage_max_health_percent;
+
+        return $this;
+    }
+
+    /**
+     * Gets stun_duration
+     *
+     * @return float|null
+     */
+    public function getStunDuration()
+    {
+        return $this->container['stun_duration'];
+    }
+
+    /**
+     * Sets stun_duration
+     *
+     * @param float|null $stun_duration stun_duration
+     *
+     * @return self
+     */
+    public function setStunDuration($stun_duration)
+    {
+        if (is_null($stun_duration)) {
+            array_push($this->openAPINullablesSetToNull, 'stun_duration');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('stun_duration', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['stun_duration'] = $stun_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets stomp_impact_radius
+     *
+     * @return float|null
+     */
+    public function getStompImpactRadius()
+    {
+        return $this->container['stomp_impact_radius'];
+    }
+
+    /**
+     * Sets stomp_impact_radius
+     *
+     * @param float|null $stomp_impact_radius stomp_impact_radius
+     *
+     * @return self
+     */
+    public function setStompImpactRadius($stomp_impact_radius)
+    {
+        if (is_null($stomp_impact_radius)) {
+            array_push($this->openAPINullablesSetToNull, 'stomp_impact_radius');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('stomp_impact_radius', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['stomp_impact_radius'] = $stomp_impact_radius;
 
         return $this;
     }

@@ -7,10 +7,15 @@ Name | Type | Description | Notes
 **ClassName** | **string** |  | 
 **WeaponInfo** | Pointer to [**NullableRawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] 
 **MaxHealth** | Pointer to **NullableInt32** |  | [optional] 
+**Phase2Health** | Pointer to **NullableInt32** |  | [optional] 
+**BoundAbilities** | Pointer to **map[string]string** |  | [optional] 
 **MaxHealthFinal** | Pointer to **NullableInt32** |  | [optional] 
 **MaxHealthGenerator** | Pointer to **NullableInt32** |  | [optional] 
 **EnemyTrooperProtectionRange** | Pointer to **NullableFloat32** |  | [optional] 
 **BackdoorBulletResistModifier** | Pointer to [**NullableSubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] 
+**ObjectiveRegen** | Pointer to [**NullableSubclassObjectiveRegen**](SubclassObjectiveRegen.md) |  | [optional] 
+**ObjectiveHealthGrowthPhase1** | Pointer to [**NullableSubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  | [optional] 
+**ObjectiveHealthGrowthPhase2** | Pointer to [**NullableSubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  | [optional] 
 **EnemyTrooperDamageReduction** | Pointer to [**NullableSubclassTrooperDamageReduction**](SubclassTrooperDamageReduction.md) |  | [optional] 
 **RangedArmorModifier** | Pointer to [**NullableSubclassRangedArmorModifier**](SubclassRangedArmorModifier.md) |  | [optional] 
 **IntrinsicModifiers** | Pointer to [**[]SubclassIntrinsicModifiers**](SubclassIntrinsicModifiers.md) |  | [optional] 
@@ -25,6 +30,13 @@ Name | Type | Description | Notes
 **T3BossDamageResistPct** | Pointer to **NullableFloat32** |  | [optional] 
 **BarrackGuardianDamageResistPct** | Pointer to **NullableFloat32** |  | [optional] 
 **NearDeathDuration** | Pointer to **NullableFloat32** |  | [optional] 
+**LaserDpstoPlayers** | Pointer to **NullableFloat32** |  | [optional] 
+**LaserDpsmaxHealth** | Pointer to **NullableFloat32** |  | [optional] 
+**NoShieldLaserDpstoPlayers** | Pointer to **NullableFloat32** |  | [optional] 
+**StompDamage** | Pointer to **NullableFloat32** |  | [optional] 
+**StompDamageMaxHealthPercent** | Pointer to **NullableFloat32** |  | [optional] 
+**StunDuration** | Pointer to **NullableFloat32** |  | [optional] 
+**StompImpactRadius** | Pointer to **NullableFloat32** |  | [optional] 
 **WalkSpeed** | Pointer to **NullableFloat32** |  | [optional] 
 **RunSpeed** | Pointer to **NullableFloat32** |  | [optional] 
 **Acceleration** | Pointer to **NullableFloat32** |  | [optional] 
@@ -170,6 +182,76 @@ HasMaxHealth returns a boolean if a field has been set.
 `func (o *NPCUnitV2) UnsetMaxHealth()`
 
 UnsetMaxHealth ensures that no value is present for MaxHealth, not even an explicit nil
+### GetPhase2Health
+
+`func (o *NPCUnitV2) GetPhase2Health() int32`
+
+GetPhase2Health returns the Phase2Health field if non-nil, zero value otherwise.
+
+### GetPhase2HealthOk
+
+`func (o *NPCUnitV2) GetPhase2HealthOk() (*int32, bool)`
+
+GetPhase2HealthOk returns a tuple with the Phase2Health field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPhase2Health
+
+`func (o *NPCUnitV2) SetPhase2Health(v int32)`
+
+SetPhase2Health sets Phase2Health field to given value.
+
+### HasPhase2Health
+
+`func (o *NPCUnitV2) HasPhase2Health() bool`
+
+HasPhase2Health returns a boolean if a field has been set.
+
+### SetPhase2HealthNil
+
+`func (o *NPCUnitV2) SetPhase2HealthNil(b bool)`
+
+ SetPhase2HealthNil sets the value for Phase2Health to be an explicit nil
+
+### UnsetPhase2Health
+`func (o *NPCUnitV2) UnsetPhase2Health()`
+
+UnsetPhase2Health ensures that no value is present for Phase2Health, not even an explicit nil
+### GetBoundAbilities
+
+`func (o *NPCUnitV2) GetBoundAbilities() map[string]string`
+
+GetBoundAbilities returns the BoundAbilities field if non-nil, zero value otherwise.
+
+### GetBoundAbilitiesOk
+
+`func (o *NPCUnitV2) GetBoundAbilitiesOk() (*map[string]string, bool)`
+
+GetBoundAbilitiesOk returns a tuple with the BoundAbilities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBoundAbilities
+
+`func (o *NPCUnitV2) SetBoundAbilities(v map[string]string)`
+
+SetBoundAbilities sets BoundAbilities field to given value.
+
+### HasBoundAbilities
+
+`func (o *NPCUnitV2) HasBoundAbilities() bool`
+
+HasBoundAbilities returns a boolean if a field has been set.
+
+### SetBoundAbilitiesNil
+
+`func (o *NPCUnitV2) SetBoundAbilitiesNil(b bool)`
+
+ SetBoundAbilitiesNil sets the value for BoundAbilities to be an explicit nil
+
+### UnsetBoundAbilities
+`func (o *NPCUnitV2) UnsetBoundAbilities()`
+
+UnsetBoundAbilities ensures that no value is present for BoundAbilities, not even an explicit nil
 ### GetMaxHealthFinal
 
 `func (o *NPCUnitV2) GetMaxHealthFinal() int32`
@@ -310,6 +392,111 @@ HasBackdoorBulletResistModifier returns a boolean if a field has been set.
 `func (o *NPCUnitV2) UnsetBackdoorBulletResistModifier()`
 
 UnsetBackdoorBulletResistModifier ensures that no value is present for BackdoorBulletResistModifier, not even an explicit nil
+### GetObjectiveRegen
+
+`func (o *NPCUnitV2) GetObjectiveRegen() SubclassObjectiveRegen`
+
+GetObjectiveRegen returns the ObjectiveRegen field if non-nil, zero value otherwise.
+
+### GetObjectiveRegenOk
+
+`func (o *NPCUnitV2) GetObjectiveRegenOk() (*SubclassObjectiveRegen, bool)`
+
+GetObjectiveRegenOk returns a tuple with the ObjectiveRegen field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectiveRegen
+
+`func (o *NPCUnitV2) SetObjectiveRegen(v SubclassObjectiveRegen)`
+
+SetObjectiveRegen sets ObjectiveRegen field to given value.
+
+### HasObjectiveRegen
+
+`func (o *NPCUnitV2) HasObjectiveRegen() bool`
+
+HasObjectiveRegen returns a boolean if a field has been set.
+
+### SetObjectiveRegenNil
+
+`func (o *NPCUnitV2) SetObjectiveRegenNil(b bool)`
+
+ SetObjectiveRegenNil sets the value for ObjectiveRegen to be an explicit nil
+
+### UnsetObjectiveRegen
+`func (o *NPCUnitV2) UnsetObjectiveRegen()`
+
+UnsetObjectiveRegen ensures that no value is present for ObjectiveRegen, not even an explicit nil
+### GetObjectiveHealthGrowthPhase1
+
+`func (o *NPCUnitV2) GetObjectiveHealthGrowthPhase1() SubclassObjectiveHealthGrowthPhase`
+
+GetObjectiveHealthGrowthPhase1 returns the ObjectiveHealthGrowthPhase1 field if non-nil, zero value otherwise.
+
+### GetObjectiveHealthGrowthPhase1Ok
+
+`func (o *NPCUnitV2) GetObjectiveHealthGrowthPhase1Ok() (*SubclassObjectiveHealthGrowthPhase, bool)`
+
+GetObjectiveHealthGrowthPhase1Ok returns a tuple with the ObjectiveHealthGrowthPhase1 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectiveHealthGrowthPhase1
+
+`func (o *NPCUnitV2) SetObjectiveHealthGrowthPhase1(v SubclassObjectiveHealthGrowthPhase)`
+
+SetObjectiveHealthGrowthPhase1 sets ObjectiveHealthGrowthPhase1 field to given value.
+
+### HasObjectiveHealthGrowthPhase1
+
+`func (o *NPCUnitV2) HasObjectiveHealthGrowthPhase1() bool`
+
+HasObjectiveHealthGrowthPhase1 returns a boolean if a field has been set.
+
+### SetObjectiveHealthGrowthPhase1Nil
+
+`func (o *NPCUnitV2) SetObjectiveHealthGrowthPhase1Nil(b bool)`
+
+ SetObjectiveHealthGrowthPhase1Nil sets the value for ObjectiveHealthGrowthPhase1 to be an explicit nil
+
+### UnsetObjectiveHealthGrowthPhase1
+`func (o *NPCUnitV2) UnsetObjectiveHealthGrowthPhase1()`
+
+UnsetObjectiveHealthGrowthPhase1 ensures that no value is present for ObjectiveHealthGrowthPhase1, not even an explicit nil
+### GetObjectiveHealthGrowthPhase2
+
+`func (o *NPCUnitV2) GetObjectiveHealthGrowthPhase2() SubclassObjectiveHealthGrowthPhase`
+
+GetObjectiveHealthGrowthPhase2 returns the ObjectiveHealthGrowthPhase2 field if non-nil, zero value otherwise.
+
+### GetObjectiveHealthGrowthPhase2Ok
+
+`func (o *NPCUnitV2) GetObjectiveHealthGrowthPhase2Ok() (*SubclassObjectiveHealthGrowthPhase, bool)`
+
+GetObjectiveHealthGrowthPhase2Ok returns a tuple with the ObjectiveHealthGrowthPhase2 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectiveHealthGrowthPhase2
+
+`func (o *NPCUnitV2) SetObjectiveHealthGrowthPhase2(v SubclassObjectiveHealthGrowthPhase)`
+
+SetObjectiveHealthGrowthPhase2 sets ObjectiveHealthGrowthPhase2 field to given value.
+
+### HasObjectiveHealthGrowthPhase2
+
+`func (o *NPCUnitV2) HasObjectiveHealthGrowthPhase2() bool`
+
+HasObjectiveHealthGrowthPhase2 returns a boolean if a field has been set.
+
+### SetObjectiveHealthGrowthPhase2Nil
+
+`func (o *NPCUnitV2) SetObjectiveHealthGrowthPhase2Nil(b bool)`
+
+ SetObjectiveHealthGrowthPhase2Nil sets the value for ObjectiveHealthGrowthPhase2 to be an explicit nil
+
+### UnsetObjectiveHealthGrowthPhase2
+`func (o *NPCUnitV2) UnsetObjectiveHealthGrowthPhase2()`
+
+UnsetObjectiveHealthGrowthPhase2 ensures that no value is present for ObjectiveHealthGrowthPhase2, not even an explicit nil
 ### GetEnemyTrooperDamageReduction
 
 `func (o *NPCUnitV2) GetEnemyTrooperDamageReduction() SubclassTrooperDamageReduction`
@@ -800,6 +987,251 @@ HasNearDeathDuration returns a boolean if a field has been set.
 `func (o *NPCUnitV2) UnsetNearDeathDuration()`
 
 UnsetNearDeathDuration ensures that no value is present for NearDeathDuration, not even an explicit nil
+### GetLaserDpstoPlayers
+
+`func (o *NPCUnitV2) GetLaserDpstoPlayers() float32`
+
+GetLaserDpstoPlayers returns the LaserDpstoPlayers field if non-nil, zero value otherwise.
+
+### GetLaserDpstoPlayersOk
+
+`func (o *NPCUnitV2) GetLaserDpstoPlayersOk() (*float32, bool)`
+
+GetLaserDpstoPlayersOk returns a tuple with the LaserDpstoPlayers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLaserDpstoPlayers
+
+`func (o *NPCUnitV2) SetLaserDpstoPlayers(v float32)`
+
+SetLaserDpstoPlayers sets LaserDpstoPlayers field to given value.
+
+### HasLaserDpstoPlayers
+
+`func (o *NPCUnitV2) HasLaserDpstoPlayers() bool`
+
+HasLaserDpstoPlayers returns a boolean if a field has been set.
+
+### SetLaserDpstoPlayersNil
+
+`func (o *NPCUnitV2) SetLaserDpstoPlayersNil(b bool)`
+
+ SetLaserDpstoPlayersNil sets the value for LaserDpstoPlayers to be an explicit nil
+
+### UnsetLaserDpstoPlayers
+`func (o *NPCUnitV2) UnsetLaserDpstoPlayers()`
+
+UnsetLaserDpstoPlayers ensures that no value is present for LaserDpstoPlayers, not even an explicit nil
+### GetLaserDpsmaxHealth
+
+`func (o *NPCUnitV2) GetLaserDpsmaxHealth() float32`
+
+GetLaserDpsmaxHealth returns the LaserDpsmaxHealth field if non-nil, zero value otherwise.
+
+### GetLaserDpsmaxHealthOk
+
+`func (o *NPCUnitV2) GetLaserDpsmaxHealthOk() (*float32, bool)`
+
+GetLaserDpsmaxHealthOk returns a tuple with the LaserDpsmaxHealth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLaserDpsmaxHealth
+
+`func (o *NPCUnitV2) SetLaserDpsmaxHealth(v float32)`
+
+SetLaserDpsmaxHealth sets LaserDpsmaxHealth field to given value.
+
+### HasLaserDpsmaxHealth
+
+`func (o *NPCUnitV2) HasLaserDpsmaxHealth() bool`
+
+HasLaserDpsmaxHealth returns a boolean if a field has been set.
+
+### SetLaserDpsmaxHealthNil
+
+`func (o *NPCUnitV2) SetLaserDpsmaxHealthNil(b bool)`
+
+ SetLaserDpsmaxHealthNil sets the value for LaserDpsmaxHealth to be an explicit nil
+
+### UnsetLaserDpsmaxHealth
+`func (o *NPCUnitV2) UnsetLaserDpsmaxHealth()`
+
+UnsetLaserDpsmaxHealth ensures that no value is present for LaserDpsmaxHealth, not even an explicit nil
+### GetNoShieldLaserDpstoPlayers
+
+`func (o *NPCUnitV2) GetNoShieldLaserDpstoPlayers() float32`
+
+GetNoShieldLaserDpstoPlayers returns the NoShieldLaserDpstoPlayers field if non-nil, zero value otherwise.
+
+### GetNoShieldLaserDpstoPlayersOk
+
+`func (o *NPCUnitV2) GetNoShieldLaserDpstoPlayersOk() (*float32, bool)`
+
+GetNoShieldLaserDpstoPlayersOk returns a tuple with the NoShieldLaserDpstoPlayers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNoShieldLaserDpstoPlayers
+
+`func (o *NPCUnitV2) SetNoShieldLaserDpstoPlayers(v float32)`
+
+SetNoShieldLaserDpstoPlayers sets NoShieldLaserDpstoPlayers field to given value.
+
+### HasNoShieldLaserDpstoPlayers
+
+`func (o *NPCUnitV2) HasNoShieldLaserDpstoPlayers() bool`
+
+HasNoShieldLaserDpstoPlayers returns a boolean if a field has been set.
+
+### SetNoShieldLaserDpstoPlayersNil
+
+`func (o *NPCUnitV2) SetNoShieldLaserDpstoPlayersNil(b bool)`
+
+ SetNoShieldLaserDpstoPlayersNil sets the value for NoShieldLaserDpstoPlayers to be an explicit nil
+
+### UnsetNoShieldLaserDpstoPlayers
+`func (o *NPCUnitV2) UnsetNoShieldLaserDpstoPlayers()`
+
+UnsetNoShieldLaserDpstoPlayers ensures that no value is present for NoShieldLaserDpstoPlayers, not even an explicit nil
+### GetStompDamage
+
+`func (o *NPCUnitV2) GetStompDamage() float32`
+
+GetStompDamage returns the StompDamage field if non-nil, zero value otherwise.
+
+### GetStompDamageOk
+
+`func (o *NPCUnitV2) GetStompDamageOk() (*float32, bool)`
+
+GetStompDamageOk returns a tuple with the StompDamage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStompDamage
+
+`func (o *NPCUnitV2) SetStompDamage(v float32)`
+
+SetStompDamage sets StompDamage field to given value.
+
+### HasStompDamage
+
+`func (o *NPCUnitV2) HasStompDamage() bool`
+
+HasStompDamage returns a boolean if a field has been set.
+
+### SetStompDamageNil
+
+`func (o *NPCUnitV2) SetStompDamageNil(b bool)`
+
+ SetStompDamageNil sets the value for StompDamage to be an explicit nil
+
+### UnsetStompDamage
+`func (o *NPCUnitV2) UnsetStompDamage()`
+
+UnsetStompDamage ensures that no value is present for StompDamage, not even an explicit nil
+### GetStompDamageMaxHealthPercent
+
+`func (o *NPCUnitV2) GetStompDamageMaxHealthPercent() float32`
+
+GetStompDamageMaxHealthPercent returns the StompDamageMaxHealthPercent field if non-nil, zero value otherwise.
+
+### GetStompDamageMaxHealthPercentOk
+
+`func (o *NPCUnitV2) GetStompDamageMaxHealthPercentOk() (*float32, bool)`
+
+GetStompDamageMaxHealthPercentOk returns a tuple with the StompDamageMaxHealthPercent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStompDamageMaxHealthPercent
+
+`func (o *NPCUnitV2) SetStompDamageMaxHealthPercent(v float32)`
+
+SetStompDamageMaxHealthPercent sets StompDamageMaxHealthPercent field to given value.
+
+### HasStompDamageMaxHealthPercent
+
+`func (o *NPCUnitV2) HasStompDamageMaxHealthPercent() bool`
+
+HasStompDamageMaxHealthPercent returns a boolean if a field has been set.
+
+### SetStompDamageMaxHealthPercentNil
+
+`func (o *NPCUnitV2) SetStompDamageMaxHealthPercentNil(b bool)`
+
+ SetStompDamageMaxHealthPercentNil sets the value for StompDamageMaxHealthPercent to be an explicit nil
+
+### UnsetStompDamageMaxHealthPercent
+`func (o *NPCUnitV2) UnsetStompDamageMaxHealthPercent()`
+
+UnsetStompDamageMaxHealthPercent ensures that no value is present for StompDamageMaxHealthPercent, not even an explicit nil
+### GetStunDuration
+
+`func (o *NPCUnitV2) GetStunDuration() float32`
+
+GetStunDuration returns the StunDuration field if non-nil, zero value otherwise.
+
+### GetStunDurationOk
+
+`func (o *NPCUnitV2) GetStunDurationOk() (*float32, bool)`
+
+GetStunDurationOk returns a tuple with the StunDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStunDuration
+
+`func (o *NPCUnitV2) SetStunDuration(v float32)`
+
+SetStunDuration sets StunDuration field to given value.
+
+### HasStunDuration
+
+`func (o *NPCUnitV2) HasStunDuration() bool`
+
+HasStunDuration returns a boolean if a field has been set.
+
+### SetStunDurationNil
+
+`func (o *NPCUnitV2) SetStunDurationNil(b bool)`
+
+ SetStunDurationNil sets the value for StunDuration to be an explicit nil
+
+### UnsetStunDuration
+`func (o *NPCUnitV2) UnsetStunDuration()`
+
+UnsetStunDuration ensures that no value is present for StunDuration, not even an explicit nil
+### GetStompImpactRadius
+
+`func (o *NPCUnitV2) GetStompImpactRadius() float32`
+
+GetStompImpactRadius returns the StompImpactRadius field if non-nil, zero value otherwise.
+
+### GetStompImpactRadiusOk
+
+`func (o *NPCUnitV2) GetStompImpactRadiusOk() (*float32, bool)`
+
+GetStompImpactRadiusOk returns a tuple with the StompImpactRadius field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStompImpactRadius
+
+`func (o *NPCUnitV2) SetStompImpactRadius(v float32)`
+
+SetStompImpactRadius sets StompImpactRadius field to given value.
+
+### HasStompImpactRadius
+
+`func (o *NPCUnitV2) HasStompImpactRadius() bool`
+
+HasStompImpactRadius returns a boolean if a field has been set.
+
+### SetStompImpactRadiusNil
+
+`func (o *NPCUnitV2) SetStompImpactRadiusNil(b bool)`
+
+ SetStompImpactRadiusNil sets the value for StompImpactRadius to be an explicit nil
+
+### UnsetStompImpactRadius
+`func (o *NPCUnitV2) UnsetStompImpactRadius()`
+
+UnsetStompImpactRadius ensures that no value is present for StompImpactRadius, not even an explicit nil
 ### GetWalkSpeed
 
 `func (o *NPCUnitV2) GetWalkSpeed() float32`

@@ -67,9 +67,11 @@ assets_deadlock_api_client/models/modifier_definition.py
 assets_deadlock_api_client/models/modifier_value.py
 assets_deadlock_api_client/models/new_player_metrics_v2.py
 assets_deadlock_api_client/models/npc_unit_v2.py
+assets_deadlock_api_client/models/objective_health_growth_phase.py
 assets_deadlock_api_client/models/objective_params.py
 assets_deadlock_api_client/models/objective_position_v1.py
 assets_deadlock_api_client/models/objective_positions_v1.py
+assets_deadlock_api_client/models/objective_regen.py
 assets_deadlock_api_client/models/pickup_definition.py
 assets_deadlock_api_client/models/pickup_radius.py
 assets_deadlock_api_client/models/range.py
@@ -105,6 +107,8 @@ assets_deadlock_api_client/models/stats_usage_flag_v2.py
 assets_deadlock_api_client/models/subclass_bullet_resist_modifier.py
 assets_deadlock_api_client/models/subclass_intrinsic_modifiers.py
 assets_deadlock_api_client/models/subclass_modifier_definition.py
+assets_deadlock_api_client/models/subclass_objective_health_growth_phase.py
+assets_deadlock_api_client/models/subclass_objective_regen.py
 assets_deadlock_api_client/models/subclass_ranged_armor_modifier.py
 assets_deadlock_api_client/models/subclass_trooper_damage_reduction.py
 assets_deadlock_api_client/models/trooper_damage_reduction.py
@@ -178,9 +182,11 @@ docs/ModifierValue.md
 docs/NPCUnitV2.md
 docs/NPCUnitsApi.md
 docs/NewPlayerMetricsV2.md
+docs/ObjectiveHealthGrowthPhase.md
 docs/ObjectiveParams.md
 docs/ObjectivePositionV1.md
 docs/ObjectivePositionsV1.md
+docs/ObjectiveRegen.md
 docs/PickupDefinition.md
 docs/PickupRadius.md
 docs/Range.md
@@ -217,6 +223,8 @@ docs/StatsUsageFlagV2.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassIntrinsicModifiers.md
 docs/SubclassModifierDefinition.md
+docs/SubclassObjectiveHealthGrowthPhase.md
+docs/SubclassObjectiveRegen.md
 docs/SubclassRangedArmorModifier.md
 docs/SubclassTrooperDamageReduction.md
 docs/TrooperDamageReduction.md
@@ -295,9 +303,11 @@ test/test_modifier_value.py
 test/test_new_player_metrics_v2.py
 test/test_npc_unit_v2.py
 test/test_npc_units_api.py
+test/test_objective_health_growth_phase.py
 test/test_objective_params.py
 test/test_objective_position_v1.py
 test/test_objective_positions_v1.py
+test/test_objective_regen.py
 test/test_pickup_definition.py
 test/test_pickup_radius.py
 test/test_range.py
@@ -334,6 +344,8 @@ test/test_stats_usage_flag_v2.py
 test/test_subclass_bullet_resist_modifier.py
 test/test_subclass_intrinsic_modifiers.py
 test/test_subclass_modifier_definition.py
+test/test_subclass_objective_health_growth_phase.py
+test/test_subclass_objective_regen.py
 test/test_subclass_ranged_armor_modifier.py
 test/test_subclass_trooper_damage_reduction.py
 test/test_trooper_damage_reduction.py

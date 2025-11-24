@@ -24,10 +24,15 @@ type NPCUnitV2 struct {
 	ClassName string `json:"class_name"`
 	WeaponInfo NullableRawWeaponInfoV2 `json:"weapon_info,omitempty"`
 	MaxHealth NullableInt32 `json:"max_health,omitempty"`
+	Phase2Health NullableInt32 `json:"phase2_health,omitempty"`
+	BoundAbilities map[string]string `json:"bound_abilities,omitempty"`
 	MaxHealthFinal NullableInt32 `json:"max_health_final,omitempty"`
 	MaxHealthGenerator NullableInt32 `json:"max_health_generator,omitempty"`
 	EnemyTrooperProtectionRange NullableFloat32 `json:"enemy_trooper_protection_range,omitempty"`
 	BackdoorBulletResistModifier NullableSubclassBulletResistModifier `json:"backdoor_bullet_resist_modifier,omitempty"`
+	ObjectiveRegen NullableSubclassObjectiveRegen `json:"objective_regen,omitempty"`
+	ObjectiveHealthGrowthPhase1 NullableSubclassObjectiveHealthGrowthPhase `json:"objective_health_growth_phase1,omitempty"`
+	ObjectiveHealthGrowthPhase2 NullableSubclassObjectiveHealthGrowthPhase `json:"objective_health_growth_phase2,omitempty"`
 	EnemyTrooperDamageReduction NullableSubclassTrooperDamageReduction `json:"enemy_trooper_damage_reduction,omitempty"`
 	RangedArmorModifier NullableSubclassRangedArmorModifier `json:"ranged_armor_modifier,omitempty"`
 	IntrinsicModifiers []SubclassIntrinsicModifiers `json:"intrinsic_modifiers,omitempty"`
@@ -42,6 +47,13 @@ type NPCUnitV2 struct {
 	T3BossDamageResistPct NullableFloat32 `json:"t3_boss_damage_resist_pct,omitempty"`
 	BarrackGuardianDamageResistPct NullableFloat32 `json:"barrack_guardian_damage_resist_pct,omitempty"`
 	NearDeathDuration NullableFloat32 `json:"near_death_duration,omitempty"`
+	LaserDpstoPlayers NullableFloat32 `json:"laser_dpsto_players,omitempty"`
+	LaserDpsmaxHealth NullableFloat32 `json:"laser_dpsmax_health,omitempty"`
+	NoShieldLaserDpstoPlayers NullableFloat32 `json:"no_shield_laser_dpsto_players,omitempty"`
+	StompDamage NullableFloat32 `json:"stomp_damage,omitempty"`
+	StompDamageMaxHealthPercent NullableFloat32 `json:"stomp_damage_max_health_percent,omitempty"`
+	StunDuration NullableFloat32 `json:"stun_duration,omitempty"`
+	StompImpactRadius NullableFloat32 `json:"stomp_impact_radius,omitempty"`
 	WalkSpeed NullableFloat32 `json:"walk_speed,omitempty"`
 	RunSpeed NullableFloat32 `json:"run_speed,omitempty"`
 	Acceleration NullableFloat32 `json:"acceleration,omitempty"`
@@ -206,6 +218,81 @@ func (o *NPCUnitV2) SetMaxHealthNil() {
 // UnsetMaxHealth ensures that no value is present for MaxHealth, not even an explicit nil
 func (o *NPCUnitV2) UnsetMaxHealth() {
 	o.MaxHealth.Unset()
+}
+
+// GetPhase2Health returns the Phase2Health field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetPhase2Health() int32 {
+	if o == nil || IsNil(o.Phase2Health.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Phase2Health.Get()
+}
+
+// GetPhase2HealthOk returns a tuple with the Phase2Health field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetPhase2HealthOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Phase2Health.Get(), o.Phase2Health.IsSet()
+}
+
+// HasPhase2Health returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasPhase2Health() bool {
+	if o != nil && o.Phase2Health.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPhase2Health gets a reference to the given NullableInt32 and assigns it to the Phase2Health field.
+func (o *NPCUnitV2) SetPhase2Health(v int32) {
+	o.Phase2Health.Set(&v)
+}
+// SetPhase2HealthNil sets the value for Phase2Health to be an explicit nil
+func (o *NPCUnitV2) SetPhase2HealthNil() {
+	o.Phase2Health.Set(nil)
+}
+
+// UnsetPhase2Health ensures that no value is present for Phase2Health, not even an explicit nil
+func (o *NPCUnitV2) UnsetPhase2Health() {
+	o.Phase2Health.Unset()
+}
+
+// GetBoundAbilities returns the BoundAbilities field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetBoundAbilities() map[string]string {
+	if o == nil {
+		var ret map[string]string
+		return ret
+	}
+	return o.BoundAbilities
+}
+
+// GetBoundAbilitiesOk returns a tuple with the BoundAbilities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetBoundAbilitiesOk() (map[string]string, bool) {
+	if o == nil || IsNil(o.BoundAbilities) {
+		return map[string]string{}, false
+	}
+	return o.BoundAbilities, true
+}
+
+// HasBoundAbilities returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasBoundAbilities() bool {
+	if o != nil && !IsNil(o.BoundAbilities) {
+		return true
+	}
+
+	return false
+}
+
+// SetBoundAbilities gets a reference to the given map[string]string and assigns it to the BoundAbilities field.
+func (o *NPCUnitV2) SetBoundAbilities(v map[string]string) {
+	o.BoundAbilities = v
 }
 
 // GetMaxHealthFinal returns the MaxHealthFinal field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -374,6 +461,132 @@ func (o *NPCUnitV2) SetBackdoorBulletResistModifierNil() {
 // UnsetBackdoorBulletResistModifier ensures that no value is present for BackdoorBulletResistModifier, not even an explicit nil
 func (o *NPCUnitV2) UnsetBackdoorBulletResistModifier() {
 	o.BackdoorBulletResistModifier.Unset()
+}
+
+// GetObjectiveRegen returns the ObjectiveRegen field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetObjectiveRegen() SubclassObjectiveRegen {
+	if o == nil || IsNil(o.ObjectiveRegen.Get()) {
+		var ret SubclassObjectiveRegen
+		return ret
+	}
+	return *o.ObjectiveRegen.Get()
+}
+
+// GetObjectiveRegenOk returns a tuple with the ObjectiveRegen field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetObjectiveRegenOk() (*SubclassObjectiveRegen, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ObjectiveRegen.Get(), o.ObjectiveRegen.IsSet()
+}
+
+// HasObjectiveRegen returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasObjectiveRegen() bool {
+	if o != nil && o.ObjectiveRegen.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetObjectiveRegen gets a reference to the given NullableSubclassObjectiveRegen and assigns it to the ObjectiveRegen field.
+func (o *NPCUnitV2) SetObjectiveRegen(v SubclassObjectiveRegen) {
+	o.ObjectiveRegen.Set(&v)
+}
+// SetObjectiveRegenNil sets the value for ObjectiveRegen to be an explicit nil
+func (o *NPCUnitV2) SetObjectiveRegenNil() {
+	o.ObjectiveRegen.Set(nil)
+}
+
+// UnsetObjectiveRegen ensures that no value is present for ObjectiveRegen, not even an explicit nil
+func (o *NPCUnitV2) UnsetObjectiveRegen() {
+	o.ObjectiveRegen.Unset()
+}
+
+// GetObjectiveHealthGrowthPhase1 returns the ObjectiveHealthGrowthPhase1 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetObjectiveHealthGrowthPhase1() SubclassObjectiveHealthGrowthPhase {
+	if o == nil || IsNil(o.ObjectiveHealthGrowthPhase1.Get()) {
+		var ret SubclassObjectiveHealthGrowthPhase
+		return ret
+	}
+	return *o.ObjectiveHealthGrowthPhase1.Get()
+}
+
+// GetObjectiveHealthGrowthPhase1Ok returns a tuple with the ObjectiveHealthGrowthPhase1 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetObjectiveHealthGrowthPhase1Ok() (*SubclassObjectiveHealthGrowthPhase, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ObjectiveHealthGrowthPhase1.Get(), o.ObjectiveHealthGrowthPhase1.IsSet()
+}
+
+// HasObjectiveHealthGrowthPhase1 returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasObjectiveHealthGrowthPhase1() bool {
+	if o != nil && o.ObjectiveHealthGrowthPhase1.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetObjectiveHealthGrowthPhase1 gets a reference to the given NullableSubclassObjectiveHealthGrowthPhase and assigns it to the ObjectiveHealthGrowthPhase1 field.
+func (o *NPCUnitV2) SetObjectiveHealthGrowthPhase1(v SubclassObjectiveHealthGrowthPhase) {
+	o.ObjectiveHealthGrowthPhase1.Set(&v)
+}
+// SetObjectiveHealthGrowthPhase1Nil sets the value for ObjectiveHealthGrowthPhase1 to be an explicit nil
+func (o *NPCUnitV2) SetObjectiveHealthGrowthPhase1Nil() {
+	o.ObjectiveHealthGrowthPhase1.Set(nil)
+}
+
+// UnsetObjectiveHealthGrowthPhase1 ensures that no value is present for ObjectiveHealthGrowthPhase1, not even an explicit nil
+func (o *NPCUnitV2) UnsetObjectiveHealthGrowthPhase1() {
+	o.ObjectiveHealthGrowthPhase1.Unset()
+}
+
+// GetObjectiveHealthGrowthPhase2 returns the ObjectiveHealthGrowthPhase2 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetObjectiveHealthGrowthPhase2() SubclassObjectiveHealthGrowthPhase {
+	if o == nil || IsNil(o.ObjectiveHealthGrowthPhase2.Get()) {
+		var ret SubclassObjectiveHealthGrowthPhase
+		return ret
+	}
+	return *o.ObjectiveHealthGrowthPhase2.Get()
+}
+
+// GetObjectiveHealthGrowthPhase2Ok returns a tuple with the ObjectiveHealthGrowthPhase2 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetObjectiveHealthGrowthPhase2Ok() (*SubclassObjectiveHealthGrowthPhase, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ObjectiveHealthGrowthPhase2.Get(), o.ObjectiveHealthGrowthPhase2.IsSet()
+}
+
+// HasObjectiveHealthGrowthPhase2 returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasObjectiveHealthGrowthPhase2() bool {
+	if o != nil && o.ObjectiveHealthGrowthPhase2.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetObjectiveHealthGrowthPhase2 gets a reference to the given NullableSubclassObjectiveHealthGrowthPhase and assigns it to the ObjectiveHealthGrowthPhase2 field.
+func (o *NPCUnitV2) SetObjectiveHealthGrowthPhase2(v SubclassObjectiveHealthGrowthPhase) {
+	o.ObjectiveHealthGrowthPhase2.Set(&v)
+}
+// SetObjectiveHealthGrowthPhase2Nil sets the value for ObjectiveHealthGrowthPhase2 to be an explicit nil
+func (o *NPCUnitV2) SetObjectiveHealthGrowthPhase2Nil() {
+	o.ObjectiveHealthGrowthPhase2.Set(nil)
+}
+
+// UnsetObjectiveHealthGrowthPhase2 ensures that no value is present for ObjectiveHealthGrowthPhase2, not even an explicit nil
+func (o *NPCUnitV2) UnsetObjectiveHealthGrowthPhase2() {
+	o.ObjectiveHealthGrowthPhase2.Unset()
 }
 
 // GetEnemyTrooperDamageReduction returns the EnemyTrooperDamageReduction field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -953,6 +1166,300 @@ func (o *NPCUnitV2) SetNearDeathDurationNil() {
 // UnsetNearDeathDuration ensures that no value is present for NearDeathDuration, not even an explicit nil
 func (o *NPCUnitV2) UnsetNearDeathDuration() {
 	o.NearDeathDuration.Unset()
+}
+
+// GetLaserDpstoPlayers returns the LaserDpstoPlayers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetLaserDpstoPlayers() float32 {
+	if o == nil || IsNil(o.LaserDpstoPlayers.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.LaserDpstoPlayers.Get()
+}
+
+// GetLaserDpstoPlayersOk returns a tuple with the LaserDpstoPlayers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetLaserDpstoPlayersOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LaserDpstoPlayers.Get(), o.LaserDpstoPlayers.IsSet()
+}
+
+// HasLaserDpstoPlayers returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasLaserDpstoPlayers() bool {
+	if o != nil && o.LaserDpstoPlayers.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLaserDpstoPlayers gets a reference to the given NullableFloat32 and assigns it to the LaserDpstoPlayers field.
+func (o *NPCUnitV2) SetLaserDpstoPlayers(v float32) {
+	o.LaserDpstoPlayers.Set(&v)
+}
+// SetLaserDpstoPlayersNil sets the value for LaserDpstoPlayers to be an explicit nil
+func (o *NPCUnitV2) SetLaserDpstoPlayersNil() {
+	o.LaserDpstoPlayers.Set(nil)
+}
+
+// UnsetLaserDpstoPlayers ensures that no value is present for LaserDpstoPlayers, not even an explicit nil
+func (o *NPCUnitV2) UnsetLaserDpstoPlayers() {
+	o.LaserDpstoPlayers.Unset()
+}
+
+// GetLaserDpsmaxHealth returns the LaserDpsmaxHealth field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetLaserDpsmaxHealth() float32 {
+	if o == nil || IsNil(o.LaserDpsmaxHealth.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.LaserDpsmaxHealth.Get()
+}
+
+// GetLaserDpsmaxHealthOk returns a tuple with the LaserDpsmaxHealth field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetLaserDpsmaxHealthOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LaserDpsmaxHealth.Get(), o.LaserDpsmaxHealth.IsSet()
+}
+
+// HasLaserDpsmaxHealth returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasLaserDpsmaxHealth() bool {
+	if o != nil && o.LaserDpsmaxHealth.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLaserDpsmaxHealth gets a reference to the given NullableFloat32 and assigns it to the LaserDpsmaxHealth field.
+func (o *NPCUnitV2) SetLaserDpsmaxHealth(v float32) {
+	o.LaserDpsmaxHealth.Set(&v)
+}
+// SetLaserDpsmaxHealthNil sets the value for LaserDpsmaxHealth to be an explicit nil
+func (o *NPCUnitV2) SetLaserDpsmaxHealthNil() {
+	o.LaserDpsmaxHealth.Set(nil)
+}
+
+// UnsetLaserDpsmaxHealth ensures that no value is present for LaserDpsmaxHealth, not even an explicit nil
+func (o *NPCUnitV2) UnsetLaserDpsmaxHealth() {
+	o.LaserDpsmaxHealth.Unset()
+}
+
+// GetNoShieldLaserDpstoPlayers returns the NoShieldLaserDpstoPlayers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetNoShieldLaserDpstoPlayers() float32 {
+	if o == nil || IsNil(o.NoShieldLaserDpstoPlayers.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.NoShieldLaserDpstoPlayers.Get()
+}
+
+// GetNoShieldLaserDpstoPlayersOk returns a tuple with the NoShieldLaserDpstoPlayers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetNoShieldLaserDpstoPlayersOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NoShieldLaserDpstoPlayers.Get(), o.NoShieldLaserDpstoPlayers.IsSet()
+}
+
+// HasNoShieldLaserDpstoPlayers returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasNoShieldLaserDpstoPlayers() bool {
+	if o != nil && o.NoShieldLaserDpstoPlayers.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNoShieldLaserDpstoPlayers gets a reference to the given NullableFloat32 and assigns it to the NoShieldLaserDpstoPlayers field.
+func (o *NPCUnitV2) SetNoShieldLaserDpstoPlayers(v float32) {
+	o.NoShieldLaserDpstoPlayers.Set(&v)
+}
+// SetNoShieldLaserDpstoPlayersNil sets the value for NoShieldLaserDpstoPlayers to be an explicit nil
+func (o *NPCUnitV2) SetNoShieldLaserDpstoPlayersNil() {
+	o.NoShieldLaserDpstoPlayers.Set(nil)
+}
+
+// UnsetNoShieldLaserDpstoPlayers ensures that no value is present for NoShieldLaserDpstoPlayers, not even an explicit nil
+func (o *NPCUnitV2) UnsetNoShieldLaserDpstoPlayers() {
+	o.NoShieldLaserDpstoPlayers.Unset()
+}
+
+// GetStompDamage returns the StompDamage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetStompDamage() float32 {
+	if o == nil || IsNil(o.StompDamage.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.StompDamage.Get()
+}
+
+// GetStompDamageOk returns a tuple with the StompDamage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetStompDamageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StompDamage.Get(), o.StompDamage.IsSet()
+}
+
+// HasStompDamage returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasStompDamage() bool {
+	if o != nil && o.StompDamage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStompDamage gets a reference to the given NullableFloat32 and assigns it to the StompDamage field.
+func (o *NPCUnitV2) SetStompDamage(v float32) {
+	o.StompDamage.Set(&v)
+}
+// SetStompDamageNil sets the value for StompDamage to be an explicit nil
+func (o *NPCUnitV2) SetStompDamageNil() {
+	o.StompDamage.Set(nil)
+}
+
+// UnsetStompDamage ensures that no value is present for StompDamage, not even an explicit nil
+func (o *NPCUnitV2) UnsetStompDamage() {
+	o.StompDamage.Unset()
+}
+
+// GetStompDamageMaxHealthPercent returns the StompDamageMaxHealthPercent field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetStompDamageMaxHealthPercent() float32 {
+	if o == nil || IsNil(o.StompDamageMaxHealthPercent.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.StompDamageMaxHealthPercent.Get()
+}
+
+// GetStompDamageMaxHealthPercentOk returns a tuple with the StompDamageMaxHealthPercent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetStompDamageMaxHealthPercentOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StompDamageMaxHealthPercent.Get(), o.StompDamageMaxHealthPercent.IsSet()
+}
+
+// HasStompDamageMaxHealthPercent returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasStompDamageMaxHealthPercent() bool {
+	if o != nil && o.StompDamageMaxHealthPercent.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStompDamageMaxHealthPercent gets a reference to the given NullableFloat32 and assigns it to the StompDamageMaxHealthPercent field.
+func (o *NPCUnitV2) SetStompDamageMaxHealthPercent(v float32) {
+	o.StompDamageMaxHealthPercent.Set(&v)
+}
+// SetStompDamageMaxHealthPercentNil sets the value for StompDamageMaxHealthPercent to be an explicit nil
+func (o *NPCUnitV2) SetStompDamageMaxHealthPercentNil() {
+	o.StompDamageMaxHealthPercent.Set(nil)
+}
+
+// UnsetStompDamageMaxHealthPercent ensures that no value is present for StompDamageMaxHealthPercent, not even an explicit nil
+func (o *NPCUnitV2) UnsetStompDamageMaxHealthPercent() {
+	o.StompDamageMaxHealthPercent.Unset()
+}
+
+// GetStunDuration returns the StunDuration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetStunDuration() float32 {
+	if o == nil || IsNil(o.StunDuration.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.StunDuration.Get()
+}
+
+// GetStunDurationOk returns a tuple with the StunDuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetStunDurationOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StunDuration.Get(), o.StunDuration.IsSet()
+}
+
+// HasStunDuration returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasStunDuration() bool {
+	if o != nil && o.StunDuration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStunDuration gets a reference to the given NullableFloat32 and assigns it to the StunDuration field.
+func (o *NPCUnitV2) SetStunDuration(v float32) {
+	o.StunDuration.Set(&v)
+}
+// SetStunDurationNil sets the value for StunDuration to be an explicit nil
+func (o *NPCUnitV2) SetStunDurationNil() {
+	o.StunDuration.Set(nil)
+}
+
+// UnsetStunDuration ensures that no value is present for StunDuration, not even an explicit nil
+func (o *NPCUnitV2) UnsetStunDuration() {
+	o.StunDuration.Unset()
+}
+
+// GetStompImpactRadius returns the StompImpactRadius field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetStompImpactRadius() float32 {
+	if o == nil || IsNil(o.StompImpactRadius.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.StompImpactRadius.Get()
+}
+
+// GetStompImpactRadiusOk returns a tuple with the StompImpactRadius field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetStompImpactRadiusOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StompImpactRadius.Get(), o.StompImpactRadius.IsSet()
+}
+
+// HasStompImpactRadius returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasStompImpactRadius() bool {
+	if o != nil && o.StompImpactRadius.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStompImpactRadius gets a reference to the given NullableFloat32 and assigns it to the StompImpactRadius field.
+func (o *NPCUnitV2) SetStompImpactRadius(v float32) {
+	o.StompImpactRadius.Set(&v)
+}
+// SetStompImpactRadiusNil sets the value for StompImpactRadius to be an explicit nil
+func (o *NPCUnitV2) SetStompImpactRadiusNil() {
+	o.StompImpactRadius.Set(nil)
+}
+
+// UnsetStompImpactRadius ensures that no value is present for StompImpactRadius, not even an explicit nil
+func (o *NPCUnitV2) UnsetStompImpactRadius() {
+	o.StompImpactRadius.Unset()
 }
 
 // GetWalkSpeed returns the WalkSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2424,6 +2931,12 @@ func (o NPCUnitV2) ToMap() (map[string]interface{}, error) {
 	if o.MaxHealth.IsSet() {
 		toSerialize["max_health"] = o.MaxHealth.Get()
 	}
+	if o.Phase2Health.IsSet() {
+		toSerialize["phase2_health"] = o.Phase2Health.Get()
+	}
+	if o.BoundAbilities != nil {
+		toSerialize["bound_abilities"] = o.BoundAbilities
+	}
 	if o.MaxHealthFinal.IsSet() {
 		toSerialize["max_health_final"] = o.MaxHealthFinal.Get()
 	}
@@ -2435,6 +2948,15 @@ func (o NPCUnitV2) ToMap() (map[string]interface{}, error) {
 	}
 	if o.BackdoorBulletResistModifier.IsSet() {
 		toSerialize["backdoor_bullet_resist_modifier"] = o.BackdoorBulletResistModifier.Get()
+	}
+	if o.ObjectiveRegen.IsSet() {
+		toSerialize["objective_regen"] = o.ObjectiveRegen.Get()
+	}
+	if o.ObjectiveHealthGrowthPhase1.IsSet() {
+		toSerialize["objective_health_growth_phase1"] = o.ObjectiveHealthGrowthPhase1.Get()
+	}
+	if o.ObjectiveHealthGrowthPhase2.IsSet() {
+		toSerialize["objective_health_growth_phase2"] = o.ObjectiveHealthGrowthPhase2.Get()
 	}
 	if o.EnemyTrooperDamageReduction.IsSet() {
 		toSerialize["enemy_trooper_damage_reduction"] = o.EnemyTrooperDamageReduction.Get()
@@ -2477,6 +2999,27 @@ func (o NPCUnitV2) ToMap() (map[string]interface{}, error) {
 	}
 	if o.NearDeathDuration.IsSet() {
 		toSerialize["near_death_duration"] = o.NearDeathDuration.Get()
+	}
+	if o.LaserDpstoPlayers.IsSet() {
+		toSerialize["laser_dpsto_players"] = o.LaserDpstoPlayers.Get()
+	}
+	if o.LaserDpsmaxHealth.IsSet() {
+		toSerialize["laser_dpsmax_health"] = o.LaserDpsmaxHealth.Get()
+	}
+	if o.NoShieldLaserDpstoPlayers.IsSet() {
+		toSerialize["no_shield_laser_dpsto_players"] = o.NoShieldLaserDpstoPlayers.Get()
+	}
+	if o.StompDamage.IsSet() {
+		toSerialize["stomp_damage"] = o.StompDamage.Get()
+	}
+	if o.StompDamageMaxHealthPercent.IsSet() {
+		toSerialize["stomp_damage_max_health_percent"] = o.StompDamageMaxHealthPercent.Get()
+	}
+	if o.StunDuration.IsSet() {
+		toSerialize["stun_duration"] = o.StunDuration.Get()
+	}
+	if o.StompImpactRadius.IsSet() {
+		toSerialize["stomp_impact_radius"] = o.StompImpactRadius.Get()
 	}
 	if o.WalkSpeed.IsSet() {
 		toSerialize["walk_speed"] = o.WalkSpeed.Get()

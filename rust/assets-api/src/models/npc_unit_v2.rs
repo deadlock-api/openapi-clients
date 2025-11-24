@@ -19,6 +19,10 @@ pub struct NpcUnitV2 {
     pub weapon_info: Option<Option<Box<models::RawWeaponInfoV2>>>,
     #[serde(rename = "max_health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub max_health: Option<Option<i32>>,
+    #[serde(rename = "phase2_health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub phase2_health: Option<Option<i32>>,
+    #[serde(rename = "bound_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub bound_abilities: Option<Option<std::collections::HashMap<String, String>>>,
     #[serde(rename = "max_health_final", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub max_health_final: Option<Option<i32>>,
     #[serde(rename = "max_health_generator", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -27,6 +31,12 @@ pub struct NpcUnitV2 {
     pub enemy_trooper_protection_range: Option<Option<f64>>,
     #[serde(rename = "backdoor_bullet_resist_modifier", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub backdoor_bullet_resist_modifier: Option<Option<Box<models::SubclassBulletResistModifier>>>,
+    #[serde(rename = "objective_regen", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub objective_regen: Option<Option<Box<models::SubclassObjectiveRegen>>>,
+    #[serde(rename = "objective_health_growth_phase1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub objective_health_growth_phase1: Option<Option<Box<models::SubclassObjectiveHealthGrowthPhase>>>,
+    #[serde(rename = "objective_health_growth_phase2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub objective_health_growth_phase2: Option<Option<Box<models::SubclassObjectiveHealthGrowthPhase>>>,
     #[serde(rename = "enemy_trooper_damage_reduction", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub enemy_trooper_damage_reduction: Option<Option<Box<models::SubclassTrooperDamageReduction>>>,
     #[serde(rename = "ranged_armor_modifier", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -55,6 +65,20 @@ pub struct NpcUnitV2 {
     pub barrack_guardian_damage_resist_pct: Option<Option<f64>>,
     #[serde(rename = "near_death_duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub near_death_duration: Option<Option<f64>>,
+    #[serde(rename = "laser_dpsto_players", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub laser_dpsto_players: Option<Option<f64>>,
+    #[serde(rename = "laser_dpsmax_health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub laser_dpsmax_health: Option<Option<f64>>,
+    #[serde(rename = "no_shield_laser_dpsto_players", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub no_shield_laser_dpsto_players: Option<Option<f64>>,
+    #[serde(rename = "stomp_damage", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub stomp_damage: Option<Option<f64>>,
+    #[serde(rename = "stomp_damage_max_health_percent", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub stomp_damage_max_health_percent: Option<Option<f64>>,
+    #[serde(rename = "stun_duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub stun_duration: Option<Option<f64>>,
+    #[serde(rename = "stomp_impact_radius", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub stomp_impact_radius: Option<Option<f64>>,
     #[serde(rename = "walk_speed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub walk_speed: Option<Option<f64>>,
     #[serde(rename = "run_speed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -133,10 +157,15 @@ impl NpcUnitV2 {
             class_name,
             weapon_info: None,
             max_health: None,
+            phase2_health: None,
+            bound_abilities: None,
             max_health_final: None,
             max_health_generator: None,
             enemy_trooper_protection_range: None,
             backdoor_bullet_resist_modifier: None,
+            objective_regen: None,
+            objective_health_growth_phase1: None,
+            objective_health_growth_phase2: None,
             enemy_trooper_damage_reduction: None,
             ranged_armor_modifier: None,
             intrinsic_modifiers: None,
@@ -151,6 +180,13 @@ impl NpcUnitV2 {
             t3_boss_damage_resist_pct: None,
             barrack_guardian_damage_resist_pct: None,
             near_death_duration: None,
+            laser_dpsto_players: None,
+            laser_dpsmax_health: None,
+            no_shield_laser_dpsto_players: None,
+            stomp_damage: None,
+            stomp_damage_max_health_percent: None,
+            stun_duration: None,
+            stomp_impact_radius: None,
             walk_speed: None,
             run_speed: None,
             acceleration: None,

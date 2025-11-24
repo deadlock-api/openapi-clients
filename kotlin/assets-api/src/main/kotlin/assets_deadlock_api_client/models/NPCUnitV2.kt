@@ -19,6 +19,8 @@ import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.RawWeaponInfoV2
 import assets_deadlock_api_client.models.SubclassBulletResistModifier
 import assets_deadlock_api_client.models.SubclassIntrinsicModifiers
+import assets_deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase
+import assets_deadlock_api_client.models.SubclassObjectiveRegen
 import assets_deadlock_api_client.models.SubclassRangedArmorModifier
 import assets_deadlock_api_client.models.SubclassTrooperDamageReduction
 
@@ -33,10 +35,15 @@ import java.io.Serializable
  * @param id 
  * @param weaponInfo 
  * @param maxHealth 
+ * @param phase2Health 
+ * @param boundAbilities 
  * @param maxHealthFinal 
  * @param maxHealthGenerator 
  * @param enemyTrooperProtectionRange 
  * @param backdoorBulletResistModifier 
+ * @param objectiveRegen 
+ * @param objectiveHealthGrowthPhase1 
+ * @param objectiveHealthGrowthPhase2 
  * @param enemyTrooperDamageReduction 
  * @param rangedArmorModifier 
  * @param intrinsicModifiers 
@@ -51,6 +58,13 @@ import java.io.Serializable
  * @param t3BossDamageResistPct 
  * @param barrackGuardianDamageResistPct 
  * @param nearDeathDuration 
+ * @param laserDpstoPlayers 
+ * @param laserDpsmaxHealth 
+ * @param noShieldLaserDpstoPlayers 
+ * @param stompDamage 
+ * @param stompDamageMaxHealthPercent 
+ * @param stunDuration 
+ * @param stompImpactRadius 
  * @param walkSpeed 
  * @param runSpeed 
  * @param acceleration 
@@ -102,6 +116,12 @@ data class NPCUnitV2 (
     @Json(name = "max_health")
     val maxHealth: kotlin.Int? = null,
 
+    @Json(name = "phase2_health")
+    val phase2Health: kotlin.Int? = null,
+
+    @Json(name = "bound_abilities")
+    val boundAbilities: kotlin.collections.Map<kotlin.String, kotlin.String>? = null,
+
     @Json(name = "max_health_final")
     val maxHealthFinal: kotlin.Int? = null,
 
@@ -113,6 +133,15 @@ data class NPCUnitV2 (
 
     @Json(name = "backdoor_bullet_resist_modifier")
     val backdoorBulletResistModifier: SubclassBulletResistModifier? = null,
+
+    @Json(name = "objective_regen")
+    val objectiveRegen: SubclassObjectiveRegen? = null,
+
+    @Json(name = "objective_health_growth_phase1")
+    val objectiveHealthGrowthPhase1: SubclassObjectiveHealthGrowthPhase? = null,
+
+    @Json(name = "objective_health_growth_phase2")
+    val objectiveHealthGrowthPhase2: SubclassObjectiveHealthGrowthPhase? = null,
 
     @Json(name = "enemy_trooper_damage_reduction")
     val enemyTrooperDamageReduction: SubclassTrooperDamageReduction? = null,
@@ -155,6 +184,27 @@ data class NPCUnitV2 (
 
     @Json(name = "near_death_duration")
     val nearDeathDuration: java.math.BigDecimal? = null,
+
+    @Json(name = "laser_dpsto_players")
+    val laserDpstoPlayers: java.math.BigDecimal? = null,
+
+    @Json(name = "laser_dpsmax_health")
+    val laserDpsmaxHealth: java.math.BigDecimal? = null,
+
+    @Json(name = "no_shield_laser_dpsto_players")
+    val noShieldLaserDpstoPlayers: java.math.BigDecimal? = null,
+
+    @Json(name = "stomp_damage")
+    val stompDamage: java.math.BigDecimal? = null,
+
+    @Json(name = "stomp_damage_max_health_percent")
+    val stompDamageMaxHealthPercent: java.math.BigDecimal? = null,
+
+    @Json(name = "stun_duration")
+    val stunDuration: java.math.BigDecimal? = null,
+
+    @Json(name = "stomp_impact_radius")
+    val stompImpactRadius: java.math.BigDecimal? = null,
 
     @Json(name = "walk_speed")
     val walkSpeed: java.math.BigDecimal? = null,

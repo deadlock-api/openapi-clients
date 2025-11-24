@@ -83,9 +83,11 @@ __all__ = [
     "ModifierValue",
     "NPCUnitV2",
     "NewPlayerMetricsV2",
+    "ObjectiveHealthGrowthPhase",
     "ObjectiveParams",
     "ObjectivePositionV1",
     "ObjectivePositionsV1",
+    "ObjectiveRegen",
     "PickupDefinition",
     "PickupRadius",
     "Range",
@@ -121,6 +123,8 @@ __all__ = [
     "SubclassBulletResistModifier",
     "SubclassIntrinsicModifiers",
     "SubclassModifierDefinition",
+    "SubclassObjectiveHealthGrowthPhase",
+    "SubclassObjectiveRegen",
     "SubclassRangedArmorModifier",
     "SubclassTrooperDamageReduction",
     "TrooperDamageReduction",
@@ -209,9 +213,11 @@ from assets_deadlock_api_client.models.modifier_definition import ModifierDefini
 from assets_deadlock_api_client.models.modifier_value import ModifierValue as ModifierValue
 from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2 as NPCUnitV2
 from assets_deadlock_api_client.models.new_player_metrics_v2 import NewPlayerMetricsV2 as NewPlayerMetricsV2
+from assets_deadlock_api_client.models.objective_health_growth_phase import ObjectiveHealthGrowthPhase as ObjectiveHealthGrowthPhase
 from assets_deadlock_api_client.models.objective_params import ObjectiveParams as ObjectiveParams
 from assets_deadlock_api_client.models.objective_position_v1 import ObjectivePositionV1 as ObjectivePositionV1
 from assets_deadlock_api_client.models.objective_positions_v1 import ObjectivePositionsV1 as ObjectivePositionsV1
+from assets_deadlock_api_client.models.objective_regen import ObjectiveRegen as ObjectiveRegen
 from assets_deadlock_api_client.models.pickup_definition import PickupDefinition as PickupDefinition
 from assets_deadlock_api_client.models.pickup_radius import PickupRadius as PickupRadius
 from assets_deadlock_api_client.models.range import Range as Range
@@ -247,6 +253,8 @@ from assets_deadlock_api_client.models.stats_usage_flag_v2 import StatsUsageFlag
 from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier as SubclassBulletResistModifier
 from assets_deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers as SubclassIntrinsicModifiers
 from assets_deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition as SubclassModifierDefinition
+from assets_deadlock_api_client.models.subclass_objective_health_growth_phase import SubclassObjectiveHealthGrowthPhase as SubclassObjectiveHealthGrowthPhase
+from assets_deadlock_api_client.models.subclass_objective_regen import SubclassObjectiveRegen as SubclassObjectiveRegen
 from assets_deadlock_api_client.models.subclass_ranged_armor_modifier import SubclassRangedArmorModifier as SubclassRangedArmorModifier
 from assets_deadlock_api_client.models.subclass_trooper_damage_reduction import SubclassTrooperDamageReduction as SubclassTrooperDamageReduction
 from assets_deadlock_api_client.models.trooper_damage_reduction import TrooperDamageReduction as TrooperDamageReduction

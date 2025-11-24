@@ -112,6 +112,10 @@ class TestNPCUnitV2(unittest.TestCase):
                         burst_constant = 1.337, 
                         burst_slope = 1.337, ), ),
                 max_health = 56,
+                phase2_health = 56,
+                bound_abilities = {
+                    'key' : ''
+                    },
                 max_health_final = 56,
                 max_health_generator = 56,
                 enemy_trooper_protection_range = 1.337,
@@ -119,6 +123,20 @@ class TestNPCUnitV2(unittest.TestCase):
                     subclass = assets_deadlock_api_client.models.bullet_resist_modifier.BulletResistModifier(
                         bullet_resist = 56, 
                         bullet_resist_reduction_per_hero = 56, ), ),
+                objective_regen = assets_deadlock_api_client.models.subclass_objective_regen.SubclassObjectiveRegen(
+                    subclass = assets_deadlock_api_client.models.objective_regen.ObjectiveRegen(
+                        out_of_combat_health_regen = 56, 
+                        out_of_combat_regen_delay = 1.337, ), ),
+                objective_health_growth_phase1 = assets_deadlock_api_client.models.subclass_objective_health_growth_phase.SubclassObjectiveHealthGrowthPhase(
+                    subclass = assets_deadlock_api_client.models.objective_health_growth_phase.ObjectiveHealthGrowthPhase(
+                        growth_per_minute = 56, 
+                        tick_rate = 1.337, 
+                        growth_start_time_in_minutes = 56, ), ),
+                objective_health_growth_phase2 = assets_deadlock_api_client.models.subclass_objective_health_growth_phase.SubclassObjectiveHealthGrowthPhase(
+                    subclass = assets_deadlock_api_client.models.objective_health_growth_phase.ObjectiveHealthGrowthPhase(
+                        growth_per_minute = 56, 
+                        tick_rate = 1.337, 
+                        growth_start_time_in_minutes = 56, ), ),
                 enemy_trooper_damage_reduction = assets_deadlock_api_client.models.subclass_trooper_damage_reduction.SubclassTrooperDamageReduction(
                     subclass = assets_deadlock_api_client.models.trooper_damage_reduction.TrooperDamageReduction(
                         damage_reduction_for_troopers = 1.337, ), ),
@@ -147,6 +165,13 @@ class TestNPCUnitV2(unittest.TestCase):
                 t3_boss_damage_resist_pct = 1.337,
                 barrack_guardian_damage_resist_pct = 1.337,
                 near_death_duration = 1.337,
+                laser_dpsto_players = 1.337,
+                laser_dpsmax_health = 1.337,
+                no_shield_laser_dpsto_players = 1.337,
+                stomp_damage = 1.337,
+                stomp_damage_max_health_percent = 1.337,
+                stun_duration = 1.337,
+                stomp_impact_radius = 1.337,
                 walk_speed = 1.337,
                 run_speed = 1.337,
                 acceleration = 1.337,

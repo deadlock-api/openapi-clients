@@ -145,6 +145,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesRawValidClientVersions = {
+    NUMBER_6008: 6008,
     NUMBER_6002: 6002,
     NUMBER_5983: 5983,
     NUMBER_5972: 5972,
@@ -603,10 +604,15 @@ export interface NPCUnitV2 {
     'class_name': string;
     'weapon_info'?: RawWeaponInfoV2 | null;
     'max_health'?: number | null;
+    'phase2_health'?: number | null;
+    'bound_abilities'?: { [key: string]: string; } | null;
     'max_health_final'?: number | null;
     'max_health_generator'?: number | null;
     'enemy_trooper_protection_range'?: number | null;
     'backdoor_bullet_resist_modifier'?: SubclassBulletResistModifier | null;
+    'objective_regen'?: SubclassObjectiveRegen | null;
+    'objective_health_growth_phase1'?: SubclassObjectiveHealthGrowthPhase | null;
+    'objective_health_growth_phase2'?: SubclassObjectiveHealthGrowthPhase | null;
     'enemy_trooper_damage_reduction'?: SubclassTrooperDamageReduction | null;
     'ranged_armor_modifier'?: SubclassRangedArmorModifier | null;
     'intrinsic_modifiers'?: Array<SubclassIntrinsicModifiers> | null;
@@ -621,6 +627,13 @@ export interface NPCUnitV2 {
     't3_boss_damage_resist_pct'?: number | null;
     'barrack_guardian_damage_resist_pct'?: number | null;
     'near_death_duration'?: number | null;
+    'laser_dpsto_players'?: number | null;
+    'laser_dpsmax_health'?: number | null;
+    'no_shield_laser_dpsto_players'?: number | null;
+    'stomp_damage'?: number | null;
+    'stomp_damage_max_health_percent'?: number | null;
+    'stun_duration'?: number | null;
+    'stomp_impact_radius'?: number | null;
     'walk_speed'?: number | null;
     'run_speed'?: number | null;
     'acceleration'?: number | null;
@@ -669,6 +682,11 @@ export interface NewPlayerMetricsV2 {
     'abilities_upgraded': number;
     'mods_purchased': number;
 }
+export interface ObjectiveHealthGrowthPhase {
+    'growth_per_minute'?: number | null;
+    'tick_rate'?: number | null;
+    'growth_start_time_in_minutes'?: number | null;
+}
 export interface ObjectiveParams {
     'gold_per_orb': number;
     'near_player_split_pct': number;
@@ -714,6 +732,10 @@ export interface ObjectivePositionsV1 {
     'team1_tier1_2'?: ObjectivePositionV1 | null;
     'team1_tier1_3': ObjectivePositionV1;
     'team1_tier1_4': ObjectivePositionV1;
+}
+export interface ObjectiveRegen {
+    'out_of_combat_health_regen'?: number | null;
+    'out_of_combat_regen_delay'?: number | null;
 }
 export interface PickupDefinition {
     'pickup_name'?: string | null;
@@ -976,6 +998,12 @@ export interface SubclassIntrinsicModifiers {
 }
 export interface SubclassModifierDefinition {
     'subclass'?: ModifierDefinition;
+}
+export interface SubclassObjectiveHealthGrowthPhase {
+    'subclass'?: ObjectiveHealthGrowthPhase;
+}
+export interface SubclassObjectiveRegen {
+    'subclass'?: ObjectiveRegen;
 }
 export interface SubclassRangedArmorModifier {
     'subclass'?: RangedArmorModifier;

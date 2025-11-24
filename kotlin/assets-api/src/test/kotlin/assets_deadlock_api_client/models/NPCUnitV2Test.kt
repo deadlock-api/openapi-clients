@@ -23,6 +23,8 @@ import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.RawWeaponInfoV2
 import assets_deadlock_api_client.models.SubclassBulletResistModifier
 import assets_deadlock_api_client.models.SubclassIntrinsicModifiers
+import assets_deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase
+import assets_deadlock_api_client.models.SubclassObjectiveRegen
 import assets_deadlock_api_client.models.SubclassRangedArmorModifier
 import assets_deadlock_api_client.models.SubclassTrooperDamageReduction
 
@@ -55,6 +57,18 @@ class NPCUnitV2Test : ShouldSpec() {
             //modelInstance.maxHealth shouldBe ("TODO")
         }
 
+        // to test the property `phase2Health`
+        should("test phase2Health") {
+            // uncomment below to test the property
+            //modelInstance.phase2Health shouldBe ("TODO")
+        }
+
+        // to test the property `boundAbilities`
+        should("test boundAbilities") {
+            // uncomment below to test the property
+            //modelInstance.boundAbilities shouldBe ("TODO")
+        }
+
         // to test the property `maxHealthFinal`
         should("test maxHealthFinal") {
             // uncomment below to test the property
@@ -77,6 +91,24 @@ class NPCUnitV2Test : ShouldSpec() {
         should("test backdoorBulletResistModifier") {
             // uncomment below to test the property
             //modelInstance.backdoorBulletResistModifier shouldBe ("TODO")
+        }
+
+        // to test the property `objectiveRegen`
+        should("test objectiveRegen") {
+            // uncomment below to test the property
+            //modelInstance.objectiveRegen shouldBe ("TODO")
+        }
+
+        // to test the property `objectiveHealthGrowthPhase1`
+        should("test objectiveHealthGrowthPhase1") {
+            // uncomment below to test the property
+            //modelInstance.objectiveHealthGrowthPhase1 shouldBe ("TODO")
+        }
+
+        // to test the property `objectiveHealthGrowthPhase2`
+        should("test objectiveHealthGrowthPhase2") {
+            // uncomment below to test the property
+            //modelInstance.objectiveHealthGrowthPhase2 shouldBe ("TODO")
         }
 
         // to test the property `enemyTrooperDamageReduction`
@@ -161,6 +193,48 @@ class NPCUnitV2Test : ShouldSpec() {
         should("test nearDeathDuration") {
             // uncomment below to test the property
             //modelInstance.nearDeathDuration shouldBe ("TODO")
+        }
+
+        // to test the property `laserDpstoPlayers`
+        should("test laserDpstoPlayers") {
+            // uncomment below to test the property
+            //modelInstance.laserDpstoPlayers shouldBe ("TODO")
+        }
+
+        // to test the property `laserDpsmaxHealth`
+        should("test laserDpsmaxHealth") {
+            // uncomment below to test the property
+            //modelInstance.laserDpsmaxHealth shouldBe ("TODO")
+        }
+
+        // to test the property `noShieldLaserDpstoPlayers`
+        should("test noShieldLaserDpstoPlayers") {
+            // uncomment below to test the property
+            //modelInstance.noShieldLaserDpstoPlayers shouldBe ("TODO")
+        }
+
+        // to test the property `stompDamage`
+        should("test stompDamage") {
+            // uncomment below to test the property
+            //modelInstance.stompDamage shouldBe ("TODO")
+        }
+
+        // to test the property `stompDamageMaxHealthPercent`
+        should("test stompDamageMaxHealthPercent") {
+            // uncomment below to test the property
+            //modelInstance.stompDamageMaxHealthPercent shouldBe ("TODO")
+        }
+
+        // to test the property `stunDuration`
+        should("test stunDuration") {
+            // uncomment below to test the property
+            //modelInstance.stunDuration shouldBe ("TODO")
+        }
+
+        // to test the property `stompImpactRadius`
+        should("test stompImpactRadius") {
+            // uncomment below to test the property
+            //modelInstance.stompImpactRadius shouldBe ("TODO")
         }
 
         // to test the property `walkSpeed`

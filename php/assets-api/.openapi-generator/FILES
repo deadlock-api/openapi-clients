@@ -64,9 +64,11 @@ api/Model/ModifierDefinition.php
 api/Model/ModifierValue.php
 api/Model/NPCUnitV2.php
 api/Model/NewPlayerMetricsV2.php
+api/Model/ObjectiveHealthGrowthPhase.php
 api/Model/ObjectiveParams.php
 api/Model/ObjectivePositionV1.php
 api/Model/ObjectivePositionsV1.php
+api/Model/ObjectiveRegen.php
 api/Model/PickupDefinition.php
 api/Model/PickupRadius.php
 api/Model/Range.php
@@ -102,6 +104,8 @@ api/Model/StatsUsageFlagV2.php
 api/Model/SubclassBulletResistModifier.php
 api/Model/SubclassIntrinsicModifiers.php
 api/Model/SubclassModifierDefinition.php
+api/Model/SubclassObjectiveHealthGrowthPhase.php
+api/Model/SubclassObjectiveRegen.php
 api/Model/SubclassRangedArmorModifier.php
 api/Model/SubclassTrooperDamageReduction.php
 api/Model/TrooperDamageReduction.php
@@ -176,9 +180,11 @@ docs/Model/ModifierDefinition.md
 docs/Model/ModifierValue.md
 docs/Model/NPCUnitV2.md
 docs/Model/NewPlayerMetricsV2.md
+docs/Model/ObjectiveHealthGrowthPhase.md
 docs/Model/ObjectiveParams.md
 docs/Model/ObjectivePositionV1.md
 docs/Model/ObjectivePositionsV1.md
+docs/Model/ObjectiveRegen.md
 docs/Model/PickupDefinition.md
 docs/Model/PickupRadius.md
 docs/Model/Range.md
@@ -214,6 +220,8 @@ docs/Model/StatsUsageFlagV2.md
 docs/Model/SubclassBulletResistModifier.md
 docs/Model/SubclassIntrinsicModifiers.md
 docs/Model/SubclassModifierDefinition.md
+docs/Model/SubclassObjectiveHealthGrowthPhase.md
+docs/Model/SubclassObjectiveRegen.md
 docs/Model/SubclassRangedArmorModifier.md
 docs/Model/SubclassTrooperDamageReduction.md
 docs/Model/TrooperDamageReduction.md
@@ -288,9 +296,11 @@ test/Model/ModifierDefinitionTest.php
 test/Model/ModifierValueTest.php
 test/Model/NPCUnitV2Test.php
 test/Model/NewPlayerMetricsV2Test.php
+test/Model/ObjectiveHealthGrowthPhaseTest.php
 test/Model/ObjectiveParamsTest.php
 test/Model/ObjectivePositionV1Test.php
 test/Model/ObjectivePositionsV1Test.php
+test/Model/ObjectiveRegenTest.php
 test/Model/PickupDefinitionTest.php
 test/Model/PickupRadiusTest.php
 test/Model/RangeTest.php
@@ -326,6 +336,8 @@ test/Model/StatsUsageFlagV2Test.php
 test/Model/SubclassBulletResistModifierTest.php
 test/Model/SubclassIntrinsicModifiersTest.php
 test/Model/SubclassModifierDefinitionTest.php
+test/Model/SubclassObjectiveHealthGrowthPhaseTest.php
+test/Model/SubclassObjectiveRegenTest.php
 test/Model/SubclassRangedArmorModifierTest.php
 test/Model/SubclassTrooperDamageReductionTest.php
 test/Model/TrooperDamageReductionTest.php

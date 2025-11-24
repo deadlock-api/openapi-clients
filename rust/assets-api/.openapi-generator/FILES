@@ -58,9 +58,11 @@ docs/ModifierValue.md
 docs/NewPlayerMetricsV2.md
 docs/NpcUnitV2.md
 docs/NpcUnitsApi.md
+docs/ObjectiveHealthGrowthPhase.md
 docs/ObjectiveParams.md
 docs/ObjectivePositionV1.md
 docs/ObjectivePositionsV1.md
+docs/ObjectiveRegen.md
 docs/PickupDefinition.md
 docs/PickupRadius.md
 docs/Range.md
@@ -97,6 +99,8 @@ docs/StatsUsageFlagV2.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassIntrinsicModifiers.md
 docs/SubclassModifierDefinition.md
+docs/SubclassObjectiveHealthGrowthPhase.md
+docs/SubclassObjectiveRegen.md
 docs/SubclassRangedArmorModifier.md
 docs/SubclassTrooperDamageReduction.md
 docs/TrooperDamageReduction.md
@@ -174,9 +178,11 @@ src/models/modifier_definition.rs
 src/models/modifier_value.rs
 src/models/new_player_metrics_v2.rs
 src/models/npc_unit_v2.rs
+src/models/objective_health_growth_phase.rs
 src/models/objective_params.rs
 src/models/objective_position_v1.rs
 src/models/objective_positions_v1.rs
+src/models/objective_regen.rs
 src/models/pickup_definition.rs
 src/models/pickup_radius.rs
 src/models/range.rs
@@ -212,6 +218,8 @@ src/models/stats_usage_flag_v2.rs
 src/models/subclass_bullet_resist_modifier.rs
 src/models/subclass_intrinsic_modifiers.rs
 src/models/subclass_modifier_definition.rs
+src/models/subclass_objective_health_growth_phase.rs
+src/models/subclass_objective_regen.rs
 src/models/subclass_ranged_armor_modifier.rs
 src/models/subclass_trooper_damage_reduction.rs
 src/models/trooper_damage_reduction.rs

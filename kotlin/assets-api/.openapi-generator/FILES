@@ -56,9 +56,11 @@ docs/ModifierValue.md
 docs/NPCUnitV2.md
 docs/NPCUnitsApi.md
 docs/NewPlayerMetricsV2.md
+docs/ObjectiveHealthGrowthPhase.md
 docs/ObjectiveParams.md
 docs/ObjectivePositionV1.md
 docs/ObjectivePositionsV1.md
+docs/ObjectiveRegen.md
 docs/PickupDefinition.md
 docs/PickupRadius.md
 docs/Range.md
@@ -95,6 +97,8 @@ docs/StatsUsageFlagV2.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassIntrinsicModifiers.md
 docs/SubclassModifierDefinition.md
+docs/SubclassObjectiveHealthGrowthPhase.md
+docs/SubclassObjectiveRegen.md
 docs/SubclassRangedArmorModifier.md
 docs/SubclassTrooperDamageReduction.md
 docs/TrooperDamageReduction.md
@@ -185,9 +189,11 @@ src/main/kotlin/assets_deadlock_api_client/models/ModifierDefinition.kt
 src/main/kotlin/assets_deadlock_api_client/models/ModifierValue.kt
 src/main/kotlin/assets_deadlock_api_client/models/NPCUnitV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/NewPlayerMetricsV2.kt
+src/main/kotlin/assets_deadlock_api_client/models/ObjectiveHealthGrowthPhase.kt
 src/main/kotlin/assets_deadlock_api_client/models/ObjectiveParams.kt
 src/main/kotlin/assets_deadlock_api_client/models/ObjectivePositionV1.kt
 src/main/kotlin/assets_deadlock_api_client/models/ObjectivePositionsV1.kt
+src/main/kotlin/assets_deadlock_api_client/models/ObjectiveRegen.kt
 src/main/kotlin/assets_deadlock_api_client/models/PickupDefinition.kt
 src/main/kotlin/assets_deadlock_api_client/models/PickupRadius.kt
 src/main/kotlin/assets_deadlock_api_client/models/Range.kt
@@ -223,6 +229,8 @@ src/main/kotlin/assets_deadlock_api_client/models/StatsUsageFlagV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/SubclassBulletResistModifier.kt
 src/main/kotlin/assets_deadlock_api_client/models/SubclassIntrinsicModifiers.kt
 src/main/kotlin/assets_deadlock_api_client/models/SubclassModifierDefinition.kt
+src/main/kotlin/assets_deadlock_api_client/models/SubclassObjectiveHealthGrowthPhase.kt
+src/main/kotlin/assets_deadlock_api_client/models/SubclassObjectiveRegen.kt
 src/main/kotlin/assets_deadlock_api_client/models/SubclassRangedArmorModifier.kt
 src/main/kotlin/assets_deadlock_api_client/models/SubclassTrooperDamageReduction.kt
 src/main/kotlin/assets_deadlock_api_client/models/TrooperDamageReduction.kt
@@ -295,9 +303,11 @@ src/test/kotlin/assets_deadlock_api_client/models/ModifierDefinitionTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ModifierValueTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/NPCUnitV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/NewPlayerMetricsV2Test.kt
+src/test/kotlin/assets_deadlock_api_client/models/ObjectiveHealthGrowthPhaseTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ObjectiveParamsTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ObjectivePositionV1Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/ObjectivePositionsV1Test.kt
+src/test/kotlin/assets_deadlock_api_client/models/ObjectiveRegenTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/PickupDefinitionTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/PickupRadiusTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/RangeTest.kt
@@ -333,6 +343,8 @@ src/test/kotlin/assets_deadlock_api_client/models/StatsUsageFlagV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/SubclassBulletResistModifierTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/SubclassIntrinsicModifiersTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/SubclassModifierDefinitionTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/SubclassObjectiveHealthGrowthPhaseTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/SubclassObjectiveRegenTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/SubclassRangedArmorModifierTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/SubclassTrooperDamageReductionTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/TrooperDamageReductionTest.kt
