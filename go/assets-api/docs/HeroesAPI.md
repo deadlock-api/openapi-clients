@@ -31,7 +31,7 @@ import (
 func main() {
 	name := "name_example" // string | 
 	language := openapiclient.Language("brazilian") // Language |  (optional)
-	clientVersion := openapiclient.deadlock_assets_api__routes__v1__ValidClientVersions(6002) // DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(6002) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **language** | [**Language**](Language.md) |  | 
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](DeadlockAssetsApiRoutesV1ValidClientVersions.md) |  | 
+ **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](DeadlockAssetsApiRoutesRawValidClientVersions.md) |  | 
 
 ### Return type
 
@@ -103,7 +103,7 @@ import (
 func main() {
 	id := int32(56) // int32 | 
 	language := openapiclient.Language("brazilian") // Language |  (optional)
-	clientVersion := openapiclient.deadlock_assets_api__routes__v1__ValidClientVersions(6002) // DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(6002) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **language** | [**Language**](Language.md) |  | 
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](DeadlockAssetsApiRoutesV1ValidClientVersions.md) |  | 
+ **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](DeadlockAssetsApiRoutesRawValidClientVersions.md) |  | 
 
 ### Return type
 
@@ -174,7 +174,7 @@ import (
 
 func main() {
 	language := openapiclient.Language("brazilian") // Language |  (optional)
-	clientVersion := openapiclient.deadlock_assets_api__routes__v1__ValidClientVersions(6002) // DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
+	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(6002) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
 	onlyActive := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -201,7 +201,7 @@ Other parameters are passed through a pointer to a apiGetHeroesV2HeroesGetReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | [**Language**](Language.md) |  | 
- **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](DeadlockAssetsApiRoutesV1ValidClientVersions.md) |  | 
+ **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](DeadlockAssetsApiRoutesRawValidClientVersions.md) |  | 
  **onlyActive** | **bool** |  | 
 
 ### Return type

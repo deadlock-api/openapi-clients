@@ -28,7 +28,7 @@ api/Model/BulletResistModifier.php
 api/Model/ColorV1.php
 api/Model/Curve.php
 api/Model/DamageFlashV2.php
-api/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.php
+api/Model/DeadlockAssetsApiRoutesRawValidClientVersions.php
 api/Model/ExpirationDuration.php
 api/Model/FlashDataV2.php
 api/Model/GenericDataV2.php
@@ -141,7 +141,7 @@ docs/Model/BulletResistModifier.md
 docs/Model/ColorV1.md
 docs/Model/Curve.md
 docs/Model/DamageFlashV2.md
-docs/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.md
+docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md
 docs/Model/ExpirationDuration.md
 docs/Model/FlashDataV2.md
 docs/Model/GenericDataV2.md
@@ -253,7 +253,7 @@ test/Model/BulletResistModifierTest.php
 test/Model/ColorV1Test.php
 test/Model/CurveTest.php
 test/Model/DamageFlashV2Test.php
-test/Model/DeadlockAssetsApiRoutesV1ValidClientVersionsTest.php
+test/Model/DeadlockAssetsApiRoutesRawValidClientVersionsTest.php
 test/Model/ExpirationDurationTest.php
 test/Model/FlashDataV2Test.php
 test/Model/GenericDataV2Test.php

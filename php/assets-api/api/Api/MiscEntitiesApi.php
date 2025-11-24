@@ -133,7 +133,7 @@ class MiscEntitiesApi
      *
      * Get Misc Entities
      *
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntitiesV2MiscEntitiesGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -151,7 +151,7 @@ class MiscEntitiesApi
      *
      * Get Misc Entities
      *
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntitiesV2MiscEntitiesGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -250,7 +250,7 @@ class MiscEntitiesApi
      *
      * Get Misc Entities
      *
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntitiesV2MiscEntitiesGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -271,7 +271,7 @@ class MiscEntitiesApi
      *
      * Get Misc Entities
      *
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntitiesV2MiscEntitiesGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -321,7 +321,7 @@ class MiscEntitiesApi
     /**
      * Create request for operation 'getMiscEntitiesV2MiscEntitiesGet'
      *
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntitiesV2MiscEntitiesGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -343,7 +343,7 @@ class MiscEntitiesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesV1ValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesRawValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -411,7 +411,7 @@ class MiscEntitiesApi
      * Get Misc Entity
      *
      * @param  string $id_or_class_name id_or_class_name (required)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntityV2MiscEntitiesIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -430,7 +430,7 @@ class MiscEntitiesApi
      * Get Misc Entity
      *
      * @param  string $id_or_class_name (required)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntityV2MiscEntitiesIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -530,7 +530,7 @@ class MiscEntitiesApi
      * Get Misc Entity
      *
      * @param  string $id_or_class_name (required)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntityV2MiscEntitiesIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -552,7 +552,7 @@ class MiscEntitiesApi
      * Get Misc Entity
      *
      * @param  string $id_or_class_name (required)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntityV2MiscEntitiesIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -603,7 +603,7 @@ class MiscEntitiesApi
      * Create request for operation 'getMiscEntityV2MiscEntitiesIdOrClassNameGet'
      *
      * @param  string $id_or_class_name (required)
-     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions|null $client_version (optional)
+     * @param  \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntityV2MiscEntitiesIdOrClassNameGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -632,7 +632,7 @@ class MiscEntitiesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
             'client_version', // param base name
-            'DeadlockAssetsApiRoutesV1ValidClientVersions', // openApiType
+            'DeadlockAssetsApiRoutesRawValidClientVersions', // openApiType
             'form', // style
             true, // explode
             false // required

@@ -93,7 +93,7 @@ Class | Method | HTTP request | Description
  - [ColorV1](docs/ColorV1.md)
  - [Curve](docs/Curve.md)
  - [DamageFlashV2](docs/DamageFlashV2.md)
- - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
  - [ExpirationDuration](docs/ExpirationDuration.md)
  - [FlashDataV2](docs/FlashDataV2.md)
  - [GenericDataV2](docs/GenericDataV2.md)
