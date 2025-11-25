@@ -627,9 +627,9 @@ export interface NPCUnitV2 {
     't3_boss_damage_resist_pct'?: number | null;
     'barrack_guardian_damage_resist_pct'?: number | null;
     'near_death_duration'?: number | null;
-    'laser_dpsto_players'?: number | null;
-    'laser_dpsmax_health'?: number | null;
-    'no_shield_laser_dpsto_players'?: number | null;
+    'laser_dps_to_players'?: number | null;
+    'laser_dps_max_health'?: number | null;
+    'no_shield_laser_dps_to_players'?: number | null;
     'stomp_damage'?: number | null;
     'stomp_damage_max_health_percent'?: number | null;
     'stun_duration'?: number | null;

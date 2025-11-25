@@ -30,9 +30,9 @@ Name | Type | Description | Notes
 **T3BossDamageResistPct** | Pointer to **NullableFloat32** |  | [optional] 
 **BarrackGuardianDamageResistPct** | Pointer to **NullableFloat32** |  | [optional] 
 **NearDeathDuration** | Pointer to **NullableFloat32** |  | [optional] 
-**LaserDpstoPlayers** | Pointer to **NullableFloat32** |  | [optional] 
-**LaserDpsmaxHealth** | Pointer to **NullableFloat32** |  | [optional] 
-**NoShieldLaserDpstoPlayers** | Pointer to **NullableFloat32** |  | [optional] 
+**LaserDpsToPlayers** | Pointer to **NullableFloat32** |  | [optional] 
+**LaserDpsMaxHealth** | Pointer to **NullableFloat32** |  | [optional] 
+**NoShieldLaserDpsToPlayers** | Pointer to **NullableFloat32** |  | [optional] 
 **StompDamage** | Pointer to **NullableFloat32** |  | [optional] 
 **StompDamageMaxHealthPercent** | Pointer to **NullableFloat32** |  | [optional] 
 **StunDuration** | Pointer to **NullableFloat32** |  | [optional] 
@@ -987,111 +987,111 @@ HasNearDeathDuration returns a boolean if a field has been set.
 `func (o *NPCUnitV2) UnsetNearDeathDuration()`
 
 UnsetNearDeathDuration ensures that no value is present for NearDeathDuration, not even an explicit nil
-### GetLaserDpstoPlayers
+### GetLaserDpsToPlayers
 
-`func (o *NPCUnitV2) GetLaserDpstoPlayers() float32`
+`func (o *NPCUnitV2) GetLaserDpsToPlayers() float32`
 
-GetLaserDpstoPlayers returns the LaserDpstoPlayers field if non-nil, zero value otherwise.
+GetLaserDpsToPlayers returns the LaserDpsToPlayers field if non-nil, zero value otherwise.
 
-### GetLaserDpstoPlayersOk
+### GetLaserDpsToPlayersOk
 
-`func (o *NPCUnitV2) GetLaserDpstoPlayersOk() (*float32, bool)`
+`func (o *NPCUnitV2) GetLaserDpsToPlayersOk() (*float32, bool)`
 
-GetLaserDpstoPlayersOk returns a tuple with the LaserDpstoPlayers field if it's non-nil, zero value otherwise
+GetLaserDpsToPlayersOk returns a tuple with the LaserDpsToPlayers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLaserDpstoPlayers
+### SetLaserDpsToPlayers
 
-`func (o *NPCUnitV2) SetLaserDpstoPlayers(v float32)`
+`func (o *NPCUnitV2) SetLaserDpsToPlayers(v float32)`
 
-SetLaserDpstoPlayers sets LaserDpstoPlayers field to given value.
+SetLaserDpsToPlayers sets LaserDpsToPlayers field to given value.
 
-### HasLaserDpstoPlayers
+### HasLaserDpsToPlayers
 
-`func (o *NPCUnitV2) HasLaserDpstoPlayers() bool`
+`func (o *NPCUnitV2) HasLaserDpsToPlayers() bool`
 
-HasLaserDpstoPlayers returns a boolean if a field has been set.
+HasLaserDpsToPlayers returns a boolean if a field has been set.
 
-### SetLaserDpstoPlayersNil
+### SetLaserDpsToPlayersNil
 
-`func (o *NPCUnitV2) SetLaserDpstoPlayersNil(b bool)`
+`func (o *NPCUnitV2) SetLaserDpsToPlayersNil(b bool)`
 
- SetLaserDpstoPlayersNil sets the value for LaserDpstoPlayers to be an explicit nil
+ SetLaserDpsToPlayersNil sets the value for LaserDpsToPlayers to be an explicit nil
 
-### UnsetLaserDpstoPlayers
-`func (o *NPCUnitV2) UnsetLaserDpstoPlayers()`
+### UnsetLaserDpsToPlayers
+`func (o *NPCUnitV2) UnsetLaserDpsToPlayers()`
 
-UnsetLaserDpstoPlayers ensures that no value is present for LaserDpstoPlayers, not even an explicit nil
-### GetLaserDpsmaxHealth
+UnsetLaserDpsToPlayers ensures that no value is present for LaserDpsToPlayers, not even an explicit nil
+### GetLaserDpsMaxHealth
 
-`func (o *NPCUnitV2) GetLaserDpsmaxHealth() float32`
+`func (o *NPCUnitV2) GetLaserDpsMaxHealth() float32`
 
-GetLaserDpsmaxHealth returns the LaserDpsmaxHealth field if non-nil, zero value otherwise.
+GetLaserDpsMaxHealth returns the LaserDpsMaxHealth field if non-nil, zero value otherwise.
 
-### GetLaserDpsmaxHealthOk
+### GetLaserDpsMaxHealthOk
 
-`func (o *NPCUnitV2) GetLaserDpsmaxHealthOk() (*float32, bool)`
+`func (o *NPCUnitV2) GetLaserDpsMaxHealthOk() (*float32, bool)`
 
-GetLaserDpsmaxHealthOk returns a tuple with the LaserDpsmaxHealth field if it's non-nil, zero value otherwise
+GetLaserDpsMaxHealthOk returns a tuple with the LaserDpsMaxHealth field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLaserDpsmaxHealth
+### SetLaserDpsMaxHealth
 
-`func (o *NPCUnitV2) SetLaserDpsmaxHealth(v float32)`
+`func (o *NPCUnitV2) SetLaserDpsMaxHealth(v float32)`
 
-SetLaserDpsmaxHealth sets LaserDpsmaxHealth field to given value.
+SetLaserDpsMaxHealth sets LaserDpsMaxHealth field to given value.
 
-### HasLaserDpsmaxHealth
+### HasLaserDpsMaxHealth
 
-`func (o *NPCUnitV2) HasLaserDpsmaxHealth() bool`
+`func (o *NPCUnitV2) HasLaserDpsMaxHealth() bool`
 
-HasLaserDpsmaxHealth returns a boolean if a field has been set.
+HasLaserDpsMaxHealth returns a boolean if a field has been set.
 
-### SetLaserDpsmaxHealthNil
+### SetLaserDpsMaxHealthNil
 
-`func (o *NPCUnitV2) SetLaserDpsmaxHealthNil(b bool)`
+`func (o *NPCUnitV2) SetLaserDpsMaxHealthNil(b bool)`
 
- SetLaserDpsmaxHealthNil sets the value for LaserDpsmaxHealth to be an explicit nil
+ SetLaserDpsMaxHealthNil sets the value for LaserDpsMaxHealth to be an explicit nil
 
-### UnsetLaserDpsmaxHealth
-`func (o *NPCUnitV2) UnsetLaserDpsmaxHealth()`
+### UnsetLaserDpsMaxHealth
+`func (o *NPCUnitV2) UnsetLaserDpsMaxHealth()`
 
-UnsetLaserDpsmaxHealth ensures that no value is present for LaserDpsmaxHealth, not even an explicit nil
-### GetNoShieldLaserDpstoPlayers
+UnsetLaserDpsMaxHealth ensures that no value is present for LaserDpsMaxHealth, not even an explicit nil
+### GetNoShieldLaserDpsToPlayers
 
-`func (o *NPCUnitV2) GetNoShieldLaserDpstoPlayers() float32`
+`func (o *NPCUnitV2) GetNoShieldLaserDpsToPlayers() float32`
 
-GetNoShieldLaserDpstoPlayers returns the NoShieldLaserDpstoPlayers field if non-nil, zero value otherwise.
+GetNoShieldLaserDpsToPlayers returns the NoShieldLaserDpsToPlayers field if non-nil, zero value otherwise.
 
-### GetNoShieldLaserDpstoPlayersOk
+### GetNoShieldLaserDpsToPlayersOk
 
-`func (o *NPCUnitV2) GetNoShieldLaserDpstoPlayersOk() (*float32, bool)`
+`func (o *NPCUnitV2) GetNoShieldLaserDpsToPlayersOk() (*float32, bool)`
 
-GetNoShieldLaserDpstoPlayersOk returns a tuple with the NoShieldLaserDpstoPlayers field if it's non-nil, zero value otherwise
+GetNoShieldLaserDpsToPlayersOk returns a tuple with the NoShieldLaserDpsToPlayers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetNoShieldLaserDpstoPlayers
+### SetNoShieldLaserDpsToPlayers
 
-`func (o *NPCUnitV2) SetNoShieldLaserDpstoPlayers(v float32)`
+`func (o *NPCUnitV2) SetNoShieldLaserDpsToPlayers(v float32)`
 
-SetNoShieldLaserDpstoPlayers sets NoShieldLaserDpstoPlayers field to given value.
+SetNoShieldLaserDpsToPlayers sets NoShieldLaserDpsToPlayers field to given value.
 
-### HasNoShieldLaserDpstoPlayers
+### HasNoShieldLaserDpsToPlayers
 
-`func (o *NPCUnitV2) HasNoShieldLaserDpstoPlayers() bool`
+`func (o *NPCUnitV2) HasNoShieldLaserDpsToPlayers() bool`
 
-HasNoShieldLaserDpstoPlayers returns a boolean if a field has been set.
+HasNoShieldLaserDpsToPlayers returns a boolean if a field has been set.
 
-### SetNoShieldLaserDpstoPlayersNil
+### SetNoShieldLaserDpsToPlayersNil
 
-`func (o *NPCUnitV2) SetNoShieldLaserDpstoPlayersNil(b bool)`
+`func (o *NPCUnitV2) SetNoShieldLaserDpsToPlayersNil(b bool)`
 
- SetNoShieldLaserDpstoPlayersNil sets the value for NoShieldLaserDpstoPlayers to be an explicit nil
+ SetNoShieldLaserDpsToPlayersNil sets the value for NoShieldLaserDpsToPlayers to be an explicit nil
 
-### UnsetNoShieldLaserDpstoPlayers
-`func (o *NPCUnitV2) UnsetNoShieldLaserDpstoPlayers()`
+### UnsetNoShieldLaserDpsToPlayers
+`func (o *NPCUnitV2) UnsetNoShieldLaserDpsToPlayers()`
 
-UnsetNoShieldLaserDpstoPlayers ensures that no value is present for NoShieldLaserDpstoPlayers, not even an explicit nil
+UnsetNoShieldLaserDpsToPlayers ensures that no value is present for NoShieldLaserDpsToPlayers, not even an explicit nil
 ### GetStompDamage
 
 `func (o *NPCUnitV2) GetStompDamage() float32`

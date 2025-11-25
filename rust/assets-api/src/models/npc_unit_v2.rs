@@ -65,12 +65,12 @@ pub struct NpcUnitV2 {
     pub barrack_guardian_damage_resist_pct: Option<Option<f64>>,
     #[serde(rename = "near_death_duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub near_death_duration: Option<Option<f64>>,
-    #[serde(rename = "laser_dpsto_players", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub laser_dpsto_players: Option<Option<f64>>,
-    #[serde(rename = "laser_dpsmax_health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub laser_dpsmax_health: Option<Option<f64>>,
-    #[serde(rename = "no_shield_laser_dpsto_players", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub no_shield_laser_dpsto_players: Option<Option<f64>>,
+    #[serde(rename = "laser_dps_to_players", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub laser_dps_to_players: Option<Option<f64>>,
+    #[serde(rename = "laser_dps_max_health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub laser_dps_max_health: Option<Option<f64>>,
+    #[serde(rename = "no_shield_laser_dps_to_players", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub no_shield_laser_dps_to_players: Option<Option<f64>>,
     #[serde(rename = "stomp_damage", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub stomp_damage: Option<Option<f64>>,
     #[serde(rename = "stomp_damage_max_health_percent", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -180,9 +180,9 @@ impl NpcUnitV2 {
             t3_boss_damage_resist_pct: None,
             barrack_guardian_damage_resist_pct: None,
             near_death_duration: None,
-            laser_dpsto_players: None,
-            laser_dpsmax_health: None,
-            no_shield_laser_dpsto_players: None,
+            laser_dps_to_players: None,
+            laser_dps_max_health: None,
+            no_shield_laser_dps_to_players: None,
             stomp_damage: None,
             stomp_damage_max_health_percent: None,
             stun_duration: None,

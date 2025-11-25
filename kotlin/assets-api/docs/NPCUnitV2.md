@@ -31,9 +31,9 @@
 | **t3BossDamageResistPct** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **barrackGuardianDamageResistPct** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **nearDeathDuration** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
-| **laserDpstoPlayers** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
-| **laserDpsmaxHealth** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
-| **noShieldLaserDpstoPlayers** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **laserDpsToPlayers** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **laserDpsMaxHealth** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **noShieldLaserDpsToPlayers** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **stompDamage** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **stompDamageMaxHealthPercent** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **stunDuration** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

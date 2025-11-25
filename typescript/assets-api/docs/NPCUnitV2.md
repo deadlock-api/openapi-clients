@@ -31,9 +31,9 @@ Name | Type | Description | Notes
 **t3_boss_damage_resist_pct** | **number** |  | [optional] [default to undefined]
 **barrack_guardian_damage_resist_pct** | **number** |  | [optional] [default to undefined]
 **near_death_duration** | **number** |  | [optional] [default to undefined]
-**laser_dpsto_players** | **number** |  | [optional] [default to undefined]
-**laser_dpsmax_health** | **number** |  | [optional] [default to undefined]
-**no_shield_laser_dpsto_players** | **number** |  | [optional] [default to undefined]
+**laser_dps_to_players** | **number** |  | [optional] [default to undefined]
+**laser_dps_max_health** | **number** |  | [optional] [default to undefined]
+**no_shield_laser_dps_to_players** | **number** |  | [optional] [default to undefined]
 **stomp_damage** | **number** |  | [optional] [default to undefined]
 **stomp_damage_max_health_percent** | **number** |  | [optional] [default to undefined]
 **stun_duration** | **number** |  | [optional] [default to undefined]
@@ -106,9 +106,9 @@ const instance: NPCUnitV2 = {
     t3_boss_damage_resist_pct,
     barrack_guardian_damage_resist_pct,
     near_death_duration,
-    laser_dpsto_players,
-    laser_dpsmax_health,
-    no_shield_laser_dpsto_players,
+    laser_dps_to_players,
+    laser_dps_max_health,
+    no_shield_laser_dps_to_players,
     stomp_damage,
     stomp_damage_max_health_percent,
     stun_duration,

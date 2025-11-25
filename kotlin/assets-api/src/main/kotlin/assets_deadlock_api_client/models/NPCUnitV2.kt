@@ -58,9 +58,9 @@ import java.io.Serializable
  * @param t3BossDamageResistPct 
  * @param barrackGuardianDamageResistPct 
  * @param nearDeathDuration 
- * @param laserDpstoPlayers 
- * @param laserDpsmaxHealth 
- * @param noShieldLaserDpstoPlayers 
+ * @param laserDpsToPlayers 
+ * @param laserDpsMaxHealth 
+ * @param noShieldLaserDpsToPlayers 
  * @param stompDamage 
  * @param stompDamageMaxHealthPercent 
  * @param stunDuration 
@@ -185,14 +185,14 @@ data class NPCUnitV2 (
     @Json(name = "near_death_duration")
     val nearDeathDuration: java.math.BigDecimal? = null,
 
-    @Json(name = "laser_dpsto_players")
-    val laserDpstoPlayers: java.math.BigDecimal? = null,
+    @Json(name = "laser_dps_to_players")
+    val laserDpsToPlayers: java.math.BigDecimal? = null,
 
-    @Json(name = "laser_dpsmax_health")
-    val laserDpsmaxHealth: java.math.BigDecimal? = null,
+    @Json(name = "laser_dps_max_health")
+    val laserDpsMaxHealth: java.math.BigDecimal? = null,
 
-    @Json(name = "no_shield_laser_dpsto_players")
-    val noShieldLaserDpstoPlayers: java.math.BigDecimal? = null,
+    @Json(name = "no_shield_laser_dps_to_players")
+    val noShieldLaserDpsToPlayers: java.math.BigDecimal? = null,
 
     @Json(name = "stomp_damage")
     val stompDamage: java.math.BigDecimal? = null,

@@ -314,27 +314,27 @@ class NPCUnitV2Test extends TestCase
     }
 
     /**
-     * Test attribute "laser_dpsto_players"
+     * Test attribute "laser_dps_to_players"
      */
-    public function testPropertyLaserDpstoPlayers()
+    public function testPropertyLaserDpsToPlayers()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "laser_dpsmax_health"
+     * Test attribute "laser_dps_max_health"
      */
-    public function testPropertyLaserDpsmaxHealth()
+    public function testPropertyLaserDpsMaxHealth()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "no_shield_laser_dpsto_players"
+     * Test attribute "no_shield_laser_dps_to_players"
      */
-    public function testPropertyNoShieldLaserDpstoPlayers()
+    public function testPropertyNoShieldLaserDpsToPlayers()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

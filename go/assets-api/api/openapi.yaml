@@ -3416,6 +3416,7 @@ components:
         attack_trooper_max_range: 9.386524999783381
         id: 9
         t1_boss_damage_resist_pct: 8.761432466225475
+        no_shield_laser_dps_to_players: 3.111202833403195
         walk_speed: 3.1497903714250555
         barrack_guardian_damage_resist_pct: 5.312489704336296
         max_health_final: 0
@@ -3432,6 +3433,7 @@ components:
               value: 6.623518433804886
             - modifier_value: modifier_value
               value: 6.623518433804886
+        laser_dps_max_health: 3.7814124730767915
         enemy_trooper_protection_range: 0.5199002018724985
         trooper_damage_resist_pct: 9.183123594773994
         near_death_duration: 8.37823741034869
@@ -3449,12 +3451,12 @@ components:
             growth_start_time_in_minutes: 3
             growth_per_minute: 8
             tick_rate: 4.459605034958679
-        laser_dpsmax_health: 3.7814124730767915
         glow_color_team_neutral:
           red: 152
           green: 96
           blue: 27
           alpha: 83
+        laser_dps_to_players: 7.606863723092579
         phase2_health: 9
         objective_health_growth_phase2:
           subclass:
@@ -3567,7 +3569,6 @@ components:
             burst_slope: 4.678947989005849
             range: null
           reload_duration: 4.078845849666752
-        laser_dpsto_players: 7.606863723092579
         health_bar_color_team2:
           red: 152
           green: 96
@@ -3595,7 +3596,6 @@ components:
         attack_t3_boss_phase2_max_range: 2.7977867356748476
         sight_range_npcs: 8.863729185622827
         max_health: 7
-        no_shield_laser_dpsto_players: 3.111202833403195
         backdoor_bullet_resist_modifier:
           subclass:
             bullet_resist_reduction_per_hero: 5
@@ -3681,13 +3681,13 @@ components:
         near_death_duration:
           nullable: true
           type: number
-        laser_dpsto_players:
+        laser_dps_to_players:
           nullable: true
           type: number
-        laser_dpsmax_health:
+        laser_dps_max_health:
           nullable: true
           type: number
-        no_shield_laser_dpsto_players:
+        no_shield_laser_dps_to_players:
           nullable: true
           type: number
         stomp_damage:

@@ -47,9 +47,9 @@ type NPCUnitV2 struct {
 	T3BossDamageResistPct NullableFloat32 `json:"t3_boss_damage_resist_pct,omitempty"`
 	BarrackGuardianDamageResistPct NullableFloat32 `json:"barrack_guardian_damage_resist_pct,omitempty"`
 	NearDeathDuration NullableFloat32 `json:"near_death_duration,omitempty"`
-	LaserDpstoPlayers NullableFloat32 `json:"laser_dpsto_players,omitempty"`
-	LaserDpsmaxHealth NullableFloat32 `json:"laser_dpsmax_health,omitempty"`
-	NoShieldLaserDpstoPlayers NullableFloat32 `json:"no_shield_laser_dpsto_players,omitempty"`
+	LaserDpsToPlayers NullableFloat32 `json:"laser_dps_to_players,omitempty"`
+	LaserDpsMaxHealth NullableFloat32 `json:"laser_dps_max_health,omitempty"`
+	NoShieldLaserDpsToPlayers NullableFloat32 `json:"no_shield_laser_dps_to_players,omitempty"`
 	StompDamage NullableFloat32 `json:"stomp_damage,omitempty"`
 	StompDamageMaxHealthPercent NullableFloat32 `json:"stomp_damage_max_health_percent,omitempty"`
 	StunDuration NullableFloat32 `json:"stun_duration,omitempty"`
@@ -1168,130 +1168,130 @@ func (o *NPCUnitV2) UnsetNearDeathDuration() {
 	o.NearDeathDuration.Unset()
 }
 
-// GetLaserDpstoPlayers returns the LaserDpstoPlayers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetLaserDpstoPlayers() float32 {
-	if o == nil || IsNil(o.LaserDpstoPlayers.Get()) {
+// GetLaserDpsToPlayers returns the LaserDpsToPlayers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetLaserDpsToPlayers() float32 {
+	if o == nil || IsNil(o.LaserDpsToPlayers.Get()) {
 		var ret float32
 		return ret
 	}
-	return *o.LaserDpstoPlayers.Get()
+	return *o.LaserDpsToPlayers.Get()
 }
 
-// GetLaserDpstoPlayersOk returns a tuple with the LaserDpstoPlayers field value if set, nil otherwise
+// GetLaserDpsToPlayersOk returns a tuple with the LaserDpsToPlayers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetLaserDpstoPlayersOk() (*float32, bool) {
+func (o *NPCUnitV2) GetLaserDpsToPlayersOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LaserDpstoPlayers.Get(), o.LaserDpstoPlayers.IsSet()
+	return o.LaserDpsToPlayers.Get(), o.LaserDpsToPlayers.IsSet()
 }
 
-// HasLaserDpstoPlayers returns a boolean if a field has been set.
-func (o *NPCUnitV2) HasLaserDpstoPlayers() bool {
-	if o != nil && o.LaserDpstoPlayers.IsSet() {
+// HasLaserDpsToPlayers returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasLaserDpsToPlayers() bool {
+	if o != nil && o.LaserDpsToPlayers.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLaserDpstoPlayers gets a reference to the given NullableFloat32 and assigns it to the LaserDpstoPlayers field.
-func (o *NPCUnitV2) SetLaserDpstoPlayers(v float32) {
-	o.LaserDpstoPlayers.Set(&v)
+// SetLaserDpsToPlayers gets a reference to the given NullableFloat32 and assigns it to the LaserDpsToPlayers field.
+func (o *NPCUnitV2) SetLaserDpsToPlayers(v float32) {
+	o.LaserDpsToPlayers.Set(&v)
 }
-// SetLaserDpstoPlayersNil sets the value for LaserDpstoPlayers to be an explicit nil
-func (o *NPCUnitV2) SetLaserDpstoPlayersNil() {
-	o.LaserDpstoPlayers.Set(nil)
-}
-
-// UnsetLaserDpstoPlayers ensures that no value is present for LaserDpstoPlayers, not even an explicit nil
-func (o *NPCUnitV2) UnsetLaserDpstoPlayers() {
-	o.LaserDpstoPlayers.Unset()
+// SetLaserDpsToPlayersNil sets the value for LaserDpsToPlayers to be an explicit nil
+func (o *NPCUnitV2) SetLaserDpsToPlayersNil() {
+	o.LaserDpsToPlayers.Set(nil)
 }
 
-// GetLaserDpsmaxHealth returns the LaserDpsmaxHealth field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetLaserDpsmaxHealth() float32 {
-	if o == nil || IsNil(o.LaserDpsmaxHealth.Get()) {
+// UnsetLaserDpsToPlayers ensures that no value is present for LaserDpsToPlayers, not even an explicit nil
+func (o *NPCUnitV2) UnsetLaserDpsToPlayers() {
+	o.LaserDpsToPlayers.Unset()
+}
+
+// GetLaserDpsMaxHealth returns the LaserDpsMaxHealth field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetLaserDpsMaxHealth() float32 {
+	if o == nil || IsNil(o.LaserDpsMaxHealth.Get()) {
 		var ret float32
 		return ret
 	}
-	return *o.LaserDpsmaxHealth.Get()
+	return *o.LaserDpsMaxHealth.Get()
 }
 
-// GetLaserDpsmaxHealthOk returns a tuple with the LaserDpsmaxHealth field value if set, nil otherwise
+// GetLaserDpsMaxHealthOk returns a tuple with the LaserDpsMaxHealth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetLaserDpsmaxHealthOk() (*float32, bool) {
+func (o *NPCUnitV2) GetLaserDpsMaxHealthOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LaserDpsmaxHealth.Get(), o.LaserDpsmaxHealth.IsSet()
+	return o.LaserDpsMaxHealth.Get(), o.LaserDpsMaxHealth.IsSet()
 }
 
-// HasLaserDpsmaxHealth returns a boolean if a field has been set.
-func (o *NPCUnitV2) HasLaserDpsmaxHealth() bool {
-	if o != nil && o.LaserDpsmaxHealth.IsSet() {
+// HasLaserDpsMaxHealth returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasLaserDpsMaxHealth() bool {
+	if o != nil && o.LaserDpsMaxHealth.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLaserDpsmaxHealth gets a reference to the given NullableFloat32 and assigns it to the LaserDpsmaxHealth field.
-func (o *NPCUnitV2) SetLaserDpsmaxHealth(v float32) {
-	o.LaserDpsmaxHealth.Set(&v)
+// SetLaserDpsMaxHealth gets a reference to the given NullableFloat32 and assigns it to the LaserDpsMaxHealth field.
+func (o *NPCUnitV2) SetLaserDpsMaxHealth(v float32) {
+	o.LaserDpsMaxHealth.Set(&v)
 }
-// SetLaserDpsmaxHealthNil sets the value for LaserDpsmaxHealth to be an explicit nil
-func (o *NPCUnitV2) SetLaserDpsmaxHealthNil() {
-	o.LaserDpsmaxHealth.Set(nil)
-}
-
-// UnsetLaserDpsmaxHealth ensures that no value is present for LaserDpsmaxHealth, not even an explicit nil
-func (o *NPCUnitV2) UnsetLaserDpsmaxHealth() {
-	o.LaserDpsmaxHealth.Unset()
+// SetLaserDpsMaxHealthNil sets the value for LaserDpsMaxHealth to be an explicit nil
+func (o *NPCUnitV2) SetLaserDpsMaxHealthNil() {
+	o.LaserDpsMaxHealth.Set(nil)
 }
 
-// GetNoShieldLaserDpstoPlayers returns the NoShieldLaserDpstoPlayers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetNoShieldLaserDpstoPlayers() float32 {
-	if o == nil || IsNil(o.NoShieldLaserDpstoPlayers.Get()) {
+// UnsetLaserDpsMaxHealth ensures that no value is present for LaserDpsMaxHealth, not even an explicit nil
+func (o *NPCUnitV2) UnsetLaserDpsMaxHealth() {
+	o.LaserDpsMaxHealth.Unset()
+}
+
+// GetNoShieldLaserDpsToPlayers returns the NoShieldLaserDpsToPlayers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetNoShieldLaserDpsToPlayers() float32 {
+	if o == nil || IsNil(o.NoShieldLaserDpsToPlayers.Get()) {
 		var ret float32
 		return ret
 	}
-	return *o.NoShieldLaserDpstoPlayers.Get()
+	return *o.NoShieldLaserDpsToPlayers.Get()
 }
 
-// GetNoShieldLaserDpstoPlayersOk returns a tuple with the NoShieldLaserDpstoPlayers field value if set, nil otherwise
+// GetNoShieldLaserDpsToPlayersOk returns a tuple with the NoShieldLaserDpsToPlayers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetNoShieldLaserDpstoPlayersOk() (*float32, bool) {
+func (o *NPCUnitV2) GetNoShieldLaserDpsToPlayersOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.NoShieldLaserDpstoPlayers.Get(), o.NoShieldLaserDpstoPlayers.IsSet()
+	return o.NoShieldLaserDpsToPlayers.Get(), o.NoShieldLaserDpsToPlayers.IsSet()
 }
 
-// HasNoShieldLaserDpstoPlayers returns a boolean if a field has been set.
-func (o *NPCUnitV2) HasNoShieldLaserDpstoPlayers() bool {
-	if o != nil && o.NoShieldLaserDpstoPlayers.IsSet() {
+// HasNoShieldLaserDpsToPlayers returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasNoShieldLaserDpsToPlayers() bool {
+	if o != nil && o.NoShieldLaserDpsToPlayers.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNoShieldLaserDpstoPlayers gets a reference to the given NullableFloat32 and assigns it to the NoShieldLaserDpstoPlayers field.
-func (o *NPCUnitV2) SetNoShieldLaserDpstoPlayers(v float32) {
-	o.NoShieldLaserDpstoPlayers.Set(&v)
+// SetNoShieldLaserDpsToPlayers gets a reference to the given NullableFloat32 and assigns it to the NoShieldLaserDpsToPlayers field.
+func (o *NPCUnitV2) SetNoShieldLaserDpsToPlayers(v float32) {
+	o.NoShieldLaserDpsToPlayers.Set(&v)
 }
-// SetNoShieldLaserDpstoPlayersNil sets the value for NoShieldLaserDpstoPlayers to be an explicit nil
-func (o *NPCUnitV2) SetNoShieldLaserDpstoPlayersNil() {
-	o.NoShieldLaserDpstoPlayers.Set(nil)
+// SetNoShieldLaserDpsToPlayersNil sets the value for NoShieldLaserDpsToPlayers to be an explicit nil
+func (o *NPCUnitV2) SetNoShieldLaserDpsToPlayersNil() {
+	o.NoShieldLaserDpsToPlayers.Set(nil)
 }
 
-// UnsetNoShieldLaserDpstoPlayers ensures that no value is present for NoShieldLaserDpstoPlayers, not even an explicit nil
-func (o *NPCUnitV2) UnsetNoShieldLaserDpstoPlayers() {
-	o.NoShieldLaserDpstoPlayers.Unset()
+// UnsetNoShieldLaserDpsToPlayers ensures that no value is present for NoShieldLaserDpsToPlayers, not even an explicit nil
+func (o *NPCUnitV2) UnsetNoShieldLaserDpsToPlayers() {
+	o.NoShieldLaserDpsToPlayers.Unset()
 }
 
 // GetStompDamage returns the StompDamage field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -3000,14 +3000,14 @@ func (o NPCUnitV2) ToMap() (map[string]interface{}, error) {
 	if o.NearDeathDuration.IsSet() {
 		toSerialize["near_death_duration"] = o.NearDeathDuration.Get()
 	}
-	if o.LaserDpstoPlayers.IsSet() {
-		toSerialize["laser_dpsto_players"] = o.LaserDpstoPlayers.Get()
+	if o.LaserDpsToPlayers.IsSet() {
+		toSerialize["laser_dps_to_players"] = o.LaserDpsToPlayers.Get()
 	}
-	if o.LaserDpsmaxHealth.IsSet() {
-		toSerialize["laser_dpsmax_health"] = o.LaserDpsmaxHealth.Get()
+	if o.LaserDpsMaxHealth.IsSet() {
+		toSerialize["laser_dps_max_health"] = o.LaserDpsMaxHealth.Get()
 	}
-	if o.NoShieldLaserDpstoPlayers.IsSet() {
-		toSerialize["no_shield_laser_dpsto_players"] = o.NoShieldLaserDpstoPlayers.Get()
+	if o.NoShieldLaserDpsToPlayers.IsSet() {
+		toSerialize["no_shield_laser_dps_to_players"] = o.NoShieldLaserDpsToPlayers.Get()
 	}
 	if o.StompDamage.IsSet() {
 		toSerialize["stomp_damage"] = o.StompDamage.Get()

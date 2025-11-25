@@ -60,9 +60,9 @@ class NPCUnitV2(BaseModel):
     t3_boss_damage_resist_pct: Optional[Union[StrictFloat, StrictInt]] = None
     barrack_guardian_damage_resist_pct: Optional[Union[StrictFloat, StrictInt]] = None
     near_death_duration: Optional[Union[StrictFloat, StrictInt]] = None
-    laser_dpsto_players: Optional[Union[StrictFloat, StrictInt]] = None
-    laser_dpsmax_health: Optional[Union[StrictFloat, StrictInt]] = None
-    no_shield_laser_dpsto_players: Optional[Union[StrictFloat, StrictInt]] = None
+    laser_dps_to_players: Optional[Union[StrictFloat, StrictInt]] = None
+    laser_dps_max_health: Optional[Union[StrictFloat, StrictInt]] = None
+    no_shield_laser_dps_to_players: Optional[Union[StrictFloat, StrictInt]] = None
     stomp_damage: Optional[Union[StrictFloat, StrictInt]] = None
     stomp_damage_max_health_percent: Optional[Union[StrictFloat, StrictInt]] = None
     stun_duration: Optional[Union[StrictFloat, StrictInt]] = None
@@ -102,7 +102,7 @@ class NPCUnitV2(BaseModel):
     glow_color_team2: Optional[ColorV1] = None
     glow_color_team_neutral: Optional[ColorV1] = None
     id: StrictInt
-    __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "phase2_health", "bound_abilities", "max_health_final", "max_health_generator", "enemy_trooper_protection_range", "backdoor_bullet_resist_modifier", "objective_regen", "objective_health_growth_phase1", "objective_health_growth_phase2", "enemy_trooper_damage_reduction", "ranged_armor_modifier", "intrinsic_modifiers", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "player_damage_resist_pct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "laser_dpsto_players", "laser_dpsmax_health", "no_shield_laser_dpsto_players", "stomp_damage", "stomp_damage_max_health_percent", "stun_duration", "stomp_impact_radius", "walk_speed", "run_speed", "acceleration", "melee_damage", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "glow_color_friend", "glow_color_enemy", "glow_color_team1", "glow_color_team2", "glow_color_team_neutral", "id"]
+    __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "phase2_health", "bound_abilities", "max_health_final", "max_health_generator", "enemy_trooper_protection_range", "backdoor_bullet_resist_modifier", "objective_regen", "objective_health_growth_phase1", "objective_health_growth_phase2", "enemy_trooper_damage_reduction", "ranged_armor_modifier", "intrinsic_modifiers", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "player_damage_resist_pct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "laser_dps_to_players", "laser_dps_max_health", "no_shield_laser_dps_to_players", "stomp_damage", "stomp_damage_max_health_percent", "stun_duration", "stomp_impact_radius", "walk_speed", "run_speed", "acceleration", "melee_damage", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "glow_color_friend", "glow_color_enemy", "glow_color_team1", "glow_color_team2", "glow_color_team_neutral", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -328,20 +328,20 @@ class NPCUnitV2(BaseModel):
         if self.near_death_duration is None and "near_death_duration" in self.model_fields_set:
             _dict['near_death_duration'] = None
 
-        # set to None if laser_dpsto_players (nullable) is None
+        # set to None if laser_dps_to_players (nullable) is None
         # and model_fields_set contains the field
-        if self.laser_dpsto_players is None and "laser_dpsto_players" in self.model_fields_set:
-            _dict['laser_dpsto_players'] = None
+        if self.laser_dps_to_players is None and "laser_dps_to_players" in self.model_fields_set:
+            _dict['laser_dps_to_players'] = None
 
-        # set to None if laser_dpsmax_health (nullable) is None
+        # set to None if laser_dps_max_health (nullable) is None
         # and model_fields_set contains the field
-        if self.laser_dpsmax_health is None and "laser_dpsmax_health" in self.model_fields_set:
-            _dict['laser_dpsmax_health'] = None
+        if self.laser_dps_max_health is None and "laser_dps_max_health" in self.model_fields_set:
+            _dict['laser_dps_max_health'] = None
 
-        # set to None if no_shield_laser_dpsto_players (nullable) is None
+        # set to None if no_shield_laser_dps_to_players (nullable) is None
         # and model_fields_set contains the field
-        if self.no_shield_laser_dpsto_players is None and "no_shield_laser_dpsto_players" in self.model_fields_set:
-            _dict['no_shield_laser_dpsto_players'] = None
+        if self.no_shield_laser_dps_to_players is None and "no_shield_laser_dps_to_players" in self.model_fields_set:
+            _dict['no_shield_laser_dps_to_players'] = None
 
         # set to None if stomp_damage (nullable) is None
         # and model_fields_set contains the field
@@ -571,9 +571,9 @@ class NPCUnitV2(BaseModel):
             "t3_boss_damage_resist_pct": obj.get("t3_boss_damage_resist_pct"),
             "barrack_guardian_damage_resist_pct": obj.get("barrack_guardian_damage_resist_pct"),
             "near_death_duration": obj.get("near_death_duration"),
-            "laser_dpsto_players": obj.get("laser_dpsto_players"),
-            "laser_dpsmax_health": obj.get("laser_dpsmax_health"),
-            "no_shield_laser_dpsto_players": obj.get("no_shield_laser_dpsto_players"),
+            "laser_dps_to_players": obj.get("laser_dps_to_players"),
+            "laser_dps_max_health": obj.get("laser_dps_max_health"),
+            "no_shield_laser_dps_to_players": obj.get("no_shield_laser_dps_to_players"),
             "stomp_damage": obj.get("stomp_damage"),
             "stomp_damage_max_health_percent": obj.get("stomp_damage_max_health_percent"),
             "stun_duration": obj.get("stun_duration"),

@@ -83,9 +83,9 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => 'float',
         'barrack_guardian_damage_resist_pct' => 'float',
         'near_death_duration' => 'float',
-        'laser_dpsto_players' => 'float',
-        'laser_dpsmax_health' => 'float',
-        'no_shield_laser_dpsto_players' => 'float',
+        'laser_dps_to_players' => 'float',
+        'laser_dps_max_health' => 'float',
+        'no_shield_laser_dps_to_players' => 'float',
         'stomp_damage' => 'float',
         'stomp_damage_max_health_percent' => 'float',
         'stun_duration' => 'float',
@@ -161,9 +161,9 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => null,
         'barrack_guardian_damage_resist_pct' => null,
         'near_death_duration' => null,
-        'laser_dpsto_players' => null,
-        'laser_dpsmax_health' => null,
-        'no_shield_laser_dpsto_players' => null,
+        'laser_dps_to_players' => null,
+        'laser_dps_max_health' => null,
+        'no_shield_laser_dps_to_players' => null,
         'stomp_damage' => null,
         'stomp_damage_max_health_percent' => null,
         'stun_duration' => null,
@@ -237,9 +237,9 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => true,
         'barrack_guardian_damage_resist_pct' => true,
         'near_death_duration' => true,
-        'laser_dpsto_players' => true,
-        'laser_dpsmax_health' => true,
-        'no_shield_laser_dpsto_players' => true,
+        'laser_dps_to_players' => true,
+        'laser_dps_max_health' => true,
+        'no_shield_laser_dps_to_players' => true,
         'stomp_damage' => true,
         'stomp_damage_max_health_percent' => true,
         'stun_duration' => true,
@@ -393,9 +393,9 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => 't3_boss_damage_resist_pct',
         'barrack_guardian_damage_resist_pct' => 'barrack_guardian_damage_resist_pct',
         'near_death_duration' => 'near_death_duration',
-        'laser_dpsto_players' => 'laser_dpsto_players',
-        'laser_dpsmax_health' => 'laser_dpsmax_health',
-        'no_shield_laser_dpsto_players' => 'no_shield_laser_dpsto_players',
+        'laser_dps_to_players' => 'laser_dps_to_players',
+        'laser_dps_max_health' => 'laser_dps_max_health',
+        'no_shield_laser_dps_to_players' => 'no_shield_laser_dps_to_players',
         'stomp_damage' => 'stomp_damage',
         'stomp_damage_max_health_percent' => 'stomp_damage_max_health_percent',
         'stun_duration' => 'stun_duration',
@@ -469,9 +469,9 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => 'setT3BossDamageResistPct',
         'barrack_guardian_damage_resist_pct' => 'setBarrackGuardianDamageResistPct',
         'near_death_duration' => 'setNearDeathDuration',
-        'laser_dpsto_players' => 'setLaserDpstoPlayers',
-        'laser_dpsmax_health' => 'setLaserDpsmaxHealth',
-        'no_shield_laser_dpsto_players' => 'setNoShieldLaserDpstoPlayers',
+        'laser_dps_to_players' => 'setLaserDpsToPlayers',
+        'laser_dps_max_health' => 'setLaserDpsMaxHealth',
+        'no_shield_laser_dps_to_players' => 'setNoShieldLaserDpsToPlayers',
         'stomp_damage' => 'setStompDamage',
         'stomp_damage_max_health_percent' => 'setStompDamageMaxHealthPercent',
         'stun_duration' => 'setStunDuration',
@@ -545,9 +545,9 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_damage_resist_pct' => 'getT3BossDamageResistPct',
         'barrack_guardian_damage_resist_pct' => 'getBarrackGuardianDamageResistPct',
         'near_death_duration' => 'getNearDeathDuration',
-        'laser_dpsto_players' => 'getLaserDpstoPlayers',
-        'laser_dpsmax_health' => 'getLaserDpsmaxHealth',
-        'no_shield_laser_dpsto_players' => 'getNoShieldLaserDpstoPlayers',
+        'laser_dps_to_players' => 'getLaserDpsToPlayers',
+        'laser_dps_max_health' => 'getLaserDpsMaxHealth',
+        'no_shield_laser_dps_to_players' => 'getNoShieldLaserDpsToPlayers',
         'stomp_damage' => 'getStompDamage',
         'stomp_damage_max_health_percent' => 'getStompDamageMaxHealthPercent',
         'stun_duration' => 'getStunDuration',
@@ -672,9 +672,9 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('t3_boss_damage_resist_pct', $data ?? [], null);
         $this->setIfExists('barrack_guardian_damage_resist_pct', $data ?? [], null);
         $this->setIfExists('near_death_duration', $data ?? [], null);
-        $this->setIfExists('laser_dpsto_players', $data ?? [], null);
-        $this->setIfExists('laser_dpsmax_health', $data ?? [], null);
-        $this->setIfExists('no_shield_laser_dpsto_players', $data ?? [], null);
+        $this->setIfExists('laser_dps_to_players', $data ?? [], null);
+        $this->setIfExists('laser_dps_max_health', $data ?? [], null);
+        $this->setIfExists('no_shield_laser_dps_to_players', $data ?? [], null);
         $this->setIfExists('stomp_damage', $data ?? [], null);
         $this->setIfExists('stomp_damage_max_health_percent', $data ?? [], null);
         $this->setIfExists('stun_duration', $data ?? [], null);
@@ -1642,103 +1642,103 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets laser_dpsto_players
+     * Gets laser_dps_to_players
      *
      * @return float|null
      */
-    public function getLaserDpstoPlayers()
+    public function getLaserDpsToPlayers()
     {
-        return $this->container['laser_dpsto_players'];
+        return $this->container['laser_dps_to_players'];
     }
 
     /**
-     * Sets laser_dpsto_players
+     * Sets laser_dps_to_players
      *
-     * @param float|null $laser_dpsto_players laser_dpsto_players
+     * @param float|null $laser_dps_to_players laser_dps_to_players
      *
      * @return self
      */
-    public function setLaserDpstoPlayers($laser_dpsto_players)
+    public function setLaserDpsToPlayers($laser_dps_to_players)
     {
-        if (is_null($laser_dpsto_players)) {
-            array_push($this->openAPINullablesSetToNull, 'laser_dpsto_players');
+        if (is_null($laser_dps_to_players)) {
+            array_push($this->openAPINullablesSetToNull, 'laser_dps_to_players');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('laser_dpsto_players', $nullablesSetToNull);
+            $index = array_search('laser_dps_to_players', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['laser_dpsto_players'] = $laser_dpsto_players;
+        $this->container['laser_dps_to_players'] = $laser_dps_to_players;
 
         return $this;
     }
 
     /**
-     * Gets laser_dpsmax_health
+     * Gets laser_dps_max_health
      *
      * @return float|null
      */
-    public function getLaserDpsmaxHealth()
+    public function getLaserDpsMaxHealth()
     {
-        return $this->container['laser_dpsmax_health'];
+        return $this->container['laser_dps_max_health'];
     }
 
     /**
-     * Sets laser_dpsmax_health
+     * Sets laser_dps_max_health
      *
-     * @param float|null $laser_dpsmax_health laser_dpsmax_health
+     * @param float|null $laser_dps_max_health laser_dps_max_health
      *
      * @return self
      */
-    public function setLaserDpsmaxHealth($laser_dpsmax_health)
+    public function setLaserDpsMaxHealth($laser_dps_max_health)
     {
-        if (is_null($laser_dpsmax_health)) {
-            array_push($this->openAPINullablesSetToNull, 'laser_dpsmax_health');
+        if (is_null($laser_dps_max_health)) {
+            array_push($this->openAPINullablesSetToNull, 'laser_dps_max_health');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('laser_dpsmax_health', $nullablesSetToNull);
+            $index = array_search('laser_dps_max_health', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['laser_dpsmax_health'] = $laser_dpsmax_health;
+        $this->container['laser_dps_max_health'] = $laser_dps_max_health;
 
         return $this;
     }
 
     /**
-     * Gets no_shield_laser_dpsto_players
+     * Gets no_shield_laser_dps_to_players
      *
      * @return float|null
      */
-    public function getNoShieldLaserDpstoPlayers()
+    public function getNoShieldLaserDpsToPlayers()
     {
-        return $this->container['no_shield_laser_dpsto_players'];
+        return $this->container['no_shield_laser_dps_to_players'];
     }
 
     /**
-     * Sets no_shield_laser_dpsto_players
+     * Sets no_shield_laser_dps_to_players
      *
-     * @param float|null $no_shield_laser_dpsto_players no_shield_laser_dpsto_players
+     * @param float|null $no_shield_laser_dps_to_players no_shield_laser_dps_to_players
      *
      * @return self
      */
-    public function setNoShieldLaserDpstoPlayers($no_shield_laser_dpsto_players)
+    public function setNoShieldLaserDpsToPlayers($no_shield_laser_dps_to_players)
     {
-        if (is_null($no_shield_laser_dpsto_players)) {
-            array_push($this->openAPINullablesSetToNull, 'no_shield_laser_dpsto_players');
+        if (is_null($no_shield_laser_dps_to_players)) {
+            array_push($this->openAPINullablesSetToNull, 'no_shield_laser_dps_to_players');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('no_shield_laser_dpsto_players', $nullablesSetToNull);
+            $index = array_search('no_shield_laser_dps_to_players', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['no_shield_laser_dpsto_players'] = $no_shield_laser_dpsto_players;
+        $this->container['no_shield_laser_dps_to_players'] = $no_shield_laser_dps_to_players;
 
         return $this;
     }

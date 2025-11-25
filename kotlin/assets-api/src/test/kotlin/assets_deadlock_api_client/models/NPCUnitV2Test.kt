@@ -195,22 +195,22 @@ class NPCUnitV2Test : ShouldSpec() {
             //modelInstance.nearDeathDuration shouldBe ("TODO")
         }
 
-        // to test the property `laserDpstoPlayers`
-        should("test laserDpstoPlayers") {
+        // to test the property `laserDpsToPlayers`
+        should("test laserDpsToPlayers") {
             // uncomment below to test the property
-            //modelInstance.laserDpstoPlayers shouldBe ("TODO")
+            //modelInstance.laserDpsToPlayers shouldBe ("TODO")
         }
 
-        // to test the property `laserDpsmaxHealth`
-        should("test laserDpsmaxHealth") {
+        // to test the property `laserDpsMaxHealth`
+        should("test laserDpsMaxHealth") {
             // uncomment below to test the property
-            //modelInstance.laserDpsmaxHealth shouldBe ("TODO")
+            //modelInstance.laserDpsMaxHealth shouldBe ("TODO")
         }
 
-        // to test the property `noShieldLaserDpstoPlayers`
-        should("test noShieldLaserDpstoPlayers") {
+        // to test the property `noShieldLaserDpsToPlayers`
+        should("test noShieldLaserDpsToPlayers") {
             // uncomment below to test the property
-            //modelInstance.noShieldLaserDpstoPlayers shouldBe ("TODO")
+            //modelInstance.noShieldLaserDpsToPlayers shouldBe ("TODO")
         }
 
         // to test the property `stompDamage`
