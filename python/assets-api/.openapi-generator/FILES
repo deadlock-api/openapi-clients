@@ -32,7 +32,7 @@ assets_deadlock_api_client/models/bullet_resist_modifier.py
 assets_deadlock_api_client/models/color_v1.py
 assets_deadlock_api_client/models/curve.py
 assets_deadlock_api_client/models/damage_flash_v2.py
-assets_deadlock_api_client/models/deadlock_assets_api_routes_raw_valid_client_versions.py
+assets_deadlock_api_client/models/deadlock_assets_api_routes_v2_valid_client_versions.py
 assets_deadlock_api_client/models/expiration_duration.py
 assets_deadlock_api_client/models/flash_data_v2.py
 assets_deadlock_api_client/models/generic_data_v2.py
@@ -142,7 +142,7 @@ docs/BulletResistModifier.md
 docs/ColorV1.md
 docs/Curve.md
 docs/DamageFlashV2.md
-docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md
 docs/DefaultApi.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -263,7 +263,7 @@ test/test_bullet_resist_modifier.py
 test/test_color_v1.py
 test/test_curve.py
 test/test_damage_flash_v2.py
-test/test_deadlock_assets_api_routes_raw_valid_client_versions.py
+test/test_deadlock_assets_api_routes_v2_valid_client_versions.py
 test/test_default_api.py
 test/test_expiration_duration.py
 test/test_flash_data_v2.py

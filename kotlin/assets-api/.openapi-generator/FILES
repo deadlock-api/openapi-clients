@@ -16,7 +16,7 @@ docs/BulletResistModifier.md
 docs/ColorV1.md
 docs/Curve.md
 docs/DamageFlashV2.md
-docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV2ValidClientVersions.md
 docs/DefaultApi.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -154,7 +154,7 @@ src/main/kotlin/assets_deadlock_api_client/models/BulletResistModifier.kt
 src/main/kotlin/assets_deadlock_api_client/models/ColorV1.kt
 src/main/kotlin/assets_deadlock_api_client/models/Curve.kt
 src/main/kotlin/assets_deadlock_api_client/models/DamageFlashV2.kt
-src/main/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesRawValidClientVersions.kt
+src/main/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesV2ValidClientVersions.kt
 src/main/kotlin/assets_deadlock_api_client/models/ExpirationDuration.kt
 src/main/kotlin/assets_deadlock_api_client/models/FlashDataV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/GenericDataV2.kt
@@ -268,7 +268,7 @@ src/test/kotlin/assets_deadlock_api_client/models/BulletResistModifierTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ColorV1Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/CurveTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/DamageFlashV2Test.kt
-src/test/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesRawValidClientVersionsTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesV2ValidClientVersionsTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ExpirationDurationTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/FlashDataV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/GenericDataV2Test.kt

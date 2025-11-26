@@ -20,7 +20,7 @@ Get Npc Unit
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id_or_class_name** | **String** |  | [required] |
-**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -48,7 +48,7 @@ Get Npc Units
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV2ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
