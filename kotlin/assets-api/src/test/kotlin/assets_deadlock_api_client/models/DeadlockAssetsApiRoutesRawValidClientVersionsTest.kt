@@ -18,12 +18,12 @@ package assets_deadlock_api_client.models
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
-import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
+import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesRawValidClientVersions
 
-class DeadlockAssetsApiRoutesV2ValidClientVersionsTest : ShouldSpec() {
+class DeadlockAssetsApiRoutesRawValidClientVersionsTest : ShouldSpec() {
     init {
-        // uncomment below to create an instance of DeadlockAssetsApiRoutesV2ValidClientVersions
-        //val modelInstance = DeadlockAssetsApiRoutesV2ValidClientVersions()
+        // uncomment below to create an instance of DeadlockAssetsApiRoutesRawValidClientVersions
+        //val modelInstance = DeadlockAssetsApiRoutesRawValidClientVersions()
 
     }
 }

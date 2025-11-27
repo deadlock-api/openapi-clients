@@ -19,7 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV2ValidClientVersions
+import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesRawValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.NPCUnitV2
 
@@ -62,7 +62,7 @@ class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNpcUnitV2NpcUnitsIdOrClassNameGet(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions? = null) : NPCUnitV2 {
+    fun getNpcUnitV2NpcUnitsIdOrClassNameGet(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : NPCUnitV2 {
         val localVarResponse = getNpcUnitV2NpcUnitsIdOrClassNameGetWithHttpInfo(idOrClassName = idOrClassName, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -92,7 +92,7 @@ class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNpcUnitV2NpcUnitsIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : ApiResponse<NPCUnitV2?> {
+    fun getNpcUnitV2NpcUnitsIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<NPCUnitV2?> {
         val localVariableConfig = getNpcUnitV2NpcUnitsIdOrClassNameGetRequestConfig(idOrClassName = idOrClassName, clientVersion = clientVersion)
 
         return request<Unit, NPCUnitV2>(
@@ -107,7 +107,7 @@ class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getNpcUnitV2NpcUnitsIdOrClassNameGetRequestConfig(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : RequestConfig<Unit> {
+    fun getNpcUnitV2NpcUnitsIdOrClassNameGetRequestConfig(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -142,7 +142,7 @@ class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNpcUnitsV2NpcUnitsGet(clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions? = null) : kotlin.collections.List<NPCUnitV2> {
+    fun getNpcUnitsV2NpcUnitsGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.collections.List<NPCUnitV2> {
         val localVarResponse = getNpcUnitsV2NpcUnitsGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -171,7 +171,7 @@ class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNpcUnitsV2NpcUnitsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : ApiResponse<kotlin.collections.List<NPCUnitV2>?> {
+    fun getNpcUnitsV2NpcUnitsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.collections.List<NPCUnitV2>?> {
         val localVariableConfig = getNpcUnitsV2NpcUnitsGetRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<NPCUnitV2>>(
@@ -185,7 +185,7 @@ class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getNpcUnitsV2NpcUnitsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesV2ValidClientVersions?) : RequestConfig<Unit> {
+    fun getNpcUnitsV2NpcUnitsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

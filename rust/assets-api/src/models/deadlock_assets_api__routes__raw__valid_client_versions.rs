@@ -15,7 +15,7 @@ use serde_repr::{Serialize_repr,Deserialize_repr};
 /// 
 #[repr(i64)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
-pub enum DeadlockAssetsApiRoutesV2ValidClientVersions {
+pub enum DeadlockAssetsApiRoutesRawValidClientVersions {
     Variant6008 = 6008,
     Variant6002 = 6002,
     Variant5983 = 5983,
@@ -55,7 +55,7 @@ pub enum DeadlockAssetsApiRoutesV2ValidClientVersions {
 
 }
 
-impl std::fmt::Display for DeadlockAssetsApiRoutesV2ValidClientVersions {
+impl std::fmt::Display for DeadlockAssetsApiRoutesRawValidClientVersions {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", match self {
             Self::Variant6008 => "6008",
@@ -97,8 +97,8 @@ impl std::fmt::Display for DeadlockAssetsApiRoutesV2ValidClientVersions {
         })
     }
 }
-impl Default for DeadlockAssetsApiRoutesV2ValidClientVersions {
-    fn default() -> DeadlockAssetsApiRoutesV2ValidClientVersions {
+impl Default for DeadlockAssetsApiRoutesRawValidClientVersions {
+    fn default() -> DeadlockAssetsApiRoutesRawValidClientVersions {
         Self::Variant6008
     }
 }

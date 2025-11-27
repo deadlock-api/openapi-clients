@@ -19,7 +19,7 @@ use super::{Error, configuration, ContentType};
 pub struct GetHeroByNameV2HeroesByNameNameGetParams {
     pub name: String,
     pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_hero_v2_heroes_id_get`]
@@ -27,14 +27,14 @@ pub struct GetHeroByNameV2HeroesByNameNameGetParams {
 pub struct GetHeroV2HeroesIdGetParams {
     pub id: i32,
     pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>
+    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_heroes_v2_heroes_get`]
 #[derive(Clone, Debug)]
 pub struct GetHeroesV2HeroesGetParams {
     pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesV2ValidClientVersions>,
+    pub client_version: Option<models::DeadlockAssetsApiRoutesRawValidClientVersions>,
     pub only_active: Option<bool>
 }
 
