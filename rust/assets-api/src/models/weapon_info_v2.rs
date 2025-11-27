@@ -12,7 +12,7 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct RawWeaponInfoV2 {
+pub struct WeaponInfoV2 {
     #[serde(rename = "can_zoom", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub can_zoom: Option<Option<bool>>,
     #[serde(rename = "bullet_damage", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -125,11 +125,21 @@ pub struct RawWeaponInfoV2 {
     pub horizontal_recoil: Option<Option<Box<models::RawWeaponInfoHorizontalRecoilV2>>>,
     #[serde(rename = "vertical_recoil", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub vertical_recoil: Option<Option<Box<models::RawWeaponInfoVerticalRecoilV2>>>,
+    #[serde(rename = "shots_per_second", deserialize_with = "Option::deserialize")]
+    pub shots_per_second: Option<f64>,
+    #[serde(rename = "bullets_per_second", deserialize_with = "Option::deserialize")]
+    pub bullets_per_second: Option<f64>,
+    #[serde(rename = "damage_per_second", deserialize_with = "Option::deserialize")]
+    pub damage_per_second: Option<f64>,
+    #[serde(rename = "damage_per_shot", deserialize_with = "Option::deserialize")]
+    pub damage_per_shot: Option<f64>,
+    #[serde(rename = "damage_per_magazine", deserialize_with = "Option::deserialize")]
+    pub damage_per_magazine: Option<f64>,
 }
 
-impl RawWeaponInfoV2 {
-    pub fn new() -> RawWeaponInfoV2 {
-        RawWeaponInfoV2 {
+impl WeaponInfoV2 {
+    pub fn new(shots_per_second: Option<f64>, bullets_per_second: Option<f64>, damage_per_second: Option<f64>, damage_per_shot: Option<f64>, damage_per_magazine: Option<f64>) -> WeaponInfoV2 {
+        WeaponInfoV2 {
             can_zoom: None,
             bullet_damage: None,
             bullet_gravity_scale: None,
@@ -186,6 +196,11 @@ impl RawWeaponInfoV2 {
             bullet_speed_curve: None,
             horizontal_recoil: None,
             vertical_recoil: None,
+            shots_per_second,
+            bullets_per_second,
+            damage_per_second,
+            damage_per_shot,
+            damage_per_magazine,
         }
     }
 }

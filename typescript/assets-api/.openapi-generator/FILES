@@ -21,7 +21,7 @@ docs/BulletResistModifier.md
 docs/ColorV1.md
 docs/Curve.md
 docs/DamageFlashV2.md
-docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
 docs/DefaultApi.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -92,7 +92,6 @@ docs/RawItemWeaponInfoBulletSpeedCurveSplineV2.md
 docs/RawItemWeaponInfoBulletSpeedCurveV2.md
 docs/RawItemWeaponInfoV2.md
 docs/RawWeaponInfoHorizontalRecoilV2.md
-docs/RawWeaponInfoV2.md
 docs/RawWeaponInfoVerticalRecoilV2.md
 docs/RejuvParams.md
 docs/ResponseGetItemV2ItemsIdOrClassNameGet.md
@@ -118,6 +117,7 @@ docs/ValidationError.md
 docs/ValidationErrorLocInner.md
 docs/Value.md
 docs/Value1.md
+docs/WeaponInfoV2.md
 docs/WeaponV2.md
 docs/ZiplanePathV1.md
 git_push.sh

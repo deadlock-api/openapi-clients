@@ -73,7 +73,7 @@ class TestWeaponV2(unittest.TestCase):
                         conditional = '', 
                         icon = '', )
                     },
-                weapon_info = assets_deadlock_api_client.models.raw_weapon_info_v2.RawWeaponInfoV2(
+                weapon_info = assets_deadlock_api_client.models.weapon_info_v2.WeaponInfoV2(
                     can_zoom = True, 
                     bullet_damage = 1.337, 
                     bullet_gravity_scale = 1.337, 
@@ -147,7 +147,12 @@ class TestWeaponV2(unittest.TestCase):
                     vertical_recoil = assets_deadlock_api_client.models.raw_weapon_info_vertical_recoil_v2.RawWeaponInfoVerticalRecoilV2(
                         burst_exponent = 1.337, 
                         burst_constant = 1.337, 
-                        burst_slope = 1.337, ), ),
+                        burst_slope = 1.337, ), 
+                    shots_per_second = 1.337, 
+                    bullets_per_second = 1.337, 
+                    damage_per_second = 1.337, 
+                    damage_per_shot = 1.337, 
+                    damage_per_magazine = 1.337, ),
                 type = 'weapon'
             )
         else:

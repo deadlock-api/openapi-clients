@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **heroes** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **update_time** | **number** |  | [optional] [default to undefined]
 **properties** | [**{ [key: string]: ItemPropertyV2; }**](ItemPropertyV2.md) |  | [optional] [default to undefined]
-**weapon_info** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] [default to undefined]
+**weapon_info** | [**WeaponInfoV2**](WeaponInfoV2.md) |  | [optional] [default to undefined]
 **type** | **string** |  | [optional] [default to TypeEnum_Weapon]
 
 ## Example

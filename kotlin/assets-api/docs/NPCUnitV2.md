@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **className** | **kotlin.String** |  |  |
 | **id** | **kotlin.Long** |  |  [readonly] |
-| **weaponInfo** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  |  [optional] |
+| **weaponInfo** | [**WeaponInfoV2**](WeaponInfoV2.md) |  |  [optional] |
 | **maxHealth** | **kotlin.Int** |  |  [optional] |
 | **phase2Health** | **kotlin.Int** |  |  [optional] |
 | **boundAbilities** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** |  |  [optional] |

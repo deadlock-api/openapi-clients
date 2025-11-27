@@ -1,6 +1,6 @@
 <?php
 /**
- * RawWeaponInfoV2
+ * WeaponInfoV2
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * RawWeaponInfoV2 Class Doc Comment
+ * WeaponInfoV2 Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
+class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RawWeaponInfoV2';
+    protected static $openAPIModelName = 'WeaponInfoV2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -112,7 +112,12 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'reload_duration' => 'float',
         'bullet_speed_curve' => '\OpenAPI\Client\Model\RawItemWeaponInfoBulletSpeedCurveV2',
         'horizontal_recoil' => '\OpenAPI\Client\Model\RawWeaponInfoHorizontalRecoilV2',
-        'vertical_recoil' => '\OpenAPI\Client\Model\RawWeaponInfoVerticalRecoilV2'
+        'vertical_recoil' => '\OpenAPI\Client\Model\RawWeaponInfoVerticalRecoilV2',
+        'shots_per_second' => 'float',
+        'bullets_per_second' => 'float',
+        'damage_per_second' => 'float',
+        'damage_per_shot' => 'float',
+        'damage_per_magazine' => 'float'
     ];
 
     /**
@@ -178,7 +183,12 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'reload_duration' => null,
         'bullet_speed_curve' => null,
         'horizontal_recoil' => null,
-        'vertical_recoil' => null
+        'vertical_recoil' => null,
+        'shots_per_second' => null,
+        'bullets_per_second' => null,
+        'damage_per_second' => null,
+        'damage_per_shot' => null,
+        'damage_per_magazine' => null
     ];
 
     /**
@@ -242,7 +252,12 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'reload_duration' => true,
         'bullet_speed_curve' => true,
         'horizontal_recoil' => true,
-        'vertical_recoil' => true
+        'vertical_recoil' => true,
+        'shots_per_second' => true,
+        'bullets_per_second' => true,
+        'damage_per_second' => true,
+        'damage_per_shot' => true,
+        'damage_per_magazine' => true
     ];
 
     /**
@@ -386,7 +401,12 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'reload_duration' => 'reload_duration',
         'bullet_speed_curve' => 'bullet_speed_curve',
         'horizontal_recoil' => 'horizontal_recoil',
-        'vertical_recoil' => 'vertical_recoil'
+        'vertical_recoil' => 'vertical_recoil',
+        'shots_per_second' => 'shots_per_second',
+        'bullets_per_second' => 'bullets_per_second',
+        'damage_per_second' => 'damage_per_second',
+        'damage_per_shot' => 'damage_per_shot',
+        'damage_per_magazine' => 'damage_per_magazine'
     ];
 
     /**
@@ -450,7 +470,12 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'reload_duration' => 'setReloadDuration',
         'bullet_speed_curve' => 'setBulletSpeedCurve',
         'horizontal_recoil' => 'setHorizontalRecoil',
-        'vertical_recoil' => 'setVerticalRecoil'
+        'vertical_recoil' => 'setVerticalRecoil',
+        'shots_per_second' => 'setShotsPerSecond',
+        'bullets_per_second' => 'setBulletsPerSecond',
+        'damage_per_second' => 'setDamagePerSecond',
+        'damage_per_shot' => 'setDamagePerShot',
+        'damage_per_magazine' => 'setDamagePerMagazine'
     ];
 
     /**
@@ -514,7 +539,12 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'reload_duration' => 'getReloadDuration',
         'bullet_speed_curve' => 'getBulletSpeedCurve',
         'horizontal_recoil' => 'getHorizontalRecoil',
-        'vertical_recoil' => 'getVerticalRecoil'
+        'vertical_recoil' => 'getVerticalRecoil',
+        'shots_per_second' => 'getShotsPerSecond',
+        'bullets_per_second' => 'getBulletsPerSecond',
+        'damage_per_second' => 'getDamagePerSecond',
+        'damage_per_shot' => 'getDamagePerShot',
+        'damage_per_magazine' => 'getDamagePerMagazine'
     ];
 
     /**
@@ -630,6 +660,11 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('bullet_speed_curve', $data ?? [], null);
         $this->setIfExists('horizontal_recoil', $data ?? [], null);
         $this->setIfExists('vertical_recoil', $data ?? [], null);
+        $this->setIfExists('shots_per_second', $data ?? [], null);
+        $this->setIfExists('bullets_per_second', $data ?? [], null);
+        $this->setIfExists('damage_per_second', $data ?? [], null);
+        $this->setIfExists('damage_per_shot', $data ?? [], null);
+        $this->setIfExists('damage_per_magazine', $data ?? [], null);
     }
 
     /**
@@ -659,6 +694,21 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['shots_per_second'] === null) {
+            $invalidProperties[] = "'shots_per_second' can't be null";
+        }
+        if ($this->container['bullets_per_second'] === null) {
+            $invalidProperties[] = "'bullets_per_second' can't be null";
+        }
+        if ($this->container['damage_per_second'] === null) {
+            $invalidProperties[] = "'damage_per_second' can't be null";
+        }
+        if ($this->container['damage_per_shot'] === null) {
+            $invalidProperties[] = "'damage_per_shot' can't be null";
+        }
+        if ($this->container['damage_per_magazine'] === null) {
+            $invalidProperties[] = "'damage_per_magazine' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -2574,6 +2624,176 @@ class RawWeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['vertical_recoil'] = $vertical_recoil;
+
+        return $this;
+    }
+
+    /**
+     * Gets shots_per_second
+     *
+     * @return float
+     */
+    public function getShotsPerSecond()
+    {
+        return $this->container['shots_per_second'];
+    }
+
+    /**
+     * Sets shots_per_second
+     *
+     * @param float $shots_per_second shots_per_second
+     *
+     * @return self
+     */
+    public function setShotsPerSecond($shots_per_second)
+    {
+        if (is_null($shots_per_second)) {
+            array_push($this->openAPINullablesSetToNull, 'shots_per_second');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shots_per_second', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['shots_per_second'] = $shots_per_second;
+
+        return $this;
+    }
+
+    /**
+     * Gets bullets_per_second
+     *
+     * @return float
+     */
+    public function getBulletsPerSecond()
+    {
+        return $this->container['bullets_per_second'];
+    }
+
+    /**
+     * Sets bullets_per_second
+     *
+     * @param float $bullets_per_second bullets_per_second
+     *
+     * @return self
+     */
+    public function setBulletsPerSecond($bullets_per_second)
+    {
+        if (is_null($bullets_per_second)) {
+            array_push($this->openAPINullablesSetToNull, 'bullets_per_second');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bullets_per_second', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bullets_per_second'] = $bullets_per_second;
+
+        return $this;
+    }
+
+    /**
+     * Gets damage_per_second
+     *
+     * @return float
+     */
+    public function getDamagePerSecond()
+    {
+        return $this->container['damage_per_second'];
+    }
+
+    /**
+     * Sets damage_per_second
+     *
+     * @param float $damage_per_second damage_per_second
+     *
+     * @return self
+     */
+    public function setDamagePerSecond($damage_per_second)
+    {
+        if (is_null($damage_per_second)) {
+            array_push($this->openAPINullablesSetToNull, 'damage_per_second');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('damage_per_second', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['damage_per_second'] = $damage_per_second;
+
+        return $this;
+    }
+
+    /**
+     * Gets damage_per_shot
+     *
+     * @return float
+     */
+    public function getDamagePerShot()
+    {
+        return $this->container['damage_per_shot'];
+    }
+
+    /**
+     * Sets damage_per_shot
+     *
+     * @param float $damage_per_shot damage_per_shot
+     *
+     * @return self
+     */
+    public function setDamagePerShot($damage_per_shot)
+    {
+        if (is_null($damage_per_shot)) {
+            array_push($this->openAPINullablesSetToNull, 'damage_per_shot');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('damage_per_shot', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['damage_per_shot'] = $damage_per_shot;
+
+        return $this;
+    }
+
+    /**
+     * Gets damage_per_magazine
+     *
+     * @return float
+     */
+    public function getDamagePerMagazine()
+    {
+        return $this->container['damage_per_magazine'];
+    }
+
+    /**
+     * Sets damage_per_magazine
+     *
+     * @param float $damage_per_magazine damage_per_magazine
+     *
+     * @return self
+     */
+    public function setDamagePerMagazine($damage_per_magazine)
+    {
+        if (is_null($damage_per_magazine)) {
+            array_push($this->openAPINullablesSetToNull, 'damage_per_magazine');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('damage_per_magazine', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['damage_per_magazine'] = $damage_per_magazine;
 
         return $this;
     }

@@ -16,7 +16,7 @@ docs/BulletResistModifier.md
 docs/ColorV1.md
 docs/Curve.md
 docs/DamageFlashV2.md
-docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
 docs/DefaultApi.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -87,7 +87,6 @@ docs/RawItemWeaponInfoBulletSpeedCurveSplineV2.md
 docs/RawItemWeaponInfoBulletSpeedCurveV2.md
 docs/RawItemWeaponInfoV2.md
 docs/RawWeaponInfoHorizontalRecoilV2.md
-docs/RawWeaponInfoV2.md
 docs/RawWeaponInfoVerticalRecoilV2.md
 docs/RejuvParams.md
 docs/ResponseGetItemV2ItemsIdOrClassNameGet.md
@@ -113,6 +112,7 @@ docs/ValidationError.md
 docs/ValidationErrorLocInner.md
 docs/Value.md
 docs/Value1.md
+docs/WeaponInfoV2.md
 docs/WeaponV2.md
 docs/ZiplanePathV1.md
 settings.gradle
@@ -154,7 +154,7 @@ src/main/kotlin/assets_deadlock_api_client/models/BulletResistModifier.kt
 src/main/kotlin/assets_deadlock_api_client/models/ColorV1.kt
 src/main/kotlin/assets_deadlock_api_client/models/Curve.kt
 src/main/kotlin/assets_deadlock_api_client/models/DamageFlashV2.kt
-src/main/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesRawValidClientVersions.kt
+src/main/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesV1ValidClientVersions.kt
 src/main/kotlin/assets_deadlock_api_client/models/ExpirationDuration.kt
 src/main/kotlin/assets_deadlock_api_client/models/FlashDataV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/GenericDataV2.kt
@@ -219,7 +219,6 @@ src/main/kotlin/assets_deadlock_api_client/models/RawItemWeaponInfoBulletSpeedCu
 src/main/kotlin/assets_deadlock_api_client/models/RawItemWeaponInfoBulletSpeedCurveV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawItemWeaponInfoV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawWeaponInfoHorizontalRecoilV2.kt
-src/main/kotlin/assets_deadlock_api_client/models/RawWeaponInfoV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawWeaponInfoVerticalRecoilV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/RejuvParams.kt
 src/main/kotlin/assets_deadlock_api_client/models/ResponseGetItemV2ItemsIdOrClassNameGet.kt
@@ -245,6 +244,7 @@ src/main/kotlin/assets_deadlock_api_client/models/ValidationError.kt
 src/main/kotlin/assets_deadlock_api_client/models/ValidationErrorLocInner.kt
 src/main/kotlin/assets_deadlock_api_client/models/Value.kt
 src/main/kotlin/assets_deadlock_api_client/models/Value1.kt
+src/main/kotlin/assets_deadlock_api_client/models/WeaponInfoV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/WeaponV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/ZiplanePathV1.kt
 src/test/kotlin/assets_deadlock_api_client/apis/DefaultApiTest.kt
@@ -268,7 +268,7 @@ src/test/kotlin/assets_deadlock_api_client/models/BulletResistModifierTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ColorV1Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/CurveTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/DamageFlashV2Test.kt
-src/test/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesRawValidClientVersionsTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesV1ValidClientVersionsTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ExpirationDurationTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/FlashDataV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/GenericDataV2Test.kt
@@ -333,7 +333,6 @@ src/test/kotlin/assets_deadlock_api_client/models/RawItemWeaponInfoBulletSpeedCu
 src/test/kotlin/assets_deadlock_api_client/models/RawItemWeaponInfoBulletSpeedCurveV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawItemWeaponInfoV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawWeaponInfoHorizontalRecoilV2Test.kt
-src/test/kotlin/assets_deadlock_api_client/models/RawWeaponInfoV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawWeaponInfoVerticalRecoilV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/RejuvParamsTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ResponseGetItemV2ItemsIdOrClassNameGetTest.kt
@@ -359,5 +358,6 @@ src/test/kotlin/assets_deadlock_api_client/models/ValidationErrorLocInnerTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ValidationErrorTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/Value1Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/ValueTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/WeaponInfoV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/WeaponV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/ZiplanePathV1Test.kt

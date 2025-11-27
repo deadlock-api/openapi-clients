@@ -28,7 +28,7 @@ api/Model/BulletResistModifier.php
 api/Model/ColorV1.php
 api/Model/Curve.php
 api/Model/DamageFlashV2.php
-api/Model/DeadlockAssetsApiRoutesRawValidClientVersions.php
+api/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.php
 api/Model/ExpirationDuration.php
 api/Model/FlashDataV2.php
 api/Model/GenericDataV2.php
@@ -94,7 +94,6 @@ api/Model/RawItemWeaponInfoBulletSpeedCurveSplineV2.php
 api/Model/RawItemWeaponInfoBulletSpeedCurveV2.php
 api/Model/RawItemWeaponInfoV2.php
 api/Model/RawWeaponInfoHorizontalRecoilV2.php
-api/Model/RawWeaponInfoV2.php
 api/Model/RawWeaponInfoVerticalRecoilV2.php
 api/Model/RejuvParams.php
 api/Model/ResponseGetItemV2ItemsIdOrClassNameGet.php
@@ -120,6 +119,7 @@ api/Model/ValidationError.php
 api/Model/ValidationErrorLocInner.php
 api/Model/Value.php
 api/Model/Value1.php
+api/Model/WeaponInfoV2.php
 api/Model/WeaponV2.php
 api/Model/ZiplanePathV1.php
 api/ObjectSerializer.php
@@ -145,7 +145,7 @@ docs/Model/BulletResistModifier.md
 docs/Model/ColorV1.md
 docs/Model/Curve.md
 docs/Model/DamageFlashV2.md
-docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md
+docs/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.md
 docs/Model/ExpirationDuration.md
 docs/Model/FlashDataV2.md
 docs/Model/GenericDataV2.md
@@ -210,7 +210,6 @@ docs/Model/RawItemWeaponInfoBulletSpeedCurveSplineV2.md
 docs/Model/RawItemWeaponInfoBulletSpeedCurveV2.md
 docs/Model/RawItemWeaponInfoV2.md
 docs/Model/RawWeaponInfoHorizontalRecoilV2.md
-docs/Model/RawWeaponInfoV2.md
 docs/Model/RawWeaponInfoVerticalRecoilV2.md
 docs/Model/RejuvParams.md
 docs/Model/ResponseGetItemV2ItemsIdOrClassNameGet.md
@@ -236,6 +235,7 @@ docs/Model/ValidationError.md
 docs/Model/ValidationErrorLocInner.md
 docs/Model/Value.md
 docs/Model/Value1.md
+docs/Model/WeaponInfoV2.md
 docs/Model/WeaponV2.md
 docs/Model/ZiplanePathV1.md
 git_push.sh
@@ -261,7 +261,7 @@ test/Model/BulletResistModifierTest.php
 test/Model/ColorV1Test.php
 test/Model/CurveTest.php
 test/Model/DamageFlashV2Test.php
-test/Model/DeadlockAssetsApiRoutesRawValidClientVersionsTest.php
+test/Model/DeadlockAssetsApiRoutesV1ValidClientVersionsTest.php
 test/Model/ExpirationDurationTest.php
 test/Model/FlashDataV2Test.php
 test/Model/GenericDataV2Test.php
@@ -326,7 +326,6 @@ test/Model/RawItemWeaponInfoBulletSpeedCurveSplineV2Test.php
 test/Model/RawItemWeaponInfoBulletSpeedCurveV2Test.php
 test/Model/RawItemWeaponInfoV2Test.php
 test/Model/RawWeaponInfoHorizontalRecoilV2Test.php
-test/Model/RawWeaponInfoV2Test.php
 test/Model/RawWeaponInfoVerticalRecoilV2Test.php
 test/Model/RejuvParamsTest.php
 test/Model/ResponseGetItemV2ItemsIdOrClassNameGetTest.php
@@ -352,5 +351,6 @@ test/Model/ValidationErrorLocInnerTest.php
 test/Model/ValidationErrorTest.php
 test/Model/Value1Test.php
 test/Model/ValueTest.php
+test/Model/WeaponInfoV2Test.php
 test/Model/WeaponV2Test.php
 test/Model/ZiplanePathV1Test.php

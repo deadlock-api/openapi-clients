@@ -45,7 +45,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       - explode: true
         in: query
@@ -97,7 +97,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -139,7 +139,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -173,7 +173,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -217,7 +217,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -258,7 +258,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -302,7 +302,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -345,7 +345,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -374,7 +374,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -411,7 +411,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -438,7 +438,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -475,7 +475,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -522,7 +522,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -556,7 +556,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -583,7 +583,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -608,7 +608,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -633,7 +633,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -660,7 +660,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -684,7 +684,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -711,7 +711,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -737,7 +737,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -763,7 +763,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__raw__ValidClientVersions"
+          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
         style: form
       responses:
         "200":
@@ -1304,8 +1304,8 @@ components:
       title: BuildTagV2
     BulletResistModifier:
       example:
-        bullet_resist_reduction_per_hero: 5
-        bullet_resist: 7
+        bullet_resist_reduction_per_hero: 3
+        bullet_resist: 4
       properties:
         bullet_resist:
           nullable: true
@@ -1316,10 +1316,10 @@ components:
       title: BulletResistModifier
     ColorV1:
       example:
-        red: 152
-        green: 96
-        blue: 27
-        alpha: 83
+        red: 187
+        green: 197
+        blue: 202
+        alpha: 239
       properties:
         red:
           description: The red value of the color.
@@ -1371,10 +1371,10 @@ components:
           hardness: 1.4658129805029452
           brightness: 5.962133916683182
           color:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           brightness_in_light_sensitivity_mode: 5.637376656633329
         tech_damage:
           duration: 0.8008281904610115
@@ -1382,10 +1382,10 @@ components:
           hardness: 1.4658129805029452
           brightness: 5.962133916683182
           color:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           brightness_in_light_sensitivity_mode: 5.637376656633329
         melee_damage:
           duration: 0.8008281904610115
@@ -1393,10 +1393,10 @@ components:
           hardness: 1.4658129805029452
           brightness: 5.962133916683182
           color:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           brightness_in_light_sensitivity_mode: 5.637376656633329
         crit_damage:
           duration: 0.8008281904610115
@@ -1404,10 +1404,10 @@ components:
           hardness: 1.4658129805029452
           brightness: 5.962133916683182
           color:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           brightness_in_light_sensitivity_mode: 5.637376656633329
         bullet_damage:
           duration: 0.8008281904610115
@@ -1415,10 +1415,10 @@ components:
           hardness: 1.4658129805029452
           brightness: 5.962133916683182
           color:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           brightness_in_light_sensitivity_mode: 5.637376656633329
       properties:
         bullet_damage:
@@ -1445,10 +1445,10 @@ components:
         hardness: 1.4658129805029452
         brightness: 5.962133916683182
         color:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         brightness_in_light_sensitivity_mode: 5.637376656633329
       properties:
         duration:
@@ -1483,43 +1483,43 @@ components:
         lane_info:
         - css_class: css_class
           objective_color:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           color:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           minimap_zipline_color_override:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           lane_name: lane_name
         - css_class: css_class
           objective_color:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           color:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           minimap_zipline_color_override:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           lane_name: lane_name
         enemy_objectives_and_zipline_color:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         hero_kill_gold_share_frac:
         - 6.965117697638846
         - 6.965117697638846
@@ -1574,10 +1574,10 @@ components:
           jump_strength: 7.386281948385884
           white_noise_strength: 1.0246457001441578
         enemy_zipline_color:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         item_price_per_tier:
         - 6
         - 6
@@ -1611,10 +1611,10 @@ components:
           - upgrades
           - upgrades
         minimap_team_combine_color:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         objective_params:
           tier1_gold_orbs: 6
           tier2_gold_kill: 3
@@ -1635,10 +1635,10 @@ components:
             hardness: 1.4658129805029452
             brightness: 5.962133916683182
             color:
-              red: 152
-              green: 96
-              blue: 27
-              alpha: 83
+              red: 187
+              green: 197
+              blue: 202
+              alpha: 239
             brightness_in_light_sensitivity_mode: 5.637376656633329
           tech_damage:
             duration: 0.8008281904610115
@@ -1646,10 +1646,10 @@ components:
             hardness: 1.4658129805029452
             brightness: 5.962133916683182
             color:
-              red: 152
-              green: 96
-              blue: 27
-              alpha: 83
+              red: 187
+              green: 197
+              blue: 202
+              alpha: 239
             brightness_in_light_sensitivity_mode: 5.637376656633329
           melee_damage:
             duration: 0.8008281904610115
@@ -1657,10 +1657,10 @@ components:
             hardness: 1.4658129805029452
             brightness: 5.962133916683182
             color:
-              red: 152
-              green: 96
-              blue: 27
-              alpha: 83
+              red: 187
+              green: 197
+              blue: 202
+              alpha: 239
             brightness_in_light_sensitivity_mode: 5.637376656633329
           crit_damage:
             duration: 0.8008281904610115
@@ -1668,10 +1668,10 @@ components:
             hardness: 1.4658129805029452
             brightness: 5.962133916683182
             color:
-              red: 152
-              green: 96
-              blue: 27
-              alpha: 83
+              red: 187
+              green: 197
+              blue: 202
+              alpha: 239
             brightness_in_light_sensitivity_mode: 5.637376656633329
           bullet_damage:
             duration: 0.8008281904610115
@@ -1679,24 +1679,24 @@ components:
             hardness: 1.4658129805029452
             brightness: 5.962133916683182
             color:
-              red: 152
-              green: 96
-              blue: 27
-              alpha: 83
+              red: 187
+              green: 197
+              blue: 202
+              alpha: 239
             brightness_in_light_sensitivity_mode: 5.637376656633329
         enemy_objectives_color:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         aim_spring_strength:
         - 1.284659006116532
         - 1.284659006116532
         minimap_team_rebels_color:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         spirit_groups:
         - shop_group: shop_group
           upgrades:
@@ -2681,9 +2681,9 @@ components:
       example:
         script_values:
         - modifier_value: modifier_value
-          value: 6.623518433804886
+          value: 3.502657762086401
         - modifier_value: modifier_value
-          value: 6.623518433804886
+          value: 3.502657762086401
       properties:
         script_values:
           items:
@@ -2815,20 +2815,20 @@ components:
       example:
         css_class: css_class
         objective_color:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         color:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         minimap_zipline_color_override:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         lane_name: lane_name
       properties:
         lane_name:
@@ -2932,10 +2932,10 @@ components:
           - ""
           - ""
           color_parsed:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           P1_points:
           - - ""
             - ""
@@ -2963,10 +2963,10 @@ components:
           - ""
           - ""
           color_parsed:
-            red: 152
-            green: 96
-            blue: 27
-            alpha: 83
+            red: 187
+            green: 197
+            blue: 202
+            alpha: 239
           P1_points:
           - - ""
             - ""
@@ -3098,10 +3098,10 @@ components:
         initial_spawn_delay_seconds: 3
         loot_list_deck_size: 9
         color:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         spawn_interval_in_seconds: 5
         roll_type: roll_type
         respawn_time: 6.027456183070403
@@ -3382,108 +3382,108 @@ components:
       title: ModifierValue
     NPCUnitV2:
       example:
-        gold_reward: 9.254183946267839
+        gold_reward: 0.4182561061793122
         health_bar_color_enemy:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
-        stomp_damage_max_health_percent: 5.877124706116695
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
+        stomp_damage_max_health_percent: 3.804112695731078
         bound_abilities:
           key: bound_abilities
-        attack_t1_boss_max_range: 7.203794749804894
-        t1_boss_dps: 0.58919091925136
-        trooper_dps: 5.7911894223693885
-        melee_duration: 0.35262192099236644
-        acceleration: 3.804112695731078
+        attack_t1_boss_max_range: 2.535258963197524
+        t1_boss_dps: 9.806951670467935
+        trooper_dps: 9.785002165136461
+        melee_duration: 0.58919091925136
+        acceleration: 7.203794749804894
         glow_color_friend:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
-        gold_reward_bonus_percent_per_minute: 1.8268702177058116
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
+        gold_reward_bonus_percent_per_minute: 5.299143560275359
         ranged_armor_modifier:
           subclass:
-            range_min: 2.9409642974827896
-            range_max: 1.7325933120207193
-            invuln_range: 8.28965939814297
+            range_min: 8.863729185622827
+            range_max: 9.254183946267839
+            invuln_range: 1.8268702177058116
         glow_color_enemy:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
-        stomp_damage: 9.897492629215506
-        attack_trooper_max_range: 9.386524999783381
-        id: 9
-        t1_boss_damage_resist_pct: 8.761432466225475
-        no_shield_laser_dps_to_players: 3.111202833403195
-        walk_speed: 3.1497903714250555
-        barrack_guardian_damage_resist_pct: 5.312489704336296
-        max_health_final: 0
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
+        stomp_damage: 2.380090174313445
+        attack_trooper_max_range: 6.966044574347761
+        id: 1
+        t1_boss_damage_resist_pct: 7.606863723092579
+        no_shield_laser_dps_to_players: 3.1497903714250555
+        walk_speed: 0.4833312865174044
+        barrack_guardian_damage_resist_pct: 9.897492629215506
+        max_health_final: 4
         intrinsic_modifiers:
         - subclass:
             script_values:
             - modifier_value: modifier_value
-              value: 6.623518433804886
+              value: 3.502657762086401
             - modifier_value: modifier_value
-              value: 6.623518433804886
+              value: 3.502657762086401
         - subclass:
             script_values:
             - modifier_value: modifier_value
-              value: 6.623518433804886
+              value: 3.502657762086401
             - modifier_value: modifier_value
-              value: 6.623518433804886
-        laser_dps_max_health: 3.7814124730767915
-        enemy_trooper_protection_range: 0.5199002018724985
-        trooper_damage_resist_pct: 9.183123594773994
-        near_death_duration: 8.37823741034869
-        t2_boss_dpsmax_resist: 1.3949519358941398
+              value: 3.502657762086401
+        laser_dps_max_health: 0.4768402382624515
+        enemy_trooper_protection_range: 8.251625748923757
+        trooper_damage_resist_pct: 8.37823741034869
+        near_death_duration: 5.877124706116695
+        t2_boss_dpsmax_resist: 4.372688051310086
         health_bar_color_team_neutral:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
-        t1_boss_dpsmax_resist: 6.173804034172511
-        melee_attempt_range: 4.518309517874243
-        player_damage_resist_pct: 3.502657762086401
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
+        t1_boss_dpsmax_resist: 1.2555055362323109
+        melee_attempt_range: 2.7977867356748476
+        player_damage_resist_pct: 5.312489704336296
         objective_health_growth_phase1:
           subclass:
-            growth_start_time_in_minutes: 3
-            growth_per_minute: 8
-            tick_rate: 4.459605034958679
+            growth_start_time_in_minutes: 6
+            growth_per_minute: 1
+            tick_rate: 8.28965939814297
         glow_color_team_neutral:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
-        laser_dps_to_players: 7.606863723092579
-        phase2_health: 9
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
+        laser_dps_to_players: 7.835035282970782
+        phase2_health: 5
         objective_health_growth_phase2:
           subclass:
-            growth_start_time_in_minutes: 3
-            growth_per_minute: 8
-            tick_rate: 4.459605034958679
-        stomp_impact_radius: 0.4768402382624515
+            growth_start_time_in_minutes: 6
+            growth_per_minute: 1
+            tick_rate: 8.28965939814297
+        stomp_impact_radius: 4.518309517874243
         enemy_trooper_damage_reduction:
           subclass:
-            damage_reduction_for_troopers: 0.43431398824148815
-        melee_damage: 8.675064425986758
-        t2_boss_dps: 6.966044574347761
-        melee_hit_range: 0.4833312865174044
+            damage_reduction_for_troopers: 4.573936264232251
+        melee_damage: 4.332304821875894
+        t2_boss_dps: 5.6644160867523485
+        melee_hit_range: 9.386524999783381
         glow_color_team2:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         glow_color_team1:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
-        t2_boss_dpsbase_resist: 9.806951670467935
-        t2_boss_dpsmax_resist_time_in_seconds: 1.2555055362323109
-        sight_range_players: 4.573936264232251
-        t3_boss_damage_resist_pct: 5.299143560275359
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
+        t2_boss_dpsbase_resist: 1.5970080735609526
+        t2_boss_dpsmax_resist_time_in_seconds: 5.7911894223693885
+        sight_range_players: 9.183123594773994
+        t3_boss_damage_resist_pct: 3.111202833403195
         class_name: class_name
         weapon_info:
           recoil_speed: 1.284659006116532
@@ -3504,21 +3504,25 @@ components:
           max_spin_cycle_time: 1.1730742509559433
           bullet_reflect_scale: 9.301444243932576
           burst_shot_count: 7
+          damage_per_magazine: 0.5199002018724985
           can_zoom: true
           recoil_recovery_speed: 3.5571952270680973
           crit_bonus_end_range: 1.2315135367772556
           recoil_shot_index_recovery_time_factor: 6.965117697638846
           damage_falloff_bias: 4.965218492984954
           bullet_reflect_amount: 7.061401241503109
+          damage_per_shot: 9.702963800023566
           horizontal_recoil:
             burst_exponent: 6.628464275087742
             range:
             - 0.2025324113236393
             - 0.2025324113236393
           burst_shot_cooldown: 2.027123023002322
+          shots_per_second: 7.260521264802104
           shoot_spread_penalty_per_shot: 7.143538047012306
           reload_single_bullets: true
           bullet_gravity_scale: 6.027456183070403
+          damage_per_second: 0.8774076871421566
           intra_burst_cycle_time: 7.457744773683766
           reload_move_speed: 2.8841621266687802
           damage_falloff_start_scale: 6.683562403749608
@@ -3534,6 +3538,7 @@ components:
           crit_bonus_end: 7.386281948385884
           damage_falloff_start_range: 9.369310271410669
           shoot_spread_penalty_decay_delay: 3.0937452626664474
+          bullets_per_second: 9.132027271330688
           zoom_fov: 6.519180951018382
           bullet_lifetime: 5.962133916683182
           recoil_seed: 3.2588565619047607
@@ -3570,48 +3575,48 @@ components:
             range: null
           reload_duration: 4.078845849666752
         health_bar_color_team2:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
-        stun_duration: 7.835035282970782
-        max_health_generator: 9
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
+        stun_duration: 8.675064425986758
+        max_health_generator: 6
         health_bar_color_team1:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
-        generator_boss_dps: 5.6644160867523485
-        run_speed: 2.380090174313445
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
+        generator_boss_dps: 3.8008573585058016
+        run_speed: 0.35262192099236644
         objective_regen:
           subclass:
-            out_of_combat_regen_delay: 6.073898085781152
-            out_of_combat_health_regen: 4
+            out_of_combat_regen_delay: 2.9409642974827896
+            out_of_combat_health_regen: 0
         health_bar_color_friend:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
-        attack_t3_boss_max_range: 4.332304821875894
-        attack_t3_boss_phase2_max_range: 2.7977867356748476
-        sight_range_npcs: 8.863729185622827
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
+        attack_t3_boss_max_range: 6.173804034172511
+        attack_t3_boss_phase2_max_range: 4.8789878742268815
+        sight_range_npcs: 8.761432466225475
         max_health: 7
         backdoor_bullet_resist_modifier:
           subclass:
-            bullet_resist_reduction_per_hero: 5
-            bullet_resist: 7
-        t3_boss_dps: 3.812761638325517
-        player_dps: 4.372688051310086
-        t1_boss_dpsbase_resist: 2.535258963197524
-        t1_boss_dpsmax_resist_time_in_seconds: 4.8789878742268815
-        barrack_boss_dps: 1.5970080735609526
-        t2_boss_damage_resist_pct: 0.4182561061793122
+            bullet_resist_reduction_per_hero: 3
+            bullet_resist: 4
+        t3_boss_dps: 5.974942028545841
+        player_dps: 3.2841216543560217
+        t1_boss_dpsbase_resist: 1.3949519358941398
+        t1_boss_dpsmax_resist_time_in_seconds: 3.812761638325517
+        barrack_boss_dps: 1.0639121808530916
+        t2_boss_damage_resist_pct: 3.7814124730767915
       properties:
         class_name:
           title: Class Name
           type: string
         weapon_info:
-          $ref: "#/components/schemas/RawWeaponInfoV2"
+          $ref: "#/components/schemas/WeaponInfoV2"
         max_health:
           nullable: true
           type: integer
@@ -3860,9 +3865,9 @@ components:
       title: NewPlayerMetricsV2
     ObjectiveHealthGrowthPhase:
       example:
-        growth_start_time_in_minutes: 3
-        growth_per_minute: 8
-        tick_rate: 4.459605034958679
+        growth_start_time_in_minutes: 6
+        growth_per_minute: 1
+        tick_rate: 8.28965939814297
       properties:
         growth_per_minute:
           nullable: true
@@ -4079,8 +4084,8 @@ components:
       title: ObjectivePositionsV1
     ObjectiveRegen:
       example:
-        out_of_combat_regen_delay: 6.073898085781152
-        out_of_combat_health_regen: 4
+        out_of_combat_regen_delay: 2.9409642974827896
+        out_of_combat_health_regen: 0
       properties:
         out_of_combat_health_regen:
           nullable: true
@@ -4103,9 +4108,9 @@ components:
       title: PickupDefinition
     RangedArmorModifier:
       example:
-        range_min: 2.9409642974827896
-        range_max: 1.7325933120207193
-        invuln_range: 8.28965939814297
+        range_min: 8.863729185622827
+        range_max: 9.254183946267839
+        invuln_range: 1.8268702177058116
       properties:
         range_min:
           nullable: true
@@ -4661,256 +4666,6 @@ components:
           nullable: true
           type: number
       title: RawWeaponInfoHorizontalRecoilV2
-    RawWeaponInfoV2:
-      example:
-        recoil_speed: 1.284659006116532
-        crit_bonus_start_range: 1.4894159098541704
-        reload_single_bullets_allow_cancel: true
-        low_ammo_indicator_threshold: 5.533258397034986
-        damage_falloff_end_scale: 9.965781217890562
-        vertical_punch: 7.058770351582356
-        aiming_shot_spread_penalty:
-        - 6.878052220127876
-        - 6.878052220127876
-        shoot_spread_penalty_decay: 3.353193347011243
-        damage_falloff_end_range: 5.025004791520295
-        scatter_yaw_scale: 6.778324963048013
-        bullet_whiz_distance: 3.616076749251911
-        crit_bonus_against_npcs: 4.145608029883936
-        shooting_up_spread_penalty: 0.8851374739011653
-        max_spin_cycle_time: 1.1730742509559433
-        bullet_reflect_scale: 9.301444243932576
-        burst_shot_count: 7
-        can_zoom: true
-        recoil_recovery_speed: 3.5571952270680973
-        crit_bonus_end_range: 1.2315135367772556
-        recoil_shot_index_recovery_time_factor: 6.965117697638846
-        damage_falloff_bias: 4.965218492984954
-        bullet_reflect_amount: 7.061401241503109
-        horizontal_recoil:
-          burst_exponent: 6.628464275087742
-          range:
-          - 0.2025324113236393
-          - 0.2025324113236393
-        burst_shot_cooldown: 2.027123023002322
-        shoot_spread_penalty_per_shot: 7.143538047012306
-        reload_single_bullets: true
-        bullet_gravity_scale: 6.027456183070403
-        intra_burst_cycle_time: 7.457744773683766
-        reload_move_speed: 2.8841621266687802
-        damage_falloff_start_scale: 6.683562403749608
-        bullet_radius: 5.637376656633329
-        cycle_time: 6.84685269835264
-        bullet_damage: 0.8008281904610115
-        zoom_move_speed_percent: 0.10263654006109402
-        bullet_inherit_shooter_velocity_scale: 1.4658129805029452
-        range: 9.018348186070783
-        standing_spread: 7.04836565559697
-        shoot_move_speed_percent: 6.704019297950036
-        bullet_radius_vs_world: 2.3021358869347655
-        crit_bonus_end: 7.386281948385884
-        damage_falloff_start_range: 9.369310271410669
-        shoot_spread_penalty_decay_delay: 3.0937452626664474
-        zoom_fov: 6.519180951018382
-        bullet_lifetime: 5.962133916683182
-        recoil_seed: 3.2588565619047607
-        standing_shot_spread_penalty:
-        - 5.944895607614016
-        - 5.944895607614016
-        bullets: 4
-        clip_size: 3
-        horizontal_punch: 8.762042012749001
-        reload_single_bullets_initial_delay: 8.969578798196912
-        recoil_recovery_delay_factor: 6.438423552598547
-        spread: 3.0576100241049344
-        bullet_speed_curve:
-          domain_mins:
-          - 4.145608029883936
-          - 4.145608029883936
-          spline:
-          - x: 9.301444243932576
-            slope_outgoing: 7.061401241503109
-            "y": 3.616076749251911
-            slope_incoming: 2.3021358869347655
-          - x: 9.301444243932576
-            slope_outgoing: 7.061401241503109
-            "y": 3.616076749251911
-            slope_incoming: 2.3021358869347655
-          domain_maxs:
-          - 2.027123023002322
-          - 2.027123023002322
-        crit_bonus_start: 1.0246457001441578
-        vertical_recoil:
-          burst_exponent: 4.258773108174356
-          burst_constant: 1.041444916118296
-          burst_slope: 4.678947989005849
-          range: null
-        reload_duration: 4.078845849666752
-      properties:
-        can_zoom:
-          nullable: true
-          type: boolean
-        bullet_damage:
-          nullable: true
-          type: number
-        bullet_gravity_scale:
-          nullable: true
-          type: number
-        bullet_inherit_shooter_velocity_scale:
-          nullable: true
-          type: number
-        bullet_lifetime:
-          nullable: true
-          type: number
-        bullet_radius:
-          nullable: true
-          type: number
-        bullet_radius_vs_world:
-          nullable: true
-          type: number
-        bullet_reflect_amount:
-          nullable: true
-          type: number
-        bullet_reflect_scale:
-          nullable: true
-          type: number
-        bullet_whiz_distance:
-          nullable: true
-          type: number
-        burst_shot_cooldown:
-          nullable: true
-          type: number
-        crit_bonus_against_npcs:
-          nullable: true
-          type: number
-        crit_bonus_end:
-          nullable: true
-          type: number
-        crit_bonus_end_range:
-          nullable: true
-          type: number
-        crit_bonus_start:
-          nullable: true
-          type: number
-        crit_bonus_start_range:
-          nullable: true
-          type: number
-        cycle_time:
-          nullable: true
-          type: number
-        intra_burst_cycle_time:
-          nullable: true
-          type: number
-        max_spin_cycle_time:
-          nullable: true
-          type: number
-        damage_falloff_bias:
-          nullable: true
-          type: number
-        damage_falloff_end_range:
-          nullable: true
-          type: number
-        damage_falloff_end_scale:
-          nullable: true
-          type: number
-        damage_falloff_start_range:
-          nullable: true
-          type: number
-        damage_falloff_start_scale:
-          nullable: true
-          type: number
-        horizontal_punch:
-          nullable: true
-          type: number
-        range:
-          nullable: true
-          type: number
-        recoil_recovery_delay_factor:
-          nullable: true
-          type: number
-        recoil_recovery_speed:
-          nullable: true
-          type: number
-        recoil_shot_index_recovery_time_factor:
-          nullable: true
-          type: number
-        recoil_speed:
-          nullable: true
-          type: number
-        reload_move_speed:
-          nullable: true
-          type: number
-        scatter_yaw_scale:
-          nullable: true
-          type: number
-        aiming_shot_spread_penalty:
-          $ref: "#/components/schemas/Aiming_Shot_Spread_Penalty"
-        standing_shot_spread_penalty:
-          $ref: "#/components/schemas/Standing_Shot_Spread_Penalty"
-        shoot_move_speed_percent:
-          nullable: true
-          type: number
-        shoot_spread_penalty_decay:
-          nullable: true
-          type: number
-        shoot_spread_penalty_decay_delay:
-          nullable: true
-          type: number
-        shoot_spread_penalty_per_shot:
-          nullable: true
-          type: number
-        shooting_up_spread_penalty:
-          nullable: true
-          type: number
-        vertical_punch:
-          nullable: true
-          type: number
-        zoom_fov:
-          nullable: true
-          type: number
-        zoom_move_speed_percent:
-          nullable: true
-          type: number
-        bullets:
-          nullable: true
-          type: integer
-        reload_single_bullets_initial_delay:
-          nullable: true
-          type: number
-        reload_single_bullets:
-          nullable: true
-          type: boolean
-        reload_single_bullets_allow_cancel:
-          nullable: true
-          type: boolean
-        burst_shot_count:
-          nullable: true
-          type: integer
-        clip_size:
-          nullable: true
-          type: integer
-        spread:
-          nullable: true
-          type: number
-        standing_spread:
-          nullable: true
-          type: number
-        low_ammo_indicator_threshold:
-          nullable: true
-          type: number
-        recoil_seed:
-          nullable: true
-          type: number
-        reload_duration:
-          nullable: true
-          type: number
-        bullet_speed_curve:
-          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
-        horizontal_recoil:
-          $ref: "#/components/schemas/RawWeaponInfoHorizontalRecoilV2"
-        vertical_recoil:
-          $ref: "#/components/schemas/RawWeaponInfoVerticalRecoilV2"
-      title: RawWeaponInfoV2
     RawWeaponInfoVerticalRecoilV2:
       example:
         burst_exponent: 4.258773108174356
@@ -4982,7 +4737,7 @@ components:
     ScriptValues:
       example:
         modifier_value: modifier_value
-        value: 6.623518433804886
+        value: 3.502657762086401
       properties:
         modifier_value:
           nullable: true
@@ -5002,8 +4757,8 @@ components:
     SubclassBulletResistModifier:
       example:
         subclass:
-          bullet_resist_reduction_per_hero: 5
-          bullet_resist: 7
+          bullet_resist_reduction_per_hero: 3
+          bullet_resist: 4
       properties:
         subclass:
           $ref: "#/components/schemas/BulletResistModifier"
@@ -5013,9 +4768,9 @@ components:
         subclass:
           script_values:
           - modifier_value: modifier_value
-            value: 6.623518433804886
+            value: 3.502657762086401
           - modifier_value: modifier_value
-            value: 6.623518433804886
+            value: 3.502657762086401
       properties:
         subclass:
           $ref: "#/components/schemas/IntrinsicModifiers"
@@ -5057,9 +4812,9 @@ components:
     SubclassObjectiveHealthGrowthPhase:
       example:
         subclass:
-          growth_start_time_in_minutes: 3
-          growth_per_minute: 8
-          tick_rate: 4.459605034958679
+          growth_start_time_in_minutes: 6
+          growth_per_minute: 1
+          tick_rate: 8.28965939814297
       properties:
         subclass:
           $ref: "#/components/schemas/ObjectiveHealthGrowthPhase"
@@ -5067,8 +4822,8 @@ components:
     SubclassObjectiveRegen:
       example:
         subclass:
-          out_of_combat_regen_delay: 6.073898085781152
-          out_of_combat_health_regen: 4
+          out_of_combat_regen_delay: 2.9409642974827896
+          out_of_combat_health_regen: 0
       properties:
         subclass:
           $ref: "#/components/schemas/ObjectiveRegen"
@@ -5076,9 +4831,9 @@ components:
     SubclassRangedArmorModifier:
       example:
         subclass:
-          range_min: 2.9409642974827896
-          range_max: 1.7325933120207193
-          invuln_range: 8.28965939814297
+          range_min: 8.863729185622827
+          range_max: 9.254183946267839
+          invuln_range: 1.8268702177058116
       properties:
         subclass:
           $ref: "#/components/schemas/RangedArmorModifier"
@@ -5086,14 +4841,14 @@ components:
     SubclassTrooperDamageReduction:
       example:
         subclass:
-          damage_reduction_for_troopers: 0.43431398824148815
+          damage_reduction_for_troopers: 4.573936264232251
       properties:
         subclass:
           $ref: "#/components/schemas/TrooperDamageReduction"
       title: SubclassTrooperDamageReduction
     TrooperDamageReduction:
       example:
-        damage_reduction_for_troopers: 0.43431398824148815
+        damage_reduction_for_troopers: 4.573936264232251
       properties:
         damage_reduction_for_troopers:
           nullable: true
@@ -5342,6 +5097,287 @@ components:
       - msg
       - type
       title: ValidationError
+    WeaponInfoV2:
+      example:
+        recoil_speed: 1.284659006116532
+        crit_bonus_start_range: 1.4894159098541704
+        reload_single_bullets_allow_cancel: true
+        low_ammo_indicator_threshold: 5.533258397034986
+        damage_falloff_end_scale: 9.965781217890562
+        vertical_punch: 7.058770351582356
+        aiming_shot_spread_penalty:
+        - 6.878052220127876
+        - 6.878052220127876
+        shoot_spread_penalty_decay: 3.353193347011243
+        damage_falloff_end_range: 5.025004791520295
+        scatter_yaw_scale: 6.778324963048013
+        bullet_whiz_distance: 3.616076749251911
+        crit_bonus_against_npcs: 4.145608029883936
+        shooting_up_spread_penalty: 0.8851374739011653
+        max_spin_cycle_time: 1.1730742509559433
+        bullet_reflect_scale: 9.301444243932576
+        burst_shot_count: 7
+        damage_per_magazine: 0.5199002018724985
+        can_zoom: true
+        recoil_recovery_speed: 3.5571952270680973
+        crit_bonus_end_range: 1.2315135367772556
+        recoil_shot_index_recovery_time_factor: 6.965117697638846
+        damage_falloff_bias: 4.965218492984954
+        bullet_reflect_amount: 7.061401241503109
+        damage_per_shot: 9.702963800023566
+        horizontal_recoil:
+          burst_exponent: 6.628464275087742
+          range:
+          - 0.2025324113236393
+          - 0.2025324113236393
+        burst_shot_cooldown: 2.027123023002322
+        shots_per_second: 7.260521264802104
+        shoot_spread_penalty_per_shot: 7.143538047012306
+        reload_single_bullets: true
+        bullet_gravity_scale: 6.027456183070403
+        damage_per_second: 0.8774076871421566
+        intra_burst_cycle_time: 7.457744773683766
+        reload_move_speed: 2.8841621266687802
+        damage_falloff_start_scale: 6.683562403749608
+        bullet_radius: 5.637376656633329
+        cycle_time: 6.84685269835264
+        bullet_damage: 0.8008281904610115
+        zoom_move_speed_percent: 0.10263654006109402
+        bullet_inherit_shooter_velocity_scale: 1.4658129805029452
+        range: 9.018348186070783
+        standing_spread: 7.04836565559697
+        shoot_move_speed_percent: 6.704019297950036
+        bullet_radius_vs_world: 2.3021358869347655
+        crit_bonus_end: 7.386281948385884
+        damage_falloff_start_range: 9.369310271410669
+        shoot_spread_penalty_decay_delay: 3.0937452626664474
+        bullets_per_second: 9.132027271330688
+        zoom_fov: 6.519180951018382
+        bullet_lifetime: 5.962133916683182
+        recoil_seed: 3.2588565619047607
+        standing_shot_spread_penalty:
+        - 5.944895607614016
+        - 5.944895607614016
+        bullets: 4
+        clip_size: 3
+        horizontal_punch: 8.762042012749001
+        reload_single_bullets_initial_delay: 8.969578798196912
+        recoil_recovery_delay_factor: 6.438423552598547
+        spread: 3.0576100241049344
+        bullet_speed_curve:
+          domain_mins:
+          - 4.145608029883936
+          - 4.145608029883936
+          spline:
+          - x: 9.301444243932576
+            slope_outgoing: 7.061401241503109
+            "y": 3.616076749251911
+            slope_incoming: 2.3021358869347655
+          - x: 9.301444243932576
+            slope_outgoing: 7.061401241503109
+            "y": 3.616076749251911
+            slope_incoming: 2.3021358869347655
+          domain_maxs:
+          - 2.027123023002322
+          - 2.027123023002322
+        crit_bonus_start: 1.0246457001441578
+        vertical_recoil:
+          burst_exponent: 4.258773108174356
+          burst_constant: 1.041444916118296
+          burst_slope: 4.678947989005849
+          range: null
+        reload_duration: 4.078845849666752
+      properties:
+        can_zoom:
+          nullable: true
+          type: boolean
+        bullet_damage:
+          nullable: true
+          type: number
+        bullet_gravity_scale:
+          nullable: true
+          type: number
+        bullet_inherit_shooter_velocity_scale:
+          nullable: true
+          type: number
+        bullet_lifetime:
+          nullable: true
+          type: number
+        bullet_radius:
+          nullable: true
+          type: number
+        bullet_radius_vs_world:
+          nullable: true
+          type: number
+        bullet_reflect_amount:
+          nullable: true
+          type: number
+        bullet_reflect_scale:
+          nullable: true
+          type: number
+        bullet_whiz_distance:
+          nullable: true
+          type: number
+        burst_shot_cooldown:
+          nullable: true
+          type: number
+        crit_bonus_against_npcs:
+          nullable: true
+          type: number
+        crit_bonus_end:
+          nullable: true
+          type: number
+        crit_bonus_end_range:
+          nullable: true
+          type: number
+        crit_bonus_start:
+          nullable: true
+          type: number
+        crit_bonus_start_range:
+          nullable: true
+          type: number
+        cycle_time:
+          nullable: true
+          type: number
+        intra_burst_cycle_time:
+          nullable: true
+          type: number
+        max_spin_cycle_time:
+          nullable: true
+          type: number
+        damage_falloff_bias:
+          nullable: true
+          type: number
+        damage_falloff_end_range:
+          nullable: true
+          type: number
+        damage_falloff_end_scale:
+          nullable: true
+          type: number
+        damage_falloff_start_range:
+          nullable: true
+          type: number
+        damage_falloff_start_scale:
+          nullable: true
+          type: number
+        horizontal_punch:
+          nullable: true
+          type: number
+        range:
+          nullable: true
+          type: number
+        recoil_recovery_delay_factor:
+          nullable: true
+          type: number
+        recoil_recovery_speed:
+          nullable: true
+          type: number
+        recoil_shot_index_recovery_time_factor:
+          nullable: true
+          type: number
+        recoil_speed:
+          nullable: true
+          type: number
+        reload_move_speed:
+          nullable: true
+          type: number
+        scatter_yaw_scale:
+          nullable: true
+          type: number
+        aiming_shot_spread_penalty:
+          $ref: "#/components/schemas/Aiming_Shot_Spread_Penalty"
+        standing_shot_spread_penalty:
+          $ref: "#/components/schemas/Standing_Shot_Spread_Penalty"
+        shoot_move_speed_percent:
+          nullable: true
+          type: number
+        shoot_spread_penalty_decay:
+          nullable: true
+          type: number
+        shoot_spread_penalty_decay_delay:
+          nullable: true
+          type: number
+        shoot_spread_penalty_per_shot:
+          nullable: true
+          type: number
+        shooting_up_spread_penalty:
+          nullable: true
+          type: number
+        vertical_punch:
+          nullable: true
+          type: number
+        zoom_fov:
+          nullable: true
+          type: number
+        zoom_move_speed_percent:
+          nullable: true
+          type: number
+        bullets:
+          nullable: true
+          type: integer
+        reload_single_bullets_initial_delay:
+          nullable: true
+          type: number
+        reload_single_bullets:
+          nullable: true
+          type: boolean
+        reload_single_bullets_allow_cancel:
+          nullable: true
+          type: boolean
+        burst_shot_count:
+          nullable: true
+          type: integer
+        clip_size:
+          nullable: true
+          type: integer
+        spread:
+          nullable: true
+          type: number
+        standing_spread:
+          nullable: true
+          type: number
+        low_ammo_indicator_threshold:
+          nullable: true
+          type: number
+        recoil_seed:
+          nullable: true
+          type: number
+        reload_duration:
+          nullable: true
+          type: number
+        bullet_speed_curve:
+          $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
+        horizontal_recoil:
+          $ref: "#/components/schemas/RawWeaponInfoHorizontalRecoilV2"
+        vertical_recoil:
+          $ref: "#/components/schemas/RawWeaponInfoVerticalRecoilV2"
+        shots_per_second:
+          nullable: true
+          readOnly: true
+          type: number
+        bullets_per_second:
+          nullable: true
+          readOnly: true
+          type: number
+        damage_per_second:
+          nullable: true
+          readOnly: true
+          type: number
+        damage_per_shot:
+          nullable: true
+          readOnly: true
+          type: number
+        damage_per_magazine:
+          nullable: true
+          readOnly: true
+          type: number
+      required:
+      - bullets_per_second
+      - damage_per_magazine
+      - damage_per_second
+      - damage_per_shot
+      - shots_per_second
+      title: WeaponInfoV2
     WeaponV2:
       properties:
         id:
@@ -5378,7 +5414,7 @@ components:
             $ref: "#/components/schemas/ItemPropertyV2"
           nullable: true
         weapon_info:
-          $ref: "#/components/schemas/RawWeaponInfoV2"
+          $ref: "#/components/schemas/WeaponInfoV2"
         type:
           default: weapon
           enum:
@@ -5405,10 +5441,10 @@ components:
         - ""
         - ""
         color_parsed:
-          red: 152
-          green: 96
-          blue: 27
-          alpha: 83
+          red: 187
+          green: 197
+          blue: 202
+          alpha: 239
         P1_points:
         - - ""
           - ""
@@ -5468,7 +5504,7 @@ components:
       - color_parsed
       - origin
       title: ZiplanePathV1
-    deadlock_assets_api__routes__raw__ValidClientVersions:
+    deadlock_assets_api__routes__v1__ValidClientVersions:
       enum:
       - 6008
       - 6002
@@ -5575,6 +5611,10 @@ components:
       - type: number
       nullable: true
       title: Range
+    ValidationError_loc_inner:
+      anyOf:
+      - type: string
+      - type: integer
     Aiming_Shot_Spread_Penalty:
       anyOf:
       - items:
@@ -5591,7 +5631,3 @@ components:
       - type: string
       nullable: true
       title: Standing Shot Spread Penalty
-    ValidationError_loc_inner:
-      anyOf:
-      - type: string
-      - type: integer

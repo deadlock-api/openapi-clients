@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Heroes** | Pointer to **[]int32** |  | [optional] 
 **UpdateTime** | Pointer to **NullableInt32** |  | [optional] 
 **Properties** | Pointer to [**map[string]ItemPropertyV2**](ItemPropertyV2.md) |  | [optional] 
-**WeaponInfo** | Pointer to [**NullableRawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] 
+**WeaponInfo** | Pointer to [**NullableWeaponInfoV2**](WeaponInfoV2.md) |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] [default to "weapon"]
 
 ## Methods
@@ -343,20 +343,20 @@ HasProperties returns a boolean if a field has been set.
 UnsetProperties ensures that no value is present for Properties, not even an explicit nil
 ### GetWeaponInfo
 
-`func (o *WeaponV2) GetWeaponInfo() RawWeaponInfoV2`
+`func (o *WeaponV2) GetWeaponInfo() WeaponInfoV2`
 
 GetWeaponInfo returns the WeaponInfo field if non-nil, zero value otherwise.
 
 ### GetWeaponInfoOk
 
-`func (o *WeaponV2) GetWeaponInfoOk() (*RawWeaponInfoV2, bool)`
+`func (o *WeaponV2) GetWeaponInfoOk() (*WeaponInfoV2, bool)`
 
 GetWeaponInfoOk returns a tuple with the WeaponInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWeaponInfo
 
-`func (o *WeaponV2) SetWeaponInfo(v RawWeaponInfoV2)`
+`func (o *WeaponV2) SetWeaponInfo(v WeaponInfoV2)`
 
 SetWeaponInfo sets WeaponInfo field to given value.
 

@@ -16,7 +16,7 @@ pub struct NpcUnitV2 {
     #[serde(rename = "class_name")]
     pub class_name: String,
     #[serde(rename = "weapon_info", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub weapon_info: Option<Option<Box<models::RawWeaponInfoV2>>>,
+    pub weapon_info: Option<Option<Box<models::WeaponInfoV2>>>,
     #[serde(rename = "max_health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub max_health: Option<Option<i32>>,
     #[serde(rename = "phase2_health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

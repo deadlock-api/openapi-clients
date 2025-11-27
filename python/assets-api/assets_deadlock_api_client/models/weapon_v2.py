@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from assets_deadlock_api_client.models.item_property_v2 import ItemPropertyV2
-from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2
+from assets_deadlock_api_client.models.weapon_info_v2 import WeaponInfoV2
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -38,7 +38,7 @@ class WeaponV2(BaseModel):
     heroes: Optional[List[StrictInt]] = None
     update_time: Optional[StrictInt] = None
     properties: Optional[Dict[str, ItemPropertyV2]] = None
-    weapon_info: Optional[RawWeaponInfoV2] = None
+    weapon_info: Optional[WeaponInfoV2] = None
     type: Optional[StrictStr] = 'weapon'
     __properties: ClassVar[List[str]] = ["id", "class_name", "name", "start_trained", "image", "image_webp", "hero", "heroes", "update_time", "properties", "weapon_info", "type"]
 
@@ -168,7 +168,7 @@ class WeaponV2(BaseModel):
             )
             if obj.get("properties") is not None
             else None,
-            "weapon_info": RawWeaponInfoV2.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None,
+            "weapon_info": WeaponInfoV2.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None,
             "type": obj.get("type") if obj.get("type") is not None else 'weapon'
         })
         return _obj

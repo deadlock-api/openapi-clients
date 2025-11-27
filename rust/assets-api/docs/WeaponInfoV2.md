@@ -1,4 +1,4 @@
-# RawWeaponInfoV2
+# WeaponInfoV2
 
 ## Properties
 
@@ -60,6 +60,11 @@ Name | Type | Description | Notes
 **bullet_speed_curve** | Option<[**models::RawItemWeaponInfoBulletSpeedCurveV2**](RawItemWeaponInfoBulletSpeedCurveV2.md)> |  | [optional]
 **horizontal_recoil** | Option<[**models::RawWeaponInfoHorizontalRecoilV2**](RawWeaponInfoHorizontalRecoilV2.md)> |  | [optional]
 **vertical_recoil** | Option<[**models::RawWeaponInfoVerticalRecoilV2**](RawWeaponInfoVerticalRecoilV2.md)> |  | [optional]
+**shots_per_second** | Option<**f64**> |  | [readonly]
+**bullets_per_second** | Option<**f64**> |  | [readonly]
+**damage_per_second** | Option<**f64**> |  | [readonly]
+**damage_per_shot** | Option<**f64**> |  | [readonly]
+**damage_per_magazine** | Option<**f64**> |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

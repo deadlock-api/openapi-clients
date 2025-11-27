@@ -48,7 +48,7 @@ __all__ = [
     "ColorV1",
     "Curve",
     "DamageFlashV2",
-    "DeadlockAssetsApiRoutesRawValidClientVersions",
+    "DeadlockAssetsApiRoutesV1ValidClientVersions",
     "ExpirationDuration",
     "FlashDataV2",
     "GenericDataV2",
@@ -113,7 +113,6 @@ __all__ = [
     "RawItemWeaponInfoBulletSpeedCurveV2",
     "RawItemWeaponInfoV2",
     "RawWeaponInfoHorizontalRecoilV2",
-    "RawWeaponInfoV2",
     "RawWeaponInfoVerticalRecoilV2",
     "RejuvParams",
     "ResponseGetItemV2ItemsIdOrClassNameGet",
@@ -139,6 +138,7 @@ __all__ = [
     "ValidationErrorLocInner",
     "Value",
     "Value1",
+    "WeaponInfoV2",
     "WeaponV2",
     "ZiplanePathV1",
 ]
@@ -178,7 +178,7 @@ from assets_deadlock_api_client.models.bullet_resist_modifier import BulletResis
 from assets_deadlock_api_client.models.color_v1 import ColorV1 as ColorV1
 from assets_deadlock_api_client.models.curve import Curve as Curve
 from assets_deadlock_api_client.models.damage_flash_v2 import DamageFlashV2 as DamageFlashV2
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_raw_valid_client_versions import DeadlockAssetsApiRoutesRawValidClientVersions as DeadlockAssetsApiRoutesRawValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions as DeadlockAssetsApiRoutesV1ValidClientVersions
 from assets_deadlock_api_client.models.expiration_duration import ExpirationDuration as ExpirationDuration
 from assets_deadlock_api_client.models.flash_data_v2 import FlashDataV2 as FlashDataV2
 from assets_deadlock_api_client.models.generic_data_v2 import GenericDataV2 as GenericDataV2
@@ -243,7 +243,6 @@ from assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_s
 from assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_v2 import RawItemWeaponInfoBulletSpeedCurveV2 as RawItemWeaponInfoBulletSpeedCurveV2
 from assets_deadlock_api_client.models.raw_item_weapon_info_v2 import RawItemWeaponInfoV2 as RawItemWeaponInfoV2
 from assets_deadlock_api_client.models.raw_weapon_info_horizontal_recoil_v2 import RawWeaponInfoHorizontalRecoilV2 as RawWeaponInfoHorizontalRecoilV2
-from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2 as RawWeaponInfoV2
 from assets_deadlock_api_client.models.raw_weapon_info_vertical_recoil_v2 import RawWeaponInfoVerticalRecoilV2 as RawWeaponInfoVerticalRecoilV2
 from assets_deadlock_api_client.models.rejuv_params import RejuvParams as RejuvParams
 from assets_deadlock_api_client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet as ResponseGetItemV2ItemsIdOrClassNameGet
@@ -269,6 +268,7 @@ from assets_deadlock_api_client.models.validation_error import ValidationError a
 from assets_deadlock_api_client.models.validation_error_loc_inner import ValidationErrorLocInner as ValidationErrorLocInner
 from assets_deadlock_api_client.models.value import Value as Value
 from assets_deadlock_api_client.models.value1 import Value1 as Value1
+from assets_deadlock_api_client.models.weapon_info_v2 import WeaponInfoV2 as WeaponInfoV2
 from assets_deadlock_api_client.models.weapon_v2 import WeaponV2 as WeaponV2
 from assets_deadlock_api_client.models.ziplane_path_v1 import ZiplanePathV1 as ZiplanePathV1
 

@@ -18,7 +18,7 @@ docs/BulletResistModifier.md
 docs/ColorV1.md
 docs/Curve.md
 docs/DamageFlashV2.md
-docs/DeadlockAssetsApiRoutesRawValidClientVersions.md
+docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md
 docs/DefaultApi.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -89,7 +89,6 @@ docs/RawItemWeaponInfoBulletSpeedCurveSplineV2.md
 docs/RawItemWeaponInfoBulletSpeedCurveV2.md
 docs/RawItemWeaponInfoV2.md
 docs/RawWeaponInfoHorizontalRecoilV2.md
-docs/RawWeaponInfoV2.md
 docs/RawWeaponInfoVerticalRecoilV2.md
 docs/RejuvParams.md
 docs/ResponseGetItemV2ItemsIdOrClassNameGet.md
@@ -115,6 +114,7 @@ docs/ValidationError.md
 docs/ValidationErrorLocInner.md
 docs/Value.md
 docs/Value1.md
+docs/WeaponInfoV2.md
 docs/WeaponV2.md
 docs/ZiplanePathV1.md
 git_push.sh
@@ -142,7 +142,7 @@ src/models/bullet_resist_modifier.rs
 src/models/color_v1.rs
 src/models/curve.rs
 src/models/damage_flash_v2.rs
-src/models/deadlock_assets_api__routes__raw__valid_client_versions.rs
+src/models/deadlock_assets_api__routes__v1__valid_client_versions.rs
 src/models/expiration_duration.rs
 src/models/flash_data_v2.rs
 src/models/generic_data_v2.rs
@@ -208,7 +208,6 @@ src/models/raw_item_weapon_info_bullet_speed_curve_spline_v2.rs
 src/models/raw_item_weapon_info_bullet_speed_curve_v2.rs
 src/models/raw_item_weapon_info_v2.rs
 src/models/raw_weapon_info_horizontal_recoil_v2.rs
-src/models/raw_weapon_info_v2.rs
 src/models/raw_weapon_info_vertical_recoil_v2.rs
 src/models/rejuv_params.rs
 src/models/response_get_item_v2_items__id_or_class_name__get.rs
@@ -234,5 +233,6 @@ src/models/validation_error.rs
 src/models/validation_error_loc_inner.rs
 src/models/value.rs
 src/models/value_1.rs
+src/models/weapon_info_v2.rs
 src/models/weapon_v2.rs
 src/models/ziplane_path_v1.rs

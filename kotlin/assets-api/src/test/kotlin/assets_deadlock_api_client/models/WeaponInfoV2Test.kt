@@ -18,17 +18,47 @@ package assets_deadlock_api_client.models
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
-import assets_deadlock_api_client.models.RawWeaponInfoV2
+import assets_deadlock_api_client.models.WeaponInfoV2
 import assets_deadlock_api_client.models.AimingShotSpreadPenalty
 import assets_deadlock_api_client.models.RawItemWeaponInfoBulletSpeedCurveV2
 import assets_deadlock_api_client.models.RawWeaponInfoHorizontalRecoilV2
 import assets_deadlock_api_client.models.RawWeaponInfoVerticalRecoilV2
 import assets_deadlock_api_client.models.StandingShotSpreadPenalty
 
-class RawWeaponInfoV2Test : ShouldSpec() {
+class WeaponInfoV2Test : ShouldSpec() {
     init {
-        // uncomment below to create an instance of RawWeaponInfoV2
-        //val modelInstance = RawWeaponInfoV2()
+        // uncomment below to create an instance of WeaponInfoV2
+        //val modelInstance = WeaponInfoV2()
+
+        // to test the property `shotsPerSecond`
+        should("test shotsPerSecond") {
+            // uncomment below to test the property
+            //modelInstance.shotsPerSecond shouldBe ("TODO")
+        }
+
+        // to test the property `bulletsPerSecond`
+        should("test bulletsPerSecond") {
+            // uncomment below to test the property
+            //modelInstance.bulletsPerSecond shouldBe ("TODO")
+        }
+
+        // to test the property `damagePerSecond`
+        should("test damagePerSecond") {
+            // uncomment below to test the property
+            //modelInstance.damagePerSecond shouldBe ("TODO")
+        }
+
+        // to test the property `damagePerShot`
+        should("test damagePerShot") {
+            // uncomment below to test the property
+            //modelInstance.damagePerShot shouldBe ("TODO")
+        }
+
+        // to test the property `damagePerMagazine`
+        should("test damagePerMagazine") {
+            // uncomment below to test the property
+            //modelInstance.damagePerMagazine shouldBe ("TODO")
+        }
 
         // to test the property `canZoom`
         should("test canZoom") {

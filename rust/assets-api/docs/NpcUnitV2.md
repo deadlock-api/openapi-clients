@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **class_name** | **String** |  | 
-**weapon_info** | Option<[**models::RawWeaponInfoV2**](RawWeaponInfoV2.md)> |  | [optional]
+**weapon_info** | Option<[**models::WeaponInfoV2**](WeaponInfoV2.md)> |  | [optional]
 **max_health** | Option<**i32**> |  | [optional]
 **phase2_health** | Option<**i32**> |  | [optional]
 **bound_abilities** | Option<**std::collections::HashMap<String, String>**> |  | [optional]

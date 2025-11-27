@@ -1,9 +1,14 @@
 
-# RawWeaponInfoV2
+# WeaponInfoV2
 
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
+| **shotsPerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
+| **bulletsPerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
+| **damagePerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
+| **damagePerShot** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
+| **damagePerMagazine** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
 | **canZoom** | **kotlin.Boolean** |  |  [optional] |
 | **bulletDamage** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **bulletGravityScale** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

@@ -20,7 +20,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.WeaponV2
 import assets_deadlock_api_client.models.ItemPropertyV2
-import assets_deadlock_api_client.models.RawWeaponInfoV2
+import assets_deadlock_api_client.models.WeaponInfoV2
 
 class WeaponV2Test : ShouldSpec() {
     init {

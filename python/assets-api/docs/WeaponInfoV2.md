@@ -1,4 +1,4 @@
-# RawWeaponInfoV2
+# WeaponInfoV2
 
 
 ## Properties
@@ -61,23 +61,28 @@ Name | Type | Description | Notes
 **bullet_speed_curve** | [**RawItemWeaponInfoBulletSpeedCurveV2**](RawItemWeaponInfoBulletSpeedCurveV2.md) |  | [optional] 
 **horizontal_recoil** | [**RawWeaponInfoHorizontalRecoilV2**](RawWeaponInfoHorizontalRecoilV2.md) |  | [optional] 
 **vertical_recoil** | [**RawWeaponInfoVerticalRecoilV2**](RawWeaponInfoVerticalRecoilV2.md) |  | [optional] 
+**shots_per_second** | **float** |  | [readonly] 
+**bullets_per_second** | **float** |  | [readonly] 
+**damage_per_second** | **float** |  | [readonly] 
+**damage_per_shot** | **float** |  | [readonly] 
+**damage_per_magazine** | **float** |  | [readonly] 
 
 ## Example
 
 ```python
-from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2
+from assets_deadlock_api_client.models.weapon_info_v2 import WeaponInfoV2
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of RawWeaponInfoV2 from a JSON string
-raw_weapon_info_v2_instance = RawWeaponInfoV2.from_json(json)
+# create an instance of WeaponInfoV2 from a JSON string
+weapon_info_v2_instance = WeaponInfoV2.from_json(json)
 # print the JSON string representation of the object
-print(RawWeaponInfoV2.to_json())
+print(WeaponInfoV2.to_json())
 
 # convert the object into a dict
-raw_weapon_info_v2_dict = raw_weapon_info_v2_instance.to_dict()
-# create an instance of RawWeaponInfoV2 from a dict
-raw_weapon_info_v2_from_dict = RawWeaponInfoV2.from_dict(raw_weapon_info_v2_dict)
+weapon_info_v2_dict = weapon_info_v2_instance.to_dict()
+# create an instance of WeaponInfoV2 from a dict
+weapon_info_v2_from_dict = WeaponInfoV2.from_dict(weapon_info_v2_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

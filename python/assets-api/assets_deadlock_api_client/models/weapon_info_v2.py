@@ -27,9 +27,9 @@ from assets_deadlock_api_client.models.standing_shot_spread_penalty import Stand
 from typing import Optional, Set
 from typing_extensions import Self
 
-class RawWeaponInfoV2(BaseModel):
+class WeaponInfoV2(BaseModel):
     """
-    RawWeaponInfoV2
+    WeaponInfoV2
     """ # noqa: E501
     can_zoom: Optional[StrictBool] = None
     bullet_damage: Optional[Union[StrictFloat, StrictInt]] = None
@@ -87,7 +87,12 @@ class RawWeaponInfoV2(BaseModel):
     bullet_speed_curve: Optional[RawItemWeaponInfoBulletSpeedCurveV2] = None
     horizontal_recoil: Optional[RawWeaponInfoHorizontalRecoilV2] = None
     vertical_recoil: Optional[RawWeaponInfoVerticalRecoilV2] = None
-    __properties: ClassVar[List[str]] = ["can_zoom", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_whiz_distance", "burst_shot_cooldown", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "intra_burst_cycle_time", "max_spin_cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "horizontal_punch", "range", "recoil_recovery_delay_factor", "recoil_recovery_speed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_move_speed", "scatter_yaw_scale", "aiming_shot_spread_penalty", "standing_shot_spread_penalty", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "vertical_punch", "zoom_fov", "zoom_move_speed_percent", "bullets", "reload_single_bullets_initial_delay", "reload_single_bullets", "reload_single_bullets_allow_cancel", "burst_shot_count", "clip_size", "spread", "standing_spread", "low_ammo_indicator_threshold", "recoil_seed", "reload_duration", "bullet_speed_curve", "horizontal_recoil", "vertical_recoil"]
+    shots_per_second: Optional[Union[StrictFloat, StrictInt]]
+    bullets_per_second: Optional[Union[StrictFloat, StrictInt]]
+    damage_per_second: Optional[Union[StrictFloat, StrictInt]]
+    damage_per_shot: Optional[Union[StrictFloat, StrictInt]]
+    damage_per_magazine: Optional[Union[StrictFloat, StrictInt]]
+    __properties: ClassVar[List[str]] = ["can_zoom", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_whiz_distance", "burst_shot_cooldown", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "intra_burst_cycle_time", "max_spin_cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "horizontal_punch", "range", "recoil_recovery_delay_factor", "recoil_recovery_speed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_move_speed", "scatter_yaw_scale", "aiming_shot_spread_penalty", "standing_shot_spread_penalty", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "vertical_punch", "zoom_fov", "zoom_move_speed_percent", "bullets", "reload_single_bullets_initial_delay", "reload_single_bullets", "reload_single_bullets_allow_cancel", "burst_shot_count", "clip_size", "spread", "standing_spread", "low_ammo_indicator_threshold", "recoil_seed", "reload_duration", "bullet_speed_curve", "horizontal_recoil", "vertical_recoil", "shots_per_second", "bullets_per_second", "damage_per_second", "damage_per_shot", "damage_per_magazine"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -107,7 +112,7 @@ class RawWeaponInfoV2(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of RawWeaponInfoV2 from a JSON string"""
+        """Create an instance of WeaponInfoV2 from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -119,8 +124,18 @@ class RawWeaponInfoV2(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "shots_per_second",
+            "bullets_per_second",
+            "damage_per_second",
+            "damage_per_shot",
+            "damage_per_magazine",
         ])
 
         _dict = self.model_dump(
@@ -423,11 +438,36 @@ class RawWeaponInfoV2(BaseModel):
         if self.vertical_recoil is None and "vertical_recoil" in self.model_fields_set:
             _dict['vertical_recoil'] = None
 
+        # set to None if shots_per_second (nullable) is None
+        # and model_fields_set contains the field
+        if self.shots_per_second is None and "shots_per_second" in self.model_fields_set:
+            _dict['shots_per_second'] = None
+
+        # set to None if bullets_per_second (nullable) is None
+        # and model_fields_set contains the field
+        if self.bullets_per_second is None and "bullets_per_second" in self.model_fields_set:
+            _dict['bullets_per_second'] = None
+
+        # set to None if damage_per_second (nullable) is None
+        # and model_fields_set contains the field
+        if self.damage_per_second is None and "damage_per_second" in self.model_fields_set:
+            _dict['damage_per_second'] = None
+
+        # set to None if damage_per_shot (nullable) is None
+        # and model_fields_set contains the field
+        if self.damage_per_shot is None and "damage_per_shot" in self.model_fields_set:
+            _dict['damage_per_shot'] = None
+
+        # set to None if damage_per_magazine (nullable) is None
+        # and model_fields_set contains the field
+        if self.damage_per_magazine is None and "damage_per_magazine" in self.model_fields_set:
+            _dict['damage_per_magazine'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of RawWeaponInfoV2 from a dict"""
+        """Create an instance of WeaponInfoV2 from a dict"""
         if obj is None:
             return None
 
@@ -490,7 +530,12 @@ class RawWeaponInfoV2(BaseModel):
             "reload_duration": obj.get("reload_duration"),
             "bullet_speed_curve": RawItemWeaponInfoBulletSpeedCurveV2.from_dict(obj["bullet_speed_curve"]) if obj.get("bullet_speed_curve") is not None else None,
             "horizontal_recoil": RawWeaponInfoHorizontalRecoilV2.from_dict(obj["horizontal_recoil"]) if obj.get("horizontal_recoil") is not None else None,
-            "vertical_recoil": RawWeaponInfoVerticalRecoilV2.from_dict(obj["vertical_recoil"]) if obj.get("vertical_recoil") is not None else None
+            "vertical_recoil": RawWeaponInfoVerticalRecoilV2.from_dict(obj["vertical_recoil"]) if obj.get("vertical_recoil") is not None else None,
+            "shots_per_second": obj.get("shots_per_second"),
+            "bullets_per_second": obj.get("bullets_per_second"),
+            "damage_per_second": obj.get("damage_per_second"),
+            "damage_per_shot": obj.get("damage_per_shot"),
+            "damage_per_magazine": obj.get("damage_per_magazine")
         })
         return _obj
 

@@ -24,7 +24,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id_or_class_name** | **String** |  | [required] |
 **language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **i32** |  | [required] |
 **language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **slot_type** | [**ItemSlotTypeV2**](.md) |  | [required] |
 **language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **r#type** | [**ItemTypeV2**](.md) |  | [required] |
 **language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 
@@ -143,7 +143,7 @@ Get Items
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesRawValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**DeadlockAssetsApiRoutesV1ValidClientVersions**](.md)> |  |  |
 
 ### Return type
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassName** | **string** |  | 
-**WeaponInfo** | Pointer to [**NullableRawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] 
+**WeaponInfo** | Pointer to [**NullableWeaponInfoV2**](WeaponInfoV2.md) |  | [optional] 
 **MaxHealth** | Pointer to **NullableInt32** |  | [optional] 
 **Phase2Health** | Pointer to **NullableInt32** |  | [optional] 
 **BoundAbilities** | Pointer to **map[string]string** |  | [optional] 
@@ -114,20 +114,20 @@ SetClassName sets ClassName field to given value.
 
 ### GetWeaponInfo
 
-`func (o *NPCUnitV2) GetWeaponInfo() RawWeaponInfoV2`
+`func (o *NPCUnitV2) GetWeaponInfo() WeaponInfoV2`
 
 GetWeaponInfo returns the WeaponInfo field if non-nil, zero value otherwise.
 
 ### GetWeaponInfoOk
 
-`func (o *NPCUnitV2) GetWeaponInfoOk() (*RawWeaponInfoV2, bool)`
+`func (o *NPCUnitV2) GetWeaponInfoOk() (*WeaponInfoV2, bool)`
 
 GetWeaponInfoOk returns a tuple with the WeaponInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWeaponInfo
 
-`func (o *NPCUnitV2) SetWeaponInfo(v RawWeaponInfoV2)`
+`func (o *NPCUnitV2) SetWeaponInfo(v WeaponInfoV2)`
 
 SetWeaponInfo sets WeaponInfo field to given value.
 

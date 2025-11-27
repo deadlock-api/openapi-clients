@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **heroes** | **List[int]** |  | [optional] 
 **update_time** | **int** |  | [optional] 
 **properties** | [**Dict[str, ItemPropertyV2]**](ItemPropertyV2.md) |  | [optional] 
-**weapon_info** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] 
+**weapon_info** | [**WeaponInfoV2**](WeaponInfoV2.md) |  | [optional] 
 **type** | **str** |  | [optional] [default to 'weapon']
 
 ## Example

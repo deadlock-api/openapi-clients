@@ -1,6 +1,6 @@
 <?php
 /**
- * RawWeaponInfoV2Test
+ * WeaponInfoV2Test
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * RawWeaponInfoV2Test Class Doc Comment
+ * WeaponInfoV2Test Class Doc Comment
  *
  * @category    Class
- * @description RawWeaponInfoV2
+ * @description WeaponInfoV2
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class RawWeaponInfoV2Test extends TestCase
+class WeaponInfoV2Test extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class RawWeaponInfoV2Test extends TestCase
     }
 
     /**
-     * Test "RawWeaponInfoV2"
+     * Test "WeaponInfoV2"
      */
-    public function testRawWeaponInfoV2()
+    public function testWeaponInfoV2()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -578,6 +578,51 @@ class RawWeaponInfoV2Test extends TestCase
      * Test attribute "vertical_recoil"
      */
     public function testPropertyVerticalRecoil()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "shots_per_second"
+     */
+    public function testPropertyShotsPerSecond()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bullets_per_second"
+     */
+    public function testPropertyBulletsPerSecond()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "damage_per_second"
+     */
+    public function testPropertyDamagePerSecond()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "damage_per_shot"
+     */
+    public function testPropertyDamagePerShot()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "damage_per_magazine"
+     */
+    public function testPropertyDamagePerMagazine()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

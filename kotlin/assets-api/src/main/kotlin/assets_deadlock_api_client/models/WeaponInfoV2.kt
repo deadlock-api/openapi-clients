@@ -28,6 +28,11 @@ import java.io.Serializable
 /**
  * 
  *
+ * @param shotsPerSecond 
+ * @param bulletsPerSecond 
+ * @param damagePerSecond 
+ * @param damagePerShot 
+ * @param damagePerMagazine 
  * @param canZoom 
  * @param bulletDamage 
  * @param bulletGravityScale 
@@ -87,7 +92,22 @@ import java.io.Serializable
  */
 
 
-data class RawWeaponInfoV2 (
+data class WeaponInfoV2 (
+
+    @Json(name = "shots_per_second")
+    val shotsPerSecond: java.math.BigDecimal?,
+
+    @Json(name = "bullets_per_second")
+    val bulletsPerSecond: java.math.BigDecimal?,
+
+    @Json(name = "damage_per_second")
+    val damagePerSecond: java.math.BigDecimal?,
+
+    @Json(name = "damage_per_shot")
+    val damagePerShot: java.math.BigDecimal?,
+
+    @Json(name = "damage_per_magazine")
+    val damagePerMagazine: java.math.BigDecimal?,
 
     @Json(name = "can_zoom")
     val canZoom: kotlin.Boolean? = null,

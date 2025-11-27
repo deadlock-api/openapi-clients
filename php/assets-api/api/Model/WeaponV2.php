@@ -67,7 +67,7 @@ class WeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'heroes' => 'int[]',
         'update_time' => 'int',
         'properties' => 'array<string,\OpenAPI\Client\Model\ItemPropertyV2>',
-        'weapon_info' => '\OpenAPI\Client\Model\RawWeaponInfoV2',
+        'weapon_info' => '\OpenAPI\Client\Model\WeaponInfoV2',
         'type' => 'string'
     ];
 
@@ -719,7 +719,7 @@ class WeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets weapon_info
      *
-     * @return \OpenAPI\Client\Model\RawWeaponInfoV2|null
+     * @return \OpenAPI\Client\Model\WeaponInfoV2|null
      */
     public function getWeaponInfo()
     {
@@ -729,7 +729,7 @@ class WeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets weapon_info
      *
-     * @param \OpenAPI\Client\Model\RawWeaponInfoV2|null $weapon_info weapon_info
+     * @param \OpenAPI\Client\Model\WeaponInfoV2|null $weapon_info weapon_info
      *
      * @return self
      */

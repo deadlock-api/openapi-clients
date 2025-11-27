@@ -29,7 +29,7 @@ import (
 
 func main() {
 	idOrClassName := "idOrClassName_example" // string | 
-	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(6008) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+	clientVersion := openapiclient.deadlock_assets_api__routes__v1__ValidClientVersions(6008) // DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -59,7 +59,7 @@ Other parameters are passed through a pointer to a apiGetNpcUnitV2NpcUnitsIdOrCl
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](DeadlockAssetsApiRoutesRawValidClientVersions.md) |  | 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](DeadlockAssetsApiRoutesV1ValidClientVersions.md) |  | 
 
 ### Return type
 
@@ -98,7 +98,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.deadlock_assets_api__routes__raw__ValidClientVersions(6008) // DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+	clientVersion := openapiclient.deadlock_assets_api__routes__v1__ValidClientVersions(6008) // DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -123,7 +123,7 @@ Other parameters are passed through a pointer to a apiGetNpcUnitsV2NpcUnitsGetRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesRawValidClientVersions**](DeadlockAssetsApiRoutesRawValidClientVersions.md) |  | 
+ **clientVersion** | [**DeadlockAssetsApiRoutesV1ValidClientVersions**](DeadlockAssetsApiRoutesV1ValidClientVersions.md) |  | 
 
 ### Return type
 

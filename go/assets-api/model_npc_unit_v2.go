@@ -22,7 +22,7 @@ var _ MappedNullable = &NPCUnitV2{}
 // NPCUnitV2 struct for NPCUnitV2
 type NPCUnitV2 struct {
 	ClassName string `json:"class_name"`
-	WeaponInfo NullableRawWeaponInfoV2 `json:"weapon_info,omitempty"`
+	WeaponInfo NullableWeaponInfoV2 `json:"weapon_info,omitempty"`
 	MaxHealth NullableInt32 `json:"max_health,omitempty"`
 	Phase2Health NullableInt32 `json:"phase2_health,omitempty"`
 	BoundAbilities map[string]string `json:"bound_abilities,omitempty"`
@@ -137,9 +137,9 @@ func (o *NPCUnitV2) SetClassName(v string) {
 }
 
 // GetWeaponInfo returns the WeaponInfo field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetWeaponInfo() RawWeaponInfoV2 {
+func (o *NPCUnitV2) GetWeaponInfo() WeaponInfoV2 {
 	if o == nil || IsNil(o.WeaponInfo.Get()) {
-		var ret RawWeaponInfoV2
+		var ret WeaponInfoV2
 		return ret
 	}
 	return *o.WeaponInfo.Get()
@@ -148,7 +148,7 @@ func (o *NPCUnitV2) GetWeaponInfo() RawWeaponInfoV2 {
 // GetWeaponInfoOk returns a tuple with the WeaponInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetWeaponInfoOk() (*RawWeaponInfoV2, bool) {
+func (o *NPCUnitV2) GetWeaponInfoOk() (*WeaponInfoV2, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -164,8 +164,8 @@ func (o *NPCUnitV2) HasWeaponInfo() bool {
 	return false
 }
 
-// SetWeaponInfo gets a reference to the given NullableRawWeaponInfoV2 and assigns it to the WeaponInfo field.
-func (o *NPCUnitV2) SetWeaponInfo(v RawWeaponInfoV2) {
+// SetWeaponInfo gets a reference to the given NullableWeaponInfoV2 and assigns it to the WeaponInfo field.
+func (o *NPCUnitV2) SetWeaponInfo(v WeaponInfoV2) {
 	o.WeaponInfo.Set(&v)
 }
 // SetWeaponInfoNil sets the value for WeaponInfo to be an explicit nil

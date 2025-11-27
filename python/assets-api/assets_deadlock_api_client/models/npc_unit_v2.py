@@ -20,13 +20,13 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.color_v1 import ColorV1
-from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2
 from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier
 from assets_deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers
 from assets_deadlock_api_client.models.subclass_objective_health_growth_phase import SubclassObjectiveHealthGrowthPhase
 from assets_deadlock_api_client.models.subclass_objective_regen import SubclassObjectiveRegen
 from assets_deadlock_api_client.models.subclass_ranged_armor_modifier import SubclassRangedArmorModifier
 from assets_deadlock_api_client.models.subclass_trooper_damage_reduction import SubclassTrooperDamageReduction
+from assets_deadlock_api_client.models.weapon_info_v2 import WeaponInfoV2
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -35,7 +35,7 @@ class NPCUnitV2(BaseModel):
     NPCUnitV2
     """ # noqa: E501
     class_name: StrictStr
-    weapon_info: Optional[RawWeaponInfoV2] = None
+    weapon_info: Optional[WeaponInfoV2] = None
     max_health: Optional[StrictInt] = None
     phase2_health: Optional[StrictInt] = None
     bound_abilities: Optional[Dict[str, StrictStr]] = None
@@ -546,7 +546,7 @@ class NPCUnitV2(BaseModel):
 
         _obj = cls.model_validate({
             "class_name": obj.get("class_name"),
-            "weapon_info": RawWeaponInfoV2.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None,
+            "weapon_info": WeaponInfoV2.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None,
             "max_health": obj.get("max_health"),
             "phase2_health": obj.get("phase2_health"),
             "bound_abilities": obj.get("bound_abilities"),

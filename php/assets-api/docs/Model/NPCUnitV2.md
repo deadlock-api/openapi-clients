@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **class_name** | **string** |  |
-**weapon_info** | [**\OpenAPI\Client\Model\RawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional]
+**weapon_info** | [**\OpenAPI\Client\Model\WeaponInfoV2**](WeaponInfoV2.md) |  | [optional]
 **max_health** | **int** |  | [optional]
 **phase2_health** | **int** |  | [optional]
 **bound_abilities** | **array<string,string>** |  | [optional]

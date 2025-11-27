@@ -16,13 +16,13 @@
 package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ColorV1
-import assets_deadlock_api_client.models.RawWeaponInfoV2
 import assets_deadlock_api_client.models.SubclassBulletResistModifier
 import assets_deadlock_api_client.models.SubclassIntrinsicModifiers
 import assets_deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase
 import assets_deadlock_api_client.models.SubclassObjectiveRegen
 import assets_deadlock_api_client.models.SubclassRangedArmorModifier
 import assets_deadlock_api_client.models.SubclassTrooperDamageReduction
+import assets_deadlock_api_client.models.WeaponInfoV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -111,7 +111,7 @@ data class NPCUnitV2 (
     val id: kotlin.Long,
 
     @Json(name = "weapon_info")
-    val weaponInfo: RawWeaponInfoV2? = null,
+    val weaponInfo: WeaponInfoV2? = null,
 
     @Json(name = "max_health")
     val maxHealth: kotlin.Int? = null,

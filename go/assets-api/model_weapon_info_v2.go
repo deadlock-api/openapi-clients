@@ -12,13 +12,15 @@ package assets_deadlock_api_client
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
-// checks if the RawWeaponInfoV2 type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &RawWeaponInfoV2{}
+// checks if the WeaponInfoV2 type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &WeaponInfoV2{}
 
-// RawWeaponInfoV2 struct for RawWeaponInfoV2
-type RawWeaponInfoV2 struct {
+// WeaponInfoV2 struct for WeaponInfoV2
+type WeaponInfoV2 struct {
 	CanZoom NullableBool `json:"can_zoom,omitempty"`
 	BulletDamage NullableFloat32 `json:"bullet_damage,omitempty"`
 	BulletGravityScale NullableFloat32 `json:"bullet_gravity_scale,omitempty"`
@@ -75,27 +77,39 @@ type RawWeaponInfoV2 struct {
 	BulletSpeedCurve NullableRawItemWeaponInfoBulletSpeedCurveV2 `json:"bullet_speed_curve,omitempty"`
 	HorizontalRecoil NullableRawWeaponInfoHorizontalRecoilV2 `json:"horizontal_recoil,omitempty"`
 	VerticalRecoil NullableRawWeaponInfoVerticalRecoilV2 `json:"vertical_recoil,omitempty"`
+	ShotsPerSecond NullableFloat32 `json:"shots_per_second"`
+	BulletsPerSecond NullableFloat32 `json:"bullets_per_second"`
+	DamagePerSecond NullableFloat32 `json:"damage_per_second"`
+	DamagePerShot NullableFloat32 `json:"damage_per_shot"`
+	DamagePerMagazine NullableFloat32 `json:"damage_per_magazine"`
 }
 
-// NewRawWeaponInfoV2 instantiates a new RawWeaponInfoV2 object
+type _WeaponInfoV2 WeaponInfoV2
+
+// NewWeaponInfoV2 instantiates a new WeaponInfoV2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRawWeaponInfoV2() *RawWeaponInfoV2 {
-	this := RawWeaponInfoV2{}
+func NewWeaponInfoV2(shotsPerSecond NullableFloat32, bulletsPerSecond NullableFloat32, damagePerSecond NullableFloat32, damagePerShot NullableFloat32, damagePerMagazine NullableFloat32) *WeaponInfoV2 {
+	this := WeaponInfoV2{}
+	this.ShotsPerSecond = shotsPerSecond
+	this.BulletsPerSecond = bulletsPerSecond
+	this.DamagePerSecond = damagePerSecond
+	this.DamagePerShot = damagePerShot
+	this.DamagePerMagazine = damagePerMagazine
 	return &this
 }
 
-// NewRawWeaponInfoV2WithDefaults instantiates a new RawWeaponInfoV2 object
+// NewWeaponInfoV2WithDefaults instantiates a new WeaponInfoV2 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRawWeaponInfoV2WithDefaults() *RawWeaponInfoV2 {
-	this := RawWeaponInfoV2{}
+func NewWeaponInfoV2WithDefaults() *WeaponInfoV2 {
+	this := WeaponInfoV2{}
 	return &this
 }
 
 // GetCanZoom returns the CanZoom field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetCanZoom() bool {
+func (o *WeaponInfoV2) GetCanZoom() bool {
 	if o == nil || IsNil(o.CanZoom.Get()) {
 		var ret bool
 		return ret
@@ -106,7 +120,7 @@ func (o *RawWeaponInfoV2) GetCanZoom() bool {
 // GetCanZoomOk returns a tuple with the CanZoom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetCanZoomOk() (*bool, bool) {
+func (o *WeaponInfoV2) GetCanZoomOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -114,7 +128,7 @@ func (o *RawWeaponInfoV2) GetCanZoomOk() (*bool, bool) {
 }
 
 // HasCanZoom returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasCanZoom() bool {
+func (o *WeaponInfoV2) HasCanZoom() bool {
 	if o != nil && o.CanZoom.IsSet() {
 		return true
 	}
@@ -123,21 +137,21 @@ func (o *RawWeaponInfoV2) HasCanZoom() bool {
 }
 
 // SetCanZoom gets a reference to the given NullableBool and assigns it to the CanZoom field.
-func (o *RawWeaponInfoV2) SetCanZoom(v bool) {
+func (o *WeaponInfoV2) SetCanZoom(v bool) {
 	o.CanZoom.Set(&v)
 }
 // SetCanZoomNil sets the value for CanZoom to be an explicit nil
-func (o *RawWeaponInfoV2) SetCanZoomNil() {
+func (o *WeaponInfoV2) SetCanZoomNil() {
 	o.CanZoom.Set(nil)
 }
 
 // UnsetCanZoom ensures that no value is present for CanZoom, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetCanZoom() {
+func (o *WeaponInfoV2) UnsetCanZoom() {
 	o.CanZoom.Unset()
 }
 
 // GetBulletDamage returns the BulletDamage field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBulletDamage() float32 {
+func (o *WeaponInfoV2) GetBulletDamage() float32 {
 	if o == nil || IsNil(o.BulletDamage.Get()) {
 		var ret float32
 		return ret
@@ -148,7 +162,7 @@ func (o *RawWeaponInfoV2) GetBulletDamage() float32 {
 // GetBulletDamageOk returns a tuple with the BulletDamage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletDamageOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetBulletDamageOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -156,7 +170,7 @@ func (o *RawWeaponInfoV2) GetBulletDamageOk() (*float32, bool) {
 }
 
 // HasBulletDamage returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBulletDamage() bool {
+func (o *WeaponInfoV2) HasBulletDamage() bool {
 	if o != nil && o.BulletDamage.IsSet() {
 		return true
 	}
@@ -165,21 +179,21 @@ func (o *RawWeaponInfoV2) HasBulletDamage() bool {
 }
 
 // SetBulletDamage gets a reference to the given NullableFloat32 and assigns it to the BulletDamage field.
-func (o *RawWeaponInfoV2) SetBulletDamage(v float32) {
+func (o *WeaponInfoV2) SetBulletDamage(v float32) {
 	o.BulletDamage.Set(&v)
 }
 // SetBulletDamageNil sets the value for BulletDamage to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletDamageNil() {
+func (o *WeaponInfoV2) SetBulletDamageNil() {
 	o.BulletDamage.Set(nil)
 }
 
 // UnsetBulletDamage ensures that no value is present for BulletDamage, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBulletDamage() {
+func (o *WeaponInfoV2) UnsetBulletDamage() {
 	o.BulletDamage.Unset()
 }
 
 // GetBulletGravityScale returns the BulletGravityScale field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBulletGravityScale() float32 {
+func (o *WeaponInfoV2) GetBulletGravityScale() float32 {
 	if o == nil || IsNil(o.BulletGravityScale.Get()) {
 		var ret float32
 		return ret
@@ -190,7 +204,7 @@ func (o *RawWeaponInfoV2) GetBulletGravityScale() float32 {
 // GetBulletGravityScaleOk returns a tuple with the BulletGravityScale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletGravityScaleOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetBulletGravityScaleOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -198,7 +212,7 @@ func (o *RawWeaponInfoV2) GetBulletGravityScaleOk() (*float32, bool) {
 }
 
 // HasBulletGravityScale returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBulletGravityScale() bool {
+func (o *WeaponInfoV2) HasBulletGravityScale() bool {
 	if o != nil && o.BulletGravityScale.IsSet() {
 		return true
 	}
@@ -207,21 +221,21 @@ func (o *RawWeaponInfoV2) HasBulletGravityScale() bool {
 }
 
 // SetBulletGravityScale gets a reference to the given NullableFloat32 and assigns it to the BulletGravityScale field.
-func (o *RawWeaponInfoV2) SetBulletGravityScale(v float32) {
+func (o *WeaponInfoV2) SetBulletGravityScale(v float32) {
 	o.BulletGravityScale.Set(&v)
 }
 // SetBulletGravityScaleNil sets the value for BulletGravityScale to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletGravityScaleNil() {
+func (o *WeaponInfoV2) SetBulletGravityScaleNil() {
 	o.BulletGravityScale.Set(nil)
 }
 
 // UnsetBulletGravityScale ensures that no value is present for BulletGravityScale, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBulletGravityScale() {
+func (o *WeaponInfoV2) UnsetBulletGravityScale() {
 	o.BulletGravityScale.Unset()
 }
 
 // GetBulletInheritShooterVelocityScale returns the BulletInheritShooterVelocityScale field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBulletInheritShooterVelocityScale() float32 {
+func (o *WeaponInfoV2) GetBulletInheritShooterVelocityScale() float32 {
 	if o == nil || IsNil(o.BulletInheritShooterVelocityScale.Get()) {
 		var ret float32
 		return ret
@@ -232,7 +246,7 @@ func (o *RawWeaponInfoV2) GetBulletInheritShooterVelocityScale() float32 {
 // GetBulletInheritShooterVelocityScaleOk returns a tuple with the BulletInheritShooterVelocityScale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletInheritShooterVelocityScaleOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetBulletInheritShooterVelocityScaleOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -240,7 +254,7 @@ func (o *RawWeaponInfoV2) GetBulletInheritShooterVelocityScaleOk() (*float32, bo
 }
 
 // HasBulletInheritShooterVelocityScale returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBulletInheritShooterVelocityScale() bool {
+func (o *WeaponInfoV2) HasBulletInheritShooterVelocityScale() bool {
 	if o != nil && o.BulletInheritShooterVelocityScale.IsSet() {
 		return true
 	}
@@ -249,21 +263,21 @@ func (o *RawWeaponInfoV2) HasBulletInheritShooterVelocityScale() bool {
 }
 
 // SetBulletInheritShooterVelocityScale gets a reference to the given NullableFloat32 and assigns it to the BulletInheritShooterVelocityScale field.
-func (o *RawWeaponInfoV2) SetBulletInheritShooterVelocityScale(v float32) {
+func (o *WeaponInfoV2) SetBulletInheritShooterVelocityScale(v float32) {
 	o.BulletInheritShooterVelocityScale.Set(&v)
 }
 // SetBulletInheritShooterVelocityScaleNil sets the value for BulletInheritShooterVelocityScale to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletInheritShooterVelocityScaleNil() {
+func (o *WeaponInfoV2) SetBulletInheritShooterVelocityScaleNil() {
 	o.BulletInheritShooterVelocityScale.Set(nil)
 }
 
 // UnsetBulletInheritShooterVelocityScale ensures that no value is present for BulletInheritShooterVelocityScale, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBulletInheritShooterVelocityScale() {
+func (o *WeaponInfoV2) UnsetBulletInheritShooterVelocityScale() {
 	o.BulletInheritShooterVelocityScale.Unset()
 }
 
 // GetBulletLifetime returns the BulletLifetime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBulletLifetime() float32 {
+func (o *WeaponInfoV2) GetBulletLifetime() float32 {
 	if o == nil || IsNil(o.BulletLifetime.Get()) {
 		var ret float32
 		return ret
@@ -274,7 +288,7 @@ func (o *RawWeaponInfoV2) GetBulletLifetime() float32 {
 // GetBulletLifetimeOk returns a tuple with the BulletLifetime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletLifetimeOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetBulletLifetimeOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -282,7 +296,7 @@ func (o *RawWeaponInfoV2) GetBulletLifetimeOk() (*float32, bool) {
 }
 
 // HasBulletLifetime returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBulletLifetime() bool {
+func (o *WeaponInfoV2) HasBulletLifetime() bool {
 	if o != nil && o.BulletLifetime.IsSet() {
 		return true
 	}
@@ -291,21 +305,21 @@ func (o *RawWeaponInfoV2) HasBulletLifetime() bool {
 }
 
 // SetBulletLifetime gets a reference to the given NullableFloat32 and assigns it to the BulletLifetime field.
-func (o *RawWeaponInfoV2) SetBulletLifetime(v float32) {
+func (o *WeaponInfoV2) SetBulletLifetime(v float32) {
 	o.BulletLifetime.Set(&v)
 }
 // SetBulletLifetimeNil sets the value for BulletLifetime to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletLifetimeNil() {
+func (o *WeaponInfoV2) SetBulletLifetimeNil() {
 	o.BulletLifetime.Set(nil)
 }
 
 // UnsetBulletLifetime ensures that no value is present for BulletLifetime, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBulletLifetime() {
+func (o *WeaponInfoV2) UnsetBulletLifetime() {
 	o.BulletLifetime.Unset()
 }
 
 // GetBulletRadius returns the BulletRadius field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBulletRadius() float32 {
+func (o *WeaponInfoV2) GetBulletRadius() float32 {
 	if o == nil || IsNil(o.BulletRadius.Get()) {
 		var ret float32
 		return ret
@@ -316,7 +330,7 @@ func (o *RawWeaponInfoV2) GetBulletRadius() float32 {
 // GetBulletRadiusOk returns a tuple with the BulletRadius field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletRadiusOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetBulletRadiusOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -324,7 +338,7 @@ func (o *RawWeaponInfoV2) GetBulletRadiusOk() (*float32, bool) {
 }
 
 // HasBulletRadius returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBulletRadius() bool {
+func (o *WeaponInfoV2) HasBulletRadius() bool {
 	if o != nil && o.BulletRadius.IsSet() {
 		return true
 	}
@@ -333,21 +347,21 @@ func (o *RawWeaponInfoV2) HasBulletRadius() bool {
 }
 
 // SetBulletRadius gets a reference to the given NullableFloat32 and assigns it to the BulletRadius field.
-func (o *RawWeaponInfoV2) SetBulletRadius(v float32) {
+func (o *WeaponInfoV2) SetBulletRadius(v float32) {
 	o.BulletRadius.Set(&v)
 }
 // SetBulletRadiusNil sets the value for BulletRadius to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletRadiusNil() {
+func (o *WeaponInfoV2) SetBulletRadiusNil() {
 	o.BulletRadius.Set(nil)
 }
 
 // UnsetBulletRadius ensures that no value is present for BulletRadius, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBulletRadius() {
+func (o *WeaponInfoV2) UnsetBulletRadius() {
 	o.BulletRadius.Unset()
 }
 
 // GetBulletRadiusVsWorld returns the BulletRadiusVsWorld field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBulletRadiusVsWorld() float32 {
+func (o *WeaponInfoV2) GetBulletRadiusVsWorld() float32 {
 	if o == nil || IsNil(o.BulletRadiusVsWorld.Get()) {
 		var ret float32
 		return ret
@@ -358,7 +372,7 @@ func (o *RawWeaponInfoV2) GetBulletRadiusVsWorld() float32 {
 // GetBulletRadiusVsWorldOk returns a tuple with the BulletRadiusVsWorld field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletRadiusVsWorldOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetBulletRadiusVsWorldOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -366,7 +380,7 @@ func (o *RawWeaponInfoV2) GetBulletRadiusVsWorldOk() (*float32, bool) {
 }
 
 // HasBulletRadiusVsWorld returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBulletRadiusVsWorld() bool {
+func (o *WeaponInfoV2) HasBulletRadiusVsWorld() bool {
 	if o != nil && o.BulletRadiusVsWorld.IsSet() {
 		return true
 	}
@@ -375,21 +389,21 @@ func (o *RawWeaponInfoV2) HasBulletRadiusVsWorld() bool {
 }
 
 // SetBulletRadiusVsWorld gets a reference to the given NullableFloat32 and assigns it to the BulletRadiusVsWorld field.
-func (o *RawWeaponInfoV2) SetBulletRadiusVsWorld(v float32) {
+func (o *WeaponInfoV2) SetBulletRadiusVsWorld(v float32) {
 	o.BulletRadiusVsWorld.Set(&v)
 }
 // SetBulletRadiusVsWorldNil sets the value for BulletRadiusVsWorld to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletRadiusVsWorldNil() {
+func (o *WeaponInfoV2) SetBulletRadiusVsWorldNil() {
 	o.BulletRadiusVsWorld.Set(nil)
 }
 
 // UnsetBulletRadiusVsWorld ensures that no value is present for BulletRadiusVsWorld, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBulletRadiusVsWorld() {
+func (o *WeaponInfoV2) UnsetBulletRadiusVsWorld() {
 	o.BulletRadiusVsWorld.Unset()
 }
 
 // GetBulletReflectAmount returns the BulletReflectAmount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBulletReflectAmount() float32 {
+func (o *WeaponInfoV2) GetBulletReflectAmount() float32 {
 	if o == nil || IsNil(o.BulletReflectAmount.Get()) {
 		var ret float32
 		return ret
@@ -400,7 +414,7 @@ func (o *RawWeaponInfoV2) GetBulletReflectAmount() float32 {
 // GetBulletReflectAmountOk returns a tuple with the BulletReflectAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletReflectAmountOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetBulletReflectAmountOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -408,7 +422,7 @@ func (o *RawWeaponInfoV2) GetBulletReflectAmountOk() (*float32, bool) {
 }
 
 // HasBulletReflectAmount returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBulletReflectAmount() bool {
+func (o *WeaponInfoV2) HasBulletReflectAmount() bool {
 	if o != nil && o.BulletReflectAmount.IsSet() {
 		return true
 	}
@@ -417,21 +431,21 @@ func (o *RawWeaponInfoV2) HasBulletReflectAmount() bool {
 }
 
 // SetBulletReflectAmount gets a reference to the given NullableFloat32 and assigns it to the BulletReflectAmount field.
-func (o *RawWeaponInfoV2) SetBulletReflectAmount(v float32) {
+func (o *WeaponInfoV2) SetBulletReflectAmount(v float32) {
 	o.BulletReflectAmount.Set(&v)
 }
 // SetBulletReflectAmountNil sets the value for BulletReflectAmount to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletReflectAmountNil() {
+func (o *WeaponInfoV2) SetBulletReflectAmountNil() {
 	o.BulletReflectAmount.Set(nil)
 }
 
 // UnsetBulletReflectAmount ensures that no value is present for BulletReflectAmount, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBulletReflectAmount() {
+func (o *WeaponInfoV2) UnsetBulletReflectAmount() {
 	o.BulletReflectAmount.Unset()
 }
 
 // GetBulletReflectScale returns the BulletReflectScale field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBulletReflectScale() float32 {
+func (o *WeaponInfoV2) GetBulletReflectScale() float32 {
 	if o == nil || IsNil(o.BulletReflectScale.Get()) {
 		var ret float32
 		return ret
@@ -442,7 +456,7 @@ func (o *RawWeaponInfoV2) GetBulletReflectScale() float32 {
 // GetBulletReflectScaleOk returns a tuple with the BulletReflectScale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletReflectScaleOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetBulletReflectScaleOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -450,7 +464,7 @@ func (o *RawWeaponInfoV2) GetBulletReflectScaleOk() (*float32, bool) {
 }
 
 // HasBulletReflectScale returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBulletReflectScale() bool {
+func (o *WeaponInfoV2) HasBulletReflectScale() bool {
 	if o != nil && o.BulletReflectScale.IsSet() {
 		return true
 	}
@@ -459,21 +473,21 @@ func (o *RawWeaponInfoV2) HasBulletReflectScale() bool {
 }
 
 // SetBulletReflectScale gets a reference to the given NullableFloat32 and assigns it to the BulletReflectScale field.
-func (o *RawWeaponInfoV2) SetBulletReflectScale(v float32) {
+func (o *WeaponInfoV2) SetBulletReflectScale(v float32) {
 	o.BulletReflectScale.Set(&v)
 }
 // SetBulletReflectScaleNil sets the value for BulletReflectScale to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletReflectScaleNil() {
+func (o *WeaponInfoV2) SetBulletReflectScaleNil() {
 	o.BulletReflectScale.Set(nil)
 }
 
 // UnsetBulletReflectScale ensures that no value is present for BulletReflectScale, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBulletReflectScale() {
+func (o *WeaponInfoV2) UnsetBulletReflectScale() {
 	o.BulletReflectScale.Unset()
 }
 
 // GetBulletWhizDistance returns the BulletWhizDistance field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBulletWhizDistance() float32 {
+func (o *WeaponInfoV2) GetBulletWhizDistance() float32 {
 	if o == nil || IsNil(o.BulletWhizDistance.Get()) {
 		var ret float32
 		return ret
@@ -484,7 +498,7 @@ func (o *RawWeaponInfoV2) GetBulletWhizDistance() float32 {
 // GetBulletWhizDistanceOk returns a tuple with the BulletWhizDistance field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletWhizDistanceOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetBulletWhizDistanceOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -492,7 +506,7 @@ func (o *RawWeaponInfoV2) GetBulletWhizDistanceOk() (*float32, bool) {
 }
 
 // HasBulletWhizDistance returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBulletWhizDistance() bool {
+func (o *WeaponInfoV2) HasBulletWhizDistance() bool {
 	if o != nil && o.BulletWhizDistance.IsSet() {
 		return true
 	}
@@ -501,21 +515,21 @@ func (o *RawWeaponInfoV2) HasBulletWhizDistance() bool {
 }
 
 // SetBulletWhizDistance gets a reference to the given NullableFloat32 and assigns it to the BulletWhizDistance field.
-func (o *RawWeaponInfoV2) SetBulletWhizDistance(v float32) {
+func (o *WeaponInfoV2) SetBulletWhizDistance(v float32) {
 	o.BulletWhizDistance.Set(&v)
 }
 // SetBulletWhizDistanceNil sets the value for BulletWhizDistance to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletWhizDistanceNil() {
+func (o *WeaponInfoV2) SetBulletWhizDistanceNil() {
 	o.BulletWhizDistance.Set(nil)
 }
 
 // UnsetBulletWhizDistance ensures that no value is present for BulletWhizDistance, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBulletWhizDistance() {
+func (o *WeaponInfoV2) UnsetBulletWhizDistance() {
 	o.BulletWhizDistance.Unset()
 }
 
 // GetBurstShotCooldown returns the BurstShotCooldown field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBurstShotCooldown() float32 {
+func (o *WeaponInfoV2) GetBurstShotCooldown() float32 {
 	if o == nil || IsNil(o.BurstShotCooldown.Get()) {
 		var ret float32
 		return ret
@@ -526,7 +540,7 @@ func (o *RawWeaponInfoV2) GetBurstShotCooldown() float32 {
 // GetBurstShotCooldownOk returns a tuple with the BurstShotCooldown field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBurstShotCooldownOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetBurstShotCooldownOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -534,7 +548,7 @@ func (o *RawWeaponInfoV2) GetBurstShotCooldownOk() (*float32, bool) {
 }
 
 // HasBurstShotCooldown returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBurstShotCooldown() bool {
+func (o *WeaponInfoV2) HasBurstShotCooldown() bool {
 	if o != nil && o.BurstShotCooldown.IsSet() {
 		return true
 	}
@@ -543,21 +557,21 @@ func (o *RawWeaponInfoV2) HasBurstShotCooldown() bool {
 }
 
 // SetBurstShotCooldown gets a reference to the given NullableFloat32 and assigns it to the BurstShotCooldown field.
-func (o *RawWeaponInfoV2) SetBurstShotCooldown(v float32) {
+func (o *WeaponInfoV2) SetBurstShotCooldown(v float32) {
 	o.BurstShotCooldown.Set(&v)
 }
 // SetBurstShotCooldownNil sets the value for BurstShotCooldown to be an explicit nil
-func (o *RawWeaponInfoV2) SetBurstShotCooldownNil() {
+func (o *WeaponInfoV2) SetBurstShotCooldownNil() {
 	o.BurstShotCooldown.Set(nil)
 }
 
 // UnsetBurstShotCooldown ensures that no value is present for BurstShotCooldown, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBurstShotCooldown() {
+func (o *WeaponInfoV2) UnsetBurstShotCooldown() {
 	o.BurstShotCooldown.Unset()
 }
 
 // GetCritBonusAgainstNpcs returns the CritBonusAgainstNpcs field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetCritBonusAgainstNpcs() float32 {
+func (o *WeaponInfoV2) GetCritBonusAgainstNpcs() float32 {
 	if o == nil || IsNil(o.CritBonusAgainstNpcs.Get()) {
 		var ret float32
 		return ret
@@ -568,7 +582,7 @@ func (o *RawWeaponInfoV2) GetCritBonusAgainstNpcs() float32 {
 // GetCritBonusAgainstNpcsOk returns a tuple with the CritBonusAgainstNpcs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetCritBonusAgainstNpcsOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetCritBonusAgainstNpcsOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -576,7 +590,7 @@ func (o *RawWeaponInfoV2) GetCritBonusAgainstNpcsOk() (*float32, bool) {
 }
 
 // HasCritBonusAgainstNpcs returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasCritBonusAgainstNpcs() bool {
+func (o *WeaponInfoV2) HasCritBonusAgainstNpcs() bool {
 	if o != nil && o.CritBonusAgainstNpcs.IsSet() {
 		return true
 	}
@@ -585,21 +599,21 @@ func (o *RawWeaponInfoV2) HasCritBonusAgainstNpcs() bool {
 }
 
 // SetCritBonusAgainstNpcs gets a reference to the given NullableFloat32 and assigns it to the CritBonusAgainstNpcs field.
-func (o *RawWeaponInfoV2) SetCritBonusAgainstNpcs(v float32) {
+func (o *WeaponInfoV2) SetCritBonusAgainstNpcs(v float32) {
 	o.CritBonusAgainstNpcs.Set(&v)
 }
 // SetCritBonusAgainstNpcsNil sets the value for CritBonusAgainstNpcs to be an explicit nil
-func (o *RawWeaponInfoV2) SetCritBonusAgainstNpcsNil() {
+func (o *WeaponInfoV2) SetCritBonusAgainstNpcsNil() {
 	o.CritBonusAgainstNpcs.Set(nil)
 }
 
 // UnsetCritBonusAgainstNpcs ensures that no value is present for CritBonusAgainstNpcs, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetCritBonusAgainstNpcs() {
+func (o *WeaponInfoV2) UnsetCritBonusAgainstNpcs() {
 	o.CritBonusAgainstNpcs.Unset()
 }
 
 // GetCritBonusEnd returns the CritBonusEnd field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetCritBonusEnd() float32 {
+func (o *WeaponInfoV2) GetCritBonusEnd() float32 {
 	if o == nil || IsNil(o.CritBonusEnd.Get()) {
 		var ret float32
 		return ret
@@ -610,7 +624,7 @@ func (o *RawWeaponInfoV2) GetCritBonusEnd() float32 {
 // GetCritBonusEndOk returns a tuple with the CritBonusEnd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetCritBonusEndOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetCritBonusEndOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -618,7 +632,7 @@ func (o *RawWeaponInfoV2) GetCritBonusEndOk() (*float32, bool) {
 }
 
 // HasCritBonusEnd returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasCritBonusEnd() bool {
+func (o *WeaponInfoV2) HasCritBonusEnd() bool {
 	if o != nil && o.CritBonusEnd.IsSet() {
 		return true
 	}
@@ -627,21 +641,21 @@ func (o *RawWeaponInfoV2) HasCritBonusEnd() bool {
 }
 
 // SetCritBonusEnd gets a reference to the given NullableFloat32 and assigns it to the CritBonusEnd field.
-func (o *RawWeaponInfoV2) SetCritBonusEnd(v float32) {
+func (o *WeaponInfoV2) SetCritBonusEnd(v float32) {
 	o.CritBonusEnd.Set(&v)
 }
 // SetCritBonusEndNil sets the value for CritBonusEnd to be an explicit nil
-func (o *RawWeaponInfoV2) SetCritBonusEndNil() {
+func (o *WeaponInfoV2) SetCritBonusEndNil() {
 	o.CritBonusEnd.Set(nil)
 }
 
 // UnsetCritBonusEnd ensures that no value is present for CritBonusEnd, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetCritBonusEnd() {
+func (o *WeaponInfoV2) UnsetCritBonusEnd() {
 	o.CritBonusEnd.Unset()
 }
 
 // GetCritBonusEndRange returns the CritBonusEndRange field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetCritBonusEndRange() float32 {
+func (o *WeaponInfoV2) GetCritBonusEndRange() float32 {
 	if o == nil || IsNil(o.CritBonusEndRange.Get()) {
 		var ret float32
 		return ret
@@ -652,7 +666,7 @@ func (o *RawWeaponInfoV2) GetCritBonusEndRange() float32 {
 // GetCritBonusEndRangeOk returns a tuple with the CritBonusEndRange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetCritBonusEndRangeOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetCritBonusEndRangeOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -660,7 +674,7 @@ func (o *RawWeaponInfoV2) GetCritBonusEndRangeOk() (*float32, bool) {
 }
 
 // HasCritBonusEndRange returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasCritBonusEndRange() bool {
+func (o *WeaponInfoV2) HasCritBonusEndRange() bool {
 	if o != nil && o.CritBonusEndRange.IsSet() {
 		return true
 	}
@@ -669,21 +683,21 @@ func (o *RawWeaponInfoV2) HasCritBonusEndRange() bool {
 }
 
 // SetCritBonusEndRange gets a reference to the given NullableFloat32 and assigns it to the CritBonusEndRange field.
-func (o *RawWeaponInfoV2) SetCritBonusEndRange(v float32) {
+func (o *WeaponInfoV2) SetCritBonusEndRange(v float32) {
 	o.CritBonusEndRange.Set(&v)
 }
 // SetCritBonusEndRangeNil sets the value for CritBonusEndRange to be an explicit nil
-func (o *RawWeaponInfoV2) SetCritBonusEndRangeNil() {
+func (o *WeaponInfoV2) SetCritBonusEndRangeNil() {
 	o.CritBonusEndRange.Set(nil)
 }
 
 // UnsetCritBonusEndRange ensures that no value is present for CritBonusEndRange, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetCritBonusEndRange() {
+func (o *WeaponInfoV2) UnsetCritBonusEndRange() {
 	o.CritBonusEndRange.Unset()
 }
 
 // GetCritBonusStart returns the CritBonusStart field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetCritBonusStart() float32 {
+func (o *WeaponInfoV2) GetCritBonusStart() float32 {
 	if o == nil || IsNil(o.CritBonusStart.Get()) {
 		var ret float32
 		return ret
@@ -694,7 +708,7 @@ func (o *RawWeaponInfoV2) GetCritBonusStart() float32 {
 // GetCritBonusStartOk returns a tuple with the CritBonusStart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetCritBonusStartOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetCritBonusStartOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -702,7 +716,7 @@ func (o *RawWeaponInfoV2) GetCritBonusStartOk() (*float32, bool) {
 }
 
 // HasCritBonusStart returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasCritBonusStart() bool {
+func (o *WeaponInfoV2) HasCritBonusStart() bool {
 	if o != nil && o.CritBonusStart.IsSet() {
 		return true
 	}
@@ -711,21 +725,21 @@ func (o *RawWeaponInfoV2) HasCritBonusStart() bool {
 }
 
 // SetCritBonusStart gets a reference to the given NullableFloat32 and assigns it to the CritBonusStart field.
-func (o *RawWeaponInfoV2) SetCritBonusStart(v float32) {
+func (o *WeaponInfoV2) SetCritBonusStart(v float32) {
 	o.CritBonusStart.Set(&v)
 }
 // SetCritBonusStartNil sets the value for CritBonusStart to be an explicit nil
-func (o *RawWeaponInfoV2) SetCritBonusStartNil() {
+func (o *WeaponInfoV2) SetCritBonusStartNil() {
 	o.CritBonusStart.Set(nil)
 }
 
 // UnsetCritBonusStart ensures that no value is present for CritBonusStart, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetCritBonusStart() {
+func (o *WeaponInfoV2) UnsetCritBonusStart() {
 	o.CritBonusStart.Unset()
 }
 
 // GetCritBonusStartRange returns the CritBonusStartRange field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetCritBonusStartRange() float32 {
+func (o *WeaponInfoV2) GetCritBonusStartRange() float32 {
 	if o == nil || IsNil(o.CritBonusStartRange.Get()) {
 		var ret float32
 		return ret
@@ -736,7 +750,7 @@ func (o *RawWeaponInfoV2) GetCritBonusStartRange() float32 {
 // GetCritBonusStartRangeOk returns a tuple with the CritBonusStartRange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetCritBonusStartRangeOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetCritBonusStartRangeOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -744,7 +758,7 @@ func (o *RawWeaponInfoV2) GetCritBonusStartRangeOk() (*float32, bool) {
 }
 
 // HasCritBonusStartRange returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasCritBonusStartRange() bool {
+func (o *WeaponInfoV2) HasCritBonusStartRange() bool {
 	if o != nil && o.CritBonusStartRange.IsSet() {
 		return true
 	}
@@ -753,21 +767,21 @@ func (o *RawWeaponInfoV2) HasCritBonusStartRange() bool {
 }
 
 // SetCritBonusStartRange gets a reference to the given NullableFloat32 and assigns it to the CritBonusStartRange field.
-func (o *RawWeaponInfoV2) SetCritBonusStartRange(v float32) {
+func (o *WeaponInfoV2) SetCritBonusStartRange(v float32) {
 	o.CritBonusStartRange.Set(&v)
 }
 // SetCritBonusStartRangeNil sets the value for CritBonusStartRange to be an explicit nil
-func (o *RawWeaponInfoV2) SetCritBonusStartRangeNil() {
+func (o *WeaponInfoV2) SetCritBonusStartRangeNil() {
 	o.CritBonusStartRange.Set(nil)
 }
 
 // UnsetCritBonusStartRange ensures that no value is present for CritBonusStartRange, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetCritBonusStartRange() {
+func (o *WeaponInfoV2) UnsetCritBonusStartRange() {
 	o.CritBonusStartRange.Unset()
 }
 
 // GetCycleTime returns the CycleTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetCycleTime() float32 {
+func (o *WeaponInfoV2) GetCycleTime() float32 {
 	if o == nil || IsNil(o.CycleTime.Get()) {
 		var ret float32
 		return ret
@@ -778,7 +792,7 @@ func (o *RawWeaponInfoV2) GetCycleTime() float32 {
 // GetCycleTimeOk returns a tuple with the CycleTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetCycleTimeOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetCycleTimeOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -786,7 +800,7 @@ func (o *RawWeaponInfoV2) GetCycleTimeOk() (*float32, bool) {
 }
 
 // HasCycleTime returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasCycleTime() bool {
+func (o *WeaponInfoV2) HasCycleTime() bool {
 	if o != nil && o.CycleTime.IsSet() {
 		return true
 	}
@@ -795,21 +809,21 @@ func (o *RawWeaponInfoV2) HasCycleTime() bool {
 }
 
 // SetCycleTime gets a reference to the given NullableFloat32 and assigns it to the CycleTime field.
-func (o *RawWeaponInfoV2) SetCycleTime(v float32) {
+func (o *WeaponInfoV2) SetCycleTime(v float32) {
 	o.CycleTime.Set(&v)
 }
 // SetCycleTimeNil sets the value for CycleTime to be an explicit nil
-func (o *RawWeaponInfoV2) SetCycleTimeNil() {
+func (o *WeaponInfoV2) SetCycleTimeNil() {
 	o.CycleTime.Set(nil)
 }
 
 // UnsetCycleTime ensures that no value is present for CycleTime, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetCycleTime() {
+func (o *WeaponInfoV2) UnsetCycleTime() {
 	o.CycleTime.Unset()
 }
 
 // GetIntraBurstCycleTime returns the IntraBurstCycleTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetIntraBurstCycleTime() float32 {
+func (o *WeaponInfoV2) GetIntraBurstCycleTime() float32 {
 	if o == nil || IsNil(o.IntraBurstCycleTime.Get()) {
 		var ret float32
 		return ret
@@ -820,7 +834,7 @@ func (o *RawWeaponInfoV2) GetIntraBurstCycleTime() float32 {
 // GetIntraBurstCycleTimeOk returns a tuple with the IntraBurstCycleTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetIntraBurstCycleTimeOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetIntraBurstCycleTimeOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -828,7 +842,7 @@ func (o *RawWeaponInfoV2) GetIntraBurstCycleTimeOk() (*float32, bool) {
 }
 
 // HasIntraBurstCycleTime returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasIntraBurstCycleTime() bool {
+func (o *WeaponInfoV2) HasIntraBurstCycleTime() bool {
 	if o != nil && o.IntraBurstCycleTime.IsSet() {
 		return true
 	}
@@ -837,21 +851,21 @@ func (o *RawWeaponInfoV2) HasIntraBurstCycleTime() bool {
 }
 
 // SetIntraBurstCycleTime gets a reference to the given NullableFloat32 and assigns it to the IntraBurstCycleTime field.
-func (o *RawWeaponInfoV2) SetIntraBurstCycleTime(v float32) {
+func (o *WeaponInfoV2) SetIntraBurstCycleTime(v float32) {
 	o.IntraBurstCycleTime.Set(&v)
 }
 // SetIntraBurstCycleTimeNil sets the value for IntraBurstCycleTime to be an explicit nil
-func (o *RawWeaponInfoV2) SetIntraBurstCycleTimeNil() {
+func (o *WeaponInfoV2) SetIntraBurstCycleTimeNil() {
 	o.IntraBurstCycleTime.Set(nil)
 }
 
 // UnsetIntraBurstCycleTime ensures that no value is present for IntraBurstCycleTime, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetIntraBurstCycleTime() {
+func (o *WeaponInfoV2) UnsetIntraBurstCycleTime() {
 	o.IntraBurstCycleTime.Unset()
 }
 
 // GetMaxSpinCycleTime returns the MaxSpinCycleTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetMaxSpinCycleTime() float32 {
+func (o *WeaponInfoV2) GetMaxSpinCycleTime() float32 {
 	if o == nil || IsNil(o.MaxSpinCycleTime.Get()) {
 		var ret float32
 		return ret
@@ -862,7 +876,7 @@ func (o *RawWeaponInfoV2) GetMaxSpinCycleTime() float32 {
 // GetMaxSpinCycleTimeOk returns a tuple with the MaxSpinCycleTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetMaxSpinCycleTimeOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetMaxSpinCycleTimeOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -870,7 +884,7 @@ func (o *RawWeaponInfoV2) GetMaxSpinCycleTimeOk() (*float32, bool) {
 }
 
 // HasMaxSpinCycleTime returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasMaxSpinCycleTime() bool {
+func (o *WeaponInfoV2) HasMaxSpinCycleTime() bool {
 	if o != nil && o.MaxSpinCycleTime.IsSet() {
 		return true
 	}
@@ -879,21 +893,21 @@ func (o *RawWeaponInfoV2) HasMaxSpinCycleTime() bool {
 }
 
 // SetMaxSpinCycleTime gets a reference to the given NullableFloat32 and assigns it to the MaxSpinCycleTime field.
-func (o *RawWeaponInfoV2) SetMaxSpinCycleTime(v float32) {
+func (o *WeaponInfoV2) SetMaxSpinCycleTime(v float32) {
 	o.MaxSpinCycleTime.Set(&v)
 }
 // SetMaxSpinCycleTimeNil sets the value for MaxSpinCycleTime to be an explicit nil
-func (o *RawWeaponInfoV2) SetMaxSpinCycleTimeNil() {
+func (o *WeaponInfoV2) SetMaxSpinCycleTimeNil() {
 	o.MaxSpinCycleTime.Set(nil)
 }
 
 // UnsetMaxSpinCycleTime ensures that no value is present for MaxSpinCycleTime, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetMaxSpinCycleTime() {
+func (o *WeaponInfoV2) UnsetMaxSpinCycleTime() {
 	o.MaxSpinCycleTime.Unset()
 }
 
 // GetDamageFalloffBias returns the DamageFalloffBias field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetDamageFalloffBias() float32 {
+func (o *WeaponInfoV2) GetDamageFalloffBias() float32 {
 	if o == nil || IsNil(o.DamageFalloffBias.Get()) {
 		var ret float32
 		return ret
@@ -904,7 +918,7 @@ func (o *RawWeaponInfoV2) GetDamageFalloffBias() float32 {
 // GetDamageFalloffBiasOk returns a tuple with the DamageFalloffBias field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetDamageFalloffBiasOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetDamageFalloffBiasOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -912,7 +926,7 @@ func (o *RawWeaponInfoV2) GetDamageFalloffBiasOk() (*float32, bool) {
 }
 
 // HasDamageFalloffBias returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasDamageFalloffBias() bool {
+func (o *WeaponInfoV2) HasDamageFalloffBias() bool {
 	if o != nil && o.DamageFalloffBias.IsSet() {
 		return true
 	}
@@ -921,21 +935,21 @@ func (o *RawWeaponInfoV2) HasDamageFalloffBias() bool {
 }
 
 // SetDamageFalloffBias gets a reference to the given NullableFloat32 and assigns it to the DamageFalloffBias field.
-func (o *RawWeaponInfoV2) SetDamageFalloffBias(v float32) {
+func (o *WeaponInfoV2) SetDamageFalloffBias(v float32) {
 	o.DamageFalloffBias.Set(&v)
 }
 // SetDamageFalloffBiasNil sets the value for DamageFalloffBias to be an explicit nil
-func (o *RawWeaponInfoV2) SetDamageFalloffBiasNil() {
+func (o *WeaponInfoV2) SetDamageFalloffBiasNil() {
 	o.DamageFalloffBias.Set(nil)
 }
 
 // UnsetDamageFalloffBias ensures that no value is present for DamageFalloffBias, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetDamageFalloffBias() {
+func (o *WeaponInfoV2) UnsetDamageFalloffBias() {
 	o.DamageFalloffBias.Unset()
 }
 
 // GetDamageFalloffEndRange returns the DamageFalloffEndRange field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetDamageFalloffEndRange() float32 {
+func (o *WeaponInfoV2) GetDamageFalloffEndRange() float32 {
 	if o == nil || IsNil(o.DamageFalloffEndRange.Get()) {
 		var ret float32
 		return ret
@@ -946,7 +960,7 @@ func (o *RawWeaponInfoV2) GetDamageFalloffEndRange() float32 {
 // GetDamageFalloffEndRangeOk returns a tuple with the DamageFalloffEndRange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetDamageFalloffEndRangeOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetDamageFalloffEndRangeOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -954,7 +968,7 @@ func (o *RawWeaponInfoV2) GetDamageFalloffEndRangeOk() (*float32, bool) {
 }
 
 // HasDamageFalloffEndRange returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasDamageFalloffEndRange() bool {
+func (o *WeaponInfoV2) HasDamageFalloffEndRange() bool {
 	if o != nil && o.DamageFalloffEndRange.IsSet() {
 		return true
 	}
@@ -963,21 +977,21 @@ func (o *RawWeaponInfoV2) HasDamageFalloffEndRange() bool {
 }
 
 // SetDamageFalloffEndRange gets a reference to the given NullableFloat32 and assigns it to the DamageFalloffEndRange field.
-func (o *RawWeaponInfoV2) SetDamageFalloffEndRange(v float32) {
+func (o *WeaponInfoV2) SetDamageFalloffEndRange(v float32) {
 	o.DamageFalloffEndRange.Set(&v)
 }
 // SetDamageFalloffEndRangeNil sets the value for DamageFalloffEndRange to be an explicit nil
-func (o *RawWeaponInfoV2) SetDamageFalloffEndRangeNil() {
+func (o *WeaponInfoV2) SetDamageFalloffEndRangeNil() {
 	o.DamageFalloffEndRange.Set(nil)
 }
 
 // UnsetDamageFalloffEndRange ensures that no value is present for DamageFalloffEndRange, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetDamageFalloffEndRange() {
+func (o *WeaponInfoV2) UnsetDamageFalloffEndRange() {
 	o.DamageFalloffEndRange.Unset()
 }
 
 // GetDamageFalloffEndScale returns the DamageFalloffEndScale field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetDamageFalloffEndScale() float32 {
+func (o *WeaponInfoV2) GetDamageFalloffEndScale() float32 {
 	if o == nil || IsNil(o.DamageFalloffEndScale.Get()) {
 		var ret float32
 		return ret
@@ -988,7 +1002,7 @@ func (o *RawWeaponInfoV2) GetDamageFalloffEndScale() float32 {
 // GetDamageFalloffEndScaleOk returns a tuple with the DamageFalloffEndScale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetDamageFalloffEndScaleOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetDamageFalloffEndScaleOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -996,7 +1010,7 @@ func (o *RawWeaponInfoV2) GetDamageFalloffEndScaleOk() (*float32, bool) {
 }
 
 // HasDamageFalloffEndScale returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasDamageFalloffEndScale() bool {
+func (o *WeaponInfoV2) HasDamageFalloffEndScale() bool {
 	if o != nil && o.DamageFalloffEndScale.IsSet() {
 		return true
 	}
@@ -1005,21 +1019,21 @@ func (o *RawWeaponInfoV2) HasDamageFalloffEndScale() bool {
 }
 
 // SetDamageFalloffEndScale gets a reference to the given NullableFloat32 and assigns it to the DamageFalloffEndScale field.
-func (o *RawWeaponInfoV2) SetDamageFalloffEndScale(v float32) {
+func (o *WeaponInfoV2) SetDamageFalloffEndScale(v float32) {
 	o.DamageFalloffEndScale.Set(&v)
 }
 // SetDamageFalloffEndScaleNil sets the value for DamageFalloffEndScale to be an explicit nil
-func (o *RawWeaponInfoV2) SetDamageFalloffEndScaleNil() {
+func (o *WeaponInfoV2) SetDamageFalloffEndScaleNil() {
 	o.DamageFalloffEndScale.Set(nil)
 }
 
 // UnsetDamageFalloffEndScale ensures that no value is present for DamageFalloffEndScale, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetDamageFalloffEndScale() {
+func (o *WeaponInfoV2) UnsetDamageFalloffEndScale() {
 	o.DamageFalloffEndScale.Unset()
 }
 
 // GetDamageFalloffStartRange returns the DamageFalloffStartRange field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetDamageFalloffStartRange() float32 {
+func (o *WeaponInfoV2) GetDamageFalloffStartRange() float32 {
 	if o == nil || IsNil(o.DamageFalloffStartRange.Get()) {
 		var ret float32
 		return ret
@@ -1030,7 +1044,7 @@ func (o *RawWeaponInfoV2) GetDamageFalloffStartRange() float32 {
 // GetDamageFalloffStartRangeOk returns a tuple with the DamageFalloffStartRange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetDamageFalloffStartRangeOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetDamageFalloffStartRangeOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1038,7 +1052,7 @@ func (o *RawWeaponInfoV2) GetDamageFalloffStartRangeOk() (*float32, bool) {
 }
 
 // HasDamageFalloffStartRange returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasDamageFalloffStartRange() bool {
+func (o *WeaponInfoV2) HasDamageFalloffStartRange() bool {
 	if o != nil && o.DamageFalloffStartRange.IsSet() {
 		return true
 	}
@@ -1047,21 +1061,21 @@ func (o *RawWeaponInfoV2) HasDamageFalloffStartRange() bool {
 }
 
 // SetDamageFalloffStartRange gets a reference to the given NullableFloat32 and assigns it to the DamageFalloffStartRange field.
-func (o *RawWeaponInfoV2) SetDamageFalloffStartRange(v float32) {
+func (o *WeaponInfoV2) SetDamageFalloffStartRange(v float32) {
 	o.DamageFalloffStartRange.Set(&v)
 }
 // SetDamageFalloffStartRangeNil sets the value for DamageFalloffStartRange to be an explicit nil
-func (o *RawWeaponInfoV2) SetDamageFalloffStartRangeNil() {
+func (o *WeaponInfoV2) SetDamageFalloffStartRangeNil() {
 	o.DamageFalloffStartRange.Set(nil)
 }
 
 // UnsetDamageFalloffStartRange ensures that no value is present for DamageFalloffStartRange, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetDamageFalloffStartRange() {
+func (o *WeaponInfoV2) UnsetDamageFalloffStartRange() {
 	o.DamageFalloffStartRange.Unset()
 }
 
 // GetDamageFalloffStartScale returns the DamageFalloffStartScale field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetDamageFalloffStartScale() float32 {
+func (o *WeaponInfoV2) GetDamageFalloffStartScale() float32 {
 	if o == nil || IsNil(o.DamageFalloffStartScale.Get()) {
 		var ret float32
 		return ret
@@ -1072,7 +1086,7 @@ func (o *RawWeaponInfoV2) GetDamageFalloffStartScale() float32 {
 // GetDamageFalloffStartScaleOk returns a tuple with the DamageFalloffStartScale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetDamageFalloffStartScaleOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetDamageFalloffStartScaleOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1080,7 +1094,7 @@ func (o *RawWeaponInfoV2) GetDamageFalloffStartScaleOk() (*float32, bool) {
 }
 
 // HasDamageFalloffStartScale returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasDamageFalloffStartScale() bool {
+func (o *WeaponInfoV2) HasDamageFalloffStartScale() bool {
 	if o != nil && o.DamageFalloffStartScale.IsSet() {
 		return true
 	}
@@ -1089,21 +1103,21 @@ func (o *RawWeaponInfoV2) HasDamageFalloffStartScale() bool {
 }
 
 // SetDamageFalloffStartScale gets a reference to the given NullableFloat32 and assigns it to the DamageFalloffStartScale field.
-func (o *RawWeaponInfoV2) SetDamageFalloffStartScale(v float32) {
+func (o *WeaponInfoV2) SetDamageFalloffStartScale(v float32) {
 	o.DamageFalloffStartScale.Set(&v)
 }
 // SetDamageFalloffStartScaleNil sets the value for DamageFalloffStartScale to be an explicit nil
-func (o *RawWeaponInfoV2) SetDamageFalloffStartScaleNil() {
+func (o *WeaponInfoV2) SetDamageFalloffStartScaleNil() {
 	o.DamageFalloffStartScale.Set(nil)
 }
 
 // UnsetDamageFalloffStartScale ensures that no value is present for DamageFalloffStartScale, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetDamageFalloffStartScale() {
+func (o *WeaponInfoV2) UnsetDamageFalloffStartScale() {
 	o.DamageFalloffStartScale.Unset()
 }
 
 // GetHorizontalPunch returns the HorizontalPunch field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetHorizontalPunch() float32 {
+func (o *WeaponInfoV2) GetHorizontalPunch() float32 {
 	if o == nil || IsNil(o.HorizontalPunch.Get()) {
 		var ret float32
 		return ret
@@ -1114,7 +1128,7 @@ func (o *RawWeaponInfoV2) GetHorizontalPunch() float32 {
 // GetHorizontalPunchOk returns a tuple with the HorizontalPunch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetHorizontalPunchOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetHorizontalPunchOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1122,7 +1136,7 @@ func (o *RawWeaponInfoV2) GetHorizontalPunchOk() (*float32, bool) {
 }
 
 // HasHorizontalPunch returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasHorizontalPunch() bool {
+func (o *WeaponInfoV2) HasHorizontalPunch() bool {
 	if o != nil && o.HorizontalPunch.IsSet() {
 		return true
 	}
@@ -1131,21 +1145,21 @@ func (o *RawWeaponInfoV2) HasHorizontalPunch() bool {
 }
 
 // SetHorizontalPunch gets a reference to the given NullableFloat32 and assigns it to the HorizontalPunch field.
-func (o *RawWeaponInfoV2) SetHorizontalPunch(v float32) {
+func (o *WeaponInfoV2) SetHorizontalPunch(v float32) {
 	o.HorizontalPunch.Set(&v)
 }
 // SetHorizontalPunchNil sets the value for HorizontalPunch to be an explicit nil
-func (o *RawWeaponInfoV2) SetHorizontalPunchNil() {
+func (o *WeaponInfoV2) SetHorizontalPunchNil() {
 	o.HorizontalPunch.Set(nil)
 }
 
 // UnsetHorizontalPunch ensures that no value is present for HorizontalPunch, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetHorizontalPunch() {
+func (o *WeaponInfoV2) UnsetHorizontalPunch() {
 	o.HorizontalPunch.Unset()
 }
 
 // GetRange returns the Range field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetRange() float32 {
+func (o *WeaponInfoV2) GetRange() float32 {
 	if o == nil || IsNil(o.Range.Get()) {
 		var ret float32
 		return ret
@@ -1156,7 +1170,7 @@ func (o *RawWeaponInfoV2) GetRange() float32 {
 // GetRangeOk returns a tuple with the Range field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetRangeOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetRangeOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1164,7 +1178,7 @@ func (o *RawWeaponInfoV2) GetRangeOk() (*float32, bool) {
 }
 
 // HasRange returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasRange() bool {
+func (o *WeaponInfoV2) HasRange() bool {
 	if o != nil && o.Range.IsSet() {
 		return true
 	}
@@ -1173,21 +1187,21 @@ func (o *RawWeaponInfoV2) HasRange() bool {
 }
 
 // SetRange gets a reference to the given NullableFloat32 and assigns it to the Range field.
-func (o *RawWeaponInfoV2) SetRange(v float32) {
+func (o *WeaponInfoV2) SetRange(v float32) {
 	o.Range.Set(&v)
 }
 // SetRangeNil sets the value for Range to be an explicit nil
-func (o *RawWeaponInfoV2) SetRangeNil() {
+func (o *WeaponInfoV2) SetRangeNil() {
 	o.Range.Set(nil)
 }
 
 // UnsetRange ensures that no value is present for Range, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetRange() {
+func (o *WeaponInfoV2) UnsetRange() {
 	o.Range.Unset()
 }
 
 // GetRecoilRecoveryDelayFactor returns the RecoilRecoveryDelayFactor field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetRecoilRecoveryDelayFactor() float32 {
+func (o *WeaponInfoV2) GetRecoilRecoveryDelayFactor() float32 {
 	if o == nil || IsNil(o.RecoilRecoveryDelayFactor.Get()) {
 		var ret float32
 		return ret
@@ -1198,7 +1212,7 @@ func (o *RawWeaponInfoV2) GetRecoilRecoveryDelayFactor() float32 {
 // GetRecoilRecoveryDelayFactorOk returns a tuple with the RecoilRecoveryDelayFactor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetRecoilRecoveryDelayFactorOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetRecoilRecoveryDelayFactorOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1206,7 +1220,7 @@ func (o *RawWeaponInfoV2) GetRecoilRecoveryDelayFactorOk() (*float32, bool) {
 }
 
 // HasRecoilRecoveryDelayFactor returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasRecoilRecoveryDelayFactor() bool {
+func (o *WeaponInfoV2) HasRecoilRecoveryDelayFactor() bool {
 	if o != nil && o.RecoilRecoveryDelayFactor.IsSet() {
 		return true
 	}
@@ -1215,21 +1229,21 @@ func (o *RawWeaponInfoV2) HasRecoilRecoveryDelayFactor() bool {
 }
 
 // SetRecoilRecoveryDelayFactor gets a reference to the given NullableFloat32 and assigns it to the RecoilRecoveryDelayFactor field.
-func (o *RawWeaponInfoV2) SetRecoilRecoveryDelayFactor(v float32) {
+func (o *WeaponInfoV2) SetRecoilRecoveryDelayFactor(v float32) {
 	o.RecoilRecoveryDelayFactor.Set(&v)
 }
 // SetRecoilRecoveryDelayFactorNil sets the value for RecoilRecoveryDelayFactor to be an explicit nil
-func (o *RawWeaponInfoV2) SetRecoilRecoveryDelayFactorNil() {
+func (o *WeaponInfoV2) SetRecoilRecoveryDelayFactorNil() {
 	o.RecoilRecoveryDelayFactor.Set(nil)
 }
 
 // UnsetRecoilRecoveryDelayFactor ensures that no value is present for RecoilRecoveryDelayFactor, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetRecoilRecoveryDelayFactor() {
+func (o *WeaponInfoV2) UnsetRecoilRecoveryDelayFactor() {
 	o.RecoilRecoveryDelayFactor.Unset()
 }
 
 // GetRecoilRecoverySpeed returns the RecoilRecoverySpeed field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetRecoilRecoverySpeed() float32 {
+func (o *WeaponInfoV2) GetRecoilRecoverySpeed() float32 {
 	if o == nil || IsNil(o.RecoilRecoverySpeed.Get()) {
 		var ret float32
 		return ret
@@ -1240,7 +1254,7 @@ func (o *RawWeaponInfoV2) GetRecoilRecoverySpeed() float32 {
 // GetRecoilRecoverySpeedOk returns a tuple with the RecoilRecoverySpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetRecoilRecoverySpeedOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetRecoilRecoverySpeedOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1248,7 +1262,7 @@ func (o *RawWeaponInfoV2) GetRecoilRecoverySpeedOk() (*float32, bool) {
 }
 
 // HasRecoilRecoverySpeed returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasRecoilRecoverySpeed() bool {
+func (o *WeaponInfoV2) HasRecoilRecoverySpeed() bool {
 	if o != nil && o.RecoilRecoverySpeed.IsSet() {
 		return true
 	}
@@ -1257,21 +1271,21 @@ func (o *RawWeaponInfoV2) HasRecoilRecoverySpeed() bool {
 }
 
 // SetRecoilRecoverySpeed gets a reference to the given NullableFloat32 and assigns it to the RecoilRecoverySpeed field.
-func (o *RawWeaponInfoV2) SetRecoilRecoverySpeed(v float32) {
+func (o *WeaponInfoV2) SetRecoilRecoverySpeed(v float32) {
 	o.RecoilRecoverySpeed.Set(&v)
 }
 // SetRecoilRecoverySpeedNil sets the value for RecoilRecoverySpeed to be an explicit nil
-func (o *RawWeaponInfoV2) SetRecoilRecoverySpeedNil() {
+func (o *WeaponInfoV2) SetRecoilRecoverySpeedNil() {
 	o.RecoilRecoverySpeed.Set(nil)
 }
 
 // UnsetRecoilRecoverySpeed ensures that no value is present for RecoilRecoverySpeed, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetRecoilRecoverySpeed() {
+func (o *WeaponInfoV2) UnsetRecoilRecoverySpeed() {
 	o.RecoilRecoverySpeed.Unset()
 }
 
 // GetRecoilShotIndexRecoveryTimeFactor returns the RecoilShotIndexRecoveryTimeFactor field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetRecoilShotIndexRecoveryTimeFactor() float32 {
+func (o *WeaponInfoV2) GetRecoilShotIndexRecoveryTimeFactor() float32 {
 	if o == nil || IsNil(o.RecoilShotIndexRecoveryTimeFactor.Get()) {
 		var ret float32
 		return ret
@@ -1282,7 +1296,7 @@ func (o *RawWeaponInfoV2) GetRecoilShotIndexRecoveryTimeFactor() float32 {
 // GetRecoilShotIndexRecoveryTimeFactorOk returns a tuple with the RecoilShotIndexRecoveryTimeFactor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetRecoilShotIndexRecoveryTimeFactorOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetRecoilShotIndexRecoveryTimeFactorOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1290,7 +1304,7 @@ func (o *RawWeaponInfoV2) GetRecoilShotIndexRecoveryTimeFactorOk() (*float32, bo
 }
 
 // HasRecoilShotIndexRecoveryTimeFactor returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasRecoilShotIndexRecoveryTimeFactor() bool {
+func (o *WeaponInfoV2) HasRecoilShotIndexRecoveryTimeFactor() bool {
 	if o != nil && o.RecoilShotIndexRecoveryTimeFactor.IsSet() {
 		return true
 	}
@@ -1299,21 +1313,21 @@ func (o *RawWeaponInfoV2) HasRecoilShotIndexRecoveryTimeFactor() bool {
 }
 
 // SetRecoilShotIndexRecoveryTimeFactor gets a reference to the given NullableFloat32 and assigns it to the RecoilShotIndexRecoveryTimeFactor field.
-func (o *RawWeaponInfoV2) SetRecoilShotIndexRecoveryTimeFactor(v float32) {
+func (o *WeaponInfoV2) SetRecoilShotIndexRecoveryTimeFactor(v float32) {
 	o.RecoilShotIndexRecoveryTimeFactor.Set(&v)
 }
 // SetRecoilShotIndexRecoveryTimeFactorNil sets the value for RecoilShotIndexRecoveryTimeFactor to be an explicit nil
-func (o *RawWeaponInfoV2) SetRecoilShotIndexRecoveryTimeFactorNil() {
+func (o *WeaponInfoV2) SetRecoilShotIndexRecoveryTimeFactorNil() {
 	o.RecoilShotIndexRecoveryTimeFactor.Set(nil)
 }
 
 // UnsetRecoilShotIndexRecoveryTimeFactor ensures that no value is present for RecoilShotIndexRecoveryTimeFactor, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetRecoilShotIndexRecoveryTimeFactor() {
+func (o *WeaponInfoV2) UnsetRecoilShotIndexRecoveryTimeFactor() {
 	o.RecoilShotIndexRecoveryTimeFactor.Unset()
 }
 
 // GetRecoilSpeed returns the RecoilSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetRecoilSpeed() float32 {
+func (o *WeaponInfoV2) GetRecoilSpeed() float32 {
 	if o == nil || IsNil(o.RecoilSpeed.Get()) {
 		var ret float32
 		return ret
@@ -1324,7 +1338,7 @@ func (o *RawWeaponInfoV2) GetRecoilSpeed() float32 {
 // GetRecoilSpeedOk returns a tuple with the RecoilSpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetRecoilSpeedOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetRecoilSpeedOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1332,7 +1346,7 @@ func (o *RawWeaponInfoV2) GetRecoilSpeedOk() (*float32, bool) {
 }
 
 // HasRecoilSpeed returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasRecoilSpeed() bool {
+func (o *WeaponInfoV2) HasRecoilSpeed() bool {
 	if o != nil && o.RecoilSpeed.IsSet() {
 		return true
 	}
@@ -1341,21 +1355,21 @@ func (o *RawWeaponInfoV2) HasRecoilSpeed() bool {
 }
 
 // SetRecoilSpeed gets a reference to the given NullableFloat32 and assigns it to the RecoilSpeed field.
-func (o *RawWeaponInfoV2) SetRecoilSpeed(v float32) {
+func (o *WeaponInfoV2) SetRecoilSpeed(v float32) {
 	o.RecoilSpeed.Set(&v)
 }
 // SetRecoilSpeedNil sets the value for RecoilSpeed to be an explicit nil
-func (o *RawWeaponInfoV2) SetRecoilSpeedNil() {
+func (o *WeaponInfoV2) SetRecoilSpeedNil() {
 	o.RecoilSpeed.Set(nil)
 }
 
 // UnsetRecoilSpeed ensures that no value is present for RecoilSpeed, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetRecoilSpeed() {
+func (o *WeaponInfoV2) UnsetRecoilSpeed() {
 	o.RecoilSpeed.Unset()
 }
 
 // GetReloadMoveSpeed returns the ReloadMoveSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetReloadMoveSpeed() float32 {
+func (o *WeaponInfoV2) GetReloadMoveSpeed() float32 {
 	if o == nil || IsNil(o.ReloadMoveSpeed.Get()) {
 		var ret float32
 		return ret
@@ -1366,7 +1380,7 @@ func (o *RawWeaponInfoV2) GetReloadMoveSpeed() float32 {
 // GetReloadMoveSpeedOk returns a tuple with the ReloadMoveSpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetReloadMoveSpeedOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetReloadMoveSpeedOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1374,7 +1388,7 @@ func (o *RawWeaponInfoV2) GetReloadMoveSpeedOk() (*float32, bool) {
 }
 
 // HasReloadMoveSpeed returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasReloadMoveSpeed() bool {
+func (o *WeaponInfoV2) HasReloadMoveSpeed() bool {
 	if o != nil && o.ReloadMoveSpeed.IsSet() {
 		return true
 	}
@@ -1383,21 +1397,21 @@ func (o *RawWeaponInfoV2) HasReloadMoveSpeed() bool {
 }
 
 // SetReloadMoveSpeed gets a reference to the given NullableFloat32 and assigns it to the ReloadMoveSpeed field.
-func (o *RawWeaponInfoV2) SetReloadMoveSpeed(v float32) {
+func (o *WeaponInfoV2) SetReloadMoveSpeed(v float32) {
 	o.ReloadMoveSpeed.Set(&v)
 }
 // SetReloadMoveSpeedNil sets the value for ReloadMoveSpeed to be an explicit nil
-func (o *RawWeaponInfoV2) SetReloadMoveSpeedNil() {
+func (o *WeaponInfoV2) SetReloadMoveSpeedNil() {
 	o.ReloadMoveSpeed.Set(nil)
 }
 
 // UnsetReloadMoveSpeed ensures that no value is present for ReloadMoveSpeed, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetReloadMoveSpeed() {
+func (o *WeaponInfoV2) UnsetReloadMoveSpeed() {
 	o.ReloadMoveSpeed.Unset()
 }
 
 // GetScatterYawScale returns the ScatterYawScale field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetScatterYawScale() float32 {
+func (o *WeaponInfoV2) GetScatterYawScale() float32 {
 	if o == nil || IsNil(o.ScatterYawScale.Get()) {
 		var ret float32
 		return ret
@@ -1408,7 +1422,7 @@ func (o *RawWeaponInfoV2) GetScatterYawScale() float32 {
 // GetScatterYawScaleOk returns a tuple with the ScatterYawScale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetScatterYawScaleOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetScatterYawScaleOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1416,7 +1430,7 @@ func (o *RawWeaponInfoV2) GetScatterYawScaleOk() (*float32, bool) {
 }
 
 // HasScatterYawScale returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasScatterYawScale() bool {
+func (o *WeaponInfoV2) HasScatterYawScale() bool {
 	if o != nil && o.ScatterYawScale.IsSet() {
 		return true
 	}
@@ -1425,21 +1439,21 @@ func (o *RawWeaponInfoV2) HasScatterYawScale() bool {
 }
 
 // SetScatterYawScale gets a reference to the given NullableFloat32 and assigns it to the ScatterYawScale field.
-func (o *RawWeaponInfoV2) SetScatterYawScale(v float32) {
+func (o *WeaponInfoV2) SetScatterYawScale(v float32) {
 	o.ScatterYawScale.Set(&v)
 }
 // SetScatterYawScaleNil sets the value for ScatterYawScale to be an explicit nil
-func (o *RawWeaponInfoV2) SetScatterYawScaleNil() {
+func (o *WeaponInfoV2) SetScatterYawScaleNil() {
 	o.ScatterYawScale.Set(nil)
 }
 
 // UnsetScatterYawScale ensures that no value is present for ScatterYawScale, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetScatterYawScale() {
+func (o *WeaponInfoV2) UnsetScatterYawScale() {
 	o.ScatterYawScale.Unset()
 }
 
 // GetAimingShotSpreadPenalty returns the AimingShotSpreadPenalty field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetAimingShotSpreadPenalty() AimingShotSpreadPenalty {
+func (o *WeaponInfoV2) GetAimingShotSpreadPenalty() AimingShotSpreadPenalty {
 	if o == nil || IsNil(o.AimingShotSpreadPenalty.Get()) {
 		var ret AimingShotSpreadPenalty
 		return ret
@@ -1450,7 +1464,7 @@ func (o *RawWeaponInfoV2) GetAimingShotSpreadPenalty() AimingShotSpreadPenalty {
 // GetAimingShotSpreadPenaltyOk returns a tuple with the AimingShotSpreadPenalty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetAimingShotSpreadPenaltyOk() (*AimingShotSpreadPenalty, bool) {
+func (o *WeaponInfoV2) GetAimingShotSpreadPenaltyOk() (*AimingShotSpreadPenalty, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1458,7 +1472,7 @@ func (o *RawWeaponInfoV2) GetAimingShotSpreadPenaltyOk() (*AimingShotSpreadPenal
 }
 
 // HasAimingShotSpreadPenalty returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasAimingShotSpreadPenalty() bool {
+func (o *WeaponInfoV2) HasAimingShotSpreadPenalty() bool {
 	if o != nil && o.AimingShotSpreadPenalty.IsSet() {
 		return true
 	}
@@ -1467,21 +1481,21 @@ func (o *RawWeaponInfoV2) HasAimingShotSpreadPenalty() bool {
 }
 
 // SetAimingShotSpreadPenalty gets a reference to the given NullableAimingShotSpreadPenalty and assigns it to the AimingShotSpreadPenalty field.
-func (o *RawWeaponInfoV2) SetAimingShotSpreadPenalty(v AimingShotSpreadPenalty) {
+func (o *WeaponInfoV2) SetAimingShotSpreadPenalty(v AimingShotSpreadPenalty) {
 	o.AimingShotSpreadPenalty.Set(&v)
 }
 // SetAimingShotSpreadPenaltyNil sets the value for AimingShotSpreadPenalty to be an explicit nil
-func (o *RawWeaponInfoV2) SetAimingShotSpreadPenaltyNil() {
+func (o *WeaponInfoV2) SetAimingShotSpreadPenaltyNil() {
 	o.AimingShotSpreadPenalty.Set(nil)
 }
 
 // UnsetAimingShotSpreadPenalty ensures that no value is present for AimingShotSpreadPenalty, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetAimingShotSpreadPenalty() {
+func (o *WeaponInfoV2) UnsetAimingShotSpreadPenalty() {
 	o.AimingShotSpreadPenalty.Unset()
 }
 
 // GetStandingShotSpreadPenalty returns the StandingShotSpreadPenalty field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetStandingShotSpreadPenalty() StandingShotSpreadPenalty {
+func (o *WeaponInfoV2) GetStandingShotSpreadPenalty() StandingShotSpreadPenalty {
 	if o == nil || IsNil(o.StandingShotSpreadPenalty.Get()) {
 		var ret StandingShotSpreadPenalty
 		return ret
@@ -1492,7 +1506,7 @@ func (o *RawWeaponInfoV2) GetStandingShotSpreadPenalty() StandingShotSpreadPenal
 // GetStandingShotSpreadPenaltyOk returns a tuple with the StandingShotSpreadPenalty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetStandingShotSpreadPenaltyOk() (*StandingShotSpreadPenalty, bool) {
+func (o *WeaponInfoV2) GetStandingShotSpreadPenaltyOk() (*StandingShotSpreadPenalty, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1500,7 +1514,7 @@ func (o *RawWeaponInfoV2) GetStandingShotSpreadPenaltyOk() (*StandingShotSpreadP
 }
 
 // HasStandingShotSpreadPenalty returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasStandingShotSpreadPenalty() bool {
+func (o *WeaponInfoV2) HasStandingShotSpreadPenalty() bool {
 	if o != nil && o.StandingShotSpreadPenalty.IsSet() {
 		return true
 	}
@@ -1509,21 +1523,21 @@ func (o *RawWeaponInfoV2) HasStandingShotSpreadPenalty() bool {
 }
 
 // SetStandingShotSpreadPenalty gets a reference to the given NullableStandingShotSpreadPenalty and assigns it to the StandingShotSpreadPenalty field.
-func (o *RawWeaponInfoV2) SetStandingShotSpreadPenalty(v StandingShotSpreadPenalty) {
+func (o *WeaponInfoV2) SetStandingShotSpreadPenalty(v StandingShotSpreadPenalty) {
 	o.StandingShotSpreadPenalty.Set(&v)
 }
 // SetStandingShotSpreadPenaltyNil sets the value for StandingShotSpreadPenalty to be an explicit nil
-func (o *RawWeaponInfoV2) SetStandingShotSpreadPenaltyNil() {
+func (o *WeaponInfoV2) SetStandingShotSpreadPenaltyNil() {
 	o.StandingShotSpreadPenalty.Set(nil)
 }
 
 // UnsetStandingShotSpreadPenalty ensures that no value is present for StandingShotSpreadPenalty, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetStandingShotSpreadPenalty() {
+func (o *WeaponInfoV2) UnsetStandingShotSpreadPenalty() {
 	o.StandingShotSpreadPenalty.Unset()
 }
 
 // GetShootMoveSpeedPercent returns the ShootMoveSpeedPercent field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetShootMoveSpeedPercent() float32 {
+func (o *WeaponInfoV2) GetShootMoveSpeedPercent() float32 {
 	if o == nil || IsNil(o.ShootMoveSpeedPercent.Get()) {
 		var ret float32
 		return ret
@@ -1534,7 +1548,7 @@ func (o *RawWeaponInfoV2) GetShootMoveSpeedPercent() float32 {
 // GetShootMoveSpeedPercentOk returns a tuple with the ShootMoveSpeedPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetShootMoveSpeedPercentOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetShootMoveSpeedPercentOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1542,7 +1556,7 @@ func (o *RawWeaponInfoV2) GetShootMoveSpeedPercentOk() (*float32, bool) {
 }
 
 // HasShootMoveSpeedPercent returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasShootMoveSpeedPercent() bool {
+func (o *WeaponInfoV2) HasShootMoveSpeedPercent() bool {
 	if o != nil && o.ShootMoveSpeedPercent.IsSet() {
 		return true
 	}
@@ -1551,21 +1565,21 @@ func (o *RawWeaponInfoV2) HasShootMoveSpeedPercent() bool {
 }
 
 // SetShootMoveSpeedPercent gets a reference to the given NullableFloat32 and assigns it to the ShootMoveSpeedPercent field.
-func (o *RawWeaponInfoV2) SetShootMoveSpeedPercent(v float32) {
+func (o *WeaponInfoV2) SetShootMoveSpeedPercent(v float32) {
 	o.ShootMoveSpeedPercent.Set(&v)
 }
 // SetShootMoveSpeedPercentNil sets the value for ShootMoveSpeedPercent to be an explicit nil
-func (o *RawWeaponInfoV2) SetShootMoveSpeedPercentNil() {
+func (o *WeaponInfoV2) SetShootMoveSpeedPercentNil() {
 	o.ShootMoveSpeedPercent.Set(nil)
 }
 
 // UnsetShootMoveSpeedPercent ensures that no value is present for ShootMoveSpeedPercent, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetShootMoveSpeedPercent() {
+func (o *WeaponInfoV2) UnsetShootMoveSpeedPercent() {
 	o.ShootMoveSpeedPercent.Unset()
 }
 
 // GetShootSpreadPenaltyDecay returns the ShootSpreadPenaltyDecay field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetShootSpreadPenaltyDecay() float32 {
+func (o *WeaponInfoV2) GetShootSpreadPenaltyDecay() float32 {
 	if o == nil || IsNil(o.ShootSpreadPenaltyDecay.Get()) {
 		var ret float32
 		return ret
@@ -1576,7 +1590,7 @@ func (o *RawWeaponInfoV2) GetShootSpreadPenaltyDecay() float32 {
 // GetShootSpreadPenaltyDecayOk returns a tuple with the ShootSpreadPenaltyDecay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetShootSpreadPenaltyDecayOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetShootSpreadPenaltyDecayOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1584,7 +1598,7 @@ func (o *RawWeaponInfoV2) GetShootSpreadPenaltyDecayOk() (*float32, bool) {
 }
 
 // HasShootSpreadPenaltyDecay returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasShootSpreadPenaltyDecay() bool {
+func (o *WeaponInfoV2) HasShootSpreadPenaltyDecay() bool {
 	if o != nil && o.ShootSpreadPenaltyDecay.IsSet() {
 		return true
 	}
@@ -1593,21 +1607,21 @@ func (o *RawWeaponInfoV2) HasShootSpreadPenaltyDecay() bool {
 }
 
 // SetShootSpreadPenaltyDecay gets a reference to the given NullableFloat32 and assigns it to the ShootSpreadPenaltyDecay field.
-func (o *RawWeaponInfoV2) SetShootSpreadPenaltyDecay(v float32) {
+func (o *WeaponInfoV2) SetShootSpreadPenaltyDecay(v float32) {
 	o.ShootSpreadPenaltyDecay.Set(&v)
 }
 // SetShootSpreadPenaltyDecayNil sets the value for ShootSpreadPenaltyDecay to be an explicit nil
-func (o *RawWeaponInfoV2) SetShootSpreadPenaltyDecayNil() {
+func (o *WeaponInfoV2) SetShootSpreadPenaltyDecayNil() {
 	o.ShootSpreadPenaltyDecay.Set(nil)
 }
 
 // UnsetShootSpreadPenaltyDecay ensures that no value is present for ShootSpreadPenaltyDecay, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetShootSpreadPenaltyDecay() {
+func (o *WeaponInfoV2) UnsetShootSpreadPenaltyDecay() {
 	o.ShootSpreadPenaltyDecay.Unset()
 }
 
 // GetShootSpreadPenaltyDecayDelay returns the ShootSpreadPenaltyDecayDelay field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetShootSpreadPenaltyDecayDelay() float32 {
+func (o *WeaponInfoV2) GetShootSpreadPenaltyDecayDelay() float32 {
 	if o == nil || IsNil(o.ShootSpreadPenaltyDecayDelay.Get()) {
 		var ret float32
 		return ret
@@ -1618,7 +1632,7 @@ func (o *RawWeaponInfoV2) GetShootSpreadPenaltyDecayDelay() float32 {
 // GetShootSpreadPenaltyDecayDelayOk returns a tuple with the ShootSpreadPenaltyDecayDelay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetShootSpreadPenaltyDecayDelayOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetShootSpreadPenaltyDecayDelayOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1626,7 +1640,7 @@ func (o *RawWeaponInfoV2) GetShootSpreadPenaltyDecayDelayOk() (*float32, bool) {
 }
 
 // HasShootSpreadPenaltyDecayDelay returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasShootSpreadPenaltyDecayDelay() bool {
+func (o *WeaponInfoV2) HasShootSpreadPenaltyDecayDelay() bool {
 	if o != nil && o.ShootSpreadPenaltyDecayDelay.IsSet() {
 		return true
 	}
@@ -1635,21 +1649,21 @@ func (o *RawWeaponInfoV2) HasShootSpreadPenaltyDecayDelay() bool {
 }
 
 // SetShootSpreadPenaltyDecayDelay gets a reference to the given NullableFloat32 and assigns it to the ShootSpreadPenaltyDecayDelay field.
-func (o *RawWeaponInfoV2) SetShootSpreadPenaltyDecayDelay(v float32) {
+func (o *WeaponInfoV2) SetShootSpreadPenaltyDecayDelay(v float32) {
 	o.ShootSpreadPenaltyDecayDelay.Set(&v)
 }
 // SetShootSpreadPenaltyDecayDelayNil sets the value for ShootSpreadPenaltyDecayDelay to be an explicit nil
-func (o *RawWeaponInfoV2) SetShootSpreadPenaltyDecayDelayNil() {
+func (o *WeaponInfoV2) SetShootSpreadPenaltyDecayDelayNil() {
 	o.ShootSpreadPenaltyDecayDelay.Set(nil)
 }
 
 // UnsetShootSpreadPenaltyDecayDelay ensures that no value is present for ShootSpreadPenaltyDecayDelay, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetShootSpreadPenaltyDecayDelay() {
+func (o *WeaponInfoV2) UnsetShootSpreadPenaltyDecayDelay() {
 	o.ShootSpreadPenaltyDecayDelay.Unset()
 }
 
 // GetShootSpreadPenaltyPerShot returns the ShootSpreadPenaltyPerShot field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetShootSpreadPenaltyPerShot() float32 {
+func (o *WeaponInfoV2) GetShootSpreadPenaltyPerShot() float32 {
 	if o == nil || IsNil(o.ShootSpreadPenaltyPerShot.Get()) {
 		var ret float32
 		return ret
@@ -1660,7 +1674,7 @@ func (o *RawWeaponInfoV2) GetShootSpreadPenaltyPerShot() float32 {
 // GetShootSpreadPenaltyPerShotOk returns a tuple with the ShootSpreadPenaltyPerShot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetShootSpreadPenaltyPerShotOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetShootSpreadPenaltyPerShotOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1668,7 +1682,7 @@ func (o *RawWeaponInfoV2) GetShootSpreadPenaltyPerShotOk() (*float32, bool) {
 }
 
 // HasShootSpreadPenaltyPerShot returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasShootSpreadPenaltyPerShot() bool {
+func (o *WeaponInfoV2) HasShootSpreadPenaltyPerShot() bool {
 	if o != nil && o.ShootSpreadPenaltyPerShot.IsSet() {
 		return true
 	}
@@ -1677,21 +1691,21 @@ func (o *RawWeaponInfoV2) HasShootSpreadPenaltyPerShot() bool {
 }
 
 // SetShootSpreadPenaltyPerShot gets a reference to the given NullableFloat32 and assigns it to the ShootSpreadPenaltyPerShot field.
-func (o *RawWeaponInfoV2) SetShootSpreadPenaltyPerShot(v float32) {
+func (o *WeaponInfoV2) SetShootSpreadPenaltyPerShot(v float32) {
 	o.ShootSpreadPenaltyPerShot.Set(&v)
 }
 // SetShootSpreadPenaltyPerShotNil sets the value for ShootSpreadPenaltyPerShot to be an explicit nil
-func (o *RawWeaponInfoV2) SetShootSpreadPenaltyPerShotNil() {
+func (o *WeaponInfoV2) SetShootSpreadPenaltyPerShotNil() {
 	o.ShootSpreadPenaltyPerShot.Set(nil)
 }
 
 // UnsetShootSpreadPenaltyPerShot ensures that no value is present for ShootSpreadPenaltyPerShot, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetShootSpreadPenaltyPerShot() {
+func (o *WeaponInfoV2) UnsetShootSpreadPenaltyPerShot() {
 	o.ShootSpreadPenaltyPerShot.Unset()
 }
 
 // GetShootingUpSpreadPenalty returns the ShootingUpSpreadPenalty field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetShootingUpSpreadPenalty() float32 {
+func (o *WeaponInfoV2) GetShootingUpSpreadPenalty() float32 {
 	if o == nil || IsNil(o.ShootingUpSpreadPenalty.Get()) {
 		var ret float32
 		return ret
@@ -1702,7 +1716,7 @@ func (o *RawWeaponInfoV2) GetShootingUpSpreadPenalty() float32 {
 // GetShootingUpSpreadPenaltyOk returns a tuple with the ShootingUpSpreadPenalty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetShootingUpSpreadPenaltyOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetShootingUpSpreadPenaltyOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1710,7 +1724,7 @@ func (o *RawWeaponInfoV2) GetShootingUpSpreadPenaltyOk() (*float32, bool) {
 }
 
 // HasShootingUpSpreadPenalty returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasShootingUpSpreadPenalty() bool {
+func (o *WeaponInfoV2) HasShootingUpSpreadPenalty() bool {
 	if o != nil && o.ShootingUpSpreadPenalty.IsSet() {
 		return true
 	}
@@ -1719,21 +1733,21 @@ func (o *RawWeaponInfoV2) HasShootingUpSpreadPenalty() bool {
 }
 
 // SetShootingUpSpreadPenalty gets a reference to the given NullableFloat32 and assigns it to the ShootingUpSpreadPenalty field.
-func (o *RawWeaponInfoV2) SetShootingUpSpreadPenalty(v float32) {
+func (o *WeaponInfoV2) SetShootingUpSpreadPenalty(v float32) {
 	o.ShootingUpSpreadPenalty.Set(&v)
 }
 // SetShootingUpSpreadPenaltyNil sets the value for ShootingUpSpreadPenalty to be an explicit nil
-func (o *RawWeaponInfoV2) SetShootingUpSpreadPenaltyNil() {
+func (o *WeaponInfoV2) SetShootingUpSpreadPenaltyNil() {
 	o.ShootingUpSpreadPenalty.Set(nil)
 }
 
 // UnsetShootingUpSpreadPenalty ensures that no value is present for ShootingUpSpreadPenalty, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetShootingUpSpreadPenalty() {
+func (o *WeaponInfoV2) UnsetShootingUpSpreadPenalty() {
 	o.ShootingUpSpreadPenalty.Unset()
 }
 
 // GetVerticalPunch returns the VerticalPunch field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetVerticalPunch() float32 {
+func (o *WeaponInfoV2) GetVerticalPunch() float32 {
 	if o == nil || IsNil(o.VerticalPunch.Get()) {
 		var ret float32
 		return ret
@@ -1744,7 +1758,7 @@ func (o *RawWeaponInfoV2) GetVerticalPunch() float32 {
 // GetVerticalPunchOk returns a tuple with the VerticalPunch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetVerticalPunchOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetVerticalPunchOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1752,7 +1766,7 @@ func (o *RawWeaponInfoV2) GetVerticalPunchOk() (*float32, bool) {
 }
 
 // HasVerticalPunch returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasVerticalPunch() bool {
+func (o *WeaponInfoV2) HasVerticalPunch() bool {
 	if o != nil && o.VerticalPunch.IsSet() {
 		return true
 	}
@@ -1761,21 +1775,21 @@ func (o *RawWeaponInfoV2) HasVerticalPunch() bool {
 }
 
 // SetVerticalPunch gets a reference to the given NullableFloat32 and assigns it to the VerticalPunch field.
-func (o *RawWeaponInfoV2) SetVerticalPunch(v float32) {
+func (o *WeaponInfoV2) SetVerticalPunch(v float32) {
 	o.VerticalPunch.Set(&v)
 }
 // SetVerticalPunchNil sets the value for VerticalPunch to be an explicit nil
-func (o *RawWeaponInfoV2) SetVerticalPunchNil() {
+func (o *WeaponInfoV2) SetVerticalPunchNil() {
 	o.VerticalPunch.Set(nil)
 }
 
 // UnsetVerticalPunch ensures that no value is present for VerticalPunch, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetVerticalPunch() {
+func (o *WeaponInfoV2) UnsetVerticalPunch() {
 	o.VerticalPunch.Unset()
 }
 
 // GetZoomFov returns the ZoomFov field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetZoomFov() float32 {
+func (o *WeaponInfoV2) GetZoomFov() float32 {
 	if o == nil || IsNil(o.ZoomFov.Get()) {
 		var ret float32
 		return ret
@@ -1786,7 +1800,7 @@ func (o *RawWeaponInfoV2) GetZoomFov() float32 {
 // GetZoomFovOk returns a tuple with the ZoomFov field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetZoomFovOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetZoomFovOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1794,7 +1808,7 @@ func (o *RawWeaponInfoV2) GetZoomFovOk() (*float32, bool) {
 }
 
 // HasZoomFov returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasZoomFov() bool {
+func (o *WeaponInfoV2) HasZoomFov() bool {
 	if o != nil && o.ZoomFov.IsSet() {
 		return true
 	}
@@ -1803,21 +1817,21 @@ func (o *RawWeaponInfoV2) HasZoomFov() bool {
 }
 
 // SetZoomFov gets a reference to the given NullableFloat32 and assigns it to the ZoomFov field.
-func (o *RawWeaponInfoV2) SetZoomFov(v float32) {
+func (o *WeaponInfoV2) SetZoomFov(v float32) {
 	o.ZoomFov.Set(&v)
 }
 // SetZoomFovNil sets the value for ZoomFov to be an explicit nil
-func (o *RawWeaponInfoV2) SetZoomFovNil() {
+func (o *WeaponInfoV2) SetZoomFovNil() {
 	o.ZoomFov.Set(nil)
 }
 
 // UnsetZoomFov ensures that no value is present for ZoomFov, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetZoomFov() {
+func (o *WeaponInfoV2) UnsetZoomFov() {
 	o.ZoomFov.Unset()
 }
 
 // GetZoomMoveSpeedPercent returns the ZoomMoveSpeedPercent field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetZoomMoveSpeedPercent() float32 {
+func (o *WeaponInfoV2) GetZoomMoveSpeedPercent() float32 {
 	if o == nil || IsNil(o.ZoomMoveSpeedPercent.Get()) {
 		var ret float32
 		return ret
@@ -1828,7 +1842,7 @@ func (o *RawWeaponInfoV2) GetZoomMoveSpeedPercent() float32 {
 // GetZoomMoveSpeedPercentOk returns a tuple with the ZoomMoveSpeedPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetZoomMoveSpeedPercentOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetZoomMoveSpeedPercentOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1836,7 +1850,7 @@ func (o *RawWeaponInfoV2) GetZoomMoveSpeedPercentOk() (*float32, bool) {
 }
 
 // HasZoomMoveSpeedPercent returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasZoomMoveSpeedPercent() bool {
+func (o *WeaponInfoV2) HasZoomMoveSpeedPercent() bool {
 	if o != nil && o.ZoomMoveSpeedPercent.IsSet() {
 		return true
 	}
@@ -1845,21 +1859,21 @@ func (o *RawWeaponInfoV2) HasZoomMoveSpeedPercent() bool {
 }
 
 // SetZoomMoveSpeedPercent gets a reference to the given NullableFloat32 and assigns it to the ZoomMoveSpeedPercent field.
-func (o *RawWeaponInfoV2) SetZoomMoveSpeedPercent(v float32) {
+func (o *WeaponInfoV2) SetZoomMoveSpeedPercent(v float32) {
 	o.ZoomMoveSpeedPercent.Set(&v)
 }
 // SetZoomMoveSpeedPercentNil sets the value for ZoomMoveSpeedPercent to be an explicit nil
-func (o *RawWeaponInfoV2) SetZoomMoveSpeedPercentNil() {
+func (o *WeaponInfoV2) SetZoomMoveSpeedPercentNil() {
 	o.ZoomMoveSpeedPercent.Set(nil)
 }
 
 // UnsetZoomMoveSpeedPercent ensures that no value is present for ZoomMoveSpeedPercent, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetZoomMoveSpeedPercent() {
+func (o *WeaponInfoV2) UnsetZoomMoveSpeedPercent() {
 	o.ZoomMoveSpeedPercent.Unset()
 }
 
 // GetBullets returns the Bullets field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBullets() int32 {
+func (o *WeaponInfoV2) GetBullets() int32 {
 	if o == nil || IsNil(o.Bullets.Get()) {
 		var ret int32
 		return ret
@@ -1870,7 +1884,7 @@ func (o *RawWeaponInfoV2) GetBullets() int32 {
 // GetBulletsOk returns a tuple with the Bullets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletsOk() (*int32, bool) {
+func (o *WeaponInfoV2) GetBulletsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1878,7 +1892,7 @@ func (o *RawWeaponInfoV2) GetBulletsOk() (*int32, bool) {
 }
 
 // HasBullets returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBullets() bool {
+func (o *WeaponInfoV2) HasBullets() bool {
 	if o != nil && o.Bullets.IsSet() {
 		return true
 	}
@@ -1887,21 +1901,21 @@ func (o *RawWeaponInfoV2) HasBullets() bool {
 }
 
 // SetBullets gets a reference to the given NullableInt32 and assigns it to the Bullets field.
-func (o *RawWeaponInfoV2) SetBullets(v int32) {
+func (o *WeaponInfoV2) SetBullets(v int32) {
 	o.Bullets.Set(&v)
 }
 // SetBulletsNil sets the value for Bullets to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletsNil() {
+func (o *WeaponInfoV2) SetBulletsNil() {
 	o.Bullets.Set(nil)
 }
 
 // UnsetBullets ensures that no value is present for Bullets, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBullets() {
+func (o *WeaponInfoV2) UnsetBullets() {
 	o.Bullets.Unset()
 }
 
 // GetReloadSingleBulletsInitialDelay returns the ReloadSingleBulletsInitialDelay field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetReloadSingleBulletsInitialDelay() float32 {
+func (o *WeaponInfoV2) GetReloadSingleBulletsInitialDelay() float32 {
 	if o == nil || IsNil(o.ReloadSingleBulletsInitialDelay.Get()) {
 		var ret float32
 		return ret
@@ -1912,7 +1926,7 @@ func (o *RawWeaponInfoV2) GetReloadSingleBulletsInitialDelay() float32 {
 // GetReloadSingleBulletsInitialDelayOk returns a tuple with the ReloadSingleBulletsInitialDelay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetReloadSingleBulletsInitialDelayOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetReloadSingleBulletsInitialDelayOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1920,7 +1934,7 @@ func (o *RawWeaponInfoV2) GetReloadSingleBulletsInitialDelayOk() (*float32, bool
 }
 
 // HasReloadSingleBulletsInitialDelay returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasReloadSingleBulletsInitialDelay() bool {
+func (o *WeaponInfoV2) HasReloadSingleBulletsInitialDelay() bool {
 	if o != nil && o.ReloadSingleBulletsInitialDelay.IsSet() {
 		return true
 	}
@@ -1929,21 +1943,21 @@ func (o *RawWeaponInfoV2) HasReloadSingleBulletsInitialDelay() bool {
 }
 
 // SetReloadSingleBulletsInitialDelay gets a reference to the given NullableFloat32 and assigns it to the ReloadSingleBulletsInitialDelay field.
-func (o *RawWeaponInfoV2) SetReloadSingleBulletsInitialDelay(v float32) {
+func (o *WeaponInfoV2) SetReloadSingleBulletsInitialDelay(v float32) {
 	o.ReloadSingleBulletsInitialDelay.Set(&v)
 }
 // SetReloadSingleBulletsInitialDelayNil sets the value for ReloadSingleBulletsInitialDelay to be an explicit nil
-func (o *RawWeaponInfoV2) SetReloadSingleBulletsInitialDelayNil() {
+func (o *WeaponInfoV2) SetReloadSingleBulletsInitialDelayNil() {
 	o.ReloadSingleBulletsInitialDelay.Set(nil)
 }
 
 // UnsetReloadSingleBulletsInitialDelay ensures that no value is present for ReloadSingleBulletsInitialDelay, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetReloadSingleBulletsInitialDelay() {
+func (o *WeaponInfoV2) UnsetReloadSingleBulletsInitialDelay() {
 	o.ReloadSingleBulletsInitialDelay.Unset()
 }
 
 // GetReloadSingleBullets returns the ReloadSingleBullets field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetReloadSingleBullets() bool {
+func (o *WeaponInfoV2) GetReloadSingleBullets() bool {
 	if o == nil || IsNil(o.ReloadSingleBullets.Get()) {
 		var ret bool
 		return ret
@@ -1954,7 +1968,7 @@ func (o *RawWeaponInfoV2) GetReloadSingleBullets() bool {
 // GetReloadSingleBulletsOk returns a tuple with the ReloadSingleBullets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetReloadSingleBulletsOk() (*bool, bool) {
+func (o *WeaponInfoV2) GetReloadSingleBulletsOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1962,7 +1976,7 @@ func (o *RawWeaponInfoV2) GetReloadSingleBulletsOk() (*bool, bool) {
 }
 
 // HasReloadSingleBullets returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasReloadSingleBullets() bool {
+func (o *WeaponInfoV2) HasReloadSingleBullets() bool {
 	if o != nil && o.ReloadSingleBullets.IsSet() {
 		return true
 	}
@@ -1971,21 +1985,21 @@ func (o *RawWeaponInfoV2) HasReloadSingleBullets() bool {
 }
 
 // SetReloadSingleBullets gets a reference to the given NullableBool and assigns it to the ReloadSingleBullets field.
-func (o *RawWeaponInfoV2) SetReloadSingleBullets(v bool) {
+func (o *WeaponInfoV2) SetReloadSingleBullets(v bool) {
 	o.ReloadSingleBullets.Set(&v)
 }
 // SetReloadSingleBulletsNil sets the value for ReloadSingleBullets to be an explicit nil
-func (o *RawWeaponInfoV2) SetReloadSingleBulletsNil() {
+func (o *WeaponInfoV2) SetReloadSingleBulletsNil() {
 	o.ReloadSingleBullets.Set(nil)
 }
 
 // UnsetReloadSingleBullets ensures that no value is present for ReloadSingleBullets, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetReloadSingleBullets() {
+func (o *WeaponInfoV2) UnsetReloadSingleBullets() {
 	o.ReloadSingleBullets.Unset()
 }
 
 // GetReloadSingleBulletsAllowCancel returns the ReloadSingleBulletsAllowCancel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetReloadSingleBulletsAllowCancel() bool {
+func (o *WeaponInfoV2) GetReloadSingleBulletsAllowCancel() bool {
 	if o == nil || IsNil(o.ReloadSingleBulletsAllowCancel.Get()) {
 		var ret bool
 		return ret
@@ -1996,7 +2010,7 @@ func (o *RawWeaponInfoV2) GetReloadSingleBulletsAllowCancel() bool {
 // GetReloadSingleBulletsAllowCancelOk returns a tuple with the ReloadSingleBulletsAllowCancel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetReloadSingleBulletsAllowCancelOk() (*bool, bool) {
+func (o *WeaponInfoV2) GetReloadSingleBulletsAllowCancelOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2004,7 +2018,7 @@ func (o *RawWeaponInfoV2) GetReloadSingleBulletsAllowCancelOk() (*bool, bool) {
 }
 
 // HasReloadSingleBulletsAllowCancel returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasReloadSingleBulletsAllowCancel() bool {
+func (o *WeaponInfoV2) HasReloadSingleBulletsAllowCancel() bool {
 	if o != nil && o.ReloadSingleBulletsAllowCancel.IsSet() {
 		return true
 	}
@@ -2013,21 +2027,21 @@ func (o *RawWeaponInfoV2) HasReloadSingleBulletsAllowCancel() bool {
 }
 
 // SetReloadSingleBulletsAllowCancel gets a reference to the given NullableBool and assigns it to the ReloadSingleBulletsAllowCancel field.
-func (o *RawWeaponInfoV2) SetReloadSingleBulletsAllowCancel(v bool) {
+func (o *WeaponInfoV2) SetReloadSingleBulletsAllowCancel(v bool) {
 	o.ReloadSingleBulletsAllowCancel.Set(&v)
 }
 // SetReloadSingleBulletsAllowCancelNil sets the value for ReloadSingleBulletsAllowCancel to be an explicit nil
-func (o *RawWeaponInfoV2) SetReloadSingleBulletsAllowCancelNil() {
+func (o *WeaponInfoV2) SetReloadSingleBulletsAllowCancelNil() {
 	o.ReloadSingleBulletsAllowCancel.Set(nil)
 }
 
 // UnsetReloadSingleBulletsAllowCancel ensures that no value is present for ReloadSingleBulletsAllowCancel, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetReloadSingleBulletsAllowCancel() {
+func (o *WeaponInfoV2) UnsetReloadSingleBulletsAllowCancel() {
 	o.ReloadSingleBulletsAllowCancel.Unset()
 }
 
 // GetBurstShotCount returns the BurstShotCount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBurstShotCount() int32 {
+func (o *WeaponInfoV2) GetBurstShotCount() int32 {
 	if o == nil || IsNil(o.BurstShotCount.Get()) {
 		var ret int32
 		return ret
@@ -2038,7 +2052,7 @@ func (o *RawWeaponInfoV2) GetBurstShotCount() int32 {
 // GetBurstShotCountOk returns a tuple with the BurstShotCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBurstShotCountOk() (*int32, bool) {
+func (o *WeaponInfoV2) GetBurstShotCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2046,7 +2060,7 @@ func (o *RawWeaponInfoV2) GetBurstShotCountOk() (*int32, bool) {
 }
 
 // HasBurstShotCount returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBurstShotCount() bool {
+func (o *WeaponInfoV2) HasBurstShotCount() bool {
 	if o != nil && o.BurstShotCount.IsSet() {
 		return true
 	}
@@ -2055,21 +2069,21 @@ func (o *RawWeaponInfoV2) HasBurstShotCount() bool {
 }
 
 // SetBurstShotCount gets a reference to the given NullableInt32 and assigns it to the BurstShotCount field.
-func (o *RawWeaponInfoV2) SetBurstShotCount(v int32) {
+func (o *WeaponInfoV2) SetBurstShotCount(v int32) {
 	o.BurstShotCount.Set(&v)
 }
 // SetBurstShotCountNil sets the value for BurstShotCount to be an explicit nil
-func (o *RawWeaponInfoV2) SetBurstShotCountNil() {
+func (o *WeaponInfoV2) SetBurstShotCountNil() {
 	o.BurstShotCount.Set(nil)
 }
 
 // UnsetBurstShotCount ensures that no value is present for BurstShotCount, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBurstShotCount() {
+func (o *WeaponInfoV2) UnsetBurstShotCount() {
 	o.BurstShotCount.Unset()
 }
 
 // GetClipSize returns the ClipSize field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetClipSize() int32 {
+func (o *WeaponInfoV2) GetClipSize() int32 {
 	if o == nil || IsNil(o.ClipSize.Get()) {
 		var ret int32
 		return ret
@@ -2080,7 +2094,7 @@ func (o *RawWeaponInfoV2) GetClipSize() int32 {
 // GetClipSizeOk returns a tuple with the ClipSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetClipSizeOk() (*int32, bool) {
+func (o *WeaponInfoV2) GetClipSizeOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2088,7 +2102,7 @@ func (o *RawWeaponInfoV2) GetClipSizeOk() (*int32, bool) {
 }
 
 // HasClipSize returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasClipSize() bool {
+func (o *WeaponInfoV2) HasClipSize() bool {
 	if o != nil && o.ClipSize.IsSet() {
 		return true
 	}
@@ -2097,21 +2111,21 @@ func (o *RawWeaponInfoV2) HasClipSize() bool {
 }
 
 // SetClipSize gets a reference to the given NullableInt32 and assigns it to the ClipSize field.
-func (o *RawWeaponInfoV2) SetClipSize(v int32) {
+func (o *WeaponInfoV2) SetClipSize(v int32) {
 	o.ClipSize.Set(&v)
 }
 // SetClipSizeNil sets the value for ClipSize to be an explicit nil
-func (o *RawWeaponInfoV2) SetClipSizeNil() {
+func (o *WeaponInfoV2) SetClipSizeNil() {
 	o.ClipSize.Set(nil)
 }
 
 // UnsetClipSize ensures that no value is present for ClipSize, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetClipSize() {
+func (o *WeaponInfoV2) UnsetClipSize() {
 	o.ClipSize.Unset()
 }
 
 // GetSpread returns the Spread field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetSpread() float32 {
+func (o *WeaponInfoV2) GetSpread() float32 {
 	if o == nil || IsNil(o.Spread.Get()) {
 		var ret float32
 		return ret
@@ -2122,7 +2136,7 @@ func (o *RawWeaponInfoV2) GetSpread() float32 {
 // GetSpreadOk returns a tuple with the Spread field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetSpreadOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetSpreadOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2130,7 +2144,7 @@ func (o *RawWeaponInfoV2) GetSpreadOk() (*float32, bool) {
 }
 
 // HasSpread returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasSpread() bool {
+func (o *WeaponInfoV2) HasSpread() bool {
 	if o != nil && o.Spread.IsSet() {
 		return true
 	}
@@ -2139,21 +2153,21 @@ func (o *RawWeaponInfoV2) HasSpread() bool {
 }
 
 // SetSpread gets a reference to the given NullableFloat32 and assigns it to the Spread field.
-func (o *RawWeaponInfoV2) SetSpread(v float32) {
+func (o *WeaponInfoV2) SetSpread(v float32) {
 	o.Spread.Set(&v)
 }
 // SetSpreadNil sets the value for Spread to be an explicit nil
-func (o *RawWeaponInfoV2) SetSpreadNil() {
+func (o *WeaponInfoV2) SetSpreadNil() {
 	o.Spread.Set(nil)
 }
 
 // UnsetSpread ensures that no value is present for Spread, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetSpread() {
+func (o *WeaponInfoV2) UnsetSpread() {
 	o.Spread.Unset()
 }
 
 // GetStandingSpread returns the StandingSpread field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetStandingSpread() float32 {
+func (o *WeaponInfoV2) GetStandingSpread() float32 {
 	if o == nil || IsNil(o.StandingSpread.Get()) {
 		var ret float32
 		return ret
@@ -2164,7 +2178,7 @@ func (o *RawWeaponInfoV2) GetStandingSpread() float32 {
 // GetStandingSpreadOk returns a tuple with the StandingSpread field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetStandingSpreadOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetStandingSpreadOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2172,7 +2186,7 @@ func (o *RawWeaponInfoV2) GetStandingSpreadOk() (*float32, bool) {
 }
 
 // HasStandingSpread returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasStandingSpread() bool {
+func (o *WeaponInfoV2) HasStandingSpread() bool {
 	if o != nil && o.StandingSpread.IsSet() {
 		return true
 	}
@@ -2181,21 +2195,21 @@ func (o *RawWeaponInfoV2) HasStandingSpread() bool {
 }
 
 // SetStandingSpread gets a reference to the given NullableFloat32 and assigns it to the StandingSpread field.
-func (o *RawWeaponInfoV2) SetStandingSpread(v float32) {
+func (o *WeaponInfoV2) SetStandingSpread(v float32) {
 	o.StandingSpread.Set(&v)
 }
 // SetStandingSpreadNil sets the value for StandingSpread to be an explicit nil
-func (o *RawWeaponInfoV2) SetStandingSpreadNil() {
+func (o *WeaponInfoV2) SetStandingSpreadNil() {
 	o.StandingSpread.Set(nil)
 }
 
 // UnsetStandingSpread ensures that no value is present for StandingSpread, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetStandingSpread() {
+func (o *WeaponInfoV2) UnsetStandingSpread() {
 	o.StandingSpread.Unset()
 }
 
 // GetLowAmmoIndicatorThreshold returns the LowAmmoIndicatorThreshold field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetLowAmmoIndicatorThreshold() float32 {
+func (o *WeaponInfoV2) GetLowAmmoIndicatorThreshold() float32 {
 	if o == nil || IsNil(o.LowAmmoIndicatorThreshold.Get()) {
 		var ret float32
 		return ret
@@ -2206,7 +2220,7 @@ func (o *RawWeaponInfoV2) GetLowAmmoIndicatorThreshold() float32 {
 // GetLowAmmoIndicatorThresholdOk returns a tuple with the LowAmmoIndicatorThreshold field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetLowAmmoIndicatorThresholdOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetLowAmmoIndicatorThresholdOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2214,7 +2228,7 @@ func (o *RawWeaponInfoV2) GetLowAmmoIndicatorThresholdOk() (*float32, bool) {
 }
 
 // HasLowAmmoIndicatorThreshold returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasLowAmmoIndicatorThreshold() bool {
+func (o *WeaponInfoV2) HasLowAmmoIndicatorThreshold() bool {
 	if o != nil && o.LowAmmoIndicatorThreshold.IsSet() {
 		return true
 	}
@@ -2223,21 +2237,21 @@ func (o *RawWeaponInfoV2) HasLowAmmoIndicatorThreshold() bool {
 }
 
 // SetLowAmmoIndicatorThreshold gets a reference to the given NullableFloat32 and assigns it to the LowAmmoIndicatorThreshold field.
-func (o *RawWeaponInfoV2) SetLowAmmoIndicatorThreshold(v float32) {
+func (o *WeaponInfoV2) SetLowAmmoIndicatorThreshold(v float32) {
 	o.LowAmmoIndicatorThreshold.Set(&v)
 }
 // SetLowAmmoIndicatorThresholdNil sets the value for LowAmmoIndicatorThreshold to be an explicit nil
-func (o *RawWeaponInfoV2) SetLowAmmoIndicatorThresholdNil() {
+func (o *WeaponInfoV2) SetLowAmmoIndicatorThresholdNil() {
 	o.LowAmmoIndicatorThreshold.Set(nil)
 }
 
 // UnsetLowAmmoIndicatorThreshold ensures that no value is present for LowAmmoIndicatorThreshold, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetLowAmmoIndicatorThreshold() {
+func (o *WeaponInfoV2) UnsetLowAmmoIndicatorThreshold() {
 	o.LowAmmoIndicatorThreshold.Unset()
 }
 
 // GetRecoilSeed returns the RecoilSeed field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetRecoilSeed() float32 {
+func (o *WeaponInfoV2) GetRecoilSeed() float32 {
 	if o == nil || IsNil(o.RecoilSeed.Get()) {
 		var ret float32
 		return ret
@@ -2248,7 +2262,7 @@ func (o *RawWeaponInfoV2) GetRecoilSeed() float32 {
 // GetRecoilSeedOk returns a tuple with the RecoilSeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetRecoilSeedOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetRecoilSeedOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2256,7 +2270,7 @@ func (o *RawWeaponInfoV2) GetRecoilSeedOk() (*float32, bool) {
 }
 
 // HasRecoilSeed returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasRecoilSeed() bool {
+func (o *WeaponInfoV2) HasRecoilSeed() bool {
 	if o != nil && o.RecoilSeed.IsSet() {
 		return true
 	}
@@ -2265,21 +2279,21 @@ func (o *RawWeaponInfoV2) HasRecoilSeed() bool {
 }
 
 // SetRecoilSeed gets a reference to the given NullableFloat32 and assigns it to the RecoilSeed field.
-func (o *RawWeaponInfoV2) SetRecoilSeed(v float32) {
+func (o *WeaponInfoV2) SetRecoilSeed(v float32) {
 	o.RecoilSeed.Set(&v)
 }
 // SetRecoilSeedNil sets the value for RecoilSeed to be an explicit nil
-func (o *RawWeaponInfoV2) SetRecoilSeedNil() {
+func (o *WeaponInfoV2) SetRecoilSeedNil() {
 	o.RecoilSeed.Set(nil)
 }
 
 // UnsetRecoilSeed ensures that no value is present for RecoilSeed, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetRecoilSeed() {
+func (o *WeaponInfoV2) UnsetRecoilSeed() {
 	o.RecoilSeed.Unset()
 }
 
 // GetReloadDuration returns the ReloadDuration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetReloadDuration() float32 {
+func (o *WeaponInfoV2) GetReloadDuration() float32 {
 	if o == nil || IsNil(o.ReloadDuration.Get()) {
 		var ret float32
 		return ret
@@ -2290,7 +2304,7 @@ func (o *RawWeaponInfoV2) GetReloadDuration() float32 {
 // GetReloadDurationOk returns a tuple with the ReloadDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetReloadDurationOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetReloadDurationOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2298,7 +2312,7 @@ func (o *RawWeaponInfoV2) GetReloadDurationOk() (*float32, bool) {
 }
 
 // HasReloadDuration returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasReloadDuration() bool {
+func (o *WeaponInfoV2) HasReloadDuration() bool {
 	if o != nil && o.ReloadDuration.IsSet() {
 		return true
 	}
@@ -2307,21 +2321,21 @@ func (o *RawWeaponInfoV2) HasReloadDuration() bool {
 }
 
 // SetReloadDuration gets a reference to the given NullableFloat32 and assigns it to the ReloadDuration field.
-func (o *RawWeaponInfoV2) SetReloadDuration(v float32) {
+func (o *WeaponInfoV2) SetReloadDuration(v float32) {
 	o.ReloadDuration.Set(&v)
 }
 // SetReloadDurationNil sets the value for ReloadDuration to be an explicit nil
-func (o *RawWeaponInfoV2) SetReloadDurationNil() {
+func (o *WeaponInfoV2) SetReloadDurationNil() {
 	o.ReloadDuration.Set(nil)
 }
 
 // UnsetReloadDuration ensures that no value is present for ReloadDuration, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetReloadDuration() {
+func (o *WeaponInfoV2) UnsetReloadDuration() {
 	o.ReloadDuration.Unset()
 }
 
 // GetBulletSpeedCurve returns the BulletSpeedCurve field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetBulletSpeedCurve() RawItemWeaponInfoBulletSpeedCurveV2 {
+func (o *WeaponInfoV2) GetBulletSpeedCurve() RawItemWeaponInfoBulletSpeedCurveV2 {
 	if o == nil || IsNil(o.BulletSpeedCurve.Get()) {
 		var ret RawItemWeaponInfoBulletSpeedCurveV2
 		return ret
@@ -2332,7 +2346,7 @@ func (o *RawWeaponInfoV2) GetBulletSpeedCurve() RawItemWeaponInfoBulletSpeedCurv
 // GetBulletSpeedCurveOk returns a tuple with the BulletSpeedCurve field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetBulletSpeedCurveOk() (*RawItemWeaponInfoBulletSpeedCurveV2, bool) {
+func (o *WeaponInfoV2) GetBulletSpeedCurveOk() (*RawItemWeaponInfoBulletSpeedCurveV2, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2340,7 +2354,7 @@ func (o *RawWeaponInfoV2) GetBulletSpeedCurveOk() (*RawItemWeaponInfoBulletSpeed
 }
 
 // HasBulletSpeedCurve returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasBulletSpeedCurve() bool {
+func (o *WeaponInfoV2) HasBulletSpeedCurve() bool {
 	if o != nil && o.BulletSpeedCurve.IsSet() {
 		return true
 	}
@@ -2349,21 +2363,21 @@ func (o *RawWeaponInfoV2) HasBulletSpeedCurve() bool {
 }
 
 // SetBulletSpeedCurve gets a reference to the given NullableRawItemWeaponInfoBulletSpeedCurveV2 and assigns it to the BulletSpeedCurve field.
-func (o *RawWeaponInfoV2) SetBulletSpeedCurve(v RawItemWeaponInfoBulletSpeedCurveV2) {
+func (o *WeaponInfoV2) SetBulletSpeedCurve(v RawItemWeaponInfoBulletSpeedCurveV2) {
 	o.BulletSpeedCurve.Set(&v)
 }
 // SetBulletSpeedCurveNil sets the value for BulletSpeedCurve to be an explicit nil
-func (o *RawWeaponInfoV2) SetBulletSpeedCurveNil() {
+func (o *WeaponInfoV2) SetBulletSpeedCurveNil() {
 	o.BulletSpeedCurve.Set(nil)
 }
 
 // UnsetBulletSpeedCurve ensures that no value is present for BulletSpeedCurve, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetBulletSpeedCurve() {
+func (o *WeaponInfoV2) UnsetBulletSpeedCurve() {
 	o.BulletSpeedCurve.Unset()
 }
 
 // GetHorizontalRecoil returns the HorizontalRecoil field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetHorizontalRecoil() RawWeaponInfoHorizontalRecoilV2 {
+func (o *WeaponInfoV2) GetHorizontalRecoil() RawWeaponInfoHorizontalRecoilV2 {
 	if o == nil || IsNil(o.HorizontalRecoil.Get()) {
 		var ret RawWeaponInfoHorizontalRecoilV2
 		return ret
@@ -2374,7 +2388,7 @@ func (o *RawWeaponInfoV2) GetHorizontalRecoil() RawWeaponInfoHorizontalRecoilV2 
 // GetHorizontalRecoilOk returns a tuple with the HorizontalRecoil field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetHorizontalRecoilOk() (*RawWeaponInfoHorizontalRecoilV2, bool) {
+func (o *WeaponInfoV2) GetHorizontalRecoilOk() (*RawWeaponInfoHorizontalRecoilV2, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2382,7 +2396,7 @@ func (o *RawWeaponInfoV2) GetHorizontalRecoilOk() (*RawWeaponInfoHorizontalRecoi
 }
 
 // HasHorizontalRecoil returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasHorizontalRecoil() bool {
+func (o *WeaponInfoV2) HasHorizontalRecoil() bool {
 	if o != nil && o.HorizontalRecoil.IsSet() {
 		return true
 	}
@@ -2391,21 +2405,21 @@ func (o *RawWeaponInfoV2) HasHorizontalRecoil() bool {
 }
 
 // SetHorizontalRecoil gets a reference to the given NullableRawWeaponInfoHorizontalRecoilV2 and assigns it to the HorizontalRecoil field.
-func (o *RawWeaponInfoV2) SetHorizontalRecoil(v RawWeaponInfoHorizontalRecoilV2) {
+func (o *WeaponInfoV2) SetHorizontalRecoil(v RawWeaponInfoHorizontalRecoilV2) {
 	o.HorizontalRecoil.Set(&v)
 }
 // SetHorizontalRecoilNil sets the value for HorizontalRecoil to be an explicit nil
-func (o *RawWeaponInfoV2) SetHorizontalRecoilNil() {
+func (o *WeaponInfoV2) SetHorizontalRecoilNil() {
 	o.HorizontalRecoil.Set(nil)
 }
 
 // UnsetHorizontalRecoil ensures that no value is present for HorizontalRecoil, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetHorizontalRecoil() {
+func (o *WeaponInfoV2) UnsetHorizontalRecoil() {
 	o.HorizontalRecoil.Unset()
 }
 
 // GetVerticalRecoil returns the VerticalRecoil field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RawWeaponInfoV2) GetVerticalRecoil() RawWeaponInfoVerticalRecoilV2 {
+func (o *WeaponInfoV2) GetVerticalRecoil() RawWeaponInfoVerticalRecoilV2 {
 	if o == nil || IsNil(o.VerticalRecoil.Get()) {
 		var ret RawWeaponInfoVerticalRecoilV2
 		return ret
@@ -2416,7 +2430,7 @@ func (o *RawWeaponInfoV2) GetVerticalRecoil() RawWeaponInfoVerticalRecoilV2 {
 // GetVerticalRecoilOk returns a tuple with the VerticalRecoil field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RawWeaponInfoV2) GetVerticalRecoilOk() (*RawWeaponInfoVerticalRecoilV2, bool) {
+func (o *WeaponInfoV2) GetVerticalRecoilOk() (*RawWeaponInfoVerticalRecoilV2, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -2424,7 +2438,7 @@ func (o *RawWeaponInfoV2) GetVerticalRecoilOk() (*RawWeaponInfoVerticalRecoilV2,
 }
 
 // HasVerticalRecoil returns a boolean if a field has been set.
-func (o *RawWeaponInfoV2) HasVerticalRecoil() bool {
+func (o *WeaponInfoV2) HasVerticalRecoil() bool {
 	if o != nil && o.VerticalRecoil.IsSet() {
 		return true
 	}
@@ -2433,20 +2447,150 @@ func (o *RawWeaponInfoV2) HasVerticalRecoil() bool {
 }
 
 // SetVerticalRecoil gets a reference to the given NullableRawWeaponInfoVerticalRecoilV2 and assigns it to the VerticalRecoil field.
-func (o *RawWeaponInfoV2) SetVerticalRecoil(v RawWeaponInfoVerticalRecoilV2) {
+func (o *WeaponInfoV2) SetVerticalRecoil(v RawWeaponInfoVerticalRecoilV2) {
 	o.VerticalRecoil.Set(&v)
 }
 // SetVerticalRecoilNil sets the value for VerticalRecoil to be an explicit nil
-func (o *RawWeaponInfoV2) SetVerticalRecoilNil() {
+func (o *WeaponInfoV2) SetVerticalRecoilNil() {
 	o.VerticalRecoil.Set(nil)
 }
 
 // UnsetVerticalRecoil ensures that no value is present for VerticalRecoil, not even an explicit nil
-func (o *RawWeaponInfoV2) UnsetVerticalRecoil() {
+func (o *WeaponInfoV2) UnsetVerticalRecoil() {
 	o.VerticalRecoil.Unset()
 }
 
-func (o RawWeaponInfoV2) MarshalJSON() ([]byte, error) {
+// GetShotsPerSecond returns the ShotsPerSecond field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *WeaponInfoV2) GetShotsPerSecond() float32 {
+	if o == nil || o.ShotsPerSecond.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.ShotsPerSecond.Get()
+}
+
+// GetShotsPerSecondOk returns a tuple with the ShotsPerSecond field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetShotsPerSecondOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ShotsPerSecond.Get(), o.ShotsPerSecond.IsSet()
+}
+
+// SetShotsPerSecond sets field value
+func (o *WeaponInfoV2) SetShotsPerSecond(v float32) {
+	o.ShotsPerSecond.Set(&v)
+}
+
+// GetBulletsPerSecond returns the BulletsPerSecond field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *WeaponInfoV2) GetBulletsPerSecond() float32 {
+	if o == nil || o.BulletsPerSecond.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.BulletsPerSecond.Get()
+}
+
+// GetBulletsPerSecondOk returns a tuple with the BulletsPerSecond field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetBulletsPerSecondOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BulletsPerSecond.Get(), o.BulletsPerSecond.IsSet()
+}
+
+// SetBulletsPerSecond sets field value
+func (o *WeaponInfoV2) SetBulletsPerSecond(v float32) {
+	o.BulletsPerSecond.Set(&v)
+}
+
+// GetDamagePerSecond returns the DamagePerSecond field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *WeaponInfoV2) GetDamagePerSecond() float32 {
+	if o == nil || o.DamagePerSecond.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.DamagePerSecond.Get()
+}
+
+// GetDamagePerSecondOk returns a tuple with the DamagePerSecond field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetDamagePerSecondOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DamagePerSecond.Get(), o.DamagePerSecond.IsSet()
+}
+
+// SetDamagePerSecond sets field value
+func (o *WeaponInfoV2) SetDamagePerSecond(v float32) {
+	o.DamagePerSecond.Set(&v)
+}
+
+// GetDamagePerShot returns the DamagePerShot field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *WeaponInfoV2) GetDamagePerShot() float32 {
+	if o == nil || o.DamagePerShot.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.DamagePerShot.Get()
+}
+
+// GetDamagePerShotOk returns a tuple with the DamagePerShot field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetDamagePerShotOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DamagePerShot.Get(), o.DamagePerShot.IsSet()
+}
+
+// SetDamagePerShot sets field value
+func (o *WeaponInfoV2) SetDamagePerShot(v float32) {
+	o.DamagePerShot.Set(&v)
+}
+
+// GetDamagePerMagazine returns the DamagePerMagazine field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *WeaponInfoV2) GetDamagePerMagazine() float32 {
+	if o == nil || o.DamagePerMagazine.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.DamagePerMagazine.Get()
+}
+
+// GetDamagePerMagazineOk returns a tuple with the DamagePerMagazine field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetDamagePerMagazineOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DamagePerMagazine.Get(), o.DamagePerMagazine.IsSet()
+}
+
+// SetDamagePerMagazine sets field value
+func (o *WeaponInfoV2) SetDamagePerMagazine(v float32) {
+	o.DamagePerMagazine.Set(&v)
+}
+
+func (o WeaponInfoV2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -2454,7 +2598,7 @@ func (o RawWeaponInfoV2) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o RawWeaponInfoV2) ToMap() (map[string]interface{}, error) {
+func (o WeaponInfoV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.CanZoom.IsSet() {
 		toSerialize["can_zoom"] = o.CanZoom.Get()
@@ -2624,41 +2768,87 @@ func (o RawWeaponInfoV2) ToMap() (map[string]interface{}, error) {
 	if o.VerticalRecoil.IsSet() {
 		toSerialize["vertical_recoil"] = o.VerticalRecoil.Get()
 	}
+	toSerialize["shots_per_second"] = o.ShotsPerSecond.Get()
+	toSerialize["bullets_per_second"] = o.BulletsPerSecond.Get()
+	toSerialize["damage_per_second"] = o.DamagePerSecond.Get()
+	toSerialize["damage_per_shot"] = o.DamagePerShot.Get()
+	toSerialize["damage_per_magazine"] = o.DamagePerMagazine.Get()
 	return toSerialize, nil
 }
 
-type NullableRawWeaponInfoV2 struct {
-	value *RawWeaponInfoV2
+func (o *WeaponInfoV2) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"shots_per_second",
+		"bullets_per_second",
+		"damage_per_second",
+		"damage_per_shot",
+		"damage_per_magazine",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWeaponInfoV2 := _WeaponInfoV2{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWeaponInfoV2)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WeaponInfoV2(varWeaponInfoV2)
+
+	return err
+}
+
+type NullableWeaponInfoV2 struct {
+	value *WeaponInfoV2
 	isSet bool
 }
 
-func (v NullableRawWeaponInfoV2) Get() *RawWeaponInfoV2 {
+func (v NullableWeaponInfoV2) Get() *WeaponInfoV2 {
 	return v.value
 }
 
-func (v *NullableRawWeaponInfoV2) Set(val *RawWeaponInfoV2) {
+func (v *NullableWeaponInfoV2) Set(val *WeaponInfoV2) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRawWeaponInfoV2) IsSet() bool {
+func (v NullableWeaponInfoV2) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRawWeaponInfoV2) Unset() {
+func (v *NullableWeaponInfoV2) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRawWeaponInfoV2(val *RawWeaponInfoV2) *NullableRawWeaponInfoV2 {
-	return &NullableRawWeaponInfoV2{value: val, isSet: true}
+func NewNullableWeaponInfoV2(val *WeaponInfoV2) *NullableWeaponInfoV2 {
+	return &NullableWeaponInfoV2{value: val, isSet: true}
 }
 
-func (v NullableRawWeaponInfoV2) MarshalJSON() ([]byte, error) {
+func (v NullableWeaponInfoV2) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRawWeaponInfoV2) UnmarshalJSON(src []byte) error {
+func (v *NullableWeaponInfoV2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

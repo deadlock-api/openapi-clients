@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **class_name** | **str** |  | 
-**weapon_info** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] 
+**weapon_info** | [**WeaponInfoV2**](WeaponInfoV2.md) |  | [optional] 
 **max_health** | **int** |  | [optional] 
 **phase2_health** | **int** |  | [optional] 
 **bound_abilities** | **Dict[str, str]** |  | [optional] 

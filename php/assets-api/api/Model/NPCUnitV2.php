@@ -58,7 +58,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'class_name' => 'string',
-        'weapon_info' => '\OpenAPI\Client\Model\RawWeaponInfoV2',
+        'weapon_info' => '\OpenAPI\Client\Model\WeaponInfoV2',
         'max_health' => 'int',
         'phase2_health' => 'int',
         'bound_abilities' => 'array<string,string>',
@@ -794,7 +794,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets weapon_info
      *
-     * @return \OpenAPI\Client\Model\RawWeaponInfoV2|null
+     * @return \OpenAPI\Client\Model\WeaponInfoV2|null
      */
     public function getWeaponInfo()
     {
@@ -804,7 +804,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets weapon_info
      *
-     * @param \OpenAPI\Client\Model\RawWeaponInfoV2|null $weapon_info weapon_info
+     * @param \OpenAPI\Client\Model\WeaponInfoV2|null $weapon_info weapon_info
      *
      * @return self
      */

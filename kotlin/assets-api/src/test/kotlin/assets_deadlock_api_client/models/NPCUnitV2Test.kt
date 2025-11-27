@@ -20,13 +20,13 @@ import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.NPCUnitV2
 import assets_deadlock_api_client.models.ColorV1
-import assets_deadlock_api_client.models.RawWeaponInfoV2
 import assets_deadlock_api_client.models.SubclassBulletResistModifier
 import assets_deadlock_api_client.models.SubclassIntrinsicModifiers
 import assets_deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase
 import assets_deadlock_api_client.models.SubclassObjectiveRegen
 import assets_deadlock_api_client.models.SubclassRangedArmorModifier
 import assets_deadlock_api_client.models.SubclassTrooperDamageReduction
+import assets_deadlock_api_client.models.WeaponInfoV2
 
 class NPCUnitV2Test : ShouldSpec() {
     init {

@@ -14,10 +14,10 @@
 
 import unittest
 
-from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2
+from assets_deadlock_api_client.models.weapon_info_v2 import WeaponInfoV2
 
-class TestRawWeaponInfoV2(unittest.TestCase):
-    """RawWeaponInfoV2 unit test stubs"""
+class TestWeaponInfoV2(unittest.TestCase):
+    """WeaponInfoV2 unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,16 +25,16 @@ class TestRawWeaponInfoV2(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> RawWeaponInfoV2:
-        """Test RawWeaponInfoV2
+    def make_instance(self, include_optional) -> WeaponInfoV2:
+        """Test WeaponInfoV2
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `RawWeaponInfoV2`
+        # uncomment below to create an instance of `WeaponInfoV2`
         """
-        model = RawWeaponInfoV2()
+        model = WeaponInfoV2()
         if include_optional:
-            return RawWeaponInfoV2(
+            return WeaponInfoV2(
                 can_zoom = True,
                 bullet_damage = 1.337,
                 bullet_gravity_scale = 1.337,
@@ -109,15 +109,25 @@ class TestRawWeaponInfoV2(unittest.TestCase):
                     range = null, 
                     burst_exponent = 1.337, 
                     burst_constant = 1.337, 
-                    burst_slope = 1.337, )
+                    burst_slope = 1.337, ),
+                shots_per_second = 1.337,
+                bullets_per_second = 1.337,
+                damage_per_second = 1.337,
+                damage_per_shot = 1.337,
+                damage_per_magazine = 1.337
             )
         else:
-            return RawWeaponInfoV2(
+            return WeaponInfoV2(
+                shots_per_second = 1.337,
+                bullets_per_second = 1.337,
+                damage_per_second = 1.337,
+                damage_per_shot = 1.337,
+                damage_per_magazine = 1.337,
         )
         """
 
-    def testRawWeaponInfoV2(self):
-        """Test RawWeaponInfoV2"""
+    def testWeaponInfoV2(self):
+        """Test WeaponInfoV2"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

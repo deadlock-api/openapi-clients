@@ -16,7 +16,7 @@
 package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ItemPropertyV2
-import assets_deadlock_api_client.models.RawWeaponInfoV2
+import assets_deadlock_api_client.models.WeaponInfoV2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -73,7 +73,7 @@ data class WeaponV2 (
     val properties: kotlin.collections.Map<kotlin.String, ItemPropertyV2>? = null,
 
     @Json(name = "weapon_info")
-    val weaponInfo: RawWeaponInfoV2? = null,
+    val weaponInfo: WeaponInfoV2? = null,
 
     @Json(name = "type")
     val type: WeaponV2.Type? = Type.weapon

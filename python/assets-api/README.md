@@ -87,7 +87,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = assets_deadlock_api_client.HeroesApi(api_client)
     name = 'name_example' # str | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesRawValidClientVersions() # DeadlockAssetsApiRoutesRawValidClientVersions |  (optional)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesV1ValidClientVersions() # DeadlockAssetsApiRoutesV1ValidClientVersions |  (optional)
 
     try:
         # Get Hero By Name
@@ -147,7 +147,7 @@ Class | Method | HTTP request | Description
  - [ColorV1](docs/ColorV1.md)
  - [Curve](docs/Curve.md)
  - [DamageFlashV2](docs/DamageFlashV2.md)
- - [DeadlockAssetsApiRoutesRawValidClientVersions](docs/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+ - [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
  - [ExpirationDuration](docs/ExpirationDuration.md)
  - [FlashDataV2](docs/FlashDataV2.md)
  - [GenericDataV2](docs/GenericDataV2.md)
@@ -212,7 +212,6 @@ Class | Method | HTTP request | Description
  - [RawItemWeaponInfoBulletSpeedCurveV2](docs/RawItemWeaponInfoBulletSpeedCurveV2.md)
  - [RawItemWeaponInfoV2](docs/RawItemWeaponInfoV2.md)
  - [RawWeaponInfoHorizontalRecoilV2](docs/RawWeaponInfoHorizontalRecoilV2.md)
- - [RawWeaponInfoV2](docs/RawWeaponInfoV2.md)
  - [RawWeaponInfoVerticalRecoilV2](docs/RawWeaponInfoVerticalRecoilV2.md)
  - [RejuvParams](docs/RejuvParams.md)
  - [ResponseGetItemV2ItemsIdOrClassNameGet](docs/ResponseGetItemV2ItemsIdOrClassNameGet.md)
@@ -238,6 +237,7 @@ Class | Method | HTTP request | Description
  - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
  - [Value](docs/Value.md)
  - [Value1](docs/Value1.md)
+ - [WeaponInfoV2](docs/WeaponInfoV2.md)
  - [WeaponV2](docs/WeaponV2.md)
  - [ZiplanePathV1](docs/ZiplanePathV1.md)
 

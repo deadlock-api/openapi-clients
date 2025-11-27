@@ -73,7 +73,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $language = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Language(); // \OpenAPI\Client\Model\Language
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesRawValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions
 
 try {
     $result = $apiInstance->getBuildTagsV2BuildTagsGet($language, $client_version);
@@ -131,7 +131,7 @@ Class | Method | HTTP request | Description
 - [ColorV1](docs/Model/ColorV1.md)
 - [Curve](docs/Model/Curve.md)
 - [DamageFlashV2](docs/Model/DamageFlashV2.md)
-- [DeadlockAssetsApiRoutesRawValidClientVersions](docs/Model/DeadlockAssetsApiRoutesRawValidClientVersions.md)
+- [DeadlockAssetsApiRoutesV1ValidClientVersions](docs/Model/DeadlockAssetsApiRoutesV1ValidClientVersions.md)
 - [ExpirationDuration](docs/Model/ExpirationDuration.md)
 - [FlashDataV2](docs/Model/FlashDataV2.md)
 - [GenericDataV2](docs/Model/GenericDataV2.md)
@@ -196,7 +196,6 @@ Class | Method | HTTP request | Description
 - [RawItemWeaponInfoBulletSpeedCurveV2](docs/Model/RawItemWeaponInfoBulletSpeedCurveV2.md)
 - [RawItemWeaponInfoV2](docs/Model/RawItemWeaponInfoV2.md)
 - [RawWeaponInfoHorizontalRecoilV2](docs/Model/RawWeaponInfoHorizontalRecoilV2.md)
-- [RawWeaponInfoV2](docs/Model/RawWeaponInfoV2.md)
 - [RawWeaponInfoVerticalRecoilV2](docs/Model/RawWeaponInfoVerticalRecoilV2.md)
 - [RejuvParams](docs/Model/RejuvParams.md)
 - [ResponseGetItemV2ItemsIdOrClassNameGet](docs/Model/ResponseGetItemV2ItemsIdOrClassNameGet.md)
@@ -222,6 +221,7 @@ Class | Method | HTTP request | Description
 - [ValidationErrorLocInner](docs/Model/ValidationErrorLocInner.md)
 - [Value](docs/Model/Value.md)
 - [Value1](docs/Model/Value1.md)
+- [WeaponInfoV2](docs/Model/WeaponInfoV2.md)
 - [WeaponV2](docs/Model/WeaponV2.md)
 - [ZiplanePathV1](docs/Model/ZiplanePathV1.md)
 

@@ -19,7 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesRawValidClientVersions
+import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
 
 import com.squareup.moshi.Json
@@ -60,7 +60,7 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRawHeroesRawHeroesGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.Any {
+    fun getRawHeroesRawHeroesGet(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.Any {
         val localVarResponse = getRawHeroesRawHeroesGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -89,7 +89,7 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRawHeroesRawHeroesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.Any?> {
+    fun getRawHeroesRawHeroesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.Any?> {
         val localVariableConfig = getRawHeroesRawHeroesGetRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.Any>(
@@ -103,7 +103,7 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getRawHeroesRawHeroesGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
+    fun getRawHeroesRawHeroesGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -138,7 +138,7 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRawItemsRawItemsGet(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions? = null) : kotlin.Any {
+    fun getRawItemsRawItemsGet(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.Any {
         val localVarResponse = getRawItemsRawItemsGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -167,7 +167,7 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRawItemsRawItemsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : ApiResponse<kotlin.Any?> {
+    fun getRawItemsRawItemsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.Any?> {
         val localVariableConfig = getRawItemsRawItemsGetRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.Any>(
@@ -181,7 +181,7 @@ class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = A
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getRawItemsRawItemsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesRawValidClientVersions?) : RequestConfig<Unit> {
+    fun getRawItemsRawItemsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

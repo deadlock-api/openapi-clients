@@ -34,7 +34,7 @@ pub struct WeaponV2 {
     #[serde(rename = "properties", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub properties: Option<Option<std::collections::HashMap<String, models::ItemPropertyV2>>>,
     #[serde(rename = "weapon_info", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub weapon_info: Option<Option<Box<models::RawWeaponInfoV2>>>,
+    pub weapon_info: Option<Option<Box<models::WeaponInfoV2>>>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<Type>,
 }

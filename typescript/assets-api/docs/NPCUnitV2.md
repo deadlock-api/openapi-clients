@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **class_name** | **string** |  | [default to undefined]
-**weapon_info** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] [default to undefined]
+**weapon_info** | [**WeaponInfoV2**](WeaponInfoV2.md) |  | [optional] [default to undefined]
 **max_health** | **number** |  | [optional] [default to undefined]
 **phase2_health** | **number** |  | [optional] [default to undefined]
 **bound_abilities** | **{ [key: string]: string; }** |  | [optional] [default to undefined]

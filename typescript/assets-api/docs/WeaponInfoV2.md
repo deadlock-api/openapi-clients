@@ -1,4 +1,4 @@
-# RawWeaponInfoV2
+# WeaponInfoV2
 
 
 ## Properties
@@ -61,13 +61,18 @@ Name | Type | Description | Notes
 **bullet_speed_curve** | [**RawItemWeaponInfoBulletSpeedCurveV2**](RawItemWeaponInfoBulletSpeedCurveV2.md) |  | [optional] [default to undefined]
 **horizontal_recoil** | [**RawWeaponInfoHorizontalRecoilV2**](RawWeaponInfoHorizontalRecoilV2.md) |  | [optional] [default to undefined]
 **vertical_recoil** | [**RawWeaponInfoVerticalRecoilV2**](RawWeaponInfoVerticalRecoilV2.md) |  | [optional] [default to undefined]
+**shots_per_second** | **number** |  | [readonly] [default to undefined]
+**bullets_per_second** | **number** |  | [readonly] [default to undefined]
+**damage_per_second** | **number** |  | [readonly] [default to undefined]
+**damage_per_shot** | **number** |  | [readonly] [default to undefined]
+**damage_per_magazine** | **number** |  | [readonly] [default to undefined]
 
 ## Example
 
 ```typescript
-import { RawWeaponInfoV2 } from 'assets_deadlock_api_client';
+import { WeaponInfoV2 } from 'assets_deadlock_api_client';
 
-const instance: RawWeaponInfoV2 = {
+const instance: WeaponInfoV2 = {
     can_zoom,
     bullet_damage,
     bullet_gravity_scale,
@@ -124,6 +129,11 @@ const instance: RawWeaponInfoV2 = {
     bullet_speed_curve,
     horizontal_recoil,
     vertical_recoil,
+    shots_per_second,
+    bullets_per_second,
+    damage_per_second,
+    damage_per_shot,
+    damage_per_magazine,
 };
 ```
 
