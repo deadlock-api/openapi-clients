@@ -22,7 +22,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RawApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getRawHeroesRawHeroesGet(
     clientVersion
@@ -33,7 +33,7 @@ const { status, data } = await apiInstance.getRawHeroesRawHeroesGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -73,7 +73,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RawApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions; // (optional) (default to undefined)
+let clientVersion: DeadlockAssetsApiRoutesValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getRawItemsRawItemsGet(
     clientVersion
@@ -84,7 +84,7 @@ const { status, data } = await apiInstance.getRawItemsRawItemsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesV1ValidClientVersions** |  | (optional) defaults to undefined|
+| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | (optional) defaults to undefined|
 
 
 ### Return type

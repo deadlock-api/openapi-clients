@@ -19,7 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesV1ValidClientVersions
+import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesValidClientVersions
 import assets_deadlock_api_client.models.GetItemsV2ItemsGet200ResponseInner
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.ItemSlotTypeV2
@@ -67,7 +67,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemV2ItemsIdOrClassNameGet(idOrClassName: kotlin.String, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : ResponseGetItemV2ItemsIdOrClassNameGet {
+    fun getItemV2ItemsIdOrClassNameGet(idOrClassName: kotlin.String, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : ResponseGetItemV2ItemsIdOrClassNameGet {
         val localVarResponse = getItemV2ItemsIdOrClassNameGetWithHttpInfo(idOrClassName = idOrClassName, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -98,7 +98,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemV2ItemsIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<ResponseGetItemV2ItemsIdOrClassNameGet?> {
+    fun getItemV2ItemsIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<ResponseGetItemV2ItemsIdOrClassNameGet?> {
         val localVariableConfig = getItemV2ItemsIdOrClassNameGetRequestConfig(idOrClassName = idOrClassName, language = language, clientVersion = clientVersion)
 
         return request<Unit, ResponseGetItemV2ItemsIdOrClassNameGet>(
@@ -114,7 +114,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemV2ItemsIdOrClassNameGetRequestConfig(idOrClassName: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+    fun getItemV2ItemsIdOrClassNameGetRequestConfig(idOrClassName: kotlin.String, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -154,7 +154,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsByHeroIdV2ItemsByHeroIdIdGet(id: kotlin.Int, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+    fun getItemsByHeroIdV2ItemsByHeroIdIdGet(id: kotlin.Int, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
         val localVarResponse = getItemsByHeroIdV2ItemsByHeroIdIdGetWithHttpInfo(id = id, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -185,7 +185,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsByHeroIdV2ItemsByHeroIdIdGetWithHttpInfo(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+    fun getItemsByHeroIdV2ItemsByHeroIdIdGetWithHttpInfo(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
         val localVariableConfig = getItemsByHeroIdV2ItemsByHeroIdIdGetRequestConfig(id = id, language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
@@ -201,7 +201,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemsByHeroIdV2ItemsByHeroIdIdGetRequestConfig(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+    fun getItemsByHeroIdV2ItemsByHeroIdIdGetRequestConfig(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -241,7 +241,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
         val localVarResponse = getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetWithHttpInfo(slotType = slotType, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -272,7 +272,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetWithHttpInfo(slotType: ItemSlotTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetWithHttpInfo(slotType: ItemSlotTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
         val localVariableConfig = getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequestConfig(slotType = slotType, language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
@@ -288,7 +288,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequestConfig(slotType: ItemSlotTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequestConfig(slotType: ItemSlotTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -328,7 +328,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+    fun getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
         val localVarResponse = getItemsByTypeV2ItemsByTypeTypeGetWithHttpInfo(type = type, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -359,7 +359,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsByTypeV2ItemsByTypeTypeGetWithHttpInfo(type: ItemTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+    fun getItemsByTypeV2ItemsByTypeTypeGetWithHttpInfo(type: ItemTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
         val localVariableConfig = getItemsByTypeV2ItemsByTypeTypeGetRequestConfig(type = type, language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
@@ -375,7 +375,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemsByTypeV2ItemsByTypeTypeGetRequestConfig(type: ItemTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+    fun getItemsByTypeV2ItemsByTypeTypeGetRequestConfig(type: ItemTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -414,7 +414,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsV2ItemsGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+    fun getItemsV2ItemsGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
         val localVarResponse = getItemsV2ItemsGetWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -444,7 +444,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsV2ItemsGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+    fun getItemsV2ItemsGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
         val localVariableConfig = getItemsV2ItemsGetRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
@@ -459,7 +459,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemsV2ItemsGetRequestConfig(language: Language?, clientVersion: DeadlockAssetsApiRoutesV1ValidClientVersions?) : RequestConfig<Unit> {
+    fun getItemsV2ItemsGetRequestConfig(language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

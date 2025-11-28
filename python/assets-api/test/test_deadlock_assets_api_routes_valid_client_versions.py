@@ -12,60 +12,22 @@
 """  # noqa: E501
 
 
-from __future__ import annotations
-import json
-from enum import Enum
-from typing_extensions import Self
+import unittest
 
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 
-class DeadlockAssetsApiRoutesV1ValidClientVersions(int, Enum):
-    """
-    DeadlockAssetsApiRoutesV1ValidClientVersions
-    """
+class TestDeadlockAssetsApiRoutesValidClientVersions(unittest.TestCase):
+    """DeadlockAssetsApiRoutesValidClientVersions unit test stubs"""
 
-    """
-    allowed enum values
-    """
-    NUMBER_6008 = 6008
-    NUMBER_6002 = 6002
-    NUMBER_5983 = 5983
-    NUMBER_5972 = 5972
-    NUMBER_5959 = 5959
-    NUMBER_5945 = 5945
-    NUMBER_5920 = 5920
-    NUMBER_5902 = 5902
-    NUMBER_5885 = 5885
-    NUMBER_5878 = 5878
-    NUMBER_5869 = 5869
-    NUMBER_5852 = 5852
-    NUMBER_5831 = 5831
-    NUMBER_5826 = 5826
-    NUMBER_5818 = 5818
-    NUMBER_5789 = 5789
-    NUMBER_5748 = 5748
-    NUMBER_5723 = 5723
-    NUMBER_5712 = 5712
-    NUMBER_5710 = 5710
-    NUMBER_5690 = 5690
-    NUMBER_5675 = 5675
-    NUMBER_5668 = 5668
-    NUMBER_5664 = 5664
-    NUMBER_5658 = 5658
-    NUMBER_5650 = 5650
-    NUMBER_5636 = 5636
-    NUMBER_5624 = 5624
-    NUMBER_5615 = 5615
-    NUMBER_5602 = 5602
-    NUMBER_5583 = 5583
-    NUMBER_5554 = 5554
-    NUMBER_5538 = 5538
-    NUMBER_5533 = 5533
-    NUMBER_5529 = 5529
-    NUMBER_5527 = 5527
+    def setUp(self):
+        pass
 
-    @classmethod
-    def from_json(cls, json_str: str) -> Self:
-        """Create an instance of DeadlockAssetsApiRoutesV1ValidClientVersions from a JSON string"""
-        return cls(json.loads(json_str))
+    def tearDown(self):
+        pass
 
+    def testDeadlockAssetsApiRoutesValidClientVersions(self):
+        """Test DeadlockAssetsApiRoutesValidClientVersions"""
+        # inst = DeadlockAssetsApiRoutesValidClientVersions()
 
+if __name__ == '__main__':
+    unittest.main()

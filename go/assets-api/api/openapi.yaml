@@ -45,7 +45,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       - explode: true
         in: query
@@ -97,7 +97,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -139,7 +139,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -173,7 +173,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -217,7 +217,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -258,7 +258,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -302,7 +302,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -345,7 +345,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -374,7 +374,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -411,7 +411,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -438,7 +438,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -475,7 +475,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -522,7 +522,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -556,7 +556,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -583,7 +583,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -608,7 +608,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -633,7 +633,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -660,7 +660,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -684,7 +684,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -711,7 +711,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -737,7 +737,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -763,7 +763,7 @@ paths:
         name: client_version
         required: false
         schema:
-          $ref: "#/components/schemas/deadlock_assets_api__routes__v1__ValidClientVersions"
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
         style: form
       responses:
         "200":
@@ -1438,6 +1438,46 @@ components:
       - melee_damage
       - tech_damage
       title: DamageFlashV2
+    DeadlockAssetsApiRoutesValidClientVersions:
+      enum:
+      - 6008
+      - 6002
+      - 5983
+      - 5972
+      - 5959
+      - 5945
+      - 5920
+      - 5902
+      - 5885
+      - 5878
+      - 5869
+      - 5852
+      - 5831
+      - 5826
+      - 5818
+      - 5789
+      - 5748
+      - 5723
+      - 5712
+      - 5710
+      - 5690
+      - 5675
+      - 5668
+      - 5664
+      - 5658
+      - 5650
+      - 5636
+      - 5624
+      - 5615
+      - 5602
+      - 5583
+      - 5554
+      - 5538
+      - 5533
+      - 5529
+      - 5527
+      title: DeadlockAssetsApiRoutesValidClientVersions
+      type: integer
     FlashDataV2:
       example:
         duration: 0.8008281904610115
@@ -5504,46 +5544,6 @@ components:
       - color_parsed
       - origin
       title: ZiplanePathV1
-    deadlock_assets_api__routes__v1__ValidClientVersions:
-      enum:
-      - 6008
-      - 6002
-      - 5983
-      - 5972
-      - 5959
-      - 5945
-      - 5920
-      - 5902
-      - 5885
-      - 5878
-      - 5869
-      - 5852
-      - 5831
-      - 5826
-      - 5818
-      - 5789
-      - 5748
-      - 5723
-      - 5712
-      - 5710
-      - 5690
-      - 5675
-      - 5668
-      - 5664
-      - 5658
-      - 5650
-      - 5636
-      - 5624
-      - 5615
-      - 5602
-      - 5583
-      - 5554
-      - 5538
-      - 5533
-      - 5529
-      - 5527
-      title: ValidClientVersions
-      type: integer
     get_items_v2_items_get_200_response_inner:
       discriminator:
         mapping:

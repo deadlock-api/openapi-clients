@@ -31,7 +31,7 @@ $apiInstance = new OpenAPI\Client\Api\RawApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions
 
 try {
     $result = $apiInstance->getRawHeroesRawHeroesGet($client_version);
@@ -45,7 +45,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -85,7 +85,7 @@ $apiInstance = new OpenAPI\Client\Api\RawApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions
 
 try {
     $result = $apiInstance->getRawItemsRawItemsGet($client_version);
@@ -99,7 +99,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesV1ValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 

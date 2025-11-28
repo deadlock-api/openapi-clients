@@ -1,6 +1,6 @@
 <?php
 /**
- * DeadlockAssetsApiRoutesV1ValidClientVersions
+ * DeadlockAssetsApiRoutesValidClientVersions
  *
  * PHP version 8.1
  *
@@ -30,14 +30,14 @@ namespace OpenAPI\Client\Model;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DeadlockAssetsApiRoutesV1ValidClientVersions Class Doc Comment
+ * DeadlockAssetsApiRoutesValidClientVersions Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DeadlockAssetsApiRoutesV1ValidClientVersions
+class DeadlockAssetsApiRoutesValidClientVersions
 {
     /**
      * Possible values of this enum

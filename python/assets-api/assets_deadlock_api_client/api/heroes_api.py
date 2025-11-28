@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 
 from pydantic import StrictBool, StrictInt, StrictStr
 from typing import List, Optional
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.hero_v2 import HeroV2
 from assets_deadlock_api_client.models.language import Language
 
@@ -45,7 +45,7 @@ class HeroesApi:
         self,
         name: StrictStr,
         language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -67,7 +67,7 @@ class HeroesApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -120,7 +120,7 @@ class HeroesApi:
         self,
         name: StrictStr,
         language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -142,7 +142,7 @@ class HeroesApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -195,7 +195,7 @@ class HeroesApi:
         self,
         name: StrictStr,
         language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -217,7 +217,7 @@ class HeroesApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -339,7 +339,7 @@ class HeroesApi:
         self,
         id: StrictInt,
         language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -361,7 +361,7 @@ class HeroesApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -414,7 +414,7 @@ class HeroesApi:
         self,
         id: StrictInt,
         language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -436,7 +436,7 @@ class HeroesApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -489,7 +489,7 @@ class HeroesApi:
         self,
         id: StrictInt,
         language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -511,7 +511,7 @@ class HeroesApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -632,7 +632,7 @@ class HeroesApi:
     def get_heroes_v2_heroes_get(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
         only_active: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
@@ -653,7 +653,7 @@ class HeroesApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param only_active:
         :type only_active: bool
         :param _request_timeout: timeout setting for this request. If one
@@ -707,7 +707,7 @@ class HeroesApi:
     def get_heroes_v2_heroes_get_with_http_info(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
         only_active: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
@@ -728,7 +728,7 @@ class HeroesApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param only_active:
         :type only_active: bool
         :param _request_timeout: timeout setting for this request. If one
@@ -782,7 +782,7 @@ class HeroesApi:
     def get_heroes_v2_heroes_get_without_preload_content(
         self,
         language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesV1ValidClientVersions] = None,
+        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
         only_active: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
@@ -803,7 +803,7 @@ class HeroesApi:
         :param language:
         :type language: Language
         :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesV1ValidClientVersions
+        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param only_active:
         :type only_active: bool
         :param _request_timeout: timeout setting for this request. If one

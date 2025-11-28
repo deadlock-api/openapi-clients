@@ -48,7 +48,7 @@ __all__ = [
     "ColorV1",
     "Curve",
     "DamageFlashV2",
-    "DeadlockAssetsApiRoutesV1ValidClientVersions",
+    "DeadlockAssetsApiRoutesValidClientVersions",
     "ExpirationDuration",
     "FlashDataV2",
     "GenericDataV2",
@@ -178,7 +178,7 @@ from assets_deadlock_api_client.models.bullet_resist_modifier import BulletResis
 from assets_deadlock_api_client.models.color_v1 import ColorV1 as ColorV1
 from assets_deadlock_api_client.models.curve import Curve as Curve
 from assets_deadlock_api_client.models.damage_flash_v2 import DamageFlashV2 as DamageFlashV2
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_v1_valid_client_versions import DeadlockAssetsApiRoutesV1ValidClientVersions as DeadlockAssetsApiRoutesV1ValidClientVersions
+from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions as DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.expiration_duration import ExpirationDuration as ExpirationDuration
 from assets_deadlock_api_client.models.flash_data_v2 import FlashDataV2 as FlashDataV2
 from assets_deadlock_api_client.models.generic_data_v2 import GenericDataV2 as GenericDataV2

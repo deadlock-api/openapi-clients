@@ -26,10 +26,10 @@ type MiscEntitiesAPIService service
 type ApiGetMiscEntitiesV2MiscEntitiesGetRequest struct {
 	ctx context.Context
 	ApiService *MiscEntitiesAPIService
-	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesValidClientVersions
 }
 
-func (r ApiGetMiscEntitiesV2MiscEntitiesGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetMiscEntitiesV2MiscEntitiesGetRequest {
+func (r ApiGetMiscEntitiesV2MiscEntitiesGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesValidClientVersions) ApiGetMiscEntitiesV2MiscEntitiesGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -143,10 +143,10 @@ type ApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest struct {
 	ctx context.Context
 	ApiService *MiscEntitiesAPIService
 	idOrClassName string
-	clientVersion *DeadlockAssetsApiRoutesV1ValidClientVersions
+	clientVersion *DeadlockAssetsApiRoutesValidClientVersions
 }
 
-func (r ApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesV1ValidClientVersions) ApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest {
+func (r ApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesValidClientVersions) ApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
