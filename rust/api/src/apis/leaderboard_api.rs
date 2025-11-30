@@ -84,7 +84,7 @@ pub enum LeaderboardRawError {
 }
 
 
-///  Returns the leaderboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn leaderboard(configuration: &configuration::Configuration, params: LeaderboardParams) -> Result<models::Leaderboard, Error<LeaderboardError>> {
 
     let uri_str = format!("{}/v1/leaderboard/{region}", configuration.base_path, region=crate::apis::urlencode(params.region));
@@ -119,7 +119,7 @@ pub async fn leaderboard(configuration: &configuration::Configuration, params: L
     }
 }
 
-///  Returns the leaderboard for a specific hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn leaderboard_hero(configuration: &configuration::Configuration, params: LeaderboardHeroParams) -> Result<models::Leaderboard, Error<LeaderboardHeroError>> {
 
     let uri_str = format!("{}/v1/leaderboard/{region}/{hero_id}", configuration.base_path, region=crate::apis::urlencode(params.region), hero_id=params.hero_id);
@@ -154,7 +154,7 @@ pub async fn leaderboard_hero(configuration: &configuration::Configuration, para
     }
 }
 
-///  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn leaderboard_hero_raw(configuration: &configuration::Configuration, params: LeaderboardHeroRawParams) -> Result<Vec<u32>, Error<LeaderboardHeroRawError>> {
 
     let uri_str = format!("{}/v1/leaderboard/{region}/{hero_id}/raw", configuration.base_path, region=crate::apis::urlencode(params.region), hero_id=params.hero_id);
@@ -189,7 +189,7 @@ pub async fn leaderboard_hero_raw(configuration: &configuration::Configuration, 
     }
 }
 
-///  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn leaderboard_raw(configuration: &configuration::Configuration, params: LeaderboardRawParams) -> Result<Vec<u32>, Error<LeaderboardRawError>> {
 
     let uri_str = format!("{}/v1/leaderboard/{region}/raw", configuration.base_path, region=crate::apis::urlencode(params.region));

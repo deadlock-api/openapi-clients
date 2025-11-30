@@ -39,6 +39,10 @@ Leaderboard Leaderboard
 
 Returns the leaderboard.
 
+### Note:
+
+Valve updates the leaderboard once per hour.
+
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
@@ -151,6 +155,10 @@ LeaderboardHero Hero Leaderboard
 
 
 Returns the leaderboard for a specific hero.
+
+### Note:
+
+Valve updates the leaderboard once per hour.
 
 ### Rate Limits:
 | Type | Limit |
@@ -278,6 +286,10 @@ Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protob
 Relevant Protobuf Message:
 - CMsgClientToGcGetLeaderboardResponse
 
+### Note:
+
+Valve updates the leaderboard once per hour.
+
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
@@ -402,6 +414,10 @@ Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protob
 
 Relevant Protobuf Message:
 - CMsgClientToGcGetLeaderboardResponse
+
+### Note:
+
+Valve updates the leaderboard once per hour.
 
 ### Rate Limits:
 | Type | Limit |

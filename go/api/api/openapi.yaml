@@ -3404,9 +3404,9 @@ paths:
       - Info
   /v1/leaderboard/{region}:
     get:
-      description: "\nReturns the leaderboard.\n\n### Rate Limits:\n| Type | Limit\
-        \ |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n  \
-        \  "
+      description: "\nReturns the leaderboard.\n\n### Note:\n\nValve updates the leaderboard\
+        \ once per hour.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n\
+        | IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
       operationId: leaderboard
       parameters:
       - description: The region to fetch the leaderboard for.
@@ -3443,8 +3443,9 @@ paths:
         You have to decode the protobuf message.\n\nProtobuf definitions can be found\
         \ here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Message:\n- CMsgClientToGcGetLeaderboardResponse\n\n###\
-        \ Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key\
-        \ | - |\n| Global | - |\n    "
+        \ Note:\n\nValve updates the leaderboard once per hour.\n\n### Rate Limits:\n\
+        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
+        \ | - |\n    "
       operationId: leaderboard_raw
       parameters:
       - description: The region to fetch the leaderboard for.
@@ -3481,9 +3482,10 @@ paths:
       - Leaderboard
   /v1/leaderboard/{region}/{hero_id}:
     get:
-      description: "\nReturns the leaderboard for a specific hero.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
-        \ | - |\n    "
+      description: "\nReturns the leaderboard for a specific hero.\n\n### Note:\n\n\
+        Valve updates the leaderboard once per hour.\n\n### Rate Limits:\n| Type |\
+        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
+        \ |\n    "
       operationId: leaderboard_hero
       parameters:
       - description: The region to fetch the leaderboard for.
@@ -3530,8 +3532,9 @@ paths:
         \ message.\n\nYou have to decode the protobuf message.\n\nProtobuf definitions\
         \ can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Message:\n- CMsgClientToGcGetLeaderboardResponse\n\n###\
-        \ Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key\
-        \ | - |\n| Global | - |\n    "
+        \ Note:\n\nValve updates the leaderboard once per hour.\n\n### Rate Limits:\n\
+        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
+        \ | - |\n    "
       operationId: leaderboard_hero_raw
       parameters:
       - description: The region to fetch the leaderboard for.

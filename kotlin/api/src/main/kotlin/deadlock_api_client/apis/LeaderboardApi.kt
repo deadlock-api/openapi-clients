@@ -68,7 +68,7 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * GET /v1/leaderboard/{region}
      * Leaderboard
-     *  Returns the leaderboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @return Leaderboard
      * @throws IllegalStateException If the request is not correctly configured
@@ -100,7 +100,7 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * GET /v1/leaderboard/{region}
      * Leaderboard
-     *  Returns the leaderboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @return ApiResponse<Leaderboard?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -161,7 +161,7 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * GET /v1/leaderboard/{region}/{hero_id}
      * Hero Leaderboard
-     *  Returns the leaderboard for a specific hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      * @return Leaderboard
@@ -194,7 +194,7 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * GET /v1/leaderboard/{region}/{hero_id}
      * Hero Leaderboard
-     *  Returns the leaderboard for a specific hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      * @return ApiResponse<Leaderboard?>
@@ -257,7 +257,7 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * GET /v1/leaderboard/{region}/{hero_id}/raw
      * Hero Leaderboard as Protobuf
-     *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      * @return kotlin.collections.List<kotlin.Int>
@@ -290,7 +290,7 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * GET /v1/leaderboard/{region}/{hero_id}/raw
      * Hero Leaderboard as Protobuf
-     *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
@@ -353,7 +353,7 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * GET /v1/leaderboard/{region}/raw
      * Leaderboard as Protobuf
-     *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @return kotlin.collections.List<kotlin.Int>
      * @throws IllegalStateException If the request is not correctly configured
@@ -385,7 +385,7 @@ class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     /**
      * GET /v1/leaderboard/{region}/raw
      * Leaderboard as Protobuf
-     *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
      * @throws IllegalStateException If the request is not correctly configured
