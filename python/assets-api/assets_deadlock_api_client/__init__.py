@@ -49,6 +49,7 @@ __all__ = [
     "Curve",
     "DamageFlashV2",
     "DeadlockAssetsApiRoutesValidClientVersions",
+    "EmpoweredModifierLevel",
     "ExpirationDuration",
     "FlashDataV2",
     "GenericDataV2",
@@ -120,6 +121,7 @@ __all__ = [
     "StandingShotSpreadPenalty",
     "StatsUsageFlagV2",
     "SubclassBulletResistModifier",
+    "SubclassEmpoweredModifierLevel",
     "SubclassIntrinsicModifiers",
     "SubclassModifierDefinition",
     "SubclassObjectiveHealthGrowthPhase",
@@ -179,6 +181,7 @@ from assets_deadlock_api_client.models.color_v1 import ColorV1 as ColorV1
 from assets_deadlock_api_client.models.curve import Curve as Curve
 from assets_deadlock_api_client.models.damage_flash_v2 import DamageFlashV2 as DamageFlashV2
 from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions as DeadlockAssetsApiRoutesValidClientVersions
+from assets_deadlock_api_client.models.empowered_modifier_level import EmpoweredModifierLevel as EmpoweredModifierLevel
 from assets_deadlock_api_client.models.expiration_duration import ExpirationDuration as ExpirationDuration
 from assets_deadlock_api_client.models.flash_data_v2 import FlashDataV2 as FlashDataV2
 from assets_deadlock_api_client.models.generic_data_v2 import GenericDataV2 as GenericDataV2
@@ -250,6 +253,7 @@ from assets_deadlock_api_client.models.script_values import ScriptValues as Scri
 from assets_deadlock_api_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty as StandingShotSpreadPenalty
 from assets_deadlock_api_client.models.stats_usage_flag_v2 import StatsUsageFlagV2 as StatsUsageFlagV2
 from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier as SubclassBulletResistModifier
+from assets_deadlock_api_client.models.subclass_empowered_modifier_level import SubclassEmpoweredModifierLevel as SubclassEmpoweredModifierLevel
 from assets_deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers as SubclassIntrinsicModifiers
 from assets_deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition as SubclassModifierDefinition
 from assets_deadlock_api_client.models.subclass_objective_health_growth_phase import SubclassObjectiveHealthGrowthPhase as SubclassObjectiveHealthGrowthPhase

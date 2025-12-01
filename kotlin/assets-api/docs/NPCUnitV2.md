@@ -13,6 +13,8 @@
 | **maxHealthFinal** | **kotlin.Int** |  |  [optional] |
 | **maxHealthGenerator** | **kotlin.Int** |  |  [optional] |
 | **enemyTrooperProtectionRange** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **empoweredModifierLevel1** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  |  [optional] |
+| **empoweredModifierLevel2** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  |  [optional] |
 | **backdoorBulletResistModifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  |  [optional] |
 | **objectiveRegen** | [**SubclassObjectiveRegen**](SubclassObjectiveRegen.md) |  |  [optional] |
 | **objectiveHealthGrowthPhase1** | [**SubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  |  [optional] |

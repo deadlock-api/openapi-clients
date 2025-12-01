@@ -84,6 +84,7 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_punch' => 'float',
         'range' => 'float',
         'recoil_recovery_delay_factor' => 'float',
+        'bullet_speed' => 'float',
         'recoil_recovery_speed' => 'float',
         'recoil_shot_index_recovery_time_factor' => 'float',
         'recoil_speed' => 'float',
@@ -114,8 +115,11 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_recoil' => '\OpenAPI\Client\Model\RawWeaponInfoHorizontalRecoilV2',
         'vertical_recoil' => '\OpenAPI\Client\Model\RawWeaponInfoVerticalRecoilV2',
         'shots_per_second' => 'float',
+        'shots_per_second_with_reload' => 'float',
         'bullets_per_second' => 'float',
+        'bullets_per_second_with_reload' => 'float',
         'damage_per_second' => 'float',
+        'damage_per_second_with_reload' => 'float',
         'damage_per_shot' => 'float',
         'damage_per_magazine' => 'float'
     ];
@@ -155,6 +159,7 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_punch' => null,
         'range' => null,
         'recoil_recovery_delay_factor' => null,
+        'bullet_speed' => null,
         'recoil_recovery_speed' => null,
         'recoil_shot_index_recovery_time_factor' => null,
         'recoil_speed' => null,
@@ -185,8 +190,11 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_recoil' => null,
         'vertical_recoil' => null,
         'shots_per_second' => null,
+        'shots_per_second_with_reload' => null,
         'bullets_per_second' => null,
+        'bullets_per_second_with_reload' => null,
         'damage_per_second' => null,
+        'damage_per_second_with_reload' => null,
         'damage_per_shot' => null,
         'damage_per_magazine' => null
     ];
@@ -224,6 +232,7 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_punch' => true,
         'range' => true,
         'recoil_recovery_delay_factor' => true,
+        'bullet_speed' => true,
         'recoil_recovery_speed' => true,
         'recoil_shot_index_recovery_time_factor' => true,
         'recoil_speed' => true,
@@ -254,8 +263,11 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_recoil' => true,
         'vertical_recoil' => true,
         'shots_per_second' => true,
+        'shots_per_second_with_reload' => true,
         'bullets_per_second' => true,
+        'bullets_per_second_with_reload' => true,
         'damage_per_second' => true,
+        'damage_per_second_with_reload' => true,
         'damage_per_shot' => true,
         'damage_per_magazine' => true
     ];
@@ -373,6 +385,7 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_punch' => 'horizontal_punch',
         'range' => 'range',
         'recoil_recovery_delay_factor' => 'recoil_recovery_delay_factor',
+        'bullet_speed' => 'bullet_speed',
         'recoil_recovery_speed' => 'recoil_recovery_speed',
         'recoil_shot_index_recovery_time_factor' => 'recoil_shot_index_recovery_time_factor',
         'recoil_speed' => 'recoil_speed',
@@ -403,8 +416,11 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_recoil' => 'horizontal_recoil',
         'vertical_recoil' => 'vertical_recoil',
         'shots_per_second' => 'shots_per_second',
+        'shots_per_second_with_reload' => 'shots_per_second_with_reload',
         'bullets_per_second' => 'bullets_per_second',
+        'bullets_per_second_with_reload' => 'bullets_per_second_with_reload',
         'damage_per_second' => 'damage_per_second',
+        'damage_per_second_with_reload' => 'damage_per_second_with_reload',
         'damage_per_shot' => 'damage_per_shot',
         'damage_per_magazine' => 'damage_per_magazine'
     ];
@@ -442,6 +458,7 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_punch' => 'setHorizontalPunch',
         'range' => 'setRange',
         'recoil_recovery_delay_factor' => 'setRecoilRecoveryDelayFactor',
+        'bullet_speed' => 'setBulletSpeed',
         'recoil_recovery_speed' => 'setRecoilRecoverySpeed',
         'recoil_shot_index_recovery_time_factor' => 'setRecoilShotIndexRecoveryTimeFactor',
         'recoil_speed' => 'setRecoilSpeed',
@@ -472,8 +489,11 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_recoil' => 'setHorizontalRecoil',
         'vertical_recoil' => 'setVerticalRecoil',
         'shots_per_second' => 'setShotsPerSecond',
+        'shots_per_second_with_reload' => 'setShotsPerSecondWithReload',
         'bullets_per_second' => 'setBulletsPerSecond',
+        'bullets_per_second_with_reload' => 'setBulletsPerSecondWithReload',
         'damage_per_second' => 'setDamagePerSecond',
+        'damage_per_second_with_reload' => 'setDamagePerSecondWithReload',
         'damage_per_shot' => 'setDamagePerShot',
         'damage_per_magazine' => 'setDamagePerMagazine'
     ];
@@ -511,6 +531,7 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_punch' => 'getHorizontalPunch',
         'range' => 'getRange',
         'recoil_recovery_delay_factor' => 'getRecoilRecoveryDelayFactor',
+        'bullet_speed' => 'getBulletSpeed',
         'recoil_recovery_speed' => 'getRecoilRecoverySpeed',
         'recoil_shot_index_recovery_time_factor' => 'getRecoilShotIndexRecoveryTimeFactor',
         'recoil_speed' => 'getRecoilSpeed',
@@ -541,8 +562,11 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_recoil' => 'getHorizontalRecoil',
         'vertical_recoil' => 'getVerticalRecoil',
         'shots_per_second' => 'getShotsPerSecond',
+        'shots_per_second_with_reload' => 'getShotsPerSecondWithReload',
         'bullets_per_second' => 'getBulletsPerSecond',
+        'bullets_per_second_with_reload' => 'getBulletsPerSecondWithReload',
         'damage_per_second' => 'getDamagePerSecond',
+        'damage_per_second_with_reload' => 'getDamagePerSecondWithReload',
         'damage_per_shot' => 'getDamagePerShot',
         'damage_per_magazine' => 'getDamagePerMagazine'
     ];
@@ -631,6 +655,7 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('horizontal_punch', $data ?? [], null);
         $this->setIfExists('range', $data ?? [], null);
         $this->setIfExists('recoil_recovery_delay_factor', $data ?? [], null);
+        $this->setIfExists('bullet_speed', $data ?? [], null);
         $this->setIfExists('recoil_recovery_speed', $data ?? [], null);
         $this->setIfExists('recoil_shot_index_recovery_time_factor', $data ?? [], null);
         $this->setIfExists('recoil_speed', $data ?? [], null);
@@ -661,8 +686,11 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('horizontal_recoil', $data ?? [], null);
         $this->setIfExists('vertical_recoil', $data ?? [], null);
         $this->setIfExists('shots_per_second', $data ?? [], null);
+        $this->setIfExists('shots_per_second_with_reload', $data ?? [], null);
         $this->setIfExists('bullets_per_second', $data ?? [], null);
+        $this->setIfExists('bullets_per_second_with_reload', $data ?? [], null);
         $this->setIfExists('damage_per_second', $data ?? [], null);
+        $this->setIfExists('damage_per_second_with_reload', $data ?? [], null);
         $this->setIfExists('damage_per_shot', $data ?? [], null);
         $this->setIfExists('damage_per_magazine', $data ?? [], null);
     }
@@ -697,11 +725,20 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['shots_per_second'] === null) {
             $invalidProperties[] = "'shots_per_second' can't be null";
         }
+        if ($this->container['shots_per_second_with_reload'] === null) {
+            $invalidProperties[] = "'shots_per_second_with_reload' can't be null";
+        }
         if ($this->container['bullets_per_second'] === null) {
             $invalidProperties[] = "'bullets_per_second' can't be null";
         }
+        if ($this->container['bullets_per_second_with_reload'] === null) {
+            $invalidProperties[] = "'bullets_per_second_with_reload' can't be null";
+        }
         if ($this->container['damage_per_second'] === null) {
             $invalidProperties[] = "'damage_per_second' can't be null";
+        }
+        if ($this->container['damage_per_second_with_reload'] === null) {
+            $invalidProperties[] = "'damage_per_second_with_reload' can't be null";
         }
         if ($this->container['damage_per_shot'] === null) {
             $invalidProperties[] = "'damage_per_shot' can't be null";
@@ -1638,6 +1675,40 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['recoil_recovery_delay_factor'] = $recoil_recovery_delay_factor;
+
+        return $this;
+    }
+
+    /**
+     * Gets bullet_speed
+     *
+     * @return float|null
+     */
+    public function getBulletSpeed()
+    {
+        return $this->container['bullet_speed'];
+    }
+
+    /**
+     * Sets bullet_speed
+     *
+     * @param float|null $bullet_speed bullet_speed
+     *
+     * @return self
+     */
+    public function setBulletSpeed($bullet_speed)
+    {
+        if (is_null($bullet_speed)) {
+            array_push($this->openAPINullablesSetToNull, 'bullet_speed');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bullet_speed', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bullet_speed'] = $bullet_speed;
 
         return $this;
     }
@@ -2663,6 +2734,40 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets shots_per_second_with_reload
+     *
+     * @return float
+     */
+    public function getShotsPerSecondWithReload()
+    {
+        return $this->container['shots_per_second_with_reload'];
+    }
+
+    /**
+     * Sets shots_per_second_with_reload
+     *
+     * @param float $shots_per_second_with_reload shots_per_second_with_reload
+     *
+     * @return self
+     */
+    public function setShotsPerSecondWithReload($shots_per_second_with_reload)
+    {
+        if (is_null($shots_per_second_with_reload)) {
+            array_push($this->openAPINullablesSetToNull, 'shots_per_second_with_reload');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shots_per_second_with_reload', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['shots_per_second_with_reload'] = $shots_per_second_with_reload;
+
+        return $this;
+    }
+
+    /**
      * Gets bullets_per_second
      *
      * @return float
@@ -2697,6 +2802,40 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets bullets_per_second_with_reload
+     *
+     * @return float
+     */
+    public function getBulletsPerSecondWithReload()
+    {
+        return $this->container['bullets_per_second_with_reload'];
+    }
+
+    /**
+     * Sets bullets_per_second_with_reload
+     *
+     * @param float $bullets_per_second_with_reload bullets_per_second_with_reload
+     *
+     * @return self
+     */
+    public function setBulletsPerSecondWithReload($bullets_per_second_with_reload)
+    {
+        if (is_null($bullets_per_second_with_reload)) {
+            array_push($this->openAPINullablesSetToNull, 'bullets_per_second_with_reload');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bullets_per_second_with_reload', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bullets_per_second_with_reload'] = $bullets_per_second_with_reload;
+
+        return $this;
+    }
+
+    /**
      * Gets damage_per_second
      *
      * @return float
@@ -2726,6 +2865,40 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['damage_per_second'] = $damage_per_second;
+
+        return $this;
+    }
+
+    /**
+     * Gets damage_per_second_with_reload
+     *
+     * @return float
+     */
+    public function getDamagePerSecondWithReload()
+    {
+        return $this->container['damage_per_second_with_reload'];
+    }
+
+    /**
+     * Sets damage_per_second_with_reload
+     *
+     * @param float $damage_per_second_with_reload damage_per_second_with_reload
+     *
+     * @return self
+     */
+    public function setDamagePerSecondWithReload($damage_per_second_with_reload)
+    {
+        if (is_null($damage_per_second_with_reload)) {
+            array_push($this->openAPINullablesSetToNull, 'damage_per_second_with_reload');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('damage_per_second_with_reload', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['damage_per_second_with_reload'] = $damage_per_second_with_reload;
 
         return $this;
     }

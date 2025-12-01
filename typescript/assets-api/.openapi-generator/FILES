@@ -23,6 +23,7 @@ docs/Curve.md
 docs/DamageFlashV2.md
 docs/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/DefaultApi.md
+docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
 docs/GenericDataV2.md
@@ -99,6 +100,7 @@ docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
 docs/SubclassBulletResistModifier.md
+docs/SubclassEmpoweredModifierLevel.md
 docs/SubclassIntrinsicModifiers.md
 docs/SubclassModifierDefinition.md
 docs/SubclassObjectiveHealthGrowthPhase.md

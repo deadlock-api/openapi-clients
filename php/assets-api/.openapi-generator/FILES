@@ -29,6 +29,7 @@ api/Model/ColorV1.php
 api/Model/Curve.php
 api/Model/DamageFlashV2.php
 api/Model/DeadlockAssetsApiRoutesValidClientVersions.php
+api/Model/EmpoweredModifierLevel.php
 api/Model/ExpirationDuration.php
 api/Model/FlashDataV2.php
 api/Model/GenericDataV2.php
@@ -101,6 +102,7 @@ api/Model/ScriptValues.php
 api/Model/StandingShotSpreadPenalty.php
 api/Model/StatsUsageFlagV2.php
 api/Model/SubclassBulletResistModifier.php
+api/Model/SubclassEmpoweredModifierLevel.php
 api/Model/SubclassIntrinsicModifiers.php
 api/Model/SubclassModifierDefinition.php
 api/Model/SubclassObjectiveHealthGrowthPhase.php
@@ -146,6 +148,7 @@ docs/Model/ColorV1.md
 docs/Model/Curve.md
 docs/Model/DamageFlashV2.md
 docs/Model/DeadlockAssetsApiRoutesValidClientVersions.md
+docs/Model/EmpoweredModifierLevel.md
 docs/Model/ExpirationDuration.md
 docs/Model/FlashDataV2.md
 docs/Model/GenericDataV2.md
@@ -217,6 +220,7 @@ docs/Model/ScriptValues.md
 docs/Model/StandingShotSpreadPenalty.md
 docs/Model/StatsUsageFlagV2.md
 docs/Model/SubclassBulletResistModifier.md
+docs/Model/SubclassEmpoweredModifierLevel.md
 docs/Model/SubclassIntrinsicModifiers.md
 docs/Model/SubclassModifierDefinition.md
 docs/Model/SubclassObjectiveHealthGrowthPhase.md
@@ -262,6 +266,7 @@ test/Model/ColorV1Test.php
 test/Model/CurveTest.php
 test/Model/DamageFlashV2Test.php
 test/Model/DeadlockAssetsApiRoutesValidClientVersionsTest.php
+test/Model/EmpoweredModifierLevelTest.php
 test/Model/ExpirationDurationTest.php
 test/Model/FlashDataV2Test.php
 test/Model/GenericDataV2Test.php
@@ -333,6 +338,7 @@ test/Model/ScriptValuesTest.php
 test/Model/StandingShotSpreadPenaltyTest.php
 test/Model/StatsUsageFlagV2Test.php
 test/Model/SubclassBulletResistModifierTest.php
+test/Model/SubclassEmpoweredModifierLevelTest.php
 test/Model/SubclassIntrinsicModifiersTest.php
 test/Model/SubclassModifierDefinitionTest.php
 test/Model/SubclassObjectiveHealthGrowthPhaseTest.php

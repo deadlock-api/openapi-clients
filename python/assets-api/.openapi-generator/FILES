@@ -33,6 +33,7 @@ assets_deadlock_api_client/models/color_v1.py
 assets_deadlock_api_client/models/curve.py
 assets_deadlock_api_client/models/damage_flash_v2.py
 assets_deadlock_api_client/models/deadlock_assets_api_routes_valid_client_versions.py
+assets_deadlock_api_client/models/empowered_modifier_level.py
 assets_deadlock_api_client/models/expiration_duration.py
 assets_deadlock_api_client/models/flash_data_v2.py
 assets_deadlock_api_client/models/generic_data_v2.py
@@ -104,6 +105,7 @@ assets_deadlock_api_client/models/script_values.py
 assets_deadlock_api_client/models/standing_shot_spread_penalty.py
 assets_deadlock_api_client/models/stats_usage_flag_v2.py
 assets_deadlock_api_client/models/subclass_bullet_resist_modifier.py
+assets_deadlock_api_client/models/subclass_empowered_modifier_level.py
 assets_deadlock_api_client/models/subclass_intrinsic_modifiers.py
 assets_deadlock_api_client/models/subclass_modifier_definition.py
 assets_deadlock_api_client/models/subclass_objective_health_growth_phase.py
@@ -144,6 +146,7 @@ docs/Curve.md
 docs/DamageFlashV2.md
 docs/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/DefaultApi.md
+docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
 docs/GenericDataV2.md
@@ -220,6 +223,7 @@ docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
 docs/SubclassBulletResistModifier.md
+docs/SubclassEmpoweredModifierLevel.md
 docs/SubclassIntrinsicModifiers.md
 docs/SubclassModifierDefinition.md
 docs/SubclassObjectiveHealthGrowthPhase.md
@@ -265,6 +269,7 @@ test/test_curve.py
 test/test_damage_flash_v2.py
 test/test_deadlock_assets_api_routes_valid_client_versions.py
 test/test_default_api.py
+test/test_empowered_modifier_level.py
 test/test_expiration_duration.py
 test/test_flash_data_v2.py
 test/test_generic_data_v2.py
@@ -341,6 +346,7 @@ test/test_script_values.py
 test/test_standing_shot_spread_penalty.py
 test/test_stats_usage_flag_v2.py
 test/test_subclass_bullet_resist_modifier.py
+test/test_subclass_empowered_modifier_level.py
 test/test_subclass_intrinsic_modifiers.py
 test/test_subclass_modifier_definition.py
 test/test_subclass_objective_health_growth_phase.py

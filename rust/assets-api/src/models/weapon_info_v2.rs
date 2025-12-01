@@ -67,6 +67,8 @@ pub struct WeaponInfoV2 {
     pub range: Option<Option<f64>>,
     #[serde(rename = "recoil_recovery_delay_factor", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub recoil_recovery_delay_factor: Option<Option<f64>>,
+    #[serde(rename = "bullet_speed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub bullet_speed: Option<Option<f64>>,
     #[serde(rename = "recoil_recovery_speed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub recoil_recovery_speed: Option<Option<f64>>,
     #[serde(rename = "recoil_shot_index_recovery_time_factor", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -127,10 +129,16 @@ pub struct WeaponInfoV2 {
     pub vertical_recoil: Option<Option<Box<models::RawWeaponInfoVerticalRecoilV2>>>,
     #[serde(rename = "shots_per_second", deserialize_with = "Option::deserialize")]
     pub shots_per_second: Option<f64>,
+    #[serde(rename = "shots_per_second_with_reload", deserialize_with = "Option::deserialize")]
+    pub shots_per_second_with_reload: Option<f64>,
     #[serde(rename = "bullets_per_second", deserialize_with = "Option::deserialize")]
     pub bullets_per_second: Option<f64>,
+    #[serde(rename = "bullets_per_second_with_reload", deserialize_with = "Option::deserialize")]
+    pub bullets_per_second_with_reload: Option<f64>,
     #[serde(rename = "damage_per_second", deserialize_with = "Option::deserialize")]
     pub damage_per_second: Option<f64>,
+    #[serde(rename = "damage_per_second_with_reload", deserialize_with = "Option::deserialize")]
+    pub damage_per_second_with_reload: Option<f64>,
     #[serde(rename = "damage_per_shot", deserialize_with = "Option::deserialize")]
     pub damage_per_shot: Option<f64>,
     #[serde(rename = "damage_per_magazine", deserialize_with = "Option::deserialize")]
@@ -138,7 +146,7 @@ pub struct WeaponInfoV2 {
 }
 
 impl WeaponInfoV2 {
-    pub fn new(shots_per_second: Option<f64>, bullets_per_second: Option<f64>, damage_per_second: Option<f64>, damage_per_shot: Option<f64>, damage_per_magazine: Option<f64>) -> WeaponInfoV2 {
+    pub fn new(shots_per_second: Option<f64>, shots_per_second_with_reload: Option<f64>, bullets_per_second: Option<f64>, bullets_per_second_with_reload: Option<f64>, damage_per_second: Option<f64>, damage_per_second_with_reload: Option<f64>, damage_per_shot: Option<f64>, damage_per_magazine: Option<f64>) -> WeaponInfoV2 {
         WeaponInfoV2 {
             can_zoom: None,
             bullet_damage: None,
@@ -167,6 +175,7 @@ impl WeaponInfoV2 {
             horizontal_punch: None,
             range: None,
             recoil_recovery_delay_factor: None,
+            bullet_speed: None,
             recoil_recovery_speed: None,
             recoil_shot_index_recovery_time_factor: None,
             recoil_speed: None,
@@ -197,8 +206,11 @@ impl WeaponInfoV2 {
             horizontal_recoil: None,
             vertical_recoil: None,
             shots_per_second,
+            shots_per_second_with_reload,
             bullets_per_second,
+            bullets_per_second_with_reload,
             damage_per_second,
+            damage_per_second_with_reload,
             damage_per_shot,
             damage_per_magazine,
         }

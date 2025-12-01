@@ -65,6 +65,8 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health_final' => 'int',
         'max_health_generator' => 'int',
         'enemy_trooper_protection_range' => 'float',
+        'empowered_modifier_level1' => '\OpenAPI\Client\Model\SubclassEmpoweredModifierLevel',
+        'empowered_modifier_level2' => '\OpenAPI\Client\Model\SubclassEmpoweredModifierLevel',
         'backdoor_bullet_resist_modifier' => '\OpenAPI\Client\Model\SubclassBulletResistModifier',
         'objective_regen' => '\OpenAPI\Client\Model\SubclassObjectiveRegen',
         'objective_health_growth_phase1' => '\OpenAPI\Client\Model\SubclassObjectiveHealthGrowthPhase',
@@ -143,6 +145,8 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health_final' => null,
         'max_health_generator' => null,
         'enemy_trooper_protection_range' => null,
+        'empowered_modifier_level1' => null,
+        'empowered_modifier_level2' => null,
         'backdoor_bullet_resist_modifier' => null,
         'objective_regen' => null,
         'objective_health_growth_phase1' => null,
@@ -219,6 +223,8 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health_final' => true,
         'max_health_generator' => true,
         'enemy_trooper_protection_range' => true,
+        'empowered_modifier_level1' => true,
+        'empowered_modifier_level2' => true,
         'backdoor_bullet_resist_modifier' => true,
         'objective_regen' => true,
         'objective_health_growth_phase1' => true,
@@ -375,6 +381,8 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health_final' => 'max_health_final',
         'max_health_generator' => 'max_health_generator',
         'enemy_trooper_protection_range' => 'enemy_trooper_protection_range',
+        'empowered_modifier_level1' => 'empowered_modifier_level1',
+        'empowered_modifier_level2' => 'empowered_modifier_level2',
         'backdoor_bullet_resist_modifier' => 'backdoor_bullet_resist_modifier',
         'objective_regen' => 'objective_regen',
         'objective_health_growth_phase1' => 'objective_health_growth_phase1',
@@ -451,6 +459,8 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health_final' => 'setMaxHealthFinal',
         'max_health_generator' => 'setMaxHealthGenerator',
         'enemy_trooper_protection_range' => 'setEnemyTrooperProtectionRange',
+        'empowered_modifier_level1' => 'setEmpoweredModifierLevel1',
+        'empowered_modifier_level2' => 'setEmpoweredModifierLevel2',
         'backdoor_bullet_resist_modifier' => 'setBackdoorBulletResistModifier',
         'objective_regen' => 'setObjectiveRegen',
         'objective_health_growth_phase1' => 'setObjectiveHealthGrowthPhase1',
@@ -527,6 +537,8 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health_final' => 'getMaxHealthFinal',
         'max_health_generator' => 'getMaxHealthGenerator',
         'enemy_trooper_protection_range' => 'getEnemyTrooperProtectionRange',
+        'empowered_modifier_level1' => 'getEmpoweredModifierLevel1',
+        'empowered_modifier_level2' => 'getEmpoweredModifierLevel2',
         'backdoor_bullet_resist_modifier' => 'getBackdoorBulletResistModifier',
         'objective_regen' => 'getObjectiveRegen',
         'objective_health_growth_phase1' => 'getObjectiveHealthGrowthPhase1',
@@ -654,6 +666,8 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('max_health_final', $data ?? [], null);
         $this->setIfExists('max_health_generator', $data ?? [], null);
         $this->setIfExists('enemy_trooper_protection_range', $data ?? [], null);
+        $this->setIfExists('empowered_modifier_level1', $data ?? [], null);
+        $this->setIfExists('empowered_modifier_level2', $data ?? [], null);
         $this->setIfExists('backdoor_bullet_resist_modifier', $data ?? [], null);
         $this->setIfExists('objective_regen', $data ?? [], null);
         $this->setIfExists('objective_health_growth_phase1', $data ?? [], null);
@@ -1025,6 +1039,74 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['enemy_trooper_protection_range'] = $enemy_trooper_protection_range;
+
+        return $this;
+    }
+
+    /**
+     * Gets empowered_modifier_level1
+     *
+     * @return \OpenAPI\Client\Model\SubclassEmpoweredModifierLevel|null
+     */
+    public function getEmpoweredModifierLevel1()
+    {
+        return $this->container['empowered_modifier_level1'];
+    }
+
+    /**
+     * Sets empowered_modifier_level1
+     *
+     * @param \OpenAPI\Client\Model\SubclassEmpoweredModifierLevel|null $empowered_modifier_level1 empowered_modifier_level1
+     *
+     * @return self
+     */
+    public function setEmpoweredModifierLevel1($empowered_modifier_level1)
+    {
+        if (is_null($empowered_modifier_level1)) {
+            array_push($this->openAPINullablesSetToNull, 'empowered_modifier_level1');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('empowered_modifier_level1', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['empowered_modifier_level1'] = $empowered_modifier_level1;
+
+        return $this;
+    }
+
+    /**
+     * Gets empowered_modifier_level2
+     *
+     * @return \OpenAPI\Client\Model\SubclassEmpoweredModifierLevel|null
+     */
+    public function getEmpoweredModifierLevel2()
+    {
+        return $this->container['empowered_modifier_level2'];
+    }
+
+    /**
+     * Sets empowered_modifier_level2
+     *
+     * @param \OpenAPI\Client\Model\SubclassEmpoweredModifierLevel|null $empowered_modifier_level2 empowered_modifier_level2
+     *
+     * @return self
+     */
+    public function setEmpoweredModifierLevel2($empowered_modifier_level2)
+    {
+        if (is_null($empowered_modifier_level2)) {
+            array_push($this->openAPINullablesSetToNull, 'empowered_modifier_level2');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('empowered_modifier_level2', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['empowered_modifier_level2'] = $empowered_modifier_level2;
 
         return $this;
     }

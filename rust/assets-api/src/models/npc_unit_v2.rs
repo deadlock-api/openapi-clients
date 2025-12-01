@@ -29,6 +29,10 @@ pub struct NpcUnitV2 {
     pub max_health_generator: Option<Option<i32>>,
     #[serde(rename = "enemy_trooper_protection_range", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub enemy_trooper_protection_range: Option<Option<f64>>,
+    #[serde(rename = "empowered_modifier_level1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub empowered_modifier_level1: Option<Option<Box<models::SubclassEmpoweredModifierLevel>>>,
+    #[serde(rename = "empowered_modifier_level2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub empowered_modifier_level2: Option<Option<Box<models::SubclassEmpoweredModifierLevel>>>,
     #[serde(rename = "backdoor_bullet_resist_modifier", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub backdoor_bullet_resist_modifier: Option<Option<Box<models::SubclassBulletResistModifier>>>,
     #[serde(rename = "objective_regen", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -162,6 +166,8 @@ impl NpcUnitV2 {
             max_health_final: None,
             max_health_generator: None,
             enemy_trooper_protection_range: None,
+            empowered_modifier_level1: None,
+            empowered_modifier_level2: None,
             backdoor_bullet_resist_modifier: None,
             objective_regen: None,
             objective_health_growth_phase1: None,

@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **max_health_final** | Option<**i32**> |  | [optional]
 **max_health_generator** | Option<**i32**> |  | [optional]
 **enemy_trooper_protection_range** | Option<**f64**> |  | [optional]
+**empowered_modifier_level1** | Option<[**models::SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md)> |  | [optional]
+**empowered_modifier_level2** | Option<[**models::SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md)> |  | [optional]
 **backdoor_bullet_resist_modifier** | Option<[**models::SubclassBulletResistModifier**](SubclassBulletResistModifier.md)> |  | [optional]
 **objective_regen** | Option<[**models::SubclassObjectiveRegen**](SubclassObjectiveRegen.md)> |  | [optional]
 **objective_health_growth_phase1** | Option<[**models::SubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md)> |  | [optional]

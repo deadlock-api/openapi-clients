@@ -48,6 +48,7 @@ type WeaponInfoV2 struct {
 	HorizontalPunch NullableFloat32 `json:"horizontal_punch,omitempty"`
 	Range NullableFloat32 `json:"range,omitempty"`
 	RecoilRecoveryDelayFactor NullableFloat32 `json:"recoil_recovery_delay_factor,omitempty"`
+	BulletSpeed NullableFloat32 `json:"bullet_speed,omitempty"`
 	RecoilRecoverySpeed NullableFloat32 `json:"recoil_recovery_speed,omitempty"`
 	RecoilShotIndexRecoveryTimeFactor NullableFloat32 `json:"recoil_shot_index_recovery_time_factor,omitempty"`
 	RecoilSpeed NullableFloat32 `json:"recoil_speed,omitempty"`
@@ -78,8 +79,11 @@ type WeaponInfoV2 struct {
 	HorizontalRecoil NullableRawWeaponInfoHorizontalRecoilV2 `json:"horizontal_recoil,omitempty"`
 	VerticalRecoil NullableRawWeaponInfoVerticalRecoilV2 `json:"vertical_recoil,omitempty"`
 	ShotsPerSecond NullableFloat32 `json:"shots_per_second"`
+	ShotsPerSecondWithReload NullableFloat32 `json:"shots_per_second_with_reload"`
 	BulletsPerSecond NullableFloat32 `json:"bullets_per_second"`
+	BulletsPerSecondWithReload NullableFloat32 `json:"bullets_per_second_with_reload"`
 	DamagePerSecond NullableFloat32 `json:"damage_per_second"`
+	DamagePerSecondWithReload NullableFloat32 `json:"damage_per_second_with_reload"`
 	DamagePerShot NullableFloat32 `json:"damage_per_shot"`
 	DamagePerMagazine NullableFloat32 `json:"damage_per_magazine"`
 }
@@ -90,11 +94,14 @@ type _WeaponInfoV2 WeaponInfoV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWeaponInfoV2(shotsPerSecond NullableFloat32, bulletsPerSecond NullableFloat32, damagePerSecond NullableFloat32, damagePerShot NullableFloat32, damagePerMagazine NullableFloat32) *WeaponInfoV2 {
+func NewWeaponInfoV2(shotsPerSecond NullableFloat32, shotsPerSecondWithReload NullableFloat32, bulletsPerSecond NullableFloat32, bulletsPerSecondWithReload NullableFloat32, damagePerSecond NullableFloat32, damagePerSecondWithReload NullableFloat32, damagePerShot NullableFloat32, damagePerMagazine NullableFloat32) *WeaponInfoV2 {
 	this := WeaponInfoV2{}
 	this.ShotsPerSecond = shotsPerSecond
+	this.ShotsPerSecondWithReload = shotsPerSecondWithReload
 	this.BulletsPerSecond = bulletsPerSecond
+	this.BulletsPerSecondWithReload = bulletsPerSecondWithReload
 	this.DamagePerSecond = damagePerSecond
+	this.DamagePerSecondWithReload = damagePerSecondWithReload
 	this.DamagePerShot = damagePerShot
 	this.DamagePerMagazine = damagePerMagazine
 	return &this
@@ -1240,6 +1247,48 @@ func (o *WeaponInfoV2) SetRecoilRecoveryDelayFactorNil() {
 // UnsetRecoilRecoveryDelayFactor ensures that no value is present for RecoilRecoveryDelayFactor, not even an explicit nil
 func (o *WeaponInfoV2) UnsetRecoilRecoveryDelayFactor() {
 	o.RecoilRecoveryDelayFactor.Unset()
+}
+
+// GetBulletSpeed returns the BulletSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WeaponInfoV2) GetBulletSpeed() float32 {
+	if o == nil || IsNil(o.BulletSpeed.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.BulletSpeed.Get()
+}
+
+// GetBulletSpeedOk returns a tuple with the BulletSpeed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetBulletSpeedOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BulletSpeed.Get(), o.BulletSpeed.IsSet()
+}
+
+// HasBulletSpeed returns a boolean if a field has been set.
+func (o *WeaponInfoV2) HasBulletSpeed() bool {
+	if o != nil && o.BulletSpeed.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBulletSpeed gets a reference to the given NullableFloat32 and assigns it to the BulletSpeed field.
+func (o *WeaponInfoV2) SetBulletSpeed(v float32) {
+	o.BulletSpeed.Set(&v)
+}
+// SetBulletSpeedNil sets the value for BulletSpeed to be an explicit nil
+func (o *WeaponInfoV2) SetBulletSpeedNil() {
+	o.BulletSpeed.Set(nil)
+}
+
+// UnsetBulletSpeed ensures that no value is present for BulletSpeed, not even an explicit nil
+func (o *WeaponInfoV2) UnsetBulletSpeed() {
+	o.BulletSpeed.Unset()
 }
 
 // GetRecoilRecoverySpeed returns the RecoilRecoverySpeed field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2486,6 +2535,32 @@ func (o *WeaponInfoV2) SetShotsPerSecond(v float32) {
 	o.ShotsPerSecond.Set(&v)
 }
 
+// GetShotsPerSecondWithReload returns the ShotsPerSecondWithReload field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *WeaponInfoV2) GetShotsPerSecondWithReload() float32 {
+	if o == nil || o.ShotsPerSecondWithReload.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.ShotsPerSecondWithReload.Get()
+}
+
+// GetShotsPerSecondWithReloadOk returns a tuple with the ShotsPerSecondWithReload field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetShotsPerSecondWithReloadOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ShotsPerSecondWithReload.Get(), o.ShotsPerSecondWithReload.IsSet()
+}
+
+// SetShotsPerSecondWithReload sets field value
+func (o *WeaponInfoV2) SetShotsPerSecondWithReload(v float32) {
+	o.ShotsPerSecondWithReload.Set(&v)
+}
+
 // GetBulletsPerSecond returns the BulletsPerSecond field value
 // If the value is explicit nil, the zero value for float32 will be returned
 func (o *WeaponInfoV2) GetBulletsPerSecond() float32 {
@@ -2512,6 +2587,32 @@ func (o *WeaponInfoV2) SetBulletsPerSecond(v float32) {
 	o.BulletsPerSecond.Set(&v)
 }
 
+// GetBulletsPerSecondWithReload returns the BulletsPerSecondWithReload field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *WeaponInfoV2) GetBulletsPerSecondWithReload() float32 {
+	if o == nil || o.BulletsPerSecondWithReload.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.BulletsPerSecondWithReload.Get()
+}
+
+// GetBulletsPerSecondWithReloadOk returns a tuple with the BulletsPerSecondWithReload field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetBulletsPerSecondWithReloadOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BulletsPerSecondWithReload.Get(), o.BulletsPerSecondWithReload.IsSet()
+}
+
+// SetBulletsPerSecondWithReload sets field value
+func (o *WeaponInfoV2) SetBulletsPerSecondWithReload(v float32) {
+	o.BulletsPerSecondWithReload.Set(&v)
+}
+
 // GetDamagePerSecond returns the DamagePerSecond field value
 // If the value is explicit nil, the zero value for float32 will be returned
 func (o *WeaponInfoV2) GetDamagePerSecond() float32 {
@@ -2536,6 +2637,32 @@ func (o *WeaponInfoV2) GetDamagePerSecondOk() (*float32, bool) {
 // SetDamagePerSecond sets field value
 func (o *WeaponInfoV2) SetDamagePerSecond(v float32) {
 	o.DamagePerSecond.Set(&v)
+}
+
+// GetDamagePerSecondWithReload returns the DamagePerSecondWithReload field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *WeaponInfoV2) GetDamagePerSecondWithReload() float32 {
+	if o == nil || o.DamagePerSecondWithReload.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.DamagePerSecondWithReload.Get()
+}
+
+// GetDamagePerSecondWithReloadOk returns a tuple with the DamagePerSecondWithReload field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetDamagePerSecondWithReloadOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DamagePerSecondWithReload.Get(), o.DamagePerSecondWithReload.IsSet()
+}
+
+// SetDamagePerSecondWithReload sets field value
+func (o *WeaponInfoV2) SetDamagePerSecondWithReload(v float32) {
+	o.DamagePerSecondWithReload.Set(&v)
 }
 
 // GetDamagePerShot returns the DamagePerShot field value
@@ -2681,6 +2808,9 @@ func (o WeaponInfoV2) ToMap() (map[string]interface{}, error) {
 	if o.RecoilRecoveryDelayFactor.IsSet() {
 		toSerialize["recoil_recovery_delay_factor"] = o.RecoilRecoveryDelayFactor.Get()
 	}
+	if o.BulletSpeed.IsSet() {
+		toSerialize["bullet_speed"] = o.BulletSpeed.Get()
+	}
 	if o.RecoilRecoverySpeed.IsSet() {
 		toSerialize["recoil_recovery_speed"] = o.RecoilRecoverySpeed.Get()
 	}
@@ -2769,8 +2899,11 @@ func (o WeaponInfoV2) ToMap() (map[string]interface{}, error) {
 		toSerialize["vertical_recoil"] = o.VerticalRecoil.Get()
 	}
 	toSerialize["shots_per_second"] = o.ShotsPerSecond.Get()
+	toSerialize["shots_per_second_with_reload"] = o.ShotsPerSecondWithReload.Get()
 	toSerialize["bullets_per_second"] = o.BulletsPerSecond.Get()
+	toSerialize["bullets_per_second_with_reload"] = o.BulletsPerSecondWithReload.Get()
 	toSerialize["damage_per_second"] = o.DamagePerSecond.Get()
+	toSerialize["damage_per_second_with_reload"] = o.DamagePerSecondWithReload.Get()
 	toSerialize["damage_per_shot"] = o.DamagePerShot.Get()
 	toSerialize["damage_per_magazine"] = o.DamagePerMagazine.Get()
 	return toSerialize, nil
@@ -2782,8 +2915,11 @@ func (o *WeaponInfoV2) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"shots_per_second",
+		"shots_per_second_with_reload",
 		"bullets_per_second",
+		"bullets_per_second_with_reload",
 		"damage_per_second",
+		"damage_per_second_with_reload",
 		"damage_per_shot",
 		"damage_per_magazine",
 	}

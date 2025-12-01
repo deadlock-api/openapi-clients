@@ -21,6 +21,7 @@ import io.kotlintest.specs.ShouldSpec
 import assets_deadlock_api_client.models.NPCUnitV2
 import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.SubclassBulletResistModifier
+import assets_deadlock_api_client.models.SubclassEmpoweredModifierLevel
 import assets_deadlock_api_client.models.SubclassIntrinsicModifiers
 import assets_deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase
 import assets_deadlock_api_client.models.SubclassObjectiveRegen
@@ -85,6 +86,18 @@ class NPCUnitV2Test : ShouldSpec() {
         should("test enemyTrooperProtectionRange") {
             // uncomment below to test the property
             //modelInstance.enemyTrooperProtectionRange shouldBe ("TODO")
+        }
+
+        // to test the property `empoweredModifierLevel1`
+        should("test empoweredModifierLevel1") {
+            // uncomment below to test the property
+            //modelInstance.empoweredModifierLevel1 shouldBe ("TODO")
+        }
+
+        // to test the property `empoweredModifierLevel2`
+        should("test empoweredModifierLevel2") {
+            // uncomment below to test the property
+            //modelInstance.empoweredModifierLevel2 shouldBe ("TODO")
         }
 
         // to test the property `backdoorBulletResistModifier`

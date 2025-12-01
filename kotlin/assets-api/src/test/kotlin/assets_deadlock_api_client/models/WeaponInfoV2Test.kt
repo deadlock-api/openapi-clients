@@ -36,16 +36,34 @@ class WeaponInfoV2Test : ShouldSpec() {
             //modelInstance.shotsPerSecond shouldBe ("TODO")
         }
 
+        // to test the property `shotsPerSecondWithReload`
+        should("test shotsPerSecondWithReload") {
+            // uncomment below to test the property
+            //modelInstance.shotsPerSecondWithReload shouldBe ("TODO")
+        }
+
         // to test the property `bulletsPerSecond`
         should("test bulletsPerSecond") {
             // uncomment below to test the property
             //modelInstance.bulletsPerSecond shouldBe ("TODO")
         }
 
+        // to test the property `bulletsPerSecondWithReload`
+        should("test bulletsPerSecondWithReload") {
+            // uncomment below to test the property
+            //modelInstance.bulletsPerSecondWithReload shouldBe ("TODO")
+        }
+
         // to test the property `damagePerSecond`
         should("test damagePerSecond") {
             // uncomment below to test the property
             //modelInstance.damagePerSecond shouldBe ("TODO")
+        }
+
+        // to test the property `damagePerSecondWithReload`
+        should("test damagePerSecondWithReload") {
+            // uncomment below to test the property
+            //modelInstance.damagePerSecondWithReload shouldBe ("TODO")
         }
 
         // to test the property `damagePerShot`
@@ -220,6 +238,12 @@ class WeaponInfoV2Test : ShouldSpec() {
         should("test recoilRecoveryDelayFactor") {
             // uncomment below to test the property
             //modelInstance.recoilRecoveryDelayFactor shouldBe ("TODO")
+        }
+
+        // to test the property `bulletSpeed`
+        should("test bulletSpeed") {
+            // uncomment below to test the property
+            //modelInstance.bulletSpeed shouldBe ("TODO")
         }
 
         // to test the property `recoilRecoverySpeed`

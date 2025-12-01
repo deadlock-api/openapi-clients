@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **horizontal_punch** | **number** |  | [optional] [default to undefined]
 **range** | **number** |  | [optional] [default to undefined]
 **recoil_recovery_delay_factor** | **number** |  | [optional] [default to undefined]
+**bullet_speed** | **number** |  | [optional] [default to undefined]
 **recoil_recovery_speed** | **number** |  | [optional] [default to undefined]
 **recoil_shot_index_recovery_time_factor** | **number** |  | [optional] [default to undefined]
 **recoil_speed** | **number** |  | [optional] [default to undefined]
@@ -62,8 +63,11 @@ Name | Type | Description | Notes
 **horizontal_recoil** | [**RawWeaponInfoHorizontalRecoilV2**](RawWeaponInfoHorizontalRecoilV2.md) |  | [optional] [default to undefined]
 **vertical_recoil** | [**RawWeaponInfoVerticalRecoilV2**](RawWeaponInfoVerticalRecoilV2.md) |  | [optional] [default to undefined]
 **shots_per_second** | **number** |  | [readonly] [default to undefined]
+**shots_per_second_with_reload** | **number** |  | [readonly] [default to undefined]
 **bullets_per_second** | **number** |  | [readonly] [default to undefined]
+**bullets_per_second_with_reload** | **number** |  | [readonly] [default to undefined]
 **damage_per_second** | **number** |  | [readonly] [default to undefined]
+**damage_per_second_with_reload** | **number** |  | [readonly] [default to undefined]
 **damage_per_shot** | **number** |  | [readonly] [default to undefined]
 **damage_per_magazine** | **number** |  | [readonly] [default to undefined]
 
@@ -100,6 +104,7 @@ const instance: WeaponInfoV2 = {
     horizontal_punch,
     range,
     recoil_recovery_delay_factor,
+    bullet_speed,
     recoil_recovery_speed,
     recoil_shot_index_recovery_time_factor,
     recoil_speed,
@@ -130,8 +135,11 @@ const instance: WeaponInfoV2 = {
     horizontal_recoil,
     vertical_recoil,
     shots_per_second,
+    shots_per_second_with_reload,
     bullets_per_second,
+    bullets_per_second_with_reload,
     damage_per_second,
+    damage_per_second_with_reload,
     damage_per_shot,
     damage_per_magazine,
 };

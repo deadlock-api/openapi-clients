@@ -323,6 +323,15 @@ class WeaponInfoV2Test extends TestCase
     }
 
     /**
+     * Test attribute "bullet_speed"
+     */
+    public function testPropertyBulletSpeed()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "recoil_recovery_speed"
      */
     public function testPropertyRecoilRecoverySpeed()
@@ -593,6 +602,15 @@ class WeaponInfoV2Test extends TestCase
     }
 
     /**
+     * Test attribute "shots_per_second_with_reload"
+     */
+    public function testPropertyShotsPerSecondWithReload()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "bullets_per_second"
      */
     public function testPropertyBulletsPerSecond()
@@ -602,9 +620,27 @@ class WeaponInfoV2Test extends TestCase
     }
 
     /**
+     * Test attribute "bullets_per_second_with_reload"
+     */
+    public function testPropertyBulletsPerSecondWithReload()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "damage_per_second"
      */
     public function testPropertyDamagePerSecond()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "damage_per_second_with_reload"
+     */
+    public function testPropertyDamagePerSecondWithReload()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

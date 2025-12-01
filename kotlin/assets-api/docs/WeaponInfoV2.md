@@ -5,8 +5,11 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **shotsPerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
+| **shotsPerSecondWithReload** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
 | **bulletsPerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
+| **bulletsPerSecondWithReload** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
 | **damagePerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
+| **damagePerSecondWithReload** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
 | **damagePerShot** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
 | **damagePerMagazine** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
 | **canZoom** | **kotlin.Boolean** |  |  [optional] |
@@ -36,6 +39,7 @@
 | **horizontalPunch** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **range** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **recoilRecoveryDelayFactor** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **bulletSpeed** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **recoilRecoverySpeed** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **recoilShotIndexRecoveryTimeFactor** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **recoilSpeed** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

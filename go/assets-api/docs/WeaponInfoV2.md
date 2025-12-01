@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **HorizontalPunch** | Pointer to **NullableFloat32** |  | [optional] 
 **Range** | Pointer to **NullableFloat32** |  | [optional] 
 **RecoilRecoveryDelayFactor** | Pointer to **NullableFloat32** |  | [optional] 
+**BulletSpeed** | Pointer to **NullableFloat32** |  | [optional] 
 **RecoilRecoverySpeed** | Pointer to **NullableFloat32** |  | [optional] 
 **RecoilShotIndexRecoveryTimeFactor** | Pointer to **NullableFloat32** |  | [optional] 
 **RecoilSpeed** | Pointer to **NullableFloat32** |  | [optional] 
@@ -61,8 +62,11 @@ Name | Type | Description | Notes
 **HorizontalRecoil** | Pointer to [**NullableRawWeaponInfoHorizontalRecoilV2**](RawWeaponInfoHorizontalRecoilV2.md) |  | [optional] 
 **VerticalRecoil** | Pointer to [**NullableRawWeaponInfoVerticalRecoilV2**](RawWeaponInfoVerticalRecoilV2.md) |  | [optional] 
 **ShotsPerSecond** | **NullableFloat32** |  | [readonly] 
+**ShotsPerSecondWithReload** | **NullableFloat32** |  | [readonly] 
 **BulletsPerSecond** | **NullableFloat32** |  | [readonly] 
+**BulletsPerSecondWithReload** | **NullableFloat32** |  | [readonly] 
 **DamagePerSecond** | **NullableFloat32** |  | [readonly] 
+**DamagePerSecondWithReload** | **NullableFloat32** |  | [readonly] 
 **DamagePerShot** | **NullableFloat32** |  | [readonly] 
 **DamagePerMagazine** | **NullableFloat32** |  | [readonly] 
 
@@ -70,7 +74,7 @@ Name | Type | Description | Notes
 
 ### NewWeaponInfoV2
 
-`func NewWeaponInfoV2(shotsPerSecond NullableFloat32, bulletsPerSecond NullableFloat32, damagePerSecond NullableFloat32, damagePerShot NullableFloat32, damagePerMagazine NullableFloat32, ) *WeaponInfoV2`
+`func NewWeaponInfoV2(shotsPerSecond NullableFloat32, shotsPerSecondWithReload NullableFloat32, bulletsPerSecond NullableFloat32, bulletsPerSecondWithReload NullableFloat32, damagePerSecond NullableFloat32, damagePerSecondWithReload NullableFloat32, damagePerShot NullableFloat32, damagePerMagazine NullableFloat32, ) *WeaponInfoV2`
 
 NewWeaponInfoV2 instantiates a new WeaponInfoV2 object
 This constructor will assign default values to properties that have it defined,
@@ -1030,6 +1034,41 @@ HasRecoilRecoveryDelayFactor returns a boolean if a field has been set.
 `func (o *WeaponInfoV2) UnsetRecoilRecoveryDelayFactor()`
 
 UnsetRecoilRecoveryDelayFactor ensures that no value is present for RecoilRecoveryDelayFactor, not even an explicit nil
+### GetBulletSpeed
+
+`func (o *WeaponInfoV2) GetBulletSpeed() float32`
+
+GetBulletSpeed returns the BulletSpeed field if non-nil, zero value otherwise.
+
+### GetBulletSpeedOk
+
+`func (o *WeaponInfoV2) GetBulletSpeedOk() (*float32, bool)`
+
+GetBulletSpeedOk returns a tuple with the BulletSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBulletSpeed
+
+`func (o *WeaponInfoV2) SetBulletSpeed(v float32)`
+
+SetBulletSpeed sets BulletSpeed field to given value.
+
+### HasBulletSpeed
+
+`func (o *WeaponInfoV2) HasBulletSpeed() bool`
+
+HasBulletSpeed returns a boolean if a field has been set.
+
+### SetBulletSpeedNil
+
+`func (o *WeaponInfoV2) SetBulletSpeedNil(b bool)`
+
+ SetBulletSpeedNil sets the value for BulletSpeed to be an explicit nil
+
+### UnsetBulletSpeed
+`func (o *WeaponInfoV2) UnsetBulletSpeed()`
+
+UnsetBulletSpeed ensures that no value is present for BulletSpeed, not even an explicit nil
 ### GetRecoilRecoverySpeed
 
 `func (o *WeaponInfoV2) GetRecoilRecoverySpeed() float32`
@@ -2075,6 +2114,36 @@ SetShotsPerSecond sets ShotsPerSecond field to given value.
 `func (o *WeaponInfoV2) UnsetShotsPerSecond()`
 
 UnsetShotsPerSecond ensures that no value is present for ShotsPerSecond, not even an explicit nil
+### GetShotsPerSecondWithReload
+
+`func (o *WeaponInfoV2) GetShotsPerSecondWithReload() float32`
+
+GetShotsPerSecondWithReload returns the ShotsPerSecondWithReload field if non-nil, zero value otherwise.
+
+### GetShotsPerSecondWithReloadOk
+
+`func (o *WeaponInfoV2) GetShotsPerSecondWithReloadOk() (*float32, bool)`
+
+GetShotsPerSecondWithReloadOk returns a tuple with the ShotsPerSecondWithReload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShotsPerSecondWithReload
+
+`func (o *WeaponInfoV2) SetShotsPerSecondWithReload(v float32)`
+
+SetShotsPerSecondWithReload sets ShotsPerSecondWithReload field to given value.
+
+
+### SetShotsPerSecondWithReloadNil
+
+`func (o *WeaponInfoV2) SetShotsPerSecondWithReloadNil(b bool)`
+
+ SetShotsPerSecondWithReloadNil sets the value for ShotsPerSecondWithReload to be an explicit nil
+
+### UnsetShotsPerSecondWithReload
+`func (o *WeaponInfoV2) UnsetShotsPerSecondWithReload()`
+
+UnsetShotsPerSecondWithReload ensures that no value is present for ShotsPerSecondWithReload, not even an explicit nil
 ### GetBulletsPerSecond
 
 `func (o *WeaponInfoV2) GetBulletsPerSecond() float32`
@@ -2105,6 +2174,36 @@ SetBulletsPerSecond sets BulletsPerSecond field to given value.
 `func (o *WeaponInfoV2) UnsetBulletsPerSecond()`
 
 UnsetBulletsPerSecond ensures that no value is present for BulletsPerSecond, not even an explicit nil
+### GetBulletsPerSecondWithReload
+
+`func (o *WeaponInfoV2) GetBulletsPerSecondWithReload() float32`
+
+GetBulletsPerSecondWithReload returns the BulletsPerSecondWithReload field if non-nil, zero value otherwise.
+
+### GetBulletsPerSecondWithReloadOk
+
+`func (o *WeaponInfoV2) GetBulletsPerSecondWithReloadOk() (*float32, bool)`
+
+GetBulletsPerSecondWithReloadOk returns a tuple with the BulletsPerSecondWithReload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBulletsPerSecondWithReload
+
+`func (o *WeaponInfoV2) SetBulletsPerSecondWithReload(v float32)`
+
+SetBulletsPerSecondWithReload sets BulletsPerSecondWithReload field to given value.
+
+
+### SetBulletsPerSecondWithReloadNil
+
+`func (o *WeaponInfoV2) SetBulletsPerSecondWithReloadNil(b bool)`
+
+ SetBulletsPerSecondWithReloadNil sets the value for BulletsPerSecondWithReload to be an explicit nil
+
+### UnsetBulletsPerSecondWithReload
+`func (o *WeaponInfoV2) UnsetBulletsPerSecondWithReload()`
+
+UnsetBulletsPerSecondWithReload ensures that no value is present for BulletsPerSecondWithReload, not even an explicit nil
 ### GetDamagePerSecond
 
 `func (o *WeaponInfoV2) GetDamagePerSecond() float32`
@@ -2135,6 +2234,36 @@ SetDamagePerSecond sets DamagePerSecond field to given value.
 `func (o *WeaponInfoV2) UnsetDamagePerSecond()`
 
 UnsetDamagePerSecond ensures that no value is present for DamagePerSecond, not even an explicit nil
+### GetDamagePerSecondWithReload
+
+`func (o *WeaponInfoV2) GetDamagePerSecondWithReload() float32`
+
+GetDamagePerSecondWithReload returns the DamagePerSecondWithReload field if non-nil, zero value otherwise.
+
+### GetDamagePerSecondWithReloadOk
+
+`func (o *WeaponInfoV2) GetDamagePerSecondWithReloadOk() (*float32, bool)`
+
+GetDamagePerSecondWithReloadOk returns a tuple with the DamagePerSecondWithReload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDamagePerSecondWithReload
+
+`func (o *WeaponInfoV2) SetDamagePerSecondWithReload(v float32)`
+
+SetDamagePerSecondWithReload sets DamagePerSecondWithReload field to given value.
+
+
+### SetDamagePerSecondWithReloadNil
+
+`func (o *WeaponInfoV2) SetDamagePerSecondWithReloadNil(b bool)`
+
+ SetDamagePerSecondWithReloadNil sets the value for DamagePerSecondWithReload to be an explicit nil
+
+### UnsetDamagePerSecondWithReload
+`func (o *WeaponInfoV2) UnsetDamagePerSecondWithReload()`
+
+UnsetDamagePerSecondWithReload ensures that no value is present for DamagePerSecondWithReload, not even an explicit nil
 ### GetDamagePerShot
 
 `func (o *WeaponInfoV2) GetDamagePerShot() float32`

@@ -152,6 +152,24 @@ class NPCUnitV2Test extends TestCase
     }
 
     /**
+     * Test attribute "empowered_modifier_level1"
+     */
+    public function testPropertyEmpoweredModifierLevel1()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "empowered_modifier_level2"
+     */
+    public function testPropertyEmpoweredModifierLevel2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "backdoor_bullet_resist_modifier"
      */
     public function testPropertyBackdoorBulletResistModifier()

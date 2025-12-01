@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **max_health_final** | **int** |  | [optional] 
 **max_health_generator** | **int** |  | [optional] 
 **enemy_trooper_protection_range** | **float** |  | [optional] 
+**empowered_modifier_level1** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] 
+**empowered_modifier_level2** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] 
 **backdoor_bullet_resist_modifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] 
 **objective_regen** | [**SubclassObjectiveRegen**](SubclassObjectiveRegen.md) |  | [optional] 
 **objective_health_growth_phase1** | [**SubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  | [optional] 

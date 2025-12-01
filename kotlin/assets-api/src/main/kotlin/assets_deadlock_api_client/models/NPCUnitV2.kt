@@ -17,6 +17,7 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ColorV1
 import assets_deadlock_api_client.models.SubclassBulletResistModifier
+import assets_deadlock_api_client.models.SubclassEmpoweredModifierLevel
 import assets_deadlock_api_client.models.SubclassIntrinsicModifiers
 import assets_deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase
 import assets_deadlock_api_client.models.SubclassObjectiveRegen
@@ -40,6 +41,8 @@ import java.io.Serializable
  * @param maxHealthFinal 
  * @param maxHealthGenerator 
  * @param enemyTrooperProtectionRange 
+ * @param empoweredModifierLevel1 
+ * @param empoweredModifierLevel2 
  * @param backdoorBulletResistModifier 
  * @param objectiveRegen 
  * @param objectiveHealthGrowthPhase1 
@@ -130,6 +133,12 @@ data class NPCUnitV2 (
 
     @Json(name = "enemy_trooper_protection_range")
     val enemyTrooperProtectionRange: java.math.BigDecimal? = null,
+
+    @Json(name = "empowered_modifier_level1")
+    val empoweredModifierLevel1: SubclassEmpoweredModifierLevel? = null,
+
+    @Json(name = "empowered_modifier_level2")
+    val empoweredModifierLevel2: SubclassEmpoweredModifierLevel? = null,
 
     @Json(name = "backdoor_bullet_resist_modifier")
     val backdoorBulletResistModifier: SubclassBulletResistModifier? = null,

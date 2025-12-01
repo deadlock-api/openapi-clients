@@ -64,6 +64,7 @@ class TestNPCUnitV2(unittest.TestCase):
                     horizontal_punch = 1.337, 
                     range = 1.337, 
                     recoil_recovery_delay_factor = 1.337, 
+                    bullet_speed = 1.337, 
                     recoil_recovery_speed = 1.337, 
                     recoil_shot_index_recovery_time_factor = 1.337, 
                     recoil_speed = 1.337, 
@@ -112,8 +113,11 @@ class TestNPCUnitV2(unittest.TestCase):
                         burst_constant = 1.337, 
                         burst_slope = 1.337, ), 
                     shots_per_second = 1.337, 
+                    shots_per_second_with_reload = 1.337, 
                     bullets_per_second = 1.337, 
+                    bullets_per_second_with_reload = 1.337, 
                     damage_per_second = 1.337, 
+                    damage_per_second_with_reload = 1.337, 
                     damage_per_shot = 1.337, 
                     damage_per_magazine = 1.337, ),
                 max_health = 56,
@@ -124,6 +128,16 @@ class TestNPCUnitV2(unittest.TestCase):
                 max_health_final = 56,
                 max_health_generator = 56,
                 enemy_trooper_protection_range = 1.337,
+                empowered_modifier_level1 = assets_deadlock_api_client.models.subclass_empowered_modifier_level.SubclassEmpoweredModifierLevel(
+                    subclass = assets_deadlock_api_client.models.empowered_modifier_level.EmpoweredModifierLevel(
+                        max_health = 56, 
+                        transition_duration = 1.337, 
+                        model_scale = 1.337, ), ),
+                empowered_modifier_level2 = assets_deadlock_api_client.models.subclass_empowered_modifier_level.SubclassEmpoweredModifierLevel(
+                    subclass = assets_deadlock_api_client.models.empowered_modifier_level.EmpoweredModifierLevel(
+                        max_health = 56, 
+                        transition_duration = 1.337, 
+                        model_scale = 1.337, ), ),
                 backdoor_bullet_resist_modifier = assets_deadlock_api_client.models.subclass_bullet_resist_modifier.SubclassBulletResistModifier(
                     subclass = assets_deadlock_api_client.models.bullet_resist_modifier.BulletResistModifier(
                         bullet_resist = 56, 

@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.color_v1 import ColorV1
 from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier
+from assets_deadlock_api_client.models.subclass_empowered_modifier_level import SubclassEmpoweredModifierLevel
 from assets_deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers
 from assets_deadlock_api_client.models.subclass_objective_health_growth_phase import SubclassObjectiveHealthGrowthPhase
 from assets_deadlock_api_client.models.subclass_objective_regen import SubclassObjectiveRegen
@@ -42,6 +43,8 @@ class NPCUnitV2(BaseModel):
     max_health_final: Optional[StrictInt] = None
     max_health_generator: Optional[StrictInt] = None
     enemy_trooper_protection_range: Optional[Union[StrictFloat, StrictInt]] = None
+    empowered_modifier_level1: Optional[SubclassEmpoweredModifierLevel] = None
+    empowered_modifier_level2: Optional[SubclassEmpoweredModifierLevel] = None
     backdoor_bullet_resist_modifier: Optional[SubclassBulletResistModifier] = None
     objective_regen: Optional[SubclassObjectiveRegen] = None
     objective_health_growth_phase1: Optional[SubclassObjectiveHealthGrowthPhase] = None
@@ -102,7 +105,7 @@ class NPCUnitV2(BaseModel):
     glow_color_team2: Optional[ColorV1] = None
     glow_color_team_neutral: Optional[ColorV1] = None
     id: StrictInt
-    __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "phase2_health", "bound_abilities", "max_health_final", "max_health_generator", "enemy_trooper_protection_range", "backdoor_bullet_resist_modifier", "objective_regen", "objective_health_growth_phase1", "objective_health_growth_phase2", "enemy_trooper_damage_reduction", "ranged_armor_modifier", "intrinsic_modifiers", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "player_damage_resist_pct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "laser_dps_to_players", "laser_dps_max_health", "no_shield_laser_dps_to_players", "stomp_damage", "stomp_damage_max_health_percent", "stun_duration", "stomp_impact_radius", "walk_speed", "run_speed", "acceleration", "melee_damage", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "glow_color_friend", "glow_color_enemy", "glow_color_team1", "glow_color_team2", "glow_color_team_neutral", "id"]
+    __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "phase2_health", "bound_abilities", "max_health_final", "max_health_generator", "enemy_trooper_protection_range", "empowered_modifier_level1", "empowered_modifier_level2", "backdoor_bullet_resist_modifier", "objective_regen", "objective_health_growth_phase1", "objective_health_growth_phase2", "enemy_trooper_damage_reduction", "ranged_armor_modifier", "intrinsic_modifiers", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "player_damage_resist_pct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "laser_dps_to_players", "laser_dps_max_health", "no_shield_laser_dps_to_players", "stomp_damage", "stomp_damage_max_health_percent", "stun_duration", "stomp_impact_radius", "walk_speed", "run_speed", "acceleration", "melee_damage", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "glow_color_friend", "glow_color_enemy", "glow_color_team1", "glow_color_team2", "glow_color_team_neutral", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -148,6 +151,12 @@ class NPCUnitV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of weapon_info
         if self.weapon_info:
             _dict['weapon_info'] = self.weapon_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of empowered_modifier_level1
+        if self.empowered_modifier_level1:
+            _dict['empowered_modifier_level1'] = self.empowered_modifier_level1.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of empowered_modifier_level2
+        if self.empowered_modifier_level2:
+            _dict['empowered_modifier_level2'] = self.empowered_modifier_level2.to_dict()
         # override the default output from pydantic by calling `to_dict()` of backdoor_bullet_resist_modifier
         if self.backdoor_bullet_resist_modifier:
             _dict['backdoor_bullet_resist_modifier'] = self.backdoor_bullet_resist_modifier.to_dict()
@@ -237,6 +246,16 @@ class NPCUnitV2(BaseModel):
         # and model_fields_set contains the field
         if self.enemy_trooper_protection_range is None and "enemy_trooper_protection_range" in self.model_fields_set:
             _dict['enemy_trooper_protection_range'] = None
+
+        # set to None if empowered_modifier_level1 (nullable) is None
+        # and model_fields_set contains the field
+        if self.empowered_modifier_level1 is None and "empowered_modifier_level1" in self.model_fields_set:
+            _dict['empowered_modifier_level1'] = None
+
+        # set to None if empowered_modifier_level2 (nullable) is None
+        # and model_fields_set contains the field
+        if self.empowered_modifier_level2 is None and "empowered_modifier_level2" in self.model_fields_set:
+            _dict['empowered_modifier_level2'] = None
 
         # set to None if backdoor_bullet_resist_modifier (nullable) is None
         # and model_fields_set contains the field
@@ -553,6 +572,8 @@ class NPCUnitV2(BaseModel):
             "max_health_final": obj.get("max_health_final"),
             "max_health_generator": obj.get("max_health_generator"),
             "enemy_trooper_protection_range": obj.get("enemy_trooper_protection_range"),
+            "empowered_modifier_level1": SubclassEmpoweredModifierLevel.from_dict(obj["empowered_modifier_level1"]) if obj.get("empowered_modifier_level1") is not None else None,
+            "empowered_modifier_level2": SubclassEmpoweredModifierLevel.from_dict(obj["empowered_modifier_level2"]) if obj.get("empowered_modifier_level2") is not None else None,
             "backdoor_bullet_resist_modifier": SubclassBulletResistModifier.from_dict(obj["backdoor_bullet_resist_modifier"]) if obj.get("backdoor_bullet_resist_modifier") is not None else None,
             "objective_regen": SubclassObjectiveRegen.from_dict(obj["objective_regen"]) if obj.get("objective_regen") is not None else None,
             "objective_health_growth_phase1": SubclassObjectiveHealthGrowthPhase.from_dict(obj["objective_health_growth_phase1"]) if obj.get("objective_health_growth_phase1") is not None else None,

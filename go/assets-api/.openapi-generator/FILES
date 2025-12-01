@@ -28,6 +28,7 @@ docs/Curve.md
 docs/DamageFlashV2.md
 docs/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/DefaultAPI.md
+docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
 docs/GenericDataV2.md
@@ -104,6 +105,7 @@ docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
 docs/SubclassBulletResistModifier.md
+docs/SubclassEmpoweredModifierLevel.md
 docs/SubclassIntrinsicModifiers.md
 docs/SubclassModifierDefinition.md
 docs/SubclassObjectiveHealthGrowthPhase.md
@@ -144,6 +146,7 @@ model_color_v1.go
 model_curve.go
 model_damage_flash_v2.go
 model_deadlock_assets_api_routes_valid_client_versions.go
+model_empowered_modifier_level.go
 model_expiration_duration.go
 model_flash_data_v2.go
 model_generic_data_v2.go
@@ -215,6 +218,7 @@ model_script_values.go
 model_standing_shot_spread_penalty.go
 model_stats_usage_flag_v2.go
 model_subclass_bullet_resist_modifier.go
+model_subclass_empowered_modifier_level.go
 model_subclass_intrinsic_modifiers.go
 model_subclass_modifier_definition.go
 model_subclass_objective_health_growth_phase.go

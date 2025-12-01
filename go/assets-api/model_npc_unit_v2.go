@@ -29,6 +29,8 @@ type NPCUnitV2 struct {
 	MaxHealthFinal NullableInt32 `json:"max_health_final,omitempty"`
 	MaxHealthGenerator NullableInt32 `json:"max_health_generator,omitempty"`
 	EnemyTrooperProtectionRange NullableFloat32 `json:"enemy_trooper_protection_range,omitempty"`
+	EmpoweredModifierLevel1 NullableSubclassEmpoweredModifierLevel `json:"empowered_modifier_level1,omitempty"`
+	EmpoweredModifierLevel2 NullableSubclassEmpoweredModifierLevel `json:"empowered_modifier_level2,omitempty"`
 	BackdoorBulletResistModifier NullableSubclassBulletResistModifier `json:"backdoor_bullet_resist_modifier,omitempty"`
 	ObjectiveRegen NullableSubclassObjectiveRegen `json:"objective_regen,omitempty"`
 	ObjectiveHealthGrowthPhase1 NullableSubclassObjectiveHealthGrowthPhase `json:"objective_health_growth_phase1,omitempty"`
@@ -419,6 +421,90 @@ func (o *NPCUnitV2) SetEnemyTrooperProtectionRangeNil() {
 // UnsetEnemyTrooperProtectionRange ensures that no value is present for EnemyTrooperProtectionRange, not even an explicit nil
 func (o *NPCUnitV2) UnsetEnemyTrooperProtectionRange() {
 	o.EnemyTrooperProtectionRange.Unset()
+}
+
+// GetEmpoweredModifierLevel1 returns the EmpoweredModifierLevel1 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetEmpoweredModifierLevel1() SubclassEmpoweredModifierLevel {
+	if o == nil || IsNil(o.EmpoweredModifierLevel1.Get()) {
+		var ret SubclassEmpoweredModifierLevel
+		return ret
+	}
+	return *o.EmpoweredModifierLevel1.Get()
+}
+
+// GetEmpoweredModifierLevel1Ok returns a tuple with the EmpoweredModifierLevel1 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetEmpoweredModifierLevel1Ok() (*SubclassEmpoweredModifierLevel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EmpoweredModifierLevel1.Get(), o.EmpoweredModifierLevel1.IsSet()
+}
+
+// HasEmpoweredModifierLevel1 returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasEmpoweredModifierLevel1() bool {
+	if o != nil && o.EmpoweredModifierLevel1.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEmpoweredModifierLevel1 gets a reference to the given NullableSubclassEmpoweredModifierLevel and assigns it to the EmpoweredModifierLevel1 field.
+func (o *NPCUnitV2) SetEmpoweredModifierLevel1(v SubclassEmpoweredModifierLevel) {
+	o.EmpoweredModifierLevel1.Set(&v)
+}
+// SetEmpoweredModifierLevel1Nil sets the value for EmpoweredModifierLevel1 to be an explicit nil
+func (o *NPCUnitV2) SetEmpoweredModifierLevel1Nil() {
+	o.EmpoweredModifierLevel1.Set(nil)
+}
+
+// UnsetEmpoweredModifierLevel1 ensures that no value is present for EmpoweredModifierLevel1, not even an explicit nil
+func (o *NPCUnitV2) UnsetEmpoweredModifierLevel1() {
+	o.EmpoweredModifierLevel1.Unset()
+}
+
+// GetEmpoweredModifierLevel2 returns the EmpoweredModifierLevel2 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetEmpoweredModifierLevel2() SubclassEmpoweredModifierLevel {
+	if o == nil || IsNil(o.EmpoweredModifierLevel2.Get()) {
+		var ret SubclassEmpoweredModifierLevel
+		return ret
+	}
+	return *o.EmpoweredModifierLevel2.Get()
+}
+
+// GetEmpoweredModifierLevel2Ok returns a tuple with the EmpoweredModifierLevel2 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetEmpoweredModifierLevel2Ok() (*SubclassEmpoweredModifierLevel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EmpoweredModifierLevel2.Get(), o.EmpoweredModifierLevel2.IsSet()
+}
+
+// HasEmpoweredModifierLevel2 returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasEmpoweredModifierLevel2() bool {
+	if o != nil && o.EmpoweredModifierLevel2.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEmpoweredModifierLevel2 gets a reference to the given NullableSubclassEmpoweredModifierLevel and assigns it to the EmpoweredModifierLevel2 field.
+func (o *NPCUnitV2) SetEmpoweredModifierLevel2(v SubclassEmpoweredModifierLevel) {
+	o.EmpoweredModifierLevel2.Set(&v)
+}
+// SetEmpoweredModifierLevel2Nil sets the value for EmpoweredModifierLevel2 to be an explicit nil
+func (o *NPCUnitV2) SetEmpoweredModifierLevel2Nil() {
+	o.EmpoweredModifierLevel2.Set(nil)
+}
+
+// UnsetEmpoweredModifierLevel2 ensures that no value is present for EmpoweredModifierLevel2, not even an explicit nil
+func (o *NPCUnitV2) UnsetEmpoweredModifierLevel2() {
+	o.EmpoweredModifierLevel2.Unset()
 }
 
 // GetBackdoorBulletResistModifier returns the BackdoorBulletResistModifier field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2945,6 +3031,12 @@ func (o NPCUnitV2) ToMap() (map[string]interface{}, error) {
 	}
 	if o.EnemyTrooperProtectionRange.IsSet() {
 		toSerialize["enemy_trooper_protection_range"] = o.EnemyTrooperProtectionRange.Get()
+	}
+	if o.EmpoweredModifierLevel1.IsSet() {
+		toSerialize["empowered_modifier_level1"] = o.EmpoweredModifierLevel1.Get()
+	}
+	if o.EmpoweredModifierLevel2.IsSet() {
+		toSerialize["empowered_modifier_level2"] = o.EmpoweredModifierLevel2.Get()
 	}
 	if o.BackdoorBulletResistModifier.IsSet() {
 		toSerialize["backdoor_bullet_resist_modifier"] = o.BackdoorBulletResistModifier.Get()

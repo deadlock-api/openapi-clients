@@ -29,8 +29,11 @@ import java.io.Serializable
  * 
  *
  * @param shotsPerSecond 
+ * @param shotsPerSecondWithReload 
  * @param bulletsPerSecond 
+ * @param bulletsPerSecondWithReload 
  * @param damagePerSecond 
+ * @param damagePerSecondWithReload 
  * @param damagePerShot 
  * @param damagePerMagazine 
  * @param canZoom 
@@ -60,6 +63,7 @@ import java.io.Serializable
  * @param horizontalPunch 
  * @param range 
  * @param recoilRecoveryDelayFactor 
+ * @param bulletSpeed 
  * @param recoilRecoverySpeed 
  * @param recoilShotIndexRecoveryTimeFactor 
  * @param recoilSpeed 
@@ -97,11 +101,20 @@ data class WeaponInfoV2 (
     @Json(name = "shots_per_second")
     val shotsPerSecond: java.math.BigDecimal?,
 
+    @Json(name = "shots_per_second_with_reload")
+    val shotsPerSecondWithReload: java.math.BigDecimal?,
+
     @Json(name = "bullets_per_second")
     val bulletsPerSecond: java.math.BigDecimal?,
 
+    @Json(name = "bullets_per_second_with_reload")
+    val bulletsPerSecondWithReload: java.math.BigDecimal?,
+
     @Json(name = "damage_per_second")
     val damagePerSecond: java.math.BigDecimal?,
+
+    @Json(name = "damage_per_second_with_reload")
+    val damagePerSecondWithReload: java.math.BigDecimal?,
 
     @Json(name = "damage_per_shot")
     val damagePerShot: java.math.BigDecimal?,
@@ -189,6 +202,9 @@ data class WeaponInfoV2 (
 
     @Json(name = "recoil_recovery_delay_factor")
     val recoilRecoveryDelayFactor: java.math.BigDecimal? = null,
+
+    @Json(name = "bullet_speed")
+    val bulletSpeed: java.math.BigDecimal? = null,
 
     @Json(name = "recoil_recovery_speed")
     val recoilRecoverySpeed: java.math.BigDecimal? = null,

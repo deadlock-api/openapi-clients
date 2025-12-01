@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **max_health_final** | **number** |  | [optional] [default to undefined]
 **max_health_generator** | **number** |  | [optional] [default to undefined]
 **enemy_trooper_protection_range** | **number** |  | [optional] [default to undefined]
+**empowered_modifier_level1** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] [default to undefined]
+**empowered_modifier_level2** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] [default to undefined]
 **backdoor_bullet_resist_modifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] [default to undefined]
 **objective_regen** | [**SubclassObjectiveRegen**](SubclassObjectiveRegen.md) |  | [optional] [default to undefined]
 **objective_health_growth_phase1** | [**SubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  | [optional] [default to undefined]
@@ -88,6 +90,8 @@ const instance: NPCUnitV2 = {
     max_health_final,
     max_health_generator,
     enemy_trooper_protection_range,
+    empowered_modifier_level1,
+    empowered_modifier_level2,
     backdoor_bullet_resist_modifier,
     objective_regen,
     objective_health_growth_phase1,

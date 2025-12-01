@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **MaxHealthFinal** | Pointer to **NullableInt32** |  | [optional] 
 **MaxHealthGenerator** | Pointer to **NullableInt32** |  | [optional] 
 **EnemyTrooperProtectionRange** | Pointer to **NullableFloat32** |  | [optional] 
+**EmpoweredModifierLevel1** | Pointer to [**NullableSubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] 
+**EmpoweredModifierLevel2** | Pointer to [**NullableSubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] 
 **BackdoorBulletResistModifier** | Pointer to [**NullableSubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] 
 **ObjectiveRegen** | Pointer to [**NullableSubclassObjectiveRegen**](SubclassObjectiveRegen.md) |  | [optional] 
 **ObjectiveHealthGrowthPhase1** | Pointer to [**NullableSubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  | [optional] 
@@ -357,6 +359,76 @@ HasEnemyTrooperProtectionRange returns a boolean if a field has been set.
 `func (o *NPCUnitV2) UnsetEnemyTrooperProtectionRange()`
 
 UnsetEnemyTrooperProtectionRange ensures that no value is present for EnemyTrooperProtectionRange, not even an explicit nil
+### GetEmpoweredModifierLevel1
+
+`func (o *NPCUnitV2) GetEmpoweredModifierLevel1() SubclassEmpoweredModifierLevel`
+
+GetEmpoweredModifierLevel1 returns the EmpoweredModifierLevel1 field if non-nil, zero value otherwise.
+
+### GetEmpoweredModifierLevel1Ok
+
+`func (o *NPCUnitV2) GetEmpoweredModifierLevel1Ok() (*SubclassEmpoweredModifierLevel, bool)`
+
+GetEmpoweredModifierLevel1Ok returns a tuple with the EmpoweredModifierLevel1 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmpoweredModifierLevel1
+
+`func (o *NPCUnitV2) SetEmpoweredModifierLevel1(v SubclassEmpoweredModifierLevel)`
+
+SetEmpoweredModifierLevel1 sets EmpoweredModifierLevel1 field to given value.
+
+### HasEmpoweredModifierLevel1
+
+`func (o *NPCUnitV2) HasEmpoweredModifierLevel1() bool`
+
+HasEmpoweredModifierLevel1 returns a boolean if a field has been set.
+
+### SetEmpoweredModifierLevel1Nil
+
+`func (o *NPCUnitV2) SetEmpoweredModifierLevel1Nil(b bool)`
+
+ SetEmpoweredModifierLevel1Nil sets the value for EmpoweredModifierLevel1 to be an explicit nil
+
+### UnsetEmpoweredModifierLevel1
+`func (o *NPCUnitV2) UnsetEmpoweredModifierLevel1()`
+
+UnsetEmpoweredModifierLevel1 ensures that no value is present for EmpoweredModifierLevel1, not even an explicit nil
+### GetEmpoweredModifierLevel2
+
+`func (o *NPCUnitV2) GetEmpoweredModifierLevel2() SubclassEmpoweredModifierLevel`
+
+GetEmpoweredModifierLevel2 returns the EmpoweredModifierLevel2 field if non-nil, zero value otherwise.
+
+### GetEmpoweredModifierLevel2Ok
+
+`func (o *NPCUnitV2) GetEmpoweredModifierLevel2Ok() (*SubclassEmpoweredModifierLevel, bool)`
+
+GetEmpoweredModifierLevel2Ok returns a tuple with the EmpoweredModifierLevel2 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmpoweredModifierLevel2
+
+`func (o *NPCUnitV2) SetEmpoweredModifierLevel2(v SubclassEmpoweredModifierLevel)`
+
+SetEmpoweredModifierLevel2 sets EmpoweredModifierLevel2 field to given value.
+
+### HasEmpoweredModifierLevel2
+
+`func (o *NPCUnitV2) HasEmpoweredModifierLevel2() bool`
+
+HasEmpoweredModifierLevel2 returns a boolean if a field has been set.
+
+### SetEmpoweredModifierLevel2Nil
+
+`func (o *NPCUnitV2) SetEmpoweredModifierLevel2Nil(b bool)`
+
+ SetEmpoweredModifierLevel2Nil sets the value for EmpoweredModifierLevel2 to be an explicit nil
+
+### UnsetEmpoweredModifierLevel2
+`func (o *NPCUnitV2) UnsetEmpoweredModifierLevel2()`
+
+UnsetEmpoweredModifierLevel2 ensures that no value is present for EmpoweredModifierLevel2, not even an explicit nil
 ### GetBackdoorBulletResistModifier
 
 `func (o *NPCUnitV2) GetBackdoorBulletResistModifier() SubclassBulletResistModifier`

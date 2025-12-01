@@ -145,6 +145,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6016: 6016,
     NUMBER_6008: 6008,
     NUMBER_6002: 6002,
     NUMBER_5983: 5983,
@@ -186,6 +187,11 @@ export const DeadlockAssetsApiRoutesValidClientVersions = {
 export type DeadlockAssetsApiRoutesValidClientVersions = typeof DeadlockAssetsApiRoutesValidClientVersions[keyof typeof DeadlockAssetsApiRoutesValidClientVersions];
 
 
+export interface EmpoweredModifierLevel {
+    'max_health'?: number | null;
+    'transition_duration'?: number | null;
+    'model_scale'?: number | null;
+}
 export interface ExpirationDuration {
     'base'?: number;
     'per_minute_after_start'?: number;
@@ -609,6 +615,8 @@ export interface NPCUnitV2 {
     'max_health_final'?: number | null;
     'max_health_generator'?: number | null;
     'enemy_trooper_protection_range'?: number | null;
+    'empowered_modifier_level1'?: SubclassEmpoweredModifierLevel | null;
+    'empowered_modifier_level2'?: SubclassEmpoweredModifierLevel | null;
     'backdoor_bullet_resist_modifier'?: SubclassBulletResistModifier | null;
     'objective_regen'?: SubclassObjectiveRegen | null;
     'objective_health_growth_phase1'?: SubclassObjectiveHealthGrowthPhase | null;
@@ -935,6 +943,9 @@ export type StatsUsageFlagV2 = typeof StatsUsageFlagV2[keyof typeof StatsUsageFl
 export interface SubclassBulletResistModifier {
     'subclass'?: BulletResistModifier;
 }
+export interface SubclassEmpoweredModifierLevel {
+    'subclass'?: EmpoweredModifierLevel;
+}
 export interface SubclassIntrinsicModifiers {
     'subclass'?: IntrinsicModifiers;
 }
@@ -1080,6 +1091,7 @@ export interface WeaponInfoV2 {
     'horizontal_punch'?: number | null;
     'range'?: number | null;
     'recoil_recovery_delay_factor'?: number | null;
+    'bullet_speed'?: number | null;
     'recoil_recovery_speed'?: number | null;
     'recoil_shot_index_recovery_time_factor'?: number | null;
     'recoil_speed'?: number | null;
@@ -1110,8 +1122,11 @@ export interface WeaponInfoV2 {
     'horizontal_recoil'?: RawWeaponInfoHorizontalRecoilV2 | null;
     'vertical_recoil'?: RawWeaponInfoVerticalRecoilV2 | null;
     'shots_per_second': number | null;
+    'shots_per_second_with_reload': number | null;
     'bullets_per_second': number | null;
+    'bullets_per_second_with_reload': number | null;
     'damage_per_second': number | null;
+    'damage_per_second_with_reload': number | null;
     'damage_per_shot': number | null;
     'damage_per_magazine': number | null;
 }

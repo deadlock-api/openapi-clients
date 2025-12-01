@@ -58,6 +58,7 @@ class WeaponInfoV2(BaseModel):
     horizontal_punch: Optional[Union[StrictFloat, StrictInt]] = None
     range: Optional[Union[StrictFloat, StrictInt]] = None
     recoil_recovery_delay_factor: Optional[Union[StrictFloat, StrictInt]] = None
+    bullet_speed: Optional[Union[StrictFloat, StrictInt]] = None
     recoil_recovery_speed: Optional[Union[StrictFloat, StrictInt]] = None
     recoil_shot_index_recovery_time_factor: Optional[Union[StrictFloat, StrictInt]] = None
     recoil_speed: Optional[Union[StrictFloat, StrictInt]] = None
@@ -88,11 +89,14 @@ class WeaponInfoV2(BaseModel):
     horizontal_recoil: Optional[RawWeaponInfoHorizontalRecoilV2] = None
     vertical_recoil: Optional[RawWeaponInfoVerticalRecoilV2] = None
     shots_per_second: Optional[Union[StrictFloat, StrictInt]]
+    shots_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]]
     bullets_per_second: Optional[Union[StrictFloat, StrictInt]]
+    bullets_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]]
     damage_per_second: Optional[Union[StrictFloat, StrictInt]]
+    damage_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]]
     damage_per_shot: Optional[Union[StrictFloat, StrictInt]]
     damage_per_magazine: Optional[Union[StrictFloat, StrictInt]]
-    __properties: ClassVar[List[str]] = ["can_zoom", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_whiz_distance", "burst_shot_cooldown", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "intra_burst_cycle_time", "max_spin_cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "horizontal_punch", "range", "recoil_recovery_delay_factor", "recoil_recovery_speed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_move_speed", "scatter_yaw_scale", "aiming_shot_spread_penalty", "standing_shot_spread_penalty", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "vertical_punch", "zoom_fov", "zoom_move_speed_percent", "bullets", "reload_single_bullets_initial_delay", "reload_single_bullets", "reload_single_bullets_allow_cancel", "burst_shot_count", "clip_size", "spread", "standing_spread", "low_ammo_indicator_threshold", "recoil_seed", "reload_duration", "bullet_speed_curve", "horizontal_recoil", "vertical_recoil", "shots_per_second", "bullets_per_second", "damage_per_second", "damage_per_shot", "damage_per_magazine"]
+    __properties: ClassVar[List[str]] = ["can_zoom", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_whiz_distance", "burst_shot_cooldown", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "intra_burst_cycle_time", "max_spin_cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "horizontal_punch", "range", "recoil_recovery_delay_factor", "bullet_speed", "recoil_recovery_speed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_move_speed", "scatter_yaw_scale", "aiming_shot_spread_penalty", "standing_shot_spread_penalty", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "vertical_punch", "zoom_fov", "zoom_move_speed_percent", "bullets", "reload_single_bullets_initial_delay", "reload_single_bullets", "reload_single_bullets_allow_cancel", "burst_shot_count", "clip_size", "spread", "standing_spread", "low_ammo_indicator_threshold", "recoil_seed", "reload_duration", "bullet_speed_curve", "horizontal_recoil", "vertical_recoil", "shots_per_second", "shots_per_second_with_reload", "bullets_per_second", "bullets_per_second_with_reload", "damage_per_second", "damage_per_second_with_reload", "damage_per_shot", "damage_per_magazine"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -129,11 +133,17 @@ class WeaponInfoV2(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "shots_per_second",
+            "shots_per_second_with_reload",
             "bullets_per_second",
+            "bullets_per_second_with_reload",
             "damage_per_second",
+            "damage_per_second_with_reload",
             "damage_per_shot",
             "damage_per_magazine",
         ])
@@ -293,6 +303,11 @@ class WeaponInfoV2(BaseModel):
         if self.recoil_recovery_delay_factor is None and "recoil_recovery_delay_factor" in self.model_fields_set:
             _dict['recoil_recovery_delay_factor'] = None
 
+        # set to None if bullet_speed (nullable) is None
+        # and model_fields_set contains the field
+        if self.bullet_speed is None and "bullet_speed" in self.model_fields_set:
+            _dict['bullet_speed'] = None
+
         # set to None if recoil_recovery_speed (nullable) is None
         # and model_fields_set contains the field
         if self.recoil_recovery_speed is None and "recoil_recovery_speed" in self.model_fields_set:
@@ -443,15 +458,30 @@ class WeaponInfoV2(BaseModel):
         if self.shots_per_second is None and "shots_per_second" in self.model_fields_set:
             _dict['shots_per_second'] = None
 
+        # set to None if shots_per_second_with_reload (nullable) is None
+        # and model_fields_set contains the field
+        if self.shots_per_second_with_reload is None and "shots_per_second_with_reload" in self.model_fields_set:
+            _dict['shots_per_second_with_reload'] = None
+
         # set to None if bullets_per_second (nullable) is None
         # and model_fields_set contains the field
         if self.bullets_per_second is None and "bullets_per_second" in self.model_fields_set:
             _dict['bullets_per_second'] = None
 
+        # set to None if bullets_per_second_with_reload (nullable) is None
+        # and model_fields_set contains the field
+        if self.bullets_per_second_with_reload is None and "bullets_per_second_with_reload" in self.model_fields_set:
+            _dict['bullets_per_second_with_reload'] = None
+
         # set to None if damage_per_second (nullable) is None
         # and model_fields_set contains the field
         if self.damage_per_second is None and "damage_per_second" in self.model_fields_set:
             _dict['damage_per_second'] = None
+
+        # set to None if damage_per_second_with_reload (nullable) is None
+        # and model_fields_set contains the field
+        if self.damage_per_second_with_reload is None and "damage_per_second_with_reload" in self.model_fields_set:
+            _dict['damage_per_second_with_reload'] = None
 
         # set to None if damage_per_shot (nullable) is None
         # and model_fields_set contains the field
@@ -502,6 +532,7 @@ class WeaponInfoV2(BaseModel):
             "horizontal_punch": obj.get("horizontal_punch"),
             "range": obj.get("range"),
             "recoil_recovery_delay_factor": obj.get("recoil_recovery_delay_factor"),
+            "bullet_speed": obj.get("bullet_speed"),
             "recoil_recovery_speed": obj.get("recoil_recovery_speed"),
             "recoil_shot_index_recovery_time_factor": obj.get("recoil_shot_index_recovery_time_factor"),
             "recoil_speed": obj.get("recoil_speed"),
@@ -532,8 +563,11 @@ class WeaponInfoV2(BaseModel):
             "horizontal_recoil": RawWeaponInfoHorizontalRecoilV2.from_dict(obj["horizontal_recoil"]) if obj.get("horizontal_recoil") is not None else None,
             "vertical_recoil": RawWeaponInfoVerticalRecoilV2.from_dict(obj["vertical_recoil"]) if obj.get("vertical_recoil") is not None else None,
             "shots_per_second": obj.get("shots_per_second"),
+            "shots_per_second_with_reload": obj.get("shots_per_second_with_reload"),
             "bullets_per_second": obj.get("bullets_per_second"),
+            "bullets_per_second_with_reload": obj.get("bullets_per_second_with_reload"),
             "damage_per_second": obj.get("damage_per_second"),
+            "damage_per_second_with_reload": obj.get("damage_per_second_with_reload"),
             "damage_per_shot": obj.get("damage_per_shot"),
             "damage_per_magazine": obj.get("damage_per_magazine")
         })
