@@ -38,8 +38,14 @@ type WeaponInfoV2 struct {
 	CritBonusStart NullableFloat32 `json:"crit_bonus_start,omitempty"`
 	CritBonusStartRange NullableFloat32 `json:"crit_bonus_start_range,omitempty"`
 	CycleTime NullableFloat32 `json:"cycle_time,omitempty"`
-	IntraBurstCycleTime NullableFloat32 `json:"intra_burst_cycle_time,omitempty"`
+	SpinsUp NullableBool `json:"spins_up,omitempty"`
+	IsSemiAuto NullableBool `json:"is_semi_auto,omitempty"`
+	SemiAutoCycleRate NullableFloat32 `json:"semi_auto_cycle_rate,omitempty"`
 	MaxSpinCycleTime NullableFloat32 `json:"max_spin_cycle_time,omitempty"`
+	SpinIncreaseRate NullableFloat32 `json:"spin_increase_rate,omitempty"`
+	SpinDecayRate NullableFloat32 `json:"spin_decay_rate,omitempty"`
+	BuildUpRate NullableFloat32 `json:"build_up_rate,omitempty"`
+	IntraBurstCycleTime NullableFloat32 `json:"intra_burst_cycle_time,omitempty"`
 	DamageFalloffBias NullableFloat32 `json:"damage_falloff_bias,omitempty"`
 	DamageFalloffEndRange NullableFloat32 `json:"damage_falloff_end_range,omitempty"`
 	DamageFalloffEndScale NullableFloat32 `json:"damage_falloff_end_scale,omitempty"`
@@ -829,46 +835,130 @@ func (o *WeaponInfoV2) UnsetCycleTime() {
 	o.CycleTime.Unset()
 }
 
-// GetIntraBurstCycleTime returns the IntraBurstCycleTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WeaponInfoV2) GetIntraBurstCycleTime() float32 {
-	if o == nil || IsNil(o.IntraBurstCycleTime.Get()) {
-		var ret float32
+// GetSpinsUp returns the SpinsUp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WeaponInfoV2) GetSpinsUp() bool {
+	if o == nil || IsNil(o.SpinsUp.Get()) {
+		var ret bool
 		return ret
 	}
-	return *o.IntraBurstCycleTime.Get()
+	return *o.SpinsUp.Get()
 }
 
-// GetIntraBurstCycleTimeOk returns a tuple with the IntraBurstCycleTime field value if set, nil otherwise
+// GetSpinsUpOk returns a tuple with the SpinsUp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WeaponInfoV2) GetIntraBurstCycleTimeOk() (*float32, bool) {
+func (o *WeaponInfoV2) GetSpinsUpOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.IntraBurstCycleTime.Get(), o.IntraBurstCycleTime.IsSet()
+	return o.SpinsUp.Get(), o.SpinsUp.IsSet()
 }
 
-// HasIntraBurstCycleTime returns a boolean if a field has been set.
-func (o *WeaponInfoV2) HasIntraBurstCycleTime() bool {
-	if o != nil && o.IntraBurstCycleTime.IsSet() {
+// HasSpinsUp returns a boolean if a field has been set.
+func (o *WeaponInfoV2) HasSpinsUp() bool {
+	if o != nil && o.SpinsUp.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIntraBurstCycleTime gets a reference to the given NullableFloat32 and assigns it to the IntraBurstCycleTime field.
-func (o *WeaponInfoV2) SetIntraBurstCycleTime(v float32) {
-	o.IntraBurstCycleTime.Set(&v)
+// SetSpinsUp gets a reference to the given NullableBool and assigns it to the SpinsUp field.
+func (o *WeaponInfoV2) SetSpinsUp(v bool) {
+	o.SpinsUp.Set(&v)
 }
-// SetIntraBurstCycleTimeNil sets the value for IntraBurstCycleTime to be an explicit nil
-func (o *WeaponInfoV2) SetIntraBurstCycleTimeNil() {
-	o.IntraBurstCycleTime.Set(nil)
+// SetSpinsUpNil sets the value for SpinsUp to be an explicit nil
+func (o *WeaponInfoV2) SetSpinsUpNil() {
+	o.SpinsUp.Set(nil)
 }
 
-// UnsetIntraBurstCycleTime ensures that no value is present for IntraBurstCycleTime, not even an explicit nil
-func (o *WeaponInfoV2) UnsetIntraBurstCycleTime() {
-	o.IntraBurstCycleTime.Unset()
+// UnsetSpinsUp ensures that no value is present for SpinsUp, not even an explicit nil
+func (o *WeaponInfoV2) UnsetSpinsUp() {
+	o.SpinsUp.Unset()
+}
+
+// GetIsSemiAuto returns the IsSemiAuto field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WeaponInfoV2) GetIsSemiAuto() bool {
+	if o == nil || IsNil(o.IsSemiAuto.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.IsSemiAuto.Get()
+}
+
+// GetIsSemiAutoOk returns a tuple with the IsSemiAuto field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetIsSemiAutoOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IsSemiAuto.Get(), o.IsSemiAuto.IsSet()
+}
+
+// HasIsSemiAuto returns a boolean if a field has been set.
+func (o *WeaponInfoV2) HasIsSemiAuto() bool {
+	if o != nil && o.IsSemiAuto.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIsSemiAuto gets a reference to the given NullableBool and assigns it to the IsSemiAuto field.
+func (o *WeaponInfoV2) SetIsSemiAuto(v bool) {
+	o.IsSemiAuto.Set(&v)
+}
+// SetIsSemiAutoNil sets the value for IsSemiAuto to be an explicit nil
+func (o *WeaponInfoV2) SetIsSemiAutoNil() {
+	o.IsSemiAuto.Set(nil)
+}
+
+// UnsetIsSemiAuto ensures that no value is present for IsSemiAuto, not even an explicit nil
+func (o *WeaponInfoV2) UnsetIsSemiAuto() {
+	o.IsSemiAuto.Unset()
+}
+
+// GetSemiAutoCycleRate returns the SemiAutoCycleRate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WeaponInfoV2) GetSemiAutoCycleRate() float32 {
+	if o == nil || IsNil(o.SemiAutoCycleRate.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.SemiAutoCycleRate.Get()
+}
+
+// GetSemiAutoCycleRateOk returns a tuple with the SemiAutoCycleRate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetSemiAutoCycleRateOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SemiAutoCycleRate.Get(), o.SemiAutoCycleRate.IsSet()
+}
+
+// HasSemiAutoCycleRate returns a boolean if a field has been set.
+func (o *WeaponInfoV2) HasSemiAutoCycleRate() bool {
+	if o != nil && o.SemiAutoCycleRate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSemiAutoCycleRate gets a reference to the given NullableFloat32 and assigns it to the SemiAutoCycleRate field.
+func (o *WeaponInfoV2) SetSemiAutoCycleRate(v float32) {
+	o.SemiAutoCycleRate.Set(&v)
+}
+// SetSemiAutoCycleRateNil sets the value for SemiAutoCycleRate to be an explicit nil
+func (o *WeaponInfoV2) SetSemiAutoCycleRateNil() {
+	o.SemiAutoCycleRate.Set(nil)
+}
+
+// UnsetSemiAutoCycleRate ensures that no value is present for SemiAutoCycleRate, not even an explicit nil
+func (o *WeaponInfoV2) UnsetSemiAutoCycleRate() {
+	o.SemiAutoCycleRate.Unset()
 }
 
 // GetMaxSpinCycleTime returns the MaxSpinCycleTime field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -911,6 +1001,174 @@ func (o *WeaponInfoV2) SetMaxSpinCycleTimeNil() {
 // UnsetMaxSpinCycleTime ensures that no value is present for MaxSpinCycleTime, not even an explicit nil
 func (o *WeaponInfoV2) UnsetMaxSpinCycleTime() {
 	o.MaxSpinCycleTime.Unset()
+}
+
+// GetSpinIncreaseRate returns the SpinIncreaseRate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WeaponInfoV2) GetSpinIncreaseRate() float32 {
+	if o == nil || IsNil(o.SpinIncreaseRate.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.SpinIncreaseRate.Get()
+}
+
+// GetSpinIncreaseRateOk returns a tuple with the SpinIncreaseRate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetSpinIncreaseRateOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SpinIncreaseRate.Get(), o.SpinIncreaseRate.IsSet()
+}
+
+// HasSpinIncreaseRate returns a boolean if a field has been set.
+func (o *WeaponInfoV2) HasSpinIncreaseRate() bool {
+	if o != nil && o.SpinIncreaseRate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSpinIncreaseRate gets a reference to the given NullableFloat32 and assigns it to the SpinIncreaseRate field.
+func (o *WeaponInfoV2) SetSpinIncreaseRate(v float32) {
+	o.SpinIncreaseRate.Set(&v)
+}
+// SetSpinIncreaseRateNil sets the value for SpinIncreaseRate to be an explicit nil
+func (o *WeaponInfoV2) SetSpinIncreaseRateNil() {
+	o.SpinIncreaseRate.Set(nil)
+}
+
+// UnsetSpinIncreaseRate ensures that no value is present for SpinIncreaseRate, not even an explicit nil
+func (o *WeaponInfoV2) UnsetSpinIncreaseRate() {
+	o.SpinIncreaseRate.Unset()
+}
+
+// GetSpinDecayRate returns the SpinDecayRate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WeaponInfoV2) GetSpinDecayRate() float32 {
+	if o == nil || IsNil(o.SpinDecayRate.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.SpinDecayRate.Get()
+}
+
+// GetSpinDecayRateOk returns a tuple with the SpinDecayRate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetSpinDecayRateOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SpinDecayRate.Get(), o.SpinDecayRate.IsSet()
+}
+
+// HasSpinDecayRate returns a boolean if a field has been set.
+func (o *WeaponInfoV2) HasSpinDecayRate() bool {
+	if o != nil && o.SpinDecayRate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSpinDecayRate gets a reference to the given NullableFloat32 and assigns it to the SpinDecayRate field.
+func (o *WeaponInfoV2) SetSpinDecayRate(v float32) {
+	o.SpinDecayRate.Set(&v)
+}
+// SetSpinDecayRateNil sets the value for SpinDecayRate to be an explicit nil
+func (o *WeaponInfoV2) SetSpinDecayRateNil() {
+	o.SpinDecayRate.Set(nil)
+}
+
+// UnsetSpinDecayRate ensures that no value is present for SpinDecayRate, not even an explicit nil
+func (o *WeaponInfoV2) UnsetSpinDecayRate() {
+	o.SpinDecayRate.Unset()
+}
+
+// GetBuildUpRate returns the BuildUpRate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WeaponInfoV2) GetBuildUpRate() float32 {
+	if o == nil || IsNil(o.BuildUpRate.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.BuildUpRate.Get()
+}
+
+// GetBuildUpRateOk returns a tuple with the BuildUpRate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetBuildUpRateOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BuildUpRate.Get(), o.BuildUpRate.IsSet()
+}
+
+// HasBuildUpRate returns a boolean if a field has been set.
+func (o *WeaponInfoV2) HasBuildUpRate() bool {
+	if o != nil && o.BuildUpRate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBuildUpRate gets a reference to the given NullableFloat32 and assigns it to the BuildUpRate field.
+func (o *WeaponInfoV2) SetBuildUpRate(v float32) {
+	o.BuildUpRate.Set(&v)
+}
+// SetBuildUpRateNil sets the value for BuildUpRate to be an explicit nil
+func (o *WeaponInfoV2) SetBuildUpRateNil() {
+	o.BuildUpRate.Set(nil)
+}
+
+// UnsetBuildUpRate ensures that no value is present for BuildUpRate, not even an explicit nil
+func (o *WeaponInfoV2) UnsetBuildUpRate() {
+	o.BuildUpRate.Unset()
+}
+
+// GetIntraBurstCycleTime returns the IntraBurstCycleTime field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WeaponInfoV2) GetIntraBurstCycleTime() float32 {
+	if o == nil || IsNil(o.IntraBurstCycleTime.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.IntraBurstCycleTime.Get()
+}
+
+// GetIntraBurstCycleTimeOk returns a tuple with the IntraBurstCycleTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfoV2) GetIntraBurstCycleTimeOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IntraBurstCycleTime.Get(), o.IntraBurstCycleTime.IsSet()
+}
+
+// HasIntraBurstCycleTime returns a boolean if a field has been set.
+func (o *WeaponInfoV2) HasIntraBurstCycleTime() bool {
+	if o != nil && o.IntraBurstCycleTime.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIntraBurstCycleTime gets a reference to the given NullableFloat32 and assigns it to the IntraBurstCycleTime field.
+func (o *WeaponInfoV2) SetIntraBurstCycleTime(v float32) {
+	o.IntraBurstCycleTime.Set(&v)
+}
+// SetIntraBurstCycleTimeNil sets the value for IntraBurstCycleTime to be an explicit nil
+func (o *WeaponInfoV2) SetIntraBurstCycleTimeNil() {
+	o.IntraBurstCycleTime.Set(nil)
+}
+
+// UnsetIntraBurstCycleTime ensures that no value is present for IntraBurstCycleTime, not even an explicit nil
+func (o *WeaponInfoV2) UnsetIntraBurstCycleTime() {
+	o.IntraBurstCycleTime.Unset()
 }
 
 // GetDamageFalloffBias returns the DamageFalloffBias field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2778,11 +3036,29 @@ func (o WeaponInfoV2) ToMap() (map[string]interface{}, error) {
 	if o.CycleTime.IsSet() {
 		toSerialize["cycle_time"] = o.CycleTime.Get()
 	}
-	if o.IntraBurstCycleTime.IsSet() {
-		toSerialize["intra_burst_cycle_time"] = o.IntraBurstCycleTime.Get()
+	if o.SpinsUp.IsSet() {
+		toSerialize["spins_up"] = o.SpinsUp.Get()
+	}
+	if o.IsSemiAuto.IsSet() {
+		toSerialize["is_semi_auto"] = o.IsSemiAuto.Get()
+	}
+	if o.SemiAutoCycleRate.IsSet() {
+		toSerialize["semi_auto_cycle_rate"] = o.SemiAutoCycleRate.Get()
 	}
 	if o.MaxSpinCycleTime.IsSet() {
 		toSerialize["max_spin_cycle_time"] = o.MaxSpinCycleTime.Get()
+	}
+	if o.SpinIncreaseRate.IsSet() {
+		toSerialize["spin_increase_rate"] = o.SpinIncreaseRate.Get()
+	}
+	if o.SpinDecayRate.IsSet() {
+		toSerialize["spin_decay_rate"] = o.SpinDecayRate.Get()
+	}
+	if o.BuildUpRate.IsSet() {
+		toSerialize["build_up_rate"] = o.BuildUpRate.Get()
+	}
+	if o.IntraBurstCycleTime.IsSet() {
+		toSerialize["intra_burst_cycle_time"] = o.IntraBurstCycleTime.Get()
 	}
 	if o.DamageFalloffBias.IsSet() {
 		toSerialize["damage_falloff_bias"] = o.DamageFalloffBias.Get()

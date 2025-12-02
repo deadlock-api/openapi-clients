@@ -1081,8 +1081,14 @@ export interface WeaponInfoV2 {
     'crit_bonus_start'?: number | null;
     'crit_bonus_start_range'?: number | null;
     'cycle_time'?: number | null;
-    'intra_burst_cycle_time'?: number | null;
+    'spins_up'?: boolean | null;
+    'is_semi_auto'?: boolean | null;
+    'semi_auto_cycle_rate'?: number | null;
     'max_spin_cycle_time'?: number | null;
+    'spin_increase_rate'?: number | null;
+    'spin_decay_rate'?: number | null;
+    'build_up_rate'?: number | null;
+    'intra_burst_cycle_time'?: number | null;
     'damage_falloff_bias'?: number | null;
     'damage_falloff_end_range'?: number | null;
     'damage_falloff_end_scale'?: number | null;

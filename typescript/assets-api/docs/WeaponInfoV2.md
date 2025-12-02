@@ -22,8 +22,14 @@ Name | Type | Description | Notes
 **crit_bonus_start** | **number** |  | [optional] [default to undefined]
 **crit_bonus_start_range** | **number** |  | [optional] [default to undefined]
 **cycle_time** | **number** |  | [optional] [default to undefined]
-**intra_burst_cycle_time** | **number** |  | [optional] [default to undefined]
+**spins_up** | **boolean** |  | [optional] [default to undefined]
+**is_semi_auto** | **boolean** |  | [optional] [default to undefined]
+**semi_auto_cycle_rate** | **number** |  | [optional] [default to undefined]
 **max_spin_cycle_time** | **number** |  | [optional] [default to undefined]
+**spin_increase_rate** | **number** |  | [optional] [default to undefined]
+**spin_decay_rate** | **number** |  | [optional] [default to undefined]
+**build_up_rate** | **number** |  | [optional] [default to undefined]
+**intra_burst_cycle_time** | **number** |  | [optional] [default to undefined]
 **damage_falloff_bias** | **number** |  | [optional] [default to undefined]
 **damage_falloff_end_range** | **number** |  | [optional] [default to undefined]
 **damage_falloff_end_scale** | **number** |  | [optional] [default to undefined]
@@ -94,8 +100,14 @@ const instance: WeaponInfoV2 = {
     crit_bonus_start,
     crit_bonus_start_range,
     cycle_time,
-    intra_burst_cycle_time,
+    spins_up,
+    is_semi_auto,
+    semi_auto_cycle_rate,
     max_spin_cycle_time,
+    spin_increase_rate,
+    spin_decay_rate,
+    build_up_rate,
+    intra_burst_cycle_time,
     damage_falloff_bias,
     damage_falloff_end_range,
     damage_falloff_end_scale,

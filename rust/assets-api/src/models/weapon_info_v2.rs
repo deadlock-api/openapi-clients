@@ -47,10 +47,22 @@ pub struct WeaponInfoV2 {
     pub crit_bonus_start_range: Option<Option<f64>>,
     #[serde(rename = "cycle_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub cycle_time: Option<Option<f64>>,
-    #[serde(rename = "intra_burst_cycle_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub intra_burst_cycle_time: Option<Option<f64>>,
+    #[serde(rename = "spins_up", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub spins_up: Option<Option<bool>>,
+    #[serde(rename = "is_semi_auto", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub is_semi_auto: Option<Option<bool>>,
+    #[serde(rename = "semi_auto_cycle_rate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub semi_auto_cycle_rate: Option<Option<f64>>,
     #[serde(rename = "max_spin_cycle_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub max_spin_cycle_time: Option<Option<f64>>,
+    #[serde(rename = "spin_increase_rate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub spin_increase_rate: Option<Option<f64>>,
+    #[serde(rename = "spin_decay_rate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub spin_decay_rate: Option<Option<f64>>,
+    #[serde(rename = "build_up_rate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub build_up_rate: Option<Option<f64>>,
+    #[serde(rename = "intra_burst_cycle_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub intra_burst_cycle_time: Option<Option<f64>>,
     #[serde(rename = "damage_falloff_bias", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub damage_falloff_bias: Option<Option<f64>>,
     #[serde(rename = "damage_falloff_end_range", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -165,8 +177,14 @@ impl WeaponInfoV2 {
             crit_bonus_start: None,
             crit_bonus_start_range: None,
             cycle_time: None,
-            intra_burst_cycle_time: None,
+            spins_up: None,
+            is_semi_auto: None,
+            semi_auto_cycle_rate: None,
             max_spin_cycle_time: None,
+            spin_increase_rate: None,
+            spin_decay_rate: None,
+            build_up_rate: None,
+            intra_burst_cycle_time: None,
             damage_falloff_bias: None,
             damage_falloff_end_range: None,
             damage_falloff_end_scale: None,

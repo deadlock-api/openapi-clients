@@ -74,8 +74,14 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'crit_bonus_start' => 'float',
         'crit_bonus_start_range' => 'float',
         'cycle_time' => 'float',
-        'intra_burst_cycle_time' => 'float',
+        'spins_up' => 'bool',
+        'is_semi_auto' => 'bool',
+        'semi_auto_cycle_rate' => 'float',
         'max_spin_cycle_time' => 'float',
+        'spin_increase_rate' => 'float',
+        'spin_decay_rate' => 'float',
+        'build_up_rate' => 'float',
+        'intra_burst_cycle_time' => 'float',
         'damage_falloff_bias' => 'float',
         'damage_falloff_end_range' => 'float',
         'damage_falloff_end_scale' => 'float',
@@ -149,8 +155,14 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'crit_bonus_start' => null,
         'crit_bonus_start_range' => null,
         'cycle_time' => null,
-        'intra_burst_cycle_time' => null,
+        'spins_up' => null,
+        'is_semi_auto' => null,
+        'semi_auto_cycle_rate' => null,
         'max_spin_cycle_time' => null,
+        'spin_increase_rate' => null,
+        'spin_decay_rate' => null,
+        'build_up_rate' => null,
+        'intra_burst_cycle_time' => null,
         'damage_falloff_bias' => null,
         'damage_falloff_end_range' => null,
         'damage_falloff_end_scale' => null,
@@ -222,8 +234,14 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'crit_bonus_start' => true,
         'crit_bonus_start_range' => true,
         'cycle_time' => true,
-        'intra_burst_cycle_time' => true,
+        'spins_up' => true,
+        'is_semi_auto' => true,
+        'semi_auto_cycle_rate' => true,
         'max_spin_cycle_time' => true,
+        'spin_increase_rate' => true,
+        'spin_decay_rate' => true,
+        'build_up_rate' => true,
+        'intra_burst_cycle_time' => true,
         'damage_falloff_bias' => true,
         'damage_falloff_end_range' => true,
         'damage_falloff_end_scale' => true,
@@ -375,8 +393,14 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'crit_bonus_start' => 'crit_bonus_start',
         'crit_bonus_start_range' => 'crit_bonus_start_range',
         'cycle_time' => 'cycle_time',
-        'intra_burst_cycle_time' => 'intra_burst_cycle_time',
+        'spins_up' => 'spins_up',
+        'is_semi_auto' => 'is_semi_auto',
+        'semi_auto_cycle_rate' => 'semi_auto_cycle_rate',
         'max_spin_cycle_time' => 'max_spin_cycle_time',
+        'spin_increase_rate' => 'spin_increase_rate',
+        'spin_decay_rate' => 'spin_decay_rate',
+        'build_up_rate' => 'build_up_rate',
+        'intra_burst_cycle_time' => 'intra_burst_cycle_time',
         'damage_falloff_bias' => 'damage_falloff_bias',
         'damage_falloff_end_range' => 'damage_falloff_end_range',
         'damage_falloff_end_scale' => 'damage_falloff_end_scale',
@@ -448,8 +472,14 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'crit_bonus_start' => 'setCritBonusStart',
         'crit_bonus_start_range' => 'setCritBonusStartRange',
         'cycle_time' => 'setCycleTime',
-        'intra_burst_cycle_time' => 'setIntraBurstCycleTime',
+        'spins_up' => 'setSpinsUp',
+        'is_semi_auto' => 'setIsSemiAuto',
+        'semi_auto_cycle_rate' => 'setSemiAutoCycleRate',
         'max_spin_cycle_time' => 'setMaxSpinCycleTime',
+        'spin_increase_rate' => 'setSpinIncreaseRate',
+        'spin_decay_rate' => 'setSpinDecayRate',
+        'build_up_rate' => 'setBuildUpRate',
+        'intra_burst_cycle_time' => 'setIntraBurstCycleTime',
         'damage_falloff_bias' => 'setDamageFalloffBias',
         'damage_falloff_end_range' => 'setDamageFalloffEndRange',
         'damage_falloff_end_scale' => 'setDamageFalloffEndScale',
@@ -521,8 +551,14 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'crit_bonus_start' => 'getCritBonusStart',
         'crit_bonus_start_range' => 'getCritBonusStartRange',
         'cycle_time' => 'getCycleTime',
-        'intra_burst_cycle_time' => 'getIntraBurstCycleTime',
+        'spins_up' => 'getSpinsUp',
+        'is_semi_auto' => 'getIsSemiAuto',
+        'semi_auto_cycle_rate' => 'getSemiAutoCycleRate',
         'max_spin_cycle_time' => 'getMaxSpinCycleTime',
+        'spin_increase_rate' => 'getSpinIncreaseRate',
+        'spin_decay_rate' => 'getSpinDecayRate',
+        'build_up_rate' => 'getBuildUpRate',
+        'intra_burst_cycle_time' => 'getIntraBurstCycleTime',
         'damage_falloff_bias' => 'getDamageFalloffBias',
         'damage_falloff_end_range' => 'getDamageFalloffEndRange',
         'damage_falloff_end_scale' => 'getDamageFalloffEndScale',
@@ -645,8 +681,14 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('crit_bonus_start', $data ?? [], null);
         $this->setIfExists('crit_bonus_start_range', $data ?? [], null);
         $this->setIfExists('cycle_time', $data ?? [], null);
-        $this->setIfExists('intra_burst_cycle_time', $data ?? [], null);
+        $this->setIfExists('spins_up', $data ?? [], null);
+        $this->setIfExists('is_semi_auto', $data ?? [], null);
+        $this->setIfExists('semi_auto_cycle_rate', $data ?? [], null);
         $this->setIfExists('max_spin_cycle_time', $data ?? [], null);
+        $this->setIfExists('spin_increase_rate', $data ?? [], null);
+        $this->setIfExists('spin_decay_rate', $data ?? [], null);
+        $this->setIfExists('build_up_rate', $data ?? [], null);
+        $this->setIfExists('intra_burst_cycle_time', $data ?? [], null);
         $this->setIfExists('damage_falloff_bias', $data ?? [], null);
         $this->setIfExists('damage_falloff_end_range', $data ?? [], null);
         $this->setIfExists('damage_falloff_end_scale', $data ?? [], null);
@@ -1340,35 +1382,103 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets intra_burst_cycle_time
+     * Gets spins_up
      *
-     * @return float|null
+     * @return bool|null
      */
-    public function getIntraBurstCycleTime()
+    public function getSpinsUp()
     {
-        return $this->container['intra_burst_cycle_time'];
+        return $this->container['spins_up'];
     }
 
     /**
-     * Sets intra_burst_cycle_time
+     * Sets spins_up
      *
-     * @param float|null $intra_burst_cycle_time intra_burst_cycle_time
+     * @param bool|null $spins_up spins_up
      *
      * @return self
      */
-    public function setIntraBurstCycleTime($intra_burst_cycle_time)
+    public function setSpinsUp($spins_up)
     {
-        if (is_null($intra_burst_cycle_time)) {
-            array_push($this->openAPINullablesSetToNull, 'intra_burst_cycle_time');
+        if (is_null($spins_up)) {
+            array_push($this->openAPINullablesSetToNull, 'spins_up');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('intra_burst_cycle_time', $nullablesSetToNull);
+            $index = array_search('spins_up', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['intra_burst_cycle_time'] = $intra_burst_cycle_time;
+        $this->container['spins_up'] = $spins_up;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_semi_auto
+     *
+     * @return bool|null
+     */
+    public function getIsSemiAuto()
+    {
+        return $this->container['is_semi_auto'];
+    }
+
+    /**
+     * Sets is_semi_auto
+     *
+     * @param bool|null $is_semi_auto is_semi_auto
+     *
+     * @return self
+     */
+    public function setIsSemiAuto($is_semi_auto)
+    {
+        if (is_null($is_semi_auto)) {
+            array_push($this->openAPINullablesSetToNull, 'is_semi_auto');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_semi_auto', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['is_semi_auto'] = $is_semi_auto;
+
+        return $this;
+    }
+
+    /**
+     * Gets semi_auto_cycle_rate
+     *
+     * @return float|null
+     */
+    public function getSemiAutoCycleRate()
+    {
+        return $this->container['semi_auto_cycle_rate'];
+    }
+
+    /**
+     * Sets semi_auto_cycle_rate
+     *
+     * @param float|null $semi_auto_cycle_rate semi_auto_cycle_rate
+     *
+     * @return self
+     */
+    public function setSemiAutoCycleRate($semi_auto_cycle_rate)
+    {
+        if (is_null($semi_auto_cycle_rate)) {
+            array_push($this->openAPINullablesSetToNull, 'semi_auto_cycle_rate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('semi_auto_cycle_rate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['semi_auto_cycle_rate'] = $semi_auto_cycle_rate;
 
         return $this;
     }
@@ -1403,6 +1513,142 @@ class WeaponInfoV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['max_spin_cycle_time'] = $max_spin_cycle_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets spin_increase_rate
+     *
+     * @return float|null
+     */
+    public function getSpinIncreaseRate()
+    {
+        return $this->container['spin_increase_rate'];
+    }
+
+    /**
+     * Sets spin_increase_rate
+     *
+     * @param float|null $spin_increase_rate spin_increase_rate
+     *
+     * @return self
+     */
+    public function setSpinIncreaseRate($spin_increase_rate)
+    {
+        if (is_null($spin_increase_rate)) {
+            array_push($this->openAPINullablesSetToNull, 'spin_increase_rate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('spin_increase_rate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['spin_increase_rate'] = $spin_increase_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets spin_decay_rate
+     *
+     * @return float|null
+     */
+    public function getSpinDecayRate()
+    {
+        return $this->container['spin_decay_rate'];
+    }
+
+    /**
+     * Sets spin_decay_rate
+     *
+     * @param float|null $spin_decay_rate spin_decay_rate
+     *
+     * @return self
+     */
+    public function setSpinDecayRate($spin_decay_rate)
+    {
+        if (is_null($spin_decay_rate)) {
+            array_push($this->openAPINullablesSetToNull, 'spin_decay_rate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('spin_decay_rate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['spin_decay_rate'] = $spin_decay_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets build_up_rate
+     *
+     * @return float|null
+     */
+    public function getBuildUpRate()
+    {
+        return $this->container['build_up_rate'];
+    }
+
+    /**
+     * Sets build_up_rate
+     *
+     * @param float|null $build_up_rate build_up_rate
+     *
+     * @return self
+     */
+    public function setBuildUpRate($build_up_rate)
+    {
+        if (is_null($build_up_rate)) {
+            array_push($this->openAPINullablesSetToNull, 'build_up_rate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('build_up_rate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['build_up_rate'] = $build_up_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets intra_burst_cycle_time
+     *
+     * @return float|null
+     */
+    public function getIntraBurstCycleTime()
+    {
+        return $this->container['intra_burst_cycle_time'];
+    }
+
+    /**
+     * Sets intra_burst_cycle_time
+     *
+     * @param float|null $intra_burst_cycle_time intra_burst_cycle_time
+     *
+     * @return self
+     */
+    public function setIntraBurstCycleTime($intra_burst_cycle_time)
+    {
+        if (is_null($intra_burst_cycle_time)) {
+            array_push($this->openAPINullablesSetToNull, 'intra_burst_cycle_time');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('intra_burst_cycle_time', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['intra_burst_cycle_time'] = $intra_burst_cycle_time;
 
         return $this;
     }

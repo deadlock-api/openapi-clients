@@ -233,9 +233,27 @@ class WeaponInfoV2Test extends TestCase
     }
 
     /**
-     * Test attribute "intra_burst_cycle_time"
+     * Test attribute "spins_up"
      */
-    public function testPropertyIntraBurstCycleTime()
+    public function testPropertySpinsUp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_semi_auto"
+     */
+    public function testPropertyIsSemiAuto()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "semi_auto_cycle_rate"
+     */
+    public function testPropertySemiAutoCycleRate()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -245,6 +263,42 @@ class WeaponInfoV2Test extends TestCase
      * Test attribute "max_spin_cycle_time"
      */
     public function testPropertyMaxSpinCycleTime()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "spin_increase_rate"
+     */
+    public function testPropertySpinIncreaseRate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "spin_decay_rate"
+     */
+    public function testPropertySpinDecayRate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "build_up_rate"
+     */
+    public function testPropertyBuildUpRate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "intra_burst_cycle_time"
+     */
+    public function testPropertyIntraBurstCycleTime()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

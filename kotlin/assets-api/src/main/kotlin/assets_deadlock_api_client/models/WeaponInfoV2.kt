@@ -53,8 +53,14 @@ import java.io.Serializable
  * @param critBonusStart 
  * @param critBonusStartRange 
  * @param cycleTime 
- * @param intraBurstCycleTime 
+ * @param spinsUp 
+ * @param isSemiAuto 
+ * @param semiAutoCycleRate 
  * @param maxSpinCycleTime 
+ * @param spinIncreaseRate 
+ * @param spinDecayRate 
+ * @param buildUpRate 
+ * @param intraBurstCycleTime 
  * @param damageFalloffBias 
  * @param damageFalloffEndRange 
  * @param damageFalloffEndScale 
@@ -173,11 +179,29 @@ data class WeaponInfoV2 (
     @Json(name = "cycle_time")
     val cycleTime: java.math.BigDecimal? = null,
 
-    @Json(name = "intra_burst_cycle_time")
-    val intraBurstCycleTime: java.math.BigDecimal? = null,
+    @Json(name = "spins_up")
+    val spinsUp: kotlin.Boolean? = null,
+
+    @Json(name = "is_semi_auto")
+    val isSemiAuto: kotlin.Boolean? = null,
+
+    @Json(name = "semi_auto_cycle_rate")
+    val semiAutoCycleRate: java.math.BigDecimal? = null,
 
     @Json(name = "max_spin_cycle_time")
     val maxSpinCycleTime: java.math.BigDecimal? = null,
+
+    @Json(name = "spin_increase_rate")
+    val spinIncreaseRate: java.math.BigDecimal? = null,
+
+    @Json(name = "spin_decay_rate")
+    val spinDecayRate: java.math.BigDecimal? = null,
+
+    @Json(name = "build_up_rate")
+    val buildUpRate: java.math.BigDecimal? = null,
+
+    @Json(name = "intra_burst_cycle_time")
+    val intraBurstCycleTime: java.math.BigDecimal? = null,
 
     @Json(name = "damage_falloff_bias")
     val damageFalloffBias: java.math.BigDecimal? = null,

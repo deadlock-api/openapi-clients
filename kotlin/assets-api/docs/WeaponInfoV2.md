@@ -29,8 +29,14 @@
 | **critBonusStart** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **critBonusStartRange** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **cycleTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
-| **intraBurstCycleTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **spinsUp** | **kotlin.Boolean** |  |  [optional] |
+| **isSemiAuto** | **kotlin.Boolean** |  |  [optional] |
+| **semiAutoCycleRate** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **maxSpinCycleTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **spinIncreaseRate** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **spinDecayRate** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **buildUpRate** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **intraBurstCycleTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **damageFalloffBias** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **damageFalloffEndRange** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **damageFalloffEndScale** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

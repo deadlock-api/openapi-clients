@@ -48,8 +48,14 @@ class WeaponInfoV2(BaseModel):
     crit_bonus_start: Optional[Union[StrictFloat, StrictInt]] = None
     crit_bonus_start_range: Optional[Union[StrictFloat, StrictInt]] = None
     cycle_time: Optional[Union[StrictFloat, StrictInt]] = None
-    intra_burst_cycle_time: Optional[Union[StrictFloat, StrictInt]] = None
+    spins_up: Optional[StrictBool] = None
+    is_semi_auto: Optional[StrictBool] = None
+    semi_auto_cycle_rate: Optional[Union[StrictFloat, StrictInt]] = None
     max_spin_cycle_time: Optional[Union[StrictFloat, StrictInt]] = None
+    spin_increase_rate: Optional[Union[StrictFloat, StrictInt]] = None
+    spin_decay_rate: Optional[Union[StrictFloat, StrictInt]] = None
+    build_up_rate: Optional[Union[StrictFloat, StrictInt]] = None
+    intra_burst_cycle_time: Optional[Union[StrictFloat, StrictInt]] = None
     damage_falloff_bias: Optional[Union[StrictFloat, StrictInt]] = None
     damage_falloff_end_range: Optional[Union[StrictFloat, StrictInt]] = None
     damage_falloff_end_scale: Optional[Union[StrictFloat, StrictInt]] = None
@@ -96,7 +102,7 @@ class WeaponInfoV2(BaseModel):
     damage_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]]
     damage_per_shot: Optional[Union[StrictFloat, StrictInt]]
     damage_per_magazine: Optional[Union[StrictFloat, StrictInt]]
-    __properties: ClassVar[List[str]] = ["can_zoom", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_whiz_distance", "burst_shot_cooldown", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "intra_burst_cycle_time", "max_spin_cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "horizontal_punch", "range", "recoil_recovery_delay_factor", "bullet_speed", "recoil_recovery_speed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_move_speed", "scatter_yaw_scale", "aiming_shot_spread_penalty", "standing_shot_spread_penalty", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "vertical_punch", "zoom_fov", "zoom_move_speed_percent", "bullets", "reload_single_bullets_initial_delay", "reload_single_bullets", "reload_single_bullets_allow_cancel", "burst_shot_count", "clip_size", "spread", "standing_spread", "low_ammo_indicator_threshold", "recoil_seed", "reload_duration", "bullet_speed_curve", "horizontal_recoil", "vertical_recoil", "shots_per_second", "shots_per_second_with_reload", "bullets_per_second", "bullets_per_second_with_reload", "damage_per_second", "damage_per_second_with_reload", "damage_per_shot", "damage_per_magazine"]
+    __properties: ClassVar[List[str]] = ["can_zoom", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_whiz_distance", "burst_shot_cooldown", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "spins_up", "is_semi_auto", "semi_auto_cycle_rate", "max_spin_cycle_time", "spin_increase_rate", "spin_decay_rate", "build_up_rate", "intra_burst_cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "horizontal_punch", "range", "recoil_recovery_delay_factor", "bullet_speed", "recoil_recovery_speed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_move_speed", "scatter_yaw_scale", "aiming_shot_spread_penalty", "standing_shot_spread_penalty", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "vertical_punch", "zoom_fov", "zoom_move_speed_percent", "bullets", "reload_single_bullets_initial_delay", "reload_single_bullets", "reload_single_bullets_allow_cancel", "burst_shot_count", "clip_size", "spread", "standing_spread", "low_ammo_indicator_threshold", "recoil_seed", "reload_duration", "bullet_speed_curve", "horizontal_recoil", "vertical_recoil", "shots_per_second", "shots_per_second_with_reload", "bullets_per_second", "bullets_per_second_with_reload", "damage_per_second", "damage_per_second_with_reload", "damage_per_shot", "damage_per_magazine"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -253,15 +259,45 @@ class WeaponInfoV2(BaseModel):
         if self.cycle_time is None and "cycle_time" in self.model_fields_set:
             _dict['cycle_time'] = None
 
-        # set to None if intra_burst_cycle_time (nullable) is None
+        # set to None if spins_up (nullable) is None
         # and model_fields_set contains the field
-        if self.intra_burst_cycle_time is None and "intra_burst_cycle_time" in self.model_fields_set:
-            _dict['intra_burst_cycle_time'] = None
+        if self.spins_up is None and "spins_up" in self.model_fields_set:
+            _dict['spins_up'] = None
+
+        # set to None if is_semi_auto (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_semi_auto is None and "is_semi_auto" in self.model_fields_set:
+            _dict['is_semi_auto'] = None
+
+        # set to None if semi_auto_cycle_rate (nullable) is None
+        # and model_fields_set contains the field
+        if self.semi_auto_cycle_rate is None and "semi_auto_cycle_rate" in self.model_fields_set:
+            _dict['semi_auto_cycle_rate'] = None
 
         # set to None if max_spin_cycle_time (nullable) is None
         # and model_fields_set contains the field
         if self.max_spin_cycle_time is None and "max_spin_cycle_time" in self.model_fields_set:
             _dict['max_spin_cycle_time'] = None
+
+        # set to None if spin_increase_rate (nullable) is None
+        # and model_fields_set contains the field
+        if self.spin_increase_rate is None and "spin_increase_rate" in self.model_fields_set:
+            _dict['spin_increase_rate'] = None
+
+        # set to None if spin_decay_rate (nullable) is None
+        # and model_fields_set contains the field
+        if self.spin_decay_rate is None and "spin_decay_rate" in self.model_fields_set:
+            _dict['spin_decay_rate'] = None
+
+        # set to None if build_up_rate (nullable) is None
+        # and model_fields_set contains the field
+        if self.build_up_rate is None and "build_up_rate" in self.model_fields_set:
+            _dict['build_up_rate'] = None
+
+        # set to None if intra_burst_cycle_time (nullable) is None
+        # and model_fields_set contains the field
+        if self.intra_burst_cycle_time is None and "intra_burst_cycle_time" in self.model_fields_set:
+            _dict['intra_burst_cycle_time'] = None
 
         # set to None if damage_falloff_bias (nullable) is None
         # and model_fields_set contains the field
@@ -522,8 +558,14 @@ class WeaponInfoV2(BaseModel):
             "crit_bonus_start": obj.get("crit_bonus_start"),
             "crit_bonus_start_range": obj.get("crit_bonus_start_range"),
             "cycle_time": obj.get("cycle_time"),
-            "intra_burst_cycle_time": obj.get("intra_burst_cycle_time"),
+            "spins_up": obj.get("spins_up"),
+            "is_semi_auto": obj.get("is_semi_auto"),
+            "semi_auto_cycle_rate": obj.get("semi_auto_cycle_rate"),
             "max_spin_cycle_time": obj.get("max_spin_cycle_time"),
+            "spin_increase_rate": obj.get("spin_increase_rate"),
+            "spin_decay_rate": obj.get("spin_decay_rate"),
+            "build_up_rate": obj.get("build_up_rate"),
+            "intra_burst_cycle_time": obj.get("intra_burst_cycle_time"),
             "damage_falloff_bias": obj.get("damage_falloff_bias"),
             "damage_falloff_end_range": obj.get("damage_falloff_end_range"),
             "damage_falloff_end_scale": obj.get("damage_falloff_end_scale"),

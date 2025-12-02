@@ -180,16 +180,52 @@ class WeaponInfoV2Test : ShouldSpec() {
             //modelInstance.cycleTime shouldBe ("TODO")
         }
 
-        // to test the property `intraBurstCycleTime`
-        should("test intraBurstCycleTime") {
+        // to test the property `spinsUp`
+        should("test spinsUp") {
             // uncomment below to test the property
-            //modelInstance.intraBurstCycleTime shouldBe ("TODO")
+            //modelInstance.spinsUp shouldBe ("TODO")
+        }
+
+        // to test the property `isSemiAuto`
+        should("test isSemiAuto") {
+            // uncomment below to test the property
+            //modelInstance.isSemiAuto shouldBe ("TODO")
+        }
+
+        // to test the property `semiAutoCycleRate`
+        should("test semiAutoCycleRate") {
+            // uncomment below to test the property
+            //modelInstance.semiAutoCycleRate shouldBe ("TODO")
         }
 
         // to test the property `maxSpinCycleTime`
         should("test maxSpinCycleTime") {
             // uncomment below to test the property
             //modelInstance.maxSpinCycleTime shouldBe ("TODO")
+        }
+
+        // to test the property `spinIncreaseRate`
+        should("test spinIncreaseRate") {
+            // uncomment below to test the property
+            //modelInstance.spinIncreaseRate shouldBe ("TODO")
+        }
+
+        // to test the property `spinDecayRate`
+        should("test spinDecayRate") {
+            // uncomment below to test the property
+            //modelInstance.spinDecayRate shouldBe ("TODO")
+        }
+
+        // to test the property `buildUpRate`
+        should("test buildUpRate") {
+            // uncomment below to test the property
+            //modelInstance.buildUpRate shouldBe ("TODO")
+        }
+
+        // to test the property `intraBurstCycleTime`
+        should("test intraBurstCycleTime") {
+            // uncomment below to test the property
+            //modelInstance.intraBurstCycleTime shouldBe ("TODO")
         }
 
         // to test the property `damageFalloffBias`

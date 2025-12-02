@@ -21,8 +21,14 @@ Name | Type | Description | Notes
 **CritBonusStart** | Pointer to **NullableFloat32** |  | [optional] 
 **CritBonusStartRange** | Pointer to **NullableFloat32** |  | [optional] 
 **CycleTime** | Pointer to **NullableFloat32** |  | [optional] 
-**IntraBurstCycleTime** | Pointer to **NullableFloat32** |  | [optional] 
+**SpinsUp** | Pointer to **NullableBool** |  | [optional] 
+**IsSemiAuto** | Pointer to **NullableBool** |  | [optional] 
+**SemiAutoCycleRate** | Pointer to **NullableFloat32** |  | [optional] 
 **MaxSpinCycleTime** | Pointer to **NullableFloat32** |  | [optional] 
+**SpinIncreaseRate** | Pointer to **NullableFloat32** |  | [optional] 
+**SpinDecayRate** | Pointer to **NullableFloat32** |  | [optional] 
+**BuildUpRate** | Pointer to **NullableFloat32** |  | [optional] 
+**IntraBurstCycleTime** | Pointer to **NullableFloat32** |  | [optional] 
 **DamageFalloffBias** | Pointer to **NullableFloat32** |  | [optional] 
 **DamageFalloffEndRange** | Pointer to **NullableFloat32** |  | [optional] 
 **DamageFalloffEndScale** | Pointer to **NullableFloat32** |  | [optional] 
@@ -684,41 +690,111 @@ HasCycleTime returns a boolean if a field has been set.
 `func (o *WeaponInfoV2) UnsetCycleTime()`
 
 UnsetCycleTime ensures that no value is present for CycleTime, not even an explicit nil
-### GetIntraBurstCycleTime
+### GetSpinsUp
 
-`func (o *WeaponInfoV2) GetIntraBurstCycleTime() float32`
+`func (o *WeaponInfoV2) GetSpinsUp() bool`
 
-GetIntraBurstCycleTime returns the IntraBurstCycleTime field if non-nil, zero value otherwise.
+GetSpinsUp returns the SpinsUp field if non-nil, zero value otherwise.
 
-### GetIntraBurstCycleTimeOk
+### GetSpinsUpOk
 
-`func (o *WeaponInfoV2) GetIntraBurstCycleTimeOk() (*float32, bool)`
+`func (o *WeaponInfoV2) GetSpinsUpOk() (*bool, bool)`
 
-GetIntraBurstCycleTimeOk returns a tuple with the IntraBurstCycleTime field if it's non-nil, zero value otherwise
+GetSpinsUpOk returns a tuple with the SpinsUp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIntraBurstCycleTime
+### SetSpinsUp
 
-`func (o *WeaponInfoV2) SetIntraBurstCycleTime(v float32)`
+`func (o *WeaponInfoV2) SetSpinsUp(v bool)`
 
-SetIntraBurstCycleTime sets IntraBurstCycleTime field to given value.
+SetSpinsUp sets SpinsUp field to given value.
 
-### HasIntraBurstCycleTime
+### HasSpinsUp
 
-`func (o *WeaponInfoV2) HasIntraBurstCycleTime() bool`
+`func (o *WeaponInfoV2) HasSpinsUp() bool`
 
-HasIntraBurstCycleTime returns a boolean if a field has been set.
+HasSpinsUp returns a boolean if a field has been set.
 
-### SetIntraBurstCycleTimeNil
+### SetSpinsUpNil
 
-`func (o *WeaponInfoV2) SetIntraBurstCycleTimeNil(b bool)`
+`func (o *WeaponInfoV2) SetSpinsUpNil(b bool)`
 
- SetIntraBurstCycleTimeNil sets the value for IntraBurstCycleTime to be an explicit nil
+ SetSpinsUpNil sets the value for SpinsUp to be an explicit nil
 
-### UnsetIntraBurstCycleTime
-`func (o *WeaponInfoV2) UnsetIntraBurstCycleTime()`
+### UnsetSpinsUp
+`func (o *WeaponInfoV2) UnsetSpinsUp()`
 
-UnsetIntraBurstCycleTime ensures that no value is present for IntraBurstCycleTime, not even an explicit nil
+UnsetSpinsUp ensures that no value is present for SpinsUp, not even an explicit nil
+### GetIsSemiAuto
+
+`func (o *WeaponInfoV2) GetIsSemiAuto() bool`
+
+GetIsSemiAuto returns the IsSemiAuto field if non-nil, zero value otherwise.
+
+### GetIsSemiAutoOk
+
+`func (o *WeaponInfoV2) GetIsSemiAutoOk() (*bool, bool)`
+
+GetIsSemiAutoOk returns a tuple with the IsSemiAuto field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSemiAuto
+
+`func (o *WeaponInfoV2) SetIsSemiAuto(v bool)`
+
+SetIsSemiAuto sets IsSemiAuto field to given value.
+
+### HasIsSemiAuto
+
+`func (o *WeaponInfoV2) HasIsSemiAuto() bool`
+
+HasIsSemiAuto returns a boolean if a field has been set.
+
+### SetIsSemiAutoNil
+
+`func (o *WeaponInfoV2) SetIsSemiAutoNil(b bool)`
+
+ SetIsSemiAutoNil sets the value for IsSemiAuto to be an explicit nil
+
+### UnsetIsSemiAuto
+`func (o *WeaponInfoV2) UnsetIsSemiAuto()`
+
+UnsetIsSemiAuto ensures that no value is present for IsSemiAuto, not even an explicit nil
+### GetSemiAutoCycleRate
+
+`func (o *WeaponInfoV2) GetSemiAutoCycleRate() float32`
+
+GetSemiAutoCycleRate returns the SemiAutoCycleRate field if non-nil, zero value otherwise.
+
+### GetSemiAutoCycleRateOk
+
+`func (o *WeaponInfoV2) GetSemiAutoCycleRateOk() (*float32, bool)`
+
+GetSemiAutoCycleRateOk returns a tuple with the SemiAutoCycleRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSemiAutoCycleRate
+
+`func (o *WeaponInfoV2) SetSemiAutoCycleRate(v float32)`
+
+SetSemiAutoCycleRate sets SemiAutoCycleRate field to given value.
+
+### HasSemiAutoCycleRate
+
+`func (o *WeaponInfoV2) HasSemiAutoCycleRate() bool`
+
+HasSemiAutoCycleRate returns a boolean if a field has been set.
+
+### SetSemiAutoCycleRateNil
+
+`func (o *WeaponInfoV2) SetSemiAutoCycleRateNil(b bool)`
+
+ SetSemiAutoCycleRateNil sets the value for SemiAutoCycleRate to be an explicit nil
+
+### UnsetSemiAutoCycleRate
+`func (o *WeaponInfoV2) UnsetSemiAutoCycleRate()`
+
+UnsetSemiAutoCycleRate ensures that no value is present for SemiAutoCycleRate, not even an explicit nil
 ### GetMaxSpinCycleTime
 
 `func (o *WeaponInfoV2) GetMaxSpinCycleTime() float32`
@@ -754,6 +830,146 @@ HasMaxSpinCycleTime returns a boolean if a field has been set.
 `func (o *WeaponInfoV2) UnsetMaxSpinCycleTime()`
 
 UnsetMaxSpinCycleTime ensures that no value is present for MaxSpinCycleTime, not even an explicit nil
+### GetSpinIncreaseRate
+
+`func (o *WeaponInfoV2) GetSpinIncreaseRate() float32`
+
+GetSpinIncreaseRate returns the SpinIncreaseRate field if non-nil, zero value otherwise.
+
+### GetSpinIncreaseRateOk
+
+`func (o *WeaponInfoV2) GetSpinIncreaseRateOk() (*float32, bool)`
+
+GetSpinIncreaseRateOk returns a tuple with the SpinIncreaseRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSpinIncreaseRate
+
+`func (o *WeaponInfoV2) SetSpinIncreaseRate(v float32)`
+
+SetSpinIncreaseRate sets SpinIncreaseRate field to given value.
+
+### HasSpinIncreaseRate
+
+`func (o *WeaponInfoV2) HasSpinIncreaseRate() bool`
+
+HasSpinIncreaseRate returns a boolean if a field has been set.
+
+### SetSpinIncreaseRateNil
+
+`func (o *WeaponInfoV2) SetSpinIncreaseRateNil(b bool)`
+
+ SetSpinIncreaseRateNil sets the value for SpinIncreaseRate to be an explicit nil
+
+### UnsetSpinIncreaseRate
+`func (o *WeaponInfoV2) UnsetSpinIncreaseRate()`
+
+UnsetSpinIncreaseRate ensures that no value is present for SpinIncreaseRate, not even an explicit nil
+### GetSpinDecayRate
+
+`func (o *WeaponInfoV2) GetSpinDecayRate() float32`
+
+GetSpinDecayRate returns the SpinDecayRate field if non-nil, zero value otherwise.
+
+### GetSpinDecayRateOk
+
+`func (o *WeaponInfoV2) GetSpinDecayRateOk() (*float32, bool)`
+
+GetSpinDecayRateOk returns a tuple with the SpinDecayRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSpinDecayRate
+
+`func (o *WeaponInfoV2) SetSpinDecayRate(v float32)`
+
+SetSpinDecayRate sets SpinDecayRate field to given value.
+
+### HasSpinDecayRate
+
+`func (o *WeaponInfoV2) HasSpinDecayRate() bool`
+
+HasSpinDecayRate returns a boolean if a field has been set.
+
+### SetSpinDecayRateNil
+
+`func (o *WeaponInfoV2) SetSpinDecayRateNil(b bool)`
+
+ SetSpinDecayRateNil sets the value for SpinDecayRate to be an explicit nil
+
+### UnsetSpinDecayRate
+`func (o *WeaponInfoV2) UnsetSpinDecayRate()`
+
+UnsetSpinDecayRate ensures that no value is present for SpinDecayRate, not even an explicit nil
+### GetBuildUpRate
+
+`func (o *WeaponInfoV2) GetBuildUpRate() float32`
+
+GetBuildUpRate returns the BuildUpRate field if non-nil, zero value otherwise.
+
+### GetBuildUpRateOk
+
+`func (o *WeaponInfoV2) GetBuildUpRateOk() (*float32, bool)`
+
+GetBuildUpRateOk returns a tuple with the BuildUpRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBuildUpRate
+
+`func (o *WeaponInfoV2) SetBuildUpRate(v float32)`
+
+SetBuildUpRate sets BuildUpRate field to given value.
+
+### HasBuildUpRate
+
+`func (o *WeaponInfoV2) HasBuildUpRate() bool`
+
+HasBuildUpRate returns a boolean if a field has been set.
+
+### SetBuildUpRateNil
+
+`func (o *WeaponInfoV2) SetBuildUpRateNil(b bool)`
+
+ SetBuildUpRateNil sets the value for BuildUpRate to be an explicit nil
+
+### UnsetBuildUpRate
+`func (o *WeaponInfoV2) UnsetBuildUpRate()`
+
+UnsetBuildUpRate ensures that no value is present for BuildUpRate, not even an explicit nil
+### GetIntraBurstCycleTime
+
+`func (o *WeaponInfoV2) GetIntraBurstCycleTime() float32`
+
+GetIntraBurstCycleTime returns the IntraBurstCycleTime field if non-nil, zero value otherwise.
+
+### GetIntraBurstCycleTimeOk
+
+`func (o *WeaponInfoV2) GetIntraBurstCycleTimeOk() (*float32, bool)`
+
+GetIntraBurstCycleTimeOk returns a tuple with the IntraBurstCycleTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIntraBurstCycleTime
+
+`func (o *WeaponInfoV2) SetIntraBurstCycleTime(v float32)`
+
+SetIntraBurstCycleTime sets IntraBurstCycleTime field to given value.
+
+### HasIntraBurstCycleTime
+
+`func (o *WeaponInfoV2) HasIntraBurstCycleTime() bool`
+
+HasIntraBurstCycleTime returns a boolean if a field has been set.
+
+### SetIntraBurstCycleTimeNil
+
+`func (o *WeaponInfoV2) SetIntraBurstCycleTimeNil(b bool)`
+
+ SetIntraBurstCycleTimeNil sets the value for IntraBurstCycleTime to be an explicit nil
+
+### UnsetIntraBurstCycleTime
+`func (o *WeaponInfoV2) UnsetIntraBurstCycleTime()`
+
+UnsetIntraBurstCycleTime ensures that no value is present for IntraBurstCycleTime, not even an explicit nil
 ### GetDamageFalloffBias
 
 `func (o *WeaponInfoV2) GetDamageFalloffBias() float32`
