@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## search_builds
 
-> Vec<models::Build> search_builds(min_unix_timestamp, max_unix_timestamp, min_published_unix_timestamp, max_published_unix_timestamp, sort_by, start, limit, sort_direction, search_name, search_description, only_latest, language, build_id, version, hero_id, tag, rollup_category, author_id)
+> Vec<models::Build> search_builds(min_unix_timestamp, max_unix_timestamp, min_published_unix_timestamp, max_published_unix_timestamp, sort_by, start, limit, sort_direction, search_name, search_description, only_latest, language, build_language, build_id, version, hero_id, tag, rollup_category, author_id)
 Search
 
  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -32,6 +32,7 @@ Name | Type | Description  | Required | Notes
 **search_description** | Option<**String**> | Search for builds with a description containing this string. |  |
 **only_latest** | Option<**bool**> | Only return the latest version of each build. |  |
 **language** | Option<**u32**> | Filter builds by language. |  |
+**build_language** | Option<**String**> | Filter builds by language. |  |
 **build_id** | Option<**u32**> | Filter builds by ID. |  |
 **version** | Option<**u32**> | Filter builds by version. |  |
 **hero_id** | Option<**u32**> | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |

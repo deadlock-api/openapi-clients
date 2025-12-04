@@ -9,7 +9,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="searchBuilds"></a>
 # **searchBuilds**
-> kotlin.collections.List&lt;Build&gt; searchBuilds(minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildId, version, heroId, tag, rollupCategory, authorId)
+> kotlin.collections.List&lt;Build&gt; searchBuilds(minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildLanguage, buildId, version, heroId, tag, rollupCategory, authorId)
 
 Search
 
@@ -34,6 +34,7 @@ val searchName : kotlin.String = searchName_example // kotlin.String | Search fo
 val searchDescription : kotlin.String = searchDescription_example // kotlin.String | Search for builds with a description containing this string.
 val onlyLatest : kotlin.Boolean = true // kotlin.Boolean | Only return the latest version of each build.
 val language : kotlin.Int = 56 // kotlin.Int | Filter builds by language.
+val buildLanguage : kotlin.String = buildLanguage_example // kotlin.String | Filter builds by language.
 val buildId : kotlin.Int = 56 // kotlin.Int | Filter builds by ID.
 val version : kotlin.Int = 56 // kotlin.Int | Filter builds by version.
 val heroId : kotlin.Int = 56 // kotlin.Int | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -41,7 +42,7 @@ val tag : kotlin.Int = 56 // kotlin.Int | Filter builds by tag.
 val rollupCategory : kotlin.Int = 56 // kotlin.Int | Filter builds by rollup category.
 val authorId : kotlin.Int = 56 // kotlin.Int | The author's `SteamID3`
 try {
-    val result : kotlin.collections.List<Build> = apiInstance.searchBuilds(minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildId, version, heroId, tag, rollupCategory, authorId)
+    val result : kotlin.collections.List<Build> = apiInstance.searchBuilds(minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildLanguage, buildId, version, heroId, tag, rollupCategory, authorId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BuildsApi#searchBuilds")
@@ -65,6 +66,7 @@ try {
 | **searchDescription** | **kotlin.String**| Search for builds with a description containing this string. | [optional] |
 | **onlyLatest** | **kotlin.Boolean**| Only return the latest version of each build. | [optional] |
 | **language** | **kotlin.Int**| Filter builds by language. | [optional] |
+| **buildLanguage** | **kotlin.String**| Filter builds by language. | [optional] [enum: English, German, French, Italian, Korean, SpanishSpain, ChineseSimplified, Russian, Thai, Japanese, PortuguesePortugal, Polish, Czech, Turkish, PortugueseBrazil, Ukrainian, SpanishLatinAmerica, Vietnamese] |
 | **buildId** | **kotlin.Int**| Filter builds by ID. | [optional] |
 | **version** | **kotlin.Int**| Filter builds by version. | [optional] |
 | **heroId** | **kotlin.Int**| Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |

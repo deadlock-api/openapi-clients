@@ -41,6 +41,8 @@ pub struct SearchBuildsParams {
     pub only_latest: Option<bool>,
     /// Filter builds by language.
     pub language: Option<u32>,
+    /// Filter builds by language.
+    pub build_language: Option<String>,
     /// Filter builds by ID.
     pub build_id: Option<u32>,
     /// Filter builds by version.
@@ -108,6 +110,9 @@ pub async fn search_builds(configuration: &configuration::Configuration, params:
     }
     if let Some(ref param_value) = params.language {
         req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.build_language {
+        req_builder = req_builder.query(&[("build_language", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.build_id {
         req_builder = req_builder.query(&[("build_id", &param_value.to_string())]);

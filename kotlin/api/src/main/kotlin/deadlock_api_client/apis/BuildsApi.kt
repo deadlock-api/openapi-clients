@@ -85,6 +85,39 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      }
 
     /**
+     * enum for parameter buildLanguage
+     */
+     enum class BuildLanguageSearchBuilds(val value: kotlin.String) {
+         @Json(name = "English") English("English"),
+         @Json(name = "German") German("German"),
+         @Json(name = "French") French("French"),
+         @Json(name = "Italian") Italian("Italian"),
+         @Json(name = "Korean") Korean("Korean"),
+         @Json(name = "SpanishSpain") SpanishSpain("SpanishSpain"),
+         @Json(name = "ChineseSimplified") ChineseSimplified("ChineseSimplified"),
+         @Json(name = "Russian") Russian("Russian"),
+         @Json(name = "Thai") Thai("Thai"),
+         @Json(name = "Japanese") Japanese("Japanese"),
+         @Json(name = "PortuguesePortugal") PortuguesePortugal("PortuguesePortugal"),
+         @Json(name = "Polish") Polish("Polish"),
+         @Json(name = "Czech") Czech("Czech"),
+         @Json(name = "Turkish") Turkish("Turkish"),
+         @Json(name = "PortugueseBrazil") PortugueseBrazil("PortugueseBrazil"),
+         @Json(name = "Ukrainian") Ukrainian("Ukrainian"),
+         @Json(name = "SpanishLatinAmerica") SpanishLatinAmerica("SpanishLatinAmerica"),
+         @Json(name = "Vietnamese") Vietnamese("Vietnamese");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/builds
      * Search
      *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -100,6 +133,7 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param searchDescription Search for builds with a description containing this string. (optional)
      * @param onlyLatest Only return the latest version of each build. (optional)
      * @param language Filter builds by language. (optional)
+     * @param buildLanguage Filter builds by language. (optional)
      * @param buildId Filter builds by ID. (optional)
      * @param version Filter builds by version. (optional)
      * @param heroId Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -115,8 +149,8 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchBuilds(minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minPublishedUnixTimestamp: kotlin.Long? = null, maxPublishedUnixTimestamp: kotlin.Long? = null, sortBy: SortBySearchBuilds? = null, start: kotlin.Int? = null, limit: kotlin.Int? = 100, sortDirection: SortDirectionSearchBuilds? = null, searchName: kotlin.String? = null, searchDescription: kotlin.String? = null, onlyLatest: kotlin.Boolean? = null, language: kotlin.Int? = null, buildId: kotlin.Int? = null, version: kotlin.Int? = null, heroId: kotlin.Int? = null, tag: kotlin.Int? = null, rollupCategory: kotlin.Int? = null, authorId: kotlin.Int? = null) : kotlin.collections.List<Build> {
-        val localVarResponse = searchBuildsWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minPublishedUnixTimestamp = minPublishedUnixTimestamp, maxPublishedUnixTimestamp = maxPublishedUnixTimestamp, sortBy = sortBy, start = start, limit = limit, sortDirection = sortDirection, searchName = searchName, searchDescription = searchDescription, onlyLatest = onlyLatest, language = language, buildId = buildId, version = version, heroId = heroId, tag = tag, rollupCategory = rollupCategory, authorId = authorId)
+    fun searchBuilds(minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minPublishedUnixTimestamp: kotlin.Long? = null, maxPublishedUnixTimestamp: kotlin.Long? = null, sortBy: SortBySearchBuilds? = null, start: kotlin.Int? = null, limit: kotlin.Int? = 100, sortDirection: SortDirectionSearchBuilds? = null, searchName: kotlin.String? = null, searchDescription: kotlin.String? = null, onlyLatest: kotlin.Boolean? = null, language: kotlin.Int? = null, buildLanguage: BuildLanguageSearchBuilds? = null, buildId: kotlin.Int? = null, version: kotlin.Int? = null, heroId: kotlin.Int? = null, tag: kotlin.Int? = null, rollupCategory: kotlin.Int? = null, authorId: kotlin.Int? = null) : kotlin.collections.List<Build> {
+        val localVarResponse = searchBuildsWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minPublishedUnixTimestamp = minPublishedUnixTimestamp, maxPublishedUnixTimestamp = maxPublishedUnixTimestamp, sortBy = sortBy, start = start, limit = limit, sortDirection = sortDirection, searchName = searchName, searchDescription = searchDescription, onlyLatest = onlyLatest, language = language, buildLanguage = buildLanguage, buildId = buildId, version = version, heroId = heroId, tag = tag, rollupCategory = rollupCategory, authorId = authorId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Build>
@@ -149,6 +183,7 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param searchDescription Search for builds with a description containing this string. (optional)
      * @param onlyLatest Only return the latest version of each build. (optional)
      * @param language Filter builds by language. (optional)
+     * @param buildLanguage Filter builds by language. (optional)
      * @param buildId Filter builds by ID. (optional)
      * @param version Filter builds by version. (optional)
      * @param heroId Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -161,8 +196,8 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchBuildsWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minPublishedUnixTimestamp: kotlin.Long?, maxPublishedUnixTimestamp: kotlin.Long?, sortBy: SortBySearchBuilds?, start: kotlin.Int?, limit: kotlin.Int?, sortDirection: SortDirectionSearchBuilds?, searchName: kotlin.String?, searchDescription: kotlin.String?, onlyLatest: kotlin.Boolean?, language: kotlin.Int?, buildId: kotlin.Int?, version: kotlin.Int?, heroId: kotlin.Int?, tag: kotlin.Int?, rollupCategory: kotlin.Int?, authorId: kotlin.Int?) : ApiResponse<kotlin.collections.List<Build>?> {
-        val localVariableConfig = searchBuildsRequestConfig(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minPublishedUnixTimestamp = minPublishedUnixTimestamp, maxPublishedUnixTimestamp = maxPublishedUnixTimestamp, sortBy = sortBy, start = start, limit = limit, sortDirection = sortDirection, searchName = searchName, searchDescription = searchDescription, onlyLatest = onlyLatest, language = language, buildId = buildId, version = version, heroId = heroId, tag = tag, rollupCategory = rollupCategory, authorId = authorId)
+    fun searchBuildsWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minPublishedUnixTimestamp: kotlin.Long?, maxPublishedUnixTimestamp: kotlin.Long?, sortBy: SortBySearchBuilds?, start: kotlin.Int?, limit: kotlin.Int?, sortDirection: SortDirectionSearchBuilds?, searchName: kotlin.String?, searchDescription: kotlin.String?, onlyLatest: kotlin.Boolean?, language: kotlin.Int?, buildLanguage: BuildLanguageSearchBuilds?, buildId: kotlin.Int?, version: kotlin.Int?, heroId: kotlin.Int?, tag: kotlin.Int?, rollupCategory: kotlin.Int?, authorId: kotlin.Int?) : ApiResponse<kotlin.collections.List<Build>?> {
+        val localVariableConfig = searchBuildsRequestConfig(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minPublishedUnixTimestamp = minPublishedUnixTimestamp, maxPublishedUnixTimestamp = maxPublishedUnixTimestamp, sortBy = sortBy, start = start, limit = limit, sortDirection = sortDirection, searchName = searchName, searchDescription = searchDescription, onlyLatest = onlyLatest, language = language, buildLanguage = buildLanguage, buildId = buildId, version = version, heroId = heroId, tag = tag, rollupCategory = rollupCategory, authorId = authorId)
 
         return request<Unit, kotlin.collections.List<Build>>(
             localVariableConfig
@@ -184,6 +219,7 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param searchDescription Search for builds with a description containing this string. (optional)
      * @param onlyLatest Only return the latest version of each build. (optional)
      * @param language Filter builds by language. (optional)
+     * @param buildLanguage Filter builds by language. (optional)
      * @param buildId Filter builds by ID. (optional)
      * @param version Filter builds by version. (optional)
      * @param heroId Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -192,7 +228,7 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param authorId The author&#39;s &#x60;SteamID3&#x60; (optional)
      * @return RequestConfig
      */
-    fun searchBuildsRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minPublishedUnixTimestamp: kotlin.Long?, maxPublishedUnixTimestamp: kotlin.Long?, sortBy: SortBySearchBuilds?, start: kotlin.Int?, limit: kotlin.Int?, sortDirection: SortDirectionSearchBuilds?, searchName: kotlin.String?, searchDescription: kotlin.String?, onlyLatest: kotlin.Boolean?, language: kotlin.Int?, buildId: kotlin.Int?, version: kotlin.Int?, heroId: kotlin.Int?, tag: kotlin.Int?, rollupCategory: kotlin.Int?, authorId: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchBuildsRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minPublishedUnixTimestamp: kotlin.Long?, maxPublishedUnixTimestamp: kotlin.Long?, sortBy: SortBySearchBuilds?, start: kotlin.Int?, limit: kotlin.Int?, sortDirection: SortDirectionSearchBuilds?, searchName: kotlin.String?, searchDescription: kotlin.String?, onlyLatest: kotlin.Boolean?, language: kotlin.Int?, buildLanguage: BuildLanguageSearchBuilds?, buildId: kotlin.Int?, version: kotlin.Int?, heroId: kotlin.Int?, tag: kotlin.Int?, rollupCategory: kotlin.Int?, authorId: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -231,6 +267,9 @@ class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
                 }
                 if (language != null) {
                     put("language", listOf(language.toString()))
+                }
+                if (buildLanguage != null) {
+                    put("build_language", listOf(buildLanguage.value))
                 }
                 if (buildId != null) {
                     put("build_id", listOf(buildId.toString()))

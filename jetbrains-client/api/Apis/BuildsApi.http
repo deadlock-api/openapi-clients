@@ -2,5 +2,5 @@
 
 ### Search
 ## Search
-GET https://api.deadlock-api.com/v1/builds?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minPublishedUnixTimestamp={{minPublishedUnixTimestamp}}&maxPublishedUnixTimestamp={{maxPublishedUnixTimestamp}}&sortBy={{sortBy}}&start={{start}}&limit={{limit}}&sortDirection={{sortDirection}}&searchName={{searchName}}&searchDescription={{searchDescription}}&onlyLatest={{onlyLatest}}&language={{language}}&buildId={{buildId}}&version={{version}}&heroId={{heroId}}&tag={{tag}}&rollupCategory={{rollupCategory}}&authorId={{authorId}}
+GET https://api.deadlock-api.com/v1/builds?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minPublishedUnixTimestamp={{minPublishedUnixTimestamp}}&maxPublishedUnixTimestamp={{maxPublishedUnixTimestamp}}&sortBy={{sortBy}}&start={{start}}&limit={{limit}}&sortDirection={{sortDirection}}&searchName={{searchName}}&searchDescription={{searchDescription}}&onlyLatest={{onlyLatest}}&language={{language}}&buildLanguage={{buildLanguage}}&buildId={{buildId}}&version={{version}}&heroId={{heroId}}&tag={{tag}}&rollupCategory={{rollupCategory}}&authorId={{authorId}}
 Accept: application/json

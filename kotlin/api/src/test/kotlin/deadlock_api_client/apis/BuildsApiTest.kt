@@ -41,13 +41,14 @@ class BuildsApiTest : ShouldSpec() {
             //val searchDescription : kotlin.String = searchDescription_example // kotlin.String | Search for builds with a description containing this string.
             //val onlyLatest : kotlin.Boolean = true // kotlin.Boolean | Only return the latest version of each build.
             //val language : kotlin.Int = 56 // kotlin.Int | Filter builds by language.
+            //val buildLanguage : kotlin.String = buildLanguage_example // kotlin.String | Filter builds by language.
             //val buildId : kotlin.Int = 56 // kotlin.Int | Filter builds by ID.
             //val version : kotlin.Int = 56 // kotlin.Int | Filter builds by version.
             //val heroId : kotlin.Int = 56 // kotlin.Int | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
             //val tag : kotlin.Int = 56 // kotlin.Int | Filter builds by tag.
             //val rollupCategory : kotlin.Int = 56 // kotlin.Int | Filter builds by rollup category.
             //val authorId : kotlin.Int = 56 // kotlin.Int | The author's `SteamID3`
-            //val result : kotlin.collections.List<Build> = apiInstance.searchBuilds(minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildId, version, heroId, tag, rollupCategory, authorId)
+            //val result : kotlin.collections.List<Build> = apiInstance.searchBuilds(minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildLanguage, buildId, version, heroId, tag, rollupCategory, authorId)
             //result shouldBe ("TODO")
         }
 

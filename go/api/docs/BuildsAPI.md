@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## SearchBuilds
 
-> []Build SearchBuilds(ctx).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinPublishedUnixTimestamp(minPublishedUnixTimestamp).MaxPublishedUnixTimestamp(maxPublishedUnixTimestamp).SortBy(sortBy).Start(start).Limit(limit).SortDirection(sortDirection).SearchName(searchName).SearchDescription(searchDescription).OnlyLatest(onlyLatest).Language(language).BuildId(buildId).Version(version).HeroId(heroId).Tag(tag).RollupCategory(rollupCategory).AuthorId(authorId).Execute()
+> []Build SearchBuilds(ctx).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinPublishedUnixTimestamp(minPublishedUnixTimestamp).MaxPublishedUnixTimestamp(maxPublishedUnixTimestamp).SortBy(sortBy).Start(start).Limit(limit).SortDirection(sortDirection).SearchName(searchName).SearchDescription(searchDescription).OnlyLatest(onlyLatest).Language(language).BuildLanguage(buildLanguage).BuildId(buildId).Version(version).HeroId(heroId).Tag(tag).RollupCategory(rollupCategory).AuthorId(authorId).Execute()
 
 Search
 
@@ -41,6 +41,7 @@ func main() {
 	searchDescription := "searchDescription_example" // string | Search for builds with a description containing this string. (optional)
 	onlyLatest := true // bool | Only return the latest version of each build. (optional)
 	language := int32(56) // int32 | Filter builds by language. (optional)
+	buildLanguage := "buildLanguage_example" // string | Filter builds by language. (optional)
 	buildId := int32(56) // int32 | Filter builds by ID. (optional)
 	version := int32(56) // int32 | Filter builds by version. (optional)
 	heroId := int32(56) // int32 | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
@@ -50,7 +51,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BuildsAPI.SearchBuilds(context.Background()).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinPublishedUnixTimestamp(minPublishedUnixTimestamp).MaxPublishedUnixTimestamp(maxPublishedUnixTimestamp).SortBy(sortBy).Start(start).Limit(limit).SortDirection(sortDirection).SearchName(searchName).SearchDescription(searchDescription).OnlyLatest(onlyLatest).Language(language).BuildId(buildId).Version(version).HeroId(heroId).Tag(tag).RollupCategory(rollupCategory).AuthorId(authorId).Execute()
+	resp, r, err := apiClient.BuildsAPI.SearchBuilds(context.Background()).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinPublishedUnixTimestamp(minPublishedUnixTimestamp).MaxPublishedUnixTimestamp(maxPublishedUnixTimestamp).SortBy(sortBy).Start(start).Limit(limit).SortDirection(sortDirection).SearchName(searchName).SearchDescription(searchDescription).OnlyLatest(onlyLatest).Language(language).BuildLanguage(buildLanguage).BuildId(buildId).Version(version).HeroId(heroId).Tag(tag).RollupCategory(rollupCategory).AuthorId(authorId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BuildsAPI.SearchBuilds``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -83,6 +84,7 @@ Name | Type | Description  | Notes
  **searchDescription** | **string** | Search for builds with a description containing this string. | 
  **onlyLatest** | **bool** | Only return the latest version of each build. | 
  **language** | **int32** | Filter builds by language. | 
+ **buildLanguage** | **string** | Filter builds by language. | 
  **buildId** | **int32** | Filter builds by ID. | 
  **version** | **int32** | Filter builds by version. | 
  **heroId** | **int32** | Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 

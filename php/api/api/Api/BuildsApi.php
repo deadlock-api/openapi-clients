@@ -141,7 +141,8 @@ class BuildsApi
      * @param  string|null $search_name Search for builds with a name containing this string. (optional)
      * @param  string|null $search_description Search for builds with a description containing this string. (optional)
      * @param  bool|null $only_latest Only return the latest version of each build. (optional)
-     * @param  int|null $language Filter builds by language. (optional)
+     * @param  int|null $language Filter builds by language. (optional) (deprecated)
+     * @param  string|null $build_language Filter builds by language. (optional)
      * @param  int|null $build_id Filter builds by ID. (optional)
      * @param  int|null $version Filter builds by version. (optional)
      * @param  int|null $hero_id Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -154,9 +155,9 @@ class BuildsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Build[]
      */
-    public function searchBuilds($min_unix_timestamp = null, $max_unix_timestamp = null, $min_published_unix_timestamp = null, $max_published_unix_timestamp = null, $sort_by = null, $start = null, $limit = 100, $sort_direction = null, $search_name = null, $search_description = null, $only_latest = null, $language = null, $build_id = null, $version = null, $hero_id = null, $tag = null, $rollup_category = null, $author_id = null, string $contentType = self::contentTypes['searchBuilds'][0])
+    public function searchBuilds($min_unix_timestamp = null, $max_unix_timestamp = null, $min_published_unix_timestamp = null, $max_published_unix_timestamp = null, $sort_by = null, $start = null, $limit = 100, $sort_direction = null, $search_name = null, $search_description = null, $only_latest = null, $language = null, $build_language = null, $build_id = null, $version = null, $hero_id = null, $tag = null, $rollup_category = null, $author_id = null, string $contentType = self::contentTypes['searchBuilds'][0])
     {
-        list($response) = $this->searchBuildsWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id, $contentType);
+        list($response) = $this->searchBuildsWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id, $contentType);
         return $response;
     }
 
@@ -176,7 +177,8 @@ class BuildsApi
      * @param  string|null $search_name Search for builds with a name containing this string. (optional)
      * @param  string|null $search_description Search for builds with a description containing this string. (optional)
      * @param  bool|null $only_latest Only return the latest version of each build. (optional)
-     * @param  int|null $language Filter builds by language. (optional)
+     * @param  int|null $language Filter builds by language. (optional) (deprecated)
+     * @param  string|null $build_language Filter builds by language. (optional)
      * @param  int|null $build_id Filter builds by ID. (optional)
      * @param  int|null $version Filter builds by version. (optional)
      * @param  int|null $hero_id Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -189,9 +191,9 @@ class BuildsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Build[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchBuildsWithHttpInfo($min_unix_timestamp = null, $max_unix_timestamp = null, $min_published_unix_timestamp = null, $max_published_unix_timestamp = null, $sort_by = null, $start = null, $limit = 100, $sort_direction = null, $search_name = null, $search_description = null, $only_latest = null, $language = null, $build_id = null, $version = null, $hero_id = null, $tag = null, $rollup_category = null, $author_id = null, string $contentType = self::contentTypes['searchBuilds'][0])
+    public function searchBuildsWithHttpInfo($min_unix_timestamp = null, $max_unix_timestamp = null, $min_published_unix_timestamp = null, $max_published_unix_timestamp = null, $sort_by = null, $start = null, $limit = 100, $sort_direction = null, $search_name = null, $search_description = null, $only_latest = null, $language = null, $build_language = null, $build_id = null, $version = null, $hero_id = null, $tag = null, $rollup_category = null, $author_id = null, string $contentType = self::contentTypes['searchBuilds'][0])
     {
-        $request = $this->searchBuildsRequest($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id, $contentType);
+        $request = $this->searchBuildsRequest($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -278,7 +280,8 @@ class BuildsApi
      * @param  string|null $search_name Search for builds with a name containing this string. (optional)
      * @param  string|null $search_description Search for builds with a description containing this string. (optional)
      * @param  bool|null $only_latest Only return the latest version of each build. (optional)
-     * @param  int|null $language Filter builds by language. (optional)
+     * @param  int|null $language Filter builds by language. (optional) (deprecated)
+     * @param  string|null $build_language Filter builds by language. (optional)
      * @param  int|null $build_id Filter builds by ID. (optional)
      * @param  int|null $version Filter builds by version. (optional)
      * @param  int|null $hero_id Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -290,9 +293,9 @@ class BuildsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchBuildsAsync($min_unix_timestamp = null, $max_unix_timestamp = null, $min_published_unix_timestamp = null, $max_published_unix_timestamp = null, $sort_by = null, $start = null, $limit = 100, $sort_direction = null, $search_name = null, $search_description = null, $only_latest = null, $language = null, $build_id = null, $version = null, $hero_id = null, $tag = null, $rollup_category = null, $author_id = null, string $contentType = self::contentTypes['searchBuilds'][0])
+    public function searchBuildsAsync($min_unix_timestamp = null, $max_unix_timestamp = null, $min_published_unix_timestamp = null, $max_published_unix_timestamp = null, $sort_by = null, $start = null, $limit = 100, $sort_direction = null, $search_name = null, $search_description = null, $only_latest = null, $language = null, $build_language = null, $build_id = null, $version = null, $hero_id = null, $tag = null, $rollup_category = null, $author_id = null, string $contentType = self::contentTypes['searchBuilds'][0])
     {
-        return $this->searchBuildsAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id, $contentType)
+        return $this->searchBuildsAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -316,7 +319,8 @@ class BuildsApi
      * @param  string|null $search_name Search for builds with a name containing this string. (optional)
      * @param  string|null $search_description Search for builds with a description containing this string. (optional)
      * @param  bool|null $only_latest Only return the latest version of each build. (optional)
-     * @param  int|null $language Filter builds by language. (optional)
+     * @param  int|null $language Filter builds by language. (optional) (deprecated)
+     * @param  string|null $build_language Filter builds by language. (optional)
      * @param  int|null $build_id Filter builds by ID. (optional)
      * @param  int|null $version Filter builds by version. (optional)
      * @param  int|null $hero_id Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -328,10 +332,10 @@ class BuildsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchBuildsAsyncWithHttpInfo($min_unix_timestamp = null, $max_unix_timestamp = null, $min_published_unix_timestamp = null, $max_published_unix_timestamp = null, $sort_by = null, $start = null, $limit = 100, $sort_direction = null, $search_name = null, $search_description = null, $only_latest = null, $language = null, $build_id = null, $version = null, $hero_id = null, $tag = null, $rollup_category = null, $author_id = null, string $contentType = self::contentTypes['searchBuilds'][0])
+    public function searchBuildsAsyncWithHttpInfo($min_unix_timestamp = null, $max_unix_timestamp = null, $min_published_unix_timestamp = null, $max_published_unix_timestamp = null, $sort_by = null, $start = null, $limit = 100, $sort_direction = null, $search_name = null, $search_description = null, $only_latest = null, $language = null, $build_language = null, $build_id = null, $version = null, $hero_id = null, $tag = null, $rollup_category = null, $author_id = null, string $contentType = self::contentTypes['searchBuilds'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Build[]';
-        $request = $this->searchBuildsRequest($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id, $contentType);
+        $request = $this->searchBuildsRequest($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -383,7 +387,8 @@ class BuildsApi
      * @param  string|null $search_name Search for builds with a name containing this string. (optional)
      * @param  string|null $search_description Search for builds with a description containing this string. (optional)
      * @param  bool|null $only_latest Only return the latest version of each build. (optional)
-     * @param  int|null $language Filter builds by language. (optional)
+     * @param  int|null $language Filter builds by language. (optional) (deprecated)
+     * @param  string|null $build_language Filter builds by language. (optional)
      * @param  int|null $build_id Filter builds by ID. (optional)
      * @param  int|null $version Filter builds by version. (optional)
      * @param  int|null $hero_id Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
@@ -395,7 +400,7 @@ class BuildsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchBuildsRequest($min_unix_timestamp = null, $max_unix_timestamp = null, $min_published_unix_timestamp = null, $max_published_unix_timestamp = null, $sort_by = null, $start = null, $limit = 100, $sort_direction = null, $search_name = null, $search_description = null, $only_latest = null, $language = null, $build_id = null, $version = null, $hero_id = null, $tag = null, $rollup_category = null, $author_id = null, string $contentType = self::contentTypes['searchBuilds'][0])
+    public function searchBuildsRequest($min_unix_timestamp = null, $max_unix_timestamp = null, $min_published_unix_timestamp = null, $max_published_unix_timestamp = null, $sort_by = null, $start = null, $limit = 100, $sort_direction = null, $search_name = null, $search_description = null, $only_latest = null, $language = null, $build_language = null, $build_id = null, $version = null, $hero_id = null, $tag = null, $rollup_category = null, $author_id = null, string $contentType = self::contentTypes['searchBuilds'][0])
     {
 
 
@@ -419,6 +424,7 @@ class BuildsApi
             throw new \InvalidArgumentException('invalid value for "$language" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }
         
+
         if ($build_id !== null && $build_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$build_id" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }
@@ -555,6 +561,15 @@ class BuildsApi
             $language,
             'language', // param base name
             'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $build_language,
+            'build_language', // param base name
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required

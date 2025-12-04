@@ -12,7 +12,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 ## `searchBuilds()`
 
 ```php
-searchBuilds($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id): \OpenAPI\Client\Model\Build[]
+searchBuilds($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id): \OpenAPI\Client\Model\Build[]
 ```
 
 Search
@@ -44,6 +44,7 @@ $search_name = 'search_name_example'; // string | Search for builds with a name 
 $search_description = 'search_description_example'; // string | Search for builds with a description containing this string.
 $only_latest = True; // bool | Only return the latest version of each build.
 $language = 56; // int | Filter builds by language.
+$build_language = 'build_language_example'; // string | Filter builds by language.
 $build_id = 56; // int | Filter builds by ID.
 $version = 56; // int | Filter builds by version.
 $hero_id = 56; // int | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -52,7 +53,7 @@ $rollup_category = 56; // int | Filter builds by rollup category.
 $author_id = 56; // int | The author's `SteamID3`
 
 try {
-    $result = $apiInstance->searchBuilds($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id);
+    $result = $apiInstance->searchBuilds($min_unix_timestamp, $max_unix_timestamp, $min_published_unix_timestamp, $max_published_unix_timestamp, $sort_by, $start, $limit, $sort_direction, $search_name, $search_description, $only_latest, $language, $build_language, $build_id, $version, $hero_id, $tag, $rollup_category, $author_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BuildsApi->searchBuilds: ', $e->getMessage(), PHP_EOL;
@@ -75,6 +76,7 @@ try {
 | **search_description** | **string**| Search for builds with a description containing this string. | [optional] |
 | **only_latest** | **bool**| Only return the latest version of each build. | [optional] |
 | **language** | **int**| Filter builds by language. | [optional] |
+| **build_language** | **string**| Filter builds by language. | [optional] |
 | **build_id** | **int**| Filter builds by ID. | [optional] |
 | **version** | **int**| Filter builds by version. | [optional] |
 | **hero_id** | **int**| Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |

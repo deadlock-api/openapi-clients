@@ -3,6 +3,8 @@
 
 ## Enum
 
+* `NUMBER_6020` (value: `6020`)
+
 * `NUMBER_6016` (value: `6016`)
 
 * `NUMBER_6008` (value: `6008`)

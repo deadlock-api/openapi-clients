@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **search_builds**
-> List[Build] search_builds(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_published_unix_timestamp=min_published_unix_timestamp, max_published_unix_timestamp=max_published_unix_timestamp, sort_by=sort_by, start=start, limit=limit, sort_direction=sort_direction, search_name=search_name, search_description=search_description, only_latest=only_latest, language=language, build_id=build_id, version=version, hero_id=hero_id, tag=tag, rollup_category=rollup_category, author_id=author_id)
+> List[Build] search_builds(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_published_unix_timestamp=min_published_unix_timestamp, max_published_unix_timestamp=max_published_unix_timestamp, sort_by=sort_by, start=start, limit=limit, sort_direction=sort_direction, search_name=search_name, search_description=search_description, only_latest=only_latest, language=language, build_language=build_language, build_id=build_id, version=version, hero_id=hero_id, tag=tag, rollup_category=rollup_category, author_id=author_id)
 
 Search
 
@@ -55,6 +55,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     search_description = 'search_description_example' # str | Search for builds with a description containing this string. (optional)
     only_latest = True # bool | Only return the latest version of each build. (optional)
     language = 56 # int | Filter builds by language. (optional)
+    build_language = 'build_language_example' # str | Filter builds by language. (optional)
     build_id = 56 # int | Filter builds by ID. (optional)
     version = 56 # int | Filter builds by version. (optional)
     hero_id = 56 # int | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
@@ -64,7 +65,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Search
-        api_response = api_instance.search_builds(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_published_unix_timestamp=min_published_unix_timestamp, max_published_unix_timestamp=max_published_unix_timestamp, sort_by=sort_by, start=start, limit=limit, sort_direction=sort_direction, search_name=search_name, search_description=search_description, only_latest=only_latest, language=language, build_id=build_id, version=version, hero_id=hero_id, tag=tag, rollup_category=rollup_category, author_id=author_id)
+        api_response = api_instance.search_builds(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_published_unix_timestamp=min_published_unix_timestamp, max_published_unix_timestamp=max_published_unix_timestamp, sort_by=sort_by, start=start, limit=limit, sort_direction=sort_direction, search_name=search_name, search_description=search_description, only_latest=only_latest, language=language, build_language=build_language, build_id=build_id, version=version, hero_id=hero_id, tag=tag, rollup_category=rollup_category, author_id=author_id)
         print("The response of BuildsApi->search_builds:\n")
         pprint(api_response)
     except Exception as e:
@@ -90,6 +91,7 @@ Name | Type | Description  | Notes
  **search_description** | **str**| Search for builds with a description containing this string. | [optional] 
  **only_latest** | **bool**| Only return the latest version of each build. | [optional] 
  **language** | **int**| Filter builds by language. | [optional] 
+ **build_language** | **str**| Filter builds by language. | [optional] 
  **build_id** | **int**| Filter builds by ID. | [optional] 
  **version** | **int**| Filter builds by version. | [optional] 
  **hero_id** | **int**| Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 

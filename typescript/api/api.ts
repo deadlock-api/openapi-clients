@@ -4177,6 +4177,7 @@ export const BuildsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {string} [searchDescription] Search for builds with a description containing this string.
          * @param {boolean} [onlyLatest] Only return the latest version of each build.
          * @param {number} [language] Filter builds by language.
+         * @param {SearchBuildsBuildLanguageEnum} [buildLanguage] Filter builds by language.
          * @param {number} [buildId] Filter builds by ID.
          * @param {number} [version] Filter builds by version.
          * @param {number} [heroId] Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -4186,7 +4187,7 @@ export const BuildsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchBuilds: async (minUnixTimestamp?: number, maxUnixTimestamp?: number, minPublishedUnixTimestamp?: number, maxPublishedUnixTimestamp?: number, sortBy?: SearchBuildsSortByEnum, start?: number, limit?: number, sortDirection?: SearchBuildsSortDirectionEnum, searchName?: string, searchDescription?: string, onlyLatest?: boolean, language?: number, buildId?: number, version?: number, heroId?: number, tag?: number, rollupCategory?: number, authorId?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        searchBuilds: async (minUnixTimestamp?: number, maxUnixTimestamp?: number, minPublishedUnixTimestamp?: number, maxPublishedUnixTimestamp?: number, sortBy?: SearchBuildsSortByEnum, start?: number, limit?: number, sortDirection?: SearchBuildsSortDirectionEnum, searchName?: string, searchDescription?: string, onlyLatest?: boolean, language?: number, buildLanguage?: SearchBuildsBuildLanguageEnum, buildId?: number, version?: number, heroId?: number, tag?: number, rollupCategory?: number, authorId?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/builds`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4245,6 +4246,10 @@ export const BuildsApiAxiosParamCreator = function (configuration?: Configuratio
 
             if (language !== undefined) {
                 localVarQueryParameter['language'] = language;
+            }
+
+            if (buildLanguage !== undefined) {
+                localVarQueryParameter['build_language'] = buildLanguage;
             }
 
             if (buildId !== undefined) {
@@ -4306,6 +4311,7 @@ export const BuildsApiFp = function(configuration?: Configuration) {
          * @param {string} [searchDescription] Search for builds with a description containing this string.
          * @param {boolean} [onlyLatest] Only return the latest version of each build.
          * @param {number} [language] Filter builds by language.
+         * @param {SearchBuildsBuildLanguageEnum} [buildLanguage] Filter builds by language.
          * @param {number} [buildId] Filter builds by ID.
          * @param {number} [version] Filter builds by version.
          * @param {number} [heroId] Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -4315,8 +4321,8 @@ export const BuildsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async searchBuilds(minUnixTimestamp?: number, maxUnixTimestamp?: number, minPublishedUnixTimestamp?: number, maxPublishedUnixTimestamp?: number, sortBy?: SearchBuildsSortByEnum, start?: number, limit?: number, sortDirection?: SearchBuildsSortDirectionEnum, searchName?: string, searchDescription?: string, onlyLatest?: boolean, language?: number, buildId?: number, version?: number, heroId?: number, tag?: number, rollupCategory?: number, authorId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Build>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchBuilds(minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildId, version, heroId, tag, rollupCategory, authorId, options);
+        async searchBuilds(minUnixTimestamp?: number, maxUnixTimestamp?: number, minPublishedUnixTimestamp?: number, maxPublishedUnixTimestamp?: number, sortBy?: SearchBuildsSortByEnum, start?: number, limit?: number, sortDirection?: SearchBuildsSortDirectionEnum, searchName?: string, searchDescription?: string, onlyLatest?: boolean, language?: number, buildLanguage?: SearchBuildsBuildLanguageEnum, buildId?: number, version?: number, heroId?: number, tag?: number, rollupCategory?: number, authorId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Build>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchBuilds(minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildLanguage, buildId, version, heroId, tag, rollupCategory, authorId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BuildsApi.searchBuilds']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -4338,7 +4344,7 @@ export const BuildsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         searchBuilds(requestParameters: BuildsApiSearchBuildsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<Build>> {
-            return localVarFp.searchBuilds(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minPublishedUnixTimestamp, requestParameters.maxPublishedUnixTimestamp, requestParameters.sortBy, requestParameters.start, requestParameters.limit, requestParameters.sortDirection, requestParameters.searchName, requestParameters.searchDescription, requestParameters.onlyLatest, requestParameters.language, requestParameters.buildId, requestParameters.version, requestParameters.heroId, requestParameters.tag, requestParameters.rollupCategory, requestParameters.authorId, options).then((request) => request(axios, basePath));
+            return localVarFp.searchBuilds(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minPublishedUnixTimestamp, requestParameters.maxPublishedUnixTimestamp, requestParameters.sortBy, requestParameters.start, requestParameters.limit, requestParameters.sortDirection, requestParameters.searchName, requestParameters.searchDescription, requestParameters.onlyLatest, requestParameters.language, requestParameters.buildLanguage, requestParameters.buildId, requestParameters.version, requestParameters.heroId, requestParameters.tag, requestParameters.rollupCategory, requestParameters.authorId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -4408,6 +4414,11 @@ export interface BuildsApiSearchBuildsRequest {
     readonly language?: number
 
     /**
+     * Filter builds by language.
+     */
+    readonly buildLanguage?: SearchBuildsBuildLanguageEnum
+
+    /**
      * Filter builds by ID.
      */
     readonly buildId?: number
@@ -4450,7 +4461,7 @@ export class BuildsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public searchBuilds(requestParameters: BuildsApiSearchBuildsRequest = {}, options?: RawAxiosRequestConfig) {
-        return BuildsApiFp(this.configuration).searchBuilds(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minPublishedUnixTimestamp, requestParameters.maxPublishedUnixTimestamp, requestParameters.sortBy, requestParameters.start, requestParameters.limit, requestParameters.sortDirection, requestParameters.searchName, requestParameters.searchDescription, requestParameters.onlyLatest, requestParameters.language, requestParameters.buildId, requestParameters.version, requestParameters.heroId, requestParameters.tag, requestParameters.rollupCategory, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+        return BuildsApiFp(this.configuration).searchBuilds(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minPublishedUnixTimestamp, requestParameters.maxPublishedUnixTimestamp, requestParameters.sortBy, requestParameters.start, requestParameters.limit, requestParameters.sortDirection, requestParameters.searchName, requestParameters.searchDescription, requestParameters.onlyLatest, requestParameters.language, requestParameters.buildLanguage, requestParameters.buildId, requestParameters.version, requestParameters.heroId, requestParameters.tag, requestParameters.rollupCategory, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -4469,6 +4480,27 @@ export const SearchBuildsSortDirectionEnum = {
     Asc: 'asc'
 } as const;
 export type SearchBuildsSortDirectionEnum = typeof SearchBuildsSortDirectionEnum[keyof typeof SearchBuildsSortDirectionEnum];
+export const SearchBuildsBuildLanguageEnum = {
+    English: 'English',
+    German: 'German',
+    French: 'French',
+    Italian: 'Italian',
+    Korean: 'Korean',
+    SpanishSpain: 'SpanishSpain',
+    ChineseSimplified: 'ChineseSimplified',
+    Russian: 'Russian',
+    Thai: 'Thai',
+    Japanese: 'Japanese',
+    PortuguesePortugal: 'PortuguesePortugal',
+    Polish: 'Polish',
+    Czech: 'Czech',
+    Turkish: 'Turkish',
+    PortugueseBrazil: 'PortugueseBrazil',
+    Ukrainian: 'Ukrainian',
+    SpanishLatinAmerica: 'SpanishLatinAmerica',
+    Vietnamese: 'Vietnamese'
+} as const;
+export type SearchBuildsBuildLanguageEnum = typeof SearchBuildsBuildLanguageEnum[keyof typeof SearchBuildsBuildLanguageEnum];
 
 
 /**

@@ -54,6 +54,7 @@ class BuildsApi:
         search_description: Annotated[Optional[StrictStr], Field(description="Search for builds with a description containing this string.")] = None,
         only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build.")] = None,
         language: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
+        build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
         build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
         version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
@@ -101,6 +102,8 @@ class BuildsApi:
         :type only_latest: bool
         :param language: Filter builds by language.
         :type language: int
+        :param build_language: Filter builds by language.
+        :type build_language: str
         :param build_id: Filter builds by ID.
         :type build_id: int
         :param version: Filter builds by version.
@@ -148,6 +151,7 @@ class BuildsApi:
             search_description=search_description,
             only_latest=only_latest,
             language=language,
+            build_language=build_language,
             build_id=build_id,
             version=version,
             hero_id=hero_id,
@@ -192,6 +196,7 @@ class BuildsApi:
         search_description: Annotated[Optional[StrictStr], Field(description="Search for builds with a description containing this string.")] = None,
         only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build.")] = None,
         language: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
+        build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
         build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
         version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
@@ -239,6 +244,8 @@ class BuildsApi:
         :type only_latest: bool
         :param language: Filter builds by language.
         :type language: int
+        :param build_language: Filter builds by language.
+        :type build_language: str
         :param build_id: Filter builds by ID.
         :type build_id: int
         :param version: Filter builds by version.
@@ -286,6 +293,7 @@ class BuildsApi:
             search_description=search_description,
             only_latest=only_latest,
             language=language,
+            build_language=build_language,
             build_id=build_id,
             version=version,
             hero_id=hero_id,
@@ -330,6 +338,7 @@ class BuildsApi:
         search_description: Annotated[Optional[StrictStr], Field(description="Search for builds with a description containing this string.")] = None,
         only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build.")] = None,
         language: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
+        build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
         build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
         version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
@@ -377,6 +386,8 @@ class BuildsApi:
         :type only_latest: bool
         :param language: Filter builds by language.
         :type language: int
+        :param build_language: Filter builds by language.
+        :type build_language: str
         :param build_id: Filter builds by ID.
         :type build_id: int
         :param version: Filter builds by version.
@@ -424,6 +435,7 @@ class BuildsApi:
             search_description=search_description,
             only_latest=only_latest,
             language=language,
+            build_language=build_language,
             build_id=build_id,
             version=version,
             hero_id=hero_id,
@@ -463,6 +475,7 @@ class BuildsApi:
         search_description,
         only_latest,
         language,
+        build_language,
         build_id,
         version,
         hero_id,
@@ -538,6 +551,10 @@ class BuildsApi:
         if language is not None:
             
             _query_params.append(('language', language))
+            
+        if build_language is not None:
+            
+            _query_params.append(('build_language', build_language))
             
         if build_id is not None:
             

@@ -37,6 +37,7 @@ type ApiSearchBuildsRequest struct {
 	searchDescription *string
 	onlyLatest *bool
 	language *int32
+	buildLanguage *string
 	buildId *int32
 	version *int32
 	heroId *int32
@@ -112,8 +113,15 @@ func (r ApiSearchBuildsRequest) OnlyLatest(onlyLatest bool) ApiSearchBuildsReque
 }
 
 // Filter builds by language.
+// Deprecated
 func (r ApiSearchBuildsRequest) Language(language int32) ApiSearchBuildsRequest {
 	r.language = &language
+	return r
+}
+
+// Filter builds by language.
+func (r ApiSearchBuildsRequest) BuildLanguage(buildLanguage string) ApiSearchBuildsRequest {
+	r.buildLanguage = &buildLanguage
 	return r
 }
 
@@ -241,6 +249,9 @@ func (a *BuildsAPIService) SearchBuildsExecute(r ApiSearchBuildsRequest) ([]Buil
 	}
 	if r.language != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+	}
+	if r.buildLanguage != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "build_language", r.buildLanguage, "form", "")
 	}
 	if r.buildId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "build_id", r.buildId, "form", "")
