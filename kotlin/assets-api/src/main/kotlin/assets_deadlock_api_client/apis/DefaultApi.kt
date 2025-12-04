@@ -441,6 +441,84 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /v1/images
+     * Get Images
+     * 
+     * @param clientVersion  (optional)
+     * @return kotlin.collections.Map<kotlin.String, kotlin.String>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getImagesV1ImagesGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, kotlin.String> {
+        val localVarResponse = getImagesV1ImagesGetWithHttpInfo(clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, kotlin.String>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/images
+     * Get Images
+     * 
+     * @param clientVersion  (optional)
+     * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getImagesV1ImagesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
+        val localVariableConfig = getImagesV1ImagesGetRequestConfig(clientVersion = clientVersion)
+
+        return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.String>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getImagesV1ImagesGet
+     *
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getImagesV1ImagesGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/images",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * GET /v1/map
      * Get Map
      * 

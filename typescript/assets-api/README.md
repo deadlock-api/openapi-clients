@@ -56,6 +56,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getColorsV1ColorsGet**](docs/DefaultApi.md#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors
 *DefaultApi* | [**getGenericDataV2GenericDataGet**](docs/DefaultApi.md#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**getIconsV1IconsGet**](docs/DefaultApi.md#geticonsv1iconsget) | **GET** /v1/icons | Get Icons
+*DefaultApi* | [**getImagesV1ImagesGet**](docs/DefaultApi.md#getimagesv1imagesget) | **GET** /v1/images | Get Images
 *DefaultApi* | [**getMapV1MapGet**](docs/DefaultApi.md#getmapv1mapget) | **GET** /v1/map | Get Map
 *DefaultApi* | [**getRanksV2RanksGet**](docs/DefaultApi.md#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks
 *DefaultApi* | [**getSoundsV1SoundsGet**](docs/DefaultApi.md#getsoundsv1soundsget) | **GET** /v1/sounds | Get Sounds

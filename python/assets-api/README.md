@@ -124,6 +124,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**get_colors_v1_colors_get**](docs/DefaultApi.md#get_colors_v1_colors_get) | **GET** /v1/colors | Get Colors
 *DefaultApi* | [**get_generic_data_v2_generic_data_get**](docs/DefaultApi.md#get_generic_data_v2_generic_data_get) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**get_icons_v1_icons_get**](docs/DefaultApi.md#get_icons_v1_icons_get) | **GET** /v1/icons | Get Icons
+*DefaultApi* | [**get_images_v1_images_get**](docs/DefaultApi.md#get_images_v1_images_get) | **GET** /v1/images | Get Images
 *DefaultApi* | [**get_map_v1_map_get**](docs/DefaultApi.md#get_map_v1_map_get) | **GET** /v1/map | Get Map
 *DefaultApi* | [**get_ranks_v2_ranks_get**](docs/DefaultApi.md#get_ranks_v2_ranks_get) | **GET** /v2/ranks | Get Ranks
 *DefaultApi* | [**get_sounds_v1_sounds_get**](docs/DefaultApi.md#get_sounds_v1_sounds_get) | **GET** /v1/sounds | Get Sounds

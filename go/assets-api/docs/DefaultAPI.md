@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetColorsV1ColorsGet**](DefaultAPI.md#GetColorsV1ColorsGet) | **Get** /v1/colors | Get Colors
 [**GetGenericDataV2GenericDataGet**](DefaultAPI.md#GetGenericDataV2GenericDataGet) | **Get** /v2/generic-data | Get Generic Data
 [**GetIconsV1IconsGet**](DefaultAPI.md#GetIconsV1IconsGet) | **Get** /v1/icons | Get Icons
+[**GetImagesV1ImagesGet**](DefaultAPI.md#GetImagesV1ImagesGet) | **Get** /v1/images | Get Images
 [**GetMapV1MapGet**](DefaultAPI.md#GetMapV1MapGet) | **Get** /v1/map | Get Map
 [**GetRanksV2RanksGet**](DefaultAPI.md#GetRanksV2RanksGet) | **Get** /v2/ranks | Get Ranks
 [**GetSoundsV1SoundsGet**](DefaultAPI.md#GetSoundsV1SoundsGet) | **Get** /v1/sounds | Get Sounds
@@ -309,6 +310,70 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetIconsV1IconsGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](DeadlockAssetsApiRoutesValidClientVersions.md) |  | 
+
+### Return type
+
+**map[string]string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetImagesV1ImagesGet
+
+> map[string]string GetImagesV1ImagesGet(ctx).ClientVersion(clientVersion).Execute()
+
+Get Images
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6016) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetImagesV1ImagesGet(context.Background()).ClientVersion(clientVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetImagesV1ImagesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetImagesV1ImagesGet`: map[string]string
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetImagesV1ImagesGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetImagesV1ImagesGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

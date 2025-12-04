@@ -61,6 +61,13 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_get_images_v1_images_get(self) -> None:
+        """Test case for get_images_v1_images_get
+
+        Get Images
+        """
+        pass
+
     def test_get_map_v1_map_get(self) -> None:
         """Test case for get_map_v1_map_get
 

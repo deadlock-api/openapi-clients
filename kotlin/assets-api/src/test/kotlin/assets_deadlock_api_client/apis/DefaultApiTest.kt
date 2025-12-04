@@ -73,6 +73,14 @@ class DefaultApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
+        // to test getImagesV1ImagesGet
+        should("test getImagesV1ImagesGet") {
+            // uncomment below to test getImagesV1ImagesGet
+            //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
+            //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getImagesV1ImagesGet(clientVersion)
+            //result shouldBe ("TODO")
+        }
+
         // to test getMapV1MapGet
         should("test getMapV1MapGet") {
             // uncomment below to test getMapV1MapGet

@@ -101,6 +101,7 @@ Class | Method | HTTP request | Description
 *DefaultAPI* | [**GetColorsV1ColorsGet**](docs/DefaultAPI.md#getcolorsv1colorsget) | **Get** /v1/colors | Get Colors
 *DefaultAPI* | [**GetGenericDataV2GenericDataGet**](docs/DefaultAPI.md#getgenericdatav2genericdataget) | **Get** /v2/generic-data | Get Generic Data
 *DefaultAPI* | [**GetIconsV1IconsGet**](docs/DefaultAPI.md#geticonsv1iconsget) | **Get** /v1/icons | Get Icons
+*DefaultAPI* | [**GetImagesV1ImagesGet**](docs/DefaultAPI.md#getimagesv1imagesget) | **Get** /v1/images | Get Images
 *DefaultAPI* | [**GetMapV1MapGet**](docs/DefaultAPI.md#getmapv1mapget) | **Get** /v1/map | Get Map
 *DefaultAPI* | [**GetRanksV2RanksGet**](docs/DefaultAPI.md#getranksv2ranksget) | **Get** /v2/ranks | Get Ranks
 *DefaultAPI* | [**GetSoundsV1SoundsGet**](docs/DefaultAPI.md#getsoundsv1soundsget) | **Get** /v1/sounds | Get Sounds

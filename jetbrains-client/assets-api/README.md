@@ -19,6 +19,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getColorsV1ColorsGet**](Apis/DefaultApi.http#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors
 *DefaultApi* | [**getGenericDataV2GenericDataGet**](Apis/DefaultApi.http#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**getIconsV1IconsGet**](Apis/DefaultApi.http#geticonsv1iconsget) | **GET** /v1/icons | Get Icons
+*DefaultApi* | [**getImagesV1ImagesGet**](Apis/DefaultApi.http#getimagesv1imagesget) | **GET** /v1/images | Get Images
 *DefaultApi* | [**getMapV1MapGet**](Apis/DefaultApi.http#getmapv1mapget) | **GET** /v1/map | Get Map
 *DefaultApi* | [**getRanksV2RanksGet**](Apis/DefaultApi.http#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks
 *DefaultApi* | [**getSoundsV1SoundsGet**](Apis/DefaultApi.http#getsoundsv1soundsget) | **GET** /v1/sounds | Get Sounds

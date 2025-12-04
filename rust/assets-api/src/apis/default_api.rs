@@ -39,6 +39,12 @@ pub struct GetIconsV1IconsGetParams {
     pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
+/// struct for passing parameters to the method [`get_images_v1_images_get`]
+#[derive(Clone, Debug)]
+pub struct GetImagesV1ImagesGetParams {
+    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+}
+
 /// struct for passing parameters to the method [`get_map_v1_map_get`]
 #[derive(Clone, Debug)]
 pub struct GetMapV1MapGetParams {
@@ -100,6 +106,14 @@ pub enum GetGenericDataV2GenericDataGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIconsV1IconsGetError {
+    Status422(models::HttpValidationError),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_images_v1_images_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetImagesV1ImagesGetError {
     Status422(models::HttpValidationError),
     UnknownValue(serde_json::Value),
 }
@@ -318,6 +332,43 @@ pub async fn get_icons_v1_icons_get(configuration: &configuration::Configuration
     } else {
         let content = resp.text().await?;
         let entity: Option<GetIconsV1IconsGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_images_v1_images_get(configuration: &configuration::Configuration, params: GetImagesV1ImagesGetParams) -> Result<std::collections::HashMap<String, String>, Error<GetImagesV1ImagesGetError>> {
+
+    let uri_str = format!("{}/v1/images", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.client_version {
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `std::collections::HashMap&lt;String, String&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `std::collections::HashMap&lt;String, String&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetImagesV1ImagesGetError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

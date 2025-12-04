@@ -25,6 +25,11 @@ Accept: application/json
 GET https://assets.deadlock-api.com/v1/icons?clientVersion={{clientVersion}}
 Accept: application/json
 
+### Get Images
+## Get Images
+GET https://assets.deadlock-api.com/v1/images?clientVersion={{clientVersion}}
+Accept: application/json
+
 ### Get Map
 ## Get Map
 GET https://assets.deadlock-api.com/v1/map?clientVersion={{clientVersion}}

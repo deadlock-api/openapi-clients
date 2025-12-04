@@ -9,6 +9,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 |[**getColorsV1ColorsGet**](#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors|
 |[**getGenericDataV2GenericDataGet**](#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data|
 |[**getIconsV1IconsGet**](#geticonsv1iconsget) | **GET** /v1/icons | Get Icons|
+|[**getImagesV1ImagesGet**](#getimagesv1imagesget) | **GET** /v1/images | Get Images|
 |[**getMapV1MapGet**](#getmapv1mapget) | **GET** /v1/map | Get Map|
 |[**getRanksV2RanksGet**](#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks|
 |[**getSoundsV1SoundsGet**](#getsoundsv1soundsget) | **GET** /v1/sounds | Get Sounds|
@@ -231,6 +232,57 @@ const apiInstance = new DefaultApi(configuration);
 let clientVersion: DeadlockAssetsApiRoutesValidClientVersions; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getIconsV1IconsGet(
+    clientVersion
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | (optional) defaults to undefined|
+
+
+### Return type
+
+**{ [key: string]: string; }**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getImagesV1ImagesGet**
+> { [key: string]: string; } getImagesV1ImagesGet()
+
+
+### Example
+
+```typescript
+import {
+    DefaultApi,
+    Configuration
+} from 'assets_deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new DefaultApi(configuration);
+
+let clientVersion: DeadlockAssetsApiRoutesValidClientVersions; // (optional) (default to undefined)
+
+const { status, data } = await apiInstance.getImagesV1ImagesGet(
     clientVersion
 );
 ```

@@ -1363,6 +1363,41 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @summary Get Images
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getImagesV1ImagesGet: async (clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/images`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Get Map
          * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -1582,6 +1617,19 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Get Images
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getImagesV1ImagesGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getImagesV1ImagesGet(clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getImagesV1ImagesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Get Map
          * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -1693,6 +1741,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
+         * @summary Get Images
+         * @param {DefaultApiGetImagesV1ImagesGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getImagesV1ImagesGet(requestParameters: DefaultApiGetImagesV1ImagesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
+            return localVarFp.getImagesV1ImagesGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Get Map
          * @param {DefaultApiGetMapV1MapGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -1761,6 +1819,13 @@ export interface DefaultApiGetGenericDataV2GenericDataGetRequest {
  * Request parameters for getIconsV1IconsGet operation in DefaultApi.
  */
 export interface DefaultApiGetIconsV1IconsGetRequest {
+    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
+}
+
+/**
+ * Request parameters for getImagesV1ImagesGet operation in DefaultApi.
+ */
+export interface DefaultApiGetImagesV1ImagesGetRequest {
     readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
 }
 
@@ -1850,6 +1915,17 @@ export class DefaultApi extends BaseAPI {
      */
     public getIconsV1IconsGet(requestParameters: DefaultApiGetIconsV1IconsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getIconsV1IconsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Images
+     * @param {DefaultApiGetImagesV1ImagesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getImagesV1ImagesGet(requestParameters: DefaultApiGetImagesV1ImagesGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getImagesV1ImagesGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

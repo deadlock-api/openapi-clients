@@ -702,6 +702,33 @@ paths:
                 $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Get Icons
+  /v1/images:
+    get:
+      operationId: get_images_v1_images_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                title: Response Get Images V1 Images Get
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Images
   /v1/sounds:
     get:
       operationId: get_sounds_v1_sounds_get
