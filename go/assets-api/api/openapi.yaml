@@ -28,6 +28,10 @@ info:
   version: 0.1.0
 servers:
 - url: https://assets.deadlock-api.com
+tags:
+- description: "\nItems are purchasable objects in the game.\n\nThere are 3 main types\
+    \ of items:\n- Upgrade Items\n- Ability Items\n- Weapon Items\n        "
+  name: Items
 paths:
   /v2/heroes:
     get:

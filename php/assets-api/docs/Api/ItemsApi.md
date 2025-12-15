@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemsApi
 
-
+Items are purchasable objects in the game.  There are 3 main types of items: - Upgrade Items - Ability Items - Weapon Items
 
 All URIs are relative to https://assets.deadlock-api.com, except if the operation defines another base path.
 
