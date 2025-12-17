@@ -42,6 +42,7 @@ class HeroItemTypeV2(str, Enum):
     SIGNATURE2 = 'signature2'
     SIGNATURE3 = 'signature3'
     SIGNATURE4 = 'signature4'
+    ESLOT_COSMETIC_1 = 'eslot_cosmetic_1'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

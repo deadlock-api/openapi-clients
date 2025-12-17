@@ -36,5 +36,7 @@
 
     * `signature4` (value: `"signature4"`)
 
+    * `eslot_cosmetic_1` (value: `"eslot_cosmetic_1"`)
+
 
 

@@ -20,6 +20,7 @@
 | Signature2 | signature2 |
 | Signature3 | signature3 |
 | Signature4 | signature4 |
+| EslotCosmetic1 | eslot_cosmetic_1 |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

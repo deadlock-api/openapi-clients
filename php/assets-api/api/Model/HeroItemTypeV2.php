@@ -74,6 +74,8 @@ class HeroItemTypeV2
 
     public const SIGNATURE4 = 'signature4';
 
+    public const ESLOT_COSMETIC_1 = 'eslot_cosmetic_1';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -96,7 +98,8 @@ class HeroItemTypeV2
             self::SIGNATURE1,
             self::SIGNATURE2,
             self::SIGNATURE3,
-            self::SIGNATURE4
+            self::SIGNATURE4,
+            self::ESLOT_COSMETIC_1
         ];
     }
 }

@@ -2122,6 +2122,7 @@ components:
       - signature2
       - signature3
       - signature4
+      - eslot_cosmetic_1
       title: HeroItemTypeV2
       type: string
     HeroLevelInfoV2:

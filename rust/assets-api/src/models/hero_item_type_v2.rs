@@ -46,6 +46,8 @@ pub enum HeroItemTypeV2 {
     Signature3,
     #[serde(rename = "signature4")]
     Signature4,
+    #[serde(rename = "eslot_cosmetic_1")]
+    EslotCosmetic1,
 
 }
 
@@ -68,6 +70,7 @@ impl std::fmt::Display for HeroItemTypeV2 {
             Self::Signature2 => write!(f, "signature2"),
             Self::Signature3 => write!(f, "signature3"),
             Self::Signature4 => write!(f, "signature4"),
+            Self::EslotCosmetic1 => write!(f, "eslot_cosmetic_1"),
         }
     }
 }

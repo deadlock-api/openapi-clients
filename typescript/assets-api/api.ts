@@ -298,7 +298,8 @@ export const HeroItemTypeV2 = {
     Signature1: 'signature1',
     Signature2: 'signature2',
     Signature3: 'signature3',
-    Signature4: 'signature4'
+    Signature4: 'signature4',
+    EslotCosmetic1: 'eslot_cosmetic_1'
 } as const;
 
 export type HeroItemTypeV2 = typeof HeroItemTypeV2[keyof typeof HeroItemTypeV2];

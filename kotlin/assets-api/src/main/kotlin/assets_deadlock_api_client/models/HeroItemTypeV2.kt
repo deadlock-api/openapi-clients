@@ -22,7 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: weapon_primary,weapon_secondary,weapon_melee,ability_mantle,ability_jump,ability_slide,ability_zip_line,ability_zip_line_boost,ability_climb_rope,ability_innate1,ability_innate2,ability_innate3,signature1,signature2,signature3,signature4
+ * Values: weapon_primary,weapon_secondary,weapon_melee,ability_mantle,ability_jump,ability_slide,ability_zip_line,ability_zip_line_boost,ability_climb_rope,ability_innate1,ability_innate2,ability_innate3,signature1,signature2,signature3,signature4,eslot_cosmetic_1
  */
 
 @JsonClass(generateAdapter = false)
@@ -74,7 +74,10 @@ enum class HeroItemTypeV2(val value: kotlin.String) {
     signature3("signature3"),
 
     @Json(name = "signature4")
-    signature4("signature4");
+    signature4("signature4"),
+
+    @Json(name = "eslot_cosmetic_1")
+    eslot_cosmetic_1("eslot_cosmetic_1");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

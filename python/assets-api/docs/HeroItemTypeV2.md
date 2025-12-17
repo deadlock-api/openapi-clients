@@ -35,6 +35,8 @@
 
 * `SIGNATURE4` (value: `'signature4'`)
 
+* `ESLOT_COSMETIC_1` (value: `'eslot_cosmetic_1'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

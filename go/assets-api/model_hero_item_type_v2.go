@@ -36,6 +36,7 @@ const (
 	HEROITEMTYPEV2_SIGNATURE2 HeroItemTypeV2 = "signature2"
 	HEROITEMTYPEV2_SIGNATURE3 HeroItemTypeV2 = "signature3"
 	HEROITEMTYPEV2_SIGNATURE4 HeroItemTypeV2 = "signature4"
+	HEROITEMTYPEV2_ESLOT_COSMETIC_1 HeroItemTypeV2 = "eslot_cosmetic_1"
 )
 
 // All allowed values of HeroItemTypeV2 enum
@@ -56,6 +57,7 @@ var AllowedHeroItemTypeV2EnumValues = []HeroItemTypeV2{
 	"signature2",
 	"signature3",
 	"signature4",
+	"eslot_cosmetic_1",
 }
 
 func (v *HeroItemTypeV2) UnmarshalJSON(src []byte) error {
