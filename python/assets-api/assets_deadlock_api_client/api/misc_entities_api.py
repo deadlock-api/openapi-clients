@@ -17,8 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from typing import List, Optional
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
+from typing import Any, List, Optional
 from assets_deadlock_api_client.models.misc_v2 import MiscV2
 from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2
 
@@ -43,7 +42,7 @@ class MiscEntitiesApi:
     @validate_call
     def get_misc_entities_v2_misc_entities_get(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -110,7 +109,7 @@ class MiscEntitiesApi:
     @validate_call
     def get_misc_entities_v2_misc_entities_get_with_http_info(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -177,7 +176,7 @@ class MiscEntitiesApi:
     @validate_call
     def get_misc_entities_v2_misc_entities_get_without_preload_content(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -306,7 +305,7 @@ class MiscEntitiesApi:
     def get_misc_entity_v2_misc_entities_id_or_class_name_get(
         self,
         id_or_class_name: StrictStr,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -377,7 +376,7 @@ class MiscEntitiesApi:
     def get_misc_entity_v2_misc_entities_id_or_class_name_get_with_http_info(
         self,
         id_or_class_name: StrictStr,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -448,7 +447,7 @@ class MiscEntitiesApi:
     def get_misc_entity_v2_misc_entities_id_or_class_name_get_without_preload_content(
         self,
         id_or_class_name: StrictStr,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

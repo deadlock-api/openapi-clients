@@ -18,23 +18,23 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct GetHeroByNameV2HeroesByNameNameGetParams {
     pub name: String,
-    pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub language: Option<String>,
+    pub client_version: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_hero_v2_heroes_id_get`]
 #[derive(Clone, Debug)]
 pub struct GetHeroV2HeroesIdGetParams {
     pub id: i32,
-    pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub language: Option<String>,
+    pub client_version: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_heroes_v2_heroes_get`]
 #[derive(Clone, Debug)]
 pub struct GetHeroesV2HeroesGetParams {
-    pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>,
+    pub language: Option<models::models::Language>,
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>,
     pub only_active: Option<bool>
 }
 
@@ -70,10 +70,10 @@ pub async fn get_hero_by_name_v2_heroes_by_name_name_get(configuration: &configu
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -110,10 +110,10 @@ pub async fn get_hero_v2_heroes_id_get(configuration: &configuration::Configurat
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -150,10 +150,10 @@ pub async fn get_heroes_v2_heroes_get(configuration: &configuration::Configurati
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.only_active {
         req_builder = req_builder.query(&[("only_active", &param_value.to_string())]);

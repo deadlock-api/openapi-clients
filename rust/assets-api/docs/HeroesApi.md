@@ -21,8 +21,8 @@ Get Hero By Name
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **name** | **String** |  | [required] |
-**language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<**String**> |  |  |
+**client_version** | Option<**String**> |  |  |
 
 ### Return type
 
@@ -51,8 +51,8 @@ Get Hero
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **i32** |  | [required] |
-**language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<**String**> |  |  |
+**client_version** | Option<**String**> |  |  |
 
 ### Return type
 
@@ -80,8 +80,8 @@ Get Heroes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<[**models::Language**](.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
 **only_active** | Option<**bool**> |  |  |
 
 ### Return type

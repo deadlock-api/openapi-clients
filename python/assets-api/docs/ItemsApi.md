@@ -21,8 +21,6 @@ Get Item
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
@@ -94,9 +92,7 @@ Get Items By Hero Id
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -167,10 +163,8 @@ Get Items By Slot Type
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -241,10 +235,8 @@ Get Items By Type
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.item_type_v2 import ItemTypeV2
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -315,9 +307,7 @@ Get Items
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 

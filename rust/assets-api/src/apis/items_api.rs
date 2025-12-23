@@ -18,39 +18,39 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct GetItemV2ItemsIdOrClassNameGetParams {
     pub id_or_class_name: String,
-    pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub language: Option<String>,
+    pub client_version: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_items_by_hero_id_v2_items_by_hero_id_id_get`]
 #[derive(Clone, Debug)]
 pub struct GetItemsByHeroIdV2ItemsByHeroIdIdGetParams {
     pub id: i32,
-    pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub language: Option<String>,
+    pub client_version: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_items_by_slot_type_v2_items_by_slot_type_slot_type_get`]
 #[derive(Clone, Debug)]
 pub struct GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetParams {
     pub slot_type: models::ItemSlotTypeV2,
-    pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub language: Option<String>,
+    pub client_version: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_items_by_type_v2_items_by_type_type_get`]
 #[derive(Clone, Debug)]
 pub struct GetItemsByTypeV2ItemsByTypeTypeGetParams {
     pub r#type: models::ItemTypeV2,
-    pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub language: Option<String>,
+    pub client_version: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_items_v2_items_get`]
 #[derive(Clone, Debug)]
 pub struct GetItemsV2ItemsGetParams {
-    pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub language: Option<models::models::Language>,
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 
@@ -101,10 +101,10 @@ pub async fn get_item_v2_items_id_or_class_name_get(configuration: &configuratio
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -141,10 +141,10 @@ pub async fn get_items_by_hero_id_v2_items_by_hero_id_id_get(configuration: &con
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -181,10 +181,10 @@ pub async fn get_items_by_slot_type_v2_items_by_slot_type_slot_type_get(configur
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -221,10 +221,10 @@ pub async fn get_items_by_type_v2_items_by_type_type_get(configuration: &configu
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -261,10 +261,10 @@ pub async fn get_items_v2_items_get(configuration: &configuration::Configuration
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

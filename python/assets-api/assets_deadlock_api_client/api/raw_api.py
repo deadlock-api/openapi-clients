@@ -17,7 +17,6 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from typing import Any, Optional
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 
 from assets_deadlock_api_client.api_client import ApiClient, RequestSerialized
 from assets_deadlock_api_client.api_response import ApiResponse
@@ -40,7 +39,7 @@ class RawApi:
     @validate_call
     def get_raw_heroes_raw_heroes_get(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -107,7 +106,7 @@ class RawApi:
     @validate_call
     def get_raw_heroes_raw_heroes_get_with_http_info(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -174,7 +173,7 @@ class RawApi:
     @validate_call
     def get_raw_heroes_raw_heroes_get_without_preload_content(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -302,7 +301,7 @@ class RawApi:
     @validate_call
     def get_raw_items_raw_items_get(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -369,7 +368,7 @@ class RawApi:
     @validate_call
     def get_raw_items_raw_items_get_with_http_info(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -436,7 +435,7 @@ class RawApi:
     @validate_call
     def get_raw_items_raw_items_get_without_preload_content(
         self,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

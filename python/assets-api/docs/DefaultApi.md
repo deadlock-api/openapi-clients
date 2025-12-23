@@ -27,8 +27,6 @@ Get Build Tags
 ```python
 import assets_deadlock_api_client
 from assets_deadlock_api_client.models.build_tag_v2 import BuildTagV2
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -159,7 +157,6 @@ Get Colors
 ```python
 import assets_deadlock_api_client
 from assets_deadlock_api_client.models.color_v1 import ColorV1
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -226,7 +223,6 @@ Get Generic Data
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.generic_data_v2 import GenericDataV2
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
@@ -294,7 +290,6 @@ Get Icons
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -361,7 +356,6 @@ Get Images
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -428,7 +422,6 @@ Get Map
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.map_v1 import MapV1
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
@@ -496,8 +489,6 @@ Get Ranks
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.models.rank_v2 import RankV2
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
@@ -567,7 +558,6 @@ Get Sounds
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -634,7 +624,6 @@ Get Steam Info
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 

@@ -17,14 +17,14 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`get_misc_entities_v2_misc_entities_get`]
 #[derive(Clone, Debug)]
 pub struct GetMiscEntitiesV2MiscEntitiesGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_misc_entity_v2_misc_entities_id_or_class_name_get`]
 #[derive(Clone, Debug)]
 pub struct GetMiscEntityV2MiscEntitiesIdOrClassNameGetParams {
     pub id_or_class_name: String,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<String>
 }
 
 
@@ -51,7 +51,7 @@ pub async fn get_misc_entities_v2_misc_entities_get(configuration: &configuratio
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -88,7 +88,7 @@ pub async fn get_misc_entity_v2_misc_entities_id_or_class_name_get(configuration
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

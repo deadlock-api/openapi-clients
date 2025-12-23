@@ -107,9 +107,9 @@ class TestHeroV2(unittest.TestCase):
                     ability_resource_regen_per_second = , 
                     crit_damage_received_scale = , 
                     tech_duration = , 
-                    tech_armor_damage_reduction = , 
+                    tech_armor_damage_reduction = null, 
                     tech_range = , 
-                    bullet_armor_damage_reduction = , ),
+                    bullet_armor_damage_reduction = null, ),
                 item_slot_info = {
                     'key' : assets_deadlock_api_client.models.raw_hero_item_slot_info_value_v2.RawHeroItemSlotInfoValueV2(
                         max_purchases_for_tier = [
@@ -282,9 +282,9 @@ class TestHeroV2(unittest.TestCase):
                     ability_resource_regen_per_second = , 
                     crit_damage_received_scale = , 
                     tech_duration = , 
-                    tech_armor_damage_reduction = , 
+                    tech_armor_damage_reduction = null, 
                     tech_range = , 
-                    bullet_armor_damage_reduction = , ),
+                    bullet_armor_damage_reduction = null, ),
                 item_slot_info = {
                     'key' : assets_deadlock_api_client.models.raw_hero_item_slot_info_value_v2.RawHeroItemSlotInfoValueV2(
                         max_purchases_for_tier = [

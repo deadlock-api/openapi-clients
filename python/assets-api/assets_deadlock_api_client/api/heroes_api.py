@@ -17,10 +17,8 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictBool, StrictInt, StrictStr
-from typing import List, Optional
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
+from typing import Any, List, Optional
 from assets_deadlock_api_client.models.hero_v2 import HeroV2
-from assets_deadlock_api_client.models.language import Language
 
 from assets_deadlock_api_client.api_client import ApiClient, RequestSerialized
 from assets_deadlock_api_client.api_response import ApiResponse
@@ -44,8 +42,8 @@ class HeroesApi:
     def get_hero_by_name_v2_heroes_by_name_name_get(
         self,
         name: StrictStr,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -119,8 +117,8 @@ class HeroesApi:
     def get_hero_by_name_v2_heroes_by_name_name_get_with_http_info(
         self,
         name: StrictStr,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -194,8 +192,8 @@ class HeroesApi:
     def get_hero_by_name_v2_heroes_by_name_name_get_without_preload_content(
         self,
         name: StrictStr,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -338,8 +336,8 @@ class HeroesApi:
     def get_hero_v2_heroes_id_get(
         self,
         id: StrictInt,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -413,8 +411,8 @@ class HeroesApi:
     def get_hero_v2_heroes_id_get_with_http_info(
         self,
         id: StrictInt,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -488,8 +486,8 @@ class HeroesApi:
     def get_hero_v2_heroes_id_get_without_preload_content(
         self,
         id: StrictInt,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -631,8 +629,8 @@ class HeroesApi:
     @validate_call
     def get_heroes_v2_heroes_get(
         self,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         only_active: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
@@ -706,8 +704,8 @@ class HeroesApi:
     @validate_call
     def get_heroes_v2_heroes_get_with_http_info(
         self,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         only_active: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
@@ -781,8 +779,8 @@ class HeroesApi:
     @validate_call
     def get_heroes_v2_heroes_get_without_preload_content(
         self,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         only_active: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,

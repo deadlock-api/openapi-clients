@@ -18,7 +18,6 @@ Get Npc Unit
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
@@ -88,7 +87,6 @@ Get Npc Units
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint

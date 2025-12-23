@@ -18,7 +18,6 @@ Get Raw Heroes
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -85,7 +84,6 @@ Get Raw Items
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 

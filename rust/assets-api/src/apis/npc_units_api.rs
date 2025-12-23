@@ -18,13 +18,13 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct GetNpcUnitV2NpcUnitsIdOrClassNameGetParams {
     pub id_or_class_name: String,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_npc_units_v2_npc_units_get`]
 #[derive(Clone, Debug)]
 pub struct GetNpcUnitsV2NpcUnitsGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 
@@ -51,7 +51,7 @@ pub async fn get_npc_unit_v2_npc_units_id_or_class_name_get(configuration: &conf
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -88,7 +88,7 @@ pub async fn get_npc_units_v2_npc_units_get(configuration: &configuration::Confi
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

@@ -17,57 +17,57 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`get_build_tags_v2_build_tags_get`]
 #[derive(Clone, Debug)]
 pub struct GetBuildTagsV2BuildTagsGetParams {
-    pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub language: Option<models::models::Language>,
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_colors_v1_colors_get`]
 #[derive(Clone, Debug)]
 pub struct GetColorsV1ColorsGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_generic_data_v2_generic_data_get`]
 #[derive(Clone, Debug)]
 pub struct GetGenericDataV2GenericDataGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_icons_v1_icons_get`]
 #[derive(Clone, Debug)]
 pub struct GetIconsV1IconsGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_images_v1_images_get`]
 #[derive(Clone, Debug)]
 pub struct GetImagesV1ImagesGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_map_v1_map_get`]
 #[derive(Clone, Debug)]
 pub struct GetMapV1MapGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_ranks_v2_ranks_get`]
 #[derive(Clone, Debug)]
 pub struct GetRanksV2RanksGetParams {
-    pub language: Option<models::Language>,
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub language: Option<models::models::Language>,
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_sounds_v1_sounds_get`]
 #[derive(Clone, Debug)]
 pub struct GetSoundsV1SoundsGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_steam_info_v1_steam_info_get`]
 #[derive(Clone, Debug)]
 pub struct GetSteamInfoV1SteamInfoGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 
@@ -157,10 +157,10 @@ pub async fn get_build_tags_v2_build_tags_get(configuration: &configuration::Con
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -231,7 +231,7 @@ pub async fn get_colors_v1_colors_get(configuration: &configuration::Configurati
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -268,7 +268,7 @@ pub async fn get_generic_data_v2_generic_data_get(configuration: &configuration:
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -305,7 +305,7 @@ pub async fn get_icons_v1_icons_get(configuration: &configuration::Configuration
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -342,7 +342,7 @@ pub async fn get_images_v1_images_get(configuration: &configuration::Configurati
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -379,7 +379,7 @@ pub async fn get_map_v1_map_get(configuration: &configuration::Configuration, pa
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -416,10 +416,10 @@ pub async fn get_ranks_v2_ranks_get(configuration: &configuration::Configuration
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -456,7 +456,7 @@ pub async fn get_sounds_v1_sounds_get(configuration: &configuration::Configurati
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -493,7 +493,7 @@ pub async fn get_steam_info_v1_steam_info_get(configuration: &configuration::Con
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

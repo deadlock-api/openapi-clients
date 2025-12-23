@@ -39,7 +39,7 @@ import deadlock_api_client.infrastructure.ResponseType
 import deadlock_api_client.infrastructure.Success
 import deadlock_api_client.infrastructure.toMultiValue
 
-class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+open class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {

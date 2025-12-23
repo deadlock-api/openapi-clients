@@ -52,19 +52,19 @@ class TestMapV1(unittest.TestCase):
                     team0_titan = , 
                     team1_titan = , 
                     team0_tier2_1 = , 
-                    team0_tier2_2 = , 
+                    team0_tier2_2 = null, 
                     team0_tier2_3 = , 
                     team0_tier2_4 = , 
                     team1_tier2_1 = , 
-                    team1_tier2_2 = , 
+                    team1_tier2_2 = null, 
                     team1_tier2_3 = , 
                     team1_tier2_4 = , 
                     team0_tier1_1 = , 
-                    team0_tier1_2 = , 
+                    team0_tier1_2 = null, 
                     team0_tier1_3 = , 
                     team0_tier1_4 = , 
                     team1_tier1_1 = , 
-                    team1_tier1_2 = , 
+                    team1_tier1_2 = null, 
                     team1_tier1_3 = , 
                     team1_tier1_4 = , ),
                 zipline_paths = [
@@ -88,11 +88,7 @@ class TestMapV1(unittest.TestCase):
                                 null
                                 ]
                             ], 
-                        color_parsed = assets_deadlock_api_client.models.color_v1.ColorV1(
-                            red = 0.0, 
-                            green = 0.0, 
-                            blue = 0.0, 
-                            alpha = 0.0, ), )
+                        color_parsed = null, )
                     ]
             )
         else:
@@ -113,19 +109,19 @@ class TestMapV1(unittest.TestCase):
                     team0_titan = , 
                     team1_titan = , 
                     team0_tier2_1 = , 
-                    team0_tier2_2 = , 
+                    team0_tier2_2 = null, 
                     team0_tier2_3 = , 
                     team0_tier2_4 = , 
                     team1_tier2_1 = , 
-                    team1_tier2_2 = , 
+                    team1_tier2_2 = null, 
                     team1_tier2_3 = , 
                     team1_tier2_4 = , 
                     team0_tier1_1 = , 
-                    team0_tier1_2 = , 
+                    team0_tier1_2 = null, 
                     team0_tier1_3 = , 
                     team0_tier1_4 = , 
                     team1_tier1_1 = , 
-                    team1_tier1_2 = , 
+                    team1_tier1_2 = null, 
                     team1_tier1_3 = , 
                     team1_tier1_4 = , ),
                 zipline_paths = [
@@ -149,11 +145,7 @@ class TestMapV1(unittest.TestCase):
                                 null
                                 ]
                             ], 
-                        color_parsed = assets_deadlock_api_client.models.color_v1.ColorV1(
-                            red = 0.0, 
-                            green = 0.0, 
-                            blue = 0.0, 
-                            alpha = 0.0, ), )
+                        color_parsed = null, )
                     ],
         )
         """

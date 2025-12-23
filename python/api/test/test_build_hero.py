@@ -38,14 +38,7 @@ class TestBuildHero(unittest.TestCase):
                 author_account_id = 0,
                 description = '',
                 details = deadlock_api_client.models.build_hero_details.BuildHeroDetails(
-                    ability_order = deadlock_api_client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
-                        currency_changes = [
-                            deadlock_api_client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
-                                ability_id = 0, 
-                                annotation = '', 
-                                currency_type = 56, 
-                                delta = 56, )
-                            ], ), 
+                    ability_order = null, 
                     mod_categories = [
                         deadlock_api_client.models.build_hero_details_category.BuildHeroDetailsCategory(
                             description = '', 
@@ -79,14 +72,7 @@ class TestBuildHero(unittest.TestCase):
             return BuildHero(
                 author_account_id = 0,
                 details = deadlock_api_client.models.build_hero_details.BuildHeroDetails(
-                    ability_order = deadlock_api_client.models.build_hero_details_ability_order.BuildHeroDetailsAbilityOrder(
-                        currency_changes = [
-                            deadlock_api_client.models.build_hero_details_ability_order_currency_change.BuildHeroDetailsAbilityOrderCurrencyChange(
-                                ability_id = 0, 
-                                annotation = '', 
-                                currency_type = 56, 
-                                delta = 56, )
-                            ], ), 
+                    ability_order = null, 
                     mod_categories = [
                         deadlock_api_client.models.build_hero_details_category.BuildHeroDetailsCategory(
                             description = '', 

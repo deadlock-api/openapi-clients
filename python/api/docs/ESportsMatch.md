@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **team1_name** | **str** | The name of the second team. | [optional] 
 **tournament_name** | **str** | The name of the tournament. | [optional] 
 **tournament_stage** | **str** | The stage of the tournament. | [optional] 
-**update_id** | **str** | If you want to update an existing match, you can provide an update id. | [optional] 
+**update_id** | **UUID** | If you want to update an existing match, you can provide an update id. | [optional] 
 
 ## Example
 

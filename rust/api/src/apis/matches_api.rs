@@ -346,10 +346,10 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
         req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.order_by {
-        req_builder = req_builder.query(&[("order_by", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("order_by", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.order_direction {
-        req_builder = req_builder.query(&[("order_direction", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("order_direction", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);

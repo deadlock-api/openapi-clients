@@ -82,12 +82,8 @@ class TestGenericDataV2(unittest.TestCase):
                             green = 0.0, 
                             blue = 0.0, 
                             alpha = 0.0, ), 
-                        minimap_zipline_color_override = assets_deadlock_api_client.models.color_v1.ColorV1(
-                            red = 0.0, 
-                            green = 0.0, 
-                            blue = 0.0, 
-                            alpha = 0.0, ), 
-                        objective_color = , )
+                        minimap_zipline_color_override = null, 
+                        objective_color = null, )
                     ],
                 new_player_metrics = [
                     assets_deadlock_api_client.models.new_player_metrics_v2.NewPlayerMetricsV2(
@@ -248,12 +244,8 @@ class TestGenericDataV2(unittest.TestCase):
                             green = 0.0, 
                             blue = 0.0, 
                             alpha = 0.0, ), 
-                        minimap_zipline_color_override = assets_deadlock_api_client.models.color_v1.ColorV1(
-                            red = 0.0, 
-                            green = 0.0, 
-                            blue = 0.0, 
-                            alpha = 0.0, ), 
-                        objective_color = , )
+                        minimap_zipline_color_override = null, 
+                        objective_color = null, )
                     ],
                 new_player_metrics = [
                     assets_deadlock_api_client.models.new_player_metrics_v2.NewPlayerMetricsV2(

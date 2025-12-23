@@ -31,7 +31,7 @@ $apiInstance = new OpenAPI\Client\Api\MiscEntitiesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions
 
 try {
     $result = $apiInstance->getMiscEntitiesV2MiscEntitiesGet($client_version);
@@ -45,7 +45,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -86,7 +86,7 @@ $apiInstance = new OpenAPI\Client\Api\MiscEntitiesApi(
     new GuzzleHttp\Client()
 );
 $id_or_class_name = 'id_or_class_name_example'; // string
-$client_version = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions
+$client_version = new \OpenAPI\Client\Model\\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions
 
 try {
     $result = $apiInstance->getMiscEntityV2MiscEntitiesIdOrClassNameGet($id_or_class_name, $client_version);
@@ -101,7 +101,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_or_class_name** | **string**|  | |
-| **client_version** | [**\OpenAPI\Client\Model\DeadlockAssetsApiRoutesValidClientVersions**](../Model/.md)|  | [optional] |
+| **client_version** | [**\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions**](../Model/.md)|  | [optional] |
 
 ### Return type
 

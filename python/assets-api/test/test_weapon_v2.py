@@ -58,14 +58,7 @@ class TestWeaponV2(unittest.TestCase):
                         loc_token_override = '', 
                         display_units = '', 
                         icon_path = '', 
-                        scale_function = assets_deadlock_api_client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
-                            class_name = '', 
-                            subclass_name = '', 
-                            specific_stat_scale_type = '', 
-                            scaling_stats = [
-                                ''
-                                ], 
-                            stat_scale = 1.337, ), 
+                        scale_function = null, 
                         prefix = '', 
                         label = '', 
                         postfix = '', 
@@ -134,27 +127,9 @@ class TestWeaponV2(unittest.TestCase):
                     low_ammo_indicator_threshold = 1.337, 
                     recoil_seed = 1.337, 
                     reload_duration = 1.337, 
-                    bullet_speed_curve = assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
-                        spline = [
-                            assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
-                                slope_incoming = 1.337, 
-                                slope_outgoing = 1.337, 
-                                x = 1.337, 
-                                y = 1.337, )
-                            ], 
-                        domain_maxs = [
-                            1.337
-                            ], 
-                        domain_mins = [
-                            1.337
-                            ], ), 
-                    horizontal_recoil = assets_deadlock_api_client.models.raw_weapon_info_horizontal_recoil_v2.RawWeaponInfoHorizontalRecoilV2(
-                        range = null, 
-                        burst_exponent = 1.337, ), 
-                    vertical_recoil = assets_deadlock_api_client.models.raw_weapon_info_vertical_recoil_v2.RawWeaponInfoVerticalRecoilV2(
-                        burst_exponent = 1.337, 
-                        burst_constant = 1.337, 
-                        burst_slope = 1.337, ), 
+                    bullet_speed_curve = null, 
+                    horizontal_recoil = null, 
+                    vertical_recoil = null, 
                     shots_per_second = 1.337, 
                     shots_per_second_with_reload = 1.337, 
                     bullets_per_second = 1.337, 

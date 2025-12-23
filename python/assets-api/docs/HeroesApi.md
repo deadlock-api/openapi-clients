@@ -19,9 +19,7 @@ Get Hero By Name
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.hero_v2 import HeroV2
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -92,9 +90,7 @@ Get Hero
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.hero_v2 import HeroV2
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -165,9 +161,7 @@ Get Heroes
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.hero_v2 import HeroV2
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 

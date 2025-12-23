@@ -43,7 +43,7 @@ import assets_deadlock_api_client.infrastructure.ResponseType
 import assets_deadlock_api_client.infrastructure.Success
 import assets_deadlock_api_client.infrastructure.toMultiValue
 
-class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
+open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {

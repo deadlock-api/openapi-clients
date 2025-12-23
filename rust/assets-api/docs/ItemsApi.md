@@ -23,8 +23,8 @@ Get Item
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id_or_class_name** | **String** |  | [required] |
-**language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<**String**> |  |  |
+**client_version** | Option<**String**> |  |  |
 
 ### Return type
 
@@ -53,8 +53,8 @@ Get Items By Hero Id
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **i32** |  | [required] |
-**language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<**String**> |  |  |
+**client_version** | Option<**String**> |  |  |
 
 ### Return type
 
@@ -83,8 +83,8 @@ Get Items By Slot Type
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **slot_type** | [**ItemSlotTypeV2**](.md) |  | [required] |
-**language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<**String**> |  |  |
+**client_version** | Option<**String**> |  |  |
 
 ### Return type
 
@@ -113,8 +113,8 @@ Get Items By Type
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **r#type** | [**ItemTypeV2**](.md) |  | [required] |
-**language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<**String**> |  |  |
+**client_version** | Option<**String**> |  |  |
 
 ### Return type
 
@@ -142,8 +142,8 @@ Get Items
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**language** | Option<[**Language**](.md)> |  |  |
-**client_version** | Option<[**DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<[**models::Language**](.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
 
 ### Return type
 

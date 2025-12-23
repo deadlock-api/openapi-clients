@@ -109,7 +109,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -314,7 +314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -446,7 +446,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -494,7 +494,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -730,7 +730,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -969,7 +969,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -1217,7 +1217,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -1482,7 +1482,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -1694,7 +1694,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -1945,7 +1945,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -2217,7 +2217,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -2500,7 +2500,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -4609,7 +4609,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -4728,7 +4728,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1763683200
+          default: 1763769600
           format: int64
           nullable: true
           type: integer
@@ -5587,17 +5587,17 @@ components:
         game_mode_version: 0
         objectives_mask_team1: 0
         region_mode: 7
-        winning_team_parsed: null
-        game_mode_parsed: KECitadelGameModeInvalid
-        match_mode_parsed: Invalid
+        winning_team_parsed: ""
+        game_mode_parsed: ""
+        match_mode_parsed: ""
         players:
         - account_id: 0
-          team_parsed: Team0
+          team_parsed: ""
           hero_id: 0
           team: 6
           abandoned: true
         - account_id: 0
-          team_parsed: Team0
+          team_parsed: ""
           hero_id: 0
           team: 6
           abandoned: true
@@ -5608,7 +5608,7 @@ components:
         net_worth_team_0: 0
         lobby_id: 0
         duration_s: 0
-        region_mode_parsed: row
+        region_mode_parsed: ""
         start_time: 0
         open_spectator_slots: 0
         match_mode: 7
@@ -5631,7 +5631,9 @@ components:
           nullable: true
           type: integer
         game_mode_parsed:
-          $ref: "#/components/schemas/ActiveMatchGameMode"
+          allOf:
+          - $ref: "#/components/schemas/ActiveMatchGameMode"
+          nullable: true
         game_mode_version:
           format: int32
           minimum: 0
@@ -5652,7 +5654,9 @@ components:
           nullable: true
           type: integer
         match_mode_parsed:
-          $ref: "#/components/schemas/ActiveMatchMode"
+          allOf:
+          - $ref: "#/components/schemas/ActiveMatchMode"
+          nullable: true
         match_score:
           format: int32
           minimum: 0
@@ -5692,7 +5696,9 @@ components:
           nullable: true
           type: integer
         region_mode_parsed:
-          $ref: "#/components/schemas/RegionMode"
+          allOf:
+          - $ref: "#/components/schemas/RegionMode"
+          nullable: true
         spectators:
           format: int32
           minimum: 0
@@ -5708,7 +5714,9 @@ components:
           nullable: true
           type: integer
         winning_team_parsed:
-          $ref: "#/components/schemas/ActiveMatchTeam"
+          allOf:
+          - $ref: "#/components/schemas/ActiveMatchTeam"
+          nullable: true
       required:
       - players
     ActiveMatchGameMode:
@@ -5732,7 +5740,7 @@ components:
     ActiveMatchPlayer:
       example:
         account_id: 0
-        team_parsed: Team0
+        team_parsed: ""
         hero_id: 0
         team: 6
         abandoned: true
@@ -5756,7 +5764,9 @@ components:
           nullable: true
           type: integer
         team_parsed:
-          $ref: "#/components/schemas/ActiveMatchTeam"
+          allOf:
+          - $ref: "#/components/schemas/ActiveMatchTeam"
+          nullable: true
     ActiveMatchTeam:
       enum:
       - Team0
@@ -5982,24 +5992,15 @@ components:
           language: 0
           version: 0
           hero_build_id: 0
-          publish_timestamp: 6
+          publish_timestamp: 1
           tags:
           - 0
           - 0
           author_account_id: 0
-          last_updated_timestamp: 1
+          last_updated_timestamp: 4
           name: name
           details:
-            ability_order:
-              currency_changes:
-              - annotation: annotation
-                currency_type: 1
-                delta: 5
-                ability_id: 0
-              - annotation: annotation
-                currency_type: 1
-                delta: 5
-                ability_id: 0
+            ability_order: ""
             mod_categories:
             - mods:
               - annotation: annotation
@@ -6013,10 +6014,10 @@ components:
                 imbue_target_ability_id: 0
                 required_flex_slots: 0
               name: name
-              width: 2.027123
+              width: 7.0614014
               description: description
               optional: true
-              height: 5.637377
+              height: 6.0274563
             - mods:
               - annotation: annotation
                 sell_priority: 0
@@ -6029,10 +6030,10 @@ components:
                 imbue_target_ability_id: 0
                 required_flex_slots: 0
               name: name
-              width: 2.027123
+              width: 7.0614014
               description: description
               optional: true
-              height: 5.637377
+              height: 6.0274563
           hero_id: 0
           origin_build_id: 0
           development_build: true
@@ -6072,24 +6073,15 @@ components:
         language: 0
         version: 0
         hero_build_id: 0
-        publish_timestamp: 6
+        publish_timestamp: 1
         tags:
         - 0
         - 0
         author_account_id: 0
-        last_updated_timestamp: 1
+        last_updated_timestamp: 4
         name: name
         details:
-          ability_order:
-            currency_changes:
-            - annotation: annotation
-              currency_type: 1
-              delta: 5
-              ability_id: 0
-            - annotation: annotation
-              currency_type: 1
-              delta: 5
-              ability_id: 0
+          ability_order: ""
           mod_categories:
           - mods:
             - annotation: annotation
@@ -6103,10 +6095,10 @@ components:
               imbue_target_ability_id: 0
               required_flex_slots: 0
             name: name
-            width: 2.027123
+            width: 7.0614014
             description: description
             optional: true
-            height: 5.637377
+            height: 6.0274563
           - mods:
             - annotation: annotation
               sell_priority: 0
@@ -6119,10 +6111,10 @@ components:
               imbue_target_ability_id: 0
               required_flex_slots: 0
             name: name
-            width: 2.027123
+            width: 7.0614014
             description: description
             optional: true
-            height: 5.637377
+            height: 6.0274563
         hero_id: 0
         origin_build_id: 0
         development_build: true
@@ -6187,16 +6179,7 @@ components:
       - version
     BuildHeroDetails:
       example:
-        ability_order:
-          currency_changes:
-          - annotation: annotation
-            currency_type: 1
-            delta: 5
-            ability_id: 0
-          - annotation: annotation
-            currency_type: 1
-            delta: 5
-            ability_id: 0
+        ability_order: ""
         mod_categories:
         - mods:
           - annotation: annotation
@@ -6210,10 +6193,10 @@ components:
             imbue_target_ability_id: 0
             required_flex_slots: 0
           name: name
-          width: 2.027123
+          width: 7.0614014
           description: description
           optional: true
-          height: 5.637377
+          height: 6.0274563
         - mods:
           - annotation: annotation
             sell_priority: 0
@@ -6226,13 +6209,15 @@ components:
             imbue_target_ability_id: 0
             required_flex_slots: 0
           name: name
-          width: 2.027123
+          width: 7.0614014
           description: description
           optional: true
-          height: 5.637377
+          height: 6.0274563
       properties:
         ability_order:
-          $ref: "#/components/schemas/BuildHeroDetailsAbilityOrder"
+          allOf:
+          - $ref: "#/components/schemas/BuildHeroDetailsAbilityOrder"
+          nullable: true
         mod_categories:
           items:
             $ref: "#/components/schemas/BuildHeroDetailsCategory"
@@ -6240,16 +6225,6 @@ components:
       required:
       - mod_categories
     BuildHeroDetailsAbilityOrder:
-      example:
-        currency_changes:
-        - annotation: annotation
-          currency_type: 1
-          delta: 5
-          ability_id: 0
-        - annotation: annotation
-          currency_type: 1
-          delta: 5
-          ability_id: 0
       properties:
         currency_changes:
           items:
@@ -6257,11 +6232,6 @@ components:
           nullable: true
           type: array
     BuildHeroDetailsAbilityOrderCurrencyChange:
-      example:
-        annotation: annotation
-        currency_type: 1
-        delta: 5
-        ability_id: 0
       properties:
         ability_id:
           format: int32
@@ -6294,10 +6264,10 @@ components:
           imbue_target_ability_id: 0
           required_flex_slots: 0
         name: name
-        width: 2.027123
+        width: 7.0614014
         description: description
         optional: true
-        height: 5.637377
+        height: 6.0274563
       properties:
         description:
           nullable: true
@@ -6446,7 +6416,7 @@ components:
       example:
         callback_url: callback_url
         is_publicly_visible: true
-        region_mode: row
+        region_mode: ""
         cheats_enabled: true
         disable_auto_ready: true
         randomize_lanes: true
@@ -6486,7 +6456,9 @@ components:
           nullable: true
           type: boolean
         region_mode:
-          $ref: "#/components/schemas/RegionMode"
+          allOf:
+          - $ref: "#/components/schemas/RegionMode"
+          nullable: true
     CreateCustomResponse:
       example:
         callback_secret: callback_secret
@@ -6533,7 +6505,7 @@ components:
         match_id: 0
         scheduled_date: 2000-01-23T04:56:07.000+00:00
         team1_name: team1_name
-        status: Live
+        status: ""
       properties:
         match_id:
           description: Valve's match id of the match.
@@ -6550,7 +6522,11 @@ components:
           nullable: true
           type: string
         status:
-          $ref: "#/components/schemas/ESportsMatchStatus"
+          allOf:
+          - $ref: "#/components/schemas/ESportsMatchStatus"
+          description: "The status of the match, e.g. live, completed, scheduled,\
+            \ cancelled."
+          nullable: true
         team0_name:
           description: The name of the first team.
           nullable: true
@@ -7716,20 +7692,15 @@ components:
       type: string
     Status:
       example:
-        services:
-          clickhouse: true
-          postgres: true
-          redis: true
+        services: ""
       properties:
         services:
-          $ref: "#/components/schemas/StatusServices"
+          allOf:
+          - $ref: "#/components/schemas/StatusServices"
+          description: Status of the services.
       required:
       - services
     StatusServices:
-      example:
-        clickhouse: true
-        postgres: true
-        redis: true
       properties:
         clickhouse:
           description: Whether Clickhouse is reachable.
@@ -7834,10 +7805,12 @@ components:
         name: name
         description: description
         default_label: default_label
-        category: General
+        category: ""
       properties:
         category:
-          $ref: "#/components/schemas/VariableCategory"
+          allOf:
+          - $ref: "#/components/schemas/VariableCategory"
+          description: The category of the variable.
         default_label:
           description: The default label for the variable.
           nullable: true

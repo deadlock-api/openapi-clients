@@ -56,7 +56,7 @@ class TestActiveMatch(unittest.TestCase):
                         account_id = 0, 
                         hero_id = 0, 
                         team = 56, 
-                        team_parsed = 'Team0', )
+                        team_parsed = null, )
                     ],
                 region_mode = 56,
                 region_mode_parsed = 'row',
@@ -73,7 +73,7 @@ class TestActiveMatch(unittest.TestCase):
                         account_id = 0, 
                         hero_id = 0, 
                         team = 56, 
-                        team_parsed = 'Team0', )
+                        team_parsed = null, )
                     ],
         )
         """

@@ -17,13 +17,13 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`get_raw_heroes_raw_heroes_get`]
 #[derive(Clone, Debug)]
 pub struct GetRawHeroesRawHeroesGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 /// struct for passing parameters to the method [`get_raw_items_raw_items_get`]
 #[derive(Clone, Debug)]
 pub struct GetRawItemsRawItemsGetParams {
-    pub client_version: Option<models::DeadlockAssetsApiRoutesValidClientVersions>
+    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
 
@@ -50,7 +50,7 @@ pub async fn get_raw_heroes_raw_heroes_get(configuration: &configuration::Config
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -87,7 +87,7 @@ pub async fn get_raw_items_raw_items_get(configuration: &configuration::Configur
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

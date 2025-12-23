@@ -58,14 +58,7 @@ class TestAbilityV2(unittest.TestCase):
                         loc_token_override = '', 
                         display_units = '', 
                         icon_path = '', 
-                        scale_function = assets_deadlock_api_client.models.raw_item_property_scale_function_subclass_v2.RawItemPropertyScaleFunctionSubclassV2(
-                            class_name = '', 
-                            subclass_name = '', 
-                            specific_stat_scale_type = '', 
-                            scaling_stats = [
-                                ''
-                                ], 
-                            stat_scale = 1.337, ), 
+                        scale_function = null, 
                         prefix = '', 
                         label = '', 
                         postfix = '', 
@@ -74,20 +67,7 @@ class TestAbilityV2(unittest.TestCase):
                         icon = '', )
                     },
                 weapon_info = assets_deadlock_api_client.models.raw_item_weapon_info_v2.RawItemWeaponInfoV2(
-                    bullet_speed_curve = assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_v2.RawItemWeaponInfoBulletSpeedCurveV2(
-                        spline = [
-                            assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2.RawItemWeaponInfoBulletSpeedCurveSplineV2(
-                                slope_incoming = 1.337, 
-                                slope_outgoing = 1.337, 
-                                x = 1.337, 
-                                y = 1.337, )
-                            ], 
-                        domain_maxs = [
-                            1.337
-                            ], 
-                        domain_mins = [
-                            1.337
-                            ], ), ),
+                    bullet_speed_curve = null, ),
                 type = 'ability',
                 behaviours = [
                     ''

@@ -17,12 +17,10 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictInt, StrictStr
-from typing import List, Optional
-from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions
+from typing import Any, List, Optional
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2
 from assets_deadlock_api_client.models.item_type_v2 import ItemTypeV2
-from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet
 
 from assets_deadlock_api_client.api_client import ApiClient, RequestSerialized
@@ -47,8 +45,8 @@ class ItemsApi:
     def get_item_v2_items_id_or_class_name_get(
         self,
         id_or_class_name: StrictStr,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -122,8 +120,8 @@ class ItemsApi:
     def get_item_v2_items_id_or_class_name_get_with_http_info(
         self,
         id_or_class_name: StrictStr,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -197,8 +195,8 @@ class ItemsApi:
     def get_item_v2_items_id_or_class_name_get_without_preload_content(
         self,
         id_or_class_name: StrictStr,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -341,8 +339,8 @@ class ItemsApi:
     def get_items_by_hero_id_v2_items_by_hero_id_id_get(
         self,
         id: StrictInt,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -416,8 +414,8 @@ class ItemsApi:
     def get_items_by_hero_id_v2_items_by_hero_id_id_get_with_http_info(
         self,
         id: StrictInt,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -491,8 +489,8 @@ class ItemsApi:
     def get_items_by_hero_id_v2_items_by_hero_id_id_get_without_preload_content(
         self,
         id: StrictInt,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -635,8 +633,8 @@ class ItemsApi:
     def get_items_by_slot_type_v2_items_by_slot_type_slot_type_get(
         self,
         slot_type: ItemSlotTypeV2,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -710,8 +708,8 @@ class ItemsApi:
     def get_items_by_slot_type_v2_items_by_slot_type_slot_type_get_with_http_info(
         self,
         slot_type: ItemSlotTypeV2,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -785,8 +783,8 @@ class ItemsApi:
     def get_items_by_slot_type_v2_items_by_slot_type_slot_type_get_without_preload_content(
         self,
         slot_type: ItemSlotTypeV2,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -929,8 +927,8 @@ class ItemsApi:
     def get_items_by_type_v2_items_by_type_type_get(
         self,
         type: ItemTypeV2,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1004,8 +1002,8 @@ class ItemsApi:
     def get_items_by_type_v2_items_by_type_type_get_with_http_info(
         self,
         type: ItemTypeV2,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1079,8 +1077,8 @@ class ItemsApi:
     def get_items_by_type_v2_items_by_type_type_get_without_preload_content(
         self,
         type: ItemTypeV2,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1222,8 +1220,8 @@ class ItemsApi:
     @validate_call
     def get_items_v2_items_get(
         self,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1293,8 +1291,8 @@ class ItemsApi:
     @validate_call
     def get_items_v2_items_get_with_http_info(
         self,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1364,8 +1362,8 @@ class ItemsApi:
     @validate_call
     def get_items_v2_items_get_without_preload_content(
         self,
-        language: Optional[Language] = None,
-        client_version: Optional[DeadlockAssetsApiRoutesValidClientVersions] = None,
+        language: Optional[Any] = None,
+        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
