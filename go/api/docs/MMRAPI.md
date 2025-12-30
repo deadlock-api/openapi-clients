@@ -109,7 +109,7 @@ import (
 
 func main() {
 	heroId := int32(56) // int32 | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1764288000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1764374400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -147,7 +147,7 @@ Other parameters are passed through a pointer to a apiHeroMmrDistributionRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1764288000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1764374400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -337,7 +337,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1764288000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1764374400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -370,7 +370,7 @@ Other parameters are passed through a pointer to a apiMmrDistributionRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1764288000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1764374400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
