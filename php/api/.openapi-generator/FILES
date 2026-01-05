@@ -62,6 +62,7 @@ api/Model/MatchSaltsResponse.php
 api/Model/MatchSpectateResponse.php
 api/Model/MateStats.php
 api/Model/ModelInterface.php
+api/Model/NetWorthCurvePoint.php
 api/Model/PartyStats.php
 api/Model/Patch.php
 api/Model/PatchCategory.php
@@ -130,6 +131,7 @@ docs/Model/MMRHistory.md
 docs/Model/MatchSaltsResponse.md
 docs/Model/MatchSpectateResponse.md
 docs/Model/MateStats.md
+docs/Model/NetWorthCurvePoint.md
 docs/Model/PartyStats.md
 docs/Model/Patch.md
 docs/Model/PatchCategory.md
@@ -198,6 +200,7 @@ test/Model/MMRHistoryTest.php
 test/Model/MatchSaltsResponseTest.php
 test/Model/MatchSpectateResponseTest.php
 test/Model/MateStatsTest.php
+test/Model/NetWorthCurvePointTest.php
 test/Model/PartyStatsTest.php
 test/Model/PatchCategoryTest.php
 test/Model/PatchGuidTest.php

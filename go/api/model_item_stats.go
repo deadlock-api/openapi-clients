@@ -21,6 +21,14 @@ var _ MappedNullable = &ItemStats{}
 
 // ItemStats struct for ItemStats
 type ItemStats struct {
+	// Average buy time as percentage of match duration
+	AvgBuyTimeRelative float64 `json:"avg_buy_time_relative"`
+	// Average buy time in seconds (absolute)
+	AvgBuyTimeS float64 `json:"avg_buy_time_s"`
+	// Average sell time as percentage of match duration (for items that were sold)
+	AvgSellTimeRelative float64 `json:"avg_sell_time_relative"`
+	// Average sell time in seconds (absolute, for items that were sold)
+	AvgSellTimeS float64 `json:"avg_sell_time_s"`
 	Bucket int32 `json:"bucket"`
 	// See more: <https://assets.deadlock-api.com/v2/items>
 	ItemId int32 `json:"item_id"`
@@ -36,8 +44,12 @@ type _ItemStats ItemStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemStats(bucket int32, itemId int32, losses int64, matches int64, players int64, wins int64) *ItemStats {
+func NewItemStats(avgBuyTimeRelative float64, avgBuyTimeS float64, avgSellTimeRelative float64, avgSellTimeS float64, bucket int32, itemId int32, losses int64, matches int64, players int64, wins int64) *ItemStats {
 	this := ItemStats{}
+	this.AvgBuyTimeRelative = avgBuyTimeRelative
+	this.AvgBuyTimeS = avgBuyTimeS
+	this.AvgSellTimeRelative = avgSellTimeRelative
+	this.AvgSellTimeS = avgSellTimeS
 	this.Bucket = bucket
 	this.ItemId = itemId
 	this.Losses = losses
@@ -53,6 +65,102 @@ func NewItemStats(bucket int32, itemId int32, losses int64, matches int64, playe
 func NewItemStatsWithDefaults() *ItemStats {
 	this := ItemStats{}
 	return &this
+}
+
+// GetAvgBuyTimeRelative returns the AvgBuyTimeRelative field value
+func (o *ItemStats) GetAvgBuyTimeRelative() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgBuyTimeRelative
+}
+
+// GetAvgBuyTimeRelativeOk returns a tuple with the AvgBuyTimeRelative field value
+// and a boolean to check if the value has been set.
+func (o *ItemStats) GetAvgBuyTimeRelativeOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgBuyTimeRelative, true
+}
+
+// SetAvgBuyTimeRelative sets field value
+func (o *ItemStats) SetAvgBuyTimeRelative(v float64) {
+	o.AvgBuyTimeRelative = v
+}
+
+// GetAvgBuyTimeS returns the AvgBuyTimeS field value
+func (o *ItemStats) GetAvgBuyTimeS() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgBuyTimeS
+}
+
+// GetAvgBuyTimeSOk returns a tuple with the AvgBuyTimeS field value
+// and a boolean to check if the value has been set.
+func (o *ItemStats) GetAvgBuyTimeSOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgBuyTimeS, true
+}
+
+// SetAvgBuyTimeS sets field value
+func (o *ItemStats) SetAvgBuyTimeS(v float64) {
+	o.AvgBuyTimeS = v
+}
+
+// GetAvgSellTimeRelative returns the AvgSellTimeRelative field value
+func (o *ItemStats) GetAvgSellTimeRelative() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgSellTimeRelative
+}
+
+// GetAvgSellTimeRelativeOk returns a tuple with the AvgSellTimeRelative field value
+// and a boolean to check if the value has been set.
+func (o *ItemStats) GetAvgSellTimeRelativeOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgSellTimeRelative, true
+}
+
+// SetAvgSellTimeRelative sets field value
+func (o *ItemStats) SetAvgSellTimeRelative(v float64) {
+	o.AvgSellTimeRelative = v
+}
+
+// GetAvgSellTimeS returns the AvgSellTimeS field value
+func (o *ItemStats) GetAvgSellTimeS() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgSellTimeS
+}
+
+// GetAvgSellTimeSOk returns a tuple with the AvgSellTimeS field value
+// and a boolean to check if the value has been set.
+func (o *ItemStats) GetAvgSellTimeSOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgSellTimeS, true
+}
+
+// SetAvgSellTimeS sets field value
+func (o *ItemStats) SetAvgSellTimeS(v float64) {
+	o.AvgSellTimeS = v
 }
 
 // GetBucket returns the Bucket field value
@@ -209,6 +317,10 @@ func (o ItemStats) MarshalJSON() ([]byte, error) {
 
 func (o ItemStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["avg_buy_time_relative"] = o.AvgBuyTimeRelative
+	toSerialize["avg_buy_time_s"] = o.AvgBuyTimeS
+	toSerialize["avg_sell_time_relative"] = o.AvgSellTimeRelative
+	toSerialize["avg_sell_time_s"] = o.AvgSellTimeS
 	toSerialize["bucket"] = o.Bucket
 	toSerialize["item_id"] = o.ItemId
 	toSerialize["losses"] = o.Losses
@@ -223,6 +335,10 @@ func (o *ItemStats) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"avg_buy_time_relative",
+		"avg_buy_time_s",
+		"avg_sell_time_relative",
+		"avg_sell_time_s",
 		"bucket",
 		"item_id",
 		"losses",

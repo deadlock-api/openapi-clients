@@ -204,6 +204,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for netWorthCurve
+     *
+     * Net Worth Curve.
+     *
+     */
+    public function testNetWorthCurve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for playerScoreboard
      *
      * Player Scoreboard.

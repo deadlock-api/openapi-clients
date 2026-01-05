@@ -799,13 +799,13 @@ func (r ApiPlayerHeroStatsRequest) MaxDurationS(maxDurationS int64) ApiPlayerHer
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiPlayerHeroStatsRequest) MinNetworth(minNetworth int64) ApiPlayerHeroStatsRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiPlayerHeroStatsRequest) MaxNetworth(maxNetworth int64) ApiPlayerHeroStatsRequest {
 	r.maxNetworth = &maxNetworth
 	return r

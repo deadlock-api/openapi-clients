@@ -73,14 +73,14 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1764806400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1764892800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $min_ability_upgrades = 56; // int | Filter players based on their minimum number of ability upgrades over the whole match.
 $max_ability_upgrades = 56; // int | Filter players based on their maximum number of ability upgrades over the whole match.
-$min_networth = 56; // int | Filter players based on their net worth.
-$max_networth = 56; // int | Filter players based on their net worth.
+$min_networth = 56; // int | Filter players based on their final net worth.
+$max_networth = 56; // int | Filter players based on their final net worth.
 $min_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 $max_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
 $min_match_id = 56; // int | Filter matches based on their ID.
@@ -115,6 +115,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**itemPermutationStats**](docs/Api/AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsApi* | [**itemStats**](docs/Api/AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
 *AnalyticsApi* | [**killDeathStats**](docs/Api/AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
+*AnalyticsApi* | [**netWorthCurve**](docs/Api/AnalyticsApi.md#networthcurve) | **GET** /v1/analytics/net-worth-curve | Net Worth Curve
 *AnalyticsApi* | [**playerScoreboard**](docs/Api/AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**playerStatsMetrics**](docs/Api/AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
 *BuildsApi* | [**searchBuilds**](docs/Api/BuildsApi.md#searchbuilds) | **GET** /v1/builds | Search
@@ -205,6 +206,7 @@ Class | Method | HTTP request | Description
 - [MatchSaltsResponse](docs/Model/MatchSaltsResponse.md)
 - [MatchSpectateResponse](docs/Model/MatchSpectateResponse.md)
 - [MateStats](docs/Model/MateStats.md)
+- [NetWorthCurvePoint](docs/Model/NetWorthCurvePoint.md)
 - [PartyStats](docs/Model/PartyStats.md)
 - [Patch](docs/Model/Patch.md)
 - [PatchCategory](docs/Model/PatchCategory.md)

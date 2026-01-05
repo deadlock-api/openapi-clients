@@ -65,6 +65,7 @@ deadlock_api_client/models/match_salts_response.py
 deadlock_api_client/models/match_spectate_response.py
 deadlock_api_client/models/mate_stats.py
 deadlock_api_client/models/mmr_history.py
+deadlock_api_client/models/net_worth_curve_point.py
 deadlock_api_client/models/party_stats.py
 deadlock_api_client/models/patch.py
 deadlock_api_client/models/patch_category.py
@@ -130,6 +131,7 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md
 docs/MateStats.md
+docs/NetWorthCurvePoint.md
 docs/PartyStats.md
 docs/Patch.md
 docs/PatchCategory.md
@@ -203,6 +205,7 @@ test/test_matches_api.py
 test/test_mate_stats.py
 test/test_mmr_api.py
 test/test_mmr_history.py
+test/test_net_worth_curve_point.py
 test/test_party_stats.py
 test/test_patch.py
 test/test_patch_category.py

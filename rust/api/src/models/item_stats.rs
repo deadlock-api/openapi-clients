@@ -13,6 +13,18 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ItemStats {
+    /// Average buy time as percentage of match duration
+    #[serde(rename = "avg_buy_time_relative")]
+    pub avg_buy_time_relative: f64,
+    /// Average buy time in seconds (absolute)
+    #[serde(rename = "avg_buy_time_s")]
+    pub avg_buy_time_s: f64,
+    /// Average sell time as percentage of match duration (for items that were sold)
+    #[serde(rename = "avg_sell_time_relative")]
+    pub avg_sell_time_relative: f64,
+    /// Average sell time in seconds (absolute, for items that were sold)
+    #[serde(rename = "avg_sell_time_s")]
+    pub avg_sell_time_s: f64,
     #[serde(rename = "bucket")]
     pub bucket: u32,
     /// See more: <https://assets.deadlock-api.com/v2/items>
@@ -29,8 +41,12 @@ pub struct ItemStats {
 }
 
 impl ItemStats {
-    pub fn new(bucket: u32, item_id: u32, losses: u64, matches: u64, players: u64, wins: u64) -> ItemStats {
+    pub fn new(avg_buy_time_relative: f64, avg_buy_time_s: f64, avg_sell_time_relative: f64, avg_sell_time_s: f64, bucket: u32, item_id: u32, losses: u64, matches: u64, players: u64, wins: u64) -> ItemStats {
         ItemStats {
+            avg_buy_time_relative,
+            avg_buy_time_s,
+            avg_sell_time_relative,
+            avg_sell_time_s,
             bucket,
             item_id,
             losses,

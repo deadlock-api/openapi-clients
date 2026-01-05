@@ -23,21 +23,23 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ItemStats(BaseModel):
+class NetWorthCurvePoint(BaseModel):
     """
-    ItemStats
+    NetWorthCurvePoint
     """ # noqa: E501
-    avg_buy_time_relative: Union[StrictFloat, StrictInt] = Field(description="Average buy time as percentage of match duration")
-    avg_buy_time_s: Union[StrictFloat, StrictInt] = Field(description="Average buy time in seconds (absolute)")
-    avg_sell_time_relative: Union[StrictFloat, StrictInt] = Field(description="Average sell time as percentage of match duration (for items that were sold)")
-    avg_sell_time_s: Union[StrictFloat, StrictInt] = Field(description="Average sell time in seconds (absolute, for items that were sold)")
-    bucket: Annotated[int, Field(strict=True, ge=0)]
-    item_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://assets.deadlock-api.com/v2/items>")
-    losses: Annotated[int, Field(strict=True, ge=0)]
-    matches: Annotated[int, Field(strict=True, ge=0)]
-    players: Annotated[int, Field(strict=True, ge=0)]
-    wins: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["avg_buy_time_relative", "avg_buy_time_s", "avg_sell_time_relative", "avg_sell_time_s", "bucket", "item_id", "losses", "matches", "players", "wins"]
+    avg: Union[StrictFloat, StrictInt] = Field(description="Average net worth at this timestamp")
+    percentile1: Union[StrictFloat, StrictInt] = Field(description="1st percentile net worth")
+    percentile10: Union[StrictFloat, StrictInt] = Field(description="10th percentile net worth")
+    percentile25: Union[StrictFloat, StrictInt] = Field(description="25th percentile net worth")
+    percentile5: Union[StrictFloat, StrictInt] = Field(description="5th percentile net worth")
+    percentile50: Union[StrictFloat, StrictInt] = Field(description="50th percentile net worth")
+    percentile75: Union[StrictFloat, StrictInt] = Field(description="75th percentile net worth")
+    percentile90: Union[StrictFloat, StrictInt] = Field(description="90th percentile net worth")
+    percentile95: Union[StrictFloat, StrictInt] = Field(description="95th percentile net worth")
+    percentile99: Union[StrictFloat, StrictInt] = Field(description="99th percentile net worth")
+    relative_timestamp: Annotated[int, Field(strict=True, ge=0)] = Field(description="Percentage interval of match duration (0%, 5%, 10%, ..., 100%)")
+    std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of net worth at this timestamp")
+    __properties: ClassVar[List[str]] = ["avg", "percentile1", "percentile10", "percentile25", "percentile5", "percentile50", "percentile75", "percentile90", "percentile95", "percentile99", "relative_timestamp", "std"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -57,7 +59,7 @@ class ItemStats(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ItemStats from a JSON string"""
+        """Create an instance of NetWorthCurvePoint from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -82,7 +84,7 @@ class ItemStats(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ItemStats from a dict"""
+        """Create an instance of NetWorthCurvePoint from a dict"""
         if obj is None:
             return None
 
@@ -90,16 +92,18 @@ class ItemStats(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "avg_buy_time_relative": obj.get("avg_buy_time_relative"),
-            "avg_buy_time_s": obj.get("avg_buy_time_s"),
-            "avg_sell_time_relative": obj.get("avg_sell_time_relative"),
-            "avg_sell_time_s": obj.get("avg_sell_time_s"),
-            "bucket": obj.get("bucket"),
-            "item_id": obj.get("item_id"),
-            "losses": obj.get("losses"),
-            "matches": obj.get("matches"),
-            "players": obj.get("players"),
-            "wins": obj.get("wins")
+            "avg": obj.get("avg"),
+            "percentile1": obj.get("percentile1"),
+            "percentile10": obj.get("percentile10"),
+            "percentile25": obj.get("percentile25"),
+            "percentile5": obj.get("percentile5"),
+            "percentile50": obj.get("percentile50"),
+            "percentile75": obj.get("percentile75"),
+            "percentile90": obj.get("percentile90"),
+            "percentile95": obj.get("percentile95"),
+            "percentile99": obj.get("percentile99"),
+            "relative_timestamp": obj.get("relative_timestamp"),
+            "std": obj.get("std")
         })
         return _obj
 

@@ -69,6 +69,7 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesAPI.md
 docs/MateStats.md
+docs/NetWorthCurvePoint.md
 docs/PartyStats.md
 docs/Patch.md
 docs/PatchCategory.md
@@ -128,6 +129,7 @@ model_match_salts_response.go
 model_match_spectate_response.go
 model_mate_stats.go
 model_mmr_history.go
+model_net_worth_curve_point.go
 model_party_stats.go
 model_patch.go
 model_patch_category.go

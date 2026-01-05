@@ -55,6 +55,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**item_permutation_stats**](docs/AnalyticsApi.md#item_permutation_stats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsApi* | [**item_stats**](docs/AnalyticsApi.md#item_stats) | **GET** /v1/analytics/item-stats | Item Stats
 *AnalyticsApi* | [**kill_death_stats**](docs/AnalyticsApi.md#kill_death_stats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
+*AnalyticsApi* | [**net_worth_curve**](docs/AnalyticsApi.md#net_worth_curve) | **GET** /v1/analytics/net-worth-curve | Net Worth Curve
 *AnalyticsApi* | [**player_scoreboard**](docs/AnalyticsApi.md#player_scoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**player_stats_metrics**](docs/AnalyticsApi.md#player_stats_metrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
 *BuildsApi* | [**search_builds**](docs/BuildsApi.md#search_builds) | **GET** /v1/builds | Search
@@ -146,6 +147,7 @@ Class | Method | HTTP request | Description
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [MateStats](docs/MateStats.md)
  - [MmrHistory](docs/MmrHistory.md)
+ - [NetWorthCurvePoint](docs/NetWorthCurvePoint.md)
  - [PartyStats](docs/PartyStats.md)
  - [Patch](docs/Patch.md)
  - [PatchCategory](docs/PatchCategory.md)

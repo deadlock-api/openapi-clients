@@ -109,7 +109,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -174,7 +174,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -185,7 +185,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -314,7 +314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -446,7 +446,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -494,7 +494,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -533,7 +533,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -544,7 +544,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -730,7 +730,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -769,7 +769,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -780,7 +780,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -969,7 +969,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -1008,7 +1008,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -1019,7 +1019,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -1217,7 +1217,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -1256,7 +1256,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -1267,7 +1267,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -1482,7 +1482,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -1521,7 +1521,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -1532,7 +1532,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -1694,7 +1694,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -1733,7 +1733,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -1744,7 +1744,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -1945,7 +1945,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -2007,7 +2007,7 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -2018,7 +2018,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -2189,27 +2189,14 @@ paths:
       summary: Kill Death Stats
       tags:
       - Analytics
-  /v1/analytics/player-stats/metrics:
+  /v1/analytics/net-worth-curve:
     get:
-      description: "\nReturns comprehensive statistical analysis of player performance.\n\
+      description: "\nRetrieves the net worth distribution over time throughout matches.\n\
         \nResults are cached for **1 hour** based on the unique combination of query\
-        \ parameters provided. Subsequent identical requests within this timeframe\
-        \ will receive the cached response.\n\n> Note: Quantiles are calculated using\
-        \ the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm,\
-        \ so they are not exact but have a maximum relative error of 0.01.\n\n###\
-        \ Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key\
-        \ | - |\n| Global | - |\n    "
-      operationId: player_stats_metrics
+        \ parameters provided.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | -----\
+        \ |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+      operationId: net_worth_curve
       parameters:
-      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
-        explode: true
-        in: query
-        name: hero_ids
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -2217,7 +2204,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -2256,7 +2243,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -2267,7 +2254,212 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
+        explode: true
+        in: query
+        name: max_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+        explode: true
+        in: query
+        name: hero_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Comma separated list of item ids to include (only heroes who\
+          \ have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+        explode: true
+        in: query
+        name: include_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+        style: form
+      - description: "Comma separated list of item ids to exclude (only heroes who\
+          \ have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+        explode: true
+        in: query
+        name: exclude_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+        style: form
+      - description: Comma separated list of account ids to include
+        explode: true
+        in: query
+        name: account_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          maxItems: 1000
+          minItems: 1
+          nullable: true
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/NetWorthCurvePoint"
+                type: array
+          description: Net Worth Curve
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch net worth curve
+      summary: Net Worth Curve
+      tags:
+      - Analytics
+  /v1/analytics/player-stats/metrics:
+    get:
+      description: "\nReturns comprehensive statistical analysis of player performance.\n\
+        \nResults are cached for **1 hour** based on the unique combination of query\
+        \ parameters provided. Subsequent identical requests within this timeframe\
+        \ will receive the cached response.\n\n> Note: Quantiles are calculated using\
+        \ the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm,\
+        \ so they are not exact but have a maximum relative error of 0.01.\n\n###\
+        \ Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key\
+        \ | - |\n| Global | - |\n    "
+      operationId: player_stats_metrics
+      parameters:
+      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+        explode: true
+        in: query
+        name: hero_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1764892800
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their final net worth.
+        explode: true
+        in: query
+        name: min_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -2500,7 +2692,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -2539,7 +2731,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -2550,7 +2742,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -2820,7 +3012,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -2831,7 +3023,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -4460,7 +4652,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: min_networth
@@ -4471,7 +4663,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Filter players based on their net worth.
+      - description: Filter players based on their final net worth.
         explode: true
         in: query
         name: max_networth
@@ -4609,7 +4801,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -4728,7 +4920,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1764806400
+          default: 1764892800
           format: int64
           nullable: true
           type: integer
@@ -7161,11 +7353,33 @@ components:
       example:
         bucket: 0
         wins: 0
+        avg_buy_time_s: 6.027456183070403
+        avg_sell_time_s: 5.962133916683182
         item_id: 0
+        avg_sell_time_relative: 1.4658129805029452
         players: 0
+        avg_buy_time_relative: 0.8008281904610115
         losses: 0
         matches: 0
       properties:
+        avg_buy_time_relative:
+          description: Average buy time as percentage of match duration
+          format: double
+          type: number
+        avg_buy_time_s:
+          description: Average buy time in seconds (absolute)
+          format: double
+          type: number
+        avg_sell_time_relative:
+          description: Average sell time as percentage of match duration (for items
+            that were sold)
+          format: double
+          type: number
+        avg_sell_time_s:
+          description: "Average sell time in seconds (absolute, for items that were\
+            \ sold)"
+          format: double
+          type: number
         bucket:
           format: int32
           minimum: 0
@@ -7192,6 +7406,10 @@ components:
           minimum: 0
           type: integer
       required:
+      - avg_buy_time_relative
+      - avg_buy_time_s
+      - avg_sell_time_relative
+      - avg_sell_time_s
       - bucket
       - item_id
       - losses
@@ -7456,6 +7674,83 @@ components:
       - matches_played
       - mate_id
       - wins
+    NetWorthCurvePoint:
+      example:
+        percentile1: 6.027456183070403
+        percentile10: 1.4658129805029452
+        std: 7.386281948385884
+        avg: 0.8008281904610115
+        percentile99: 2.027123023002322
+        percentile75: 7.061401241503109
+        percentile50: 2.3021358869347655
+        percentile95: 3.616076749251911
+        percentile90: 9.301444243932576
+        percentile5: 5.637376656633329
+        percentile25: 5.962133916683182
+        relative_timestamp: 0
+      properties:
+        avg:
+          description: Average net worth at this timestamp
+          format: double
+          type: number
+        percentile1:
+          description: 1st percentile net worth
+          format: double
+          type: number
+        percentile10:
+          description: 10th percentile net worth
+          format: double
+          type: number
+        percentile25:
+          description: 25th percentile net worth
+          format: double
+          type: number
+        percentile5:
+          description: 5th percentile net worth
+          format: double
+          type: number
+        percentile50:
+          description: 50th percentile net worth
+          format: double
+          type: number
+        percentile75:
+          description: 75th percentile net worth
+          format: double
+          type: number
+        percentile90:
+          description: 90th percentile net worth
+          format: double
+          type: number
+        percentile95:
+          description: 95th percentile net worth
+          format: double
+          type: number
+        percentile99:
+          description: 99th percentile net worth
+          format: double
+          type: number
+        relative_timestamp:
+          description: "Percentage interval of match duration (0%, 5%, 10%, ..., 100%)"
+          format: int32
+          minimum: 0
+          type: integer
+        std:
+          description: Standard deviation of net worth at this timestamp
+          format: double
+          type: number
+      required:
+      - avg
+      - percentile1
+      - percentile10
+      - percentile25
+      - percentile5
+      - percentile50
+      - percentile75
+      - percentile90
+      - percentile95
+      - percentile99
+      - relative_timestamp
+      - std
     PartyStats:
       example:
         matches_played: 0

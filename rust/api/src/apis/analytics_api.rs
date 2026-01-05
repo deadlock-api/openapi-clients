@@ -31,9 +31,9 @@ pub struct AbilityOrderStatsParams {
     pub min_ability_upgrades: Option<u64>,
     /// Filter players based on their maximum number of ability upgrades over the whole match.
     pub max_ability_upgrades: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
@@ -96,9 +96,9 @@ pub struct HeroCombStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
@@ -135,9 +135,9 @@ pub struct HeroCountersStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter enemy players based on their net worth.
     pub min_enemy_networth: Option<u64>,
@@ -180,9 +180,9 @@ pub struct HeroScoreboardParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
@@ -211,9 +211,9 @@ pub struct HeroStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
@@ -252,9 +252,9 @@ pub struct HeroSynergiesStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
@@ -297,9 +297,9 @@ pub struct ItemPermutationStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
@@ -332,9 +332,9 @@ pub struct ItemStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
@@ -379,9 +379,9 @@ pub struct KillDeathStatsParams {
     pub account_ids: Option<Vec<u32>>,
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on whether they are in the high skill range.
     pub is_high_skill_range_parties: Option<bool>,
@@ -411,6 +411,39 @@ pub struct KillDeathStatsParams {
     pub max_game_time_s: Option<u32>
 }
 
+/// struct for passing parameters to the method [`net_worth_curve`]
+#[derive(Clone, Debug)]
+pub struct NetWorthCurveParams {
+    /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+    pub min_unix_timestamp: Option<i64>,
+    /// Filter matches based on their start time (Unix timestamp).
+    pub max_unix_timestamp: Option<i64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub min_duration_s: Option<u64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub max_duration_s: Option<u64>,
+    /// Filter players based on their final net worth.
+    pub min_networth: Option<u64>,
+    /// Filter players based on their final net worth.
+    pub max_networth: Option<u64>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    pub min_average_badge: Option<u32>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    pub max_average_badge: Option<u32>,
+    /// Filter matches based on their ID.
+    pub min_match_id: Option<u64>,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<u64>,
+    /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+    pub hero_ids: Option<String>,
+    /// Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    pub include_item_ids: Option<Vec<u32>>,
+    /// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    pub exclude_item_ids: Option<Vec<u32>>,
+    /// Comma separated list of account ids to include
+    pub account_ids: Option<Vec<u32>>
+}
+
 /// struct for passing parameters to the method [`player_scoreboard`]
 #[derive(Clone, Debug)]
 pub struct PlayerScoreboardParams {
@@ -432,9 +465,9 @@ pub struct PlayerScoreboardParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
@@ -465,9 +498,9 @@ pub struct PlayerStatsMetricsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,
@@ -582,6 +615,15 @@ pub enum ItemStatsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum KillDeathStatsError {
+    Status400(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`net_worth_curve`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum NetWorthCurveError {
     Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
@@ -1544,6 +1586,92 @@ pub async fn kill_death_stats(configuration: &configuration::Configuration, para
     } else {
         let content = resp.text().await?;
         let entity: Option<KillDeathStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+pub async fn net_worth_curve(configuration: &configuration::Configuration, params: NetWorthCurveParams) -> Result<Vec<models::NetWorthCurvePoint>, Error<NetWorthCurveError>> {
+
+    let uri_str = format!("{}/v1/analytics/net-worth-curve", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.hero_ids {
+        req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.include_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("include_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.exclude_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("exclude_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::NetWorthCurvePoint&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::NetWorthCurvePoint&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<NetWorthCurveError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

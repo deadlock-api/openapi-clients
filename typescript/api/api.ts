@@ -581,6 +581,22 @@ export interface ItemPermutationStats {
     'wins': number;
 }
 export interface ItemStats {
+    /**
+     * Average buy time as percentage of match duration
+     */
+    'avg_buy_time_relative': number;
+    /**
+     * Average buy time in seconds (absolute)
+     */
+    'avg_buy_time_s': number;
+    /**
+     * Average sell time as percentage of match duration (for items that were sold)
+     */
+    'avg_sell_time_relative': number;
+    /**
+     * Average sell time in seconds (absolute, for items that were sold)
+     */
+    'avg_sell_time_s': number;
     'bucket': number;
     /**
      * See more: <https://assets.deadlock-api.com/v2/items>
@@ -675,6 +691,56 @@ export interface MateStats {
     'matches_played': number;
     'mate_id': number;
     'wins': number;
+}
+export interface NetWorthCurvePoint {
+    /**
+     * Average net worth at this timestamp
+     */
+    'avg': number;
+    /**
+     * 1st percentile net worth
+     */
+    'percentile1': number;
+    /**
+     * 10th percentile net worth
+     */
+    'percentile10': number;
+    /**
+     * 25th percentile net worth
+     */
+    'percentile25': number;
+    /**
+     * 5th percentile net worth
+     */
+    'percentile5': number;
+    /**
+     * 50th percentile net worth
+     */
+    'percentile50': number;
+    /**
+     * 75th percentile net worth
+     */
+    'percentile75': number;
+    /**
+     * 90th percentile net worth
+     */
+    'percentile90': number;
+    /**
+     * 95th percentile net worth
+     */
+    'percentile95': number;
+    /**
+     * 99th percentile net worth
+     */
+    'percentile99': number;
+    /**
+     * Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
+     */
+    'relative_timestamp': number;
+    /**
+     * Standard deviation of net worth at this timestamp
+     */
+    'std': number;
 }
 export interface PartyStats {
     'matches': Array<number>;
@@ -842,8 +908,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minAbilityUpgrades] Filter players based on their minimum number of ability upgrades over the whole match.
          * @param {number | null} [maxAbilityUpgrades] Filter players based on their maximum number of ability upgrades over the whole match.
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -1071,8 +1137,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -1186,8 +1252,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minEnemyNetworth] Filter enemy players based on their net worth.
          * @param {number | null} [maxEnemyNetworth] Filter enemy players based on their net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
@@ -1304,8 +1370,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -1409,8 +1475,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -1533,8 +1599,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -1647,8 +1713,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -1756,8 +1822,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -1891,8 +1957,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
          * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
@@ -2022,6 +2088,106 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         *  Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Net Worth Curve
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        netWorthCurve: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/analytics/net-worth-curve`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (minUnixTimestamp !== undefined) {
+                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
+            }
+
+            if (maxUnixTimestamp !== undefined) {
+                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
+            }
+
+            if (minDurationS !== undefined) {
+                localVarQueryParameter['min_duration_s'] = minDurationS;
+            }
+
+            if (maxDurationS !== undefined) {
+                localVarQueryParameter['max_duration_s'] = maxDurationS;
+            }
+
+            if (minNetworth !== undefined) {
+                localVarQueryParameter['min_networth'] = minNetworth;
+            }
+
+            if (maxNetworth !== undefined) {
+                localVarQueryParameter['max_networth'] = maxNetworth;
+            }
+
+            if (minAverageBadge !== undefined) {
+                localVarQueryParameter['min_average_badge'] = minAverageBadge;
+            }
+
+            if (maxAverageBadge !== undefined) {
+                localVarQueryParameter['max_average_badge'] = maxAverageBadge;
+            }
+
+            if (minMatchId !== undefined) {
+                localVarQueryParameter['min_match_id'] = minMatchId;
+            }
+
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+            if (heroIds !== undefined) {
+                localVarQueryParameter['hero_ids'] = heroIds;
+            }
+
+            if (includeItemIds) {
+                localVarQueryParameter['include_item_ids'] = includeItemIds;
+            }
+
+            if (excludeItemIds) {
+                localVarQueryParameter['exclude_item_ids'] = excludeItemIds;
+            }
+
+            if (accountIds) {
+                localVarQueryParameter['account_ids'] = accountIds;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Player Scoreboard
          * @param {PlayerScoreboardSortByEnum} sortBy The field to sort by.
@@ -2033,8 +2199,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2151,8 +2317,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2267,8 +2433,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minAbilityUpgrades] Filter players based on their minimum number of ability upgrades over the whole match.
          * @param {number | null} [maxAbilityUpgrades] Filter players based on their maximum number of ability upgrades over the whole match.
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2328,8 +2494,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2357,8 +2523,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minEnemyNetworth] Filter enemy players based on their net worth.
          * @param {number | null} [maxEnemyNetworth] Filter enemy players based on their net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
@@ -2389,8 +2555,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2414,8 +2580,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2444,8 +2610,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2476,8 +2642,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2503,8 +2669,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2536,8 +2702,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
          * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
@@ -2561,6 +2727,32 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Net Worth Curve
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async netWorthCurve(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NetWorthCurvePoint>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.netWorthCurve(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, accountIds, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.netWorthCurve']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Player Scoreboard
          * @param {PlayerScoreboardSortByEnum} sortBy The field to sort by.
@@ -2572,8 +2764,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2598,8 +2790,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -2737,6 +2929,16 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.killDeathStats(requestParameters.team, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.accountIds, requestParameters.heroIds, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minKillsPerRaster, requestParameters.maxKillsPerRaster, requestParameters.minDeathsPerRaster, requestParameters.maxDeathsPerRaster, requestParameters.minGameTimeS, requestParameters.maxGameTimeS, options).then((request) => request(axios, basePath));
         },
         /**
+         *  Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Net Worth Curve
+         * @param {AnalyticsApiNetWorthCurveRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        netWorthCurve(requestParameters: AnalyticsApiNetWorthCurveRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<NetWorthCurvePoint>> {
+            return localVarFp.netWorthCurve(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Player Scoreboard
          * @param {AnalyticsApiPlayerScoreboardRequest} requestParameters Request parameters.
@@ -2799,12 +3001,12 @@ export interface AnalyticsApiAbilityOrderStatsRequest {
     readonly maxAbilityUpgrades?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -2939,12 +3141,12 @@ export interface AnalyticsApiHeroCombStatsRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -3029,12 +3231,12 @@ export interface AnalyticsApiHeroCountersStatsRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -3134,12 +3336,12 @@ export interface AnalyticsApiHeroScoreboardRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -3204,12 +3406,12 @@ export interface AnalyticsApiHeroStatsRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -3299,12 +3501,12 @@ export interface AnalyticsApiHeroSynergiesStatsRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -3404,12 +3606,12 @@ export interface AnalyticsApiItemPermutationStatsRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -3484,12 +3686,12 @@ export interface AnalyticsApiItemStatsRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -3594,12 +3796,12 @@ export interface AnalyticsApiKillDeathStatsRequest {
     readonly heroIds?: string | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -3670,6 +3872,81 @@ export interface AnalyticsApiKillDeathStatsRequest {
 }
 
 /**
+ * Request parameters for netWorthCurve operation in AnalyticsApi.
+ */
+export interface AnalyticsApiNetWorthCurveRequest {
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     */
+    readonly minUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null
+
+    /**
+     * Filter players based on their final net worth.
+     */
+    readonly minNetworth?: number | null
+
+    /**
+     * Filter players based on their final net worth.
+     */
+    readonly maxNetworth?: number | null
+
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     */
+    readonly minAverageBadge?: number | null
+
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     */
+    readonly maxAverageBadge?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null
+
+    /**
+     * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     */
+    readonly heroIds?: string | null
+
+    /**
+     * Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+     */
+    readonly includeItemIds?: Array<number> | null
+
+    /**
+     * Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+     */
+    readonly excludeItemIds?: Array<number> | null
+
+    /**
+     * Comma separated list of account ids to include
+     */
+    readonly accountIds?: Array<number> | null
+}
+
+/**
  * Request parameters for playerScoreboard operation in AnalyticsApi.
  */
 export interface AnalyticsApiPlayerScoreboardRequest {
@@ -3719,12 +3996,12 @@ export interface AnalyticsApiPlayerScoreboardRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -3794,12 +4071,12 @@ export interface AnalyticsApiPlayerStatsMetricsRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 
@@ -3967,6 +4244,17 @@ export class AnalyticsApi extends BaseAPI {
      */
     public killDeathStats(requestParameters: AnalyticsApiKillDeathStatsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).killDeathStats(requestParameters.team, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.accountIds, requestParameters.heroIds, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minKillsPerRaster, requestParameters.maxKillsPerRaster, requestParameters.minDeathsPerRaster, requestParameters.maxDeathsPerRaster, requestParameters.minGameTimeS, requestParameters.maxGameTimeS, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Net Worth Curve
+     * @param {AnalyticsApiNetWorthCurveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public netWorthCurve(requestParameters: AnalyticsApiNetWorthCurveRequest = {}, options?: RawAxiosRequestConfig) {
+        return AnalyticsApiFp(this.configuration).netWorthCurve(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8156,8 +8444,8 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -8408,8 +8696,8 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minNetworth] Filter players based on their net worth.
-         * @param {number | null} [maxNetworth] Filter players based on their net worth.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
          * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
@@ -8731,12 +9019,12 @@ export interface PlayersApiPlayerHeroStatsRequest {
     readonly maxDurationS?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly minNetworth?: number | null
 
     /**
-     * Filter players based on their net worth.
+     * Filter players based on their final net worth.
      */
     readonly maxNetworth?: number | null
 

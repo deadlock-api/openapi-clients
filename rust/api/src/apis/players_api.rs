@@ -107,9 +107,9 @@ pub struct PlayerHeroStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
-    /// Filter players based on their net worth.
+    /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
     pub min_average_badge: Option<u32>,

@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemStats
+ * NetWorthCurvePoint
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * ItemStats Class Doc Comment
+ * NetWorthCurvePoint Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
+class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ItemStats';
+    protected static $openAPIModelName = 'NetWorthCurvePoint';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,16 +57,18 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'avg_buy_time_relative' => 'float',
-        'avg_buy_time_s' => 'float',
-        'avg_sell_time_relative' => 'float',
-        'avg_sell_time_s' => 'float',
-        'bucket' => 'int',
-        'item_id' => 'int',
-        'losses' => 'int',
-        'matches' => 'int',
-        'players' => 'int',
-        'wins' => 'int'
+        'avg' => 'float',
+        'percentile1' => 'float',
+        'percentile10' => 'float',
+        'percentile25' => 'float',
+        'percentile5' => 'float',
+        'percentile50' => 'float',
+        'percentile75' => 'float',
+        'percentile90' => 'float',
+        'percentile95' => 'float',
+        'percentile99' => 'float',
+        'relative_timestamp' => 'int',
+        'std' => 'float'
     ];
 
     /**
@@ -77,16 +79,18 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'avg_buy_time_relative' => 'double',
-        'avg_buy_time_s' => 'double',
-        'avg_sell_time_relative' => 'double',
-        'avg_sell_time_s' => 'double',
-        'bucket' => 'int32',
-        'item_id' => 'int32',
-        'losses' => 'int64',
-        'matches' => 'int64',
-        'players' => 'int64',
-        'wins' => 'int64'
+        'avg' => 'double',
+        'percentile1' => 'double',
+        'percentile10' => 'double',
+        'percentile25' => 'double',
+        'percentile5' => 'double',
+        'percentile50' => 'double',
+        'percentile75' => 'double',
+        'percentile90' => 'double',
+        'percentile95' => 'double',
+        'percentile99' => 'double',
+        'relative_timestamp' => 'int32',
+        'std' => 'double'
     ];
 
     /**
@@ -95,16 +99,18 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'avg_buy_time_relative' => false,
-        'avg_buy_time_s' => false,
-        'avg_sell_time_relative' => false,
-        'avg_sell_time_s' => false,
-        'bucket' => false,
-        'item_id' => false,
-        'losses' => false,
-        'matches' => false,
-        'players' => false,
-        'wins' => false
+        'avg' => false,
+        'percentile1' => false,
+        'percentile10' => false,
+        'percentile25' => false,
+        'percentile5' => false,
+        'percentile50' => false,
+        'percentile75' => false,
+        'percentile90' => false,
+        'percentile95' => false,
+        'percentile99' => false,
+        'relative_timestamp' => false,
+        'std' => false
     ];
 
     /**
@@ -193,16 +199,18 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'avg_buy_time_relative' => 'avg_buy_time_relative',
-        'avg_buy_time_s' => 'avg_buy_time_s',
-        'avg_sell_time_relative' => 'avg_sell_time_relative',
-        'avg_sell_time_s' => 'avg_sell_time_s',
-        'bucket' => 'bucket',
-        'item_id' => 'item_id',
-        'losses' => 'losses',
-        'matches' => 'matches',
-        'players' => 'players',
-        'wins' => 'wins'
+        'avg' => 'avg',
+        'percentile1' => 'percentile1',
+        'percentile10' => 'percentile10',
+        'percentile25' => 'percentile25',
+        'percentile5' => 'percentile5',
+        'percentile50' => 'percentile50',
+        'percentile75' => 'percentile75',
+        'percentile90' => 'percentile90',
+        'percentile95' => 'percentile95',
+        'percentile99' => 'percentile99',
+        'relative_timestamp' => 'relative_timestamp',
+        'std' => 'std'
     ];
 
     /**
@@ -211,16 +219,18 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'avg_buy_time_relative' => 'setAvgBuyTimeRelative',
-        'avg_buy_time_s' => 'setAvgBuyTimeS',
-        'avg_sell_time_relative' => 'setAvgSellTimeRelative',
-        'avg_sell_time_s' => 'setAvgSellTimeS',
-        'bucket' => 'setBucket',
-        'item_id' => 'setItemId',
-        'losses' => 'setLosses',
-        'matches' => 'setMatches',
-        'players' => 'setPlayers',
-        'wins' => 'setWins'
+        'avg' => 'setAvg',
+        'percentile1' => 'setPercentile1',
+        'percentile10' => 'setPercentile10',
+        'percentile25' => 'setPercentile25',
+        'percentile5' => 'setPercentile5',
+        'percentile50' => 'setPercentile50',
+        'percentile75' => 'setPercentile75',
+        'percentile90' => 'setPercentile90',
+        'percentile95' => 'setPercentile95',
+        'percentile99' => 'setPercentile99',
+        'relative_timestamp' => 'setRelativeTimestamp',
+        'std' => 'setStd'
     ];
 
     /**
@@ -229,16 +239,18 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'avg_buy_time_relative' => 'getAvgBuyTimeRelative',
-        'avg_buy_time_s' => 'getAvgBuyTimeS',
-        'avg_sell_time_relative' => 'getAvgSellTimeRelative',
-        'avg_sell_time_s' => 'getAvgSellTimeS',
-        'bucket' => 'getBucket',
-        'item_id' => 'getItemId',
-        'losses' => 'getLosses',
-        'matches' => 'getMatches',
-        'players' => 'getPlayers',
-        'wins' => 'getWins'
+        'avg' => 'getAvg',
+        'percentile1' => 'getPercentile1',
+        'percentile10' => 'getPercentile10',
+        'percentile25' => 'getPercentile25',
+        'percentile5' => 'getPercentile5',
+        'percentile50' => 'getPercentile50',
+        'percentile75' => 'getPercentile75',
+        'percentile90' => 'getPercentile90',
+        'percentile95' => 'getPercentile95',
+        'percentile99' => 'getPercentile99',
+        'relative_timestamp' => 'getRelativeTimestamp',
+        'std' => 'getStd'
     ];
 
     /**
@@ -298,16 +310,18 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('avg_buy_time_relative', $data ?? [], null);
-        $this->setIfExists('avg_buy_time_s', $data ?? [], null);
-        $this->setIfExists('avg_sell_time_relative', $data ?? [], null);
-        $this->setIfExists('avg_sell_time_s', $data ?? [], null);
-        $this->setIfExists('bucket', $data ?? [], null);
-        $this->setIfExists('item_id', $data ?? [], null);
-        $this->setIfExists('losses', $data ?? [], null);
-        $this->setIfExists('matches', $data ?? [], null);
-        $this->setIfExists('players', $data ?? [], null);
-        $this->setIfExists('wins', $data ?? [], null);
+        $this->setIfExists('avg', $data ?? [], null);
+        $this->setIfExists('percentile1', $data ?? [], null);
+        $this->setIfExists('percentile10', $data ?? [], null);
+        $this->setIfExists('percentile25', $data ?? [], null);
+        $this->setIfExists('percentile5', $data ?? [], null);
+        $this->setIfExists('percentile50', $data ?? [], null);
+        $this->setIfExists('percentile75', $data ?? [], null);
+        $this->setIfExists('percentile90', $data ?? [], null);
+        $this->setIfExists('percentile95', $data ?? [], null);
+        $this->setIfExists('percentile99', $data ?? [], null);
+        $this->setIfExists('relative_timestamp', $data ?? [], null);
+        $this->setIfExists('std', $data ?? [], null);
     }
 
     /**
@@ -337,60 +351,46 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['avg_buy_time_relative'] === null) {
-            $invalidProperties[] = "'avg_buy_time_relative' can't be null";
+        if ($this->container['avg'] === null) {
+            $invalidProperties[] = "'avg' can't be null";
         }
-        if ($this->container['avg_buy_time_s'] === null) {
-            $invalidProperties[] = "'avg_buy_time_s' can't be null";
+        if ($this->container['percentile1'] === null) {
+            $invalidProperties[] = "'percentile1' can't be null";
         }
-        if ($this->container['avg_sell_time_relative'] === null) {
-            $invalidProperties[] = "'avg_sell_time_relative' can't be null";
+        if ($this->container['percentile10'] === null) {
+            $invalidProperties[] = "'percentile10' can't be null";
         }
-        if ($this->container['avg_sell_time_s'] === null) {
-            $invalidProperties[] = "'avg_sell_time_s' can't be null";
+        if ($this->container['percentile25'] === null) {
+            $invalidProperties[] = "'percentile25' can't be null";
         }
-        if ($this->container['bucket'] === null) {
-            $invalidProperties[] = "'bucket' can't be null";
+        if ($this->container['percentile5'] === null) {
+            $invalidProperties[] = "'percentile5' can't be null";
         }
-        if (($this->container['bucket'] < 0)) {
-            $invalidProperties[] = "invalid value for 'bucket', must be bigger than or equal to 0.";
+        if ($this->container['percentile50'] === null) {
+            $invalidProperties[] = "'percentile50' can't be null";
         }
-
-        if ($this->container['item_id'] === null) {
-            $invalidProperties[] = "'item_id' can't be null";
+        if ($this->container['percentile75'] === null) {
+            $invalidProperties[] = "'percentile75' can't be null";
         }
-        if (($this->container['item_id'] < 0)) {
-            $invalidProperties[] = "invalid value for 'item_id', must be bigger than or equal to 0.";
+        if ($this->container['percentile90'] === null) {
+            $invalidProperties[] = "'percentile90' can't be null";
         }
-
-        if ($this->container['losses'] === null) {
-            $invalidProperties[] = "'losses' can't be null";
+        if ($this->container['percentile95'] === null) {
+            $invalidProperties[] = "'percentile95' can't be null";
         }
-        if (($this->container['losses'] < 0)) {
-            $invalidProperties[] = "invalid value for 'losses', must be bigger than or equal to 0.";
+        if ($this->container['percentile99'] === null) {
+            $invalidProperties[] = "'percentile99' can't be null";
         }
-
-        if ($this->container['matches'] === null) {
-            $invalidProperties[] = "'matches' can't be null";
+        if ($this->container['relative_timestamp'] === null) {
+            $invalidProperties[] = "'relative_timestamp' can't be null";
         }
-        if (($this->container['matches'] < 0)) {
-            $invalidProperties[] = "invalid value for 'matches', must be bigger than or equal to 0.";
+        if (($this->container['relative_timestamp'] < 0)) {
+            $invalidProperties[] = "invalid value for 'relative_timestamp', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['players'] === null) {
-            $invalidProperties[] = "'players' can't be null";
+        if ($this->container['std'] === null) {
+            $invalidProperties[] = "'std' can't be null";
         }
-        if (($this->container['players'] < 0)) {
-            $invalidProperties[] = "invalid value for 'players', must be bigger than or equal to 0.";
-        }
-
-        if ($this->container['wins'] === null) {
-            $invalidProperties[] = "'wins' can't be null";
-        }
-        if (($this->container['wins'] < 0)) {
-            $invalidProperties[] = "invalid value for 'wins', must be bigger than or equal to 0.";
-        }
-
         return $invalidProperties;
     }
 
@@ -407,301 +407,330 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets avg_buy_time_relative
+     * Gets avg
      *
      * @return float
      */
-    public function getAvgBuyTimeRelative()
+    public function getAvg()
     {
-        return $this->container['avg_buy_time_relative'];
+        return $this->container['avg'];
     }
 
     /**
-     * Sets avg_buy_time_relative
+     * Sets avg
      *
-     * @param float $avg_buy_time_relative Average buy time as percentage of match duration
+     * @param float $avg Average net worth at this timestamp
      *
      * @return self
      */
-    public function setAvgBuyTimeRelative($avg_buy_time_relative)
+    public function setAvg($avg)
     {
-        if (is_null($avg_buy_time_relative)) {
-            throw new \InvalidArgumentException('non-nullable avg_buy_time_relative cannot be null');
+        if (is_null($avg)) {
+            throw new \InvalidArgumentException('non-nullable avg cannot be null');
         }
-        $this->container['avg_buy_time_relative'] = $avg_buy_time_relative;
+        $this->container['avg'] = $avg;
 
         return $this;
     }
 
     /**
-     * Gets avg_buy_time_s
+     * Gets percentile1
      *
      * @return float
      */
-    public function getAvgBuyTimeS()
+    public function getPercentile1()
     {
-        return $this->container['avg_buy_time_s'];
+        return $this->container['percentile1'];
     }
 
     /**
-     * Sets avg_buy_time_s
+     * Sets percentile1
      *
-     * @param float $avg_buy_time_s Average buy time in seconds (absolute)
+     * @param float $percentile1 1st percentile net worth
      *
      * @return self
      */
-    public function setAvgBuyTimeS($avg_buy_time_s)
+    public function setPercentile1($percentile1)
     {
-        if (is_null($avg_buy_time_s)) {
-            throw new \InvalidArgumentException('non-nullable avg_buy_time_s cannot be null');
+        if (is_null($percentile1)) {
+            throw new \InvalidArgumentException('non-nullable percentile1 cannot be null');
         }
-        $this->container['avg_buy_time_s'] = $avg_buy_time_s;
+        $this->container['percentile1'] = $percentile1;
 
         return $this;
     }
 
     /**
-     * Gets avg_sell_time_relative
+     * Gets percentile10
      *
      * @return float
      */
-    public function getAvgSellTimeRelative()
+    public function getPercentile10()
     {
-        return $this->container['avg_sell_time_relative'];
+        return $this->container['percentile10'];
     }
 
     /**
-     * Sets avg_sell_time_relative
+     * Sets percentile10
      *
-     * @param float $avg_sell_time_relative Average sell time as percentage of match duration (for items that were sold)
+     * @param float $percentile10 10th percentile net worth
      *
      * @return self
      */
-    public function setAvgSellTimeRelative($avg_sell_time_relative)
+    public function setPercentile10($percentile10)
     {
-        if (is_null($avg_sell_time_relative)) {
-            throw new \InvalidArgumentException('non-nullable avg_sell_time_relative cannot be null');
+        if (is_null($percentile10)) {
+            throw new \InvalidArgumentException('non-nullable percentile10 cannot be null');
         }
-        $this->container['avg_sell_time_relative'] = $avg_sell_time_relative;
+        $this->container['percentile10'] = $percentile10;
 
         return $this;
     }
 
     /**
-     * Gets avg_sell_time_s
+     * Gets percentile25
      *
      * @return float
      */
-    public function getAvgSellTimeS()
+    public function getPercentile25()
     {
-        return $this->container['avg_sell_time_s'];
+        return $this->container['percentile25'];
     }
 
     /**
-     * Sets avg_sell_time_s
+     * Sets percentile25
      *
-     * @param float $avg_sell_time_s Average sell time in seconds (absolute, for items that were sold)
+     * @param float $percentile25 25th percentile net worth
      *
      * @return self
      */
-    public function setAvgSellTimeS($avg_sell_time_s)
+    public function setPercentile25($percentile25)
     {
-        if (is_null($avg_sell_time_s)) {
-            throw new \InvalidArgumentException('non-nullable avg_sell_time_s cannot be null');
+        if (is_null($percentile25)) {
+            throw new \InvalidArgumentException('non-nullable percentile25 cannot be null');
         }
-        $this->container['avg_sell_time_s'] = $avg_sell_time_s;
+        $this->container['percentile25'] = $percentile25;
 
         return $this;
     }
 
     /**
-     * Gets bucket
+     * Gets percentile5
      *
-     * @return int
+     * @return float
      */
-    public function getBucket()
+    public function getPercentile5()
     {
-        return $this->container['bucket'];
+        return $this->container['percentile5'];
     }
 
     /**
-     * Sets bucket
+     * Sets percentile5
      *
-     * @param int $bucket bucket
+     * @param float $percentile5 5th percentile net worth
      *
      * @return self
      */
-    public function setBucket($bucket)
+    public function setPercentile5($percentile5)
     {
-        if (is_null($bucket)) {
-            throw new \InvalidArgumentException('non-nullable bucket cannot be null');
+        if (is_null($percentile5)) {
+            throw new \InvalidArgumentException('non-nullable percentile5 cannot be null');
         }
-
-        if (($bucket < 0)) {
-            throw new \InvalidArgumentException('invalid value for $bucket when calling ItemStats., must be bigger than or equal to 0.');
-        }
-
-        $this->container['bucket'] = $bucket;
+        $this->container['percentile5'] = $percentile5;
 
         return $this;
     }
 
     /**
-     * Gets item_id
+     * Gets percentile50
      *
-     * @return int
+     * @return float
      */
-    public function getItemId()
+    public function getPercentile50()
     {
-        return $this->container['item_id'];
+        return $this->container['percentile50'];
     }
 
     /**
-     * Sets item_id
+     * Sets percentile50
      *
-     * @param int $item_id See more: <https://assets.deadlock-api.com/v2/items>
+     * @param float $percentile50 50th percentile net worth
      *
      * @return self
      */
-    public function setItemId($item_id)
+    public function setPercentile50($percentile50)
     {
-        if (is_null($item_id)) {
-            throw new \InvalidArgumentException('non-nullable item_id cannot be null');
+        if (is_null($percentile50)) {
+            throw new \InvalidArgumentException('non-nullable percentile50 cannot be null');
         }
-
-        if (($item_id < 0)) {
-            throw new \InvalidArgumentException('invalid value for $item_id when calling ItemStats., must be bigger than or equal to 0.');
-        }
-
-        $this->container['item_id'] = $item_id;
+        $this->container['percentile50'] = $percentile50;
 
         return $this;
     }
 
     /**
-     * Gets losses
+     * Gets percentile75
      *
-     * @return int
+     * @return float
      */
-    public function getLosses()
+    public function getPercentile75()
     {
-        return $this->container['losses'];
+        return $this->container['percentile75'];
     }
 
     /**
-     * Sets losses
+     * Sets percentile75
      *
-     * @param int $losses losses
+     * @param float $percentile75 75th percentile net worth
      *
      * @return self
      */
-    public function setLosses($losses)
+    public function setPercentile75($percentile75)
     {
-        if (is_null($losses)) {
-            throw new \InvalidArgumentException('non-nullable losses cannot be null');
+        if (is_null($percentile75)) {
+            throw new \InvalidArgumentException('non-nullable percentile75 cannot be null');
         }
-
-        if (($losses < 0)) {
-            throw new \InvalidArgumentException('invalid value for $losses when calling ItemStats., must be bigger than or equal to 0.');
-        }
-
-        $this->container['losses'] = $losses;
+        $this->container['percentile75'] = $percentile75;
 
         return $this;
     }
 
     /**
-     * Gets matches
+     * Gets percentile90
      *
-     * @return int
+     * @return float
      */
-    public function getMatches()
+    public function getPercentile90()
     {
-        return $this->container['matches'];
+        return $this->container['percentile90'];
     }
 
     /**
-     * Sets matches
+     * Sets percentile90
      *
-     * @param int $matches matches
+     * @param float $percentile90 90th percentile net worth
      *
      * @return self
      */
-    public function setMatches($matches)
+    public function setPercentile90($percentile90)
     {
-        if (is_null($matches)) {
-            throw new \InvalidArgumentException('non-nullable matches cannot be null');
+        if (is_null($percentile90)) {
+            throw new \InvalidArgumentException('non-nullable percentile90 cannot be null');
         }
-
-        if (($matches < 0)) {
-            throw new \InvalidArgumentException('invalid value for $matches when calling ItemStats., must be bigger than or equal to 0.');
-        }
-
-        $this->container['matches'] = $matches;
+        $this->container['percentile90'] = $percentile90;
 
         return $this;
     }
 
     /**
-     * Gets players
+     * Gets percentile95
      *
-     * @return int
+     * @return float
      */
-    public function getPlayers()
+    public function getPercentile95()
     {
-        return $this->container['players'];
+        return $this->container['percentile95'];
     }
 
     /**
-     * Sets players
+     * Sets percentile95
      *
-     * @param int $players players
+     * @param float $percentile95 95th percentile net worth
      *
      * @return self
      */
-    public function setPlayers($players)
+    public function setPercentile95($percentile95)
     {
-        if (is_null($players)) {
-            throw new \InvalidArgumentException('non-nullable players cannot be null');
+        if (is_null($percentile95)) {
+            throw new \InvalidArgumentException('non-nullable percentile95 cannot be null');
         }
-
-        if (($players < 0)) {
-            throw new \InvalidArgumentException('invalid value for $players when calling ItemStats., must be bigger than or equal to 0.');
-        }
-
-        $this->container['players'] = $players;
+        $this->container['percentile95'] = $percentile95;
 
         return $this;
     }
 
     /**
-     * Gets wins
+     * Gets percentile99
      *
-     * @return int
+     * @return float
      */
-    public function getWins()
+    public function getPercentile99()
     {
-        return $this->container['wins'];
+        return $this->container['percentile99'];
     }
 
     /**
-     * Sets wins
+     * Sets percentile99
      *
-     * @param int $wins wins
+     * @param float $percentile99 99th percentile net worth
      *
      * @return self
      */
-    public function setWins($wins)
+    public function setPercentile99($percentile99)
     {
-        if (is_null($wins)) {
-            throw new \InvalidArgumentException('non-nullable wins cannot be null');
+        if (is_null($percentile99)) {
+            throw new \InvalidArgumentException('non-nullable percentile99 cannot be null');
+        }
+        $this->container['percentile99'] = $percentile99;
+
+        return $this;
+    }
+
+    /**
+     * Gets relative_timestamp
+     *
+     * @return int
+     */
+    public function getRelativeTimestamp()
+    {
+        return $this->container['relative_timestamp'];
+    }
+
+    /**
+     * Sets relative_timestamp
+     *
+     * @param int $relative_timestamp Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
+     *
+     * @return self
+     */
+    public function setRelativeTimestamp($relative_timestamp)
+    {
+        if (is_null($relative_timestamp)) {
+            throw new \InvalidArgumentException('non-nullable relative_timestamp cannot be null');
         }
 
-        if (($wins < 0)) {
-            throw new \InvalidArgumentException('invalid value for $wins when calling ItemStats., must be bigger than or equal to 0.');
+        if (($relative_timestamp < 0)) {
+            throw new \InvalidArgumentException('invalid value for $relative_timestamp when calling NetWorthCurvePoint., must be bigger than or equal to 0.');
         }
 
-        $this->container['wins'] = $wins;
+        $this->container['relative_timestamp'] = $relative_timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets std
+     *
+     * @return float
+     */
+    public function getStd()
+    {
+        return $this->container['std'];
+    }
+
+    /**
+     * Sets std
+     *
+     * @param float $std Standard deviation of net worth at this timestamp
+     *
+     * @return self
+     */
+    public function setStd($std)
+    {
+        if (is_null($std)) {
+            throw new \InvalidArgumentException('non-nullable std cannot be null');
+        }
+        $this->container['std'] = $std;
 
         return $this;
     }

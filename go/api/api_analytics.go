@@ -86,13 +86,13 @@ func (r ApiAbilityOrderStatsRequest) MaxAbilityUpgrades(maxAbilityUpgrades int64
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiAbilityOrderStatsRequest) MinNetworth(minNetworth int64) ApiAbilityOrderStatsRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiAbilityOrderStatsRequest) MaxNetworth(maxNetworth int64) ApiAbilityOrderStatsRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -200,7 +200,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -432,7 +432,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -597,7 +597,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
         r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -704,13 +704,13 @@ func (r ApiHeroCombStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroCombSta
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiHeroCombStatsRequest) MinNetworth(minNetworth int64) ApiHeroCombStatsRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiHeroCombStatsRequest) MaxNetworth(maxNetworth int64) ApiHeroCombStatsRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -837,7 +837,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1021,13 +1021,13 @@ func (r ApiHeroCountersStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroCou
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiHeroCountersStatsRequest) MinNetworth(minNetworth int64) ApiHeroCountersStatsRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiHeroCountersStatsRequest) MaxNetworth(maxNetworth int64) ApiHeroCountersStatsRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -1156,7 +1156,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1340,13 +1340,13 @@ func (r ApiHeroScoreboardRequest) MaxDurationS(maxDurationS int64) ApiHeroScoreb
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiHeroScoreboardRequest) MinNetworth(minNetworth int64) ApiHeroScoreboardRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiHeroScoreboardRequest) MaxNetworth(maxNetworth int64) ApiHeroScoreboardRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -1451,7 +1451,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1604,13 +1604,13 @@ func (r ApiHeroStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroStatsReques
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiHeroStatsRequest) MinNetworth(minNetworth int64) ApiHeroStatsRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiHeroStatsRequest) MaxNetworth(maxNetworth int64) ApiHeroStatsRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -1744,7 +1744,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1922,13 +1922,13 @@ func (r ApiHeroSynergiesStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroSy
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiHeroSynergiesStatsRequest) MinNetworth(minNetworth int64) ApiHeroSynergiesStatsRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiHeroSynergiesStatsRequest) MaxNetworth(maxNetworth int64) ApiHeroSynergiesStatsRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -2051,7 +2051,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2244,13 +2244,13 @@ func (r ApiItemPermutationStatsRequest) MaxDurationS(maxDurationS int64) ApiItem
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiItemPermutationStatsRequest) MinNetworth(minNetworth int64) ApiItemPermutationStatsRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiItemPermutationStatsRequest) MaxNetworth(maxNetworth int64) ApiItemPermutationStatsRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -2371,7 +2371,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2539,13 +2539,13 @@ func (r ApiItemStatsRequest) MaxDurationS(maxDurationS int64) ApiItemStatsReques
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiItemStatsRequest) MinNetworth(minNetworth int64) ApiItemStatsRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiItemStatsRequest) MaxNetworth(maxNetworth int64) ApiItemStatsRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -2687,7 +2687,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2893,13 +2893,13 @@ func (r ApiKillDeathStatsRequest) HeroIds(heroIds string) ApiKillDeathStatsReque
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiKillDeathStatsRequest) MinNetworth(minNetworth int64) ApiKillDeathStatsRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiKillDeathStatsRequest) MaxNetworth(maxNetworth int64) ApiKillDeathStatsRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -3038,7 +3038,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -3109,6 +3109,284 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	}
 	if r.maxGameTimeS != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_game_time_s", r.maxGameTimeS, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiNetWorthCurveRequest struct {
+	ctx context.Context
+	ApiService *AnalyticsAPIService
+	minUnixTimestamp *int64
+	maxUnixTimestamp *int64
+	minDurationS *int64
+	maxDurationS *int64
+	minNetworth *int64
+	maxNetworth *int64
+	minAverageBadge *int32
+	maxAverageBadge *int32
+	minMatchId *int64
+	maxMatchId *int64
+	heroIds *string
+	includeItemIds *[]int32
+	excludeItemIds *[]int32
+	accountIds *[]int32
+}
+
+// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+func (r ApiNetWorthCurveRequest) MinUnixTimestamp(minUnixTimestamp int64) ApiNetWorthCurveRequest {
+	r.minUnixTimestamp = &minUnixTimestamp
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp).
+func (r ApiNetWorthCurveRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiNetWorthCurveRequest {
+	r.maxUnixTimestamp = &maxUnixTimestamp
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiNetWorthCurveRequest) MinDurationS(minDurationS int64) ApiNetWorthCurveRequest {
+	r.minDurationS = &minDurationS
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiNetWorthCurveRequest) MaxDurationS(maxDurationS int64) ApiNetWorthCurveRequest {
+	r.maxDurationS = &maxDurationS
+	return r
+}
+
+// Filter players based on their final net worth.
+func (r ApiNetWorthCurveRequest) MinNetworth(minNetworth int64) ApiNetWorthCurveRequest {
+	r.minNetworth = &minNetworth
+	return r
+}
+
+// Filter players based on their final net worth.
+func (r ApiNetWorthCurveRequest) MaxNetworth(maxNetworth int64) ApiNetWorthCurveRequest {
+	r.maxNetworth = &maxNetworth
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+func (r ApiNetWorthCurveRequest) MinAverageBadge(minAverageBadge int32) ApiNetWorthCurveRequest {
+	r.minAverageBadge = &minAverageBadge
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+func (r ApiNetWorthCurveRequest) MaxAverageBadge(maxAverageBadge int32) ApiNetWorthCurveRequest {
+	r.maxAverageBadge = &maxAverageBadge
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiNetWorthCurveRequest) MinMatchId(minMatchId int64) ApiNetWorthCurveRequest {
+	r.minMatchId = &minMatchId
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiNetWorthCurveRequest) MaxMatchId(maxMatchId int64) ApiNetWorthCurveRequest {
+	r.maxMatchId = &maxMatchId
+	return r
+}
+
+// Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+func (r ApiNetWorthCurveRequest) HeroIds(heroIds string) ApiNetWorthCurveRequest {
+	r.heroIds = &heroIds
+	return r
+}
+
+// Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+func (r ApiNetWorthCurveRequest) IncludeItemIds(includeItemIds []int32) ApiNetWorthCurveRequest {
+	r.includeItemIds = &includeItemIds
+	return r
+}
+
+// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+func (r ApiNetWorthCurveRequest) ExcludeItemIds(excludeItemIds []int32) ApiNetWorthCurveRequest {
+	r.excludeItemIds = &excludeItemIds
+	return r
+}
+
+// Comma separated list of account ids to include
+func (r ApiNetWorthCurveRequest) AccountIds(accountIds []int32) ApiNetWorthCurveRequest {
+	r.accountIds = &accountIds
+	return r
+}
+
+func (r ApiNetWorthCurveRequest) Execute() ([]NetWorthCurvePoint, *http.Response, error) {
+	return r.ApiService.NetWorthCurveExecute(r)
+}
+
+/*
+NetWorthCurve Net Worth Curve
+
+
+Retrieves the net worth distribution over time throughout matches.
+
+Results are cached for **1 hour** based on the unique combination of query parameters provided.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiNetWorthCurveRequest
+*/
+func (a *AnalyticsAPIService) NetWorthCurve(ctx context.Context) ApiNetWorthCurveRequest {
+	return ApiNetWorthCurveRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []NetWorthCurvePoint
+func (a *AnalyticsAPIService) NetWorthCurveExecute(r ApiNetWorthCurveRequest) ([]NetWorthCurvePoint, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []NetWorthCurvePoint
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.NetWorthCurve")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/analytics/net-worth-curve"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.minUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+	} else {
+        var defaultValue int64 = 1764892800
+        parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
+        r.minUnixTimestamp = &defaultValue
+	}
+	if r.maxUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+	}
+	if r.minDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
+	}
+	if r.maxDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
+	}
+	if r.minNetworth != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_networth", r.minNetworth, "form", "")
+	}
+	if r.maxNetworth != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_networth", r.maxNetworth, "form", "")
+	}
+	if r.minAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
+	}
+	if r.maxAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
+	}
+	if r.minMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
+	}
+	if r.maxMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+	}
+	if r.heroIds != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "form", "")
+	}
+	if r.includeItemIds != nil {
+		t := *r.includeItemIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "include_item_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "include_item_ids", t, "form", "multi")
+		}
+	}
+	if r.excludeItemIds != nil {
+		t := *r.excludeItemIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", t, "form", "multi")
+		}
+	}
+	if r.accountIds != nil {
+		t := *r.accountIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+		}
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3241,13 +3519,13 @@ func (r ApiPlayerScoreboardRequest) MaxDurationS(maxDurationS int64) ApiPlayerSc
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiPlayerScoreboardRequest) MinNetworth(minNetworth int64) ApiPlayerScoreboardRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiPlayerScoreboardRequest) MaxNetworth(maxNetworth int64) ApiPlayerScoreboardRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -3519,13 +3797,13 @@ func (r ApiPlayerStatsMetricsRequest) MaxDurationS(maxDurationS int64) ApiPlayer
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiPlayerStatsMetricsRequest) MinNetworth(minNetworth int64) ApiPlayerStatsMetricsRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
-// Filter players based on their net worth.
+// Filter players based on their final net worth.
 func (r ApiPlayerStatsMetricsRequest) MaxNetworth(maxNetworth int64) ApiPlayerStatsMetricsRequest {
 	r.maxNetworth = &maxNetworth
 	return r
@@ -3638,7 +3916,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764806400
+        var defaultValue int64 = 1764892800
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}

@@ -14,10 +14,10 @@
 
 import unittest
 
-from deadlock_api_client.models.item_stats import ItemStats
+from deadlock_api_client.models.net_worth_curve_point import NetWorthCurvePoint
 
-class TestItemStats(unittest.TestCase):
-    """ItemStats unit test stubs"""
+class TestNetWorthCurvePoint(unittest.TestCase):
+    """NetWorthCurvePoint unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,44 +25,48 @@ class TestItemStats(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ItemStats:
-        """Test ItemStats
+    def make_instance(self, include_optional) -> NetWorthCurvePoint:
+        """Test NetWorthCurvePoint
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ItemStats`
+        # uncomment below to create an instance of `NetWorthCurvePoint`
         """
-        model = ItemStats()
+        model = NetWorthCurvePoint()
         if include_optional:
-            return ItemStats(
-                avg_buy_time_relative = 1.337,
-                avg_buy_time_s = 1.337,
-                avg_sell_time_relative = 1.337,
-                avg_sell_time_s = 1.337,
-                bucket = 0,
-                item_id = 0,
-                losses = 0,
-                matches = 0,
-                players = 0,
-                wins = 0
+            return NetWorthCurvePoint(
+                avg = 1.337,
+                percentile1 = 1.337,
+                percentile10 = 1.337,
+                percentile25 = 1.337,
+                percentile5 = 1.337,
+                percentile50 = 1.337,
+                percentile75 = 1.337,
+                percentile90 = 1.337,
+                percentile95 = 1.337,
+                percentile99 = 1.337,
+                relative_timestamp = 0,
+                std = 1.337
             )
         else:
-            return ItemStats(
-                avg_buy_time_relative = 1.337,
-                avg_buy_time_s = 1.337,
-                avg_sell_time_relative = 1.337,
-                avg_sell_time_s = 1.337,
-                bucket = 0,
-                item_id = 0,
-                losses = 0,
-                matches = 0,
-                players = 0,
-                wins = 0,
+            return NetWorthCurvePoint(
+                avg = 1.337,
+                percentile1 = 1.337,
+                percentile10 = 1.337,
+                percentile25 = 1.337,
+                percentile5 = 1.337,
+                percentile50 = 1.337,
+                percentile75 = 1.337,
+                percentile90 = 1.337,
+                percentile95 = 1.337,
+                percentile99 = 1.337,
+                relative_timestamp = 0,
+                std = 1.337,
         )
         """
 
-    def testItemStats(self):
-        """Test ItemStats"""
+    def testNetWorthCurvePoint(self):
+        """Test NetWorthCurvePoint"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

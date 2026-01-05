@@ -4,6 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AvgBuyTimeRelative** | **float64** | Average buy time as percentage of match duration | 
+**AvgBuyTimeS** | **float64** | Average buy time in seconds (absolute) | 
+**AvgSellTimeRelative** | **float64** | Average sell time as percentage of match duration (for items that were sold) | 
+**AvgSellTimeS** | **float64** | Average sell time in seconds (absolute, for items that were sold) | 
 **Bucket** | **int32** |  | 
 **ItemId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
 **Losses** | **int64** |  | 
@@ -15,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewItemStats
 
-`func NewItemStats(bucket int32, itemId int32, losses int64, matches int64, players int64, wins int64, ) *ItemStats`
+`func NewItemStats(avgBuyTimeRelative float64, avgBuyTimeS float64, avgSellTimeRelative float64, avgSellTimeS float64, bucket int32, itemId int32, losses int64, matches int64, players int64, wins int64, ) *ItemStats`
 
 NewItemStats instantiates a new ItemStats object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +33,86 @@ will change when the set of required properties is changed
 NewItemStatsWithDefaults instantiates a new ItemStats object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAvgBuyTimeRelative
+
+`func (o *ItemStats) GetAvgBuyTimeRelative() float64`
+
+GetAvgBuyTimeRelative returns the AvgBuyTimeRelative field if non-nil, zero value otherwise.
+
+### GetAvgBuyTimeRelativeOk
+
+`func (o *ItemStats) GetAvgBuyTimeRelativeOk() (*float64, bool)`
+
+GetAvgBuyTimeRelativeOk returns a tuple with the AvgBuyTimeRelative field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgBuyTimeRelative
+
+`func (o *ItemStats) SetAvgBuyTimeRelative(v float64)`
+
+SetAvgBuyTimeRelative sets AvgBuyTimeRelative field to given value.
+
+
+### GetAvgBuyTimeS
+
+`func (o *ItemStats) GetAvgBuyTimeS() float64`
+
+GetAvgBuyTimeS returns the AvgBuyTimeS field if non-nil, zero value otherwise.
+
+### GetAvgBuyTimeSOk
+
+`func (o *ItemStats) GetAvgBuyTimeSOk() (*float64, bool)`
+
+GetAvgBuyTimeSOk returns a tuple with the AvgBuyTimeS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgBuyTimeS
+
+`func (o *ItemStats) SetAvgBuyTimeS(v float64)`
+
+SetAvgBuyTimeS sets AvgBuyTimeS field to given value.
+
+
+### GetAvgSellTimeRelative
+
+`func (o *ItemStats) GetAvgSellTimeRelative() float64`
+
+GetAvgSellTimeRelative returns the AvgSellTimeRelative field if non-nil, zero value otherwise.
+
+### GetAvgSellTimeRelativeOk
+
+`func (o *ItemStats) GetAvgSellTimeRelativeOk() (*float64, bool)`
+
+GetAvgSellTimeRelativeOk returns a tuple with the AvgSellTimeRelative field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgSellTimeRelative
+
+`func (o *ItemStats) SetAvgSellTimeRelative(v float64)`
+
+SetAvgSellTimeRelative sets AvgSellTimeRelative field to given value.
+
+
+### GetAvgSellTimeS
+
+`func (o *ItemStats) GetAvgSellTimeS() float64`
+
+GetAvgSellTimeS returns the AvgSellTimeS field if non-nil, zero value otherwise.
+
+### GetAvgSellTimeSOk
+
+`func (o *ItemStats) GetAvgSellTimeSOk() (*float64, bool)`
+
+GetAvgSellTimeSOk returns a tuple with the AvgSellTimeS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgSellTimeS
+
+`func (o *ItemStats) SetAvgSellTimeS(v float64)`
+
+SetAvgSellTimeS sets AvgSellTimeS field to given value.
+
 
 ### GetBucket
 

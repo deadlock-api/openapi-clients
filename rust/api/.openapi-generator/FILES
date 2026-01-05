@@ -54,6 +54,7 @@ docs/MatchesApi.md
 docs/MateStats.md
 docs/MmrApi.md
 docs/MmrHistory.md
+docs/NetWorthCurvePoint.md
 docs/PartyStats.md
 docs/Patch.md
 docs/PatchCategory.md
@@ -128,6 +129,7 @@ src/models/match_spectate_response.rs
 src/models/mate_stats.rs
 src/models/mmr_history.rs
 src/models/mod.rs
+src/models/net_worth_curve_point.rs
 src/models/party_stats.rs
 src/models/patch.rs
 src/models/patch_category.rs

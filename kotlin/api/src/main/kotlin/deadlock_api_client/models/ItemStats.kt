@@ -23,6 +23,10 @@ import java.io.Serializable
 /**
  * 
  *
+ * @param avgBuyTimeRelative Average buy time as percentage of match duration
+ * @param avgBuyTimeS Average buy time in seconds (absolute)
+ * @param avgSellTimeRelative Average sell time as percentage of match duration (for items that were sold)
+ * @param avgSellTimeS Average sell time in seconds (absolute, for items that were sold)
  * @param bucket 
  * @param itemId See more: <https://assets.deadlock-api.com/v2/items>
  * @param losses 
@@ -33,6 +37,22 @@ import java.io.Serializable
 
 
 data class ItemStats (
+
+    /* Average buy time as percentage of match duration */
+    @Json(name = "avg_buy_time_relative")
+    val avgBuyTimeRelative: kotlin.Double,
+
+    /* Average buy time in seconds (absolute) */
+    @Json(name = "avg_buy_time_s")
+    val avgBuyTimeS: kotlin.Double,
+
+    /* Average sell time as percentage of match duration (for items that were sold) */
+    @Json(name = "avg_sell_time_relative")
+    val avgSellTimeRelative: kotlin.Double,
+
+    /* Average sell time in seconds (absolute, for items that were sold) */
+    @Json(name = "avg_sell_time_s")
+    val avgSellTimeS: kotlin.Double,
 
     @Json(name = "bucket")
     val bucket: kotlin.Int,

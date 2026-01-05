@@ -25,6 +25,30 @@ class ItemStatsTest : ShouldSpec() {
         // uncomment below to create an instance of ItemStats
         //val modelInstance = ItemStats()
 
+        // to test the property `avgBuyTimeRelative` - Average buy time as percentage of match duration
+        should("test avgBuyTimeRelative") {
+            // uncomment below to test the property
+            //modelInstance.avgBuyTimeRelative shouldBe ("TODO")
+        }
+
+        // to test the property `avgBuyTimeS` - Average buy time in seconds (absolute)
+        should("test avgBuyTimeS") {
+            // uncomment below to test the property
+            //modelInstance.avgBuyTimeS shouldBe ("TODO")
+        }
+
+        // to test the property `avgSellTimeRelative` - Average sell time as percentage of match duration (for items that were sold)
+        should("test avgSellTimeRelative") {
+            // uncomment below to test the property
+            //modelInstance.avgSellTimeRelative shouldBe ("TODO")
+        }
+
+        // to test the property `avgSellTimeS` - Average sell time in seconds (absolute, for items that were sold)
+        should("test avgSellTimeS") {
+            // uncomment below to test the property
+            //modelInstance.avgSellTimeS shouldBe ("TODO")
+        }
+
         // to test the property `bucket`
         should("test bucket") {
             // uncomment below to test the property
