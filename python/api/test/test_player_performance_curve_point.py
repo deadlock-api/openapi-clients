@@ -14,10 +14,10 @@
 
 import unittest
 
-from deadlock_api_client.models.net_worth_curve_point import NetWorthCurvePoint
+from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint
 
-class TestNetWorthCurvePoint(unittest.TestCase):
-    """NetWorthCurvePoint unit test stubs"""
+class TestPlayerPerformanceCurvePoint(unittest.TestCase):
+    """PlayerPerformanceCurvePoint unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,48 +25,42 @@ class TestNetWorthCurvePoint(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> NetWorthCurvePoint:
-        """Test NetWorthCurvePoint
+    def make_instance(self, include_optional) -> PlayerPerformanceCurvePoint:
+        """Test PlayerPerformanceCurvePoint
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `NetWorthCurvePoint`
+        # uncomment below to create an instance of `PlayerPerformanceCurvePoint`
         """
-        model = NetWorthCurvePoint()
+        model = PlayerPerformanceCurvePoint()
         if include_optional:
-            return NetWorthCurvePoint(
-                avg = 1.337,
-                percentile1 = 1.337,
-                percentile10 = 1.337,
-                percentile25 = 1.337,
-                percentile5 = 1.337,
-                percentile50 = 1.337,
-                percentile75 = 1.337,
-                percentile90 = 1.337,
-                percentile95 = 1.337,
-                percentile99 = 1.337,
-                relative_timestamp = 0,
-                std = 1.337
+            return PlayerPerformanceCurvePoint(
+                assists_avg = 1.337,
+                assists_std = 1.337,
+                deaths_avg = 1.337,
+                deaths_std = 1.337,
+                kills_avg = 1.337,
+                kills_std = 1.337,
+                net_worth_avg = 1.337,
+                net_worth_std = 1.337,
+                relative_timestamp = 0
             )
         else:
-            return NetWorthCurvePoint(
-                avg = 1.337,
-                percentile1 = 1.337,
-                percentile10 = 1.337,
-                percentile25 = 1.337,
-                percentile5 = 1.337,
-                percentile50 = 1.337,
-                percentile75 = 1.337,
-                percentile90 = 1.337,
-                percentile95 = 1.337,
-                percentile99 = 1.337,
+            return PlayerPerformanceCurvePoint(
+                assists_avg = 1.337,
+                assists_std = 1.337,
+                deaths_avg = 1.337,
+                deaths_std = 1.337,
+                kills_avg = 1.337,
+                kills_std = 1.337,
+                net_worth_avg = 1.337,
+                net_worth_std = 1.337,
                 relative_timestamp = 0,
-                std = 1.337,
         )
         """
 
-    def testNetWorthCurvePoint(self):
-        """Test NetWorthCurvePoint"""
+    def testPlayerPerformanceCurvePoint(self):
+        """Test PlayerPerformanceCurvePoint"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

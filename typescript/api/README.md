@@ -62,7 +62,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**itemPermutationStats**](docs/AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsApi* | [**itemStats**](docs/AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
 *AnalyticsApi* | [**killDeathStats**](docs/AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
-*AnalyticsApi* | [**netWorthCurve**](docs/AnalyticsApi.md#networthcurve) | **GET** /v1/analytics/net-worth-curve | Net Worth Curve
+*AnalyticsApi* | [**playerPerformanceCurve**](docs/AnalyticsApi.md#playerperformancecurve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve
 *AnalyticsApi* | [**playerScoreboard**](docs/AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**playerStatsMetrics**](docs/AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
 *BuildsApi* | [**searchBuilds**](docs/BuildsApi.md#searchbuilds) | **GET** /v1/builds | Search
@@ -154,12 +154,12 @@ Class | Method | HTTP request | Description
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [MateStats](docs/MateStats.md)
- - [NetWorthCurvePoint](docs/NetWorthCurvePoint.md)
  - [PartyStats](docs/PartyStats.md)
  - [Patch](docs/Patch.md)
  - [PatchCategory](docs/PatchCategory.md)
  - [PatchGuid](docs/PatchGuid.md)
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
+ - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [RegionMode](docs/RegionMode.md)
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)

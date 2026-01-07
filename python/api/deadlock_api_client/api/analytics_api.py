@@ -31,7 +31,7 @@ from deadlock_api_client.models.hero_synergy_stats import HeroSynergyStats
 from deadlock_api_client.models.item_permutation_stats import ItemPermutationStats
 from deadlock_api_client.models.item_stats import ItemStats
 from deadlock_api_client.models.kill_death_stats import KillDeathStats
-from deadlock_api_client.models.net_worth_curve_point import NetWorthCurvePoint
+from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint
 
 from deadlock_api_client.api_client import ApiClient, RequestSerialized
 from deadlock_api_client.api_response import ApiResponse
@@ -5736,7 +5736,7 @@ class AnalyticsApi:
 
 
     @validate_call
-    def net_worth_curve(
+    def player_performance_curve(
         self,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -5764,10 +5764,10 @@ class AnalyticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[NetWorthCurvePoint]:
-        """Net Worth Curve
+    ) -> List[PlayerPerformanceCurvePoint]:
+        """Player Performance Curve
 
-         Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -5819,7 +5819,7 @@ class AnalyticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._net_worth_curve_serialize(
+        _param = self._player_performance_curve_serialize(
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -5841,7 +5841,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[NetWorthCurvePoint]",
+            '200': "List[PlayerPerformanceCurvePoint]",
             '400': None,
             '500': None,
         }
@@ -5857,7 +5857,7 @@ class AnalyticsApi:
 
 
     @validate_call
-    def net_worth_curve_with_http_info(
+    def player_performance_curve_with_http_info(
         self,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -5885,10 +5885,10 @@ class AnalyticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[NetWorthCurvePoint]]:
-        """Net Worth Curve
+    ) -> ApiResponse[List[PlayerPerformanceCurvePoint]]:
+        """Player Performance Curve
 
-         Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -5940,7 +5940,7 @@ class AnalyticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._net_worth_curve_serialize(
+        _param = self._player_performance_curve_serialize(
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -5962,7 +5962,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[NetWorthCurvePoint]",
+            '200': "List[PlayerPerformanceCurvePoint]",
             '400': None,
             '500': None,
         }
@@ -5978,7 +5978,7 @@ class AnalyticsApi:
 
 
     @validate_call
-    def net_worth_curve_without_preload_content(
+    def player_performance_curve_without_preload_content(
         self,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -6007,9 +6007,9 @@ class AnalyticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Net Worth Curve
+        """Player Performance Curve
 
-         Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -6061,7 +6061,7 @@ class AnalyticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._net_worth_curve_serialize(
+        _param = self._player_performance_curve_serialize(
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -6083,7 +6083,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[NetWorthCurvePoint]",
+            '200': "List[PlayerPerformanceCurvePoint]",
             '400': None,
             '500': None,
         }
@@ -6094,7 +6094,7 @@ class AnalyticsApi:
         return response_data.response
 
 
-    def _net_worth_curve_serialize(
+    def _player_performance_curve_serialize(
         self,
         min_unix_timestamp,
         max_unix_timestamp,
@@ -6211,7 +6211,7 @@ class AnalyticsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/v1/analytics/net-worth-curve',
+            resource_path='/v1/analytics/player-performance-curve',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

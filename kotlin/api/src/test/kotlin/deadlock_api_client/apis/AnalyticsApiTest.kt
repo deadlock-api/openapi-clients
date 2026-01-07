@@ -31,7 +31,7 @@ import deadlock_api_client.models.HeroSynergyStats
 import deadlock_api_client.models.ItemPermutationStats
 import deadlock_api_client.models.ItemStats
 import deadlock_api_client.models.KillDeathStats
-import deadlock_api_client.models.NetWorthCurvePoint
+import deadlock_api_client.models.PlayerPerformanceCurvePoint
 
 class AnalyticsApiTest : ShouldSpec() {
     init {
@@ -286,9 +286,9 @@ class AnalyticsApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
-        // to test netWorthCurve
-        should("test netWorthCurve") {
-            // uncomment below to test netWorthCurve
+        // to test playerPerformanceCurve
+        should("test playerPerformanceCurve") {
+            // uncomment below to test playerPerformanceCurve
             //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
             //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
             //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
@@ -303,7 +303,7 @@ class AnalyticsApiTest : ShouldSpec() {
             //val includeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
             //val excludeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
-            //val result : kotlin.collections.List<NetWorthCurvePoint> = apiInstance.netWorthCurve(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, accountIds)
+            //val result : kotlin.collections.List<PlayerPerformanceCurvePoint> = apiInstance.playerPerformanceCurve(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, accountIds)
             //result shouldBe ("TODO")
         }
 

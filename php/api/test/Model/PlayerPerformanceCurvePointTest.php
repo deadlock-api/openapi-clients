@@ -1,6 +1,6 @@
 <?php
 /**
- * NetWorthCurvePointTest
+ * PlayerPerformanceCurvePointTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * NetWorthCurvePointTest Class Doc Comment
+ * PlayerPerformanceCurvePointTest Class Doc Comment
  *
  * @category    Class
- * @description NetWorthCurvePoint
+ * @description PlayerPerformanceCurvePoint
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class NetWorthCurvePointTest extends TestCase
+class PlayerPerformanceCurvePointTest extends TestCase
 {
 
     /**
@@ -71,99 +71,81 @@ class NetWorthCurvePointTest extends TestCase
     }
 
     /**
-     * Test "NetWorthCurvePoint"
+     * Test "PlayerPerformanceCurvePoint"
      */
-    public function testNetWorthCurvePoint()
+    public function testPlayerPerformanceCurvePoint()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "avg"
+     * Test attribute "assists_avg"
      */
-    public function testPropertyAvg()
+    public function testPropertyAssistsAvg()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "percentile1"
+     * Test attribute "assists_std"
      */
-    public function testPropertyPercentile1()
+    public function testPropertyAssistsStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "percentile10"
+     * Test attribute "deaths_avg"
      */
-    public function testPropertyPercentile10()
+    public function testPropertyDeathsAvg()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "percentile25"
+     * Test attribute "deaths_std"
      */
-    public function testPropertyPercentile25()
+    public function testPropertyDeathsStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "percentile5"
+     * Test attribute "kills_avg"
      */
-    public function testPropertyPercentile5()
+    public function testPropertyKillsAvg()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "percentile50"
+     * Test attribute "kills_std"
      */
-    public function testPropertyPercentile50()
+    public function testPropertyKillsStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "percentile75"
+     * Test attribute "net_worth_avg"
      */
-    public function testPropertyPercentile75()
+    public function testPropertyNetWorthAvg()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "percentile90"
+     * Test attribute "net_worth_std"
      */
-    public function testPropertyPercentile90()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "percentile95"
-     */
-    public function testPropertyPercentile95()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "percentile99"
-     */
-    public function testPropertyPercentile99()
+    public function testPropertyNetWorthStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -173,15 +155,6 @@ class NetWorthCurvePointTest extends TestCase
      * Test attribute "relative_timestamp"
      */
     public function testPropertyRelativeTimestamp()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "std"
-     */
-    public function testPropertyStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

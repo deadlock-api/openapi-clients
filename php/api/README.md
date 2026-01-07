@@ -73,7 +73,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1764892800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -115,7 +115,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**itemPermutationStats**](docs/Api/AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsApi* | [**itemStats**](docs/Api/AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
 *AnalyticsApi* | [**killDeathStats**](docs/Api/AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
-*AnalyticsApi* | [**netWorthCurve**](docs/Api/AnalyticsApi.md#networthcurve) | **GET** /v1/analytics/net-worth-curve | Net Worth Curve
+*AnalyticsApi* | [**playerPerformanceCurve**](docs/Api/AnalyticsApi.md#playerperformancecurve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve
 *AnalyticsApi* | [**playerScoreboard**](docs/Api/AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**playerStatsMetrics**](docs/Api/AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
 *BuildsApi* | [**searchBuilds**](docs/Api/BuildsApi.md#searchbuilds) | **GET** /v1/builds | Search
@@ -206,12 +206,12 @@ Class | Method | HTTP request | Description
 - [MatchSaltsResponse](docs/Model/MatchSaltsResponse.md)
 - [MatchSpectateResponse](docs/Model/MatchSpectateResponse.md)
 - [MateStats](docs/Model/MateStats.md)
-- [NetWorthCurvePoint](docs/Model/NetWorthCurvePoint.md)
 - [PartyStats](docs/Model/PartyStats.md)
 - [Patch](docs/Model/Patch.md)
 - [PatchCategory](docs/Model/PatchCategory.md)
 - [PatchGuid](docs/Model/PatchGuid.md)
 - [PlayerMatchHistoryEntry](docs/Model/PlayerMatchHistoryEntry.md)
+- [PlayerPerformanceCurvePoint](docs/Model/PlayerPerformanceCurvePoint.md)
 - [RegionMode](docs/Model/RegionMode.md)
 - [Status](docs/Model/Status.md)
 - [StatusServices](docs/Model/StatusServices.md)

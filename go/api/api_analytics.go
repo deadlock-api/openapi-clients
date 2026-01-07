@@ -200,7 +200,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -432,7 +432,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -597,7 +597,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
         r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -837,7 +837,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1156,7 +1156,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1451,7 +1451,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1744,7 +1744,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2051,7 +2051,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2371,7 +2371,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2687,7 +2687,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -3038,7 +3038,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -3164,7 +3164,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiNetWorthCurveRequest struct {
+type ApiPlayerPerformanceCurveRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
 	minUnixTimestamp *int64
@@ -3184,98 +3184,98 @@ type ApiNetWorthCurveRequest struct {
 }
 
 // Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
-func (r ApiNetWorthCurveRequest) MinUnixTimestamp(minUnixTimestamp int64) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MinUnixTimestamp(minUnixTimestamp int64) ApiPlayerPerformanceCurveRequest {
 	r.minUnixTimestamp = &minUnixTimestamp
 	return r
 }
 
 // Filter matches based on their start time (Unix timestamp).
-func (r ApiNetWorthCurveRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiPlayerPerformanceCurveRequest {
 	r.maxUnixTimestamp = &maxUnixTimestamp
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiNetWorthCurveRequest) MinDurationS(minDurationS int64) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MinDurationS(minDurationS int64) ApiPlayerPerformanceCurveRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiNetWorthCurveRequest) MaxDurationS(maxDurationS int64) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MaxDurationS(maxDurationS int64) ApiPlayerPerformanceCurveRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
 
 // Filter players based on their final net worth.
-func (r ApiNetWorthCurveRequest) MinNetworth(minNetworth int64) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MinNetworth(minNetworth int64) ApiPlayerPerformanceCurveRequest {
 	r.minNetworth = &minNetworth
 	return r
 }
 
 // Filter players based on their final net worth.
-func (r ApiNetWorthCurveRequest) MaxNetworth(maxNetworth int64) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MaxNetworth(maxNetworth int64) ApiPlayerPerformanceCurveRequest {
 	r.maxNetworth = &maxNetworth
 	return r
 }
 
 // Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-func (r ApiNetWorthCurveRequest) MinAverageBadge(minAverageBadge int32) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MinAverageBadge(minAverageBadge int32) ApiPlayerPerformanceCurveRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
 // Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-func (r ApiNetWorthCurveRequest) MaxAverageBadge(maxAverageBadge int32) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MaxAverageBadge(maxAverageBadge int32) ApiPlayerPerformanceCurveRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
 }
 
 // Filter matches based on their ID.
-func (r ApiNetWorthCurveRequest) MinMatchId(minMatchId int64) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MinMatchId(minMatchId int64) ApiPlayerPerformanceCurveRequest {
 	r.minMatchId = &minMatchId
 	return r
 }
 
 // Filter matches based on their ID.
-func (r ApiNetWorthCurveRequest) MaxMatchId(maxMatchId int64) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MaxMatchId(maxMatchId int64) ApiPlayerPerformanceCurveRequest {
 	r.maxMatchId = &maxMatchId
 	return r
 }
 
 // Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-func (r ApiNetWorthCurveRequest) HeroIds(heroIds string) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) HeroIds(heroIds string) ApiPlayerPerformanceCurveRequest {
 	r.heroIds = &heroIds
 	return r
 }
 
 // Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-func (r ApiNetWorthCurveRequest) IncludeItemIds(includeItemIds []int32) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) IncludeItemIds(includeItemIds []int32) ApiPlayerPerformanceCurveRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
 // Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-func (r ApiNetWorthCurveRequest) ExcludeItemIds(excludeItemIds []int32) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) ExcludeItemIds(excludeItemIds []int32) ApiPlayerPerformanceCurveRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiNetWorthCurveRequest) AccountIds(accountIds []int32) ApiNetWorthCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) AccountIds(accountIds []int32) ApiPlayerPerformanceCurveRequest {
 	r.accountIds = &accountIds
 	return r
 }
 
-func (r ApiNetWorthCurveRequest) Execute() ([]NetWorthCurvePoint, *http.Response, error) {
-	return r.ApiService.NetWorthCurveExecute(r)
+func (r ApiPlayerPerformanceCurveRequest) Execute() ([]PlayerPerformanceCurvePoint, *http.Response, error) {
+	return r.ApiService.PlayerPerformanceCurveExecute(r)
 }
 
 /*
-NetWorthCurve Net Worth Curve
+PlayerPerformanceCurve Player Performance Curve
 
 
-Retrieves the net worth distribution over time throughout matches.
+Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.
 
 Results are cached for **1 hour** based on the unique combination of query parameters provided.
 
@@ -3288,31 +3288,31 @@ Results are cached for **1 hour** based on the unique combination of query param
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiNetWorthCurveRequest
+ @return ApiPlayerPerformanceCurveRequest
 */
-func (a *AnalyticsAPIService) NetWorthCurve(ctx context.Context) ApiNetWorthCurveRequest {
-	return ApiNetWorthCurveRequest{
+func (a *AnalyticsAPIService) PlayerPerformanceCurve(ctx context.Context) ApiPlayerPerformanceCurveRequest {
+	return ApiPlayerPerformanceCurveRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []NetWorthCurvePoint
-func (a *AnalyticsAPIService) NetWorthCurveExecute(r ApiNetWorthCurveRequest) ([]NetWorthCurvePoint, *http.Response, error) {
+//  @return []PlayerPerformanceCurvePoint
+func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerformanceCurveRequest) ([]PlayerPerformanceCurvePoint, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []NetWorthCurvePoint
+		localVarReturnValue  []PlayerPerformanceCurvePoint
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.NetWorthCurve")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PlayerPerformanceCurve")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/analytics/net-worth-curve"
+	localVarPath := localBasePath + "/v1/analytics/player-performance-curve"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3321,7 +3321,7 @@ func (a *AnalyticsAPIService) NetWorthCurveExecute(r ApiNetWorthCurveRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -3916,7 +3916,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1764892800
+        var defaultValue int64 = 1765065600
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}

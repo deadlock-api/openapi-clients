@@ -55,9 +55,9 @@ Accept: application/json
 GET https://api.deadlock-api.com/v1/analytics/kill-death-stats?team={{team}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&accountIds={{accountIds}}&heroIds={{heroIds}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minKillsPerRaster={{minKillsPerRaster}}&maxKillsPerRaster={{maxKillsPerRaster}}&minDeathsPerRaster={{minDeathsPerRaster}}&maxDeathsPerRaster={{maxDeathsPerRaster}}&minGameTimeS={{minGameTimeS}}&maxGameTimeS={{maxGameTimeS}}
 Accept: application/json
 
-### Net Worth Curve
-## Net Worth Curve
-GET https://api.deadlock-api.com/v1/analytics/net-worth-curve?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroIds={{heroIds}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&accountIds={{accountIds}}
+### Player Performance Curve
+## Player Performance Curve
+GET https://api.deadlock-api.com/v1/analytics/player-performance-curve?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroIds={{heroIds}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Player Scoreboard

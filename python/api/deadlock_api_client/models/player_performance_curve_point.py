@@ -23,23 +23,20 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class NetWorthCurvePoint(BaseModel):
+class PlayerPerformanceCurvePoint(BaseModel):
     """
-    NetWorthCurvePoint
+    PlayerPerformanceCurvePoint
     """ # noqa: E501
-    avg: Union[StrictFloat, StrictInt] = Field(description="Average net worth at this timestamp")
-    percentile1: Union[StrictFloat, StrictInt] = Field(description="1st percentile net worth")
-    percentile10: Union[StrictFloat, StrictInt] = Field(description="10th percentile net worth")
-    percentile25: Union[StrictFloat, StrictInt] = Field(description="25th percentile net worth")
-    percentile5: Union[StrictFloat, StrictInt] = Field(description="5th percentile net worth")
-    percentile50: Union[StrictFloat, StrictInt] = Field(description="50th percentile net worth")
-    percentile75: Union[StrictFloat, StrictInt] = Field(description="75th percentile net worth")
-    percentile90: Union[StrictFloat, StrictInt] = Field(description="90th percentile net worth")
-    percentile95: Union[StrictFloat, StrictInt] = Field(description="95th percentile net worth")
-    percentile99: Union[StrictFloat, StrictInt] = Field(description="99th percentile net worth")
+    assists_avg: Union[StrictFloat, StrictInt] = Field(description="Average assists at this timestamp")
+    assists_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of assists at this timestamp")
+    deaths_avg: Union[StrictFloat, StrictInt] = Field(description="Average deaths at this timestamp")
+    deaths_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of deaths at this timestamp")
+    kills_avg: Union[StrictFloat, StrictInt] = Field(description="Average kills at this timestamp")
+    kills_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of kills at this timestamp")
+    net_worth_avg: Union[StrictFloat, StrictInt] = Field(description="Average net worth at this timestamp")
+    net_worth_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of net worth at this timestamp")
     relative_timestamp: Annotated[int, Field(strict=True, ge=0)] = Field(description="Percentage interval of match duration (0%, 5%, 10%, ..., 100%)")
-    std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of net worth at this timestamp")
-    __properties: ClassVar[List[str]] = ["avg", "percentile1", "percentile10", "percentile25", "percentile5", "percentile50", "percentile75", "percentile90", "percentile95", "percentile99", "relative_timestamp", "std"]
+    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "deaths_avg", "deaths_std", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std", "relative_timestamp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,7 +56,7 @@ class NetWorthCurvePoint(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of NetWorthCurvePoint from a JSON string"""
+        """Create an instance of PlayerPerformanceCurvePoint from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -84,7 +81,7 @@ class NetWorthCurvePoint(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of NetWorthCurvePoint from a dict"""
+        """Create an instance of PlayerPerformanceCurvePoint from a dict"""
         if obj is None:
             return None
 
@@ -92,18 +89,15 @@ class NetWorthCurvePoint(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "avg": obj.get("avg"),
-            "percentile1": obj.get("percentile1"),
-            "percentile10": obj.get("percentile10"),
-            "percentile25": obj.get("percentile25"),
-            "percentile5": obj.get("percentile5"),
-            "percentile50": obj.get("percentile50"),
-            "percentile75": obj.get("percentile75"),
-            "percentile90": obj.get("percentile90"),
-            "percentile95": obj.get("percentile95"),
-            "percentile99": obj.get("percentile99"),
-            "relative_timestamp": obj.get("relative_timestamp"),
-            "std": obj.get("std")
+            "assists_avg": obj.get("assists_avg"),
+            "assists_std": obj.get("assists_std"),
+            "deaths_avg": obj.get("deaths_avg"),
+            "deaths_std": obj.get("deaths_std"),
+            "kills_avg": obj.get("kills_avg"),
+            "kills_std": obj.get("kills_std"),
+            "net_worth_avg": obj.get("net_worth_avg"),
+            "net_worth_std": obj.get("net_worth_std"),
+            "relative_timestamp": obj.get("relative_timestamp")
         })
         return _obj
 

@@ -411,9 +411,9 @@ pub struct KillDeathStatsParams {
     pub max_game_time_s: Option<u32>
 }
 
-/// struct for passing parameters to the method [`net_worth_curve`]
+/// struct for passing parameters to the method [`player_performance_curve`]
 #[derive(Clone, Debug)]
-pub struct NetWorthCurveParams {
+pub struct PlayerPerformanceCurveParams {
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -620,10 +620,10 @@ pub enum KillDeathStatsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`net_worth_curve`]
+/// struct for typed errors of method [`player_performance_curve`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum NetWorthCurveError {
+pub enum PlayerPerformanceCurveError {
     Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
@@ -1590,10 +1590,10 @@ pub async fn kill_death_stats(configuration: &configuration::Configuration, para
     }
 }
 
-///  Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn net_worth_curve(configuration: &configuration::Configuration, params: NetWorthCurveParams) -> Result<Vec<models::NetWorthCurvePoint>, Error<NetWorthCurveError>> {
+///  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+pub async fn player_performance_curve(configuration: &configuration::Configuration, params: PlayerPerformanceCurveParams) -> Result<Vec<models::PlayerPerformanceCurvePoint>, Error<PlayerPerformanceCurveError>> {
 
-    let uri_str = format!("{}/v1/analytics/net-worth-curve", configuration.base_path);
+    let uri_str = format!("{}/v1/analytics/player-performance-curve", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.min_unix_timestamp {
@@ -1666,12 +1666,12 @@ pub async fn net_worth_curve(configuration: &configuration::Configuration, param
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::NetWorthCurvePoint&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::NetWorthCurvePoint&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::PlayerPerformanceCurvePoint&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::PlayerPerformanceCurvePoint&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<NetWorthCurveError> = serde_json::from_str(&content).ok();
+        let entity: Option<PlayerPerformanceCurveError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

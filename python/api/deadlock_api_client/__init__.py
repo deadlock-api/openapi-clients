@@ -81,12 +81,12 @@ __all__ = [
     "MatchSaltsResponse",
     "MatchSpectateResponse",
     "MateStats",
-    "NetWorthCurvePoint",
     "PartyStats",
     "Patch",
     "PatchCategory",
     "PatchGuid",
     "PlayerMatchHistoryEntry",
+    "PlayerPerformanceCurvePoint",
     "RegionMode",
     "Status",
     "StatusServices",
@@ -164,12 +164,12 @@ from deadlock_api_client.models.mmr_history import MMRHistory as MMRHistory
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse as MatchSaltsResponse
 from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse as MatchSpectateResponse
 from deadlock_api_client.models.mate_stats import MateStats as MateStats
-from deadlock_api_client.models.net_worth_curve_point import NetWorthCurvePoint as NetWorthCurvePoint
 from deadlock_api_client.models.party_stats import PartyStats as PartyStats
 from deadlock_api_client.models.patch import Patch as Patch
 from deadlock_api_client.models.patch_category import PatchCategory as PatchCategory
 from deadlock_api_client.models.patch_guid import PatchGuid as PatchGuid
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry as PlayerMatchHistoryEntry
+from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint as PlayerPerformanceCurvePoint
 from deadlock_api_client.models.region_mode import RegionMode as RegionMode
 from deadlock_api_client.models.status import Status as Status
 from deadlock_api_client.models.status_services import StatusServices as StatusServices

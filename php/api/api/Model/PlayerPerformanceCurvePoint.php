@@ -1,6 +1,6 @@
 <?php
 /**
- * NetWorthCurvePoint
+ * PlayerPerformanceCurvePoint
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * NetWorthCurvePoint Class Doc Comment
+ * PlayerPerformanceCurvePoint Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializable
+class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'NetWorthCurvePoint';
+    protected static $openAPIModelName = 'PlayerPerformanceCurvePoint';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,18 +57,15 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'avg' => 'float',
-        'percentile1' => 'float',
-        'percentile10' => 'float',
-        'percentile25' => 'float',
-        'percentile5' => 'float',
-        'percentile50' => 'float',
-        'percentile75' => 'float',
-        'percentile90' => 'float',
-        'percentile95' => 'float',
-        'percentile99' => 'float',
-        'relative_timestamp' => 'int',
-        'std' => 'float'
+        'assists_avg' => 'float',
+        'assists_std' => 'float',
+        'deaths_avg' => 'float',
+        'deaths_std' => 'float',
+        'kills_avg' => 'float',
+        'kills_std' => 'float',
+        'net_worth_avg' => 'float',
+        'net_worth_std' => 'float',
+        'relative_timestamp' => 'int'
     ];
 
     /**
@@ -79,18 +76,15 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'avg' => 'double',
-        'percentile1' => 'double',
-        'percentile10' => 'double',
-        'percentile25' => 'double',
-        'percentile5' => 'double',
-        'percentile50' => 'double',
-        'percentile75' => 'double',
-        'percentile90' => 'double',
-        'percentile95' => 'double',
-        'percentile99' => 'double',
-        'relative_timestamp' => 'int32',
-        'std' => 'double'
+        'assists_avg' => 'double',
+        'assists_std' => 'double',
+        'deaths_avg' => 'double',
+        'deaths_std' => 'double',
+        'kills_avg' => 'double',
+        'kills_std' => 'double',
+        'net_worth_avg' => 'double',
+        'net_worth_std' => 'double',
+        'relative_timestamp' => 'int32'
     ];
 
     /**
@@ -99,18 +93,15 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'avg' => false,
-        'percentile1' => false,
-        'percentile10' => false,
-        'percentile25' => false,
-        'percentile5' => false,
-        'percentile50' => false,
-        'percentile75' => false,
-        'percentile90' => false,
-        'percentile95' => false,
-        'percentile99' => false,
-        'relative_timestamp' => false,
-        'std' => false
+        'assists_avg' => false,
+        'assists_std' => false,
+        'deaths_avg' => false,
+        'deaths_std' => false,
+        'kills_avg' => false,
+        'kills_std' => false,
+        'net_worth_avg' => false,
+        'net_worth_std' => false,
+        'relative_timestamp' => false
     ];
 
     /**
@@ -199,18 +190,15 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'avg' => 'avg',
-        'percentile1' => 'percentile1',
-        'percentile10' => 'percentile10',
-        'percentile25' => 'percentile25',
-        'percentile5' => 'percentile5',
-        'percentile50' => 'percentile50',
-        'percentile75' => 'percentile75',
-        'percentile90' => 'percentile90',
-        'percentile95' => 'percentile95',
-        'percentile99' => 'percentile99',
-        'relative_timestamp' => 'relative_timestamp',
-        'std' => 'std'
+        'assists_avg' => 'assists_avg',
+        'assists_std' => 'assists_std',
+        'deaths_avg' => 'deaths_avg',
+        'deaths_std' => 'deaths_std',
+        'kills_avg' => 'kills_avg',
+        'kills_std' => 'kills_std',
+        'net_worth_avg' => 'net_worth_avg',
+        'net_worth_std' => 'net_worth_std',
+        'relative_timestamp' => 'relative_timestamp'
     ];
 
     /**
@@ -219,18 +207,15 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'avg' => 'setAvg',
-        'percentile1' => 'setPercentile1',
-        'percentile10' => 'setPercentile10',
-        'percentile25' => 'setPercentile25',
-        'percentile5' => 'setPercentile5',
-        'percentile50' => 'setPercentile50',
-        'percentile75' => 'setPercentile75',
-        'percentile90' => 'setPercentile90',
-        'percentile95' => 'setPercentile95',
-        'percentile99' => 'setPercentile99',
-        'relative_timestamp' => 'setRelativeTimestamp',
-        'std' => 'setStd'
+        'assists_avg' => 'setAssistsAvg',
+        'assists_std' => 'setAssistsStd',
+        'deaths_avg' => 'setDeathsAvg',
+        'deaths_std' => 'setDeathsStd',
+        'kills_avg' => 'setKillsAvg',
+        'kills_std' => 'setKillsStd',
+        'net_worth_avg' => 'setNetWorthAvg',
+        'net_worth_std' => 'setNetWorthStd',
+        'relative_timestamp' => 'setRelativeTimestamp'
     ];
 
     /**
@@ -239,18 +224,15 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'avg' => 'getAvg',
-        'percentile1' => 'getPercentile1',
-        'percentile10' => 'getPercentile10',
-        'percentile25' => 'getPercentile25',
-        'percentile5' => 'getPercentile5',
-        'percentile50' => 'getPercentile50',
-        'percentile75' => 'getPercentile75',
-        'percentile90' => 'getPercentile90',
-        'percentile95' => 'getPercentile95',
-        'percentile99' => 'getPercentile99',
-        'relative_timestamp' => 'getRelativeTimestamp',
-        'std' => 'getStd'
+        'assists_avg' => 'getAssistsAvg',
+        'assists_std' => 'getAssistsStd',
+        'deaths_avg' => 'getDeathsAvg',
+        'deaths_std' => 'getDeathsStd',
+        'kills_avg' => 'getKillsAvg',
+        'kills_std' => 'getKillsStd',
+        'net_worth_avg' => 'getNetWorthAvg',
+        'net_worth_std' => 'getNetWorthStd',
+        'relative_timestamp' => 'getRelativeTimestamp'
     ];
 
     /**
@@ -310,18 +292,15 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('avg', $data ?? [], null);
-        $this->setIfExists('percentile1', $data ?? [], null);
-        $this->setIfExists('percentile10', $data ?? [], null);
-        $this->setIfExists('percentile25', $data ?? [], null);
-        $this->setIfExists('percentile5', $data ?? [], null);
-        $this->setIfExists('percentile50', $data ?? [], null);
-        $this->setIfExists('percentile75', $data ?? [], null);
-        $this->setIfExists('percentile90', $data ?? [], null);
-        $this->setIfExists('percentile95', $data ?? [], null);
-        $this->setIfExists('percentile99', $data ?? [], null);
+        $this->setIfExists('assists_avg', $data ?? [], null);
+        $this->setIfExists('assists_std', $data ?? [], null);
+        $this->setIfExists('deaths_avg', $data ?? [], null);
+        $this->setIfExists('deaths_std', $data ?? [], null);
+        $this->setIfExists('kills_avg', $data ?? [], null);
+        $this->setIfExists('kills_std', $data ?? [], null);
+        $this->setIfExists('net_worth_avg', $data ?? [], null);
+        $this->setIfExists('net_worth_std', $data ?? [], null);
         $this->setIfExists('relative_timestamp', $data ?? [], null);
-        $this->setIfExists('std', $data ?? [], null);
     }
 
     /**
@@ -351,35 +330,29 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['avg'] === null) {
-            $invalidProperties[] = "'avg' can't be null";
+        if ($this->container['assists_avg'] === null) {
+            $invalidProperties[] = "'assists_avg' can't be null";
         }
-        if ($this->container['percentile1'] === null) {
-            $invalidProperties[] = "'percentile1' can't be null";
+        if ($this->container['assists_std'] === null) {
+            $invalidProperties[] = "'assists_std' can't be null";
         }
-        if ($this->container['percentile10'] === null) {
-            $invalidProperties[] = "'percentile10' can't be null";
+        if ($this->container['deaths_avg'] === null) {
+            $invalidProperties[] = "'deaths_avg' can't be null";
         }
-        if ($this->container['percentile25'] === null) {
-            $invalidProperties[] = "'percentile25' can't be null";
+        if ($this->container['deaths_std'] === null) {
+            $invalidProperties[] = "'deaths_std' can't be null";
         }
-        if ($this->container['percentile5'] === null) {
-            $invalidProperties[] = "'percentile5' can't be null";
+        if ($this->container['kills_avg'] === null) {
+            $invalidProperties[] = "'kills_avg' can't be null";
         }
-        if ($this->container['percentile50'] === null) {
-            $invalidProperties[] = "'percentile50' can't be null";
+        if ($this->container['kills_std'] === null) {
+            $invalidProperties[] = "'kills_std' can't be null";
         }
-        if ($this->container['percentile75'] === null) {
-            $invalidProperties[] = "'percentile75' can't be null";
+        if ($this->container['net_worth_avg'] === null) {
+            $invalidProperties[] = "'net_worth_avg' can't be null";
         }
-        if ($this->container['percentile90'] === null) {
-            $invalidProperties[] = "'percentile90' can't be null";
-        }
-        if ($this->container['percentile95'] === null) {
-            $invalidProperties[] = "'percentile95' can't be null";
-        }
-        if ($this->container['percentile99'] === null) {
-            $invalidProperties[] = "'percentile99' can't be null";
+        if ($this->container['net_worth_std'] === null) {
+            $invalidProperties[] = "'net_worth_std' can't be null";
         }
         if ($this->container['relative_timestamp'] === null) {
             $invalidProperties[] = "'relative_timestamp' can't be null";
@@ -388,9 +361,6 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = "invalid value for 'relative_timestamp', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['std'] === null) {
-            $invalidProperties[] = "'std' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -407,271 +377,217 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets avg
+     * Gets assists_avg
      *
      * @return float
      */
-    public function getAvg()
+    public function getAssistsAvg()
     {
-        return $this->container['avg'];
+        return $this->container['assists_avg'];
     }
 
     /**
-     * Sets avg
+     * Sets assists_avg
      *
-     * @param float $avg Average net worth at this timestamp
+     * @param float $assists_avg Average assists at this timestamp
      *
      * @return self
      */
-    public function setAvg($avg)
+    public function setAssistsAvg($assists_avg)
     {
-        if (is_null($avg)) {
-            throw new \InvalidArgumentException('non-nullable avg cannot be null');
+        if (is_null($assists_avg)) {
+            throw new \InvalidArgumentException('non-nullable assists_avg cannot be null');
         }
-        $this->container['avg'] = $avg;
+        $this->container['assists_avg'] = $assists_avg;
 
         return $this;
     }
 
     /**
-     * Gets percentile1
+     * Gets assists_std
      *
      * @return float
      */
-    public function getPercentile1()
+    public function getAssistsStd()
     {
-        return $this->container['percentile1'];
+        return $this->container['assists_std'];
     }
 
     /**
-     * Sets percentile1
+     * Sets assists_std
      *
-     * @param float $percentile1 1st percentile net worth
+     * @param float $assists_std Standard deviation of assists at this timestamp
      *
      * @return self
      */
-    public function setPercentile1($percentile1)
+    public function setAssistsStd($assists_std)
     {
-        if (is_null($percentile1)) {
-            throw new \InvalidArgumentException('non-nullable percentile1 cannot be null');
+        if (is_null($assists_std)) {
+            throw new \InvalidArgumentException('non-nullable assists_std cannot be null');
         }
-        $this->container['percentile1'] = $percentile1;
+        $this->container['assists_std'] = $assists_std;
 
         return $this;
     }
 
     /**
-     * Gets percentile10
+     * Gets deaths_avg
      *
      * @return float
      */
-    public function getPercentile10()
+    public function getDeathsAvg()
     {
-        return $this->container['percentile10'];
+        return $this->container['deaths_avg'];
     }
 
     /**
-     * Sets percentile10
+     * Sets deaths_avg
      *
-     * @param float $percentile10 10th percentile net worth
+     * @param float $deaths_avg Average deaths at this timestamp
      *
      * @return self
      */
-    public function setPercentile10($percentile10)
+    public function setDeathsAvg($deaths_avg)
     {
-        if (is_null($percentile10)) {
-            throw new \InvalidArgumentException('non-nullable percentile10 cannot be null');
+        if (is_null($deaths_avg)) {
+            throw new \InvalidArgumentException('non-nullable deaths_avg cannot be null');
         }
-        $this->container['percentile10'] = $percentile10;
+        $this->container['deaths_avg'] = $deaths_avg;
 
         return $this;
     }
 
     /**
-     * Gets percentile25
+     * Gets deaths_std
      *
      * @return float
      */
-    public function getPercentile25()
+    public function getDeathsStd()
     {
-        return $this->container['percentile25'];
+        return $this->container['deaths_std'];
     }
 
     /**
-     * Sets percentile25
+     * Sets deaths_std
      *
-     * @param float $percentile25 25th percentile net worth
+     * @param float $deaths_std Standard deviation of deaths at this timestamp
      *
      * @return self
      */
-    public function setPercentile25($percentile25)
+    public function setDeathsStd($deaths_std)
     {
-        if (is_null($percentile25)) {
-            throw new \InvalidArgumentException('non-nullable percentile25 cannot be null');
+        if (is_null($deaths_std)) {
+            throw new \InvalidArgumentException('non-nullable deaths_std cannot be null');
         }
-        $this->container['percentile25'] = $percentile25;
+        $this->container['deaths_std'] = $deaths_std;
 
         return $this;
     }
 
     /**
-     * Gets percentile5
+     * Gets kills_avg
      *
      * @return float
      */
-    public function getPercentile5()
+    public function getKillsAvg()
     {
-        return $this->container['percentile5'];
+        return $this->container['kills_avg'];
     }
 
     /**
-     * Sets percentile5
+     * Sets kills_avg
      *
-     * @param float $percentile5 5th percentile net worth
+     * @param float $kills_avg Average kills at this timestamp
      *
      * @return self
      */
-    public function setPercentile5($percentile5)
+    public function setKillsAvg($kills_avg)
     {
-        if (is_null($percentile5)) {
-            throw new \InvalidArgumentException('non-nullable percentile5 cannot be null');
+        if (is_null($kills_avg)) {
+            throw new \InvalidArgumentException('non-nullable kills_avg cannot be null');
         }
-        $this->container['percentile5'] = $percentile5;
+        $this->container['kills_avg'] = $kills_avg;
 
         return $this;
     }
 
     /**
-     * Gets percentile50
+     * Gets kills_std
      *
      * @return float
      */
-    public function getPercentile50()
+    public function getKillsStd()
     {
-        return $this->container['percentile50'];
+        return $this->container['kills_std'];
     }
 
     /**
-     * Sets percentile50
+     * Sets kills_std
      *
-     * @param float $percentile50 50th percentile net worth
+     * @param float $kills_std Standard deviation of kills at this timestamp
      *
      * @return self
      */
-    public function setPercentile50($percentile50)
+    public function setKillsStd($kills_std)
     {
-        if (is_null($percentile50)) {
-            throw new \InvalidArgumentException('non-nullable percentile50 cannot be null');
+        if (is_null($kills_std)) {
+            throw new \InvalidArgumentException('non-nullable kills_std cannot be null');
         }
-        $this->container['percentile50'] = $percentile50;
+        $this->container['kills_std'] = $kills_std;
 
         return $this;
     }
 
     /**
-     * Gets percentile75
+     * Gets net_worth_avg
      *
      * @return float
      */
-    public function getPercentile75()
+    public function getNetWorthAvg()
     {
-        return $this->container['percentile75'];
+        return $this->container['net_worth_avg'];
     }
 
     /**
-     * Sets percentile75
+     * Sets net_worth_avg
      *
-     * @param float $percentile75 75th percentile net worth
+     * @param float $net_worth_avg Average net worth at this timestamp
      *
      * @return self
      */
-    public function setPercentile75($percentile75)
+    public function setNetWorthAvg($net_worth_avg)
     {
-        if (is_null($percentile75)) {
-            throw new \InvalidArgumentException('non-nullable percentile75 cannot be null');
+        if (is_null($net_worth_avg)) {
+            throw new \InvalidArgumentException('non-nullable net_worth_avg cannot be null');
         }
-        $this->container['percentile75'] = $percentile75;
+        $this->container['net_worth_avg'] = $net_worth_avg;
 
         return $this;
     }
 
     /**
-     * Gets percentile90
+     * Gets net_worth_std
      *
      * @return float
      */
-    public function getPercentile90()
+    public function getNetWorthStd()
     {
-        return $this->container['percentile90'];
+        return $this->container['net_worth_std'];
     }
 
     /**
-     * Sets percentile90
+     * Sets net_worth_std
      *
-     * @param float $percentile90 90th percentile net worth
+     * @param float $net_worth_std Standard deviation of net worth at this timestamp
      *
      * @return self
      */
-    public function setPercentile90($percentile90)
+    public function setNetWorthStd($net_worth_std)
     {
-        if (is_null($percentile90)) {
-            throw new \InvalidArgumentException('non-nullable percentile90 cannot be null');
+        if (is_null($net_worth_std)) {
+            throw new \InvalidArgumentException('non-nullable net_worth_std cannot be null');
         }
-        $this->container['percentile90'] = $percentile90;
-
-        return $this;
-    }
-
-    /**
-     * Gets percentile95
-     *
-     * @return float
-     */
-    public function getPercentile95()
-    {
-        return $this->container['percentile95'];
-    }
-
-    /**
-     * Sets percentile95
-     *
-     * @param float $percentile95 95th percentile net worth
-     *
-     * @return self
-     */
-    public function setPercentile95($percentile95)
-    {
-        if (is_null($percentile95)) {
-            throw new \InvalidArgumentException('non-nullable percentile95 cannot be null');
-        }
-        $this->container['percentile95'] = $percentile95;
-
-        return $this;
-    }
-
-    /**
-     * Gets percentile99
-     *
-     * @return float
-     */
-    public function getPercentile99()
-    {
-        return $this->container['percentile99'];
-    }
-
-    /**
-     * Sets percentile99
-     *
-     * @param float $percentile99 99th percentile net worth
-     *
-     * @return self
-     */
-    public function setPercentile99($percentile99)
-    {
-        if (is_null($percentile99)) {
-            throw new \InvalidArgumentException('non-nullable percentile99 cannot be null');
-        }
-        $this->container['percentile99'] = $percentile99;
+        $this->container['net_worth_std'] = $net_worth_std;
 
         return $this;
     }
@@ -700,37 +616,10 @@ class NetWorthCurvePoint implements ModelInterface, ArrayAccess, \JsonSerializab
         }
 
         if (($relative_timestamp < 0)) {
-            throw new \InvalidArgumentException('invalid value for $relative_timestamp when calling NetWorthCurvePoint., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for $relative_timestamp when calling PlayerPerformanceCurvePoint., must be bigger than or equal to 0.');
         }
 
         $this->container['relative_timestamp'] = $relative_timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets std
-     *
-     * @return float
-     */
-    public function getStd()
-    {
-        return $this->container['std'];
-    }
-
-    /**
-     * Sets std
-     *
-     * @param float $std Standard deviation of net worth at this timestamp
-     *
-     * @return self
-     */
-    public function setStd($std)
-    {
-        if (is_null($std)) {
-            throw new \InvalidArgumentException('non-nullable std cannot be null');
-        }
-        $this->container['std'] = $std;
 
         return $this;
     }

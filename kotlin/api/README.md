@@ -74,7 +74,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *AnalyticsApi* | [**itemPermutationStats**](docs/AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats |
 | *AnalyticsApi* | [**itemStats**](docs/AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats |
 | *AnalyticsApi* | [**killDeathStats**](docs/AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats |
-| *AnalyticsApi* | [**netWorthCurve**](docs/AnalyticsApi.md#networthcurve) | **GET** /v1/analytics/net-worth-curve | Net Worth Curve |
+| *AnalyticsApi* | [**playerPerformanceCurve**](docs/AnalyticsApi.md#playerperformancecurve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve |
 | *AnalyticsApi* | [**playerScoreboard**](docs/AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard |
 | *AnalyticsApi* | [**playerStatsMetrics**](docs/AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics |
 | *BuildsApi* | [**searchBuilds**](docs/BuildsApi.md#searchbuilds) | **GET** /v1/builds | Search |
@@ -167,12 +167,12 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [deadlock_api_client.models.MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [deadlock_api_client.models.MateStats](docs/MateStats.md)
- - [deadlock_api_client.models.NetWorthCurvePoint](docs/NetWorthCurvePoint.md)
  - [deadlock_api_client.models.PartyStats](docs/PartyStats.md)
  - [deadlock_api_client.models.Patch](docs/Patch.md)
  - [deadlock_api_client.models.PatchCategory](docs/PatchCategory.md)
  - [deadlock_api_client.models.PatchGuid](docs/PatchGuid.md)
  - [deadlock_api_client.models.PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
+ - [deadlock_api_client.models.PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [deadlock_api_client.models.RegionMode](docs/RegionMode.md)
  - [deadlock_api_client.models.Status](docs/Status.md)
  - [deadlock_api_client.models.StatusServices](docs/StatusServices.md)

@@ -103,10 +103,10 @@ class TestAnalyticsApi(unittest.TestCase):
         """
         pass
 
-    def test_net_worth_curve(self) -> None:
-        """Test case for net_worth_curve
+    def test_player_performance_curve(self) -> None:
+        """Test case for player_performance_curve
 
-        Net Worth Curve
+        Player Performance Curve
         """
         pass
 

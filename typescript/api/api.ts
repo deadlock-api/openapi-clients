@@ -692,56 +692,6 @@ export interface MateStats {
     'mate_id': number;
     'wins': number;
 }
-export interface NetWorthCurvePoint {
-    /**
-     * Average net worth at this timestamp
-     */
-    'avg': number;
-    /**
-     * 1st percentile net worth
-     */
-    'percentile1': number;
-    /**
-     * 10th percentile net worth
-     */
-    'percentile10': number;
-    /**
-     * 25th percentile net worth
-     */
-    'percentile25': number;
-    /**
-     * 5th percentile net worth
-     */
-    'percentile5': number;
-    /**
-     * 50th percentile net worth
-     */
-    'percentile50': number;
-    /**
-     * 75th percentile net worth
-     */
-    'percentile75': number;
-    /**
-     * 90th percentile net worth
-     */
-    'percentile90': number;
-    /**
-     * 95th percentile net worth
-     */
-    'percentile95': number;
-    /**
-     * 99th percentile net worth
-     */
-    'percentile99': number;
-    /**
-     * Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
-     */
-    'relative_timestamp': number;
-    /**
-     * Standard deviation of net worth at this timestamp
-     */
-    'std': number;
-}
 export interface PartyStats {
     'matches': Array<number>;
     'matches_played': number;
@@ -792,6 +742,44 @@ export interface PlayerMatchHistoryEntry {
     'start_time': number;
     'team_abandoned'?: boolean | null;
     'username'?: string | null;
+}
+export interface PlayerPerformanceCurvePoint {
+    /**
+     * Average assists at this timestamp
+     */
+    'assists_avg': number;
+    /**
+     * Standard deviation of assists at this timestamp
+     */
+    'assists_std': number;
+    /**
+     * Average deaths at this timestamp
+     */
+    'deaths_avg': number;
+    /**
+     * Standard deviation of deaths at this timestamp
+     */
+    'deaths_std': number;
+    /**
+     * Average kills at this timestamp
+     */
+    'kills_avg': number;
+    /**
+     * Standard deviation of kills at this timestamp
+     */
+    'kills_std': number;
+    /**
+     * Average net worth at this timestamp
+     */
+    'net_worth_avg': number;
+    /**
+     * Standard deviation of net worth at this timestamp
+     */
+    'net_worth_std': number;
+    /**
+     * Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
+     */
+    'relative_timestamp': number;
 }
 
 export const RegionMode = {
@@ -2088,8 +2076,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Net Worth Curve
+         *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Player Performance Curve
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -2107,8 +2095,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        netWorthCurve: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/analytics/net-worth-curve`;
+        playerPerformanceCurve: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/analytics/player-performance-curve`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -2727,8 +2715,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Net Worth Curve
+         *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Player Performance Curve
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -2746,10 +2734,10 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async netWorthCurve(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NetWorthCurvePoint>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.netWorthCurve(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, accountIds, options);
+        async playerPerformanceCurve(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerPerformanceCurvePoint>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.playerPerformanceCurve(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.netWorthCurve']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.playerPerformanceCurve']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2929,14 +2917,14 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.killDeathStats(requestParameters.team, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.accountIds, requestParameters.heroIds, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minKillsPerRaster, requestParameters.maxKillsPerRaster, requestParameters.minDeathsPerRaster, requestParameters.maxDeathsPerRaster, requestParameters.minGameTimeS, requestParameters.maxGameTimeS, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Net Worth Curve
-         * @param {AnalyticsApiNetWorthCurveRequest} requestParameters Request parameters.
+         *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Player Performance Curve
+         * @param {AnalyticsApiPlayerPerformanceCurveRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        netWorthCurve(requestParameters: AnalyticsApiNetWorthCurveRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<NetWorthCurvePoint>> {
-            return localVarFp.netWorthCurve(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+        playerPerformanceCurve(requestParameters: AnalyticsApiPlayerPerformanceCurveRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerPerformanceCurvePoint>> {
+            return localVarFp.playerPerformanceCurve(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -3872,9 +3860,9 @@ export interface AnalyticsApiKillDeathStatsRequest {
 }
 
 /**
- * Request parameters for netWorthCurve operation in AnalyticsApi.
+ * Request parameters for playerPerformanceCurve operation in AnalyticsApi.
  */
-export interface AnalyticsApiNetWorthCurveRequest {
+export interface AnalyticsApiPlayerPerformanceCurveRequest {
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
      */
@@ -4247,14 +4235,14 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves the net worth distribution over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @summary Net Worth Curve
-     * @param {AnalyticsApiNetWorthCurveRequest} requestParameters Request parameters.
+     *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Player Performance Curve
+     * @param {AnalyticsApiPlayerPerformanceCurveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public netWorthCurve(requestParameters: AnalyticsApiNetWorthCurveRequest = {}, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).netWorthCurve(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+    public playerPerformanceCurve(requestParameters: AnalyticsApiPlayerPerformanceCurveRequest = {}, options?: RawAxiosRequestConfig) {
+        return AnalyticsApiFp(this.configuration).playerPerformanceCurve(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

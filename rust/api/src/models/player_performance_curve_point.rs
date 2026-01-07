@@ -12,60 +12,48 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct NetWorthCurvePoint {
+pub struct PlayerPerformanceCurvePoint {
+    /// Average assists at this timestamp
+    #[serde(rename = "assists_avg")]
+    pub assists_avg: f64,
+    /// Standard deviation of assists at this timestamp
+    #[serde(rename = "assists_std")]
+    pub assists_std: f64,
+    /// Average deaths at this timestamp
+    #[serde(rename = "deaths_avg")]
+    pub deaths_avg: f64,
+    /// Standard deviation of deaths at this timestamp
+    #[serde(rename = "deaths_std")]
+    pub deaths_std: f64,
+    /// Average kills at this timestamp
+    #[serde(rename = "kills_avg")]
+    pub kills_avg: f64,
+    /// Standard deviation of kills at this timestamp
+    #[serde(rename = "kills_std")]
+    pub kills_std: f64,
     /// Average net worth at this timestamp
-    #[serde(rename = "avg")]
-    pub avg: f64,
-    /// 1st percentile net worth
-    #[serde(rename = "percentile1")]
-    pub percentile1: f64,
-    /// 10th percentile net worth
-    #[serde(rename = "percentile10")]
-    pub percentile10: f64,
-    /// 25th percentile net worth
-    #[serde(rename = "percentile25")]
-    pub percentile25: f64,
-    /// 5th percentile net worth
-    #[serde(rename = "percentile5")]
-    pub percentile5: f64,
-    /// 50th percentile net worth
-    #[serde(rename = "percentile50")]
-    pub percentile50: f64,
-    /// 75th percentile net worth
-    #[serde(rename = "percentile75")]
-    pub percentile75: f64,
-    /// 90th percentile net worth
-    #[serde(rename = "percentile90")]
-    pub percentile90: f64,
-    /// 95th percentile net worth
-    #[serde(rename = "percentile95")]
-    pub percentile95: f64,
-    /// 99th percentile net worth
-    #[serde(rename = "percentile99")]
-    pub percentile99: f64,
+    #[serde(rename = "net_worth_avg")]
+    pub net_worth_avg: f64,
+    /// Standard deviation of net worth at this timestamp
+    #[serde(rename = "net_worth_std")]
+    pub net_worth_std: f64,
     /// Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
     #[serde(rename = "relative_timestamp")]
     pub relative_timestamp: u32,
-    /// Standard deviation of net worth at this timestamp
-    #[serde(rename = "std")]
-    pub std: f64,
 }
 
-impl NetWorthCurvePoint {
-    pub fn new(avg: f64, percentile1: f64, percentile10: f64, percentile25: f64, percentile5: f64, percentile50: f64, percentile75: f64, percentile90: f64, percentile95: f64, percentile99: f64, relative_timestamp: u32, std: f64) -> NetWorthCurvePoint {
-        NetWorthCurvePoint {
-            avg,
-            percentile1,
-            percentile10,
-            percentile25,
-            percentile5,
-            percentile50,
-            percentile75,
-            percentile90,
-            percentile95,
-            percentile99,
+impl PlayerPerformanceCurvePoint {
+    pub fn new(assists_avg: f64, assists_std: f64, deaths_avg: f64, deaths_std: f64, kills_avg: f64, kills_std: f64, net_worth_avg: f64, net_worth_std: f64, relative_timestamp: u32) -> PlayerPerformanceCurvePoint {
+        PlayerPerformanceCurvePoint {
+            assists_avg,
+            assists_std,
+            deaths_avg,
+            deaths_std,
+            kills_avg,
+            kills_std,
+            net_worth_avg,
+            net_worth_std,
             relative_timestamp,
-            std,
         }
     }
 }
