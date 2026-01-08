@@ -100,6 +100,17 @@ export interface AbilityVideosV2 {
     'webm'?: string | null;
     'mp4'?: string | null;
 }
+export interface AccoladeV2 {
+    'class_name': string;
+    'id': number;
+    'tracked_stat_name': TrackedStatName;
+    'flavor_name': string;
+    'description': string;
+    'threshold_type': ThresholdType;
+    'enabled_game_modes'?: Array<GameMode> | null;
+}
+
+
 export interface AimingShotSpreadPenalty {
 }
 export interface Bonus {
@@ -145,12 +156,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
-    NUMBER_6075: 6075,
-    NUMBER_6071: 6071,
-    NUMBER_6064: 6064,
-    NUMBER_6060: 6060,
-    NUMBER_6044: 6044,
-    NUMBER_6021: 6021,
+    NUMBER_6080: 6080,
     NUMBER_6020: 6020,
     NUMBER_6016: 6016,
     NUMBER_6008: 6008,
@@ -170,7 +176,6 @@ export const DeadlockAssetsApiRoutesValidClientVersions = {
     NUMBER_5818: 5818,
     NUMBER_5789: 5789,
     NUMBER_5748: 5748,
-    NUMBER_5747: 5747,
     NUMBER_5723: 5723,
     NUMBER_5712: 5712,
     NUMBER_5710: 5710,
@@ -212,6 +217,14 @@ export interface FlashDataV2 {
     'color': ColorV1;
     'brightness_in_light_sensitivity_mode'?: number | null;
 }
+
+export const GameMode = {
+    Normal: 'normal'
+} as const;
+
+export type GameMode = typeof GameMode[keyof typeof GameMode];
+
+
 export interface GenericDataV2 {
     'damage_flash': DamageFlashV2;
     'glitch_settings': GlitchSettingsV2;
@@ -973,6 +986,53 @@ export interface SubclassRangedArmorModifier {
 export interface SubclassTrooperDamageReduction {
     'subclass'?: TrooperDamageReduction;
 }
+
+export const ThresholdType = {
+    Automatic: 'automatic',
+    Manual: 'manual'
+} as const;
+
+export type ThresholdType = typeof ThresholdType[keyof typeof ThresholdType];
+
+
+
+export const TrackedStatName = {
+    AbilityDamage: 'ability_damage',
+    AbilityKills: 'ability_kills',
+    Assists: 'assists',
+    BreakablesDestroyed: 'breakables_destroyed',
+    BulletDamage: 'bullet_damage',
+    CloseupDamage: 'closeup_damage',
+    CloseupKills: 'closeup_kills',
+    DamageAbsorbed: 'damage_absorbed',
+    DamageMitigated: 'damage_mitigated',
+    Denies: 'denies',
+    FirstBlood: 'first_blood',
+    GunKills: 'gun_kills',
+    HeadshotDamage: 'headshot_damage',
+    Headshots: 'headshots',
+    Healing: 'healing',
+    Kills: 'kills',
+    KillstreakKills: 'killstreak_kills',
+    LastHits: 'last_hits',
+    LongDistanceDamage: 'long_distance_damage',
+    LongDistanceKills: 'long_distance_kills',
+    MeleeDamage: 'melee_damage',
+    MeleeKills: 'melee_kills',
+    NetWorth: 'net_worth',
+    NeutralLastHits: 'neutral_last_hits',
+    PickupsCollectedPowerup: 'pickups_collected_powerup',
+    PlayerDamage: 'player_damage',
+    ReturnedIdol: 'returned_idol',
+    Secures: 'secures',
+    SinnersSacrificeJackpot: 'sinners_sacrifice_jackpot',
+    TrooperLastHits: 'trooper_last_hits',
+    WeaponDamage: 'weapon_damage'
+} as const;
+
+export type TrackedStatName = typeof TrackedStatName[keyof typeof TrackedStatName];
+
+
 export interface TrooperDamageReduction {
     'damage_reduction_for_troopers'?: number | null;
 }
@@ -1189,6 +1249,305 @@ export interface ZiplanePathV1 {
     'P2_points': Array<Array<any>>;
     'color_parsed': ColorV1;
 }
+
+/**
+ * AccoladesApi - axios parameter creator
+ */
+export const AccoladesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Get Accolade By Name
+         * @param {string} name 
+         * @param {Language | null} [language] 
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccoladeByNameV2AccoladesByNameNameGet: async (name: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('getAccoladeByNameV2AccoladesByNameNameGet', 'name', name)
+            const localVarPath = `/v2/accolades/by-name/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get Accolade
+         * @param {number} id 
+         * @param {Language | null} [language] 
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccoladeV2AccoladesIdGet: async (id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getAccoladeV2AccoladesIdGet', 'id', id)
+            const localVarPath = `/v2/accolades/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get Accolades
+         * @param {Language | null} [language] 
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccoladesV2AccoladesGet: async (language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v2/accolades`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AccoladesApi - functional programming interface
+ */
+export const AccoladesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccoladesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @summary Get Accolade By Name
+         * @param {string} name 
+         * @param {Language | null} [language] 
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccoladeByNameV2AccoladesByNameNameGet(name: string, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccoladeV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccoladeByNameV2AccoladesByNameNameGet(name, language, clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccoladesApi.getAccoladeByNameV2AccoladesByNameNameGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Get Accolade
+         * @param {number} id 
+         * @param {Language | null} [language] 
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccoladeV2AccoladesIdGet(id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccoladeV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccoladeV2AccoladesIdGet(id, language, clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccoladesApi.getAccoladeV2AccoladesIdGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Get Accolades
+         * @param {Language | null} [language] 
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccoladesV2AccoladesGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccoladeV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccoladesV2AccoladesGet(language, clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccoladesApi.getAccoladesV2AccoladesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * AccoladesApi - factory interface
+ */
+export const AccoladesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccoladesApiFp(configuration)
+    return {
+        /**
+         * 
+         * @summary Get Accolade By Name
+         * @param {AccoladesApiGetAccoladeByNameV2AccoladesByNameNameGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccoladeByNameV2AccoladesByNameNameGet(requestParameters: AccoladesApiGetAccoladeByNameV2AccoladesByNameNameGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<AccoladeV2> {
+            return localVarFp.getAccoladeByNameV2AccoladesByNameNameGet(requestParameters.name, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Accolade
+         * @param {AccoladesApiGetAccoladeV2AccoladesIdGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccoladeV2AccoladesIdGet(requestParameters: AccoladesApiGetAccoladeV2AccoladesIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<AccoladeV2> {
+            return localVarFp.getAccoladeV2AccoladesIdGet(requestParameters.id, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Accolades
+         * @param {AccoladesApiGetAccoladesV2AccoladesGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccoladesV2AccoladesGet(requestParameters: AccoladesApiGetAccoladesV2AccoladesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<AccoladeV2>> {
+            return localVarFp.getAccoladesV2AccoladesGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getAccoladeByNameV2AccoladesByNameNameGet operation in AccoladesApi.
+ */
+export interface AccoladesApiGetAccoladeByNameV2AccoladesByNameNameGetRequest {
+    readonly name: string
+
+    readonly language?: Language | null
+
+    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
+}
+
+/**
+ * Request parameters for getAccoladeV2AccoladesIdGet operation in AccoladesApi.
+ */
+export interface AccoladesApiGetAccoladeV2AccoladesIdGetRequest {
+    readonly id: number
+
+    readonly language?: Language | null
+
+    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
+}
+
+/**
+ * Request parameters for getAccoladesV2AccoladesGet operation in AccoladesApi.
+ */
+export interface AccoladesApiGetAccoladesV2AccoladesGetRequest {
+    readonly language?: Language | null
+
+    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
+}
+
+/**
+ * AccoladesApi - object-oriented interface
+ */
+export class AccoladesApi extends BaseAPI {
+    /**
+     * 
+     * @summary Get Accolade By Name
+     * @param {AccoladesApiGetAccoladeByNameV2AccoladesByNameNameGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getAccoladeByNameV2AccoladesByNameNameGet(requestParameters: AccoladesApiGetAccoladeByNameV2AccoladesByNameNameGetRequest, options?: RawAxiosRequestConfig) {
+        return AccoladesApiFp(this.configuration).getAccoladeByNameV2AccoladesByNameNameGet(requestParameters.name, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Accolade
+     * @param {AccoladesApiGetAccoladeV2AccoladesIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getAccoladeV2AccoladesIdGet(requestParameters: AccoladesApiGetAccoladeV2AccoladesIdGetRequest, options?: RawAxiosRequestConfig) {
+        return AccoladesApiFp(this.configuration).getAccoladeV2AccoladesIdGet(requestParameters.id, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Accolades
+     * @param {AccoladesApiGetAccoladesV2AccoladesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getAccoladesV2AccoladesGet(requestParameters: AccoladesApiGetAccoladesV2AccoladesGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return AccoladesApiFp(this.configuration).getAccoladesV2AccoladesGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
 
 /**
  * DefaultApi - axios parameter creator
@@ -3163,6 +3522,41 @@ export const RawApiAxiosParamCreator = function (configuration?: Configuration) 
     return {
         /**
          * 
+         * @summary Get Raw Accolades
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRawAccoladesRawAccoladesGet: async (clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/raw/accolades`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Get Raw Heroes
          * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -3242,6 +3636,19 @@ export const RawApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @summary Get Raw Accolades
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRawAccoladesRawAccoladesGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRawAccoladesRawAccoladesGet(clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RawApi.getRawAccoladesRawAccoladesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Get Raw Heroes
          * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -3277,6 +3684,16 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
     return {
         /**
          * 
+         * @summary Get Raw Accolades
+         * @param {RawApiGetRawAccoladesRawAccoladesGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRawAccoladesRawAccoladesGet(requestParameters: RawApiGetRawAccoladesRawAccoladesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+            return localVarFp.getRawAccoladesRawAccoladesGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Get Raw Heroes
          * @param {RawApiGetRawHeroesRawHeroesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3299,6 +3716,13 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
 };
 
 /**
+ * Request parameters for getRawAccoladesRawAccoladesGet operation in RawApi.
+ */
+export interface RawApiGetRawAccoladesRawAccoladesGetRequest {
+    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
+}
+
+/**
  * Request parameters for getRawHeroesRawHeroesGet operation in RawApi.
  */
 export interface RawApiGetRawHeroesRawHeroesGetRequest {
@@ -3316,6 +3740,17 @@ export interface RawApiGetRawItemsRawItemsGetRequest {
  * RawApi - object-oriented interface
  */
 export class RawApi extends BaseAPI {
+    /**
+     * 
+     * @summary Get Raw Accolades
+     * @param {RawApiGetRawAccoladesRawAccoladesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getRawAccoladesRawAccoladesGet(requestParameters: RawApiGetRawAccoladesRawAccoladesGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return RawApiFp(this.configuration).getRawAccoladesRawAccoladesGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @summary Get Raw Heroes

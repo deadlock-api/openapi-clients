@@ -67,19 +67,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new OpenAPI\Client\Api\AccoladesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$name = 'name_example'; // string
 $language = new \OpenAPI\Client\Model\\OpenAPIClientModelLanguage(); // \OpenAPIClientModelLanguage
 $client_version = new \OpenAPI\Client\Model\\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions
 
 try {
-    $result = $apiInstance->getBuildTagsV2BuildTagsGet($language, $client_version);
+    $result = $apiInstance->getAccoladeByNameV2AccoladesByNameNameGet($name, $language, $client_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->getBuildTagsV2BuildTagsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccoladesApi->getAccoladeByNameV2AccoladesByNameNameGet: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -90,6 +91,9 @@ All URIs are relative to *https://assets.deadlock-api.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccoladesApi* | [**getAccoladeByNameV2AccoladesByNameNameGet**](docs/Api/AccoladesApi.md#getaccoladebynamev2accoladesbynamenameget) | **GET** /v2/accolades/by-name/{name} | Get Accolade By Name
+*AccoladesApi* | [**getAccoladeV2AccoladesIdGet**](docs/Api/AccoladesApi.md#getaccoladev2accoladesidget) | **GET** /v2/accolades/{id} | Get Accolade
+*AccoladesApi* | [**getAccoladesV2AccoladesGet**](docs/Api/AccoladesApi.md#getaccoladesv2accoladesget) | **GET** /v2/accolades | Get Accolades
 *DefaultApi* | [**getBuildTagsV2BuildTagsGet**](docs/Api/DefaultApi.md#getbuildtagsv2buildtagsget) | **GET** /v2/build-tags | Get Build Tags
 *DefaultApi* | [**getClientVersionsV2ClientVersionsGet**](docs/Api/DefaultApi.md#getclientversionsv2clientversionsget) | **GET** /v2/client-versions | Get Client Versions
 *DefaultApi* | [**getColorsV1ColorsGet**](docs/Api/DefaultApi.md#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors
@@ -112,6 +116,7 @@ Class | Method | HTTP request | Description
 *MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](docs/Api/MiscEntitiesApi.md#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
 *NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](docs/Api/NPCUnitsApi.md#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit
 *NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](docs/Api/NPCUnitsApi.md#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units
+*RawApi* | [**getRawAccoladesRawAccoladesGet**](docs/Api/RawApi.md#getrawaccoladesrawaccoladesget) | **GET** /raw/accolades | Get Raw Accolades
 *RawApi* | [**getRawHeroesRawHeroesGet**](docs/Api/RawApi.md#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes
 *RawApi* | [**getRawItemsRawItemsGet**](docs/Api/RawApi.md#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items
 
@@ -125,6 +130,7 @@ Class | Method | HTTP request | Description
 - [AbilityV2](docs/Model/AbilityV2.md)
 - [AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty](docs/Model/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md)
 - [AbilityVideosV2](docs/Model/AbilityVideosV2.md)
+- [AccoladeV2](docs/Model/AccoladeV2.md)
 - [AimingShotSpreadPenalty](docs/Model/AimingShotSpreadPenalty.md)
 - [Bonus](docs/Model/Bonus.md)
 - [BuildTagV2](docs/Model/BuildTagV2.md)
@@ -136,6 +142,7 @@ Class | Method | HTTP request | Description
 - [EmpoweredModifierLevel](docs/Model/EmpoweredModifierLevel.md)
 - [ExpirationDuration](docs/Model/ExpirationDuration.md)
 - [FlashDataV2](docs/Model/FlashDataV2.md)
+- [GameMode](docs/Model/GameMode.md)
 - [GenericDataV2](docs/Model/GenericDataV2.md)
 - [GetItemsV2ItemsGet200ResponseInner](docs/Model/GetItemsV2ItemsGet200ResponseInner.md)
 - [GlitchSettingsV2](docs/Model/GlitchSettingsV2.md)
@@ -212,6 +219,8 @@ Class | Method | HTTP request | Description
 - [SubclassObjectiveRegen](docs/Model/SubclassObjectiveRegen.md)
 - [SubclassRangedArmorModifier](docs/Model/SubclassRangedArmorModifier.md)
 - [SubclassTrooperDamageReduction](docs/Model/SubclassTrooperDamageReduction.md)
+- [ThresholdType](docs/Model/ThresholdType.md)
+- [TrackedStatName](docs/Model/TrackedStatName.md)
 - [TrooperDamageReduction](docs/Model/TrooperDamageReduction.md)
 - [UpgradeDescriptionV2](docs/Model/UpgradeDescriptionV2.md)
 - [UpgradePropertyV2](docs/Model/UpgradePropertyV2.md)

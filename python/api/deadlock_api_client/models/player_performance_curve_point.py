@@ -27,16 +27,16 @@ class PlayerPerformanceCurvePoint(BaseModel):
     """
     PlayerPerformanceCurvePoint
     """ # noqa: E501
-    assists_avg: Union[StrictFloat, StrictInt] = Field(description="Average assists at this timestamp")
-    assists_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of assists at this timestamp")
-    deaths_avg: Union[StrictFloat, StrictInt] = Field(description="Average deaths at this timestamp")
-    deaths_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of deaths at this timestamp")
-    kills_avg: Union[StrictFloat, StrictInt] = Field(description="Average kills at this timestamp")
-    kills_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of kills at this timestamp")
-    net_worth_avg: Union[StrictFloat, StrictInt] = Field(description="Average net worth at this timestamp")
-    net_worth_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of net worth at this timestamp")
-    relative_timestamp: Annotated[int, Field(strict=True, ge=0)] = Field(description="Percentage interval of match duration (0%, 5%, 10%, ..., 100%)")
-    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "deaths_avg", "deaths_std", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std", "relative_timestamp"]
+    assists_avg: Union[StrictFloat, StrictInt] = Field(description="Average assists at this time point")
+    assists_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of assists at this time point")
+    deaths_avg: Union[StrictFloat, StrictInt] = Field(description="Average deaths at this time point")
+    deaths_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of deaths at this time point")
+    game_time: Annotated[int, Field(strict=True, ge=0)] = Field(description="The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.")
+    kills_avg: Union[StrictFloat, StrictInt] = Field(description="Average kills at this time point")
+    kills_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of kills at this time point")
+    net_worth_avg: Union[StrictFloat, StrictInt] = Field(description="Average net worth at this time point")
+    net_worth_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of net worth at this time point")
+    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "deaths_avg", "deaths_std", "game_time", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,11 +93,11 @@ class PlayerPerformanceCurvePoint(BaseModel):
             "assists_std": obj.get("assists_std"),
             "deaths_avg": obj.get("deaths_avg"),
             "deaths_std": obj.get("deaths_std"),
+            "game_time": obj.get("game_time"),
             "kills_avg": obj.get("kills_avg"),
             "kills_std": obj.get("kills_std"),
             "net_worth_avg": obj.get("net_worth_avg"),
-            "net_worth_std": obj.get("net_worth_std"),
-            "relative_timestamp": obj.get("relative_timestamp")
+            "net_worth_std": obj.get("net_worth_std")
         })
         return _obj
 

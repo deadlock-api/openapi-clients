@@ -23,55 +23,55 @@ import java.io.Serializable
 /**
  * 
  *
- * @param assistsAvg Average assists at this timestamp
- * @param assistsStd Standard deviation of assists at this timestamp
- * @param deathsAvg Average deaths at this timestamp
- * @param deathsStd Standard deviation of deaths at this timestamp
- * @param killsAvg Average kills at this timestamp
- * @param killsStd Standard deviation of kills at this timestamp
- * @param netWorthAvg Average net worth at this timestamp
- * @param netWorthStd Standard deviation of net worth at this timestamp
- * @param relativeTimestamp Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
+ * @param assistsAvg Average assists at this time point
+ * @param assistsStd Standard deviation of assists at this time point
+ * @param deathsAvg Average deaths at this time point
+ * @param deathsStd Standard deviation of deaths at this time point
+ * @param gameTime The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
+ * @param killsAvg Average kills at this time point
+ * @param killsStd Standard deviation of kills at this time point
+ * @param netWorthAvg Average net worth at this time point
+ * @param netWorthStd Standard deviation of net worth at this time point
  */
 
 
 data class PlayerPerformanceCurvePoint (
 
-    /* Average assists at this timestamp */
+    /* Average assists at this time point */
     @Json(name = "assists_avg")
     val assistsAvg: kotlin.Double,
 
-    /* Standard deviation of assists at this timestamp */
+    /* Standard deviation of assists at this time point */
     @Json(name = "assists_std")
     val assistsStd: kotlin.Double,
 
-    /* Average deaths at this timestamp */
+    /* Average deaths at this time point */
     @Json(name = "deaths_avg")
     val deathsAvg: kotlin.Double,
 
-    /* Standard deviation of deaths at this timestamp */
+    /* Standard deviation of deaths at this time point */
     @Json(name = "deaths_std")
     val deathsStd: kotlin.Double,
 
-    /* Average kills at this timestamp */
+    /* The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds. */
+    @Json(name = "game_time")
+    val gameTime: kotlin.Int,
+
+    /* Average kills at this time point */
     @Json(name = "kills_avg")
     val killsAvg: kotlin.Double,
 
-    /* Standard deviation of kills at this timestamp */
+    /* Standard deviation of kills at this time point */
     @Json(name = "kills_std")
     val killsStd: kotlin.Double,
 
-    /* Average net worth at this timestamp */
+    /* Average net worth at this time point */
     @Json(name = "net_worth_avg")
     val netWorthAvg: kotlin.Double,
 
-    /* Standard deviation of net worth at this timestamp */
+    /* Standard deviation of net worth at this time point */
     @Json(name = "net_worth_std")
-    val netWorthStd: kotlin.Double,
-
-    /* Percentage interval of match duration (0%, 5%, 10%, ..., 100%) */
-    @Json(name = "relative_timestamp")
-    val relativeTimestamp: kotlin.Int
+    val netWorthStd: kotlin.Double
 
 ) : Serializable {
     companion object {

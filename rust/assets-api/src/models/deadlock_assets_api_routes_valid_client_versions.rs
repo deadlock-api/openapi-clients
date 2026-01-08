@@ -16,12 +16,7 @@ use serde_repr::{Serialize_repr,Deserialize_repr};
 #[repr(i64)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum DeadlockAssetsApiRoutesValidClientVersions {
-    Variant6075 = 6075,
-    Variant6071 = 6071,
-    Variant6064 = 6064,
-    Variant6060 = 6060,
-    Variant6044 = 6044,
-    Variant6021 = 6021,
+    Variant6080 = 6080,
     Variant6020 = 6020,
     Variant6016 = 6016,
     Variant6008 = 6008,
@@ -41,7 +36,6 @@ pub enum DeadlockAssetsApiRoutesValidClientVersions {
     Variant5818 = 5818,
     Variant5789 = 5789,
     Variant5748 = 5748,
-    Variant5747 = 5747,
     Variant5723 = 5723,
     Variant5712 = 5712,
     Variant5710 = 5710,
@@ -67,12 +61,7 @@ pub enum DeadlockAssetsApiRoutesValidClientVersions {
 impl std::fmt::Display for DeadlockAssetsApiRoutesValidClientVersions {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", match self {
-            Self::Variant6075 => "6075",
-            Self::Variant6071 => "6071",
-            Self::Variant6064 => "6064",
-            Self::Variant6060 => "6060",
-            Self::Variant6044 => "6044",
-            Self::Variant6021 => "6021",
+            Self::Variant6080 => "6080",
             Self::Variant6020 => "6020",
             Self::Variant6016 => "6016",
             Self::Variant6008 => "6008",
@@ -92,7 +81,6 @@ impl std::fmt::Display for DeadlockAssetsApiRoutesValidClientVersions {
             Self::Variant5818 => "5818",
             Self::Variant5789 => "5789",
             Self::Variant5748 => "5748",
-            Self::Variant5747 => "5747",
             Self::Variant5723 => "5723",
             Self::Variant5712 => "5712",
             Self::Variant5710 => "5710",
@@ -117,7 +105,7 @@ impl std::fmt::Display for DeadlockAssetsApiRoutesValidClientVersions {
 }
 impl Default for DeadlockAssetsApiRoutesValidClientVersions {
     fn default() -> DeadlockAssetsApiRoutesValidClientVersions {
-        Self::Variant6075
+        Self::Variant6080
     }
 }
 

@@ -745,41 +745,41 @@ export interface PlayerMatchHistoryEntry {
 }
 export interface PlayerPerformanceCurvePoint {
     /**
-     * Average assists at this timestamp
+     * Average assists at this time point
      */
     'assists_avg': number;
     /**
-     * Standard deviation of assists at this timestamp
+     * Standard deviation of assists at this time point
      */
     'assists_std': number;
     /**
-     * Average deaths at this timestamp
+     * Average deaths at this time point
      */
     'deaths_avg': number;
     /**
-     * Standard deviation of deaths at this timestamp
+     * Standard deviation of deaths at this time point
      */
     'deaths_std': number;
     /**
-     * Average kills at this timestamp
+     * The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
+     */
+    'game_time': number;
+    /**
+     * Average kills at this time point
      */
     'kills_avg': number;
     /**
-     * Standard deviation of kills at this timestamp
+     * Standard deviation of kills at this time point
      */
     'kills_std': number;
     /**
-     * Average net worth at this timestamp
+     * Average net worth at this time point
      */
     'net_worth_avg': number;
     /**
-     * Standard deviation of net worth at this timestamp
+     * Standard deviation of net worth at this time point
      */
     'net_worth_std': number;
-    /**
-     * Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
-     */
-    'relative_timestamp': number;
 }
 
 export const RegionMode = {
@@ -1473,8 +1473,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxHeroMatches] Filter players based on the number of matches they have played with a specific hero within the filtered time range.
          * @param {number | null} [minHeroMatchesTotal] Filter players based on the number of matches they have played with a specific hero in their entire history.
          * @param {number | null} [maxHeroMatchesTotal] Filter players based on the number of matches they have played with a specific hero in their entire history.
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
@@ -2078,6 +2078,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
         /**
          *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Player Performance Curve
+         * @param {number | null} [resolution] Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -2089,13 +2090,13 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerPerformanceCurve: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        playerPerformanceCurve: async (resolution?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/player-performance-curve`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2107,6 +2108,10 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (resolution !== undefined) {
+                localVarQueryParameter['resolution'] = resolution;
+            }
 
             if (minUnixTimestamp !== undefined) {
                 localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
@@ -2312,8 +2317,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatches] The maximum number of matches to analyze.
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2578,8 +2583,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxHeroMatches] Filter players based on the number of matches they have played with a specific hero within the filtered time range.
          * @param {number | null} [minHeroMatchesTotal] Filter players based on the number of matches they have played with a specific hero in their entire history.
          * @param {number | null} [maxHeroMatchesTotal] Filter players based on the number of matches they have played with a specific hero in their entire history.
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
@@ -2717,6 +2722,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
         /**
          *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Player Performance Curve
+         * @param {number | null} [resolution] Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -2728,14 +2734,14 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async playerPerformanceCurve(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerPerformanceCurvePoint>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.playerPerformanceCurve(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, accountIds, options);
+        async playerPerformanceCurve(resolution?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerPerformanceCurvePoint>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.playerPerformanceCurve(resolution, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.playerPerformanceCurve']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2785,8 +2791,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatches] The maximum number of matches to analyze.
-         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
-         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2924,7 +2930,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         playerPerformanceCurve(requestParameters: AnalyticsApiPlayerPerformanceCurveRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerPerformanceCurvePoint>> {
-            return localVarFp.playerPerformanceCurve(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.playerPerformanceCurve(requestParameters.resolution, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -3444,12 +3450,12 @@ export interface AnalyticsApiHeroStatsRequest {
     readonly maxHeroMatchesTotal?: number | null
 
     /**
-     * Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+     * Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
      */
     readonly includeItemIds?: Array<number> | null
 
     /**
-     * Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+     * Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
      */
     readonly excludeItemIds?: Array<number> | null
 
@@ -3864,6 +3870,11 @@ export interface AnalyticsApiKillDeathStatsRequest {
  */
 export interface AnalyticsApiPlayerPerformanceCurveRequest {
     /**
+     * Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
+     */
+    readonly resolution?: number | null
+
+    /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
      */
     readonly minUnixTimestamp?: number | null
@@ -3919,12 +3930,12 @@ export interface AnalyticsApiPlayerPerformanceCurveRequest {
     readonly heroIds?: string | null
 
     /**
-     * Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+     * Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
      */
     readonly includeItemIds?: Array<number> | null
 
     /**
-     * Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+     * Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
      */
     readonly excludeItemIds?: Array<number> | null
 
@@ -4094,12 +4105,12 @@ export interface AnalyticsApiPlayerStatsMetricsRequest {
     readonly maxMatches?: number | null
 
     /**
-     * Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+     * Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
      */
     readonly includeItemIds?: Array<number> | null
 
     /**
-     * Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+     * Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
      */
     readonly excludeItemIds?: Array<number> | null
 
@@ -4242,7 +4253,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public playerPerformanceCurve(requestParameters: AnalyticsApiPlayerPerformanceCurveRequest = {}, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).playerPerformanceCurve(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).playerPerformanceCurve(requestParameters.resolution, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

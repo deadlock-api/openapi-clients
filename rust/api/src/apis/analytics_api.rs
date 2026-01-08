@@ -231,9 +231,9 @@ pub struct HeroStatsParams {
     pub min_hero_matches_total: Option<u64>,
     /// Filter players based on the number of matches they have played with a specific hero in their entire history.
     pub max_hero_matches_total: Option<u64>,
-    /// Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
     pub include_item_ids: Option<Vec<u32>>,
-    /// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
     pub exclude_item_ids: Option<Vec<u32>>,
     /// Filter for matches with a specific player account ID.
     pub account_id: Option<u32>,
@@ -414,6 +414,8 @@ pub struct KillDeathStatsParams {
 /// struct for passing parameters to the method [`player_performance_curve`]
 #[derive(Clone, Debug)]
 pub struct PlayerPerformanceCurveParams {
+    /// Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
+    pub resolution: Option<u32>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -436,9 +438,9 @@ pub struct PlayerPerformanceCurveParams {
     pub max_match_id: Option<u64>,
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
-    /// Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
     pub include_item_ids: Option<Vec<u32>>,
-    /// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
     pub exclude_item_ids: Option<Vec<u32>>,
     /// Comma separated list of account ids to include
     pub account_ids: Option<Vec<u32>>
@@ -512,9 +514,9 @@ pub struct PlayerStatsMetricsParams {
     pub max_match_id: Option<u64>,
     /// The maximum number of matches to analyze.
     pub max_matches: Option<u32>,
-    /// Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
     pub include_item_ids: Option<Vec<u32>>,
-    /// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
     pub exclude_item_ids: Option<Vec<u32>>,
     /// Comma separated list of account ids to include
     pub account_ids: Option<Vec<u32>>
@@ -1596,6 +1598,9 @@ pub async fn player_performance_curve(configuration: &configuration::Configurati
     let uri_str = format!("{}/v1/analytics/player-performance-curve", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.resolution {
+        req_builder = req_builder.query(&[("resolution", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }

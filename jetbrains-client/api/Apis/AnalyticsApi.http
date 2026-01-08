@@ -57,7 +57,7 @@ Accept: application/json
 
 ### Player Performance Curve
 ## Player Performance Curve
-GET https://api.deadlock-api.com/v1/analytics/player-performance-curve?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroIds={{heroIds}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/analytics/player-performance-curve?resolution={{resolution}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroIds={{heroIds}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Player Scoreboard

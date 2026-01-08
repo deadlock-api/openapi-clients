@@ -111,6 +111,7 @@ impl From<&str> for ContentType {
     }
 }
 
+pub mod accolades_api;
 pub mod default_api;
 pub mod heroes_api;
 pub mod items_api;

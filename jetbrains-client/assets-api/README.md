@@ -14,6 +14,9 @@ There may be multiple requests for a single endpoint, one for each example descr
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccoladesApi* | [**getAccoladeByNameV2AccoladesByNameNameGet**](Apis/AccoladesApi.http#getaccoladebynamev2accoladesbynamenameget) | **GET** /v2/accolades/by-name/{name} | Get Accolade By Name
+*AccoladesApi* | [**getAccoladeV2AccoladesIdGet**](Apis/AccoladesApi.http#getaccoladev2accoladesidget) | **GET** /v2/accolades/{id} | Get Accolade
+*AccoladesApi* | [**getAccoladesV2AccoladesGet**](Apis/AccoladesApi.http#getaccoladesv2accoladesget) | **GET** /v2/accolades | Get Accolades
 *DefaultApi* | [**getBuildTagsV2BuildTagsGet**](Apis/DefaultApi.http#getbuildtagsv2buildtagsget) | **GET** /v2/build-tags | Get Build Tags
 *DefaultApi* | [**getClientVersionsV2ClientVersionsGet**](Apis/DefaultApi.http#getclientversionsv2clientversionsget) | **GET** /v2/client-versions | Get Client Versions
 *DefaultApi* | [**getColorsV1ColorsGet**](Apis/DefaultApi.http#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors
@@ -36,6 +39,7 @@ Class | Method | HTTP request | Description
 *MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](Apis/MiscEntitiesApi.http#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
 *NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](Apis/NPCUnitsApi.http#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit
 *NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](Apis/NPCUnitsApi.http#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units
+*RawApi* | [**getRawAccoladesRawAccoladesGet**](Apis/RawApi.http#getrawaccoladesrawaccoladesget) | **GET** /raw/accolades | Get Raw Accolades
 *RawApi* | [**getRawHeroesRawHeroesGet**](Apis/RawApi.http#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes
 *RawApi* | [**getRawItemsRawItemsGet**](Apis/RawApi.http#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items
 

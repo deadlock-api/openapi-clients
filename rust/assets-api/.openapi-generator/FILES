@@ -11,6 +11,8 @@ docs/AbilityTypeV2.md
 docs/AbilityV2.md
 docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/AbilityVideosV2.md
+docs/AccoladeV2.md
+docs/AccoladesApi.md
 docs/AimingShotSpreadPenalty.md
 docs/Bonus.md
 docs/BuildTagV2.md
@@ -23,6 +25,7 @@ docs/DefaultApi.md
 docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
+docs/GameMode.md
 docs/GenericDataV2.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/GlitchSettingsV2.md
@@ -104,6 +107,8 @@ docs/SubclassObjectiveHealthGrowthPhase.md
 docs/SubclassObjectiveRegen.md
 docs/SubclassRangedArmorModifier.md
 docs/SubclassTrooperDamageReduction.md
+docs/ThresholdType.md
+docs/TrackedStatName.md
 docs/TrooperDamageReduction.md
 docs/UpgradeDescriptionV2.md
 docs/UpgradePropertyV2.md
@@ -120,6 +125,7 @@ docs/WeaponInfoV2.md
 docs/WeaponV2.md
 docs/ZiplanePathV1.md
 git_push.sh
+src/apis/accolades_api.rs
 src/apis/configuration.rs
 src/apis/default_api.rs
 src/apis/heroes_api.rs
@@ -137,6 +143,7 @@ src/models/ability_type_v2.rs
 src/models/ability_v2.rs
 src/models/ability_v2_tooltip_details_info_section_property_block_property.rs
 src/models/ability_videos_v2.rs
+src/models/accolade_v2.rs
 src/models/aiming_shot_spread_penalty.rs
 src/models/bonus.rs
 src/models/build_tag_v2.rs
@@ -148,6 +155,7 @@ src/models/deadlock_assets_api_routes_valid_client_versions.rs
 src/models/empowered_modifier_level.rs
 src/models/expiration_duration.rs
 src/models/flash_data_v2.rs
+src/models/game_mode.rs
 src/models/generic_data_v2.rs
 src/models/get_items_v2_items_get_200_response_inner.rs
 src/models/glitch_settings_v2.rs
@@ -225,6 +233,8 @@ src/models/subclass_objective_health_growth_phase.rs
 src/models/subclass_objective_regen.rs
 src/models/subclass_ranged_armor_modifier.rs
 src/models/subclass_trooper_damage_reduction.rs
+src/models/threshold_type.rs
+src/models/tracked_stat_name.rs
 src/models/trooper_damage_reduction.rs
 src/models/upgrade_description_v2.rs
 src/models/upgrade_property_v2.rs

@@ -21,24 +21,24 @@ var _ MappedNullable = &PlayerPerformanceCurvePoint{}
 
 // PlayerPerformanceCurvePoint struct for PlayerPerformanceCurvePoint
 type PlayerPerformanceCurvePoint struct {
-	// Average assists at this timestamp
+	// Average assists at this time point
 	AssistsAvg float64 `json:"assists_avg"`
-	// Standard deviation of assists at this timestamp
+	// Standard deviation of assists at this time point
 	AssistsStd float64 `json:"assists_std"`
-	// Average deaths at this timestamp
+	// Average deaths at this time point
 	DeathsAvg float64 `json:"deaths_avg"`
-	// Standard deviation of deaths at this timestamp
+	// Standard deviation of deaths at this time point
 	DeathsStd float64 `json:"deaths_std"`
-	// Average kills at this timestamp
+	// The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
+	GameTime int32 `json:"game_time"`
+	// Average kills at this time point
 	KillsAvg float64 `json:"kills_avg"`
-	// Standard deviation of kills at this timestamp
+	// Standard deviation of kills at this time point
 	KillsStd float64 `json:"kills_std"`
-	// Average net worth at this timestamp
+	// Average net worth at this time point
 	NetWorthAvg float64 `json:"net_worth_avg"`
-	// Standard deviation of net worth at this timestamp
+	// Standard deviation of net worth at this time point
 	NetWorthStd float64 `json:"net_worth_std"`
-	// Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
-	RelativeTimestamp int32 `json:"relative_timestamp"`
 }
 
 type _PlayerPerformanceCurvePoint PlayerPerformanceCurvePoint
@@ -47,17 +47,17 @@ type _PlayerPerformanceCurvePoint PlayerPerformanceCurvePoint
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, deathsAvg float64, deathsStd float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, relativeTimestamp int32) *PlayerPerformanceCurvePoint {
+func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, deathsAvg float64, deathsStd float64, gameTime int32, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64) *PlayerPerformanceCurvePoint {
 	this := PlayerPerformanceCurvePoint{}
 	this.AssistsAvg = assistsAvg
 	this.AssistsStd = assistsStd
 	this.DeathsAvg = deathsAvg
 	this.DeathsStd = deathsStd
+	this.GameTime = gameTime
 	this.KillsAvg = killsAvg
 	this.KillsStd = killsStd
 	this.NetWorthAvg = netWorthAvg
 	this.NetWorthStd = netWorthStd
-	this.RelativeTimestamp = relativeTimestamp
 	return &this
 }
 
@@ -165,6 +165,30 @@ func (o *PlayerPerformanceCurvePoint) SetDeathsStd(v float64) {
 	o.DeathsStd = v
 }
 
+// GetGameTime returns the GameTime field value
+func (o *PlayerPerformanceCurvePoint) GetGameTime() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.GameTime
+}
+
+// GetGameTimeOk returns a tuple with the GameTime field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGameTimeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GameTime, true
+}
+
+// SetGameTime sets field value
+func (o *PlayerPerformanceCurvePoint) SetGameTime(v int32) {
+	o.GameTime = v
+}
+
 // GetKillsAvg returns the KillsAvg field value
 func (o *PlayerPerformanceCurvePoint) GetKillsAvg() float64 {
 	if o == nil {
@@ -261,30 +285,6 @@ func (o *PlayerPerformanceCurvePoint) SetNetWorthStd(v float64) {
 	o.NetWorthStd = v
 }
 
-// GetRelativeTimestamp returns the RelativeTimestamp field value
-func (o *PlayerPerformanceCurvePoint) GetRelativeTimestamp() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.RelativeTimestamp
-}
-
-// GetRelativeTimestampOk returns a tuple with the RelativeTimestamp field value
-// and a boolean to check if the value has been set.
-func (o *PlayerPerformanceCurvePoint) GetRelativeTimestampOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.RelativeTimestamp, true
-}
-
-// SetRelativeTimestamp sets field value
-func (o *PlayerPerformanceCurvePoint) SetRelativeTimestamp(v int32) {
-	o.RelativeTimestamp = v
-}
-
 func (o PlayerPerformanceCurvePoint) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -299,11 +299,11 @@ func (o PlayerPerformanceCurvePoint) ToMap() (map[string]interface{}, error) {
 	toSerialize["assists_std"] = o.AssistsStd
 	toSerialize["deaths_avg"] = o.DeathsAvg
 	toSerialize["deaths_std"] = o.DeathsStd
+	toSerialize["game_time"] = o.GameTime
 	toSerialize["kills_avg"] = o.KillsAvg
 	toSerialize["kills_std"] = o.KillsStd
 	toSerialize["net_worth_avg"] = o.NetWorthAvg
 	toSerialize["net_worth_std"] = o.NetWorthStd
-	toSerialize["relative_timestamp"] = o.RelativeTimestamp
 	return toSerialize, nil
 }
 
@@ -316,11 +316,11 @@ func (o *PlayerPerformanceCurvePoint) UnmarshalJSON(data []byte) (err error) {
 		"assists_std",
 		"deaths_avg",
 		"deaths_std",
+		"game_time",
 		"kills_avg",
 		"kills_std",
 		"net_worth_avg",
 		"net_worth_std",
-		"relative_timestamp",
 	}
 
 	allProperties := make(map[string]interface{})

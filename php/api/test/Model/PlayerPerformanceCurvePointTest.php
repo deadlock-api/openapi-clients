@@ -116,6 +116,15 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "game_time"
+     */
+    public function testPropertyGameTime()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "kills_avg"
      */
     public function testPropertyKillsAvg()
@@ -146,15 +155,6 @@ class PlayerPerformanceCurvePointTest extends TestCase
      * Test attribute "net_worth_std"
      */
     public function testPropertyNetWorthStd()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "relative_timestamp"
-     */
-    public function testPropertyRelativeTimestamp()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

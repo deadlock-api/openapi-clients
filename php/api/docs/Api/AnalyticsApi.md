@@ -46,7 +46,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -75,7 +75,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -131,7 +131,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -153,7 +153,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -204,7 +204,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_last_updated_unix_timestamp = 1765065600; // int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
+$min_last_updated_unix_timestamp = 1765152000; // int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
 $max_last_updated_unix_timestamp = 56; // int | Filter builds based on their last updated time (Unix timestamp).
 
 try {
@@ -220,7 +220,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). | [optional] |
 
 ### Return type
@@ -263,7 +263,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -293,7 +293,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -351,7 +351,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -381,7 +381,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -442,7 +442,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 $sort_by = 'sort_by_example'; // string | The field to sort by.
 $sort_direction = 'sort_direction_example'; // string | The direction to sort heroes in.
 $min_matches = 56; // int | Filter by min number of matches played.
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -470,7 +470,7 @@ try {
 | **sort_by** | **string**| The field to sort by. | |
 | **sort_direction** | **string**| The direction to sort heroes in. | [optional] |
 | **min_matches** | **int**| Filter by min number of matches played. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -524,7 +524,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -538,8 +538,8 @@ $min_hero_matches = 56; // int | Filter players based on the number of matches t
 $max_hero_matches = 56; // int | Filter players based on the number of matches they have played with a specific hero within the filtered time range.
 $min_hero_matches_total = 56; // int | Filter players based on the number of matches they have played with a specific hero in their entire history.
 $max_hero_matches_total = 56; // int | Filter players based on the number of matches they have played with a specific hero in their entire history.
-$include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
-$exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+$include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+$exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
 $account_id = 56; // int | Filter for matches with a specific player account ID.
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 
@@ -556,7 +556,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -570,8 +570,8 @@ try {
 | **max_hero_matches** | **int**| Filter players based on the number of matches they have played with a specific hero within the filtered time range. | [optional] |
 | **min_hero_matches_total** | **int**| Filter players based on the number of matches they have played with a specific hero in their entire history. | [optional] |
 | **max_hero_matches_total** | **int**| Filter players based on the number of matches they have played with a specific hero in their entire history. | [optional] |
-| **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
-| **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
+| **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
+| **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
 | **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
 
@@ -615,7 +615,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -644,7 +644,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -705,7 +705,7 @@ $item_ids = array(56); // int[] | Comma separated list of item ids. See more: <h
 $comb_size = 2; // int | The combination size to return.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 $hero_id = 56; // int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -734,7 +734,7 @@ try {
 | **comb_size** | **int**| The combination size to return. | [optional] [default to 2] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -790,7 +790,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 $hero_id = 56; // int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -824,7 +824,7 @@ try {
 | **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -884,7 +884,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $team = 56; // int | Filter by team number.
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -919,7 +919,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **team** | **int**| Filter by team number. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -961,7 +961,7 @@ No authorization required
 ## `playerPerformanceCurve()`
 
 ```php
-playerPerformanceCurve($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $include_item_ids, $exclude_item_ids, $account_ids): \OpenAPI\Client\Model\PlayerPerformanceCurvePoint[]
+playerPerformanceCurve($resolution, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $include_item_ids, $exclude_item_ids, $account_ids): \OpenAPI\Client\Model\PlayerPerformanceCurvePoint[]
 ```
 
 Player Performance Curve
@@ -981,7 +981,8 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$resolution = 10; // int | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -992,12 +993,12 @@ $max_average_badge = 56; // int | Filter matches based on the average badge leve
 $min_match_id = 56; // int | Filter matches based on their ID.
 $max_match_id = 56; // int | Filter matches based on their ID.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
-$include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
-$exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+$include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+$exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 
 try {
-    $result = $apiInstance->playerPerformanceCurve($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $include_item_ids, $exclude_item_ids, $account_ids);
+    $result = $apiInstance->playerPerformanceCurve($resolution, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $include_item_ids, $exclude_item_ids, $account_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->playerPerformanceCurve: ', $e->getMessage(), PHP_EOL;
@@ -1008,7 +1009,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **resolution** | **int**| Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [optional] [default to 10] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1019,8 +1021,8 @@ try {
 | **min_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
-| **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
+| **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
+| **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type
@@ -1154,7 +1156,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1765065600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1765152000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1165,8 +1167,8 @@ $max_average_badge = 56; // int | Filter matches based on the average badge leve
 $min_match_id = 56; // int | Filter matches based on their ID.
 $max_match_id = 56; // int | Filter matches based on their ID.
 $max_matches = 56; // int | The maximum number of matches to analyze.
-$include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
-$exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+$include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+$exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 
 try {
@@ -1182,7 +1184,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765065600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1765152000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1193,8 +1195,8 @@ try {
 | **min_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **max_matches** | **int**| The maximum number of matches to analyze. | [optional] |
-| **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
-| **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
+| **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
+| **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type

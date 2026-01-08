@@ -200,7 +200,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -432,7 +432,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -597,7 +597,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
         r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -837,7 +837,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1156,7 +1156,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1451,7 +1451,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -1664,13 +1664,13 @@ func (r ApiHeroStatsRequest) MaxHeroMatchesTotal(maxHeroMatchesTotal int64) ApiH
 	return r
 }
 
-// Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
 func (r ApiHeroStatsRequest) IncludeItemIds(includeItemIds []int32) ApiHeroStatsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
-// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
 func (r ApiHeroStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiHeroStatsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
@@ -1744,7 +1744,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2051,7 +2051,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2371,7 +2371,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -2687,7 +2687,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -3038,7 +3038,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -3167,6 +3167,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 type ApiPlayerPerformanceCurveRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
+	resolution *int32
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
 	minDurationS *int64
@@ -3181,6 +3182,12 @@ type ApiPlayerPerformanceCurveRequest struct {
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
 	accountIds *[]int32
+}
+
+// Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
+func (r ApiPlayerPerformanceCurveRequest) Resolution(resolution int32) ApiPlayerPerformanceCurveRequest {
+	r.resolution = &resolution
+	return r
 }
 
 // Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -3249,13 +3256,13 @@ func (r ApiPlayerPerformanceCurveRequest) HeroIds(heroIds string) ApiPlayerPerfo
 	return r
 }
 
-// Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
 func (r ApiPlayerPerformanceCurveRequest) IncludeItemIds(includeItemIds []int32) ApiPlayerPerformanceCurveRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
-// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
 func (r ApiPlayerPerformanceCurveRequest) ExcludeItemIds(excludeItemIds []int32) ApiPlayerPerformanceCurveRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
@@ -3318,10 +3325,17 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.resolution != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "resolution", r.resolution, "form", "")
+	} else {
+        var defaultValue int32 = 10
+        parameterAddToHeaderOrQuery(localVarQueryParams, "resolution", defaultValue, "form", "")
+        r.resolution = &defaultValue
+	}
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}
@@ -3839,13 +3853,13 @@ func (r ApiPlayerStatsMetricsRequest) MaxMatches(maxMatches int32) ApiPlayerStat
 	return r
 }
 
-// Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
 func (r ApiPlayerStatsMetricsRequest) IncludeItemIds(includeItemIds []int32) ApiPlayerStatsMetricsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
-// Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
 func (r ApiPlayerStatsMetricsRequest) ExcludeItemIds(excludeItemIds []int32) ApiPlayerStatsMetricsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
@@ -3916,7 +3930,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-        var defaultValue int64 = 1765065600
+        var defaultValue int64 = 1765152000
         parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
         r.minUnixTimestamp = &defaultValue
 	}

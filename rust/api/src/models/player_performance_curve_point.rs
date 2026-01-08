@@ -13,47 +13,47 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PlayerPerformanceCurvePoint {
-    /// Average assists at this timestamp
+    /// Average assists at this time point
     #[serde(rename = "assists_avg")]
     pub assists_avg: f64,
-    /// Standard deviation of assists at this timestamp
+    /// Standard deviation of assists at this time point
     #[serde(rename = "assists_std")]
     pub assists_std: f64,
-    /// Average deaths at this timestamp
+    /// Average deaths at this time point
     #[serde(rename = "deaths_avg")]
     pub deaths_avg: f64,
-    /// Standard deviation of deaths at this timestamp
+    /// Standard deviation of deaths at this time point
     #[serde(rename = "deaths_std")]
     pub deaths_std: f64,
-    /// Average kills at this timestamp
+    /// The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
+    #[serde(rename = "game_time")]
+    pub game_time: u32,
+    /// Average kills at this time point
     #[serde(rename = "kills_avg")]
     pub kills_avg: f64,
-    /// Standard deviation of kills at this timestamp
+    /// Standard deviation of kills at this time point
     #[serde(rename = "kills_std")]
     pub kills_std: f64,
-    /// Average net worth at this timestamp
+    /// Average net worth at this time point
     #[serde(rename = "net_worth_avg")]
     pub net_worth_avg: f64,
-    /// Standard deviation of net worth at this timestamp
+    /// Standard deviation of net worth at this time point
     #[serde(rename = "net_worth_std")]
     pub net_worth_std: f64,
-    /// Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
-    #[serde(rename = "relative_timestamp")]
-    pub relative_timestamp: u32,
 }
 
 impl PlayerPerformanceCurvePoint {
-    pub fn new(assists_avg: f64, assists_std: f64, deaths_avg: f64, deaths_std: f64, kills_avg: f64, kills_std: f64, net_worth_avg: f64, net_worth_std: f64, relative_timestamp: u32) -> PlayerPerformanceCurvePoint {
+    pub fn new(assists_avg: f64, assists_std: f64, deaths_avg: f64, deaths_std: f64, game_time: u32, kills_avg: f64, kills_std: f64, net_worth_avg: f64, net_worth_std: f64) -> PlayerPerformanceCurvePoint {
         PlayerPerformanceCurvePoint {
             assists_avg,
             assists_std,
             deaths_avg,
             deaths_std,
+            game_time,
             kills_avg,
             kills_std,
             net_worth_avg,
             net_worth_std,
-            relative_timestamp,
         }
     }
 }

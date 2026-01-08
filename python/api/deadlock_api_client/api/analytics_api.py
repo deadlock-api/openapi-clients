@@ -2890,8 +2890,8 @@ class AnalyticsApi:
         max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
         min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
@@ -2941,9 +2941,9 @@ class AnalyticsApi:
         :type min_hero_matches_total: int
         :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
         :type max_hero_matches_total: int
-        :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type exclude_item_ids: List[int]
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
@@ -3031,8 +3031,8 @@ class AnalyticsApi:
         max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
         min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
@@ -3082,9 +3082,9 @@ class AnalyticsApi:
         :type min_hero_matches_total: int
         :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
         :type max_hero_matches_total: int
-        :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type exclude_item_ids: List[int]
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
@@ -3172,8 +3172,8 @@ class AnalyticsApi:
         max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
         min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
@@ -3223,9 +3223,9 @@ class AnalyticsApi:
         :type min_hero_matches_total: int
         :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
         :type max_hero_matches_total: int
-        :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type exclude_item_ids: List[int]
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
@@ -5738,6 +5738,7 @@ class AnalyticsApi:
     @validate_call
     def player_performance_curve(
         self,
+        resolution: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=0)]], Field(description="Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -5749,8 +5750,8 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -5769,6 +5770,8 @@ class AnalyticsApi:
 
          Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param resolution: Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
+        :type resolution: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -5791,9 +5794,9 @@ class AnalyticsApi:
         :type max_match_id: int
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
-        :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -5820,6 +5823,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._player_performance_curve_serialize(
+            resolution=resolution,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -5859,6 +5863,7 @@ class AnalyticsApi:
     @validate_call
     def player_performance_curve_with_http_info(
         self,
+        resolution: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=0)]], Field(description="Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -5870,8 +5875,8 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -5890,6 +5895,8 @@ class AnalyticsApi:
 
          Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param resolution: Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
+        :type resolution: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -5912,9 +5919,9 @@ class AnalyticsApi:
         :type max_match_id: int
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
-        :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -5941,6 +5948,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._player_performance_curve_serialize(
+            resolution=resolution,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -5980,6 +5988,7 @@ class AnalyticsApi:
     @validate_call
     def player_performance_curve_without_preload_content(
         self,
+        resolution: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=0)]], Field(description="Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -5991,8 +6000,8 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -6011,6 +6020,8 @@ class AnalyticsApi:
 
          Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param resolution: Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
+        :type resolution: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -6033,9 +6044,9 @@ class AnalyticsApi:
         :type max_match_id: int
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
-        :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -6062,6 +6073,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._player_performance_curve_serialize(
+            resolution=resolution,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -6096,6 +6108,7 @@ class AnalyticsApi:
 
     def _player_performance_curve_serialize(
         self,
+        resolution,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -6135,6 +6148,10 @@ class AnalyticsApi:
 
         # process the path parameters
         # process the query parameters
+        if resolution is not None:
+            
+            _query_params.append(('resolution', resolution))
+            
         if min_unix_timestamp is not None:
             
             _query_params.append(('min_unix_timestamp', min_unix_timestamp))
@@ -6800,8 +6817,8 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -6844,9 +6861,9 @@ class AnalyticsApi:
         :type max_match_id: int
         :param max_matches: The maximum number of matches to analyze.
         :type max_matches: int
-        :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -6925,8 +6942,8 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -6969,9 +6986,9 @@ class AnalyticsApi:
         :type max_match_id: int
         :param max_matches: The maximum number of matches to analyze.
         :type max_matches: int
-        :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -7050,8 +7067,8 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -7094,9 +7111,9 @@ class AnalyticsApi:
         :type max_match_id: int
         :param max_matches: The maximum number of matches to analyze.
         :type max_matches: int
-        :param include_item_ids: Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]

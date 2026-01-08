@@ -9,6 +9,8 @@ docs/AbilityTypeV2.md
 docs/AbilityV2.md
 docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/AbilityVideosV2.md
+docs/AccoladeV2.md
+docs/AccoladesApi.md
 docs/AimingShotSpreadPenalty.md
 docs/Bonus.md
 docs/BuildTagV2.md
@@ -21,6 +23,7 @@ docs/DefaultApi.md
 docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
+docs/GameMode.md
 docs/GenericDataV2.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/GlitchSettingsV2.md
@@ -102,6 +105,8 @@ docs/SubclassObjectiveHealthGrowthPhase.md
 docs/SubclassObjectiveRegen.md
 docs/SubclassRangedArmorModifier.md
 docs/SubclassTrooperDamageReduction.md
+docs/ThresholdType.md
+docs/TrackedStatName.md
 docs/TrooperDamageReduction.md
 docs/UpgradeDescriptionV2.md
 docs/UpgradePropertyV2.md
@@ -118,6 +123,7 @@ docs/WeaponInfoV2.md
 docs/WeaponV2.md
 docs/ZiplanePathV1.md
 settings.gradle
+src/main/kotlin/assets_deadlock_api_client/apis/AccoladesApi.kt
 src/main/kotlin/assets_deadlock_api_client/apis/DefaultApi.kt
 src/main/kotlin/assets_deadlock_api_client/apis/HeroesApi.kt
 src/main/kotlin/assets_deadlock_api_client/apis/ItemsApi.kt
@@ -149,6 +155,7 @@ src/main/kotlin/assets_deadlock_api_client/models/AbilityTypeV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/AbilityV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.kt
 src/main/kotlin/assets_deadlock_api_client/models/AbilityVideosV2.kt
+src/main/kotlin/assets_deadlock_api_client/models/AccoladeV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/AimingShotSpreadPenalty.kt
 src/main/kotlin/assets_deadlock_api_client/models/Bonus.kt
 src/main/kotlin/assets_deadlock_api_client/models/BuildTagV2.kt
@@ -160,6 +167,7 @@ src/main/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesValidCl
 src/main/kotlin/assets_deadlock_api_client/models/EmpoweredModifierLevel.kt
 src/main/kotlin/assets_deadlock_api_client/models/ExpirationDuration.kt
 src/main/kotlin/assets_deadlock_api_client/models/FlashDataV2.kt
+src/main/kotlin/assets_deadlock_api_client/models/GameMode.kt
 src/main/kotlin/assets_deadlock_api_client/models/GenericDataV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/GetItemsV2ItemsGet200ResponseInner.kt
 src/main/kotlin/assets_deadlock_api_client/models/GlitchSettingsV2.kt
@@ -236,6 +244,8 @@ src/main/kotlin/assets_deadlock_api_client/models/SubclassObjectiveHealthGrowthP
 src/main/kotlin/assets_deadlock_api_client/models/SubclassObjectiveRegen.kt
 src/main/kotlin/assets_deadlock_api_client/models/SubclassRangedArmorModifier.kt
 src/main/kotlin/assets_deadlock_api_client/models/SubclassTrooperDamageReduction.kt
+src/main/kotlin/assets_deadlock_api_client/models/ThresholdType.kt
+src/main/kotlin/assets_deadlock_api_client/models/TrackedStatName.kt
 src/main/kotlin/assets_deadlock_api_client/models/TrooperDamageReduction.kt
 src/main/kotlin/assets_deadlock_api_client/models/UpgradeDescriptionV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/UpgradePropertyV2.kt
@@ -251,6 +261,7 @@ src/main/kotlin/assets_deadlock_api_client/models/Value1.kt
 src/main/kotlin/assets_deadlock_api_client/models/WeaponInfoV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/WeaponV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/ZiplanePathV1.kt
+src/test/kotlin/assets_deadlock_api_client/apis/AccoladesApiTest.kt
 src/test/kotlin/assets_deadlock_api_client/apis/DefaultApiTest.kt
 src/test/kotlin/assets_deadlock_api_client/apis/HeroesApiTest.kt
 src/test/kotlin/assets_deadlock_api_client/apis/ItemsApiTest.kt
@@ -265,6 +276,7 @@ src/test/kotlin/assets_deadlock_api_client/models/AbilityTypeV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/AbilityV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/AbilityV2TooltipDetailsInfoSectionPropertyBlockPropertyTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/AbilityVideosV2Test.kt
+src/test/kotlin/assets_deadlock_api_client/models/AccoladeV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/AimingShotSpreadPenaltyTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/BonusTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/BuildTagV2Test.kt
@@ -276,6 +288,7 @@ src/test/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesValidCl
 src/test/kotlin/assets_deadlock_api_client/models/EmpoweredModifierLevelTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ExpirationDurationTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/FlashDataV2Test.kt
+src/test/kotlin/assets_deadlock_api_client/models/GameModeTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/GenericDataV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/GetItemsV2ItemsGet200ResponseInnerTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/GlitchSettingsV2Test.kt
@@ -352,6 +365,8 @@ src/test/kotlin/assets_deadlock_api_client/models/SubclassObjectiveHealthGrowthP
 src/test/kotlin/assets_deadlock_api_client/models/SubclassObjectiveRegenTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/SubclassRangedArmorModifierTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/SubclassTrooperDamageReductionTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/ThresholdTypeTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/TrackedStatNameTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/TrooperDamageReductionTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/UpgradeDescriptionV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/UpgradePropertyV2Test.kt

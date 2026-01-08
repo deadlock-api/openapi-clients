@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssistsAvg** | **float64** | Average assists at this timestamp | 
-**AssistsStd** | **float64** | Standard deviation of assists at this timestamp | 
-**DeathsAvg** | **float64** | Average deaths at this timestamp | 
-**DeathsStd** | **float64** | Standard deviation of deaths at this timestamp | 
-**KillsAvg** | **float64** | Average kills at this timestamp | 
-**KillsStd** | **float64** | Standard deviation of kills at this timestamp | 
-**NetWorthAvg** | **float64** | Average net worth at this timestamp | 
-**NetWorthStd** | **float64** | Standard deviation of net worth at this timestamp | 
-**RelativeTimestamp** | **int32** | Percentage interval of match duration (0%, 5%, 10%, ..., 100%) | 
+**AssistsAvg** | **float64** | Average assists at this time point | 
+**AssistsStd** | **float64** | Standard deviation of assists at this time point | 
+**DeathsAvg** | **float64** | Average deaths at this time point | 
+**DeathsStd** | **float64** | Standard deviation of deaths at this time point | 
+**GameTime** | **int32** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | 
+**KillsAvg** | **float64** | Average kills at this time point | 
+**KillsStd** | **float64** | Standard deviation of kills at this time point | 
+**NetWorthAvg** | **float64** | Average net worth at this time point | 
+**NetWorthStd** | **float64** | Standard deviation of net worth at this time point | 
 
 ## Methods
 
 ### NewPlayerPerformanceCurvePoint
 
-`func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, deathsAvg float64, deathsStd float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, relativeTimestamp int32, ) *PlayerPerformanceCurvePoint`
+`func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, deathsAvg float64, deathsStd float64, gameTime int32, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, ) *PlayerPerformanceCurvePoint`
 
 NewPlayerPerformanceCurvePoint instantiates a new PlayerPerformanceCurvePoint object
 This constructor will assign default values to properties that have it defined,
@@ -113,6 +113,26 @@ and a boolean to check if the value has been set.
 SetDeathsStd sets DeathsStd field to given value.
 
 
+### GetGameTime
+
+`func (o *PlayerPerformanceCurvePoint) GetGameTime() int32`
+
+GetGameTime returns the GameTime field if non-nil, zero value otherwise.
+
+### GetGameTimeOk
+
+`func (o *PlayerPerformanceCurvePoint) GetGameTimeOk() (*int32, bool)`
+
+GetGameTimeOk returns a tuple with the GameTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGameTime
+
+`func (o *PlayerPerformanceCurvePoint) SetGameTime(v int32)`
+
+SetGameTime sets GameTime field to given value.
+
+
 ### GetKillsAvg
 
 `func (o *PlayerPerformanceCurvePoint) GetKillsAvg() float64`
@@ -191,26 +211,6 @@ and a boolean to check if the value has been set.
 `func (o *PlayerPerformanceCurvePoint) SetNetWorthStd(v float64)`
 
 SetNetWorthStd sets NetWorthStd field to given value.
-
-
-### GetRelativeTimestamp
-
-`func (o *PlayerPerformanceCurvePoint) GetRelativeTimestamp() int32`
-
-GetRelativeTimestamp returns the RelativeTimestamp field if non-nil, zero value otherwise.
-
-### GetRelativeTimestampOk
-
-`func (o *PlayerPerformanceCurvePoint) GetRelativeTimestampOk() (*int32, bool)`
-
-GetRelativeTimestampOk returns a tuple with the RelativeTimestamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRelativeTimestamp
-
-`func (o *PlayerPerformanceCurvePoint) SetRelativeTimestamp(v int32)`
-
-SetRelativeTimestamp sets RelativeTimestamp field to given value.
 
 
 

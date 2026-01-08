@@ -72,6 +72,18 @@ class RawApiTest extends TestCase
     }
 
     /**
+     * Test case for getRawAccoladesRawAccoladesGet
+     *
+     * Get Raw Accolades.
+     *
+     */
+    public function testGetRawAccoladesRawAccoladesGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getRawHeroesRawHeroesGet
      *
      * Get Raw Heroes.

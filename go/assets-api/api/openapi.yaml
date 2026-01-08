@@ -401,6 +401,138 @@ paths:
       summary: Get Items By Slot Type
       tags:
       - Items
+  /v2/accolades:
+    get:
+      operationId: get_accolades_v2_accolades_get
+      parameters:
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          allOf:
+          - $ref: "#/components/schemas/Language"
+          nullable: true
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          allOf:
+          - $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
+          nullable: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/AccoladeV2"
+                type: array
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Accolades
+      tags:
+      - Accolades
+  /v2/accolades/{id}:
+    get:
+      operationId: get_accolade_v2_accolades__id__get
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          title: Id
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          allOf:
+          - $ref: "#/components/schemas/Language"
+          nullable: true
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          allOf:
+          - $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
+          nullable: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccoladeV2"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Accolade
+      tags:
+      - Accolades
+  /v2/accolades/by-name/{name}:
+    get:
+      operationId: get_accolade_by_name_v2_accolades_by_name__name__get
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          title: Name
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          allOf:
+          - $ref: "#/components/schemas/Language"
+          nullable: true
+        style: form
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          allOf:
+          - $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
+          nullable: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccoladeV2"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Accolade By Name
+      tags:
+      - Accolades
   /v2/npc-units:
     get:
       operationId: get_npc_units_v2_npc_units_get
@@ -877,6 +1009,34 @@ paths:
       summary: Get Raw Items
       tags:
       - Raw
+  /raw/accolades:
+    get:
+      operationId: get_raw_accolades_raw_accolades_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          allOf:
+          - $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
+          nullable: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Raw Accolades
+      tags:
+      - Raw
 components:
   schemas:
     AbilityDescriptionV2:
@@ -1149,6 +1309,47 @@ components:
           nullable: true
           type: string
       title: AbilityVideosV2
+    AccoladeV2:
+      example:
+        flavor_name: flavor_name
+        enabled_game_modes:
+        - normal
+        - normal
+        tracked_stat_name: ability_damage
+        description: description
+        threshold_type: automatic
+        id: 0
+        class_name: class_name
+      properties:
+        class_name:
+          title: Class Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        tracked_stat_name:
+          $ref: "#/components/schemas/TrackedStatName"
+        flavor_name:
+          title: Flavor Name
+          type: string
+        description:
+          title: Description
+          type: string
+        threshold_type:
+          $ref: "#/components/schemas/ThresholdType"
+        enabled_game_modes:
+          items:
+            $ref: "#/components/schemas/GameMode"
+          nullable: true
+          type: array
+      required:
+      - class_name
+      - description
+      - flavor_name
+      - id
+      - threshold_type
+      - tracked_stat_name
+      title: AccoladeV2
     BuildTagV2:
       example:
         icon: icon
@@ -1312,12 +1513,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
-      - 6075
-      - 6071
-      - 6064
-      - 6060
-      - 6044
-      - 6021
+      - 6080
       - 6020
       - 6016
       - 6008
@@ -1337,7 +1533,6 @@ components:
       - 5818
       - 5789
       - 5748
-      - 5747
       - 5723
       - 5712
       - 5710
@@ -1408,6 +1603,11 @@ components:
       - duration
       - hardness
       title: FlashDataV2
+    GameMode:
+      enum:
+      - normal
+      title: GameMode
+      type: string
     GenericDataV2:
       example:
         trooper_kill_gold_share_frac:
@@ -4347,6 +4547,47 @@ components:
         subclass:
           $ref: "#/components/schemas/TrooperDamageReduction"
       title: SubclassTrooperDamageReduction
+    ThresholdType:
+      enum:
+      - automatic
+      - manual
+      title: ThresholdType
+      type: string
+    TrackedStatName:
+      enum:
+      - ability_damage
+      - ability_kills
+      - assists
+      - breakables_destroyed
+      - bullet_damage
+      - closeup_damage
+      - closeup_kills
+      - damage_absorbed
+      - damage_mitigated
+      - denies
+      - first_blood
+      - gun_kills
+      - headshot_damage
+      - headshots
+      - healing
+      - kills
+      - killstreak_kills
+      - last_hits
+      - long_distance_damage
+      - long_distance_kills
+      - melee_damage
+      - melee_kills
+      - net_worth
+      - neutral_last_hits
+      - pickups_collected_powerup
+      - player_damage
+      - returned_idol
+      - secures
+      - sinners_sacrifice_jackpot
+      - trooper_last_hits
+      - weapon_damage
+      title: TrackedStatName
+      type: string
     TrooperDamageReduction:
       properties:
         damage_reduction_for_troopers:

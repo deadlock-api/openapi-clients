@@ -1,5 +1,10 @@
 ## RawApi
 
+### Get Raw Accolades
+## Get Raw Accolades
+GET https://assets.deadlock-api.com/raw/accolades?clientVersion={{clientVersion}}
+Accept: application/json
+
 ### Get Raw Heroes
 ## Get Raw Heroes
 GET https://assets.deadlock-api.com/raw/heroes?clientVersion={{clientVersion}}

@@ -14,6 +14,8 @@ docs/AbilityTypeV2.md
 docs/AbilityV2.md
 docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/AbilityVideosV2.md
+docs/AccoladeV2.md
+docs/AccoladesApi.md
 docs/AimingShotSpreadPenalty.md
 docs/Bonus.md
 docs/BuildTagV2.md
@@ -26,6 +28,7 @@ docs/DefaultApi.md
 docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
+docs/GameMode.md
 docs/GenericDataV2.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/GlitchSettingsV2.md
@@ -107,6 +110,8 @@ docs/SubclassObjectiveHealthGrowthPhase.md
 docs/SubclassObjectiveRegen.md
 docs/SubclassRangedArmorModifier.md
 docs/SubclassTrooperDamageReduction.md
+docs/ThresholdType.md
+docs/TrackedStatName.md
 docs/TrooperDamageReduction.md
 docs/UpgradeDescriptionV2.md
 docs/UpgradePropertyV2.md

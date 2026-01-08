@@ -1,0 +1,16 @@
+## AccoladesApi
+
+### Get Accolade By Name
+## Get Accolade By Name
+GET https://assets.deadlock-api.com/v2/accolades/by-name/{{name}}?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json
+
+### Get Accolade
+## Get Accolade
+GET https://assets.deadlock-api.com/v2/accolades/{{id}}?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json
+
+### Get Accolades
+## Get Accolades
+GET https://assets.deadlock-api.com/v2/accolades?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json

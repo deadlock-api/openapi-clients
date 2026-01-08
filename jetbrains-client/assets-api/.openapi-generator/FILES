@@ -1,4 +1,5 @@
 .openapi-generator-ignore
+Apis/AccoladesApi.http
 Apis/DefaultApi.http
 Apis/HeroesApi.http
 Apis/ItemsApi.http

@@ -84,18 +84,18 @@ configuration = assets_deadlock_api_client.Configuration(
 # Enter a context with an instance of the API client
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = assets_deadlock_api_client.HeroesApi(api_client)
+    api_instance = assets_deadlock_api_client.AccoladesApi(api_client)
     name = 'name_example' # str | 
     language = assets_deadlock_api_client.Language() # Language |  (optional)
     client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesValidClientVersions() # DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
     try:
-        # Get Hero By Name
-        api_response = api_instance.get_hero_by_name_v2_heroes_by_name_name_get(name, language=language, client_version=client_version)
-        print("The response of HeroesApi->get_hero_by_name_v2_heroes_by_name_name_get:\n")
+        # Get Accolade By Name
+        api_response = api_instance.get_accolade_by_name_v2_accolades_by_name_name_get(name, language=language, client_version=client_version)
+        print("The response of AccoladesApi->get_accolade_by_name_v2_accolades_by_name_name_get:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling HeroesApi->get_hero_by_name_v2_heroes_by_name_name_get: %s\n" % e)
+        print("Exception when calling AccoladesApi->get_accolade_by_name_v2_accolades_by_name_name_get: %s\n" % e)
 
 ```
 
@@ -105,6 +105,9 @@ All URIs are relative to *https://assets.deadlock-api.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccoladesApi* | [**get_accolade_by_name_v2_accolades_by_name_name_get**](docs/AccoladesApi.md#get_accolade_by_name_v2_accolades_by_name_name_get) | **GET** /v2/accolades/by-name/{name} | Get Accolade By Name
+*AccoladesApi* | [**get_accolade_v2_accolades_id_get**](docs/AccoladesApi.md#get_accolade_v2_accolades_id_get) | **GET** /v2/accolades/{id} | Get Accolade
+*AccoladesApi* | [**get_accolades_v2_accolades_get**](docs/AccoladesApi.md#get_accolades_v2_accolades_get) | **GET** /v2/accolades | Get Accolades
 *HeroesApi* | [**get_hero_by_name_v2_heroes_by_name_name_get**](docs/HeroesApi.md#get_hero_by_name_v2_heroes_by_name_name_get) | **GET** /v2/heroes/by-name/{name} | Get Hero By Name
 *HeroesApi* | [**get_hero_v2_heroes_id_get**](docs/HeroesApi.md#get_hero_v2_heroes_id_get) | **GET** /v2/heroes/{id} | Get Hero
 *HeroesApi* | [**get_heroes_v2_heroes_get**](docs/HeroesApi.md#get_heroes_v2_heroes_get) | **GET** /v2/heroes | Get Heroes
@@ -117,6 +120,7 @@ Class | Method | HTTP request | Description
 *MiscEntitiesApi* | [**get_misc_entity_v2_misc_entities_id_or_class_name_get**](docs/MiscEntitiesApi.md#get_misc_entity_v2_misc_entities_id_or_class_name_get) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
 *NPCUnitsApi* | [**get_npc_unit_v2_npc_units_id_or_class_name_get**](docs/NPCUnitsApi.md#get_npc_unit_v2_npc_units_id_or_class_name_get) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit
 *NPCUnitsApi* | [**get_npc_units_v2_npc_units_get**](docs/NPCUnitsApi.md#get_npc_units_v2_npc_units_get) | **GET** /v2/npc-units | Get Npc Units
+*RawApi* | [**get_raw_accolades_raw_accolades_get**](docs/RawApi.md#get_raw_accolades_raw_accolades_get) | **GET** /raw/accolades | Get Raw Accolades
 *RawApi* | [**get_raw_heroes_raw_heroes_get**](docs/RawApi.md#get_raw_heroes_raw_heroes_get) | **GET** /raw/heroes | Get Raw Heroes
 *RawApi* | [**get_raw_items_raw_items_get**](docs/RawApi.md#get_raw_items_raw_items_get) | **GET** /raw/items | Get Raw Items
 *DefaultApi* | [**get_build_tags_v2_build_tags_get**](docs/DefaultApi.md#get_build_tags_v2_build_tags_get) | **GET** /v2/build-tags | Get Build Tags
@@ -141,6 +145,7 @@ Class | Method | HTTP request | Description
  - [AbilityV2](docs/AbilityV2.md)
  - [AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty](docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md)
  - [AbilityVideosV2](docs/AbilityVideosV2.md)
+ - [AccoladeV2](docs/AccoladeV2.md)
  - [AimingShotSpreadPenalty](docs/AimingShotSpreadPenalty.md)
  - [Bonus](docs/Bonus.md)
  - [BuildTagV2](docs/BuildTagV2.md)
@@ -152,6 +157,7 @@ Class | Method | HTTP request | Description
  - [EmpoweredModifierLevel](docs/EmpoweredModifierLevel.md)
  - [ExpirationDuration](docs/ExpirationDuration.md)
  - [FlashDataV2](docs/FlashDataV2.md)
+ - [GameMode](docs/GameMode.md)
  - [GenericDataV2](docs/GenericDataV2.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [GlitchSettingsV2](docs/GlitchSettingsV2.md)
@@ -228,6 +234,8 @@ Class | Method | HTTP request | Description
  - [SubclassObjectiveRegen](docs/SubclassObjectiveRegen.md)
  - [SubclassRangedArmorModifier](docs/SubclassRangedArmorModifier.md)
  - [SubclassTrooperDamageReduction](docs/SubclassTrooperDamageReduction.md)
+ - [ThresholdType](docs/ThresholdType.md)
+ - [TrackedStatName](docs/TrackedStatName.md)
  - [TrooperDamageReduction](docs/TrooperDamageReduction.md)
  - [UpgradeDescriptionV2](docs/UpgradeDescriptionV2.md)
  - [UpgradePropertyV2](docs/UpgradePropertyV2.md)

@@ -1,6 +1,7 @@
 # flake8: noqa
 
 # import apis into api package
+from assets_deadlock_api_client.api.accolades_api import AccoladesApi
 from assets_deadlock_api_client.api.heroes_api import HeroesApi
 from assets_deadlock_api_client.api.items_api import ItemsApi
 from assets_deadlock_api_client.api.misc_entities_api import MiscEntitiesApi

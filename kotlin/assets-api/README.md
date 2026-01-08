@@ -63,6 +63,9 @@ All URIs are relative to *https://assets.deadlock-api.com*
 
 | Class | Method | HTTP request | Description |
 | ------------ | ------------- | ------------- | ------------- |
+| *AccoladesApi* | [**getAccoladeByNameV2AccoladesByNameNameGet**](docs/AccoladesApi.md#getaccoladebynamev2accoladesbynamenameget) | **GET** /v2/accolades/by-name/{name} | Get Accolade By Name |
+| *AccoladesApi* | [**getAccoladeV2AccoladesIdGet**](docs/AccoladesApi.md#getaccoladev2accoladesidget) | **GET** /v2/accolades/{id} | Get Accolade |
+| *AccoladesApi* | [**getAccoladesV2AccoladesGet**](docs/AccoladesApi.md#getaccoladesv2accoladesget) | **GET** /v2/accolades | Get Accolades |
 | *DefaultApi* | [**getBuildTagsV2BuildTagsGet**](docs/DefaultApi.md#getbuildtagsv2buildtagsget) | **GET** /v2/build-tags | Get Build Tags |
 | *DefaultApi* | [**getClientVersionsV2ClientVersionsGet**](docs/DefaultApi.md#getclientversionsv2clientversionsget) | **GET** /v2/client-versions | Get Client Versions |
 | *DefaultApi* | [**getColorsV1ColorsGet**](docs/DefaultApi.md#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors |
@@ -85,6 +88,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 | *MiscEntitiesApi* | [**getMiscEntityV2MiscEntitiesIdOrClassNameGet**](docs/MiscEntitiesApi.md#getmiscentityv2miscentitiesidorclassnameget) | **GET** /v2/misc-entities/{id_or_class_name} | Get Misc Entity |
 | *NPCUnitsApi* | [**getNpcUnitV2NpcUnitsIdOrClassNameGet**](docs/NPCUnitsApi.md#getnpcunitv2npcunitsidorclassnameget) | **GET** /v2/npc-units/{id_or_class_name} | Get Npc Unit |
 | *NPCUnitsApi* | [**getNpcUnitsV2NpcUnitsGet**](docs/NPCUnitsApi.md#getnpcunitsv2npcunitsget) | **GET** /v2/npc-units | Get Npc Units |
+| *RawApi* | [**getRawAccoladesRawAccoladesGet**](docs/RawApi.md#getrawaccoladesrawaccoladesget) | **GET** /raw/accolades | Get Raw Accolades |
 | *RawApi* | [**getRawHeroesRawHeroesGet**](docs/RawApi.md#getrawheroesrawheroesget) | **GET** /raw/heroes | Get Raw Heroes |
 | *RawApi* | [**getRawItemsRawItemsGet**](docs/RawApi.md#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items |
 
@@ -100,6 +104,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets_deadlock_api_client.models.AbilityV2](docs/AbilityV2.md)
  - [assets_deadlock_api_client.models.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty](docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md)
  - [assets_deadlock_api_client.models.AbilityVideosV2](docs/AbilityVideosV2.md)
+ - [assets_deadlock_api_client.models.AccoladeV2](docs/AccoladeV2.md)
  - [assets_deadlock_api_client.models.AimingShotSpreadPenalty](docs/AimingShotSpreadPenalty.md)
  - [assets_deadlock_api_client.models.Bonus](docs/Bonus.md)
  - [assets_deadlock_api_client.models.BuildTagV2](docs/BuildTagV2.md)
@@ -111,6 +116,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets_deadlock_api_client.models.EmpoweredModifierLevel](docs/EmpoweredModifierLevel.md)
  - [assets_deadlock_api_client.models.ExpirationDuration](docs/ExpirationDuration.md)
  - [assets_deadlock_api_client.models.FlashDataV2](docs/FlashDataV2.md)
+ - [assets_deadlock_api_client.models.GameMode](docs/GameMode.md)
  - [assets_deadlock_api_client.models.GenericDataV2](docs/GenericDataV2.md)
  - [assets_deadlock_api_client.models.GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [assets_deadlock_api_client.models.GlitchSettingsV2](docs/GlitchSettingsV2.md)
@@ -187,6 +193,8 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets_deadlock_api_client.models.SubclassObjectiveRegen](docs/SubclassObjectiveRegen.md)
  - [assets_deadlock_api_client.models.SubclassRangedArmorModifier](docs/SubclassRangedArmorModifier.md)
  - [assets_deadlock_api_client.models.SubclassTrooperDamageReduction](docs/SubclassTrooperDamageReduction.md)
+ - [assets_deadlock_api_client.models.ThresholdType](docs/ThresholdType.md)
+ - [assets_deadlock_api_client.models.TrackedStatName](docs/TrackedStatName.md)
  - [assets_deadlock_api_client.models.TrooperDamageReduction](docs/TrooperDamageReduction.md)
  - [assets_deadlock_api_client.models.UpgradeDescriptionV2](docs/UpgradeDescriptionV2.md)
  - [assets_deadlock_api_client.models.UpgradePropertyV2](docs/UpgradePropertyV2.md)

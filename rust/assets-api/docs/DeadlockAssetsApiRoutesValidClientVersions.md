@@ -4,12 +4,7 @@
 
 | Name | Value |
 |---- | -----|
-| Variant6075 | 6075 |
-| Variant6071 | 6071 |
-| Variant6064 | 6064 |
-| Variant6060 | 6060 |
-| Variant6044 | 6044 |
-| Variant6021 | 6021 |
+| Variant6080 | 6080 |
 | Variant6020 | 6020 |
 | Variant6016 | 6016 |
 | Variant6008 | 6008 |
@@ -29,7 +24,6 @@
 | Variant5818 | 5818 |
 | Variant5789 | 5789 |
 | Variant5748 | 5748 |
-| Variant5747 | 5747 |
 | Variant5723 | 5723 |
 | Variant5712 | 5712 |
 | Variant5710 | 5710 |

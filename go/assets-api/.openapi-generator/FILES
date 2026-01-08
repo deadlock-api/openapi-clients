@@ -3,6 +3,7 @@
 .travis.yml
 README.md
 api/openapi.yaml
+api_accolades.go
 api_default.go
 api_heroes.go
 api_items.go
@@ -19,6 +20,8 @@ docs/AbilityTypeV2.md
 docs/AbilityV2.md
 docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/AbilityVideosV2.md
+docs/AccoladeV2.md
+docs/AccoladesAPI.md
 docs/AimingShotSpreadPenalty.md
 docs/Bonus.md
 docs/BuildTagV2.md
@@ -31,6 +34,7 @@ docs/DefaultAPI.md
 docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
+docs/GameMode.md
 docs/GenericDataV2.md
 docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/GlitchSettingsV2.md
@@ -112,6 +116,8 @@ docs/SubclassObjectiveHealthGrowthPhase.md
 docs/SubclassObjectiveRegen.md
 docs/SubclassRangedArmorModifier.md
 docs/SubclassTrooperDamageReduction.md
+docs/ThresholdType.md
+docs/TrackedStatName.md
 docs/TrooperDamageReduction.md
 docs/UpgradeDescriptionV2.md
 docs/UpgradePropertyV2.md
@@ -138,6 +144,7 @@ model_ability_type_v2.go
 model_ability_v2.go
 model_ability_v2_tooltip_details_info_section_property_block_property.go
 model_ability_videos_v2.go
+model_accolade_v2.go
 model_aiming_shot_spread_penalty.go
 model_bonus.go
 model_build_tag_v2.go
@@ -149,6 +156,7 @@ model_deadlock_assets_api_routes_valid_client_versions.go
 model_empowered_modifier_level.go
 model_expiration_duration.go
 model_flash_data_v2.go
+model_game_mode.go
 model_generic_data_v2.go
 model_get_items_v2_items_get_200_response_inner.go
 model_glitch_settings_v2.go
@@ -225,6 +233,8 @@ model_subclass_objective_health_growth_phase.go
 model_subclass_objective_regen.go
 model_subclass_ranged_armor_modifier.go
 model_subclass_trooper_damage_reduction.go
+model_threshold_type.go
+model_tracked_stat_name.go
 model_trooper_damage_reduction.go
 model_upgrade_description_v2.go
 model_upgrade_property_v2.go
@@ -241,6 +251,7 @@ model_weapon_info_v2.go
 model_weapon_v2.go
 model_ziplane_path_v1.go
 response.go
+test/api_accolades_test.go
 test/api_default_test.go
 test/api_heroes_test.go
 test/api_items_test.go

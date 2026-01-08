@@ -39,11 +39,11 @@ class TestPlayerPerformanceCurvePoint(unittest.TestCase):
                 assists_std = 1.337,
                 deaths_avg = 1.337,
                 deaths_std = 1.337,
+                game_time = 0,
                 kills_avg = 1.337,
                 kills_std = 1.337,
                 net_worth_avg = 1.337,
-                net_worth_std = 1.337,
-                relative_timestamp = 0
+                net_worth_std = 1.337
             )
         else:
             return PlayerPerformanceCurvePoint(
@@ -51,11 +51,11 @@ class TestPlayerPerformanceCurvePoint(unittest.TestCase):
                 assists_std = 1.337,
                 deaths_avg = 1.337,
                 deaths_std = 1.337,
+                game_time = 0,
                 kills_avg = 1.337,
                 kills_std = 1.337,
                 net_worth_avg = 1.337,
                 net_worth_std = 1.337,
-                relative_timestamp = 0,
         )
         """
 

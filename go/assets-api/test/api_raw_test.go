@@ -22,6 +22,18 @@ func Test_assets_deadlock_api_client_RawAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test RawAPIService GetRawAccoladesRawAccoladesGet", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.RawAPI.GetRawAccoladesRawAccoladesGet(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test RawAPIService GetRawHeroesRawHeroesGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

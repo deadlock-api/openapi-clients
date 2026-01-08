@@ -43,7 +43,7 @@ import (
 
 func main() {
 	heroId := int32(56) // int32 | See more: <https://assets.deadlock-api.com/v2/heroes>
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -83,7 +83,7 @@ Other parameters are passed through a pointer to a apiAbilityOrderStatsRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -138,7 +138,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -171,7 +171,7 @@ Other parameters are passed through a pointer to a apiBadgeDistributionRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -221,7 +221,7 @@ import (
 
 func main() {
 	heroId := int32(56) // int32 | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -248,7 +248,7 @@ Other parameters are passed through a pointer to a apiBuildItemStatsRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int32** | Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). | 
 
 ### Return type
@@ -290,7 +290,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -331,7 +331,7 @@ Other parameters are passed through a pointer to a apiHeroCombStatsRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -388,7 +388,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -429,7 +429,7 @@ Other parameters are passed through a pointer to a apiHeroCountersStatsRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -489,7 +489,7 @@ func main() {
 	sortBy := "sortBy_example" // string | The field to sort by.
 	sortDirection := "sortDirection_example" // string | The direction to sort heroes in. (optional)
 	minMatches := int32(56) // int32 | Filter by min number of matches played. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
  **sortBy** | **string** | The field to sort by. | 
  **sortDirection** | **string** | The direction to sort heroes in. | 
  **minMatches** | **int32** | Filter by min number of matches played. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -581,7 +581,7 @@ import (
 
 func main() {
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -595,8 +595,8 @@ func main() {
 	maxHeroMatches := int64(789) // int64 | Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
 	minHeroMatchesTotal := int64(789) // int64 | Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
 	maxHeroMatchesTotal := int64(789) // int64 | Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
+	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
+	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
 	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
 	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
 
@@ -624,7 +624,7 @@ Other parameters are passed through a pointer to a apiHeroStatsRequest struct vi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -638,8 +638,8 @@ Name | Type | Description  | Notes
  **maxHeroMatches** | **int64** | Filter players based on the number of matches they have played with a specific hero within the filtered time range. | 
  **minHeroMatchesTotal** | **int64** | Filter players based on the number of matches they have played with a specific hero in their entire history. | 
  **maxHeroMatchesTotal** | **int64** | Filter players based on the number of matches they have played with a specific hero in their entire history. | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+ **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+ **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
  **accountId** | **int32** | Filter for matches with a specific player account ID. | 
  **accountIds** | **[]int32** | Comma separated list of account ids to include | 
 
@@ -682,7 +682,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -722,7 +722,7 @@ Other parameters are passed through a pointer to a apiHeroSynergiesStatsRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -782,7 +782,7 @@ func main() {
 	combSize := int32(56) // int32 | The combination size to return. (optional) (default to 2)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
 	heroId := int32(56) // int32 | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -822,7 +822,7 @@ Name | Type | Description  | Notes
  **combSize** | **int32** | The combination size to return. | [default to 2]
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
  **heroId** | **int32** | Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -877,7 +877,7 @@ func main() {
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
 	heroId := int32(56) // int32 | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -922,7 +922,7 @@ Name | Type | Description  | Notes
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
  **heroId** | **int32** | Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -981,7 +981,7 @@ import (
 
 func main() {
 	team := int32(56) // int32 | Filter by team number. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1027,7 +1027,7 @@ Other parameters are passed through a pointer to a apiKillDeathStatsRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **team** | **int32** | Filter by team number. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -1069,7 +1069,7 @@ No authorization required
 
 ## PlayerPerformanceCurve
 
-> []PlayerPerformanceCurvePoint PlayerPerformanceCurve(ctx).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).HeroIds(heroIds).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AccountIds(accountIds).Execute()
+> []PlayerPerformanceCurvePoint PlayerPerformanceCurve(ctx).Resolution(resolution).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).HeroIds(heroIds).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AccountIds(accountIds).Execute()
 
 Player Performance Curve
 
@@ -1088,7 +1088,8 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	resolution := int32(56) // int32 | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional) (default to 10)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1099,13 +1100,13 @@ func main() {
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
+	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
+	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
 	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.PlayerPerformanceCurve(context.Background()).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).HeroIds(heroIds).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AccountIds(accountIds).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.PlayerPerformanceCurve(context.Background()).Resolution(resolution).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).HeroIds(heroIds).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AccountIds(accountIds).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.PlayerPerformanceCurve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1126,7 +1127,8 @@ Other parameters are passed through a pointer to a apiPlayerPerformanceCurveRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **resolution** | **int32** | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [default to 10]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -1137,8 +1139,8 @@ Name | Type | Description  | Notes
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+ **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+ **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
  **accountIds** | **[]int32** | Comma separated list of account ids to include | 
 
 ### Return type
@@ -1281,7 +1283,7 @@ import (
 
 func main() {
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765065600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1765152000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1292,8 +1294,8 @@ func main() {
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatches := int32(56) // int32 | The maximum number of matches to analyze. (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only heroes who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
+	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
+	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
 	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1320,7 +1322,7 @@ Other parameters are passed through a pointer to a apiPlayerStatsMetricsRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765065600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1765152000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -1331,8 +1333,8 @@ Name | Type | Description  | Notes
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatches** | **int32** | The maximum number of matches to analyze. | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+ **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+ **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
  **accountIds** | **[]int32** | Comma separated list of account ids to include | 
 
 ### Return type

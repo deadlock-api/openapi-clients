@@ -26,6 +26,13 @@ class TestRawApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_raw_accolades_raw_accolades_get(self) -> None:
+        """Test case for get_raw_accolades_raw_accolades_get
+
+        Get Raw Accolades
+        """
+        pass
+
     def test_get_raw_heroes_raw_heroes_get(self) -> None:
         """Test case for get_raw_heroes_raw_heroes_get
 

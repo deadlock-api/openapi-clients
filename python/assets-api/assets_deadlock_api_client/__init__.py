@@ -18,6 +18,7 @@ __version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
+    "AccoladesApi",
     "HeroesApi",
     "ItemsApi",
     "MiscEntitiesApi",
@@ -41,6 +42,7 @@ __all__ = [
     "AbilityV2",
     "AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty",
     "AbilityVideosV2",
+    "AccoladeV2",
     "AimingShotSpreadPenalty",
     "Bonus",
     "BuildTagV2",
@@ -52,6 +54,7 @@ __all__ = [
     "EmpoweredModifierLevel",
     "ExpirationDuration",
     "FlashDataV2",
+    "GameMode",
     "GenericDataV2",
     "GetItemsV2ItemsGet200ResponseInner",
     "GlitchSettingsV2",
@@ -128,6 +131,8 @@ __all__ = [
     "SubclassObjectiveRegen",
     "SubclassRangedArmorModifier",
     "SubclassTrooperDamageReduction",
+    "ThresholdType",
+    "TrackedStatName",
     "TrooperDamageReduction",
     "UpgradeDescriptionV2",
     "UpgradePropertyV2",
@@ -146,6 +151,7 @@ __all__ = [
 ]
 
 # import apis into sdk package
+from assets_deadlock_api_client.api.accolades_api import AccoladesApi as AccoladesApi
 from assets_deadlock_api_client.api.heroes_api import HeroesApi as HeroesApi
 from assets_deadlock_api_client.api.items_api import ItemsApi as ItemsApi
 from assets_deadlock_api_client.api.misc_entities_api import MiscEntitiesApi as MiscEntitiesApi
@@ -173,6 +179,7 @@ from assets_deadlock_api_client.models.ability_type_v2 import AbilityTypeV2 as A
 from assets_deadlock_api_client.models.ability_v2 import AbilityV2 as AbilityV2
 from assets_deadlock_api_client.models.ability_v2_tooltip_details_info_section_property_block_property import AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty as AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
 from assets_deadlock_api_client.models.ability_videos_v2 import AbilityVideosV2 as AbilityVideosV2
+from assets_deadlock_api_client.models.accolade_v2 import AccoladeV2 as AccoladeV2
 from assets_deadlock_api_client.models.aiming_shot_spread_penalty import AimingShotSpreadPenalty as AimingShotSpreadPenalty
 from assets_deadlock_api_client.models.bonus import Bonus as Bonus
 from assets_deadlock_api_client.models.build_tag_v2 import BuildTagV2 as BuildTagV2
@@ -184,6 +191,7 @@ from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_v
 from assets_deadlock_api_client.models.empowered_modifier_level import EmpoweredModifierLevel as EmpoweredModifierLevel
 from assets_deadlock_api_client.models.expiration_duration import ExpirationDuration as ExpirationDuration
 from assets_deadlock_api_client.models.flash_data_v2 import FlashDataV2 as FlashDataV2
+from assets_deadlock_api_client.models.game_mode import GameMode as GameMode
 from assets_deadlock_api_client.models.generic_data_v2 import GenericDataV2 as GenericDataV2
 from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner as GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.glitch_settings_v2 import GlitchSettingsV2 as GlitchSettingsV2
@@ -260,6 +268,8 @@ from assets_deadlock_api_client.models.subclass_objective_health_growth_phase im
 from assets_deadlock_api_client.models.subclass_objective_regen import SubclassObjectiveRegen as SubclassObjectiveRegen
 from assets_deadlock_api_client.models.subclass_ranged_armor_modifier import SubclassRangedArmorModifier as SubclassRangedArmorModifier
 from assets_deadlock_api_client.models.subclass_trooper_damage_reduction import SubclassTrooperDamageReduction as SubclassTrooperDamageReduction
+from assets_deadlock_api_client.models.threshold_type import ThresholdType as ThresholdType
+from assets_deadlock_api_client.models.tracked_stat_name import TrackedStatName as TrackedStatName
 from assets_deadlock_api_client.models.trooper_damage_reduction import TrooperDamageReduction as TrooperDamageReduction
 from assets_deadlock_api_client.models.upgrade_description_v2 import UpgradeDescriptionV2 as UpgradeDescriptionV2
 from assets_deadlock_api_client.models.upgrade_property_v2 import UpgradePropertyV2 as UpgradePropertyV2

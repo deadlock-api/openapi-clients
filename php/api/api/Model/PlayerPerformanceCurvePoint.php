@@ -61,11 +61,11 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'assists_std' => 'float',
         'deaths_avg' => 'float',
         'deaths_std' => 'float',
+        'game_time' => 'int',
         'kills_avg' => 'float',
         'kills_std' => 'float',
         'net_worth_avg' => 'float',
-        'net_worth_std' => 'float',
-        'relative_timestamp' => 'int'
+        'net_worth_std' => 'float'
     ];
 
     /**
@@ -80,11 +80,11 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'assists_std' => 'double',
         'deaths_avg' => 'double',
         'deaths_std' => 'double',
+        'game_time' => 'int32',
         'kills_avg' => 'double',
         'kills_std' => 'double',
         'net_worth_avg' => 'double',
-        'net_worth_std' => 'double',
-        'relative_timestamp' => 'int32'
+        'net_worth_std' => 'double'
     ];
 
     /**
@@ -97,11 +97,11 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'assists_std' => false,
         'deaths_avg' => false,
         'deaths_std' => false,
+        'game_time' => false,
         'kills_avg' => false,
         'kills_std' => false,
         'net_worth_avg' => false,
-        'net_worth_std' => false,
-        'relative_timestamp' => false
+        'net_worth_std' => false
     ];
 
     /**
@@ -194,11 +194,11 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'assists_std' => 'assists_std',
         'deaths_avg' => 'deaths_avg',
         'deaths_std' => 'deaths_std',
+        'game_time' => 'game_time',
         'kills_avg' => 'kills_avg',
         'kills_std' => 'kills_std',
         'net_worth_avg' => 'net_worth_avg',
-        'net_worth_std' => 'net_worth_std',
-        'relative_timestamp' => 'relative_timestamp'
+        'net_worth_std' => 'net_worth_std'
     ];
 
     /**
@@ -211,11 +211,11 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'assists_std' => 'setAssistsStd',
         'deaths_avg' => 'setDeathsAvg',
         'deaths_std' => 'setDeathsStd',
+        'game_time' => 'setGameTime',
         'kills_avg' => 'setKillsAvg',
         'kills_std' => 'setKillsStd',
         'net_worth_avg' => 'setNetWorthAvg',
-        'net_worth_std' => 'setNetWorthStd',
-        'relative_timestamp' => 'setRelativeTimestamp'
+        'net_worth_std' => 'setNetWorthStd'
     ];
 
     /**
@@ -228,11 +228,11 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'assists_std' => 'getAssistsStd',
         'deaths_avg' => 'getDeathsAvg',
         'deaths_std' => 'getDeathsStd',
+        'game_time' => 'getGameTime',
         'kills_avg' => 'getKillsAvg',
         'kills_std' => 'getKillsStd',
         'net_worth_avg' => 'getNetWorthAvg',
-        'net_worth_std' => 'getNetWorthStd',
-        'relative_timestamp' => 'getRelativeTimestamp'
+        'net_worth_std' => 'getNetWorthStd'
     ];
 
     /**
@@ -296,11 +296,11 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('assists_std', $data ?? [], null);
         $this->setIfExists('deaths_avg', $data ?? [], null);
         $this->setIfExists('deaths_std', $data ?? [], null);
+        $this->setIfExists('game_time', $data ?? [], null);
         $this->setIfExists('kills_avg', $data ?? [], null);
         $this->setIfExists('kills_std', $data ?? [], null);
         $this->setIfExists('net_worth_avg', $data ?? [], null);
         $this->setIfExists('net_worth_std', $data ?? [], null);
-        $this->setIfExists('relative_timestamp', $data ?? [], null);
     }
 
     /**
@@ -342,6 +342,13 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['deaths_std'] === null) {
             $invalidProperties[] = "'deaths_std' can't be null";
         }
+        if ($this->container['game_time'] === null) {
+            $invalidProperties[] = "'game_time' can't be null";
+        }
+        if (($this->container['game_time'] < 0)) {
+            $invalidProperties[] = "invalid value for 'game_time', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['kills_avg'] === null) {
             $invalidProperties[] = "'kills_avg' can't be null";
         }
@@ -354,13 +361,6 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['net_worth_std'] === null) {
             $invalidProperties[] = "'net_worth_std' can't be null";
         }
-        if ($this->container['relative_timestamp'] === null) {
-            $invalidProperties[] = "'relative_timestamp' can't be null";
-        }
-        if (($this->container['relative_timestamp'] < 0)) {
-            $invalidProperties[] = "invalid value for 'relative_timestamp', must be bigger than or equal to 0.";
-        }
-
         return $invalidProperties;
     }
 
@@ -389,7 +389,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets assists_avg
      *
-     * @param float $assists_avg Average assists at this timestamp
+     * @param float $assists_avg Average assists at this time point
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets assists_std
      *
-     * @param float $assists_std Standard deviation of assists at this timestamp
+     * @param float $assists_std Standard deviation of assists at this time point
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets deaths_avg
      *
-     * @param float $deaths_avg Average deaths at this timestamp
+     * @param float $deaths_avg Average deaths at this time point
      *
      * @return self
      */
@@ -470,7 +470,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets deaths_std
      *
-     * @param float $deaths_std Standard deviation of deaths at this timestamp
+     * @param float $deaths_std Standard deviation of deaths at this time point
      *
      * @return self
      */
@@ -480,6 +480,38 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable deaths_std cannot be null');
         }
         $this->container['deaths_std'] = $deaths_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets game_time
+     *
+     * @return int
+     */
+    public function getGameTime()
+    {
+        return $this->container['game_time'];
+    }
+
+    /**
+     * Sets game_time
+     *
+     * @param int $game_time The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
+     *
+     * @return self
+     */
+    public function setGameTime($game_time)
+    {
+        if (is_null($game_time)) {
+            throw new \InvalidArgumentException('non-nullable game_time cannot be null');
+        }
+
+        if (($game_time < 0)) {
+            throw new \InvalidArgumentException('invalid value for $game_time when calling PlayerPerformanceCurvePoint., must be bigger than or equal to 0.');
+        }
+
+        $this->container['game_time'] = $game_time;
 
         return $this;
     }
@@ -497,7 +529,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets kills_avg
      *
-     * @param float $kills_avg Average kills at this timestamp
+     * @param float $kills_avg Average kills at this time point
      *
      * @return self
      */
@@ -524,7 +556,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets kills_std
      *
-     * @param float $kills_std Standard deviation of kills at this timestamp
+     * @param float $kills_std Standard deviation of kills at this time point
      *
      * @return self
      */
@@ -551,7 +583,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets net_worth_avg
      *
-     * @param float $net_worth_avg Average net worth at this timestamp
+     * @param float $net_worth_avg Average net worth at this time point
      *
      * @return self
      */
@@ -578,7 +610,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets net_worth_std
      *
-     * @param float $net_worth_std Standard deviation of net worth at this timestamp
+     * @param float $net_worth_std Standard deviation of net worth at this time point
      *
      * @return self
      */
@@ -588,38 +620,6 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable net_worth_std cannot be null');
         }
         $this->container['net_worth_std'] = $net_worth_std;
-
-        return $this;
-    }
-
-    /**
-     * Gets relative_timestamp
-     *
-     * @return int
-     */
-    public function getRelativeTimestamp()
-    {
-        return $this->container['relative_timestamp'];
-    }
-
-    /**
-     * Sets relative_timestamp
-     *
-     * @param int $relative_timestamp Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
-     *
-     * @return self
-     */
-    public function setRelativeTimestamp($relative_timestamp)
-    {
-        if (is_null($relative_timestamp)) {
-            throw new \InvalidArgumentException('non-nullable relative_timestamp cannot be null');
-        }
-
-        if (($relative_timestamp < 0)) {
-            throw new \InvalidArgumentException('invalid value for $relative_timestamp when calling PlayerPerformanceCurvePoint., must be bigger than or equal to 0.');
-        }
-
-        $this->container['relative_timestamp'] = $relative_timestamp;
 
         return $this;
     }

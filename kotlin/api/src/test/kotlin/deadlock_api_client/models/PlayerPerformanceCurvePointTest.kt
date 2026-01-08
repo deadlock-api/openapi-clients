@@ -25,58 +25,58 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
         // uncomment below to create an instance of PlayerPerformanceCurvePoint
         //val modelInstance = PlayerPerformanceCurvePoint()
 
-        // to test the property `assistsAvg` - Average assists at this timestamp
+        // to test the property `assistsAvg` - Average assists at this time point
         should("test assistsAvg") {
             // uncomment below to test the property
             //modelInstance.assistsAvg shouldBe ("TODO")
         }
 
-        // to test the property `assistsStd` - Standard deviation of assists at this timestamp
+        // to test the property `assistsStd` - Standard deviation of assists at this time point
         should("test assistsStd") {
             // uncomment below to test the property
             //modelInstance.assistsStd shouldBe ("TODO")
         }
 
-        // to test the property `deathsAvg` - Average deaths at this timestamp
+        // to test the property `deathsAvg` - Average deaths at this time point
         should("test deathsAvg") {
             // uncomment below to test the property
             //modelInstance.deathsAvg shouldBe ("TODO")
         }
 
-        // to test the property `deathsStd` - Standard deviation of deaths at this timestamp
+        // to test the property `deathsStd` - Standard deviation of deaths at this time point
         should("test deathsStd") {
             // uncomment below to test the property
             //modelInstance.deathsStd shouldBe ("TODO")
         }
 
-        // to test the property `killsAvg` - Average kills at this timestamp
+        // to test the property `gameTime` - The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
+        should("test gameTime") {
+            // uncomment below to test the property
+            //modelInstance.gameTime shouldBe ("TODO")
+        }
+
+        // to test the property `killsAvg` - Average kills at this time point
         should("test killsAvg") {
             // uncomment below to test the property
             //modelInstance.killsAvg shouldBe ("TODO")
         }
 
-        // to test the property `killsStd` - Standard deviation of kills at this timestamp
+        // to test the property `killsStd` - Standard deviation of kills at this time point
         should("test killsStd") {
             // uncomment below to test the property
             //modelInstance.killsStd shouldBe ("TODO")
         }
 
-        // to test the property `netWorthAvg` - Average net worth at this timestamp
+        // to test the property `netWorthAvg` - Average net worth at this time point
         should("test netWorthAvg") {
             // uncomment below to test the property
             //modelInstance.netWorthAvg shouldBe ("TODO")
         }
 
-        // to test the property `netWorthStd` - Standard deviation of net worth at this timestamp
+        // to test the property `netWorthStd` - Standard deviation of net worth at this time point
         should("test netWorthStd") {
             // uncomment below to test the property
             //modelInstance.netWorthStd shouldBe ("TODO")
-        }
-
-        // to test the property `relativeTimestamp` - Percentage interval of match duration (0%, 5%, 10%, ..., 100%)
-        should("test relativeTimestamp") {
-            // uncomment below to test the property
-            //modelInstance.relativeTimestamp shouldBe ("TODO")
         }
 
     }

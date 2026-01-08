@@ -109,7 +109,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -314,7 +314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -446,7 +446,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -494,7 +494,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -730,7 +730,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -969,7 +969,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -1126,7 +1126,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Comma separated list of item ids to include (only heroes who\
+      - description: "Comma separated list of item ids to include (only players who\
           \ have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
         explode: true
         in: query
@@ -1140,7 +1140,7 @@ paths:
           nullable: true
           type: array
         style: form
-      - description: "Comma separated list of item ids to exclude (only heroes who\
+      - description: "Comma separated list of item ids to exclude (only players who\
           \ have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
         explode: true
         in: query
@@ -1217,7 +1217,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -1482,7 +1482,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -1694,7 +1694,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -1945,7 +1945,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -2198,6 +2198,22 @@ paths:
         \ - |\n| Global | - |\n    "
       operationId: player_performance_curve
       parameters:
+      - description: |-
+          Resolution for relative game times in percent (0-100).
+          **Default:** 10 (buckets of 10%).
+          Set to **0** to use absolute game time (seconds).
+        explode: true
+        in: query
+        name: resolution
+        required: false
+        schema:
+          default: 10
+          format: int32
+          maximum: 100
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -2205,7 +2221,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -2323,7 +2339,7 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Comma separated list of item ids to include (only heroes who\
+      - description: "Comma separated list of item ids to include (only players who\
           \ have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
         explode: true
         in: query
@@ -2337,7 +2353,7 @@ paths:
           nullable: true
           type: array
         style: form
-      - description: "Comma separated list of item ids to exclude (only heroes who\
+      - description: "Comma separated list of item ids to exclude (only players who\
           \ have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
         explode: true
         in: query
@@ -2410,7 +2426,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -2530,7 +2546,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Comma separated list of item ids to include (only heroes who\
+      - description: "Comma separated list of item ids to include (only players who\
           \ have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
         explode: true
         in: query
@@ -2544,7 +2560,7 @@ paths:
           nullable: true
           type: array
         style: form
-      - description: "Comma separated list of item ids to exclude (only heroes who\
+      - description: "Comma separated list of item ids to exclude (only players who\
           \ have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
         explode: true
         in: query
@@ -2693,7 +2709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -4802,7 +4818,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -4921,7 +4937,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1765065600
+          default: 1765152000
           format: int64
           nullable: true
           type: integer
@@ -7904,61 +7920,64 @@ components:
       example:
         assists_std: 6.027456183070403
         assists_avg: 0.8008281904610115
-        net_worth_std: 9.301444243932576
-        kills_std: 2.3021358869347655
-        net_worth_avg: 7.061401241503109
-        kills_avg: 5.637376656633329
+        game_time: 0
+        net_worth_std: 3.616076749251911
+        kills_std: 7.061401241503109
+        net_worth_avg: 9.301444243932576
+        kills_avg: 2.3021358869347655
         deaths_avg: 1.4658129805029452
         deaths_std: 5.962133916683182
-        relative_timestamp: 0
       properties:
         assists_avg:
-          description: Average assists at this timestamp
+          description: Average assists at this time point
           format: double
           type: number
         assists_std:
-          description: Standard deviation of assists at this timestamp
+          description: Standard deviation of assists at this time point
           format: double
           type: number
         deaths_avg:
-          description: Average deaths at this timestamp
+          description: Average deaths at this time point
           format: double
           type: number
         deaths_std:
-          description: Standard deviation of deaths at this timestamp
+          description: Standard deviation of deaths at this time point
           format: double
           type: number
-        kills_avg:
-          description: Average kills at this timestamp
-          format: double
-          type: number
-        kills_std:
-          description: Standard deviation of kills at this timestamp
-          format: double
-          type: number
-        net_worth_avg:
-          description: Average net worth at this timestamp
-          format: double
-          type: number
-        net_worth_std:
-          description: Standard deviation of net worth at this timestamp
-          format: double
-          type: number
-        relative_timestamp:
-          description: "Percentage interval of match duration (0%, 5%, 10%, ..., 100%)"
+        game_time:
+          description: |-
+            The time point of the data.
+            If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100).
+            If `resolution` is 0, this is the match time in seconds.
           format: int32
           minimum: 0
           type: integer
+        kills_avg:
+          description: Average kills at this time point
+          format: double
+          type: number
+        kills_std:
+          description: Standard deviation of kills at this time point
+          format: double
+          type: number
+        net_worth_avg:
+          description: Average net worth at this time point
+          format: double
+          type: number
+        net_worth_std:
+          description: Standard deviation of net worth at this time point
+          format: double
+          type: number
       required:
       - assists_avg
       - assists_std
       - deaths_avg
       - deaths_std
+      - game_time
       - kills_avg
       - kills_std
       - net_worth_avg
       - net_worth_std
-      - relative_timestamp
     RegionMode:
       enum:
       - row

@@ -62,7 +62,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Ability Order Stats
      *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -86,7 +86,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun abilityOrderStats(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAbilityUpgrades: kotlin.Long? = null, maxAbilityUpgrades: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatches: kotlin.Int? = 20, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<AnalyticsAbilityOrderStats> {
+    fun abilityOrderStats(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAbilityUpgrades: kotlin.Long? = null, maxAbilityUpgrades: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatches: kotlin.Int? = 20, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<AnalyticsAbilityOrderStats> {
         val localVarResponse = abilityOrderStatsWithHttpInfo(heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAbilityUpgrades = minAbilityUpgrades, maxAbilityUpgrades = maxAbilityUpgrades, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatches = minMatches, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -109,7 +109,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Ability Order Stats
      *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -142,7 +142,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * To obtain the request config of the operation abilityOrderStats
      *
      * @param heroId See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -227,7 +227,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/analytics/badge-distribution
      * Badge Distribution
      *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -245,7 +245,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun badgeDistribution(minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<BadgeDistribution> {
+    fun badgeDistribution(minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<BadgeDistribution> {
         val localVarResponse = badgeDistributionWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -267,7 +267,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/analytics/badge-distribution
      * Badge Distribution
      *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -293,7 +293,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation badgeDistribution
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -354,7 +354,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Build Item Stats
      *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @return kotlin.collections.List<BuildItemStats>
      * @throws IllegalStateException If the request is not correctly configured
@@ -365,7 +365,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun buildItemStats(heroId: kotlin.Int? = null, minLastUpdatedUnixTimestamp: kotlin.Long? = 1765065600L, maxLastUpdatedUnixTimestamp: kotlin.Long? = null) : kotlin.collections.List<BuildItemStats> {
+    fun buildItemStats(heroId: kotlin.Int? = null, minLastUpdatedUnixTimestamp: kotlin.Long? = 1765152000L, maxLastUpdatedUnixTimestamp: kotlin.Long? = null) : kotlin.collections.List<BuildItemStats> {
         val localVarResponse = buildItemStatsWithHttpInfo(heroId = heroId, minLastUpdatedUnixTimestamp = minLastUpdatedUnixTimestamp, maxLastUpdatedUnixTimestamp = maxLastUpdatedUnixTimestamp)
 
         return when (localVarResponse.responseType) {
@@ -388,7 +388,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Build Item Stats
      *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroId Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @return ApiResponse<kotlin.collections.List<BuildItemStats>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -408,7 +408,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * To obtain the request config of the operation buildItemStats
      *
      * @param heroId Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxLastUpdatedUnixTimestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @return RequestConfig
      */
@@ -443,7 +443,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/analytics/hero-comb-stats
      * Hero Comb Stats
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -469,7 +469,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroCombStats(minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, includeHeroIds: kotlin.collections.List<kotlin.Int>? = null, excludeHeroIds: kotlin.collections.List<kotlin.Int>? = null, minMatches: kotlin.Int? = 20, maxMatches: kotlin.Int? = null, combSize: kotlin.Int? = 6, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroCombStats> {
+    fun heroCombStats(minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, includeHeroIds: kotlin.collections.List<kotlin.Int>? = null, excludeHeroIds: kotlin.collections.List<kotlin.Int>? = null, minMatches: kotlin.Int? = 20, maxMatches: kotlin.Int? = null, combSize: kotlin.Int? = 6, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroCombStats> {
         val localVarResponse = heroCombStatsWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, includeHeroIds = includeHeroIds, excludeHeroIds = excludeHeroIds, minMatches = minMatches, maxMatches = maxMatches, combSize = combSize, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -491,7 +491,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/analytics/hero-comb-stats
      * Hero Comb Stats
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -525,7 +525,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation heroCombStats
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -617,7 +617,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/analytics/hero-counter-stats
      * Hero Counter Stats
      *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -643,7 +643,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroCountersStats(minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minEnemyNetworth: kotlin.Long? = null, maxEnemyNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, sameLaneFilter: kotlin.Boolean? = true, minMatches: kotlin.Long? = 20L, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroCounterStats> {
+    fun heroCountersStats(minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minEnemyNetworth: kotlin.Long? = null, maxEnemyNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, sameLaneFilter: kotlin.Boolean? = true, minMatches: kotlin.Long? = 20L, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroCounterStats> {
         val localVarResponse = heroCountersStatsWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minEnemyNetworth = minEnemyNetworth, maxEnemyNetworth = maxEnemyNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, sameLaneFilter = sameLaneFilter, minMatches = minMatches, maxMatches = maxMatches, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -665,7 +665,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/analytics/hero-counter-stats
      * Hero Counter Stats
      *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -699,7 +699,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation heroCountersStats
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -887,7 +887,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param sortBy The field to sort by.
      * @param sortDirection The direction to sort heroes in. (optional)
      * @param minMatches Filter by min number of matches played. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -908,7 +908,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroScoreboard(sortBy: SortByHeroScoreboard, sortDirection: SortDirectionHeroScoreboard? = null, minMatches: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<Entry> {
+    fun heroScoreboard(sortBy: SortByHeroScoreboard, sortDirection: SortDirectionHeroScoreboard? = null, minMatches: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<Entry> {
         val localVarResponse = heroScoreboardWithHttpInfo(sortBy = sortBy, sortDirection = sortDirection, minMatches = minMatches, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -933,7 +933,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param sortBy The field to sort by.
      * @param sortDirection The direction to sort heroes in. (optional)
      * @param minMatches Filter by min number of matches played. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -965,7 +965,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param sortBy The field to sort by.
      * @param sortDirection The direction to sort heroes in. (optional)
      * @param minMatches Filter by min number of matches played. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1065,7 +1065,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Hero Stats
      *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1079,8 +1079,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxHeroMatches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
      * @param minHeroMatchesTotal Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
      * @param maxHeroMatchesTotal Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
-     * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
-     * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @return kotlin.collections.List<AnalyticsHeroStats>
@@ -1092,7 +1092,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroStats(bucket: BucketHeroStats? = null, minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minHeroMatches: kotlin.Long? = null, maxHeroMatches: kotlin.Long? = null, minHeroMatchesTotal: kotlin.Long? = null, maxHeroMatchesTotal: kotlin.Long? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<AnalyticsHeroStats> {
+    fun heroStats(bucket: BucketHeroStats? = null, minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minHeroMatches: kotlin.Long? = null, maxHeroMatches: kotlin.Long? = null, minHeroMatchesTotal: kotlin.Long? = null, maxHeroMatchesTotal: kotlin.Long? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<AnalyticsHeroStats> {
         val localVarResponse = heroStatsWithHttpInfo(bucket = bucket, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, minHeroMatches = minHeroMatches, maxHeroMatches = maxHeroMatches, minHeroMatchesTotal = minHeroMatchesTotal, maxHeroMatchesTotal = maxHeroMatchesTotal, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -1115,7 +1115,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Hero Stats
      *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1129,8 +1129,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxHeroMatches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
      * @param minHeroMatchesTotal Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
      * @param maxHeroMatchesTotal Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
-     * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
-     * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @return ApiResponse<kotlin.collections.List<AnalyticsHeroStats>?>
@@ -1151,7 +1151,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * To obtain the request config of the operation heroStats
      *
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1165,8 +1165,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxHeroMatches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
      * @param minHeroMatchesTotal Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
      * @param maxHeroMatchesTotal Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
-     * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
-     * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @return RequestConfig
@@ -1250,7 +1250,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/analytics/hero-synergy-stats
      * Hero Synergy Stats
      *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (&#x60;hero_id1&#x60; and &#x60;hero_id2&#x60;) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1275,7 +1275,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroSynergiesStats(minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, sameLaneFilter: kotlin.Boolean? = true, samePartyFilter: kotlin.Boolean? = true, minMatches: kotlin.Long? = 20L, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroSynergyStats> {
+    fun heroSynergiesStats(minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, sameLaneFilter: kotlin.Boolean? = true, samePartyFilter: kotlin.Boolean? = true, minMatches: kotlin.Long? = 20L, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroSynergyStats> {
         val localVarResponse = heroSynergiesStatsWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, sameLaneFilter = sameLaneFilter, samePartyFilter = samePartyFilter, minMatches = minMatches, maxMatches = maxMatches, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -1297,7 +1297,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/analytics/hero-synergy-stats
      * Hero Synergy Stats
      *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (&#x60;hero_id1&#x60; and &#x60;hero_id2&#x60;) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1330,7 +1330,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation heroSynergiesStats
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1422,7 +1422,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param combSize The combination size to return. (optional, default to 2)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1443,7 +1443,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun itemPermutationStats(itemIds: kotlin.collections.List<kotlin.Int>? = null, combSize: kotlin.Int? = 2, heroIds: kotlin.String? = null, heroId: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<ItemPermutationStats> {
+    fun itemPermutationStats(itemIds: kotlin.collections.List<kotlin.Int>? = null, combSize: kotlin.Int? = 2, heroIds: kotlin.String? = null, heroId: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<ItemPermutationStats> {
         val localVarResponse = itemPermutationStatsWithHttpInfo(itemIds = itemIds, combSize = combSize, heroIds = heroIds, heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, accountId = accountId, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -1469,7 +1469,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param combSize The combination size to return. (optional, default to 2)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1502,7 +1502,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param combSize The combination size to return. (optional, default to 2)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1618,7 +1618,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1645,7 +1645,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun itemStats(bucket: BucketItemStats? = null, heroIds: kotlin.String? = null, heroId: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, minMatches: kotlin.Int? = 20, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, minBoughtAtS: kotlin.Int? = null, maxBoughtAtS: kotlin.Int? = null) : kotlin.collections.List<ItemStats> {
+    fun itemStats(bucket: BucketItemStats? = null, heroIds: kotlin.String? = null, heroId: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, minMatches: kotlin.Int? = 20, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, minBoughtAtS: kotlin.Int? = null, maxBoughtAtS: kotlin.Int? = null) : kotlin.collections.List<ItemStats> {
         val localVarResponse = itemStatsWithHttpInfo(bucket = bucket, heroIds = heroIds, heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, minMatches = minMatches, maxMatches = maxMatches, accountId = accountId, accountIds = accountIds, minBoughtAtS = minBoughtAtS, maxBoughtAtS = maxBoughtAtS)
 
         return when (localVarResponse.responseType) {
@@ -1670,7 +1670,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1708,7 +1708,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1814,7 +1814,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Kill Death Stats
      *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param team Filter by team number. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1844,7 +1844,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun killDeathStats(team: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroIds: kotlin.String? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minKillsPerRaster: kotlin.Int? = null, maxKillsPerRaster: kotlin.Int? = null, minDeathsPerRaster: kotlin.Int? = null, maxDeathsPerRaster: kotlin.Int? = null, minGameTimeS: kotlin.Int? = null, maxGameTimeS: kotlin.Int? = null) : kotlin.collections.List<KillDeathStats> {
+    fun killDeathStats(team: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroIds: kotlin.String? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minKillsPerRaster: kotlin.Int? = null, maxKillsPerRaster: kotlin.Int? = null, minDeathsPerRaster: kotlin.Int? = null, maxDeathsPerRaster: kotlin.Int? = null, minGameTimeS: kotlin.Int? = null, maxGameTimeS: kotlin.Int? = null) : kotlin.collections.List<KillDeathStats> {
         val localVarResponse = killDeathStatsWithHttpInfo(team = team, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, accountIds = accountIds, heroIds = heroIds, minNetworth = minNetworth, maxNetworth = maxNetworth, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minKillsPerRaster = minKillsPerRaster, maxKillsPerRaster = maxKillsPerRaster, minDeathsPerRaster = minDeathsPerRaster, maxDeathsPerRaster = maxDeathsPerRaster, minGameTimeS = minGameTimeS, maxGameTimeS = maxGameTimeS)
 
         return when (localVarResponse.responseType) {
@@ -1867,7 +1867,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Kill Death Stats
      *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param team Filter by team number. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1906,7 +1906,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * To obtain the request config of the operation killDeathStats
      *
      * @param team Filter by team number. (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2017,7 +2017,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/analytics/player-performance-curve
      * Player Performance Curve
      *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param resolution Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2028,8 +2029,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
-     * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @return kotlin.collections.List<PlayerPerformanceCurvePoint>
      * @throws IllegalStateException If the request is not correctly configured
@@ -2040,8 +2041,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun playerPerformanceCurve(minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, heroIds: kotlin.String? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<PlayerPerformanceCurvePoint> {
-        val localVarResponse = playerPerformanceCurveWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, heroIds = heroIds, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, accountIds = accountIds)
+    fun playerPerformanceCurve(resolution: kotlin.Int? = 10, minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, heroIds: kotlin.String? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<PlayerPerformanceCurvePoint> {
+        val localVarResponse = playerPerformanceCurveWithHttpInfo(resolution = resolution, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, heroIds = heroIds, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PlayerPerformanceCurvePoint>
@@ -2062,7 +2063,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/analytics/player-performance-curve
      * Player Performance Curve
      *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param resolution Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2073,8 +2075,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
-     * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @return ApiResponse<kotlin.collections.List<PlayerPerformanceCurvePoint>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -2082,8 +2084,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun playerPerformanceCurveWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, heroIds: kotlin.String?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?) : ApiResponse<kotlin.collections.List<PlayerPerformanceCurvePoint>?> {
-        val localVariableConfig = playerPerformanceCurveRequestConfig(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, heroIds = heroIds, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, accountIds = accountIds)
+    fun playerPerformanceCurveWithHttpInfo(resolution: kotlin.Int?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, heroIds: kotlin.String?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?) : ApiResponse<kotlin.collections.List<PlayerPerformanceCurvePoint>?> {
+        val localVariableConfig = playerPerformanceCurveRequestConfig(resolution = resolution, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, heroIds = heroIds, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, accountIds = accountIds)
 
         return request<Unit, kotlin.collections.List<PlayerPerformanceCurvePoint>>(
             localVariableConfig
@@ -2093,7 +2095,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation playerPerformanceCurve
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param resolution Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2104,15 +2107,18 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
-     * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @return RequestConfig
      */
-    fun playerPerformanceCurveRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, heroIds: kotlin.String?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?) : RequestConfig<Unit> {
+    fun playerPerformanceCurveRequestConfig(resolution: kotlin.Int?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, heroIds: kotlin.String?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (resolution != null) {
+                    put("resolution", listOf(resolution.toString()))
+                }
                 if (minUnixTimestamp != null) {
                     put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
                 }
@@ -2445,7 +2451,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Player Stats Metrics
      *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2456,8 +2462,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param maxMatches The maximum number of matches to analyze. (optional)
-     * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
-     * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @return kotlin.collections.Map<kotlin.String, HashMapValue>
      * @throws IllegalStateException If the request is not correctly configured
@@ -2468,7 +2474,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun playerStatsMetrics(heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1765065600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, maxMatches: kotlin.Int? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.Map<kotlin.String, HashMapValue> {
+    fun playerStatsMetrics(heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1765152000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, maxMatches: kotlin.Int? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.Map<kotlin.String, HashMapValue> {
         val localVarResponse = playerStatsMetricsWithHttpInfo(heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, maxMatches = maxMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -2491,7 +2497,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Player Stats Metrics
      *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2502,8 +2508,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param maxMatches The maximum number of matches to analyze. (optional)
-     * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
-     * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @return ApiResponse<kotlin.collections.Map<kotlin.String, HashMapValue>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -2523,7 +2529,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * To obtain the request config of the operation playerStatsMetrics
      *
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765065600L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1765152000L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2534,8 +2540,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param maxMatches The maximum number of matches to analyze. (optional)
-     * @param includeItemIds Comma separated list of item ids to include (only heroes who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
-     * @param excludeItemIds Comma separated list of item ids to exclude (only heroes who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt; (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @return RequestConfig
      */

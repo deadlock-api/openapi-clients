@@ -96,6 +96,9 @@ All URIs are relative to *https://assets.deadlock-api.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccoladesAPI* | [**GetAccoladeByNameV2AccoladesByNameNameGet**](docs/AccoladesAPI.md#getaccoladebynamev2accoladesbynamenameget) | **Get** /v2/accolades/by-name/{name} | Get Accolade By Name
+*AccoladesAPI* | [**GetAccoladeV2AccoladesIdGet**](docs/AccoladesAPI.md#getaccoladev2accoladesidget) | **Get** /v2/accolades/{id} | Get Accolade
+*AccoladesAPI* | [**GetAccoladesV2AccoladesGet**](docs/AccoladesAPI.md#getaccoladesv2accoladesget) | **Get** /v2/accolades | Get Accolades
 *DefaultAPI* | [**GetBuildTagsV2BuildTagsGet**](docs/DefaultAPI.md#getbuildtagsv2buildtagsget) | **Get** /v2/build-tags | Get Build Tags
 *DefaultAPI* | [**GetClientVersionsV2ClientVersionsGet**](docs/DefaultAPI.md#getclientversionsv2clientversionsget) | **Get** /v2/client-versions | Get Client Versions
 *DefaultAPI* | [**GetColorsV1ColorsGet**](docs/DefaultAPI.md#getcolorsv1colorsget) | **Get** /v1/colors | Get Colors
@@ -118,6 +121,7 @@ Class | Method | HTTP request | Description
 *MiscEntitiesAPI* | [**GetMiscEntityV2MiscEntitiesIdOrClassNameGet**](docs/MiscEntitiesAPI.md#getmiscentityv2miscentitiesidorclassnameget) | **Get** /v2/misc-entities/{id_or_class_name} | Get Misc Entity
 *NPCUnitsAPI* | [**GetNpcUnitV2NpcUnitsIdOrClassNameGet**](docs/NPCUnitsAPI.md#getnpcunitv2npcunitsidorclassnameget) | **Get** /v2/npc-units/{id_or_class_name} | Get Npc Unit
 *NPCUnitsAPI* | [**GetNpcUnitsV2NpcUnitsGet**](docs/NPCUnitsAPI.md#getnpcunitsv2npcunitsget) | **Get** /v2/npc-units | Get Npc Units
+*RawAPI* | [**GetRawAccoladesRawAccoladesGet**](docs/RawAPI.md#getrawaccoladesrawaccoladesget) | **Get** /raw/accolades | Get Raw Accolades
 *RawAPI* | [**GetRawHeroesRawHeroesGet**](docs/RawAPI.md#getrawheroesrawheroesget) | **Get** /raw/heroes | Get Raw Heroes
 *RawAPI* | [**GetRawItemsRawItemsGet**](docs/RawAPI.md#getrawitemsrawitemsget) | **Get** /raw/items | Get Raw Items
 
@@ -132,6 +136,7 @@ Class | Method | HTTP request | Description
  - [AbilityV2](docs/AbilityV2.md)
  - [AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty](docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md)
  - [AbilityVideosV2](docs/AbilityVideosV2.md)
+ - [AccoladeV2](docs/AccoladeV2.md)
  - [AimingShotSpreadPenalty](docs/AimingShotSpreadPenalty.md)
  - [Bonus](docs/Bonus.md)
  - [BuildTagV2](docs/BuildTagV2.md)
@@ -143,6 +148,7 @@ Class | Method | HTTP request | Description
  - [EmpoweredModifierLevel](docs/EmpoweredModifierLevel.md)
  - [ExpirationDuration](docs/ExpirationDuration.md)
  - [FlashDataV2](docs/FlashDataV2.md)
+ - [GameMode](docs/GameMode.md)
  - [GenericDataV2](docs/GenericDataV2.md)
  - [GetItemsV2ItemsGet200ResponseInner](docs/GetItemsV2ItemsGet200ResponseInner.md)
  - [GlitchSettingsV2](docs/GlitchSettingsV2.md)
@@ -219,6 +225,8 @@ Class | Method | HTTP request | Description
  - [SubclassObjectiveRegen](docs/SubclassObjectiveRegen.md)
  - [SubclassRangedArmorModifier](docs/SubclassRangedArmorModifier.md)
  - [SubclassTrooperDamageReduction](docs/SubclassTrooperDamageReduction.md)
+ - [ThresholdType](docs/ThresholdType.md)
+ - [TrackedStatName](docs/TrackedStatName.md)
  - [TrooperDamageReduction](docs/TrooperDamageReduction.md)
  - [UpgradeDescriptionV2](docs/UpgradeDescriptionV2.md)
  - [UpgradePropertyV2](docs/UpgradePropertyV2.md)
