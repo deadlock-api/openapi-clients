@@ -39,7 +39,7 @@ No authorization required
 
 ## get_misc_entity_v2_misc_entities_id_or_class_name_get
 
-> models::NpcUnitV2 get_misc_entity_v2_misc_entities_id_or_class_name_get(id_or_class_name, client_version)
+> models::MiscV2 get_misc_entity_v2_misc_entities_id_or_class_name_get(id_or_class_name, client_version)
 Get Misc Entity
 
 ### Parameters
@@ -52,7 +52,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::NpcUnitV2**](NPCUnitV2.md)
+[**models::MiscV2**](MiscV2.md)
 
 ### Authorization
 

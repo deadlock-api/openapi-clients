@@ -658,7 +658,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NPCUnitV2"
+                $ref: "#/components/schemas/MiscV2"
           description: Successful Response
         "422":
           content:

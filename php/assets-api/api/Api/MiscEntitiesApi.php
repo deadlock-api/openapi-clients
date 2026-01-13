@@ -416,7 +416,7 @@ class MiscEntitiesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\NPCUnitV2|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \OpenAPI\Client\Model\MiscV2|\OpenAPI\Client\Model\HTTPValidationError
      */
     public function getMiscEntityV2MiscEntitiesIdOrClassNameGet($id_or_class_name, $client_version = null, string $contentType = self::contentTypes['getMiscEntityV2MiscEntitiesIdOrClassNameGet'][0])
     {
@@ -435,7 +435,7 @@ class MiscEntitiesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\NPCUnitV2|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\MiscV2|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMiscEntityV2MiscEntitiesIdOrClassNameGetWithHttpInfo($id_or_class_name, $client_version = null, string $contentType = self::contentTypes['getMiscEntityV2MiscEntitiesIdOrClassNameGet'][0])
     {
@@ -467,7 +467,7 @@ class MiscEntitiesApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\NPCUnitV2',
+                        '\OpenAPI\Client\Model\MiscV2',
                         $request,
                         $response,
                     );
@@ -495,7 +495,7 @@ class MiscEntitiesApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\NPCUnitV2',
+                '\OpenAPI\Client\Model\MiscV2',
                 $request,
                 $response,
             );
@@ -504,7 +504,7 @@ class MiscEntitiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NPCUnitV2',
+                        '\OpenAPI\Client\Model\MiscV2',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -560,7 +560,7 @@ class MiscEntitiesApi
      */
     public function getMiscEntityV2MiscEntitiesIdOrClassNameGetAsyncWithHttpInfo($id_or_class_name, $client_version = null, string $contentType = self::contentTypes['getMiscEntityV2MiscEntitiesIdOrClassNameGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\NPCUnitV2';
+        $returnType = '\OpenAPI\Client\Model\MiscV2';
         $request = $this->getMiscEntityV2MiscEntitiesIdOrClassNameGetRequest($id_or_class_name, $client_version, $contentType);
 
         return $this->client

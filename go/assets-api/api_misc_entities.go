@@ -151,7 +151,7 @@ func (r ApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest) ClientVersion(cli
 	return r
 }
 
-func (r ApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest) Execute() (*NPCUnitV2, *http.Response, error) {
+func (r ApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest) Execute() (*MiscV2, *http.Response, error) {
 	return r.ApiService.GetMiscEntityV2MiscEntitiesIdOrClassNameGetExecute(r)
 }
 
@@ -171,13 +171,13 @@ func (a *MiscEntitiesAPIService) GetMiscEntityV2MiscEntitiesIdOrClassNameGet(ctx
 }
 
 // Execute executes the request
-//  @return NPCUnitV2
-func (a *MiscEntitiesAPIService) GetMiscEntityV2MiscEntitiesIdOrClassNameGetExecute(r ApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest) (*NPCUnitV2, *http.Response, error) {
+//  @return MiscV2
+func (a *MiscEntitiesAPIService) GetMiscEntityV2MiscEntitiesIdOrClassNameGetExecute(r ApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest) (*MiscV2, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *NPCUnitV2
+		localVarReturnValue  *MiscV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscEntitiesAPIService.GetMiscEntityV2MiscEntitiesIdOrClassNameGet")

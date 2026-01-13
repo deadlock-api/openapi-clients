@@ -19,7 +19,6 @@ from typing_extensions import Annotated
 from pydantic import StrictStr
 from typing import Any, List, Optional
 from assets_deadlock_api_client.models.misc_v2 import MiscV2
-from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2
 
 from assets_deadlock_api_client.api_client import ApiClient, RequestSerialized
 from assets_deadlock_api_client.api_response import ApiResponse
@@ -318,7 +317,7 @@ class MiscEntitiesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> NPCUnitV2:
+    ) -> MiscV2:
         """Get Misc Entity
 
 
@@ -358,7 +357,7 @@ class MiscEntitiesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NPCUnitV2",
+            '200': "MiscV2",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -389,7 +388,7 @@ class MiscEntitiesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[NPCUnitV2]:
+    ) -> ApiResponse[MiscV2]:
         """Get Misc Entity
 
 
@@ -429,7 +428,7 @@ class MiscEntitiesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NPCUnitV2",
+            '200': "MiscV2",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -500,7 +499,7 @@ class MiscEntitiesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NPCUnitV2",
+            '200': "MiscV2",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

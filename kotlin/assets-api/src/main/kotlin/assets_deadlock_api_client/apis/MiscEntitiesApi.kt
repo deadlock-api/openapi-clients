@@ -22,7 +22,6 @@ import okhttp3.HttpUrl
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.MiscV2
-import assets_deadlock_api_client.models.NPCUnitV2
 
 import com.squareup.moshi.Json
 
@@ -132,7 +131,7 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * 
      * @param idOrClassName 
      * @param clientVersion  (optional)
-     * @return NPCUnitV2
+     * @return MiscV2
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -141,11 +140,11 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : NPCUnitV2 {
+    fun getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : MiscV2 {
         val localVarResponse = getMiscEntityV2MiscEntitiesIdOrClassNameGetWithHttpInfo(idOrClassName = idOrClassName, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as NPCUnitV2
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MiscV2
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -165,16 +164,16 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * 
      * @param idOrClassName 
      * @param clientVersion  (optional)
-     * @return ApiResponse<NPCUnitV2?>
+     * @return ApiResponse<MiscV2?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMiscEntityV2MiscEntitiesIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<NPCUnitV2?> {
+    fun getMiscEntityV2MiscEntitiesIdOrClassNameGetWithHttpInfo(idOrClassName: kotlin.String, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<MiscV2?> {
         val localVariableConfig = getMiscEntityV2MiscEntitiesIdOrClassNameGetRequestConfig(idOrClassName = idOrClassName, clientVersion = clientVersion)
 
-        return request<Unit, NPCUnitV2>(
+        return request<Unit, MiscV2>(
             localVariableConfig
         )
     }

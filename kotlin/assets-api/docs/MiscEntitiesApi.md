@@ -54,7 +54,7 @@ No authorization required
 
 <a id="getMiscEntityV2MiscEntitiesIdOrClassNameGet"></a>
 # **getMiscEntityV2MiscEntitiesIdOrClassNameGet**
-> NPCUnitV2 getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion)
+> MiscV2 getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion)
 
 Get Misc Entity
 
@@ -68,7 +68,7 @@ val apiInstance = MiscEntitiesApi()
 val idOrClassName : kotlin.String = idOrClassName_example // kotlin.String | 
 val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : NPCUnitV2 = apiInstance.getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion)
+    val result : MiscV2 = apiInstance.getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscEntitiesApi#getMiscEntityV2MiscEntitiesIdOrClassNameGet")
@@ -87,7 +87,7 @@ try {
 
 ### Return type
 
-[**NPCUnitV2**](NPCUnitV2.md)
+[**MiscV2**](MiscV2.md)
 
 ### Authorization
 

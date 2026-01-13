@@ -22,7 +22,6 @@ import assets_deadlock_api_client.apis.MiscEntitiesApi
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.MiscV2
-import assets_deadlock_api_client.models.NPCUnitV2
 
 class MiscEntitiesApiTest : ShouldSpec() {
     init {
@@ -42,7 +41,7 @@ class MiscEntitiesApiTest : ShouldSpec() {
             // uncomment below to test getMiscEntityV2MiscEntitiesIdOrClassNameGet
             //val idOrClassName : kotlin.String = idOrClassName_example // kotlin.String | 
             //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : NPCUnitV2 = apiInstance.getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion)
+            //val result : MiscV2 = apiInstance.getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion)
             //result shouldBe ("TODO")
         }
 

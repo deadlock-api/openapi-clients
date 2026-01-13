@@ -67,7 +67,7 @@ No authorization required
 ## `getMiscEntityV2MiscEntitiesIdOrClassNameGet()`
 
 ```php
-getMiscEntityV2MiscEntitiesIdOrClassNameGet($id_or_class_name, $client_version): \OpenAPI\Client\Model\NPCUnitV2
+getMiscEntityV2MiscEntitiesIdOrClassNameGet($id_or_class_name, $client_version): \OpenAPI\Client\Model\MiscV2
 ```
 
 Get Misc Entity
@@ -105,7 +105,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NPCUnitV2**](../Model/NPCUnitV2.md)
+[**\OpenAPI\Client\Model\MiscV2**](../Model/MiscV2.md)
 
 ### Authorization
 

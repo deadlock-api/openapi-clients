@@ -82,7 +82,7 @@ pub async fn get_misc_entities_v2_misc_entities_get(configuration: &configuratio
     }
 }
 
-pub async fn get_misc_entity_v2_misc_entities_id_or_class_name_get(configuration: &configuration::Configuration, params: GetMiscEntityV2MiscEntitiesIdOrClassNameGetParams) -> Result<models::NpcUnitV2, Error<GetMiscEntityV2MiscEntitiesIdOrClassNameGetError>> {
+pub async fn get_misc_entity_v2_misc_entities_id_or_class_name_get(configuration: &configuration::Configuration, params: GetMiscEntityV2MiscEntitiesIdOrClassNameGetParams) -> Result<models::MiscV2, Error<GetMiscEntityV2MiscEntitiesIdOrClassNameGetError>> {
 
     let uri_str = format!("{}/v2/misc-entities/{id_or_class_name}", configuration.base_path, id_or_class_name=crate::apis::urlencode(params.id_or_class_name));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -109,8 +109,8 @@ pub async fn get_misc_entity_v2_misc_entities_id_or_class_name_get(configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::NpcUnitV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::NpcUnitV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MiscV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MiscV2`")))),
         }
     } else {
         let content = resp.text().await?;

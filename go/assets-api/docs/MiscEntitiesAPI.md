@@ -75,7 +75,7 @@ No authorization required
 
 ## GetMiscEntityV2MiscEntitiesIdOrClassNameGet
 
-> NPCUnitV2 GetMiscEntityV2MiscEntitiesIdOrClassNameGet(ctx, idOrClassName).ClientVersion(clientVersion).Execute()
+> MiscV2 GetMiscEntityV2MiscEntitiesIdOrClassNameGet(ctx, idOrClassName).ClientVersion(clientVersion).Execute()
 
 Get Misc Entity
 
@@ -102,7 +102,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscEntitiesAPI.GetMiscEntityV2MiscEntitiesIdOrClassNameGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetMiscEntityV2MiscEntitiesIdOrClassNameGet`: NPCUnitV2
+	// response from `GetMiscEntityV2MiscEntitiesIdOrClassNameGet`: MiscV2
 	fmt.Fprintf(os.Stdout, "Response from `MiscEntitiesAPI.GetMiscEntityV2MiscEntitiesIdOrClassNameGet`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NPCUnitV2**](NPCUnitV2.md)
+[**MiscV2**](MiscV2.md)
 
 ### Authorization
 

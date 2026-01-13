@@ -59,7 +59,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMiscEntityV2MiscEntitiesIdOrClassNameGet**
-> NPCUnitV2 getMiscEntityV2MiscEntitiesIdOrClassNameGet()
+> MiscV2 getMiscEntityV2MiscEntitiesIdOrClassNameGet()
 
 
 ### Example
@@ -92,7 +92,7 @@ const { status, data } = await apiInstance.getMiscEntityV2MiscEntitiesIdOrClassN
 
 ### Return type
 
-**NPCUnitV2**
+**MiscV2**
 
 ### Authorization
 

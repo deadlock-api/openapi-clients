@@ -3240,7 +3240,7 @@ export const MiscEntitiesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName: string, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NPCUnitV2>> {
+        async getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName: string, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MiscV2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMiscEntityV2MiscEntitiesIdOrClassNameGet(idOrClassName, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MiscEntitiesApi.getMiscEntityV2MiscEntitiesIdOrClassNameGet']?.[localVarOperationServerIndex]?.url;
@@ -3272,7 +3272,7 @@ export const MiscEntitiesApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMiscEntityV2MiscEntitiesIdOrClassNameGet(requestParameters: MiscEntitiesApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<NPCUnitV2> {
+        getMiscEntityV2MiscEntitiesIdOrClassNameGet(requestParameters: MiscEntitiesApiGetMiscEntityV2MiscEntitiesIdOrClassNameGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MiscV2> {
             return localVarFp.getMiscEntityV2MiscEntitiesIdOrClassNameGet(requestParameters.idOrClassName, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
     };

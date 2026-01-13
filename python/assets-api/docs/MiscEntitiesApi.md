@@ -76,7 +76,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_misc_entity_v2_misc_entities_id_or_class_name_get**
-> NPCUnitV2 get_misc_entity_v2_misc_entities_id_or_class_name_get(id_or_class_name, client_version=client_version)
+> MiscV2 get_misc_entity_v2_misc_entities_id_or_class_name_get(id_or_class_name, client_version=client_version)
 
 Get Misc Entity
 
@@ -85,7 +85,7 @@ Get Misc Entity
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.npc_unit_v2 import NPCUnitV2
+from assets_deadlock_api_client.models.misc_v2 import MiscV2
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NPCUnitV2**](NPCUnitV2.md)
+[**MiscV2**](MiscV2.md)
 
 ### Authorization
 
