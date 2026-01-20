@@ -157,10 +157,10 @@ pub async fn get_build_tags_v2_build_tags_get(configuration: &configuration::Con
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -231,7 +231,7 @@ pub async fn get_colors_v1_colors_get(configuration: &configuration::Configurati
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -268,7 +268,7 @@ pub async fn get_generic_data_v2_generic_data_get(configuration: &configuration:
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -305,7 +305,7 @@ pub async fn get_icons_v1_icons_get(configuration: &configuration::Configuration
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -342,7 +342,7 @@ pub async fn get_images_v1_images_get(configuration: &configuration::Configurati
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -379,7 +379,7 @@ pub async fn get_map_v1_map_get(configuration: &configuration::Configuration, pa
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -416,10 +416,10 @@ pub async fn get_ranks_v2_ranks_get(configuration: &configuration::Configuration
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -456,7 +456,7 @@ pub async fn get_sounds_v1_sounds_get(configuration: &configuration::Configurati
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -493,7 +493,7 @@ pub async fn get_steam_info_v1_steam_info_get(configuration: &configuration::Con
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

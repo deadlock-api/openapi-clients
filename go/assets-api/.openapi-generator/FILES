@@ -36,7 +36,6 @@ docs/ExpirationDuration.md
 docs/FlashDataV2.md
 docs/GameMode.md
 docs/GenericDataV2.md
-docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/GlitchSettingsV2.md
 docs/HTTPValidationError.md
 docs/HeroColorsV2.md
@@ -61,6 +60,7 @@ docs/ItemTypeV2.md
 docs/ItemsAPI.md
 docs/LaneInfoV2.md
 docs/Language.md
+docs/LocationInner.md
 docs/MapImagesV1.md
 docs/MapV1.md
 docs/MiniMapOffsets.md
@@ -105,6 +105,7 @@ docs/RawWeaponInfoHorizontalRecoilV2.md
 docs/RawWeaponInfoVerticalRecoilV2.md
 docs/RejuvParams.md
 docs/ResponseGetItemV2ItemsIdOrClassNameGet.md
+docs/ResponseGetItemsV2ItemsGetInner.md
 docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
@@ -127,7 +128,6 @@ docs/UpgradeTooltipSectionV2.md
 docs/UpgradeV2.md
 docs/UsageFlags.md
 docs/ValidationError.md
-docs/ValidationErrorLocInner.md
 docs/Value.md
 docs/Value1.md
 docs/WeaponInfoV2.md
@@ -158,7 +158,6 @@ model_expiration_duration.go
 model_flash_data_v2.go
 model_game_mode.go
 model_generic_data_v2.go
-model_get_items_v2_items_get_200_response_inner.go
 model_glitch_settings_v2.go
 model_hero_colors_v2.go
 model_hero_description_v2.go
@@ -181,6 +180,7 @@ model_item_tier_v2.go
 model_item_type_v2.go
 model_lane_info_v2.go
 model_language.go
+model_location_inner.go
 model_map_images_v1.go
 model_map_v1.go
 model_mini_map_offsets.go
@@ -222,6 +222,7 @@ model_raw_weapon_info_horizontal_recoil_v2.go
 model_raw_weapon_info_vertical_recoil_v2.go
 model_rejuv_params.go
 model_response_get_item_v2_items__id_or_class_name__get.go
+model_response_get_items_v2_items_get_inner.go
 model_script_values.go
 model_standing_shot_spread_penalty.go
 model_stats_usage_flag_v2.go
@@ -244,7 +245,6 @@ model_upgrade_tooltip_section_v2.go
 model_upgrade_v2.go
 model_usage_flags.go
 model_validation_error.go
-model_validation_error_loc_inner.go
 model_value.go
 model_value_1.go
 model_weapon_info_v2.go

@@ -15,7 +15,7 @@
 
 package assets_deadlock_api_client.models
 
-import assets_deadlock_api_client.models.ValidationErrorLocInner
+import assets_deadlock_api_client.models.LocationInner
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -33,7 +33,7 @@ import java.io.Serializable
 data class ValidationError (
 
     @Json(name = "loc")
-    val loc: kotlin.collections.List<ValidationErrorLocInner>,
+    val loc: kotlin.collections.List<LocationInner>,
 
     @Json(name = "msg")
     val msg: kotlin.String,

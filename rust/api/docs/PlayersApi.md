@@ -171,7 +171,7 @@ Hero Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_ids** | [**Vec<u32>**](u32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
+**account_ids** | [**Vec<u32>**](U32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
@@ -212,7 +212,7 @@ Batch Steam Profile
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_ids** | [**Vec<u64>**](u64.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
+**account_ids** | [**Vec<u64>**](U64.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
 
 ### Return type
 

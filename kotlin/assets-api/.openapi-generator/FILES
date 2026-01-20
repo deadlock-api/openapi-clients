@@ -25,7 +25,6 @@ docs/ExpirationDuration.md
 docs/FlashDataV2.md
 docs/GameMode.md
 docs/GenericDataV2.md
-docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/GlitchSettingsV2.md
 docs/HTTPValidationError.md
 docs/HeroColorsV2.md
@@ -50,6 +49,7 @@ docs/ItemTypeV2.md
 docs/ItemsApi.md
 docs/LaneInfoV2.md
 docs/Language.md
+docs/LocationInner.md
 docs/MapImagesV1.md
 docs/MapV1.md
 docs/MiniMapOffsets.md
@@ -94,6 +94,7 @@ docs/RawWeaponInfoHorizontalRecoilV2.md
 docs/RawWeaponInfoVerticalRecoilV2.md
 docs/RejuvParams.md
 docs/ResponseGetItemV2ItemsIdOrClassNameGet.md
+docs/ResponseGetItemsV2ItemsGetInner.md
 docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
@@ -116,7 +117,6 @@ docs/UpgradeTooltipSectionV2.md
 docs/UpgradeV2.md
 docs/UsageFlags.md
 docs/ValidationError.md
-docs/ValidationErrorLocInner.md
 docs/Value.md
 docs/Value1.md
 docs/WeaponInfoV2.md
@@ -169,7 +169,6 @@ src/main/kotlin/assets_deadlock_api_client/models/ExpirationDuration.kt
 src/main/kotlin/assets_deadlock_api_client/models/FlashDataV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/GameMode.kt
 src/main/kotlin/assets_deadlock_api_client/models/GenericDataV2.kt
-src/main/kotlin/assets_deadlock_api_client/models/GetItemsV2ItemsGet200ResponseInner.kt
 src/main/kotlin/assets_deadlock_api_client/models/GlitchSettingsV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/HTTPValidationError.kt
 src/main/kotlin/assets_deadlock_api_client/models/HeroColorsV2.kt
@@ -192,6 +191,7 @@ src/main/kotlin/assets_deadlock_api_client/models/ItemTierV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/ItemTypeV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/LaneInfoV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/Language.kt
+src/main/kotlin/assets_deadlock_api_client/models/LocationInner.kt
 src/main/kotlin/assets_deadlock_api_client/models/MapImagesV1.kt
 src/main/kotlin/assets_deadlock_api_client/models/MapV1.kt
 src/main/kotlin/assets_deadlock_api_client/models/MiniMapOffsets.kt
@@ -233,6 +233,7 @@ src/main/kotlin/assets_deadlock_api_client/models/RawWeaponInfoHorizontalRecoilV
 src/main/kotlin/assets_deadlock_api_client/models/RawWeaponInfoVerticalRecoilV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/RejuvParams.kt
 src/main/kotlin/assets_deadlock_api_client/models/ResponseGetItemV2ItemsIdOrClassNameGet.kt
+src/main/kotlin/assets_deadlock_api_client/models/ResponseGetItemsV2ItemsGetInner.kt
 src/main/kotlin/assets_deadlock_api_client/models/ScriptValues.kt
 src/main/kotlin/assets_deadlock_api_client/models/StandingShotSpreadPenalty.kt
 src/main/kotlin/assets_deadlock_api_client/models/StatsUsageFlagV2.kt
@@ -255,7 +256,6 @@ src/main/kotlin/assets_deadlock_api_client/models/UpgradeTooltipSectionV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/UpgradeV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/UsageFlags.kt
 src/main/kotlin/assets_deadlock_api_client/models/ValidationError.kt
-src/main/kotlin/assets_deadlock_api_client/models/ValidationErrorLocInner.kt
 src/main/kotlin/assets_deadlock_api_client/models/Value.kt
 src/main/kotlin/assets_deadlock_api_client/models/Value1.kt
 src/main/kotlin/assets_deadlock_api_client/models/WeaponInfoV2.kt
@@ -290,7 +290,6 @@ src/test/kotlin/assets_deadlock_api_client/models/ExpirationDurationTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/FlashDataV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/GameModeTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/GenericDataV2Test.kt
-src/test/kotlin/assets_deadlock_api_client/models/GetItemsV2ItemsGet200ResponseInnerTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/GlitchSettingsV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/HTTPValidationErrorTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/HeroColorsV2Test.kt
@@ -313,6 +312,7 @@ src/test/kotlin/assets_deadlock_api_client/models/ItemTierV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/ItemTypeV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/LaneInfoV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/LanguageTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/LocationInnerTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/MapImagesV1Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/MapV1Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/MiniMapOffsetsTest.kt
@@ -354,6 +354,7 @@ src/test/kotlin/assets_deadlock_api_client/models/RawWeaponInfoHorizontalRecoilV
 src/test/kotlin/assets_deadlock_api_client/models/RawWeaponInfoVerticalRecoilV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/RejuvParamsTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ResponseGetItemV2ItemsIdOrClassNameGetTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/ResponseGetItemsV2ItemsGetInnerTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ScriptValuesTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/StandingShotSpreadPenaltyTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/StatsUsageFlagV2Test.kt
@@ -375,7 +376,6 @@ src/test/kotlin/assets_deadlock_api_client/models/UpgradeTooltipSectionAttribute
 src/test/kotlin/assets_deadlock_api_client/models/UpgradeTooltipSectionV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/UpgradeV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/UsageFlagsTest.kt
-src/test/kotlin/assets_deadlock_api_client/models/ValidationErrorLocInnerTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ValidationErrorTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/Value1Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/ValueTest.kt

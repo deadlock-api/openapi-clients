@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | Option<[**models::Value1**](Value_1.md)> |  | [optional]
+**value** | Option<[**models::Value1**](Value1.md)> |  | [optional]
 **can_set_token_override** | Option<**bool**> |  | [optional]
 **provided_property_type** | Option<**String**> |  | [optional]
 **css_class** | Option<**String**> |  | [optional]
-**usage_flags** | Option<[**models::UsageFlags**](Usage_Flags.md)> |  | [optional]
+**usage_flags** | Option<[**models::UsageFlags**](UsageFlags.md)> |  | [optional]
 **negative_attribute** | Option<**bool**> |  | [optional]
 **disable_value** | Option<**String**> |  | [optional]
 **loc_token_override** | Option<**String**> |  | [optional]

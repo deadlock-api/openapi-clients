@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loc** | [**Array&lt;ValidationErrorLocInner&gt;**](ValidationErrorLocInner.md) |  | [default to undefined]
+**loc** | [**Array&lt;LocationInner&gt;**](LocationInner.md) |  | [default to undefined]
 **msg** | **string** |  | [default to undefined]
 **type** | **string** |  | [default to undefined]
 

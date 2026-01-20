@@ -75,7 +75,7 @@ import java.io.Serializable
  */
 
 
-interface GetItemsV2ItemsGet200ResponseInner : Serializable {
+interface ResponseGetItemsV2ItemsGetInner : Serializable {
     companion object {
         private const val serialVersionUID: Long = 123
     }
@@ -117,7 +117,7 @@ interface GetItemsV2ItemsGet200ResponseInner : Serializable {
     @Json(name = "weapon_info")
     val weaponInfo: RawItemWeaponInfoV2?
     @Json(name = "type")
-    val type: GetItemsV2ItemsGet200ResponseInner.Type?
+    val type: ResponseGetItemsV2ItemsGetInner.Type?
     @Json(name = "behaviours")
     val behaviours: kotlin.collections.List<kotlin.String>?
     @Json(name = "tooltip_details")

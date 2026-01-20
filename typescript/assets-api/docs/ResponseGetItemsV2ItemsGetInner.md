@@ -1,4 +1,4 @@
-# GetItemsV2ItemsGet200ResponseInner
+# ResponseGetItemsV2ItemsGetInner
 
 
 ## Properties
@@ -43,9 +43,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { GetItemsV2ItemsGet200ResponseInner } from 'assets_deadlock_api_client';
+import { ResponseGetItemsV2ItemsGetInner } from 'assets_deadlock_api_client';
 
-const instance: GetItemsV2ItemsGet200ResponseInner = {
+const instance: ResponseGetItemsV2ItemsGetInner = {
     id,
     class_name,
     name,

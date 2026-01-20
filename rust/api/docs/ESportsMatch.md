@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **team1_name** | Option<**String**> | The name of the second team. | [optional]
 **tournament_name** | Option<**String**> | The name of the tournament. | [optional]
 **tournament_stage** | Option<**String**> | The stage of the tournament. | [optional]
-**update_id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> | If you want to update an existing match, you can provide an update id. | [optional]
+**update_id** | Option<**uuid::Uuid**> | If you want to update an existing match, you can provide an update id. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

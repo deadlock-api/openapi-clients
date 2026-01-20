@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Loc** | [**[]ValidationErrorLocInner**](ValidationErrorLocInner.md) |  | 
+**Loc** | [**[]LocationInner**](LocationInner.md) |  | 
 **Msg** | **string** |  | 
 **Type** | **string** |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewValidationError
 
-`func NewValidationError(loc []ValidationErrorLocInner, msg string, type_ string, ) *ValidationError`
+`func NewValidationError(loc []LocationInner, msg string, type_ string, ) *ValidationError`
 
 NewValidationError instantiates a new ValidationError object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLoc
 
-`func (o *ValidationError) GetLoc() []ValidationErrorLocInner`
+`func (o *ValidationError) GetLoc() []LocationInner`
 
 GetLoc returns the Loc field if non-nil, zero value otherwise.
 
 ### GetLocOk
 
-`func (o *ValidationError) GetLocOk() (*[]ValidationErrorLocInner, bool)`
+`func (o *ValidationError) GetLocOk() (*[]LocationInner, bool)`
 
 GetLocOk returns a tuple with the Loc field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLoc
 
-`func (o *ValidationError) SetLoc(v []ValidationErrorLocInner)`
+`func (o *ValidationError) SetLoc(v []LocationInner)`
 
 SetLoc sets Loc field to given value.
 

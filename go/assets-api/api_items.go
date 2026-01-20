@@ -170,7 +170,7 @@ func (r ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest) ClientVersion(clientVers
 	return r
 }
 
-func (r ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest) Execute() ([]GetItemsV2ItemsGet200ResponseInner, *http.Response, error) {
+func (r ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest) Execute() ([]ResponseGetItemsV2ItemsGetInner, *http.Response, error) {
 	return r.ApiService.GetItemsByHeroIdV2ItemsByHeroIdIdGetExecute(r)
 }
 
@@ -190,13 +190,13 @@ func (a *ItemsAPIService) GetItemsByHeroIdV2ItemsByHeroIdIdGet(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return []GetItemsV2ItemsGet200ResponseInner
-func (a *ItemsAPIService) GetItemsByHeroIdV2ItemsByHeroIdIdGetExecute(r ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest) ([]GetItemsV2ItemsGet200ResponseInner, *http.Response, error) {
+//  @return []ResponseGetItemsV2ItemsGetInner
+func (a *ItemsAPIService) GetItemsByHeroIdV2ItemsByHeroIdIdGetExecute(r ApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest) ([]ResponseGetItemsV2ItemsGetInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []GetItemsV2ItemsGet200ResponseInner
+		localVarReturnValue  []ResponseGetItemsV2ItemsGetInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetItemsByHeroIdV2ItemsByHeroIdIdGet")
@@ -299,7 +299,7 @@ func (r ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest) ClientVersion(
 	return r
 }
 
-func (r ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest) Execute() ([]GetItemsV2ItemsGet200ResponseInner, *http.Response, error) {
+func (r ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest) Execute() ([]ResponseGetItemsV2ItemsGetInner, *http.Response, error) {
 	return r.ApiService.GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetExecute(r)
 }
 
@@ -319,13 +319,13 @@ func (a *ItemsAPIService) GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(ctx con
 }
 
 // Execute executes the request
-//  @return []GetItemsV2ItemsGet200ResponseInner
-func (a *ItemsAPIService) GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetExecute(r ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest) ([]GetItemsV2ItemsGet200ResponseInner, *http.Response, error) {
+//  @return []ResponseGetItemsV2ItemsGetInner
+func (a *ItemsAPIService) GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetExecute(r ApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest) ([]ResponseGetItemsV2ItemsGetInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []GetItemsV2ItemsGet200ResponseInner
+		localVarReturnValue  []ResponseGetItemsV2ItemsGetInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet")
@@ -428,7 +428,7 @@ func (r ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest) ClientVersion(clientVersio
 	return r
 }
 
-func (r ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest) Execute() ([]GetItemsV2ItemsGet200ResponseInner, *http.Response, error) {
+func (r ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest) Execute() ([]ResponseGetItemsV2ItemsGetInner, *http.Response, error) {
 	return r.ApiService.GetItemsByTypeV2ItemsByTypeTypeGetExecute(r)
 }
 
@@ -448,13 +448,13 @@ func (a *ItemsAPIService) GetItemsByTypeV2ItemsByTypeTypeGet(ctx context.Context
 }
 
 // Execute executes the request
-//  @return []GetItemsV2ItemsGet200ResponseInner
-func (a *ItemsAPIService) GetItemsByTypeV2ItemsByTypeTypeGetExecute(r ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest) ([]GetItemsV2ItemsGet200ResponseInner, *http.Response, error) {
+//  @return []ResponseGetItemsV2ItemsGetInner
+func (a *ItemsAPIService) GetItemsByTypeV2ItemsByTypeTypeGetExecute(r ApiGetItemsByTypeV2ItemsByTypeTypeGetRequest) ([]ResponseGetItemsV2ItemsGetInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []GetItemsV2ItemsGet200ResponseInner
+		localVarReturnValue  []ResponseGetItemsV2ItemsGetInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetItemsByTypeV2ItemsByTypeTypeGet")
@@ -556,7 +556,7 @@ func (r ApiGetItemsV2ItemsGetRequest) ClientVersion(clientVersion DeadlockAssets
 	return r
 }
 
-func (r ApiGetItemsV2ItemsGetRequest) Execute() ([]GetItemsV2ItemsGet200ResponseInner, *http.Response, error) {
+func (r ApiGetItemsV2ItemsGetRequest) Execute() ([]ResponseGetItemsV2ItemsGetInner, *http.Response, error) {
 	return r.ApiService.GetItemsV2ItemsGetExecute(r)
 }
 
@@ -574,13 +574,13 @@ func (a *ItemsAPIService) GetItemsV2ItemsGet(ctx context.Context) ApiGetItemsV2I
 }
 
 // Execute executes the request
-//  @return []GetItemsV2ItemsGet200ResponseInner
-func (a *ItemsAPIService) GetItemsV2ItemsGetExecute(r ApiGetItemsV2ItemsGetRequest) ([]GetItemsV2ItemsGet200ResponseInner, *http.Response, error) {
+//  @return []ResponseGetItemsV2ItemsGetInner
+func (a *ItemsAPIService) GetItemsV2ItemsGetExecute(r ApiGetItemsV2ItemsGetRequest) ([]ResponseGetItemsV2ItemsGetInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []GetItemsV2ItemsGet200ResponseInner
+		localVarReturnValue  []ResponseGetItemsV2ItemsGetInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetItemsV2ItemsGet")

@@ -101,10 +101,10 @@ pub async fn get_item_v2_items_id_or_class_name_get(configuration: &configuratio
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -135,16 +135,16 @@ pub async fn get_item_v2_items_id_or_class_name_get(configuration: &configuratio
     }
 }
 
-pub async fn get_items_by_hero_id_v2_items_by_hero_id_id_get(configuration: &configuration::Configuration, params: GetItemsByHeroIdV2ItemsByHeroIdIdGetParams) -> Result<Vec<models::GetItemsV2ItemsGet200ResponseInner>, Error<GetItemsByHeroIdV2ItemsByHeroIdIdGetError>> {
+pub async fn get_items_by_hero_id_v2_items_by_hero_id_id_get(configuration: &configuration::Configuration, params: GetItemsByHeroIdV2ItemsByHeroIdIdGetParams) -> Result<Vec<models::ResponseGetItemsV2ItemsGetInner>, Error<GetItemsByHeroIdV2ItemsByHeroIdIdGetError>> {
 
     let uri_str = format!("{}/v2/items/by-hero-id/{id}", configuration.base_path, id=params.id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -165,8 +165,8 @@ pub async fn get_items_by_hero_id_v2_items_by_hero_id_id_get(configuration: &con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::GetItemsV2ItemsGet200ResponseInner&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::GetItemsV2ItemsGet200ResponseInner&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ResponseGetItemsV2ItemsGetInner&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ResponseGetItemsV2ItemsGetInner&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -175,16 +175,16 @@ pub async fn get_items_by_hero_id_v2_items_by_hero_id_id_get(configuration: &con
     }
 }
 
-pub async fn get_items_by_slot_type_v2_items_by_slot_type_slot_type_get(configuration: &configuration::Configuration, params: GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetParams) -> Result<Vec<models::GetItemsV2ItemsGet200ResponseInner>, Error<GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetError>> {
+pub async fn get_items_by_slot_type_v2_items_by_slot_type_slot_type_get(configuration: &configuration::Configuration, params: GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetParams) -> Result<Vec<models::ResponseGetItemsV2ItemsGetInner>, Error<GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetError>> {
 
     let uri_str = format!("{}/v2/items/by-slot-type/{slot_type}", configuration.base_path, slot_type=params.slot_type.to_string());
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -205,8 +205,8 @@ pub async fn get_items_by_slot_type_v2_items_by_slot_type_slot_type_get(configur
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::GetItemsV2ItemsGet200ResponseInner&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::GetItemsV2ItemsGet200ResponseInner&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ResponseGetItemsV2ItemsGetInner&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ResponseGetItemsV2ItemsGetInner&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -215,16 +215,16 @@ pub async fn get_items_by_slot_type_v2_items_by_slot_type_slot_type_get(configur
     }
 }
 
-pub async fn get_items_by_type_v2_items_by_type_type_get(configuration: &configuration::Configuration, params: GetItemsByTypeV2ItemsByTypeTypeGetParams) -> Result<Vec<models::GetItemsV2ItemsGet200ResponseInner>, Error<GetItemsByTypeV2ItemsByTypeTypeGetError>> {
+pub async fn get_items_by_type_v2_items_by_type_type_get(configuration: &configuration::Configuration, params: GetItemsByTypeV2ItemsByTypeTypeGetParams) -> Result<Vec<models::ResponseGetItemsV2ItemsGetInner>, Error<GetItemsByTypeV2ItemsByTypeTypeGetError>> {
 
     let uri_str = format!("{}/v2/items/by-type/{type}", configuration.base_path, type=params.r#type.to_string());
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -245,8 +245,8 @@ pub async fn get_items_by_type_v2_items_by_type_type_get(configuration: &configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::GetItemsV2ItemsGet200ResponseInner&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::GetItemsV2ItemsGet200ResponseInner&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ResponseGetItemsV2ItemsGetInner&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ResponseGetItemsV2ItemsGetInner&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -255,16 +255,16 @@ pub async fn get_items_by_type_v2_items_by_type_type_get(configuration: &configu
     }
 }
 
-pub async fn get_items_v2_items_get(configuration: &configuration::Configuration, params: GetItemsV2ItemsGetParams) -> Result<Vec<models::GetItemsV2ItemsGet200ResponseInner>, Error<GetItemsV2ItemsGetError>> {
+pub async fn get_items_v2_items_get(configuration: &configuration::Configuration, params: GetItemsV2ItemsGetParams) -> Result<Vec<models::ResponseGetItemsV2ItemsGetInner>, Error<GetItemsV2ItemsGetError>> {
 
     let uri_str = format!("{}/v2/items", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.language {
-        req_builder = req_builder.query(&[("language", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -285,8 +285,8 @@ pub async fn get_items_v2_items_get(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::GetItemsV2ItemsGet200ResponseInner&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::GetItemsV2ItemsGet200ResponseInner&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ResponseGetItemsV2ItemsGetInner&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ResponseGetItemsV2ItemsGetInner&gt;`")))),
         }
     } else {
         let content = resp.text().await?;

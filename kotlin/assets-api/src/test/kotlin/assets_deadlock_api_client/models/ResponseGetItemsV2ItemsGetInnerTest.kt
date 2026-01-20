@@ -18,7 +18,7 @@ package assets_deadlock_api_client.models
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
-import assets_deadlock_api_client.models.GetItemsV2ItemsGet200ResponseInner
+import assets_deadlock_api_client.models.ResponseGetItemsV2ItemsGetInner
 import assets_deadlock_api_client.models.AbilityTooltipDetailsV2
 import assets_deadlock_api_client.models.AbilityTypeV2
 import assets_deadlock_api_client.models.AbilityV2
@@ -35,10 +35,10 @@ import assets_deadlock_api_client.models.UpgradeTooltipSectionV2
 import assets_deadlock_api_client.models.UpgradeV2
 import assets_deadlock_api_client.models.WeaponV2
 
-class GetItemsV2ItemsGet200ResponseInnerTest : ShouldSpec() {
+class ResponseGetItemsV2ItemsGetInnerTest : ShouldSpec() {
     init {
-        // uncomment below to create an instance of GetItemsV2ItemsGet200ResponseInner
-        //val modelInstance = GetItemsV2ItemsGet200ResponseInner()
+        // uncomment below to create an instance of ResponseGetItemsV2ItemsGetInner
+        //val modelInstance = ResponseGetItemsV2ItemsGetInner()
 
         // to test the property `id`
         should("test id") {

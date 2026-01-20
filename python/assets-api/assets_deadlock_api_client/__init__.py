@@ -56,7 +56,6 @@ __all__ = [
     "FlashDataV2",
     "GameMode",
     "GenericDataV2",
-    "GetItemsV2ItemsGet200ResponseInner",
     "GlitchSettingsV2",
     "HTTPValidationError",
     "HeroColorsV2",
@@ -79,6 +78,7 @@ __all__ = [
     "ItemTypeV2",
     "LaneInfoV2",
     "Language",
+    "LocationInner",
     "MapImagesV1",
     "MapV1",
     "MiniMapOffsets",
@@ -120,6 +120,7 @@ __all__ = [
     "RawWeaponInfoVerticalRecoilV2",
     "RejuvParams",
     "ResponseGetItemV2ItemsIdOrClassNameGet",
+    "ResponseGetItemsV2ItemsGetInner",
     "ScriptValues",
     "StandingShotSpreadPenalty",
     "StatsUsageFlagV2",
@@ -142,7 +143,6 @@ __all__ = [
     "UpgradeV2",
     "UsageFlags",
     "ValidationError",
-    "ValidationErrorLocInner",
     "Value",
     "Value1",
     "WeaponInfoV2",
@@ -193,7 +193,6 @@ from assets_deadlock_api_client.models.expiration_duration import ExpirationDura
 from assets_deadlock_api_client.models.flash_data_v2 import FlashDataV2 as FlashDataV2
 from assets_deadlock_api_client.models.game_mode import GameMode as GameMode
 from assets_deadlock_api_client.models.generic_data_v2 import GenericDataV2 as GenericDataV2
-from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner as GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.glitch_settings_v2 import GlitchSettingsV2 as GlitchSettingsV2
 from assets_deadlock_api_client.models.http_validation_error import HTTPValidationError as HTTPValidationError
 from assets_deadlock_api_client.models.hero_colors_v2 import HeroColorsV2 as HeroColorsV2
@@ -216,6 +215,7 @@ from assets_deadlock_api_client.models.item_tier_v2 import ItemTierV2 as ItemTie
 from assets_deadlock_api_client.models.item_type_v2 import ItemTypeV2 as ItemTypeV2
 from assets_deadlock_api_client.models.lane_info_v2 import LaneInfoV2 as LaneInfoV2
 from assets_deadlock_api_client.models.language import Language as Language
+from assets_deadlock_api_client.models.location_inner import LocationInner as LocationInner
 from assets_deadlock_api_client.models.map_images_v1 import MapImagesV1 as MapImagesV1
 from assets_deadlock_api_client.models.map_v1 import MapV1 as MapV1
 from assets_deadlock_api_client.models.mini_map_offsets import MiniMapOffsets as MiniMapOffsets
@@ -257,6 +257,7 @@ from assets_deadlock_api_client.models.raw_weapon_info_horizontal_recoil_v2 impo
 from assets_deadlock_api_client.models.raw_weapon_info_vertical_recoil_v2 import RawWeaponInfoVerticalRecoilV2 as RawWeaponInfoVerticalRecoilV2
 from assets_deadlock_api_client.models.rejuv_params import RejuvParams as RejuvParams
 from assets_deadlock_api_client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet as ResponseGetItemV2ItemsIdOrClassNameGet
+from assets_deadlock_api_client.models.response_get_items_v2_items_get_inner import ResponseGetItemsV2ItemsGetInner as ResponseGetItemsV2ItemsGetInner
 from assets_deadlock_api_client.models.script_values import ScriptValues as ScriptValues
 from assets_deadlock_api_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty as StandingShotSpreadPenalty
 from assets_deadlock_api_client.models.stats_usage_flag_v2 import StatsUsageFlagV2 as StatsUsageFlagV2
@@ -279,7 +280,6 @@ from assets_deadlock_api_client.models.upgrade_tooltip_section_v2 import Upgrade
 from assets_deadlock_api_client.models.upgrade_v2 import UpgradeV2 as UpgradeV2
 from assets_deadlock_api_client.models.usage_flags import UsageFlags as UsageFlags
 from assets_deadlock_api_client.models.validation_error import ValidationError as ValidationError
-from assets_deadlock_api_client.models.validation_error_loc_inner import ValidationErrorLocInner as ValidationErrorLocInner
 from assets_deadlock_api_client.models.value import Value as Value
 from assets_deadlock_api_client.models.value1 import Value1 as Value1
 from assets_deadlock_api_client.models.weapon_info_v2 import WeaponInfoV2 as WeaponInfoV2

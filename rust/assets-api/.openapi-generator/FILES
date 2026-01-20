@@ -27,7 +27,6 @@ docs/ExpirationDuration.md
 docs/FlashDataV2.md
 docs/GameMode.md
 docs/GenericDataV2.md
-docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/GlitchSettingsV2.md
 docs/HeroColorsV2.md
 docs/HeroDescriptionV2.md
@@ -52,6 +51,7 @@ docs/ItemTypeV2.md
 docs/ItemsApi.md
 docs/LaneInfoV2.md
 docs/Language.md
+docs/LocationInner.md
 docs/MapImagesV1.md
 docs/MapV1.md
 docs/MiniMapOffsets.md
@@ -96,6 +96,7 @@ docs/RawWeaponInfoHorizontalRecoilV2.md
 docs/RawWeaponInfoVerticalRecoilV2.md
 docs/RejuvParams.md
 docs/ResponseGetItemV2ItemsIdOrClassNameGet.md
+docs/ResponseGetItemsV2ItemsGetInner.md
 docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
@@ -118,7 +119,6 @@ docs/UpgradeTooltipSectionV2.md
 docs/UpgradeV2.md
 docs/UsageFlags.md
 docs/ValidationError.md
-docs/ValidationErrorLocInner.md
 docs/Value.md
 docs/Value1.md
 docs/WeaponInfoV2.md
@@ -157,7 +157,6 @@ src/models/expiration_duration.rs
 src/models/flash_data_v2.rs
 src/models/game_mode.rs
 src/models/generic_data_v2.rs
-src/models/get_items_v2_items_get_200_response_inner.rs
 src/models/glitch_settings_v2.rs
 src/models/hero_colors_v2.rs
 src/models/hero_description_v2.rs
@@ -180,6 +179,7 @@ src/models/item_tier_v2.rs
 src/models/item_type_v2.rs
 src/models/lane_info_v2.rs
 src/models/language.rs
+src/models/location_inner.rs
 src/models/map_images_v1.rs
 src/models/map_v1.rs
 src/models/mini_map_offsets.rs
@@ -222,6 +222,7 @@ src/models/raw_weapon_info_horizontal_recoil_v2.rs
 src/models/raw_weapon_info_vertical_recoil_v2.rs
 src/models/rejuv_params.rs
 src/models/response_get_item_v2_items__id_or_class_name__get.rs
+src/models/response_get_items_v2_items_get_inner.rs
 src/models/script_values.rs
 src/models/standing_shot_spread_penalty.rs
 src/models/stats_usage_flag_v2.rs
@@ -244,7 +245,6 @@ src/models/upgrade_tooltip_section_v2.rs
 src/models/upgrade_v2.rs
 src/models/usage_flags.rs
 src/models/validation_error.rs
-src/models/validation_error_loc_inner.rs
 src/models/value.rs
 src/models/value_1.rs
 src/models/weapon_info_v2.rs

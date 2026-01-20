@@ -16,37 +16,37 @@ import (
 	"gopkg.in/validator.v2"
 )
 
-// GetItemsV2ItemsGet200ResponseInner - struct for GetItemsV2ItemsGet200ResponseInner
-type GetItemsV2ItemsGet200ResponseInner struct {
+// ResponseGetItemsV2ItemsGetInner - struct for ResponseGetItemsV2ItemsGetInner
+type ResponseGetItemsV2ItemsGetInner struct {
 	AbilityV2 *AbilityV2
 	UpgradeV2 *UpgradeV2
 	WeaponV2 *WeaponV2
 }
 
-// AbilityV2AsGetItemsV2ItemsGet200ResponseInner is a convenience function that returns AbilityV2 wrapped in GetItemsV2ItemsGet200ResponseInner
-func AbilityV2AsGetItemsV2ItemsGet200ResponseInner(v *AbilityV2) GetItemsV2ItemsGet200ResponseInner {
-	return GetItemsV2ItemsGet200ResponseInner{
+// AbilityV2AsResponseGetItemsV2ItemsGetInner is a convenience function that returns AbilityV2 wrapped in ResponseGetItemsV2ItemsGetInner
+func AbilityV2AsResponseGetItemsV2ItemsGetInner(v *AbilityV2) ResponseGetItemsV2ItemsGetInner {
+	return ResponseGetItemsV2ItemsGetInner{
 		AbilityV2: v,
 	}
 }
 
-// UpgradeV2AsGetItemsV2ItemsGet200ResponseInner is a convenience function that returns UpgradeV2 wrapped in GetItemsV2ItemsGet200ResponseInner
-func UpgradeV2AsGetItemsV2ItemsGet200ResponseInner(v *UpgradeV2) GetItemsV2ItemsGet200ResponseInner {
-	return GetItemsV2ItemsGet200ResponseInner{
+// UpgradeV2AsResponseGetItemsV2ItemsGetInner is a convenience function that returns UpgradeV2 wrapped in ResponseGetItemsV2ItemsGetInner
+func UpgradeV2AsResponseGetItemsV2ItemsGetInner(v *UpgradeV2) ResponseGetItemsV2ItemsGetInner {
+	return ResponseGetItemsV2ItemsGetInner{
 		UpgradeV2: v,
 	}
 }
 
-// WeaponV2AsGetItemsV2ItemsGet200ResponseInner is a convenience function that returns WeaponV2 wrapped in GetItemsV2ItemsGet200ResponseInner
-func WeaponV2AsGetItemsV2ItemsGet200ResponseInner(v *WeaponV2) GetItemsV2ItemsGet200ResponseInner {
-	return GetItemsV2ItemsGet200ResponseInner{
+// WeaponV2AsResponseGetItemsV2ItemsGetInner is a convenience function that returns WeaponV2 wrapped in ResponseGetItemsV2ItemsGetInner
+func WeaponV2AsResponseGetItemsV2ItemsGetInner(v *WeaponV2) ResponseGetItemsV2ItemsGetInner {
+	return ResponseGetItemsV2ItemsGetInner{
 		WeaponV2: v,
 	}
 }
 
 
 // Unmarshal JSON data into one of the pointers in the struct
-func (dst *GetItemsV2ItemsGet200ResponseInner) UnmarshalJSON(data []byte) error {
+func (dst *ResponseGetItemsV2ItemsGetInner) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into AbilityV2
@@ -106,16 +106,16 @@ func (dst *GetItemsV2ItemsGet200ResponseInner) UnmarshalJSON(data []byte) error 
 		dst.UpgradeV2 = nil
 		dst.WeaponV2 = nil
 
-		return fmt.Errorf("data matches more than one schema in oneOf(GetItemsV2ItemsGet200ResponseInner)")
+		return fmt.Errorf("data matches more than one schema in oneOf(ResponseGetItemsV2ItemsGetInner)")
 	} else if match == 1 {
 		return nil // exactly one match
 	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(GetItemsV2ItemsGet200ResponseInner)")
+		return fmt.Errorf("data failed to match schemas in oneOf(ResponseGetItemsV2ItemsGetInner)")
 	}
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src GetItemsV2ItemsGet200ResponseInner) MarshalJSON() ([]byte, error) {
+func (src ResponseGetItemsV2ItemsGetInner) MarshalJSON() ([]byte, error) {
 	if src.AbilityV2 != nil {
 		return json.Marshal(&src.AbilityV2)
 	}
@@ -132,7 +132,7 @@ func (src GetItemsV2ItemsGet200ResponseInner) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *GetItemsV2ItemsGet200ResponseInner) GetActualInstance() (interface{}) {
+func (obj *ResponseGetItemsV2ItemsGetInner) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
@@ -153,7 +153,7 @@ func (obj *GetItemsV2ItemsGet200ResponseInner) GetActualInstance() (interface{})
 }
 
 // Get the actual instance value
-func (obj GetItemsV2ItemsGet200ResponseInner) GetActualInstanceValue() (interface{}) {
+func (obj ResponseGetItemsV2ItemsGetInner) GetActualInstanceValue() (interface{}) {
 	if obj.AbilityV2 != nil {
 		return *obj.AbilityV2
 	}
@@ -170,38 +170,38 @@ func (obj GetItemsV2ItemsGet200ResponseInner) GetActualInstanceValue() (interfac
 	return nil
 }
 
-type NullableGetItemsV2ItemsGet200ResponseInner struct {
-	value *GetItemsV2ItemsGet200ResponseInner
+type NullableResponseGetItemsV2ItemsGetInner struct {
+	value *ResponseGetItemsV2ItemsGetInner
 	isSet bool
 }
 
-func (v NullableGetItemsV2ItemsGet200ResponseInner) Get() *GetItemsV2ItemsGet200ResponseInner {
+func (v NullableResponseGetItemsV2ItemsGetInner) Get() *ResponseGetItemsV2ItemsGetInner {
 	return v.value
 }
 
-func (v *NullableGetItemsV2ItemsGet200ResponseInner) Set(val *GetItemsV2ItemsGet200ResponseInner) {
+func (v *NullableResponseGetItemsV2ItemsGetInner) Set(val *ResponseGetItemsV2ItemsGetInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGetItemsV2ItemsGet200ResponseInner) IsSet() bool {
+func (v NullableResponseGetItemsV2ItemsGetInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGetItemsV2ItemsGet200ResponseInner) Unset() {
+func (v *NullableResponseGetItemsV2ItemsGetInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGetItemsV2ItemsGet200ResponseInner(val *GetItemsV2ItemsGet200ResponseInner) *NullableGetItemsV2ItemsGet200ResponseInner {
-	return &NullableGetItemsV2ItemsGet200ResponseInner{value: val, isSet: true}
+func NewNullableResponseGetItemsV2ItemsGetInner(val *ResponseGetItemsV2ItemsGetInner) *NullableResponseGetItemsV2ItemsGetInner {
+	return &NullableResponseGetItemsV2ItemsGetInner{value: val, isSet: true}
 }
 
-func (v NullableGetItemsV2ItemsGet200ResponseInner) MarshalJSON() ([]byte, error) {
+func (v NullableResponseGetItemsV2ItemsGetInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGetItemsV2ItemsGet200ResponseInner) UnmarshalJSON(src []byte) error {
+func (v *NullableResponseGetItemsV2ItemsGetInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

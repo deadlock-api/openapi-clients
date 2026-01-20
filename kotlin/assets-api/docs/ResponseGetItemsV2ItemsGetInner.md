@@ -1,5 +1,5 @@
 
-# GetItemsV2ItemsGet200ResponseInner
+# ResponseGetItemsV2ItemsGetInner
 
 ## Properties
 | Name | Type | Description | Notes |

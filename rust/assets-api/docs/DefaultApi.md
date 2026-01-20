@@ -27,8 +27,8 @@ Get Build Tags
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**language** | Option<[**models::Language**](.md)> |  |  |
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<[**models::Language**](Models__Language.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 
 ### Return type
 
@@ -81,7 +81,7 @@ Get Colors
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 
 ### Return type
 
@@ -109,7 +109,7 @@ Get Generic Data
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 
 ### Return type
 
@@ -137,7 +137,7 @@ Get Icons
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 
 ### Return type
 
@@ -165,7 +165,7 @@ Get Images
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 
 ### Return type
 
@@ -193,7 +193,7 @@ Get Map
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 
 ### Return type
 
@@ -221,8 +221,8 @@ Get Ranks
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**language** | Option<[**models::Language**](.md)> |  |  |
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<[**models::Language**](Models__Language.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 
 ### Return type
 
@@ -250,7 +250,7 @@ Get Sounds
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 
 ### Return type
 
@@ -278,7 +278,7 @@ Get Steam Info
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 
 ### Return type
 

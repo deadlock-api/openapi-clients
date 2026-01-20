@@ -51,7 +51,7 @@ pub async fn get_npc_unit_v2_npc_units_id_or_class_name_get(configuration: &conf
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -88,7 +88,7 @@ pub async fn get_npc_units_v2_npc_units_get(configuration: &configuration::Confi
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

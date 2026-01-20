@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **update_time** | Option<**i32**> |  | [optional]
 **properties** | Option<[**std::collections::HashMap<String, models::ItemPropertyV2>**](ItemPropertyV2.md)> |  | [optional]
 **weapon_info** | Option<[**models::WeaponInfoV2**](WeaponInfoV2.md)> |  | [optional]
-**r#type** | Option<**String**> |  | [optional][default to Weapon]
+**r#type** | Option<**Type**> |  (enum: weapon) | [optional][default to Weapon]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,11 +24,11 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-GETITEMSV2ITEMSGET200RESPONSEINNER_ONE_OF_SCHEMAS = ["AbilityV2", "UpgradeV2", "WeaponV2"]
+RESPONSEGETITEMSV2ITEMSGETINNER_ONE_OF_SCHEMAS = ["AbilityV2", "UpgradeV2", "WeaponV2"]
 
-class GetItemsV2ItemsGet200ResponseInner(BaseModel):
+class ResponseGetItemsV2ItemsGetInner(BaseModel):
     """
-    GetItemsV2ItemsGet200ResponseInner
+    ResponseGetItemsV2ItemsGetInner
     """
     # data type: AbilityV2
     oneof_schema_1_validator: Optional[AbilityV2] = None
@@ -60,7 +60,7 @@ class GetItemsV2ItemsGet200ResponseInner(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_oneof(cls, v):
-        instance = GetItemsV2ItemsGet200ResponseInner.model_construct()
+        instance = ResponseGetItemsV2ItemsGetInner.model_construct()
         error_messages = []
         match = 0
         # validate data type: AbilityV2
@@ -80,10 +80,10 @@ class GetItemsV2ItemsGet200ResponseInner(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in ResponseGetItemsV2ItemsGetInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in ResponseGetItemsV2ItemsGetInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -119,10 +119,10 @@ class GetItemsV2ItemsGet200ResponseInner(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into ResponseGetItemsV2ItemsGetInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into GetItemsV2ItemsGet200ResponseInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ResponseGetItemsV2ItemsGetInner with oneOf schemas: AbilityV2, UpgradeV2, WeaponV2. Details: " + ", ".join(error_messages))
         else:
             return instance
 

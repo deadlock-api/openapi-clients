@@ -26,7 +26,7 @@ import java.io.Serializable
  */
 
 
-class ValidationErrorLocInner (
+class LocationInner (
 
 ) : Serializable {
     companion object {

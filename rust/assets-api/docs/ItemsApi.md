@@ -44,7 +44,7 @@ No authorization required
 
 ## get_items_by_hero_id_v2_items_by_hero_id_id_get
 
-> Vec<models::GetItemsV2ItemsGet200ResponseInner> get_items_by_hero_id_v2_items_by_hero_id_id_get(id, language, client_version)
+> Vec<models::ResponseGetItemsV2ItemsGetInner> get_items_by_hero_id_v2_items_by_hero_id_id_get(id, language, client_version)
 Get Items By Hero Id
 
 ### Parameters
@@ -58,7 +58,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::GetItemsV2ItemsGet200ResponseInner>**](get_items_v2_items_get_200_response_inner.md)
+[**Vec<models::ResponseGetItemsV2ItemsGetInner>**](Response_Get_Items_V2_Items_Get_inner.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ No authorization required
 
 ## get_items_by_slot_type_v2_items_by_slot_type_slot_type_get
 
-> Vec<models::GetItemsV2ItemsGet200ResponseInner> get_items_by_slot_type_v2_items_by_slot_type_slot_type_get(slot_type, language, client_version)
+> Vec<models::ResponseGetItemsV2ItemsGetInner> get_items_by_slot_type_v2_items_by_slot_type_slot_type_get(slot_type, language, client_version)
 Get Items By Slot Type
 
 ### Parameters
@@ -82,13 +82,13 @@ Get Items By Slot Type
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**slot_type** | [**ItemSlotTypeV2**](.md) |  | [required] |
+**slot_type** | [**ItemSlotTypeV2**](ItemSlotTypeV2.md) |  | [required] |
 **language** | Option<**String**> |  |  |
 **client_version** | Option<**String**> |  |  |
 
 ### Return type
 
-[**Vec<models::GetItemsV2ItemsGet200ResponseInner>**](get_items_v2_items_get_200_response_inner.md)
+[**Vec<models::ResponseGetItemsV2ItemsGetInner>**](Response_Get_Items_V2_Items_Get_inner.md)
 
 ### Authorization
 
@@ -104,7 +104,7 @@ No authorization required
 
 ## get_items_by_type_v2_items_by_type_type_get
 
-> Vec<models::GetItemsV2ItemsGet200ResponseInner> get_items_by_type_v2_items_by_type_type_get(r#type, language, client_version)
+> Vec<models::ResponseGetItemsV2ItemsGetInner> get_items_by_type_v2_items_by_type_type_get(r#type, language, client_version)
 Get Items By Type
 
 ### Parameters
@@ -112,13 +112,13 @@ Get Items By Type
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**r#type** | [**ItemTypeV2**](.md) |  | [required] |
+**r#type** | [**ItemTypeV2**](ItemTypeV2.md) |  | [required] |
 **language** | Option<**String**> |  |  |
 **client_version** | Option<**String**> |  |  |
 
 ### Return type
 
-[**Vec<models::GetItemsV2ItemsGet200ResponseInner>**](get_items_v2_items_get_200_response_inner.md)
+[**Vec<models::ResponseGetItemsV2ItemsGetInner>**](Response_Get_Items_V2_Items_Get_inner.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ No authorization required
 
 ## get_items_v2_items_get
 
-> Vec<models::GetItemsV2ItemsGet200ResponseInner> get_items_v2_items_get(language, client_version)
+> Vec<models::ResponseGetItemsV2ItemsGetInner> get_items_v2_items_get(language, client_version)
 Get Items
 
 ### Parameters
@@ -142,12 +142,12 @@ Get Items
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**language** | Option<[**models::Language**](.md)> |  |  |
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<[**models::Language**](Models__Language.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 
 ### Return type
 
-[**Vec<models::GetItemsV2ItemsGet200ResponseInner>**](get_items_v2_items_get_200_response_inner.md)
+[**Vec<models::ResponseGetItemsV2ItemsGetInner>**](Response_Get_Items_V2_Items_Get_inner.md)
 
 ### Authorization
 

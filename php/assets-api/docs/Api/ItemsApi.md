@@ -74,7 +74,7 @@ No authorization required
 ## `getItemsByHeroIdV2ItemsByHeroIdIdGet()`
 
 ```php
-getItemsByHeroIdV2ItemsByHeroIdIdGet($id, $language, $client_version): \OpenAPI\Client\Model\GetItemsV2ItemsGet200ResponseInner[]
+getItemsByHeroIdV2ItemsByHeroIdIdGet($id, $language, $client_version): \OpenAPI\Client\Model\ResponseGetItemsV2ItemsGetInner[]
 ```
 
 Get Items By Hero Id
@@ -114,7 +114,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetItemsV2ItemsGet200ResponseInner[]**](../Model/GetItemsV2ItemsGet200ResponseInner.md)
+[**\OpenAPI\Client\Model\ResponseGetItemsV2ItemsGetInner[]**](../Model/ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ No authorization required
 ## `getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet()`
 
 ```php
-getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet($slot_type, $language, $client_version): \OpenAPI\Client\Model\GetItemsV2ItemsGet200ResponseInner[]
+getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet($slot_type, $language, $client_version): \OpenAPI\Client\Model\ResponseGetItemsV2ItemsGetInner[]
 ```
 
 Get Items By Slot Type
@@ -172,7 +172,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetItemsV2ItemsGet200ResponseInner[]**](../Model/GetItemsV2ItemsGet200ResponseInner.md)
+[**\OpenAPI\Client\Model\ResponseGetItemsV2ItemsGetInner[]**](../Model/ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ No authorization required
 ## `getItemsByTypeV2ItemsByTypeTypeGet()`
 
 ```php
-getItemsByTypeV2ItemsByTypeTypeGet($type, $language, $client_version): \OpenAPI\Client\Model\GetItemsV2ItemsGet200ResponseInner[]
+getItemsByTypeV2ItemsByTypeTypeGet($type, $language, $client_version): \OpenAPI\Client\Model\ResponseGetItemsV2ItemsGetInner[]
 ```
 
 Get Items By Type
@@ -230,7 +230,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetItemsV2ItemsGet200ResponseInner[]**](../Model/GetItemsV2ItemsGet200ResponseInner.md)
+[**\OpenAPI\Client\Model\ResponseGetItemsV2ItemsGetInner[]**](../Model/ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -248,7 +248,7 @@ No authorization required
 ## `getItemsV2ItemsGet()`
 
 ```php
-getItemsV2ItemsGet($language, $client_version): \OpenAPI\Client\Model\GetItemsV2ItemsGet200ResponseInner[]
+getItemsV2ItemsGet($language, $client_version): \OpenAPI\Client\Model\ResponseGetItemsV2ItemsGetInner[]
 ```
 
 Get Items
@@ -286,7 +286,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetItemsV2ItemsGet200ResponseInner[]**](../Model/GetItemsV2ItemsGet200ResponseInner.md)
+[**\OpenAPI\Client\Model\ResponseGetItemsV2ItemsGetInner[]**](../Model/ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 

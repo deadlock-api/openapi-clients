@@ -30,7 +30,6 @@ docs/ExpirationDuration.md
 docs/FlashDataV2.md
 docs/GameMode.md
 docs/GenericDataV2.md
-docs/GetItemsV2ItemsGet200ResponseInner.md
 docs/GlitchSettingsV2.md
 docs/HTTPValidationError.md
 docs/HeroColorsV2.md
@@ -55,6 +54,7 @@ docs/ItemTypeV2.md
 docs/ItemsApi.md
 docs/LaneInfoV2.md
 docs/Language.md
+docs/LocationInner.md
 docs/MapImagesV1.md
 docs/MapV1.md
 docs/MiniMapOffsets.md
@@ -99,6 +99,7 @@ docs/RawWeaponInfoHorizontalRecoilV2.md
 docs/RawWeaponInfoVerticalRecoilV2.md
 docs/RejuvParams.md
 docs/ResponseGetItemV2ItemsIdOrClassNameGet.md
+docs/ResponseGetItemsV2ItemsGetInner.md
 docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
@@ -121,7 +122,6 @@ docs/UpgradeTooltipSectionV2.md
 docs/UpgradeV2.md
 docs/UsageFlags.md
 docs/ValidationError.md
-docs/ValidationErrorLocInner.md
 docs/Value.md
 docs/Value1.md
 docs/WeaponInfoV2.md

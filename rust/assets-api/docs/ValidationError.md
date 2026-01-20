@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loc** | [**Vec<models::ValidationErrorLocInner>**](ValidationError_loc_inner.md) |  | 
+**loc** | [**Vec<models::LocationInner>**](LocationInner.md) |  | 
 **msg** | **String** |  | 
 **r#type** | **String** |  | 
 

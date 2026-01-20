@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from './common';
 import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
@@ -247,11 +247,6 @@ export interface GenericDataV2 {
     'armor_groups': Array<ItemGroup>;
     'spirit_groups': Array<ItemGroup>;
 }
-/**
- * @type GetItemsV2ItemsGet200ResponseInner
- */
-export type GetItemsV2ItemsGet200ResponseInner = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
-
 export interface GlitchSettingsV2 {
     'strength': number;
     'uantize_type': number;
@@ -526,6 +521,8 @@ export const Language = {
 export type Language = typeof Language[keyof typeof Language];
 
 
+export interface LocationInner {
+}
 export interface MapImagesV1 {
     /**
      * The minimap image of the map.
@@ -945,6 +942,11 @@ export interface RejuvParams {
  */
 export type ResponseGetItemV2ItemsIdOrClassNameGet = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
 
+/**
+ * @type ResponseGetItemsV2ItemsGetInner
+ */
+export type ResponseGetItemsV2ItemsGetInner = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
+
 export interface ScriptValues {
     'modifier_value'?: string | null;
     'value'?: number | null;
@@ -1122,11 +1124,9 @@ export type UpgradeV2TypeEnum = typeof UpgradeV2TypeEnum[keyof typeof UpgradeV2T
 export interface UsageFlags {
 }
 export interface ValidationError {
-    'loc': Array<ValidationErrorLocInner>;
+    'loc': Array<LocationInner>;
     'msg': string;
     'type': string;
-}
-export interface ValidationErrorLocInner {
 }
 export interface Value {
 }
@@ -2904,7 +2904,7 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsByHeroIdV2ItemsByHeroIdIdGet(id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsByHeroIdV2ItemsByHeroIdIdGet(id: number, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ResponseGetItemsV2ItemsGetInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsByHeroIdV2ItemsByHeroIdIdGet']?.[localVarOperationServerIndex]?.url;
@@ -2919,7 +2919,7 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ResponseGetItemsV2ItemsGetInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet']?.[localVarOperationServerIndex]?.url;
@@ -2934,7 +2934,7 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ResponseGetItemsV2ItemsGetInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsByTypeV2ItemsByTypeTypeGet']?.[localVarOperationServerIndex]?.url;
@@ -2948,7 +2948,7 @@ export const ItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemsV2ItemsGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>>> {
+        async getItemsV2ItemsGet(language?: Language | null, clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ResponseGetItemsV2ItemsGetInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getItemsV2ItemsGet(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ItemsApi.getItemsV2ItemsGet']?.[localVarOperationServerIndex]?.url;
@@ -2980,7 +2980,7 @@ export const ItemsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsByHeroIdV2ItemsByHeroIdIdGet(requestParameters: ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
+        getItemsByHeroIdV2ItemsByHeroIdIdGet(requestParameters: ItemsApiGetItemsByHeroIdV2ItemsByHeroIdIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<ResponseGetItemsV2ItemsGetInner>> {
             return localVarFp.getItemsByHeroIdV2ItemsByHeroIdIdGet(requestParameters.id, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2990,7 +2990,7 @@ export const ItemsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(requestParameters: ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
+        getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(requestParameters: ItemsApiGetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<ResponseGetItemsV2ItemsGetInner>> {
             return localVarFp.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(requestParameters.slotType, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3000,7 +3000,7 @@ export const ItemsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsByTypeV2ItemsByTypeTypeGet(requestParameters: ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
+        getItemsByTypeV2ItemsByTypeTypeGet(requestParameters: ItemsApiGetItemsByTypeV2ItemsByTypeTypeGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<ResponseGetItemsV2ItemsGetInner>> {
             return localVarFp.getItemsByTypeV2ItemsByTypeTypeGet(requestParameters.type, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3010,7 +3010,7 @@ export const ItemsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemsV2ItemsGet(requestParameters: ItemsApiGetItemsV2ItemsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<GetItemsV2ItemsGet200ResponseInner>> {
+        getItemsV2ItemsGet(requestParameters: ItemsApiGetItemsV2ItemsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<ResponseGetItemsV2ItemsGetInner>> {
             return localVarFp.getItemsV2ItemsGet(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
     };

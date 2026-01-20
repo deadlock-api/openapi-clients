@@ -64,7 +64,7 @@ pub async fn get_raw_accolades_raw_accolades_get(configuration: &configuration::
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -101,7 +101,7 @@ pub async fn get_raw_heroes_raw_heroes_get(configuration: &configuration::Config
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -138,7 +138,7 @@ pub async fn get_raw_items_raw_items_get(configuration: &configuration::Configur
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

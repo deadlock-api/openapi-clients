@@ -70,6 +70,7 @@ paths:
               schema:
                 items:
                   $ref: "#/components/schemas/HeroV2"
+                title: Response Get Heroes V2 Heroes Get
                 type: array
           description: Successful Response
         "422":
@@ -201,7 +202,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                  $ref: "#/components/schemas/Response_Get_Items_V2_Items_Get_inner"
+                title: Response Get Items V2 Items Get
                 type: array
           description: Successful Response
         "422":
@@ -294,7 +296,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                  $ref: "#/components/schemas/Response_Get_Items_V2_Items_Get_inner"
+                title: Response Get Items By Type V2 Items By Type  Type  Get
                 type: array
           description: Successful Response
         "422":
@@ -342,7 +345,8 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                  $ref: "#/components/schemas/Response_Get_Items_V2_Items_Get_inner"
+                title: Response Get Items By Hero Id V2 Items By Hero Id  Id  Get
                 type: array
           description: Successful Response
         "422":
@@ -389,7 +393,9 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/get_items_v2_items_get_200_response_inner"
+                  $ref: "#/components/schemas/Response_Get_Items_V2_Items_Get_inner"
+                title: Response Get Items By Slot Type V2 Items By Slot Type  Slot
+                  Type  Get
                 type: array
           description: Successful Response
         "422":
@@ -430,6 +436,7 @@ paths:
               schema:
                 items:
                   $ref: "#/components/schemas/AccoladeV2"
+                title: Response Get Accolades V2 Accolades Get
                 type: array
           description: Successful Response
         "422":
@@ -553,6 +560,7 @@ paths:
               schema:
                 items:
                   $ref: "#/components/schemas/NPCUnitV2"
+                title: Response Get Npc Units V2 Npc Units Get
                 type: array
           description: Successful Response
         "422":
@@ -621,6 +629,7 @@ paths:
               schema:
                 items:
                   $ref: "#/components/schemas/MiscV2"
+                title: Response Get Misc Entities V2 Misc Entities Get
                 type: array
           description: Successful Response
         "422":
@@ -679,6 +688,7 @@ paths:
               schema:
                 items:
                   type: integer
+                title: Response Get Client Versions V2 Client Versions Get
                 type: array
           description: Successful Response
       summary: Get Client Versions
@@ -711,6 +721,7 @@ paths:
               schema:
                 items:
                   $ref: "#/components/schemas/RankV2"
+                title: Response Get Ranks V2 Ranks Get
                 type: array
           description: Successful Response
         "422":
@@ -749,6 +760,7 @@ paths:
               schema:
                 items:
                   $ref: "#/components/schemas/BuildTagV2"
+                title: Response Get Build Tags V2 Build Tags Get
                 type: array
           description: Successful Response
         "422":
@@ -1831,10 +1843,12 @@ components:
         lane_info:
           items:
             $ref: "#/components/schemas/LaneInfoV2"
+          title: Lane Info
           type: array
         new_player_metrics:
           items:
             $ref: "#/components/schemas/NewPlayerMetricsV2"
+          title: New Player Metrics
           type: array
         minimap_team_rebels_color:
           $ref: "#/components/schemas/ColorV1"
@@ -1849,22 +1863,27 @@ components:
         item_price_per_tier:
           items:
             type: integer
+          title: Item Price Per Tier
           type: array
         trooper_kill_gold_share_frac:
           items:
             type: number
+          title: Trooper Kill Gold Share Frac
           type: array
         hero_kill_gold_share_frac:
           items:
             type: number
+          title: Hero Kill Gold Share Frac
           type: array
         aim_spring_strength:
           items:
             type: number
+          title: Aim Spring Strength
           type: array
         targeting_spring_strength:
           items:
             type: number
+          title: Targeting Spring Strength
           type: array
         objective_params:
           $ref: "#/components/schemas/ObjectiveParams"
@@ -1873,18 +1892,22 @@ components:
         mini_map_offsets:
           items:
             $ref: "#/components/schemas/MiniMapOffsets"
+          title: Mini Map Offsets
           type: array
         weapon_groups:
           items:
             $ref: "#/components/schemas/ItemGroup"
+          title: Weapon Groups
           type: array
         armor_groups:
           items:
             $ref: "#/components/schemas/ItemGroup"
+          title: Armor Groups
           type: array
         spirit_groups:
           items:
             $ref: "#/components/schemas/ItemGroup"
+          title: Spirit Groups
           type: array
       required:
       - aim_spring_strength
@@ -1973,18 +1996,19 @@ components:
         detail:
         - msg: msg
           loc:
-          - ValidationError_loc_inner
-          - ValidationError_loc_inner
+          - Location_inner
+          - Location_inner
           type: type
         - msg: msg
           loc:
-          - ValidationError_loc_inner
-          - ValidationError_loc_inner
+          - Location_inner
+          - Location_inner
           type: type
       properties:
         detail:
           items:
             $ref: "#/components/schemas/ValidationError"
+          title: Detail
           type: array
       title: HTTPValidationError
     HeroColorsV2:
@@ -2014,26 +2038,31 @@ components:
           items: {}
           maxItems: 3
           minItems: 3
+          title: Glow Enemy
           type: array
         glow_friendly:
           items: {}
           maxItems: 3
           minItems: 3
+          title: Glow Friendly
           type: array
         glow_team1:
           items: {}
           maxItems: 3
           minItems: 3
+          title: Glow Team1
           type: array
         glow_team2:
           items: {}
           maxItems: 3
           minItems: 3
+          title: Glow Team2
           type: array
         ui:
           items: {}
           maxItems: 3
           minItems: 3
+          title: Ui
           type: array
       required:
       - glow_enemy
@@ -2264,10 +2293,12 @@ components:
         display_stats:
           items:
             type: string
+          title: Display Stats
           type: array
         other_display_stats:
           items:
             type: string
+          title: Other Display Stats
           type: array
         weapon_attributes:
           items:
@@ -2820,6 +2851,7 @@ components:
         upgrades:
           items:
             type: string
+          title: Upgrades
           type: array
       required:
       - shop_group
@@ -3096,6 +3128,7 @@ components:
             \ and P2 points, describing the cubic spline."
           items:
             $ref: "#/components/schemas/ZiplanePathV1"
+          title: Zipline Paths
           type: array
       required:
       - images
@@ -3116,6 +3149,7 @@ components:
         offset_2d:
           items:
             type: number
+          title: Offset 2D
           type: array
         lane_index:
           nullable: true
@@ -4152,6 +4186,7 @@ components:
         property_upgrades:
           items:
             $ref: "#/components/schemas/RawAbilityUpgradePropertyUpgradeV2"
+          title: Property Upgrades
           type: array
       title: RawAbilityUpgradeV2
     RawHeroItemSlotInfoValueV2:
@@ -4163,6 +4198,7 @@ components:
         max_purchases_for_tier:
           items:
             type: integer
+          title: Max Purchases For Tier
           type: array
       required:
       - max_purchases_for_tier
@@ -4231,6 +4267,7 @@ components:
         display_stats:
           items:
             type: string
+          title: Display Stats
           type: array
       required:
       - display_stats
@@ -4247,10 +4284,12 @@ components:
         display_stats:
           items:
             type: string
+          title: Display Stats
           type: array
         other_display_stats:
           items:
             type: string
+          title: Other Display Stats
           type: array
       required:
       - display_stats
@@ -4280,26 +4319,32 @@ components:
         health_header_stats:
           items:
             type: string
+          title: Health Header Stats
           type: array
         health_stats:
           items:
             type: string
+          title: Health Stats
           type: array
         magic_header_stats:
           items:
             type: string
+          title: Magic Header Stats
           type: array
         magic_stats:
           items:
             type: string
+          title: Magic Stats
           type: array
         weapon_header_stats:
           items:
             type: string
+          title: Weapon Header Stats
           type: array
         weapon_stats:
           items:
             type: string
+          title: Weapon Stats
           type: array
       required:
       - health_header_stats
@@ -4339,6 +4384,7 @@ components:
         display_stats:
           items:
             $ref: "#/components/schemas/RawHeroStatsUIDisplayV2"
+          title: Display Stats
           type: array
       required:
       - display_stats
@@ -4389,14 +4435,17 @@ components:
         spline:
           items:
             $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveSplineV2"
+          title: Spline
           type: array
         domain_maxs:
           items:
             type: number
+          title: Domain Maxs
           type: array
         domain_mins:
           items:
             type: number
+          title: Domain Mins
           type: array
       required:
       - domain_maxs
@@ -4462,14 +4511,17 @@ components:
         trooper_health_mult:
           items:
             type: number
+          title: Trooper Health Mult
           type: array
         player_respawn_mult:
           items:
             type: number
+          title: Player Respawn Mult
           type: array
         rejuvinator_rebirth_duration:
           items:
             type: number
+          title: Rejuvinator Rebirth Duration
           type: array
       required:
       - player_respawn_mult
@@ -4830,13 +4882,14 @@ components:
       example:
         msg: msg
         loc:
-        - ValidationError_loc_inner
-        - ValidationError_loc_inner
+        - Location_inner
+        - Location_inner
         type: type
       properties:
         loc:
           items:
-            $ref: "#/components/schemas/ValidationError_loc_inner"
+            $ref: "#/components/schemas/Location_inner"
+          title: Location
           type: array
         msg:
           title: Message
@@ -5168,6 +5221,7 @@ components:
           items: {}
           maxItems: 3
           minItems: 3
+          title: Origin
           type: array
         color:
           description: The color of the path.
@@ -5180,6 +5234,7 @@ components:
             maxItems: 3
             minItems: 3
             type: array
+          title: P0 Points
           type: array
         P1_points:
           description: The P1 points of the path.
@@ -5188,6 +5243,7 @@ components:
             maxItems: 3
             minItems: 3
             type: array
+          title: P1 Points
           type: array
         P2_points:
           description: The P2 points of the path.
@@ -5196,6 +5252,7 @@ components:
             maxItems: 3
             minItems: 3
             type: array
+          title: P2 Points
           type: array
         color_parsed:
           allOf:
@@ -5209,7 +5266,7 @@ components:
       - color_parsed
       - origin
       title: ZiplanePathV1
-    get_items_v2_items_get_200_response_inner:
+    Response_Get_Items_V2_Items_Get_inner:
       discriminator:
         mapping:
           ability: "#/components/schemas/AbilityV2"
@@ -5276,7 +5333,7 @@ components:
       - type: number
       nullable: true
       title: Range
-    ValidationError_loc_inner:
+    Location_inner:
       anyOf:
       - type: string
       - type: integer

@@ -1032,7 +1032,7 @@ pub async fn hero_scoreboard(configuration: &configuration::Configuration, param
 
     req_builder = req_builder.query(&[("sort_by", &params.sort_by.to_string())]);
     if let Some(ref param_value) = params.sort_direction {
-        req_builder = req_builder.query(&[("sort_direction", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("sort_direction", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_matches {
         req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
@@ -1112,7 +1112,7 @@ pub async fn hero_stats(configuration: &configuration::Configuration, params: He
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.bucket {
-        req_builder = req_builder.query(&[("bucket", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("bucket", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
@@ -1388,7 +1388,7 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.bucket {
-        req_builder = req_builder.query(&[("bucket", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("bucket", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.hero_ids {
         req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
@@ -1689,7 +1689,7 @@ pub async fn player_scoreboard(configuration: &configuration::Configuration, par
 
     req_builder = req_builder.query(&[("sort_by", &params.sort_by.to_string())]);
     if let Some(ref param_value) = params.sort_direction {
-        req_builder = req_builder.query(&[("sort_direction", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("sort_direction", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.hero_id {
         req_builder = req_builder.query(&[("hero_id", &param_value.to_string())]);

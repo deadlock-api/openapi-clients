@@ -83,7 +83,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_items_by_hero_id_v2_items_by_hero_id_id_get**
-> List[GetItemsV2ItemsGet200ResponseInner] get_items_by_hero_id_v2_items_by_hero_id_id_get(id, language=language, client_version=client_version)
+> List[ResponseGetItemsV2ItemsGetInner] get_items_by_hero_id_v2_items_by_hero_id_id_get(id, language=language, client_version=client_version)
 
 Get Items By Hero Id
 
@@ -92,7 +92,7 @@ Get Items By Hero Id
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
+from assets_deadlock_api_client.models.response_get_items_v2_items_get_inner import ResponseGetItemsV2ItemsGetInner
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GetItemsV2ItemsGet200ResponseInner]**](GetItemsV2ItemsGet200ResponseInner.md)
+[**List[ResponseGetItemsV2ItemsGetInner]**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_items_by_slot_type_v2_items_by_slot_type_slot_type_get**
-> List[GetItemsV2ItemsGet200ResponseInner] get_items_by_slot_type_v2_items_by_slot_type_slot_type_get(slot_type, language=language, client_version=client_version)
+> List[ResponseGetItemsV2ItemsGetInner] get_items_by_slot_type_v2_items_by_slot_type_slot_type_get(slot_type, language=language, client_version=client_version)
 
 Get Items By Slot Type
 
@@ -163,8 +163,8 @@ Get Items By Slot Type
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2
+from assets_deadlock_api_client.models.response_get_items_v2_items_get_inner import ResponseGetItemsV2ItemsGetInner
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GetItemsV2ItemsGet200ResponseInner]**](GetItemsV2ItemsGet200ResponseInner.md)
+[**List[ResponseGetItemsV2ItemsGetInner]**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_items_by_type_v2_items_by_type_type_get**
-> List[GetItemsV2ItemsGet200ResponseInner] get_items_by_type_v2_items_by_type_type_get(type, language=language, client_version=client_version)
+> List[ResponseGetItemsV2ItemsGetInner] get_items_by_type_v2_items_by_type_type_get(type, language=language, client_version=client_version)
 
 Get Items By Type
 
@@ -235,8 +235,8 @@ Get Items By Type
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.item_type_v2 import ItemTypeV2
+from assets_deadlock_api_client.models.response_get_items_v2_items_get_inner import ResponseGetItemsV2ItemsGetInner
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GetItemsV2ItemsGet200ResponseInner]**](GetItemsV2ItemsGet200ResponseInner.md)
+[**List[ResponseGetItemsV2ItemsGetInner]**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_items_v2_items_get**
-> List[GetItemsV2ItemsGet200ResponseInner] get_items_v2_items_get(language=language, client_version=client_version)
+> List[ResponseGetItemsV2ItemsGetInner] get_items_v2_items_get(language=language, client_version=client_version)
 
 Get Items
 
@@ -307,7 +307,7 @@ Get Items
 
 ```python
 import assets_deadlock_api_client
-from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
+from assets_deadlock_api_client.models.response_get_items_v2_items_get_inner import ResponseGetItemsV2ItemsGetInner
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GetItemsV2ItemsGet200ResponseInner]**](GetItemsV2ItemsGet200ResponseInner.md)
+[**List[ResponseGetItemsV2ItemsGetInner]**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 

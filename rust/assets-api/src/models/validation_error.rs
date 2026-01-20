@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ValidationError {
     #[serde(rename = "loc")]
-    pub loc: Vec<models::ValidationErrorLocInner>,
+    pub loc: Vec<models::LocationInner>,
     #[serde(rename = "msg")]
     pub msg: String,
     #[serde(rename = "type")]
@@ -22,7 +22,7 @@ pub struct ValidationError {
 }
 
 impl ValidationError {
-    pub fn new(loc: Vec<models::ValidationErrorLocInner>, msg: String, r#type: String) -> ValidationError {
+    pub fn new(loc: Vec<models::LocationInner>, msg: String, r#type: String) -> ValidationError {
         ValidationError {
             loc,
             msg,

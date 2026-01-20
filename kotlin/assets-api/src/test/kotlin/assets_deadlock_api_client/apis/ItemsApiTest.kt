@@ -20,12 +20,12 @@ import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.apis.ItemsApi
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesValidClientVersions
-import assets_deadlock_api_client.models.GetItemsV2ItemsGet200ResponseInner
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.ItemSlotTypeV2
 import assets_deadlock_api_client.models.ItemTypeV2
 import assets_deadlock_api_client.models.Language
 import assets_deadlock_api_client.models.ResponseGetItemV2ItemsIdOrClassNameGet
+import assets_deadlock_api_client.models.ResponseGetItemsV2ItemsGetInner
 
 class ItemsApiTest : ShouldSpec() {
     init {
@@ -48,7 +48,7 @@ class ItemsApiTest : ShouldSpec() {
             //val id : kotlin.Int = 56 // kotlin.Int | 
             //val language : Language =  // Language | 
             //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion)
+            //val result : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> = apiInstance.getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion)
             //result shouldBe ("TODO")
         }
 
@@ -58,7 +58,7 @@ class ItemsApiTest : ShouldSpec() {
             //val slotType : ItemSlotTypeV2 =  // ItemSlotTypeV2 | 
             //val language : Language =  // Language | 
             //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion)
+            //val result : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> = apiInstance.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion)
             //result shouldBe ("TODO")
         }
 
@@ -68,7 +68,7 @@ class ItemsApiTest : ShouldSpec() {
             //val type : ItemTypeV2 =  // ItemTypeV2 | 
             //val language : Language =  // Language | 
             //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion)
+            //val result : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> = apiInstance.getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion)
             //result shouldBe ("TODO")
         }
 
@@ -77,7 +77,7 @@ class ItemsApiTest : ShouldSpec() {
             // uncomment below to test getItemsV2ItemsGet
             //val language : Language =  // Language | 
             //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsV2ItemsGet(language, clientVersion)
+            //val result : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> = apiInstance.getItemsV2ItemsGet(language, clientVersion)
             //result shouldBe ("TODO")
         }
 

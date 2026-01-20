@@ -88,7 +88,7 @@ pub async fn search_builds(configuration: &configuration::Configuration, params:
         req_builder = req_builder.query(&[("max_published_unix_timestamp", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sort_by {
-        req_builder = req_builder.query(&[("sort_by", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("sort_by", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.start {
         req_builder = req_builder.query(&[("start", &param_value.to_string())]);
@@ -97,7 +97,7 @@ pub async fn search_builds(configuration: &configuration::Configuration, params:
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sort_direction {
-        req_builder = req_builder.query(&[("sort_direction", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("sort_direction", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.search_name {
         req_builder = req_builder.query(&[("search_name", &param_value.to_string())]);
@@ -112,7 +112,7 @@ pub async fn search_builds(configuration: &configuration::Configuration, params:
         req_builder = req_builder.query(&[("language", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.build_language {
-        req_builder = req_builder.query(&[("build_language", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("build_language", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.build_id {
         req_builder = req_builder.query(&[("build_id", &param_value.to_string())]);

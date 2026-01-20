@@ -36,7 +36,6 @@ api/Model/ExpirationDuration.php
 api/Model/FlashDataV2.php
 api/Model/GameMode.php
 api/Model/GenericDataV2.php
-api/Model/GetItemsV2ItemsGet200ResponseInner.php
 api/Model/GlitchSettingsV2.php
 api/Model/HTTPValidationError.php
 api/Model/HeroColorsV2.php
@@ -59,6 +58,7 @@ api/Model/ItemTierV2.php
 api/Model/ItemTypeV2.php
 api/Model/LaneInfoV2.php
 api/Model/Language.php
+api/Model/LocationInner.php
 api/Model/MapImagesV1.php
 api/Model/MapV1.php
 api/Model/MiniMapOffsets.php
@@ -101,6 +101,7 @@ api/Model/RawWeaponInfoHorizontalRecoilV2.php
 api/Model/RawWeaponInfoVerticalRecoilV2.php
 api/Model/RejuvParams.php
 api/Model/ResponseGetItemV2ItemsIdOrClassNameGet.php
+api/Model/ResponseGetItemsV2ItemsGetInner.php
 api/Model/ScriptValues.php
 api/Model/StandingShotSpreadPenalty.php
 api/Model/StatsUsageFlagV2.php
@@ -123,7 +124,6 @@ api/Model/UpgradeTooltipSectionV2.php
 api/Model/UpgradeV2.php
 api/Model/UsageFlags.php
 api/Model/ValidationError.php
-api/Model/ValidationErrorLocInner.php
 api/Model/Value.php
 api/Model/Value1.php
 api/Model/WeaponInfoV2.php
@@ -160,7 +160,6 @@ docs/Model/ExpirationDuration.md
 docs/Model/FlashDataV2.md
 docs/Model/GameMode.md
 docs/Model/GenericDataV2.md
-docs/Model/GetItemsV2ItemsGet200ResponseInner.md
 docs/Model/GlitchSettingsV2.md
 docs/Model/HTTPValidationError.md
 docs/Model/HeroColorsV2.md
@@ -183,6 +182,7 @@ docs/Model/ItemTierV2.md
 docs/Model/ItemTypeV2.md
 docs/Model/LaneInfoV2.md
 docs/Model/Language.md
+docs/Model/LocationInner.md
 docs/Model/MapImagesV1.md
 docs/Model/MapV1.md
 docs/Model/MiniMapOffsets.md
@@ -224,6 +224,7 @@ docs/Model/RawWeaponInfoHorizontalRecoilV2.md
 docs/Model/RawWeaponInfoVerticalRecoilV2.md
 docs/Model/RejuvParams.md
 docs/Model/ResponseGetItemV2ItemsIdOrClassNameGet.md
+docs/Model/ResponseGetItemsV2ItemsGetInner.md
 docs/Model/ScriptValues.md
 docs/Model/StandingShotSpreadPenalty.md
 docs/Model/StatsUsageFlagV2.md
@@ -246,7 +247,6 @@ docs/Model/UpgradeTooltipSectionV2.md
 docs/Model/UpgradeV2.md
 docs/Model/UsageFlags.md
 docs/Model/ValidationError.md
-docs/Model/ValidationErrorLocInner.md
 docs/Model/Value.md
 docs/Model/Value1.md
 docs/Model/WeaponInfoV2.md
@@ -283,7 +283,6 @@ test/Model/ExpirationDurationTest.php
 test/Model/FlashDataV2Test.php
 test/Model/GameModeTest.php
 test/Model/GenericDataV2Test.php
-test/Model/GetItemsV2ItemsGet200ResponseInnerTest.php
 test/Model/GlitchSettingsV2Test.php
 test/Model/HTTPValidationErrorTest.php
 test/Model/HeroColorsV2Test.php
@@ -306,6 +305,7 @@ test/Model/ItemTierV2Test.php
 test/Model/ItemTypeV2Test.php
 test/Model/LaneInfoV2Test.php
 test/Model/LanguageTest.php
+test/Model/LocationInnerTest.php
 test/Model/MapImagesV1Test.php
 test/Model/MapV1Test.php
 test/Model/MiniMapOffsetsTest.php
@@ -347,6 +347,7 @@ test/Model/RawWeaponInfoHorizontalRecoilV2Test.php
 test/Model/RawWeaponInfoVerticalRecoilV2Test.php
 test/Model/RejuvParamsTest.php
 test/Model/ResponseGetItemV2ItemsIdOrClassNameGetTest.php
+test/Model/ResponseGetItemsV2ItemsGetInnerTest.php
 test/Model/ScriptValuesTest.php
 test/Model/StandingShotSpreadPenaltyTest.php
 test/Model/StatsUsageFlagV2Test.php
@@ -368,7 +369,6 @@ test/Model/UpgradeTooltipSectionAttributeV2Test.php
 test/Model/UpgradeTooltipSectionV2Test.php
 test/Model/UpgradeV2Test.php
 test/Model/UsageFlagsTest.php
-test/Model/ValidationErrorLocInnerTest.php
 test/Model/ValidationErrorTest.php
 test/Model/Value1Test.php
 test/Model/ValueTest.php

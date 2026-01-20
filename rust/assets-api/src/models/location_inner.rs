@@ -12,12 +12,12 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ValidationErrorLocInner {
+pub struct LocationInner {
 }
 
-impl ValidationErrorLocInner {
-    pub fn new() -> ValidationErrorLocInner {
-        ValidationErrorLocInner {
+impl LocationInner {
+    pub fn new() -> LocationInner {
+        LocationInner {
         }
     }
 }

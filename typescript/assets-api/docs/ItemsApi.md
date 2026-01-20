@@ -68,7 +68,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemsByHeroIdV2ItemsByHeroIdIdGet**
-> Array<GetItemsV2ItemsGet200ResponseInner> getItemsByHeroIdV2ItemsByHeroIdIdGet()
+> Array<ResponseGetItemsV2ItemsGetInner> getItemsByHeroIdV2ItemsByHeroIdIdGet()
 
 
 ### Example
@@ -104,7 +104,7 @@ const { status, data } = await apiInstance.getItemsByHeroIdV2ItemsByHeroIdIdGet(
 
 ### Return type
 
-**Array<GetItemsV2ItemsGet200ResponseInner>**
+**Array<ResponseGetItemsV2ItemsGetInner>**
 
 ### Authorization
 
@@ -125,7 +125,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet**
-> Array<GetItemsV2ItemsGet200ResponseInner> getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet()
+> Array<ResponseGetItemsV2ItemsGetInner> getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet()
 
 
 ### Example
@@ -161,7 +161,7 @@ const { status, data } = await apiInstance.getItemsBySlotTypeV2ItemsBySlotTypeSl
 
 ### Return type
 
-**Array<GetItemsV2ItemsGet200ResponseInner>**
+**Array<ResponseGetItemsV2ItemsGetInner>**
 
 ### Authorization
 
@@ -182,7 +182,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemsByTypeV2ItemsByTypeTypeGet**
-> Array<GetItemsV2ItemsGet200ResponseInner> getItemsByTypeV2ItemsByTypeTypeGet()
+> Array<ResponseGetItemsV2ItemsGetInner> getItemsByTypeV2ItemsByTypeTypeGet()
 
 
 ### Example
@@ -218,7 +218,7 @@ const { status, data } = await apiInstance.getItemsByTypeV2ItemsByTypeTypeGet(
 
 ### Return type
 
-**Array<GetItemsV2ItemsGet200ResponseInner>**
+**Array<ResponseGetItemsV2ItemsGetInner>**
 
 ### Authorization
 
@@ -239,7 +239,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemsV2ItemsGet**
-> Array<GetItemsV2ItemsGet200ResponseInner> getItemsV2ItemsGet()
+> Array<ResponseGetItemsV2ItemsGetInner> getItemsV2ItemsGet()
 
 
 ### Example
@@ -272,7 +272,7 @@ const { status, data } = await apiInstance.getItemsV2ItemsGet(
 
 ### Return type
 
-**Array<GetItemsV2ItemsGet200ResponseInner>**
+**Array<ResponseGetItemsV2ItemsGetInner>**
 
 ### Authorization
 

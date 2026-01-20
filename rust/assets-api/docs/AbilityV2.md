@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **update_time** | Option<**i32**> |  | [optional]
 **properties** | Option<[**std::collections::HashMap<String, models::ItemPropertyV2>**](ItemPropertyV2.md)> |  | [optional]
 **weapon_info** | Option<[**models::RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md)> |  | [optional]
-**r#type** | Option<**String**> |  | [optional][default to Ability]
+**r#type** | Option<**Type**> |  (enum: ability) | [optional][default to Ability]
 **behaviours** | Option<**Vec<String>**> |  | [optional]
 **description** | [**models::AbilityDescriptionV2**](AbilityDescriptionV2.md) |  | 
 **tooltip_details** | Option<[**models::AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md)> |  | [optional]

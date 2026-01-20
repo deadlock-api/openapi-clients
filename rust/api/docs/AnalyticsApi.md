@@ -34,7 +34,7 @@ Ability Order Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_id** | **u32** | See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -48,7 +48,7 @@ Name | Type | Description  | Required | Notes
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **min_matches** | Option<**u32**> | The minimum number of matches played for an ability order to be included in the response. |  |[default to 20]
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -78,7 +78,7 @@ Badge Distribution
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -117,7 +117,7 @@ Build Item Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_id** | Option<**u32**> | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). |  |
 
 ### Return type
@@ -148,7 +148,7 @@ Hero Comb Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -158,13 +158,13 @@ Name | Type | Description  | Required | Notes
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
-**include_hero_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**exclude_hero_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
+**include_hero_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
+**exclude_hero_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **min_matches** | Option<**u32**> | The minimum number of matches played for a hero combination to be included in the response. |  |[default to 20]
 **max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
 **comb_size** | Option<**u32**> | The combination size to return. |  |[default to 6]
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -194,7 +194,7 @@ Hero Counter Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -210,7 +210,7 @@ Name | Type | Description  | Required | Notes
 **min_matches** | Option<**u64**> | The minimum number of matches played for a hero combination to be included in the response. |  |[default to 20]
 **max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Required | Notes
 **sort_by** | **String** | The field to sort by. | [required] |
 **sort_direction** | Option<**String**> | The direction to sort heroes in. |  |
 **min_matches** | Option<**u32**> | Filter by min number of matches played. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -254,7 +254,7 @@ Name | Type | Description  | Required | Notes
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -285,7 +285,7 @@ Hero Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -299,10 +299,10 @@ Name | Type | Description  | Required | Notes
 **max_hero_matches** | Option<**u64**> | Filter players based on the number of matches they have played with a specific hero within the filtered time range. |  |
 **min_hero_matches_total** | Option<**u64**> | Filter players based on the number of matches they have played with a specific hero in their entire history. |  |
 **max_hero_matches_total** | Option<**u64**> | Filter players based on the number of matches they have played with a specific hero in their entire history. |  |
-**include_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
-**exclude_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
+**include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
+**exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -332,7 +332,7 @@ Hero Synergy Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -347,7 +347,7 @@ Name | Type | Description  | Required | Notes
 **min_matches** | Option<**u64**> | The minimum number of matches played for a hero combination to be included in the response. |  |[default to 20]
 **max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -377,11 +377,11 @@ Item Permutation Stats
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items> |  |
+**item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items> |  |
 **comb_size** | Option<**u32**> | The combination size to return. |  |[default to 2]
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **hero_id** | Option<**u32**> | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -392,7 +392,7 @@ Name | Type | Description  | Required | Notes
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -425,7 +425,7 @@ Name | Type | Description  | Required | Notes
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **hero_id** | Option<**u32**> | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -435,12 +435,12 @@ Name | Type | Description  | Required | Notes
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
-**include_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items> |  |
-**exclude_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items> |  |
+**include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items> |  |
+**exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items> |  |
 **min_matches** | Option<**u32**> | The minimum number of matches played for an item to be included in the response. |  |[default to 20]
 **max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 **min_bought_at_s** | Option<**u32**> | Filter items bought after this game time (seconds). |  |
 **max_bought_at_s** | Option<**u32**> | Filter items bought before this game time (seconds). |  |
 
@@ -473,11 +473,11 @@ Kill Death Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **team** | Option<**u32**> | Filter by team number. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Filter matches by account IDs of players that participated in the match. |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Filter matches by account IDs of players that participated in the match. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
@@ -524,7 +524,7 @@ Player Performance Curve
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **resolution** | Option<**u32**> | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). |  |[default to 10]
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -535,9 +535,9 @@ Name | Type | Description  | Required | Notes
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**include_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
-**exclude_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
+**exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -584,7 +584,7 @@ Name | Type | Description  | Required | Notes
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **start** | Option<**u32**> | The offset to start fetching players from. |  |
 **limit** | Option<**u32**> | The maximum number of players to fetch. |  |[default to 100]
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -615,7 +615,7 @@ Player Stats Metrics
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1765670400]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1766188800]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -626,9 +626,9 @@ Name | Type | Description  | Required | Notes
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **max_matches** | Option<**u32**> | The maximum number of matches to analyze. |  |
-**include_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
-**exclude_item_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
+**exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 

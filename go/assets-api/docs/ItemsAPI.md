@@ -86,7 +86,7 @@ No authorization required
 
 ## GetItemsByHeroIdV2ItemsByHeroIdIdGet
 
-> []GetItemsV2ItemsGet200ResponseInner GetItemsByHeroIdV2ItemsByHeroIdIdGet(ctx, id).Language(language).ClientVersion(clientVersion).Execute()
+> []ResponseGetItemsV2ItemsGetInner GetItemsByHeroIdV2ItemsByHeroIdIdGet(ctx, id).Language(language).ClientVersion(clientVersion).Execute()
 
 Get Items By Hero Id
 
@@ -114,7 +114,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetItemsByHeroIdV2ItemsByHeroIdIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetItemsByHeroIdV2ItemsByHeroIdIdGet`: []GetItemsV2ItemsGet200ResponseInner
+	// response from `GetItemsByHeroIdV2ItemsByHeroIdIdGet`: []ResponseGetItemsV2ItemsGetInner
 	fmt.Fprintf(os.Stdout, "Response from `ItemsAPI.GetItemsByHeroIdV2ItemsByHeroIdIdGet`: %v\n", resp)
 }
 ```
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]GetItemsV2ItemsGet200ResponseInner**](GetItemsV2ItemsGet200ResponseInner.md)
+[**[]ResponseGetItemsV2ItemsGetInner**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ No authorization required
 
 ## GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet
 
-> []GetItemsV2ItemsGet200ResponseInner GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(ctx, slotType).Language(language).ClientVersion(clientVersion).Execute()
+> []ResponseGetItemsV2ItemsGetInner GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(ctx, slotType).Language(language).ClientVersion(clientVersion).Execute()
 
 Get Items By Slot Type
 
@@ -186,7 +186,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet`: []GetItemsV2ItemsGet200ResponseInner
+	// response from `GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet`: []ResponseGetItemsV2ItemsGetInner
 	fmt.Fprintf(os.Stdout, "Response from `ItemsAPI.GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet`: %v\n", resp)
 }
 ```
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]GetItemsV2ItemsGet200ResponseInner**](GetItemsV2ItemsGet200ResponseInner.md)
+[**[]ResponseGetItemsV2ItemsGetInner**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -230,7 +230,7 @@ No authorization required
 
 ## GetItemsByTypeV2ItemsByTypeTypeGet
 
-> []GetItemsV2ItemsGet200ResponseInner GetItemsByTypeV2ItemsByTypeTypeGet(ctx, type_).Language(language).ClientVersion(clientVersion).Execute()
+> []ResponseGetItemsV2ItemsGetInner GetItemsByTypeV2ItemsByTypeTypeGet(ctx, type_).Language(language).ClientVersion(clientVersion).Execute()
 
 Get Items By Type
 
@@ -258,7 +258,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetItemsByTypeV2ItemsByTypeTypeGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetItemsByTypeV2ItemsByTypeTypeGet`: []GetItemsV2ItemsGet200ResponseInner
+	// response from `GetItemsByTypeV2ItemsByTypeTypeGet`: []ResponseGetItemsV2ItemsGetInner
 	fmt.Fprintf(os.Stdout, "Response from `ItemsAPI.GetItemsByTypeV2ItemsByTypeTypeGet`: %v\n", resp)
 }
 ```
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]GetItemsV2ItemsGet200ResponseInner**](GetItemsV2ItemsGet200ResponseInner.md)
+[**[]ResponseGetItemsV2ItemsGetInner**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ No authorization required
 
 ## GetItemsV2ItemsGet
 
-> []GetItemsV2ItemsGet200ResponseInner GetItemsV2ItemsGet(ctx).Language(language).ClientVersion(clientVersion).Execute()
+> []ResponseGetItemsV2ItemsGetInner GetItemsV2ItemsGet(ctx).Language(language).ClientVersion(clientVersion).Execute()
 
 Get Items
 
@@ -329,7 +329,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ItemsAPI.GetItemsV2ItemsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetItemsV2ItemsGet`: []GetItemsV2ItemsGet200ResponseInner
+	// response from `GetItemsV2ItemsGet`: []ResponseGetItemsV2ItemsGetInner
 	fmt.Fprintf(os.Stdout, "Response from `ItemsAPI.GetItemsV2ItemsGet`: %v\n", resp)
 }
 ```
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]GetItemsV2ItemsGet200ResponseInner**](GetItemsV2ItemsGet200ResponseInner.md)
+[**[]ResponseGetItemsV2ItemsGetInner**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 

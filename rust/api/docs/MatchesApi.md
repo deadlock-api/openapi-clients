@@ -28,7 +28,7 @@ Active
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_id** | Option<**u32**> | The account ID to filter active matches by (`SteamID3`) |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Comma separated list of account ids to include |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Required | Notes
 **include_player_items** | Option<**bool**> | Include player items in the response. |  |
 **include_player_stats** | Option<**bool**> | Include player stats in the response. |  |
 **include_player_death_details** | Option<**bool**> | Include player death details in the response. |  |
-**match_ids** | Option<[**Vec<u64>**](u64.md)> | Comma separated list of match ids, limited by `limit` |  |
+**match_ids** | Option<[**Vec<u64>**](U64.md)> | Comma separated list of match ids, limited by `limit` |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -104,7 +104,7 @@ Name | Type | Description  | Required | Notes
 **is_high_skill_range_parties** | Option<**bool**> | Filter matches based on whether they are in the high skill range. |  |
 **is_low_pri_pool** | Option<**bool**> | Filter matches based on whether they are in the low priority pool. |  |
 **is_new_player_pool** | Option<**bool**> | Filter matches based on whether they are in the new player pool. |  |
-**account_ids** | Option<[**Vec<u32>**](u32.md)> | Filter matches by account IDs of players that participated in the match. |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Filter matches by account IDs of players that participated in the match. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **order_by** | Option<**String**> | The field to order the results by. |  |
 **order_direction** | Option<**String**> | The direction to order the results by. |  |

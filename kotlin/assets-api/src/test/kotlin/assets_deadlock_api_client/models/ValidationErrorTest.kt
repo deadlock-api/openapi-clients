@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.ValidationError
-import assets_deadlock_api_client.models.ValidationErrorLocInner
+import assets_deadlock_api_client.models.LocationInner
 
 class ValidationErrorTest : ShouldSpec() {
     init {

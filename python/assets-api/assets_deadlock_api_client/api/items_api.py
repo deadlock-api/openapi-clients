@@ -18,10 +18,10 @@ from typing_extensions import Annotated
 
 from pydantic import StrictInt, StrictStr
 from typing import Any, List, Optional
-from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
 from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2
 from assets_deadlock_api_client.models.item_type_v2 import ItemTypeV2
 from assets_deadlock_api_client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet
+from assets_deadlock_api_client.models.response_get_items_v2_items_get_inner import ResponseGetItemsV2ItemsGetInner
 
 from assets_deadlock_api_client.api_client import ApiClient, RequestSerialized
 from assets_deadlock_api_client.api_response import ApiResponse
@@ -353,7 +353,7 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[GetItemsV2ItemsGet200ResponseInner]:
+    ) -> List[ResponseGetItemsV2ItemsGetInner]:
         """Get Items By Hero Id
 
 
@@ -396,7 +396,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -428,7 +428,7 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[GetItemsV2ItemsGet200ResponseInner]]:
+    ) -> ApiResponse[List[ResponseGetItemsV2ItemsGetInner]]:
         """Get Items By Hero Id
 
 
@@ -471,7 +471,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -546,7 +546,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -647,7 +647,7 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[GetItemsV2ItemsGet200ResponseInner]:
+    ) -> List[ResponseGetItemsV2ItemsGetInner]:
         """Get Items By Slot Type
 
 
@@ -690,7 +690,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -722,7 +722,7 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[GetItemsV2ItemsGet200ResponseInner]]:
+    ) -> ApiResponse[List[ResponseGetItemsV2ItemsGetInner]]:
         """Get Items By Slot Type
 
 
@@ -765,7 +765,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -840,7 +840,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -941,7 +941,7 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[GetItemsV2ItemsGet200ResponseInner]:
+    ) -> List[ResponseGetItemsV2ItemsGetInner]:
         """Get Items By Type
 
 
@@ -984,7 +984,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1016,7 +1016,7 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[GetItemsV2ItemsGet200ResponseInner]]:
+    ) -> ApiResponse[List[ResponseGetItemsV2ItemsGetInner]]:
         """Get Items By Type
 
 
@@ -1059,7 +1059,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1134,7 +1134,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1234,7 +1234,7 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[GetItemsV2ItemsGet200ResponseInner]:
+    ) -> List[ResponseGetItemsV2ItemsGetInner]:
         """Get Items
 
 
@@ -1274,7 +1274,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1305,7 +1305,7 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[GetItemsV2ItemsGet200ResponseInner]]:
+    ) -> ApiResponse[List[ResponseGetItemsV2ItemsGetInner]]:
         """Get Items
 
 
@@ -1345,7 +1345,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1416,7 +1416,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetItemsV2ItemsGet200ResponseInner]",
+            '200': "List[ResponseGetItemsV2ItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

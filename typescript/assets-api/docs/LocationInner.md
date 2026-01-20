@@ -1,4 +1,4 @@
-# ValidationErrorLocInner
+# LocationInner
 
 
 ## Properties
@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ValidationErrorLocInner } from 'assets_deadlock_api_client';
+import { LocationInner } from 'assets_deadlock_api_client';
 
-const instance: ValidationErrorLocInner = {
+const instance: LocationInner = {
 };
 ```
 

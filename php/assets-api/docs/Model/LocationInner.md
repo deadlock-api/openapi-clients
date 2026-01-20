@@ -1,4 +1,4 @@
-# # ValidationErrorLocInner
+# # LocationInner
 
 ## Properties
 

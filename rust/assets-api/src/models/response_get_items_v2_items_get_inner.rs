@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
-pub enum GetItemsV2ItemsGet200ResponseInner {
+pub enum ResponseGetItemsV2ItemsGetInner {
     #[serde(rename="ability")]
     Ability(Box<models::AbilityV2>),
     #[serde(rename="weapon")]
@@ -22,7 +22,7 @@ pub enum GetItemsV2ItemsGet200ResponseInner {
     Upgrade(Box<models::UpgradeV2>),
 }
 
-impl Default for GetItemsV2ItemsGet200ResponseInner {
+impl Default for ResponseGetItemsV2ItemsGetInner {
     fn default() -> Self {
         Self::Ability(Default::default())
     }

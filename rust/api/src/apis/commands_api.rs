@@ -114,7 +114,7 @@ pub async fn command_resolve(configuration: &configuration::Configuration, param
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.region {
-        req_builder = req_builder.query(&[("region", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("region", &param_value.to_string())]);
     }
     req_builder = req_builder.query(&[("account_id", &params.account_id.to_string())]);
     if let Some(ref param_value) = params.template {
@@ -159,7 +159,7 @@ pub async fn variables_resolve(configuration: &configuration::Configuration, par
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.region {
-        req_builder = req_builder.query(&[("region", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("region", &param_value.to_string())]);
     }
     req_builder = req_builder.query(&[("account_id", &params.account_id.to_string())]);
     if let Some(ref param_value) = params.variables {

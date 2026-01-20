@@ -80,8 +80,8 @@ Get Heroes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**language** | Option<[**models::Language**](.md)> |  |  |
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](.md)> |  |  |
+**language** | Option<[**models::Language**](Models__Language.md)> |  |  |
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
 **only_active** | Option<**bool**> |  |  |
 
 ### Return type

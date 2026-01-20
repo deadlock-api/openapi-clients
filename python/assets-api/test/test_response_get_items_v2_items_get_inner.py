@@ -14,10 +14,10 @@
 
 import unittest
 
-from assets_deadlock_api_client.models.get_items_v2_items_get200_response_inner import GetItemsV2ItemsGet200ResponseInner
+from assets_deadlock_api_client.models.response_get_items_v2_items_get_inner import ResponseGetItemsV2ItemsGetInner
 
-class TestGetItemsV2ItemsGet200ResponseInner(unittest.TestCase):
-    """GetItemsV2ItemsGet200ResponseInner unit test stubs"""
+class TestResponseGetItemsV2ItemsGetInner(unittest.TestCase):
+    """ResponseGetItemsV2ItemsGetInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,16 +25,16 @@ class TestGetItemsV2ItemsGet200ResponseInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> GetItemsV2ItemsGet200ResponseInner:
-        """Test GetItemsV2ItemsGet200ResponseInner
+    def make_instance(self, include_optional) -> ResponseGetItemsV2ItemsGetInner:
+        """Test ResponseGetItemsV2ItemsGetInner
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `GetItemsV2ItemsGet200ResponseInner`
+        # uncomment below to create an instance of `ResponseGetItemsV2ItemsGetInner`
         """
-        model = GetItemsV2ItemsGet200ResponseInner()
+        model = ResponseGetItemsV2ItemsGetInner()
         if include_optional:
-            return GetItemsV2ItemsGet200ResponseInner(
+            return ResponseGetItemsV2ItemsGetInner(
                 id = 56,
                 class_name = '',
                 name = '',
@@ -162,7 +162,7 @@ class TestGetItemsV2ItemsGet200ResponseInner(unittest.TestCase):
                 cost = 56
             )
         else:
-            return GetItemsV2ItemsGet200ResponseInner(
+            return ResponseGetItemsV2ItemsGetInner(
                 id = 56,
                 class_name = '',
                 name = '',
@@ -179,8 +179,8 @@ class TestGetItemsV2ItemsGet200ResponseInner(unittest.TestCase):
         )
         """
 
-    def testGetItemsV2ItemsGet200ResponseInner(self):
-        """Test GetItemsV2ItemsGet200ResponseInner"""
+    def testResponseGetItemsV2ItemsGetInner(self):
+        """Test ResponseGetItemsV2ItemsGetInner"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

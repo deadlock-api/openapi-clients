@@ -20,12 +20,12 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesValidClientVersions
-import assets_deadlock_api_client.models.GetItemsV2ItemsGet200ResponseInner
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.ItemSlotTypeV2
 import assets_deadlock_api_client.models.ItemTypeV2
 import assets_deadlock_api_client.models.Language
 import assets_deadlock_api_client.models.ResponseGetItemV2ItemsIdOrClassNameGet
+import assets_deadlock_api_client.models.ResponseGetItemsV2ItemsGetInner
 
 import com.squareup.moshi.Json
 
@@ -145,7 +145,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param id 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+     * @return kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -154,11 +154,11 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsByHeroIdV2ItemsByHeroIdIdGet(id: kotlin.Int, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+    fun getItemsByHeroIdV2ItemsByHeroIdIdGet(id: kotlin.Int, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> {
         val localVarResponse = getItemsByHeroIdV2ItemsByHeroIdIdGetWithHttpInfo(id = id, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -179,16 +179,16 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param id 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?>
+     * @return ApiResponse<kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsByHeroIdV2ItemsByHeroIdIdGetWithHttpInfo(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+    fun getItemsByHeroIdV2ItemsByHeroIdIdGetWithHttpInfo(id: kotlin.Int, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>?> {
         val localVariableConfig = getItemsByHeroIdV2ItemsByHeroIdIdGetRequestConfig(id = id, language = language, clientVersion = clientVersion)
 
-        return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
+        return request<Unit, kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>>(
             localVariableConfig
         )
     }
@@ -232,7 +232,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param slotType 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+     * @return kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -241,11 +241,11 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType: ItemSlotTypeV2, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> {
         val localVarResponse = getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetWithHttpInfo(slotType = slotType, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -266,16 +266,16 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param slotType 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?>
+     * @return ApiResponse<kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetWithHttpInfo(slotType: ItemSlotTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+    fun getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetWithHttpInfo(slotType: ItemSlotTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>?> {
         val localVariableConfig = getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRequestConfig(slotType = slotType, language = language, clientVersion = clientVersion)
 
-        return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
+        return request<Unit, kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>>(
             localVariableConfig
         )
     }
@@ -319,7 +319,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param type 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+     * @return kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -328,11 +328,11 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+    fun getItemsByTypeV2ItemsByTypeTypeGet(type: ItemTypeV2, language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> {
         val localVarResponse = getItemsByTypeV2ItemsByTypeTypeGetWithHttpInfo(type = type, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -353,16 +353,16 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param type 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?>
+     * @return ApiResponse<kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsByTypeV2ItemsByTypeTypeGetWithHttpInfo(type: ItemTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+    fun getItemsByTypeV2ItemsByTypeTypeGetWithHttpInfo(type: ItemTypeV2, language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>?> {
         val localVariableConfig = getItemsByTypeV2ItemsByTypeTypeGetRequestConfig(type = type, language = language, clientVersion = clientVersion)
 
-        return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
+        return request<Unit, kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>>(
             localVariableConfig
         )
     }
@@ -405,7 +405,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+     * @return kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -414,11 +414,11 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsV2ItemsGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> {
+    fun getItemsV2ItemsGet(language: Language? = null, clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> {
         val localVarResponse = getItemsV2ItemsGetWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -438,16 +438,16 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * 
      * @param language  (optional)
      * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?>
+     * @return ApiResponse<kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsV2ItemsGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>?> {
+    fun getItemsV2ItemsGetWithHttpInfo(language: Language?, clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>?> {
         val localVariableConfig = getItemsV2ItemsGetRequestConfig(language = language, clientVersion = clientVersion)
 
-        return request<Unit, kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner>>(
+        return request<Unit, kotlin.collections.List<ResponseGetItemsV2ItemsGetInner>>(
             localVariableConfig
         )
     }

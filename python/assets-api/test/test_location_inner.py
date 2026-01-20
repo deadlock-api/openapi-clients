@@ -14,10 +14,10 @@
 
 import unittest
 
-from assets_deadlock_api_client.models.validation_error_loc_inner import ValidationErrorLocInner
+from assets_deadlock_api_client.models.location_inner import LocationInner
 
-class TestValidationErrorLocInner(unittest.TestCase):
-    """ValidationErrorLocInner unit test stubs"""
+class TestLocationInner(unittest.TestCase):
+    """LocationInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,24 +25,24 @@ class TestValidationErrorLocInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ValidationErrorLocInner:
-        """Test ValidationErrorLocInner
+    def make_instance(self, include_optional) -> LocationInner:
+        """Test LocationInner
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ValidationErrorLocInner`
+        # uncomment below to create an instance of `LocationInner`
         """
-        model = ValidationErrorLocInner()
+        model = LocationInner()
         if include_optional:
-            return ValidationErrorLocInner(
+            return LocationInner(
             )
         else:
-            return ValidationErrorLocInner(
+            return LocationInner(
         )
         """
 
-    def testValidationErrorLocInner(self):
-        """Test ValidationErrorLocInner"""
+    def testLocationInner(self):
+        """Test LocationInner"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

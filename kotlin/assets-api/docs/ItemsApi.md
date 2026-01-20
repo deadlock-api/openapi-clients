@@ -61,7 +61,7 @@ No authorization required
 
 <a id="getItemsByHeroIdV2ItemsByHeroIdIdGet"></a>
 # **getItemsByHeroIdV2ItemsByHeroIdIdGet**
-> kotlin.collections.List&lt;GetItemsV2ItemsGet200ResponseInner&gt; getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion)
+> kotlin.collections.List&lt;ResponseGetItemsV2ItemsGetInner&gt; getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion)
 
 Get Items By Hero Id
 
@@ -76,7 +76,7 @@ val id : kotlin.Int = 56 // kotlin.Int |
 val language : Language =  // Language | 
 val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion)
+    val result : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> = apiInstance.getItemsByHeroIdV2ItemsByHeroIdIdGet(id, language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getItemsByHeroIdV2ItemsByHeroIdIdGet")
@@ -96,7 +96,7 @@ try {
 
 ### Return type
 
-[**kotlin.collections.List&lt;GetItemsV2ItemsGet200ResponseInner&gt;**](GetItemsV2ItemsGet200ResponseInner.md)
+[**kotlin.collections.List&lt;ResponseGetItemsV2ItemsGetInner&gt;**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ No authorization required
 
 <a id="getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet"></a>
 # **getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet**
-> kotlin.collections.List&lt;GetItemsV2ItemsGet200ResponseInner&gt; getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion)
+> kotlin.collections.List&lt;ResponseGetItemsV2ItemsGetInner&gt; getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion)
 
 Get Items By Slot Type
 
@@ -124,7 +124,7 @@ val slotType : ItemSlotTypeV2 =  // ItemSlotTypeV2 |
 val language : Language =  // Language | 
 val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion)
+    val result : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> = apiInstance.getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet(slotType, language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet")
@@ -144,7 +144,7 @@ try {
 
 ### Return type
 
-[**kotlin.collections.List&lt;GetItemsV2ItemsGet200ResponseInner&gt;**](GetItemsV2ItemsGet200ResponseInner.md)
+[**kotlin.collections.List&lt;ResponseGetItemsV2ItemsGetInner&gt;**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ No authorization required
 
 <a id="getItemsByTypeV2ItemsByTypeTypeGet"></a>
 # **getItemsByTypeV2ItemsByTypeTypeGet**
-> kotlin.collections.List&lt;GetItemsV2ItemsGet200ResponseInner&gt; getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion)
+> kotlin.collections.List&lt;ResponseGetItemsV2ItemsGetInner&gt; getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion)
 
 Get Items By Type
 
@@ -172,7 +172,7 @@ val type : ItemTypeV2 =  // ItemTypeV2 |
 val language : Language =  // Language | 
 val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion)
+    val result : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> = apiInstance.getItemsByTypeV2ItemsByTypeTypeGet(type, language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getItemsByTypeV2ItemsByTypeTypeGet")
@@ -192,7 +192,7 @@ try {
 
 ### Return type
 
-[**kotlin.collections.List&lt;GetItemsV2ItemsGet200ResponseInner&gt;**](GetItemsV2ItemsGet200ResponseInner.md)
+[**kotlin.collections.List&lt;ResponseGetItemsV2ItemsGetInner&gt;**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
@@ -205,7 +205,7 @@ No authorization required
 
 <a id="getItemsV2ItemsGet"></a>
 # **getItemsV2ItemsGet**
-> kotlin.collections.List&lt;GetItemsV2ItemsGet200ResponseInner&gt; getItemsV2ItemsGet(language, clientVersion)
+> kotlin.collections.List&lt;ResponseGetItemsV2ItemsGetInner&gt; getItemsV2ItemsGet(language, clientVersion)
 
 Get Items
 
@@ -219,7 +219,7 @@ val apiInstance = ItemsApi()
 val language : Language =  // Language | 
 val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.collections.List<GetItemsV2ItemsGet200ResponseInner> = apiInstance.getItemsV2ItemsGet(language, clientVersion)
+    val result : kotlin.collections.List<ResponseGetItemsV2ItemsGetInner> = apiInstance.getItemsV2ItemsGet(language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getItemsV2ItemsGet")
@@ -238,7 +238,7 @@ try {
 
 ### Return type
 
-[**kotlin.collections.List&lt;GetItemsV2ItemsGet200ResponseInner&gt;**](GetItemsV2ItemsGet200ResponseInner.md)
+[**kotlin.collections.List&lt;ResponseGetItemsV2ItemsGetInner&gt;**](ResponseGetItemsV2ItemsGetInner.md)
 
 ### Authorization
 
