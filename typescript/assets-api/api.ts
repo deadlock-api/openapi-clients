@@ -156,7 +156,14 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6111: 6111,
     NUMBER_6080: 6080,
+    NUMBER_6075: 6075,
+    NUMBER_6071: 6071,
+    NUMBER_6064: 6064,
+    NUMBER_6060: 6060,
+    NUMBER_6044: 6044,
+    NUMBER_6021: 6021,
     NUMBER_6020: 6020,
     NUMBER_6016: 6016,
     NUMBER_6008: 6008,
@@ -176,6 +183,7 @@ export const DeadlockAssetsApiRoutesValidClientVersions = {
     NUMBER_5818: 5818,
     NUMBER_5789: 5789,
     NUMBER_5748: 5748,
+    NUMBER_5747: 5747,
     NUMBER_5723: 5723,
     NUMBER_5712: 5712,
     NUMBER_5710: 5710,
@@ -324,10 +332,10 @@ export interface HeroLevelInfoV2 {
     'required_gold': number;
 }
 export interface HeroPhysicsV2 {
-    'collision_height': number;
-    'collision_radius': number;
     'stealth_speed_meters_per_second': number;
-    'step_height': number;
+    'collision_height'?: number | null;
+    'collision_radius'?: number | null;
+    'step_height'?: number | null;
     'footstep_sound_travel_distance_meters'?: number | null;
     'step_sound_time'?: number | null;
     'step_sound_time_sprinting'?: number | null;

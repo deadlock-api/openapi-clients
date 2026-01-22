@@ -25,6 +25,12 @@ class HeroPhysicsV2Test : ShouldSpec() {
         // uncomment below to create an instance of HeroPhysicsV2
         //val modelInstance = HeroPhysicsV2()
 
+        // to test the property `stealthSpeedMetersPerSecond`
+        should("test stealthSpeedMetersPerSecond") {
+            // uncomment below to test the property
+            //modelInstance.stealthSpeedMetersPerSecond shouldBe ("TODO")
+        }
+
         // to test the property `collisionHeight`
         should("test collisionHeight") {
             // uncomment below to test the property
@@ -35,12 +41,6 @@ class HeroPhysicsV2Test : ShouldSpec() {
         should("test collisionRadius") {
             // uncomment below to test the property
             //modelInstance.collisionRadius shouldBe ("TODO")
-        }
-
-        // to test the property `stealthSpeedMetersPerSecond`
-        should("test stealthSpeedMetersPerSecond") {
-            // uncomment below to test the property
-            //modelInstance.stealthSpeedMetersPerSecond shouldBe ("TODO")
         }
 
         // to test the property `stepHeight`

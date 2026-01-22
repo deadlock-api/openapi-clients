@@ -4,10 +4,10 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **collisionHeight** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |
-| **collisionRadius** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |
 | **stealthSpeedMetersPerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |
-| **stepHeight** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |
+| **collisionHeight** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **collisionRadius** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **stepHeight** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **footstepSoundTravelDistanceMeters** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **stepSoundTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **stepSoundTimeSprinting** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CollisionHeight** | **float32** |  | 
-**CollisionRadius** | **float32** |  | 
 **StealthSpeedMetersPerSecond** | **float32** |  | 
-**StepHeight** | **float32** |  | 
+**CollisionHeight** | Pointer to **NullableFloat32** |  | [optional] 
+**CollisionRadius** | Pointer to **NullableFloat32** |  | [optional] 
+**StepHeight** | Pointer to **NullableFloat32** |  | [optional] 
 **FootstepSoundTravelDistanceMeters** | Pointer to **NullableFloat32** |  | [optional] 
 **StepSoundTime** | Pointer to **NullableFloat32** |  | [optional] 
 **StepSoundTimeSprinting** | Pointer to **NullableFloat32** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewHeroPhysicsV2
 
-`func NewHeroPhysicsV2(collisionHeight float32, collisionRadius float32, stealthSpeedMetersPerSecond float32, stepHeight float32, ) *HeroPhysicsV2`
+`func NewHeroPhysicsV2(stealthSpeedMetersPerSecond float32, ) *HeroPhysicsV2`
 
 NewHeroPhysicsV2 instantiates a new HeroPhysicsV2 object
 This constructor will assign default values to properties that have it defined,
@@ -30,46 +30,6 @@ will change when the set of required properties is changed
 NewHeroPhysicsV2WithDefaults instantiates a new HeroPhysicsV2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetCollisionHeight
-
-`func (o *HeroPhysicsV2) GetCollisionHeight() float32`
-
-GetCollisionHeight returns the CollisionHeight field if non-nil, zero value otherwise.
-
-### GetCollisionHeightOk
-
-`func (o *HeroPhysicsV2) GetCollisionHeightOk() (*float32, bool)`
-
-GetCollisionHeightOk returns a tuple with the CollisionHeight field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCollisionHeight
-
-`func (o *HeroPhysicsV2) SetCollisionHeight(v float32)`
-
-SetCollisionHeight sets CollisionHeight field to given value.
-
-
-### GetCollisionRadius
-
-`func (o *HeroPhysicsV2) GetCollisionRadius() float32`
-
-GetCollisionRadius returns the CollisionRadius field if non-nil, zero value otherwise.
-
-### GetCollisionRadiusOk
-
-`func (o *HeroPhysicsV2) GetCollisionRadiusOk() (*float32, bool)`
-
-GetCollisionRadiusOk returns a tuple with the CollisionRadius field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCollisionRadius
-
-`func (o *HeroPhysicsV2) SetCollisionRadius(v float32)`
-
-SetCollisionRadius sets CollisionRadius field to given value.
-
 
 ### GetStealthSpeedMetersPerSecond
 
@@ -91,6 +51,76 @@ and a boolean to check if the value has been set.
 SetStealthSpeedMetersPerSecond sets StealthSpeedMetersPerSecond field to given value.
 
 
+### GetCollisionHeight
+
+`func (o *HeroPhysicsV2) GetCollisionHeight() float32`
+
+GetCollisionHeight returns the CollisionHeight field if non-nil, zero value otherwise.
+
+### GetCollisionHeightOk
+
+`func (o *HeroPhysicsV2) GetCollisionHeightOk() (*float32, bool)`
+
+GetCollisionHeightOk returns a tuple with the CollisionHeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCollisionHeight
+
+`func (o *HeroPhysicsV2) SetCollisionHeight(v float32)`
+
+SetCollisionHeight sets CollisionHeight field to given value.
+
+### HasCollisionHeight
+
+`func (o *HeroPhysicsV2) HasCollisionHeight() bool`
+
+HasCollisionHeight returns a boolean if a field has been set.
+
+### SetCollisionHeightNil
+
+`func (o *HeroPhysicsV2) SetCollisionHeightNil(b bool)`
+
+ SetCollisionHeightNil sets the value for CollisionHeight to be an explicit nil
+
+### UnsetCollisionHeight
+`func (o *HeroPhysicsV2) UnsetCollisionHeight()`
+
+UnsetCollisionHeight ensures that no value is present for CollisionHeight, not even an explicit nil
+### GetCollisionRadius
+
+`func (o *HeroPhysicsV2) GetCollisionRadius() float32`
+
+GetCollisionRadius returns the CollisionRadius field if non-nil, zero value otherwise.
+
+### GetCollisionRadiusOk
+
+`func (o *HeroPhysicsV2) GetCollisionRadiusOk() (*float32, bool)`
+
+GetCollisionRadiusOk returns a tuple with the CollisionRadius field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCollisionRadius
+
+`func (o *HeroPhysicsV2) SetCollisionRadius(v float32)`
+
+SetCollisionRadius sets CollisionRadius field to given value.
+
+### HasCollisionRadius
+
+`func (o *HeroPhysicsV2) HasCollisionRadius() bool`
+
+HasCollisionRadius returns a boolean if a field has been set.
+
+### SetCollisionRadiusNil
+
+`func (o *HeroPhysicsV2) SetCollisionRadiusNil(b bool)`
+
+ SetCollisionRadiusNil sets the value for CollisionRadius to be an explicit nil
+
+### UnsetCollisionRadius
+`func (o *HeroPhysicsV2) UnsetCollisionRadius()`
+
+UnsetCollisionRadius ensures that no value is present for CollisionRadius, not even an explicit nil
 ### GetStepHeight
 
 `func (o *HeroPhysicsV2) GetStepHeight() float32`
@@ -110,7 +140,22 @@ and a boolean to check if the value has been set.
 
 SetStepHeight sets StepHeight field to given value.
 
+### HasStepHeight
 
+`func (o *HeroPhysicsV2) HasStepHeight() bool`
+
+HasStepHeight returns a boolean if a field has been set.
+
+### SetStepHeightNil
+
+`func (o *HeroPhysicsV2) SetStepHeightNil(b bool)`
+
+ SetStepHeightNil sets the value for StepHeight to be an explicit nil
+
+### UnsetStepHeight
+`func (o *HeroPhysicsV2) UnsetStepHeight()`
+
+UnsetStepHeight ensures that no value is present for StepHeight, not even an explicit nil
 ### GetFootstepSoundTravelDistanceMeters
 
 `func (o *HeroPhysicsV2) GetFootstepSoundTravelDistanceMeters() float32`

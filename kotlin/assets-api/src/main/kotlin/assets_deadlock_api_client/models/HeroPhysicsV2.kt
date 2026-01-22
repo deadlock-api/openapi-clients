@@ -23,9 +23,9 @@ import java.io.Serializable
 /**
  * 
  *
+ * @param stealthSpeedMetersPerSecond 
  * @param collisionHeight 
  * @param collisionRadius 
- * @param stealthSpeedMetersPerSecond 
  * @param stepHeight 
  * @param footstepSoundTravelDistanceMeters 
  * @param stepSoundTime 
@@ -35,17 +35,17 @@ import java.io.Serializable
 
 data class HeroPhysicsV2 (
 
-    @Json(name = "collision_height")
-    val collisionHeight: java.math.BigDecimal,
-
-    @Json(name = "collision_radius")
-    val collisionRadius: java.math.BigDecimal,
-
     @Json(name = "stealth_speed_meters_per_second")
     val stealthSpeedMetersPerSecond: java.math.BigDecimal,
 
+    @Json(name = "collision_height")
+    val collisionHeight: java.math.BigDecimal? = null,
+
+    @Json(name = "collision_radius")
+    val collisionRadius: java.math.BigDecimal? = null,
+
     @Json(name = "step_height")
-    val stepHeight: java.math.BigDecimal,
+    val stepHeight: java.math.BigDecimal? = null,
 
     @Json(name = "footstep_sound_travel_distance_meters")
     val footstepSoundTravelDistanceMeters: java.math.BigDecimal? = null,

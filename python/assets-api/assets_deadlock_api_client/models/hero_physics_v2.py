@@ -26,14 +26,14 @@ class HeroPhysicsV2(BaseModel):
     """
     HeroPhysicsV2
     """ # noqa: E501
-    collision_height: Union[StrictFloat, StrictInt]
-    collision_radius: Union[StrictFloat, StrictInt]
     stealth_speed_meters_per_second: Union[StrictFloat, StrictInt]
-    step_height: Union[StrictFloat, StrictInt]
+    collision_height: Optional[Union[StrictFloat, StrictInt]] = None
+    collision_radius: Optional[Union[StrictFloat, StrictInt]] = None
+    step_height: Optional[Union[StrictFloat, StrictInt]] = None
     footstep_sound_travel_distance_meters: Optional[Union[StrictFloat, StrictInt]] = None
     step_sound_time: Optional[Union[StrictFloat, StrictInt]] = None
     step_sound_time_sprinting: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["collision_height", "collision_radius", "stealth_speed_meters_per_second", "step_height", "footstep_sound_travel_distance_meters", "step_sound_time", "step_sound_time_sprinting"]
+    __properties: ClassVar[List[str]] = ["stealth_speed_meters_per_second", "collision_height", "collision_radius", "step_height", "footstep_sound_travel_distance_meters", "step_sound_time", "step_sound_time_sprinting"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +74,21 @@ class HeroPhysicsV2(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if collision_height (nullable) is None
+        # and model_fields_set contains the field
+        if self.collision_height is None and "collision_height" in self.model_fields_set:
+            _dict['collision_height'] = None
+
+        # set to None if collision_radius (nullable) is None
+        # and model_fields_set contains the field
+        if self.collision_radius is None and "collision_radius" in self.model_fields_set:
+            _dict['collision_radius'] = None
+
+        # set to None if step_height (nullable) is None
+        # and model_fields_set contains the field
+        if self.step_height is None and "step_height" in self.model_fields_set:
+            _dict['step_height'] = None
+
         # set to None if footstep_sound_travel_distance_meters (nullable) is None
         # and model_fields_set contains the field
         if self.footstep_sound_travel_distance_meters is None and "footstep_sound_travel_distance_meters" in self.model_fields_set:
@@ -101,9 +116,9 @@ class HeroPhysicsV2(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "stealth_speed_meters_per_second": obj.get("stealth_speed_meters_per_second"),
             "collision_height": obj.get("collision_height"),
             "collision_radius": obj.get("collision_radius"),
-            "stealth_speed_meters_per_second": obj.get("stealth_speed_meters_per_second"),
             "step_height": obj.get("step_height"),
             "footstep_sound_travel_distance_meters": obj.get("footstep_sound_travel_distance_meters"),
             "step_sound_time": obj.get("step_sound_time"),

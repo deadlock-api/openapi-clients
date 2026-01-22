@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**collision_height** | **number** |  | [default to undefined]
-**collision_radius** | **number** |  | [default to undefined]
 **stealth_speed_meters_per_second** | **number** |  | [default to undefined]
-**step_height** | **number** |  | [default to undefined]
+**collision_height** | **number** |  | [optional] [default to undefined]
+**collision_radius** | **number** |  | [optional] [default to undefined]
+**step_height** | **number** |  | [optional] [default to undefined]
 **footstep_sound_travel_distance_meters** | **number** |  | [optional] [default to undefined]
 **step_sound_time** | **number** |  | [optional] [default to undefined]
 **step_sound_time_sprinting** | **number** |  | [optional] [default to undefined]
@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 import { HeroPhysicsV2 } from 'assets_deadlock_api_client';
 
 const instance: HeroPhysicsV2 = {
+    stealth_speed_meters_per_second,
     collision_height,
     collision_radius,
-    stealth_speed_meters_per_second,
     step_height,
     footstep_sound_travel_distance_meters,
     step_sound_time,

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**collision_height** | **float** |  |
-**collision_radius** | **float** |  |
 **stealth_speed_meters_per_second** | **float** |  |
-**step_height** | **float** |  |
+**collision_height** | **float** |  | [optional]
+**collision_radius** | **float** |  | [optional]
+**step_height** | **float** |  | [optional]
 **footstep_sound_travel_distance_meters** | **float** |  | [optional]
 **step_sound_time** | **float** |  | [optional]
 **step_sound_time_sprinting** | **float** |  | [optional]

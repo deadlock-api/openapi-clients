@@ -20,7 +20,14 @@ type DeadlockAssetsApiRoutesValidClientVersions int32
 
 // List of DeadlockAssetsApiRoutesValidClientVersions
 const (
+	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6111 DeadlockAssetsApiRoutesValidClientVersions = 6111
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6080 DeadlockAssetsApiRoutesValidClientVersions = 6080
+	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6075 DeadlockAssetsApiRoutesValidClientVersions = 6075
+	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6071 DeadlockAssetsApiRoutesValidClientVersions = 6071
+	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6064 DeadlockAssetsApiRoutesValidClientVersions = 6064
+	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6060 DeadlockAssetsApiRoutesValidClientVersions = 6060
+	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6044 DeadlockAssetsApiRoutesValidClientVersions = 6044
+	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6021 DeadlockAssetsApiRoutesValidClientVersions = 6021
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6020 DeadlockAssetsApiRoutesValidClientVersions = 6020
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6016 DeadlockAssetsApiRoutesValidClientVersions = 6016
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6008 DeadlockAssetsApiRoutesValidClientVersions = 6008
@@ -40,6 +47,7 @@ const (
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__5818 DeadlockAssetsApiRoutesValidClientVersions = 5818
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__5789 DeadlockAssetsApiRoutesValidClientVersions = 5789
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__5748 DeadlockAssetsApiRoutesValidClientVersions = 5748
+	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__5747 DeadlockAssetsApiRoutesValidClientVersions = 5747
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__5723 DeadlockAssetsApiRoutesValidClientVersions = 5723
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__5712 DeadlockAssetsApiRoutesValidClientVersions = 5712
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__5710 DeadlockAssetsApiRoutesValidClientVersions = 5710
@@ -63,7 +71,14 @@ const (
 
 // All allowed values of DeadlockAssetsApiRoutesValidClientVersions enum
 var AllowedDeadlockAssetsApiRoutesValidClientVersionsEnumValues = []DeadlockAssetsApiRoutesValidClientVersions{
+	6111,
 	6080,
+	6075,
+	6071,
+	6064,
+	6060,
+	6044,
+	6021,
 	6020,
 	6016,
 	6008,
@@ -83,6 +98,7 @@ var AllowedDeadlockAssetsApiRoutesValidClientVersionsEnumValues = []DeadlockAsse
 	5818,
 	5789,
 	5748,
+	5747,
 	5723,
 	5712,
 	5710,

@@ -35,9 +35,9 @@ class TestHeroPhysicsV2(unittest.TestCase):
         model = HeroPhysicsV2()
         if include_optional:
             return HeroPhysicsV2(
+                stealth_speed_meters_per_second = 1.337,
                 collision_height = 1.337,
                 collision_radius = 1.337,
-                stealth_speed_meters_per_second = 1.337,
                 step_height = 1.337,
                 footstep_sound_travel_distance_meters = 1.337,
                 step_sound_time = 1.337,
@@ -45,10 +45,7 @@ class TestHeroPhysicsV2(unittest.TestCase):
             )
         else:
             return HeroPhysicsV2(
-                collision_height = 1.337,
-                collision_radius = 1.337,
                 stealth_speed_meters_per_second = 1.337,
-                step_height = 1.337,
         )
         """
 

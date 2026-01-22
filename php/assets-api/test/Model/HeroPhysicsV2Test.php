@@ -80,6 +80,15 @@ class HeroPhysicsV2Test extends TestCase
     }
 
     /**
+     * Test attribute "stealth_speed_meters_per_second"
+     */
+    public function testPropertyStealthSpeedMetersPerSecond()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "collision_height"
      */
     public function testPropertyCollisionHeight()
@@ -92,15 +101,6 @@ class HeroPhysicsV2Test extends TestCase
      * Test attribute "collision_radius"
      */
     public function testPropertyCollisionRadius()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "stealth_speed_meters_per_second"
-     */
-    public function testPropertyStealthSpeedMetersPerSecond()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

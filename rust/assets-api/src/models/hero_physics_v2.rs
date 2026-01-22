@@ -13,14 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HeroPhysicsV2 {
-    #[serde(rename = "collision_height")]
-    pub collision_height: f64,
-    #[serde(rename = "collision_radius")]
-    pub collision_radius: f64,
     #[serde(rename = "stealth_speed_meters_per_second")]
     pub stealth_speed_meters_per_second: f64,
-    #[serde(rename = "step_height")]
-    pub step_height: f64,
+    #[serde(rename = "collision_height", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub collision_height: Option<Option<f64>>,
+    #[serde(rename = "collision_radius", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub collision_radius: Option<Option<f64>>,
+    #[serde(rename = "step_height", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub step_height: Option<Option<f64>>,
     #[serde(rename = "footstep_sound_travel_distance_meters", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub footstep_sound_travel_distance_meters: Option<Option<f64>>,
     #[serde(rename = "step_sound_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -30,12 +30,12 @@ pub struct HeroPhysicsV2 {
 }
 
 impl HeroPhysicsV2 {
-    pub fn new(collision_height: f64, collision_radius: f64, stealth_speed_meters_per_second: f64, step_height: f64) -> HeroPhysicsV2 {
+    pub fn new(stealth_speed_meters_per_second: f64) -> HeroPhysicsV2 {
         HeroPhysicsV2 {
-            collision_height,
-            collision_radius,
             stealth_speed_meters_per_second,
-            step_height,
+            collision_height: None,
+            collision_radius: None,
+            step_height: None,
             footstep_sound_travel_distance_meters: None,
             step_sound_time: None,
             step_sound_time_sprinting: None,

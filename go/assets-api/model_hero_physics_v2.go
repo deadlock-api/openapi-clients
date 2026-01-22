@@ -21,10 +21,10 @@ var _ MappedNullable = &HeroPhysicsV2{}
 
 // HeroPhysicsV2 struct for HeroPhysicsV2
 type HeroPhysicsV2 struct {
-	CollisionHeight float32 `json:"collision_height"`
-	CollisionRadius float32 `json:"collision_radius"`
 	StealthSpeedMetersPerSecond float32 `json:"stealth_speed_meters_per_second"`
-	StepHeight float32 `json:"step_height"`
+	CollisionHeight NullableFloat32 `json:"collision_height,omitempty"`
+	CollisionRadius NullableFloat32 `json:"collision_radius,omitempty"`
+	StepHeight NullableFloat32 `json:"step_height,omitempty"`
 	FootstepSoundTravelDistanceMeters NullableFloat32 `json:"footstep_sound_travel_distance_meters,omitempty"`
 	StepSoundTime NullableFloat32 `json:"step_sound_time,omitempty"`
 	StepSoundTimeSprinting NullableFloat32 `json:"step_sound_time_sprinting,omitempty"`
@@ -36,12 +36,9 @@ type _HeroPhysicsV2 HeroPhysicsV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroPhysicsV2(collisionHeight float32, collisionRadius float32, stealthSpeedMetersPerSecond float32, stepHeight float32) *HeroPhysicsV2 {
+func NewHeroPhysicsV2(stealthSpeedMetersPerSecond float32) *HeroPhysicsV2 {
 	this := HeroPhysicsV2{}
-	this.CollisionHeight = collisionHeight
-	this.CollisionRadius = collisionRadius
 	this.StealthSpeedMetersPerSecond = stealthSpeedMetersPerSecond
-	this.StepHeight = stepHeight
 	return &this
 }
 
@@ -51,54 +48,6 @@ func NewHeroPhysicsV2(collisionHeight float32, collisionRadius float32, stealthS
 func NewHeroPhysicsV2WithDefaults() *HeroPhysicsV2 {
 	this := HeroPhysicsV2{}
 	return &this
-}
-
-// GetCollisionHeight returns the CollisionHeight field value
-func (o *HeroPhysicsV2) GetCollisionHeight() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.CollisionHeight
-}
-
-// GetCollisionHeightOk returns a tuple with the CollisionHeight field value
-// and a boolean to check if the value has been set.
-func (o *HeroPhysicsV2) GetCollisionHeightOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CollisionHeight, true
-}
-
-// SetCollisionHeight sets field value
-func (o *HeroPhysicsV2) SetCollisionHeight(v float32) {
-	o.CollisionHeight = v
-}
-
-// GetCollisionRadius returns the CollisionRadius field value
-func (o *HeroPhysicsV2) GetCollisionRadius() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.CollisionRadius
-}
-
-// GetCollisionRadiusOk returns a tuple with the CollisionRadius field value
-// and a boolean to check if the value has been set.
-func (o *HeroPhysicsV2) GetCollisionRadiusOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CollisionRadius, true
-}
-
-// SetCollisionRadius sets field value
-func (o *HeroPhysicsV2) SetCollisionRadius(v float32) {
-	o.CollisionRadius = v
 }
 
 // GetStealthSpeedMetersPerSecond returns the StealthSpeedMetersPerSecond field value
@@ -125,28 +74,130 @@ func (o *HeroPhysicsV2) SetStealthSpeedMetersPerSecond(v float32) {
 	o.StealthSpeedMetersPerSecond = v
 }
 
-// GetStepHeight returns the StepHeight field value
-func (o *HeroPhysicsV2) GetStepHeight() float32 {
-	if o == nil {
+// GetCollisionHeight returns the CollisionHeight field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroPhysicsV2) GetCollisionHeight() float32 {
+	if o == nil || IsNil(o.CollisionHeight.Get()) {
 		var ret float32
 		return ret
 	}
-
-	return o.StepHeight
+	return *o.CollisionHeight.Get()
 }
 
-// GetStepHeightOk returns a tuple with the StepHeight field value
+// GetCollisionHeightOk returns a tuple with the CollisionHeight field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroPhysicsV2) GetCollisionHeightOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CollisionHeight.Get(), o.CollisionHeight.IsSet()
+}
+
+// HasCollisionHeight returns a boolean if a field has been set.
+func (o *HeroPhysicsV2) HasCollisionHeight() bool {
+	if o != nil && o.CollisionHeight.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCollisionHeight gets a reference to the given NullableFloat32 and assigns it to the CollisionHeight field.
+func (o *HeroPhysicsV2) SetCollisionHeight(v float32) {
+	o.CollisionHeight.Set(&v)
+}
+// SetCollisionHeightNil sets the value for CollisionHeight to be an explicit nil
+func (o *HeroPhysicsV2) SetCollisionHeightNil() {
+	o.CollisionHeight.Set(nil)
+}
+
+// UnsetCollisionHeight ensures that no value is present for CollisionHeight, not even an explicit nil
+func (o *HeroPhysicsV2) UnsetCollisionHeight() {
+	o.CollisionHeight.Unset()
+}
+
+// GetCollisionRadius returns the CollisionRadius field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroPhysicsV2) GetCollisionRadius() float32 {
+	if o == nil || IsNil(o.CollisionRadius.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.CollisionRadius.Get()
+}
+
+// GetCollisionRadiusOk returns a tuple with the CollisionRadius field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroPhysicsV2) GetCollisionRadiusOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CollisionRadius.Get(), o.CollisionRadius.IsSet()
+}
+
+// HasCollisionRadius returns a boolean if a field has been set.
+func (o *HeroPhysicsV2) HasCollisionRadius() bool {
+	if o != nil && o.CollisionRadius.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCollisionRadius gets a reference to the given NullableFloat32 and assigns it to the CollisionRadius field.
+func (o *HeroPhysicsV2) SetCollisionRadius(v float32) {
+	o.CollisionRadius.Set(&v)
+}
+// SetCollisionRadiusNil sets the value for CollisionRadius to be an explicit nil
+func (o *HeroPhysicsV2) SetCollisionRadiusNil() {
+	o.CollisionRadius.Set(nil)
+}
+
+// UnsetCollisionRadius ensures that no value is present for CollisionRadius, not even an explicit nil
+func (o *HeroPhysicsV2) UnsetCollisionRadius() {
+	o.CollisionRadius.Unset()
+}
+
+// GetStepHeight returns the StepHeight field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroPhysicsV2) GetStepHeight() float32 {
+	if o == nil || IsNil(o.StepHeight.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.StepHeight.Get()
+}
+
+// GetStepHeightOk returns a tuple with the StepHeight field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HeroPhysicsV2) GetStepHeightOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.StepHeight, true
+	return o.StepHeight.Get(), o.StepHeight.IsSet()
 }
 
-// SetStepHeight sets field value
+// HasStepHeight returns a boolean if a field has been set.
+func (o *HeroPhysicsV2) HasStepHeight() bool {
+	if o != nil && o.StepHeight.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStepHeight gets a reference to the given NullableFloat32 and assigns it to the StepHeight field.
 func (o *HeroPhysicsV2) SetStepHeight(v float32) {
-	o.StepHeight = v
+	o.StepHeight.Set(&v)
+}
+// SetStepHeightNil sets the value for StepHeight to be an explicit nil
+func (o *HeroPhysicsV2) SetStepHeightNil() {
+	o.StepHeight.Set(nil)
+}
+
+// UnsetStepHeight ensures that no value is present for StepHeight, not even an explicit nil
+func (o *HeroPhysicsV2) UnsetStepHeight() {
+	o.StepHeight.Unset()
 }
 
 // GetFootstepSoundTravelDistanceMeters returns the FootstepSoundTravelDistanceMeters field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -285,10 +336,16 @@ func (o HeroPhysicsV2) MarshalJSON() ([]byte, error) {
 
 func (o HeroPhysicsV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["collision_height"] = o.CollisionHeight
-	toSerialize["collision_radius"] = o.CollisionRadius
 	toSerialize["stealth_speed_meters_per_second"] = o.StealthSpeedMetersPerSecond
-	toSerialize["step_height"] = o.StepHeight
+	if o.CollisionHeight.IsSet() {
+		toSerialize["collision_height"] = o.CollisionHeight.Get()
+	}
+	if o.CollisionRadius.IsSet() {
+		toSerialize["collision_radius"] = o.CollisionRadius.Get()
+	}
+	if o.StepHeight.IsSet() {
+		toSerialize["step_height"] = o.StepHeight.Get()
+	}
 	if o.FootstepSoundTravelDistanceMeters.IsSet() {
 		toSerialize["footstep_sound_travel_distance_meters"] = o.FootstepSoundTravelDistanceMeters.Get()
 	}
@@ -306,10 +363,7 @@ func (o *HeroPhysicsV2) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"collision_height",
-		"collision_radius",
 		"stealth_speed_meters_per_second",
-		"step_height",
 	}
 
 	allProperties := make(map[string]interface{})

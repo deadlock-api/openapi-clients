@@ -117,9 +117,9 @@ class TestHeroV2(unittest.TestCase):
                             ], )
                     },
                 physics = assets_deadlock_api_client.models.hero_physics_v2.HeroPhysicsV2(
+                    stealth_speed_meters_per_second = 1.337, 
                     collision_height = 1.337, 
                     collision_radius = 1.337, 
-                    stealth_speed_meters_per_second = 1.337, 
                     step_height = 1.337, 
                     footstep_sound_travel_distance_meters = 1.337, 
                     step_sound_time = 1.337, 
@@ -292,9 +292,9 @@ class TestHeroV2(unittest.TestCase):
                             ], )
                     },
                 physics = assets_deadlock_api_client.models.hero_physics_v2.HeroPhysicsV2(
+                    stealth_speed_meters_per_second = 1.337, 
                     collision_height = 1.337, 
                     collision_radius = 1.337, 
-                    stealth_speed_meters_per_second = 1.337, 
                     step_height = 1.337, 
                     footstep_sound_travel_distance_meters = 1.337, 
                     step_sound_time = 1.337, 

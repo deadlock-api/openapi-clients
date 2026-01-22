@@ -57,9 +57,9 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'stealth_speed_meters_per_second' => 'float',
         'collision_height' => 'float',
         'collision_radius' => 'float',
-        'stealth_speed_meters_per_second' => 'float',
         'step_height' => 'float',
         'footstep_sound_travel_distance_meters' => 'float',
         'step_sound_time' => 'float',
@@ -74,9 +74,9 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'stealth_speed_meters_per_second' => null,
         'collision_height' => null,
         'collision_radius' => null,
-        'stealth_speed_meters_per_second' => null,
         'step_height' => null,
         'footstep_sound_travel_distance_meters' => null,
         'step_sound_time' => null,
@@ -89,10 +89,10 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'collision_height' => false,
-        'collision_radius' => false,
         'stealth_speed_meters_per_second' => false,
-        'step_height' => false,
+        'collision_height' => true,
+        'collision_radius' => true,
+        'step_height' => true,
         'footstep_sound_travel_distance_meters' => true,
         'step_sound_time' => true,
         'step_sound_time_sprinting' => true
@@ -184,9 +184,9 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'stealth_speed_meters_per_second' => 'stealth_speed_meters_per_second',
         'collision_height' => 'collision_height',
         'collision_radius' => 'collision_radius',
-        'stealth_speed_meters_per_second' => 'stealth_speed_meters_per_second',
         'step_height' => 'step_height',
         'footstep_sound_travel_distance_meters' => 'footstep_sound_travel_distance_meters',
         'step_sound_time' => 'step_sound_time',
@@ -199,9 +199,9 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'stealth_speed_meters_per_second' => 'setStealthSpeedMetersPerSecond',
         'collision_height' => 'setCollisionHeight',
         'collision_radius' => 'setCollisionRadius',
-        'stealth_speed_meters_per_second' => 'setStealthSpeedMetersPerSecond',
         'step_height' => 'setStepHeight',
         'footstep_sound_travel_distance_meters' => 'setFootstepSoundTravelDistanceMeters',
         'step_sound_time' => 'setStepSoundTime',
@@ -214,9 +214,9 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'stealth_speed_meters_per_second' => 'getStealthSpeedMetersPerSecond',
         'collision_height' => 'getCollisionHeight',
         'collision_radius' => 'getCollisionRadius',
-        'stealth_speed_meters_per_second' => 'getStealthSpeedMetersPerSecond',
         'step_height' => 'getStepHeight',
         'footstep_sound_travel_distance_meters' => 'getFootstepSoundTravelDistanceMeters',
         'step_sound_time' => 'getStepSoundTime',
@@ -280,9 +280,9 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('stealth_speed_meters_per_second', $data ?? [], null);
         $this->setIfExists('collision_height', $data ?? [], null);
         $this->setIfExists('collision_radius', $data ?? [], null);
-        $this->setIfExists('stealth_speed_meters_per_second', $data ?? [], null);
         $this->setIfExists('step_height', $data ?? [], null);
         $this->setIfExists('footstep_sound_travel_distance_meters', $data ?? [], null);
         $this->setIfExists('step_sound_time', $data ?? [], null);
@@ -316,17 +316,8 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['collision_height'] === null) {
-            $invalidProperties[] = "'collision_height' can't be null";
-        }
-        if ($this->container['collision_radius'] === null) {
-            $invalidProperties[] = "'collision_radius' can't be null";
-        }
         if ($this->container['stealth_speed_meters_per_second'] === null) {
             $invalidProperties[] = "'stealth_speed_meters_per_second' can't be null";
-        }
-        if ($this->container['step_height'] === null) {
-            $invalidProperties[] = "'step_height' can't be null";
         }
         return $invalidProperties;
     }
@@ -342,60 +333,6 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets collision_height
-     *
-     * @return float
-     */
-    public function getCollisionHeight()
-    {
-        return $this->container['collision_height'];
-    }
-
-    /**
-     * Sets collision_height
-     *
-     * @param float $collision_height collision_height
-     *
-     * @return self
-     */
-    public function setCollisionHeight($collision_height)
-    {
-        if (is_null($collision_height)) {
-            throw new \InvalidArgumentException('non-nullable collision_height cannot be null');
-        }
-        $this->container['collision_height'] = $collision_height;
-
-        return $this;
-    }
-
-    /**
-     * Gets collision_radius
-     *
-     * @return float
-     */
-    public function getCollisionRadius()
-    {
-        return $this->container['collision_radius'];
-    }
-
-    /**
-     * Sets collision_radius
-     *
-     * @param float $collision_radius collision_radius
-     *
-     * @return self
-     */
-    public function setCollisionRadius($collision_radius)
-    {
-        if (is_null($collision_radius)) {
-            throw new \InvalidArgumentException('non-nullable collision_radius cannot be null');
-        }
-        $this->container['collision_radius'] = $collision_radius;
-
-        return $this;
-    }
 
     /**
      * Gets stealth_speed_meters_per_second
@@ -425,9 +362,77 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets collision_height
+     *
+     * @return float|null
+     */
+    public function getCollisionHeight()
+    {
+        return $this->container['collision_height'];
+    }
+
+    /**
+     * Sets collision_height
+     *
+     * @param float|null $collision_height collision_height
+     *
+     * @return self
+     */
+    public function setCollisionHeight($collision_height)
+    {
+        if (is_null($collision_height)) {
+            array_push($this->openAPINullablesSetToNull, 'collision_height');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('collision_height', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['collision_height'] = $collision_height;
+
+        return $this;
+    }
+
+    /**
+     * Gets collision_radius
+     *
+     * @return float|null
+     */
+    public function getCollisionRadius()
+    {
+        return $this->container['collision_radius'];
+    }
+
+    /**
+     * Sets collision_radius
+     *
+     * @param float|null $collision_radius collision_radius
+     *
+     * @return self
+     */
+    public function setCollisionRadius($collision_radius)
+    {
+        if (is_null($collision_radius)) {
+            array_push($this->openAPINullablesSetToNull, 'collision_radius');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('collision_radius', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['collision_radius'] = $collision_radius;
+
+        return $this;
+    }
+
+    /**
      * Gets step_height
      *
-     * @return float
+     * @return float|null
      */
     public function getStepHeight()
     {
@@ -437,14 +442,21 @@ class HeroPhysicsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets step_height
      *
-     * @param float $step_height step_height
+     * @param float|null $step_height step_height
      *
      * @return self
      */
     public function setStepHeight($step_height)
     {
         if (is_null($step_height)) {
-            throw new \InvalidArgumentException('non-nullable step_height cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'step_height');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('step_height', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['step_height'] = $step_height;
 

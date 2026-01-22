@@ -1525,7 +1525,14 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6111
       - 6080
+      - 6075
+      - 6071
+      - 6064
+      - 6060
+      - 6044
+      - 6021
       - 6020
       - 6016
       - 6008
@@ -1545,6 +1552,7 @@ components:
       - 5818
       - 5789
       - 5748
+      - 5747
       - 5723
       - 5712
       - 5710
@@ -2206,23 +2214,23 @@ components:
       example:
         footstep_sound_travel_distance_meters: 2.027123023002322
         step_height: 3.616076749251911
-        collision_height: 2.3021358869347655
-        collision_radius: 7.061401241503109
-        stealth_speed_meters_per_second: 9.301444243932576
+        collision_height: 7.061401241503109
+        collision_radius: 9.301444243932576
+        stealth_speed_meters_per_second: 2.3021358869347655
         step_sound_time: 4.145608029883936
         step_sound_time_sprinting: 7.386281948385884
       properties:
-        collision_height:
-          title: Collision Height
-          type: number
-        collision_radius:
-          title: Collision Radius
-          type: number
         stealth_speed_meters_per_second:
           title: Stealth Speed Meters Per Second
           type: number
+        collision_height:
+          nullable: true
+          type: number
+        collision_radius:
+          nullable: true
+          type: number
         step_height:
-          title: Step Height
+          nullable: true
           type: number
         footstep_sound_travel_distance_meters:
           nullable: true
@@ -2234,10 +2242,7 @@ components:
           nullable: true
           type: number
       required:
-      - collision_height
-      - collision_radius
       - stealth_speed_meters_per_second
-      - step_height
       title: HeroPhysicsV2
     HeroShopStatDisplayV2:
       example:
@@ -2526,9 +2531,9 @@ components:
         physics:
           footstep_sound_travel_distance_meters: 2.027123023002322
           step_height: 3.616076749251911
-          collision_height: 2.3021358869347655
-          collision_radius: 7.061401241503109
-          stealth_speed_meters_per_second: 9.301444243932576
+          collision_height: 7.061401241503109
+          collision_radius: 9.301444243932576
+          stealth_speed_meters_per_second: 2.3021358869347655
           step_sound_time: 4.145608029883936
           step_sound_time_sprinting: 7.386281948385884
         gun_tag: gun_tag

@@ -3,7 +3,21 @@
 
 ## Enum
 
+* `NUMBER_6111` (value: `6111`)
+
 * `NUMBER_6080` (value: `6080`)
+
+* `NUMBER_6075` (value: `6075`)
+
+* `NUMBER_6071` (value: `6071`)
+
+* `NUMBER_6064` (value: `6064`)
+
+* `NUMBER_6060` (value: `6060`)
+
+* `NUMBER_6044` (value: `6044`)
+
+* `NUMBER_6021` (value: `6021`)
 
 * `NUMBER_6020` (value: `6020`)
 
@@ -42,6 +56,8 @@
 * `NUMBER_5789` (value: `5789`)
 
 * `NUMBER_5748` (value: `5748`)
+
+* `NUMBER_5747` (value: `5747`)
 
 * `NUMBER_5723` (value: `5723`)
 
