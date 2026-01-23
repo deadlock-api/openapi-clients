@@ -26,6 +26,7 @@ const (
 	RAWABILITYACTIVATIONV2_PASSIVE RawAbilityActivationV2 = "passive"
 	RAWABILITYACTIVATIONV2_PRESS RawAbilityActivationV2 = "press"
 	RAWABILITYACTIVATIONV2_PRESS_TOGGLE RawAbilityActivationV2 = "press_toggle"
+	RAWABILITYACTIVATIONV2_INSTANT_CAST_TOGGLE RawAbilityActivationV2 = "instant_cast_toggle"
 )
 
 // All allowed values of RawAbilityActivationV2 enum
@@ -36,6 +37,7 @@ var AllowedRawAbilityActivationV2EnumValues = []RawAbilityActivationV2{
 	"passive",
 	"press",
 	"press_toggle",
+	"instant_cast_toggle",
 }
 
 func (v *RawAbilityActivationV2) UnmarshalJSON(src []byte) error {

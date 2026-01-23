@@ -20,6 +20,7 @@ pub enum ItemTierV2 {
     Variant2 = 2,
     Variant3 = 3,
     Variant4 = 4,
+    Variant5 = 5,
 
 }
 
@@ -30,6 +31,7 @@ impl std::fmt::Display for ItemTierV2 {
             Self::Variant2 => "2",
             Self::Variant3 => "3",
             Self::Variant4 => "4",
+            Self::Variant5 => "5",
         })
     }
 }

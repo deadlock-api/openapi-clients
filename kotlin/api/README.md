@@ -152,6 +152,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ESportsMatchStatus](docs/ESportsMatchStatus.md)
  - [deadlock_api_client.models.EnemyStats](docs/EnemyStats.md)
  - [deadlock_api_client.models.Entry](docs/Entry.md)
+ - [deadlock_api_client.models.GameMode](docs/GameMode.md)
  - [deadlock_api_client.models.GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [deadlock_api_client.models.HashMapValue](docs/HashMapValue.md)
  - [deadlock_api_client.models.HeroCombStats](docs/HeroCombStats.md)

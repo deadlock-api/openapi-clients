@@ -60,6 +60,7 @@ type NPCUnitV2 struct {
 	RunSpeed NullableFloat32 `json:"run_speed,omitempty"`
 	Acceleration NullableFloat32 `json:"acceleration,omitempty"`
 	MeleeDamage NullableFloat32 `json:"melee_damage,omitempty"`
+	SpawnBreakablesOnDeath NullableBool `json:"spawn_breakables_on_death,omitempty"`
 	MeleeAttemptRange NullableFloat32 `json:"melee_attempt_range,omitempty"`
 	MeleeHitRange NullableFloat32 `json:"melee_hit_range,omitempty"`
 	MeleeDuration NullableFloat32 `json:"melee_duration,omitempty"`
@@ -85,11 +86,6 @@ type NPCUnitV2 struct {
 	HealthBarColorTeam1 NullableColorV1 `json:"health_bar_color_team1,omitempty"`
 	HealthBarColorTeam2 NullableColorV1 `json:"health_bar_color_team2,omitempty"`
 	HealthBarColorTeamNeutral NullableColorV1 `json:"health_bar_color_team_neutral,omitempty"`
-	GlowColorFriend NullableColorV1 `json:"glow_color_friend,omitempty"`
-	GlowColorEnemy NullableColorV1 `json:"glow_color_enemy,omitempty"`
-	GlowColorTeam1 NullableColorV1 `json:"glow_color_team1,omitempty"`
-	GlowColorTeam2 NullableColorV1 `json:"glow_color_team2,omitempty"`
-	GlowColorTeamNeutral NullableColorV1 `json:"glow_color_team_neutral,omitempty"`
 	Id int64 `json:"id"`
 }
 
@@ -1716,6 +1712,48 @@ func (o *NPCUnitV2) UnsetMeleeDamage() {
 	o.MeleeDamage.Unset()
 }
 
+// GetSpawnBreakablesOnDeath returns the SpawnBreakablesOnDeath field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NPCUnitV2) GetSpawnBreakablesOnDeath() bool {
+	if o == nil || IsNil(o.SpawnBreakablesOnDeath.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.SpawnBreakablesOnDeath.Get()
+}
+
+// GetSpawnBreakablesOnDeathOk returns a tuple with the SpawnBreakablesOnDeath field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NPCUnitV2) GetSpawnBreakablesOnDeathOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SpawnBreakablesOnDeath.Get(), o.SpawnBreakablesOnDeath.IsSet()
+}
+
+// HasSpawnBreakablesOnDeath returns a boolean if a field has been set.
+func (o *NPCUnitV2) HasSpawnBreakablesOnDeath() bool {
+	if o != nil && o.SpawnBreakablesOnDeath.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSpawnBreakablesOnDeath gets a reference to the given NullableBool and assigns it to the SpawnBreakablesOnDeath field.
+func (o *NPCUnitV2) SetSpawnBreakablesOnDeath(v bool) {
+	o.SpawnBreakablesOnDeath.Set(&v)
+}
+// SetSpawnBreakablesOnDeathNil sets the value for SpawnBreakablesOnDeath to be an explicit nil
+func (o *NPCUnitV2) SetSpawnBreakablesOnDeathNil() {
+	o.SpawnBreakablesOnDeath.Set(nil)
+}
+
+// UnsetSpawnBreakablesOnDeath ensures that no value is present for SpawnBreakablesOnDeath, not even an explicit nil
+func (o *NPCUnitV2) UnsetSpawnBreakablesOnDeath() {
+	o.SpawnBreakablesOnDeath.Unset()
+}
+
 // GetMeleeAttemptRange returns the MeleeAttemptRange field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NPCUnitV2) GetMeleeAttemptRange() float32 {
 	if o == nil || IsNil(o.MeleeAttemptRange.Get()) {
@@ -2766,216 +2804,6 @@ func (o *NPCUnitV2) UnsetHealthBarColorTeamNeutral() {
 	o.HealthBarColorTeamNeutral.Unset()
 }
 
-// GetGlowColorFriend returns the GlowColorFriend field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetGlowColorFriend() ColorV1 {
-	if o == nil || IsNil(o.GlowColorFriend.Get()) {
-		var ret ColorV1
-		return ret
-	}
-	return *o.GlowColorFriend.Get()
-}
-
-// GetGlowColorFriendOk returns a tuple with the GlowColorFriend field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetGlowColorFriendOk() (*ColorV1, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.GlowColorFriend.Get(), o.GlowColorFriend.IsSet()
-}
-
-// HasGlowColorFriend returns a boolean if a field has been set.
-func (o *NPCUnitV2) HasGlowColorFriend() bool {
-	if o != nil && o.GlowColorFriend.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGlowColorFriend gets a reference to the given NullableColorV1 and assigns it to the GlowColorFriend field.
-func (o *NPCUnitV2) SetGlowColorFriend(v ColorV1) {
-	o.GlowColorFriend.Set(&v)
-}
-// SetGlowColorFriendNil sets the value for GlowColorFriend to be an explicit nil
-func (o *NPCUnitV2) SetGlowColorFriendNil() {
-	o.GlowColorFriend.Set(nil)
-}
-
-// UnsetGlowColorFriend ensures that no value is present for GlowColorFriend, not even an explicit nil
-func (o *NPCUnitV2) UnsetGlowColorFriend() {
-	o.GlowColorFriend.Unset()
-}
-
-// GetGlowColorEnemy returns the GlowColorEnemy field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetGlowColorEnemy() ColorV1 {
-	if o == nil || IsNil(o.GlowColorEnemy.Get()) {
-		var ret ColorV1
-		return ret
-	}
-	return *o.GlowColorEnemy.Get()
-}
-
-// GetGlowColorEnemyOk returns a tuple with the GlowColorEnemy field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetGlowColorEnemyOk() (*ColorV1, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.GlowColorEnemy.Get(), o.GlowColorEnemy.IsSet()
-}
-
-// HasGlowColorEnemy returns a boolean if a field has been set.
-func (o *NPCUnitV2) HasGlowColorEnemy() bool {
-	if o != nil && o.GlowColorEnemy.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGlowColorEnemy gets a reference to the given NullableColorV1 and assigns it to the GlowColorEnemy field.
-func (o *NPCUnitV2) SetGlowColorEnemy(v ColorV1) {
-	o.GlowColorEnemy.Set(&v)
-}
-// SetGlowColorEnemyNil sets the value for GlowColorEnemy to be an explicit nil
-func (o *NPCUnitV2) SetGlowColorEnemyNil() {
-	o.GlowColorEnemy.Set(nil)
-}
-
-// UnsetGlowColorEnemy ensures that no value is present for GlowColorEnemy, not even an explicit nil
-func (o *NPCUnitV2) UnsetGlowColorEnemy() {
-	o.GlowColorEnemy.Unset()
-}
-
-// GetGlowColorTeam1 returns the GlowColorTeam1 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetGlowColorTeam1() ColorV1 {
-	if o == nil || IsNil(o.GlowColorTeam1.Get()) {
-		var ret ColorV1
-		return ret
-	}
-	return *o.GlowColorTeam1.Get()
-}
-
-// GetGlowColorTeam1Ok returns a tuple with the GlowColorTeam1 field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetGlowColorTeam1Ok() (*ColorV1, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.GlowColorTeam1.Get(), o.GlowColorTeam1.IsSet()
-}
-
-// HasGlowColorTeam1 returns a boolean if a field has been set.
-func (o *NPCUnitV2) HasGlowColorTeam1() bool {
-	if o != nil && o.GlowColorTeam1.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGlowColorTeam1 gets a reference to the given NullableColorV1 and assigns it to the GlowColorTeam1 field.
-func (o *NPCUnitV2) SetGlowColorTeam1(v ColorV1) {
-	o.GlowColorTeam1.Set(&v)
-}
-// SetGlowColorTeam1Nil sets the value for GlowColorTeam1 to be an explicit nil
-func (o *NPCUnitV2) SetGlowColorTeam1Nil() {
-	o.GlowColorTeam1.Set(nil)
-}
-
-// UnsetGlowColorTeam1 ensures that no value is present for GlowColorTeam1, not even an explicit nil
-func (o *NPCUnitV2) UnsetGlowColorTeam1() {
-	o.GlowColorTeam1.Unset()
-}
-
-// GetGlowColorTeam2 returns the GlowColorTeam2 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetGlowColorTeam2() ColorV1 {
-	if o == nil || IsNil(o.GlowColorTeam2.Get()) {
-		var ret ColorV1
-		return ret
-	}
-	return *o.GlowColorTeam2.Get()
-}
-
-// GetGlowColorTeam2Ok returns a tuple with the GlowColorTeam2 field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetGlowColorTeam2Ok() (*ColorV1, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.GlowColorTeam2.Get(), o.GlowColorTeam2.IsSet()
-}
-
-// HasGlowColorTeam2 returns a boolean if a field has been set.
-func (o *NPCUnitV2) HasGlowColorTeam2() bool {
-	if o != nil && o.GlowColorTeam2.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGlowColorTeam2 gets a reference to the given NullableColorV1 and assigns it to the GlowColorTeam2 field.
-func (o *NPCUnitV2) SetGlowColorTeam2(v ColorV1) {
-	o.GlowColorTeam2.Set(&v)
-}
-// SetGlowColorTeam2Nil sets the value for GlowColorTeam2 to be an explicit nil
-func (o *NPCUnitV2) SetGlowColorTeam2Nil() {
-	o.GlowColorTeam2.Set(nil)
-}
-
-// UnsetGlowColorTeam2 ensures that no value is present for GlowColorTeam2, not even an explicit nil
-func (o *NPCUnitV2) UnsetGlowColorTeam2() {
-	o.GlowColorTeam2.Unset()
-}
-
-// GetGlowColorTeamNeutral returns the GlowColorTeamNeutral field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NPCUnitV2) GetGlowColorTeamNeutral() ColorV1 {
-	if o == nil || IsNil(o.GlowColorTeamNeutral.Get()) {
-		var ret ColorV1
-		return ret
-	}
-	return *o.GlowColorTeamNeutral.Get()
-}
-
-// GetGlowColorTeamNeutralOk returns a tuple with the GlowColorTeamNeutral field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NPCUnitV2) GetGlowColorTeamNeutralOk() (*ColorV1, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.GlowColorTeamNeutral.Get(), o.GlowColorTeamNeutral.IsSet()
-}
-
-// HasGlowColorTeamNeutral returns a boolean if a field has been set.
-func (o *NPCUnitV2) HasGlowColorTeamNeutral() bool {
-	if o != nil && o.GlowColorTeamNeutral.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGlowColorTeamNeutral gets a reference to the given NullableColorV1 and assigns it to the GlowColorTeamNeutral field.
-func (o *NPCUnitV2) SetGlowColorTeamNeutral(v ColorV1) {
-	o.GlowColorTeamNeutral.Set(&v)
-}
-// SetGlowColorTeamNeutralNil sets the value for GlowColorTeamNeutral to be an explicit nil
-func (o *NPCUnitV2) SetGlowColorTeamNeutralNil() {
-	o.GlowColorTeamNeutral.Set(nil)
-}
-
-// UnsetGlowColorTeamNeutral ensures that no value is present for GlowColorTeamNeutral, not even an explicit nil
-func (o *NPCUnitV2) UnsetGlowColorTeamNeutral() {
-	o.GlowColorTeamNeutral.Unset()
-}
-
 // GetId returns the Id field value
 func (o *NPCUnitV2) GetId() int64 {
 	if o == nil {
@@ -3125,6 +2953,9 @@ func (o NPCUnitV2) ToMap() (map[string]interface{}, error) {
 	if o.MeleeDamage.IsSet() {
 		toSerialize["melee_damage"] = o.MeleeDamage.Get()
 	}
+	if o.SpawnBreakablesOnDeath.IsSet() {
+		toSerialize["spawn_breakables_on_death"] = o.SpawnBreakablesOnDeath.Get()
+	}
 	if o.MeleeAttemptRange.IsSet() {
 		toSerialize["melee_attempt_range"] = o.MeleeAttemptRange.Get()
 	}
@@ -3199,21 +3030,6 @@ func (o NPCUnitV2) ToMap() (map[string]interface{}, error) {
 	}
 	if o.HealthBarColorTeamNeutral.IsSet() {
 		toSerialize["health_bar_color_team_neutral"] = o.HealthBarColorTeamNeutral.Get()
-	}
-	if o.GlowColorFriend.IsSet() {
-		toSerialize["glow_color_friend"] = o.GlowColorFriend.Get()
-	}
-	if o.GlowColorEnemy.IsSet() {
-		toSerialize["glow_color_enemy"] = o.GlowColorEnemy.Get()
-	}
-	if o.GlowColorTeam1.IsSet() {
-		toSerialize["glow_color_team1"] = o.GlowColorTeam1.Get()
-	}
-	if o.GlowColorTeam2.IsSet() {
-		toSerialize["glow_color_team2"] = o.GlowColorTeam2.Get()
-	}
-	if o.GlowColorTeamNeutral.IsSet() {
-		toSerialize["glow_color_team_neutral"] = o.GlowColorTeamNeutral.Get()
 	}
 	toSerialize["id"] = o.Id
 	return toSerialize, nil

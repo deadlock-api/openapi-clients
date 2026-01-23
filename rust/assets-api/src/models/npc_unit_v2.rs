@@ -91,6 +91,8 @@ pub struct NpcUnitV2 {
     pub acceleration: Option<Option<f64>>,
     #[serde(rename = "melee_damage", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub melee_damage: Option<Option<f64>>,
+    #[serde(rename = "spawn_breakables_on_death", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub spawn_breakables_on_death: Option<Option<bool>>,
     #[serde(rename = "melee_attempt_range", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub melee_attempt_range: Option<Option<f64>>,
     #[serde(rename = "melee_hit_range", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -141,16 +143,6 @@ pub struct NpcUnitV2 {
     pub health_bar_color_team2: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "health_bar_color_team_neutral", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub health_bar_color_team_neutral: Option<Option<Box<models::ColorV1>>>,
-    #[serde(rename = "glow_color_friend", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub glow_color_friend: Option<Option<Box<models::ColorV1>>>,
-    #[serde(rename = "glow_color_enemy", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub glow_color_enemy: Option<Option<Box<models::ColorV1>>>,
-    #[serde(rename = "glow_color_team1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub glow_color_team1: Option<Option<Box<models::ColorV1>>>,
-    #[serde(rename = "glow_color_team2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub glow_color_team2: Option<Option<Box<models::ColorV1>>>,
-    #[serde(rename = "glow_color_team_neutral", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub glow_color_team_neutral: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "id")]
     pub id: i64,
 }
@@ -197,6 +189,7 @@ impl NpcUnitV2 {
             run_speed: None,
             acceleration: None,
             melee_damage: None,
+            spawn_breakables_on_death: None,
             melee_attempt_range: None,
             melee_hit_range: None,
             melee_duration: None,
@@ -222,11 +215,6 @@ impl NpcUnitV2 {
             health_bar_color_team1: None,
             health_bar_color_team2: None,
             health_bar_color_team_neutral: None,
-            glow_color_friend: None,
-            glow_color_enemy: None,
-            glow_color_team1: None,
-            glow_color_team2: None,
-            glow_color_team_neutral: None,
             id,
         }
     }

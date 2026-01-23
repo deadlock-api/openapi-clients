@@ -66,6 +66,7 @@ __all__ = [
     "ESportsMatchStatus",
     "EnemyStats",
     "Entry",
+    "GameMode",
     "GetCustomMatchIdResponse",
     "HashMapValue",
     "HeroCombStats",
@@ -149,6 +150,7 @@ from deadlock_api_client.models.e_sports_match import ESportsMatch as ESportsMat
 from deadlock_api_client.models.e_sports_match_status import ESportsMatchStatus as ESportsMatchStatus
 from deadlock_api_client.models.enemy_stats import EnemyStats as EnemyStats
 from deadlock_api_client.models.entry import Entry as Entry
+from deadlock_api_client.models.game_mode import GameMode as GameMode
 from deadlock_api_client.models.get_custom_match_id_response import GetCustomMatchIdResponse as GetCustomMatchIdResponse
 from deadlock_api_client.models.hash_map_value import HashMapValue as HashMapValue
 from deadlock_api_client.models.hero_comb_stats import HeroCombStats as HeroCombStats

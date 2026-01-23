@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Duration** | Pointer to **NullableFloat32** |  | [optional] 
 **TimeMin** | Pointer to **NullableFloat32** |  | [optional] 
 **TimeMax** | Pointer to **NullableFloat32** |  | [optional] 
-**DebuffType** | Pointer to **NullableString** |  | [optional] 
 **AlwaysShowInUi** | Pointer to **[]string** |  | [optional] 
 **ModifierValues** | Pointer to [**[]ModifierValue**](ModifierValue.md) |  | [optional] 
 **ScriptValues** | Pointer to [**[]ModifierValue**](ModifierValue.md) |  | [optional] 
@@ -208,41 +207,6 @@ HasTimeMax returns a boolean if a field has been set.
 `func (o *ModifierDefinition) UnsetTimeMax()`
 
 UnsetTimeMax ensures that no value is present for TimeMax, not even an explicit nil
-### GetDebuffType
-
-`func (o *ModifierDefinition) GetDebuffType() string`
-
-GetDebuffType returns the DebuffType field if non-nil, zero value otherwise.
-
-### GetDebuffTypeOk
-
-`func (o *ModifierDefinition) GetDebuffTypeOk() (*string, bool)`
-
-GetDebuffTypeOk returns a tuple with the DebuffType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDebuffType
-
-`func (o *ModifierDefinition) SetDebuffType(v string)`
-
-SetDebuffType sets DebuffType field to given value.
-
-### HasDebuffType
-
-`func (o *ModifierDefinition) HasDebuffType() bool`
-
-HasDebuffType returns a boolean if a field has been set.
-
-### SetDebuffTypeNil
-
-`func (o *ModifierDefinition) SetDebuffTypeNil(b bool)`
-
- SetDebuffTypeNil sets the value for DebuffType to be an explicit nil
-
-### UnsetDebuffType
-`func (o *ModifierDefinition) UnsetDebuffType()`
-
-UnsetDebuffType ensures that no value is present for DebuffType, not even an explicit nil
 ### GetAlwaysShowInUi
 
 `func (o *ModifierDefinition) GetAlwaysShowInUi() []string`

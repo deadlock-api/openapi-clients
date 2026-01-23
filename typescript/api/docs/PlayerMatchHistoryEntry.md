@@ -7,6 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **abandoned_time_s** | **number** |  | [optional] [default to undefined]
 **account_id** | **number** |  | [default to undefined]
+**brawl_avg_round_time_s** | **number** |  | [optional] [default to undefined]
+**brawl_score_team0** | **number** |  | [optional] [default to undefined]
+**brawl_score_team1** | **number** |  | [optional] [default to undefined]
 **denies** | **number** |  | [default to undefined]
 **game_mode** | **number** |  | [default to undefined]
 **hero_id** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [default to undefined]
@@ -35,6 +38,9 @@ import { PlayerMatchHistoryEntry } from 'deadlock_api_client';
 const instance: PlayerMatchHistoryEntry = {
     abandoned_time_s,
     account_id,
+    brawl_avg_round_time_s,
+    brawl_score_team0,
+    brawl_score_team1,
     denies,
     game_mode,
     hero_id,

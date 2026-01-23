@@ -8,8 +8,7 @@ Name | Type | Description | Notes
 **class_name** | **String** |  | 
 **name** | **String** |  | 
 **description** | [**models::HeroDescriptionV2**](HeroDescriptionV2.md) |  | 
-**recommended_upgrades** | Option<**Vec<String>**> |  | [optional]
-**recommended_ability_order** | Option<**Vec<String>**> |  | [optional]
+**item_draft_weights** | Option<**std::collections::HashMap<String, f64>**> |  | [optional]
 **player_selectable** | **bool** |  | 
 **disabled** | **bool** |  | 
 **in_development** | **bool** |  | 

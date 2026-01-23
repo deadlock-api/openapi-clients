@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **duration** | **number** |  | [optional] [default to undefined]
 **time_min** | **number** |  | [optional] [default to undefined]
 **time_max** | **number** |  | [optional] [default to undefined]
-**debuff_type** | **string** |  | [optional] [default to undefined]
 **always_show_in_ui** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **modifier_values** | [**Array&lt;ModifierValue&gt;**](ModifierValue.md) |  | [optional] [default to undefined]
 **script_values** | [**Array&lt;ModifierValue&gt;**](ModifierValue.md) |  | [optional] [default to undefined]
@@ -27,7 +26,6 @@ const instance: ModifierDefinition = {
     duration,
     time_min,
     time_max,
-    debuff_type,
     always_show_in_ui,
     modifier_values,
     script_values,

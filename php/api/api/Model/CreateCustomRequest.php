@@ -61,7 +61,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'cheats_enabled' => 'bool',
         'disable_auto_ready' => 'bool',
         'duplicate_heroes_enabled' => 'bool',
-        'experimental_heroes_enabled' => 'bool',
+        'game_mode' => '\OpenAPI\Client\Model\GameMode',
         'is_publicly_visible' => 'bool',
         'min_roster_size' => 'int',
         'randomize_lanes' => 'bool',
@@ -80,7 +80,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'cheats_enabled' => null,
         'disable_auto_ready' => null,
         'duplicate_heroes_enabled' => null,
-        'experimental_heroes_enabled' => null,
+        'game_mode' => null,
         'is_publicly_visible' => null,
         'min_roster_size' => 'int32',
         'randomize_lanes' => null,
@@ -97,7 +97,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'cheats_enabled' => true,
         'disable_auto_ready' => true,
         'duplicate_heroes_enabled' => true,
-        'experimental_heroes_enabled' => true,
+        'game_mode' => true,
         'is_publicly_visible' => true,
         'min_roster_size' => true,
         'randomize_lanes' => true,
@@ -194,7 +194,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'cheats_enabled' => 'cheats_enabled',
         'disable_auto_ready' => 'disable_auto_ready',
         'duplicate_heroes_enabled' => 'duplicate_heroes_enabled',
-        'experimental_heroes_enabled' => 'experimental_heroes_enabled',
+        'game_mode' => 'game_mode',
         'is_publicly_visible' => 'is_publicly_visible',
         'min_roster_size' => 'min_roster_size',
         'randomize_lanes' => 'randomize_lanes',
@@ -211,7 +211,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'cheats_enabled' => 'setCheatsEnabled',
         'disable_auto_ready' => 'setDisableAutoReady',
         'duplicate_heroes_enabled' => 'setDuplicateHeroesEnabled',
-        'experimental_heroes_enabled' => 'setExperimentalHeroesEnabled',
+        'game_mode' => 'setGameMode',
         'is_publicly_visible' => 'setIsPubliclyVisible',
         'min_roster_size' => 'setMinRosterSize',
         'randomize_lanes' => 'setRandomizeLanes',
@@ -228,7 +228,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'cheats_enabled' => 'getCheatsEnabled',
         'disable_auto_ready' => 'getDisableAutoReady',
         'duplicate_heroes_enabled' => 'getDuplicateHeroesEnabled',
-        'experimental_heroes_enabled' => 'getExperimentalHeroesEnabled',
+        'game_mode' => 'getGameMode',
         'is_publicly_visible' => 'getIsPubliclyVisible',
         'min_roster_size' => 'getMinRosterSize',
         'randomize_lanes' => 'getRandomizeLanes',
@@ -296,7 +296,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('cheats_enabled', $data ?? [], null);
         $this->setIfExists('disable_auto_ready', $data ?? [], null);
         $this->setIfExists('duplicate_heroes_enabled', $data ?? [], null);
-        $this->setIfExists('experimental_heroes_enabled', $data ?? [], null);
+        $this->setIfExists('game_mode', $data ?? [], null);
         $this->setIfExists('is_publicly_visible', $data ?? [], null);
         $this->setIfExists('min_roster_size', $data ?? [], null);
         $this->setIfExists('randomize_lanes', $data ?? [], null);
@@ -486,35 +486,35 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets experimental_heroes_enabled
+     * Gets game_mode
      *
-     * @return bool|null
+     * @return \OpenAPI\Client\Model\GameMode|null
      */
-    public function getExperimentalHeroesEnabled()
+    public function getGameMode()
     {
-        return $this->container['experimental_heroes_enabled'];
+        return $this->container['game_mode'];
     }
 
     /**
-     * Sets experimental_heroes_enabled
+     * Sets game_mode
      *
-     * @param bool|null $experimental_heroes_enabled experimental_heroes_enabled
+     * @param \OpenAPI\Client\Model\GameMode|null $game_mode game_mode
      *
      * @return self
      */
-    public function setExperimentalHeroesEnabled($experimental_heroes_enabled)
+    public function setGameMode($game_mode)
     {
-        if (is_null($experimental_heroes_enabled)) {
-            array_push($this->openAPINullablesSetToNull, 'experimental_heroes_enabled');
+        if (is_null($game_mode)) {
+            array_push($this->openAPINullablesSetToNull, 'game_mode');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('experimental_heroes_enabled', $nullablesSetToNull);
+            $index = array_search('game_mode', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['experimental_heroes_enabled'] = $experimental_heroes_enabled;
+        $this->container['game_mode'] = $game_mode;
 
         return $this;
     }

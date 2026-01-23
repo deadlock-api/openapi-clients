@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **duration** | Option<**f64**> |  | [optional]
 **time_min** | Option<**f64**> |  | [optional]
 **time_max** | Option<**f64**> |  | [optional]
-**debuff_type** | Option<**String**> |  | [optional]
 **always_show_in_ui** | Option<**Vec<String>**> |  | [optional]
 **modifier_values** | Option<[**Vec<models::ModifierValue>**](ModifierValue.md)> |  | [optional]
 **script_values** | Option<[**Vec<models::ModifierValue>**](ModifierValue.md)> |  | [optional]

@@ -30,6 +30,7 @@ class ItemTierV2(int, Enum):
     NUMBER_2 = 2
     NUMBER_3 = 3
     NUMBER_4 = 4
+    NUMBER_5 = 5
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

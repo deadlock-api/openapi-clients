@@ -274,6 +274,12 @@ class NPCUnitV2Test : ShouldSpec() {
             //modelInstance.meleeDamage shouldBe ("TODO")
         }
 
+        // to test the property `spawnBreakablesOnDeath`
+        should("test spawnBreakablesOnDeath") {
+            // uncomment below to test the property
+            //modelInstance.spawnBreakablesOnDeath shouldBe ("TODO")
+        }
+
         // to test the property `meleeAttemptRange`
         should("test meleeAttemptRange") {
             // uncomment below to test the property
@@ -422,36 +428,6 @@ class NPCUnitV2Test : ShouldSpec() {
         should("test healthBarColorTeamNeutral") {
             // uncomment below to test the property
             //modelInstance.healthBarColorTeamNeutral shouldBe ("TODO")
-        }
-
-        // to test the property `glowColorFriend`
-        should("test glowColorFriend") {
-            // uncomment below to test the property
-            //modelInstance.glowColorFriend shouldBe ("TODO")
-        }
-
-        // to test the property `glowColorEnemy`
-        should("test glowColorEnemy") {
-            // uncomment below to test the property
-            //modelInstance.glowColorEnemy shouldBe ("TODO")
-        }
-
-        // to test the property `glowColorTeam1`
-        should("test glowColorTeam1") {
-            // uncomment below to test the property
-            //modelInstance.glowColorTeam1 shouldBe ("TODO")
-        }
-
-        // to test the property `glowColorTeam2`
-        should("test glowColorTeam2") {
-            // uncomment below to test the property
-            //modelInstance.glowColorTeam2 shouldBe ("TODO")
-        }
-
-        // to test the property `glowColorTeamNeutral`
-        should("test glowColorTeamNeutral") {
-            // uncomment below to test the property
-            //modelInstance.glowColorTeamNeutral shouldBe ("TODO")
         }
 
     }

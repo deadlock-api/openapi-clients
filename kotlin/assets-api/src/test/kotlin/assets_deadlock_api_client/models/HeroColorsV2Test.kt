@@ -25,30 +25,6 @@ class HeroColorsV2Test : ShouldSpec() {
         // uncomment below to create an instance of HeroColorsV2
         //val modelInstance = HeroColorsV2()
 
-        // to test the property `glowEnemy`
-        should("test glowEnemy") {
-            // uncomment below to test the property
-            //modelInstance.glowEnemy shouldBe ("TODO")
-        }
-
-        // to test the property `glowFriendly`
-        should("test glowFriendly") {
-            // uncomment below to test the property
-            //modelInstance.glowFriendly shouldBe ("TODO")
-        }
-
-        // to test the property `glowTeam1`
-        should("test glowTeam1") {
-            // uncomment below to test the property
-            //modelInstance.glowTeam1 shouldBe ("TODO")
-        }
-
-        // to test the property `glowTeam2`
-        should("test glowTeam2") {
-            // uncomment below to test the property
-            //modelInstance.glowTeam2 shouldBe ("TODO")
-        }
-
         // to test the property `ui`
         should("test ui") {
             // uncomment below to test the property

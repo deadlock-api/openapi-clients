@@ -23,8 +23,8 @@ pub struct CreateCustomRequest {
     pub disable_auto_ready: Option<Option<bool>>,
     #[serde(rename = "duplicate_heroes_enabled", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub duplicate_heroes_enabled: Option<Option<bool>>,
-    #[serde(rename = "experimental_heroes_enabled", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub experimental_heroes_enabled: Option<Option<bool>>,
+    #[serde(rename = "game_mode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub game_mode: Option<Option<models::GameMode>>,
     #[serde(rename = "is_publicly_visible", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub is_publicly_visible: Option<Option<bool>>,
     #[serde(rename = "min_roster_size", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -42,7 +42,7 @@ impl CreateCustomRequest {
             cheats_enabled: None,
             disable_auto_ready: None,
             duplicate_heroes_enabled: None,
-            experimental_heroes_enabled: None,
+            game_mode: None,
             is_publicly_visible: None,
             min_roster_size: None,
             randomize_lanes: None,

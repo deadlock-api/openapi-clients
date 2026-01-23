@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **run_speed** | Option<**f64**> |  | [optional]
 **acceleration** | Option<**f64**> |  | [optional]
 **melee_damage** | Option<**f64**> |  | [optional]
+**spawn_breakables_on_death** | Option<**bool**> |  | [optional]
 **melee_attempt_range** | Option<**f64**> |  | [optional]
 **melee_hit_range** | Option<**f64**> |  | [optional]
 **melee_duration** | Option<**f64**> |  | [optional]
@@ -68,11 +69,6 @@ Name | Type | Description | Notes
 **health_bar_color_team1** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
 **health_bar_color_team2** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
 **health_bar_color_team_neutral** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
-**glow_color_friend** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
-**glow_color_enemy** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
-**glow_color_team1** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
-**glow_color_team2** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
-**glow_color_team_neutral** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
 **id** | **i64** |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

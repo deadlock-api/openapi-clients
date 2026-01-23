@@ -15,6 +15,8 @@
 
 * `PRESS_TOGGLE` (value: `'press_toggle'`)
 
+* `INSTANT_CAST_TOGGLE` (value: `'instant_cast_toggle'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

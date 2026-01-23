@@ -39,7 +39,7 @@ class TestCreateCustomRequest(unittest.TestCase):
                 cheats_enabled = True,
                 disable_auto_ready = True,
                 duplicate_heroes_enabled = True,
-                experimental_heroes_enabled = True,
+                game_mode = 'normal',
                 is_publicly_visible = True,
                 min_roster_size = 0,
                 randomize_lanes = True,

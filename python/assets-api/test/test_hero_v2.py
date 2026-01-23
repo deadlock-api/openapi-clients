@@ -42,12 +42,9 @@ class TestHeroV2(unittest.TestCase):
                     lore = '', 
                     role = '', 
                     playstyle = '', ),
-                recommended_upgrades = [
-                    ''
-                    ],
-                recommended_ability_order = [
-                    ''
-                    ],
+                item_draft_weights = {
+                    'key' : 1.337
+                    },
                 player_selectable = True,
                 disabled = True,
                 in_development = True,
@@ -70,10 +67,10 @@ class TestHeroV2(unittest.TestCase):
                     icon_image_small_webp = '', 
                     minimap_image = '', 
                     minimap_image_webp = '', 
-                    selection_image = '', 
-                    selection_image_webp = '', 
-                    top_bar_image = '', 
-                    top_bar_image_webp = '', 
+                    hero_card_critical = '', 
+                    hero_card_critical_webp = '', 
+                    hero_card_gloat = '', 
+                    hero_card_gloat_webp = '', 
                     top_bar_vertical_image = '', 
                     top_bar_vertical_image_webp = '', 
                     weapon_image = '', 
@@ -125,18 +122,6 @@ class TestHeroV2(unittest.TestCase):
                     step_sound_time = 1.337, 
                     step_sound_time_sprinting = 1.337, ),
                 colors = assets_deadlock_api_client.models.hero_colors_v2.HeroColorsV2(
-                    glow_enemy = [
-                        null
-                        ], 
-                    glow_friendly = [
-                        null
-                        ], 
-                    glow_team1 = [
-                        null
-                        ], 
-                    glow_team2 = [
-                        null
-                        ], 
                     ui = [
                         null
                         ], ),
@@ -245,10 +230,10 @@ class TestHeroV2(unittest.TestCase):
                     icon_image_small_webp = '', 
                     minimap_image = '', 
                     minimap_image_webp = '', 
-                    selection_image = '', 
-                    selection_image_webp = '', 
-                    top_bar_image = '', 
-                    top_bar_image_webp = '', 
+                    hero_card_critical = '', 
+                    hero_card_critical_webp = '', 
+                    hero_card_gloat = '', 
+                    hero_card_gloat_webp = '', 
                     top_bar_vertical_image = '', 
                     top_bar_vertical_image_webp = '', 
                     weapon_image = '', 
@@ -300,18 +285,6 @@ class TestHeroV2(unittest.TestCase):
                     step_sound_time = 1.337, 
                     step_sound_time_sprinting = 1.337, ),
                 colors = assets_deadlock_api_client.models.hero_colors_v2.HeroColorsV2(
-                    glow_enemy = [
-                        null
-                        ], 
-                    glow_friendly = [
-                        null
-                        ], 
-                    glow_team1 = [
-                        null
-                        ], 
-                    glow_team2 = [
-                        null
-                        ], 
                     ui = [
                         null
                         ], ),

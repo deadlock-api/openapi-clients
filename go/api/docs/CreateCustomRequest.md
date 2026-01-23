@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CheatsEnabled** | Pointer to **NullableBool** |  | [optional] 
 **DisableAutoReady** | Pointer to **NullableBool** | If auto-ready is disabled, the bot will not automatically ready up. You need to call the &#x60;ready&#x60; endpoint to ready up. | [optional] 
 **DuplicateHeroesEnabled** | Pointer to **NullableBool** |  | [optional] 
-**ExperimentalHeroesEnabled** | Pointer to **NullableBool** |  | [optional] 
+**GameMode** | Pointer to [**NullableGameMode**](GameMode.md) |  | [optional] 
 **IsPubliclyVisible** | Pointer to **NullableBool** |  | [optional] 
 **MinRosterSize** | Pointer to **NullableInt32** |  | [optional] 
 **RandomizeLanes** | Pointer to **NullableBool** |  | [optional] 
@@ -173,41 +173,41 @@ HasDuplicateHeroesEnabled returns a boolean if a field has been set.
 `func (o *CreateCustomRequest) UnsetDuplicateHeroesEnabled()`
 
 UnsetDuplicateHeroesEnabled ensures that no value is present for DuplicateHeroesEnabled, not even an explicit nil
-### GetExperimentalHeroesEnabled
+### GetGameMode
 
-`func (o *CreateCustomRequest) GetExperimentalHeroesEnabled() bool`
+`func (o *CreateCustomRequest) GetGameMode() GameMode`
 
-GetExperimentalHeroesEnabled returns the ExperimentalHeroesEnabled field if non-nil, zero value otherwise.
+GetGameMode returns the GameMode field if non-nil, zero value otherwise.
 
-### GetExperimentalHeroesEnabledOk
+### GetGameModeOk
 
-`func (o *CreateCustomRequest) GetExperimentalHeroesEnabledOk() (*bool, bool)`
+`func (o *CreateCustomRequest) GetGameModeOk() (*GameMode, bool)`
 
-GetExperimentalHeroesEnabledOk returns a tuple with the ExperimentalHeroesEnabled field if it's non-nil, zero value otherwise
+GetGameModeOk returns a tuple with the GameMode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetExperimentalHeroesEnabled
+### SetGameMode
 
-`func (o *CreateCustomRequest) SetExperimentalHeroesEnabled(v bool)`
+`func (o *CreateCustomRequest) SetGameMode(v GameMode)`
 
-SetExperimentalHeroesEnabled sets ExperimentalHeroesEnabled field to given value.
+SetGameMode sets GameMode field to given value.
 
-### HasExperimentalHeroesEnabled
+### HasGameMode
 
-`func (o *CreateCustomRequest) HasExperimentalHeroesEnabled() bool`
+`func (o *CreateCustomRequest) HasGameMode() bool`
 
-HasExperimentalHeroesEnabled returns a boolean if a field has been set.
+HasGameMode returns a boolean if a field has been set.
 
-### SetExperimentalHeroesEnabledNil
+### SetGameModeNil
 
-`func (o *CreateCustomRequest) SetExperimentalHeroesEnabledNil(b bool)`
+`func (o *CreateCustomRequest) SetGameModeNil(b bool)`
 
- SetExperimentalHeroesEnabledNil sets the value for ExperimentalHeroesEnabled to be an explicit nil
+ SetGameModeNil sets the value for GameMode to be an explicit nil
 
-### UnsetExperimentalHeroesEnabled
-`func (o *CreateCustomRequest) UnsetExperimentalHeroesEnabled()`
+### UnsetGameMode
+`func (o *CreateCustomRequest) UnsetGameMode()`
 
-UnsetExperimentalHeroesEnabled ensures that no value is present for ExperimentalHeroesEnabled, not even an explicit nil
+UnsetGameMode ensures that no value is present for GameMode, not even an explicit nil
 ### GetIsPubliclyVisible
 
 `func (o *CreateCustomRequest) GetIsPubliclyVisible() bool`

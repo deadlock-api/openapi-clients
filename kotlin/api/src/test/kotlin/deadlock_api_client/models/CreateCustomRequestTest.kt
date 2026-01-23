@@ -19,6 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.CreateCustomRequest
+import deadlock_api_client.models.GameMode
 import deadlock_api_client.models.RegionMode
 
 class CreateCustomRequestTest : ShouldSpec() {
@@ -50,10 +51,10 @@ class CreateCustomRequestTest : ShouldSpec() {
             //modelInstance.duplicateHeroesEnabled shouldBe ("TODO")
         }
 
-        // to test the property `experimentalHeroesEnabled`
-        should("test experimentalHeroesEnabled") {
+        // to test the property `gameMode`
+        should("test gameMode") {
             // uncomment below to test the property
-            //modelInstance.experimentalHeroesEnabled shouldBe ("TODO")
+            //modelInstance.gameMode shouldBe ("TODO")
         }
 
         // to test the property `isPubliclyVisible`

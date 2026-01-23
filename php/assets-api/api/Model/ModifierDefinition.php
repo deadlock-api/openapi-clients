@@ -63,7 +63,6 @@ class ModifierDefinition implements ModelInterface, ArrayAccess, \JsonSerializab
         'duration' => 'float',
         'time_min' => 'float',
         'time_max' => 'float',
-        'debuff_type' => 'string',
         'always_show_in_ui' => 'string[]',
         'modifier_values' => '\OpenAPI\Client\Model\ModifierValue[]',
         'script_values' => '\OpenAPI\Client\Model\ModifierValue[]'
@@ -82,7 +81,6 @@ class ModifierDefinition implements ModelInterface, ArrayAccess, \JsonSerializab
         'duration' => null,
         'time_min' => null,
         'time_max' => null,
-        'debuff_type' => null,
         'always_show_in_ui' => null,
         'modifier_values' => null,
         'script_values' => null
@@ -99,7 +97,6 @@ class ModifierDefinition implements ModelInterface, ArrayAccess, \JsonSerializab
         'duration' => true,
         'time_min' => true,
         'time_max' => true,
-        'debuff_type' => true,
         'always_show_in_ui' => true,
         'modifier_values' => true,
         'script_values' => true
@@ -196,7 +193,6 @@ class ModifierDefinition implements ModelInterface, ArrayAccess, \JsonSerializab
         'duration' => 'duration',
         'time_min' => 'time_min',
         'time_max' => 'time_max',
-        'debuff_type' => 'debuff_type',
         'always_show_in_ui' => 'always_show_in_ui',
         'modifier_values' => 'modifier_values',
         'script_values' => 'script_values'
@@ -213,7 +209,6 @@ class ModifierDefinition implements ModelInterface, ArrayAccess, \JsonSerializab
         'duration' => 'setDuration',
         'time_min' => 'setTimeMin',
         'time_max' => 'setTimeMax',
-        'debuff_type' => 'setDebuffType',
         'always_show_in_ui' => 'setAlwaysShowInUi',
         'modifier_values' => 'setModifierValues',
         'script_values' => 'setScriptValues'
@@ -230,7 +225,6 @@ class ModifierDefinition implements ModelInterface, ArrayAccess, \JsonSerializab
         'duration' => 'getDuration',
         'time_min' => 'getTimeMin',
         'time_max' => 'getTimeMax',
-        'debuff_type' => 'getDebuffType',
         'always_show_in_ui' => 'getAlwaysShowInUi',
         'modifier_values' => 'getModifierValues',
         'script_values' => 'getScriptValues'
@@ -298,7 +292,6 @@ class ModifierDefinition implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('duration', $data ?? [], null);
         $this->setIfExists('time_min', $data ?? [], null);
         $this->setIfExists('time_max', $data ?? [], null);
-        $this->setIfExists('debuff_type', $data ?? [], null);
         $this->setIfExists('always_show_in_ui', $data ?? [], null);
         $this->setIfExists('modifier_values', $data ?? [], null);
         $this->setIfExists('script_values', $data ?? [], null);
@@ -512,40 +505,6 @@ class ModifierDefinition implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['time_max'] = $time_max;
-
-        return $this;
-    }
-
-    /**
-     * Gets debuff_type
-     *
-     * @return string|null
-     */
-    public function getDebuffType()
-    {
-        return $this->container['debuff_type'];
-    }
-
-    /**
-     * Sets debuff_type
-     *
-     * @param string|null $debuff_type debuff_type
-     *
-     * @return self
-     */
-    public function setDebuffType($debuff_type)
-    {
-        if (is_null($debuff_type)) {
-            array_push($this->openAPINullablesSetToNull, 'debuff_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('debuff_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['debuff_type'] = $debuff_type;
 
         return $this;
     }

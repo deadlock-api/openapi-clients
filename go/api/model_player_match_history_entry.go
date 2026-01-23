@@ -23,6 +23,9 @@ var _ MappedNullable = &PlayerMatchHistoryEntry{}
 type PlayerMatchHistoryEntry struct {
 	AbandonedTimeS NullableInt32 `json:"abandoned_time_s,omitempty"`
 	AccountId int32 `json:"account_id"`
+	BrawlAvgRoundTimeS NullableInt32 `json:"brawl_avg_round_time_s,omitempty"`
+	BrawlScoreTeam0 NullableInt32 `json:"brawl_score_team0,omitempty"`
+	BrawlScoreTeam1 NullableInt32 `json:"brawl_score_team1,omitempty"`
 	Denies int32 `json:"denies"`
 	GameMode int32 `json:"game_mode"`
 	// See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -146,6 +149,132 @@ func (o *PlayerMatchHistoryEntry) GetAccountIdOk() (*int32, bool) {
 // SetAccountId sets field value
 func (o *PlayerMatchHistoryEntry) SetAccountId(v int32) {
 	o.AccountId = v
+}
+
+// GetBrawlAvgRoundTimeS returns the BrawlAvgRoundTimeS field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerMatchHistoryEntry) GetBrawlAvgRoundTimeS() int32 {
+	if o == nil || IsNil(o.BrawlAvgRoundTimeS.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.BrawlAvgRoundTimeS.Get()
+}
+
+// GetBrawlAvgRoundTimeSOk returns a tuple with the BrawlAvgRoundTimeS field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerMatchHistoryEntry) GetBrawlAvgRoundTimeSOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BrawlAvgRoundTimeS.Get(), o.BrawlAvgRoundTimeS.IsSet()
+}
+
+// HasBrawlAvgRoundTimeS returns a boolean if a field has been set.
+func (o *PlayerMatchHistoryEntry) HasBrawlAvgRoundTimeS() bool {
+	if o != nil && o.BrawlAvgRoundTimeS.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBrawlAvgRoundTimeS gets a reference to the given NullableInt32 and assigns it to the BrawlAvgRoundTimeS field.
+func (o *PlayerMatchHistoryEntry) SetBrawlAvgRoundTimeS(v int32) {
+	o.BrawlAvgRoundTimeS.Set(&v)
+}
+// SetBrawlAvgRoundTimeSNil sets the value for BrawlAvgRoundTimeS to be an explicit nil
+func (o *PlayerMatchHistoryEntry) SetBrawlAvgRoundTimeSNil() {
+	o.BrawlAvgRoundTimeS.Set(nil)
+}
+
+// UnsetBrawlAvgRoundTimeS ensures that no value is present for BrawlAvgRoundTimeS, not even an explicit nil
+func (o *PlayerMatchHistoryEntry) UnsetBrawlAvgRoundTimeS() {
+	o.BrawlAvgRoundTimeS.Unset()
+}
+
+// GetBrawlScoreTeam0 returns the BrawlScoreTeam0 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam0() int32 {
+	if o == nil || IsNil(o.BrawlScoreTeam0.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.BrawlScoreTeam0.Get()
+}
+
+// GetBrawlScoreTeam0Ok returns a tuple with the BrawlScoreTeam0 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam0Ok() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BrawlScoreTeam0.Get(), o.BrawlScoreTeam0.IsSet()
+}
+
+// HasBrawlScoreTeam0 returns a boolean if a field has been set.
+func (o *PlayerMatchHistoryEntry) HasBrawlScoreTeam0() bool {
+	if o != nil && o.BrawlScoreTeam0.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBrawlScoreTeam0 gets a reference to the given NullableInt32 and assigns it to the BrawlScoreTeam0 field.
+func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam0(v int32) {
+	o.BrawlScoreTeam0.Set(&v)
+}
+// SetBrawlScoreTeam0Nil sets the value for BrawlScoreTeam0 to be an explicit nil
+func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam0Nil() {
+	o.BrawlScoreTeam0.Set(nil)
+}
+
+// UnsetBrawlScoreTeam0 ensures that no value is present for BrawlScoreTeam0, not even an explicit nil
+func (o *PlayerMatchHistoryEntry) UnsetBrawlScoreTeam0() {
+	o.BrawlScoreTeam0.Unset()
+}
+
+// GetBrawlScoreTeam1 returns the BrawlScoreTeam1 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam1() int32 {
+	if o == nil || IsNil(o.BrawlScoreTeam1.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.BrawlScoreTeam1.Get()
+}
+
+// GetBrawlScoreTeam1Ok returns a tuple with the BrawlScoreTeam1 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam1Ok() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BrawlScoreTeam1.Get(), o.BrawlScoreTeam1.IsSet()
+}
+
+// HasBrawlScoreTeam1 returns a boolean if a field has been set.
+func (o *PlayerMatchHistoryEntry) HasBrawlScoreTeam1() bool {
+	if o != nil && o.BrawlScoreTeam1.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBrawlScoreTeam1 gets a reference to the given NullableInt32 and assigns it to the BrawlScoreTeam1 field.
+func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam1(v int32) {
+	o.BrawlScoreTeam1.Set(&v)
+}
+// SetBrawlScoreTeam1Nil sets the value for BrawlScoreTeam1 to be an explicit nil
+func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam1Nil() {
+	o.BrawlScoreTeam1.Set(nil)
+}
+
+// UnsetBrawlScoreTeam1 ensures that no value is present for BrawlScoreTeam1, not even an explicit nil
+func (o *PlayerMatchHistoryEntry) UnsetBrawlScoreTeam1() {
+	o.BrawlScoreTeam1.Unset()
 }
 
 // GetDenies returns the Denies field value
@@ -654,6 +783,15 @@ func (o PlayerMatchHistoryEntry) ToMap() (map[string]interface{}, error) {
 		toSerialize["abandoned_time_s"] = o.AbandonedTimeS.Get()
 	}
 	toSerialize["account_id"] = o.AccountId
+	if o.BrawlAvgRoundTimeS.IsSet() {
+		toSerialize["brawl_avg_round_time_s"] = o.BrawlAvgRoundTimeS.Get()
+	}
+	if o.BrawlScoreTeam0.IsSet() {
+		toSerialize["brawl_score_team0"] = o.BrawlScoreTeam0.Get()
+	}
+	if o.BrawlScoreTeam1.IsSet() {
+		toSerialize["brawl_score_team1"] = o.BrawlScoreTeam1.Get()
+	}
 	toSerialize["denies"] = o.Denies
 	toSerialize["game_mode"] = o.GameMode
 	toSerialize["hero_id"] = o.HeroId

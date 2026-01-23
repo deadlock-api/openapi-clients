@@ -6,6 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AbandonedTimeS** | Pointer to **NullableInt32** |  | [optional] 
 **AccountId** | **int32** |  | 
+**BrawlAvgRoundTimeS** | Pointer to **NullableInt32** |  | [optional] 
+**BrawlScoreTeam0** | Pointer to **NullableInt32** |  | [optional] 
+**BrawlScoreTeam1** | Pointer to **NullableInt32** |  | [optional] 
 **Denies** | **int32** |  | 
 **GameMode** | **int32** |  | 
 **HeroId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
@@ -100,6 +103,111 @@ and a boolean to check if the value has been set.
 SetAccountId sets AccountId field to given value.
 
 
+### GetBrawlAvgRoundTimeS
+
+`func (o *PlayerMatchHistoryEntry) GetBrawlAvgRoundTimeS() int32`
+
+GetBrawlAvgRoundTimeS returns the BrawlAvgRoundTimeS field if non-nil, zero value otherwise.
+
+### GetBrawlAvgRoundTimeSOk
+
+`func (o *PlayerMatchHistoryEntry) GetBrawlAvgRoundTimeSOk() (*int32, bool)`
+
+GetBrawlAvgRoundTimeSOk returns a tuple with the BrawlAvgRoundTimeS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBrawlAvgRoundTimeS
+
+`func (o *PlayerMatchHistoryEntry) SetBrawlAvgRoundTimeS(v int32)`
+
+SetBrawlAvgRoundTimeS sets BrawlAvgRoundTimeS field to given value.
+
+### HasBrawlAvgRoundTimeS
+
+`func (o *PlayerMatchHistoryEntry) HasBrawlAvgRoundTimeS() bool`
+
+HasBrawlAvgRoundTimeS returns a boolean if a field has been set.
+
+### SetBrawlAvgRoundTimeSNil
+
+`func (o *PlayerMatchHistoryEntry) SetBrawlAvgRoundTimeSNil(b bool)`
+
+ SetBrawlAvgRoundTimeSNil sets the value for BrawlAvgRoundTimeS to be an explicit nil
+
+### UnsetBrawlAvgRoundTimeS
+`func (o *PlayerMatchHistoryEntry) UnsetBrawlAvgRoundTimeS()`
+
+UnsetBrawlAvgRoundTimeS ensures that no value is present for BrawlAvgRoundTimeS, not even an explicit nil
+### GetBrawlScoreTeam0
+
+`func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam0() int32`
+
+GetBrawlScoreTeam0 returns the BrawlScoreTeam0 field if non-nil, zero value otherwise.
+
+### GetBrawlScoreTeam0Ok
+
+`func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam0Ok() (*int32, bool)`
+
+GetBrawlScoreTeam0Ok returns a tuple with the BrawlScoreTeam0 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBrawlScoreTeam0
+
+`func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam0(v int32)`
+
+SetBrawlScoreTeam0 sets BrawlScoreTeam0 field to given value.
+
+### HasBrawlScoreTeam0
+
+`func (o *PlayerMatchHistoryEntry) HasBrawlScoreTeam0() bool`
+
+HasBrawlScoreTeam0 returns a boolean if a field has been set.
+
+### SetBrawlScoreTeam0Nil
+
+`func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam0Nil(b bool)`
+
+ SetBrawlScoreTeam0Nil sets the value for BrawlScoreTeam0 to be an explicit nil
+
+### UnsetBrawlScoreTeam0
+`func (o *PlayerMatchHistoryEntry) UnsetBrawlScoreTeam0()`
+
+UnsetBrawlScoreTeam0 ensures that no value is present for BrawlScoreTeam0, not even an explicit nil
+### GetBrawlScoreTeam1
+
+`func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam1() int32`
+
+GetBrawlScoreTeam1 returns the BrawlScoreTeam1 field if non-nil, zero value otherwise.
+
+### GetBrawlScoreTeam1Ok
+
+`func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam1Ok() (*int32, bool)`
+
+GetBrawlScoreTeam1Ok returns a tuple with the BrawlScoreTeam1 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBrawlScoreTeam1
+
+`func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam1(v int32)`
+
+SetBrawlScoreTeam1 sets BrawlScoreTeam1 field to given value.
+
+### HasBrawlScoreTeam1
+
+`func (o *PlayerMatchHistoryEntry) HasBrawlScoreTeam1() bool`
+
+HasBrawlScoreTeam1 returns a boolean if a field has been set.
+
+### SetBrawlScoreTeam1Nil
+
+`func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam1Nil(b bool)`
+
+ SetBrawlScoreTeam1Nil sets the value for BrawlScoreTeam1 to be an explicit nil
+
+### UnsetBrawlScoreTeam1
+`func (o *PlayerMatchHistoryEntry) UnsetBrawlScoreTeam1()`
+
+UnsetBrawlScoreTeam1 ensures that no value is present for BrawlScoreTeam1, not even an explicit nil
 ### GetDenies
 
 `func (o *PlayerMatchHistoryEntry) GetDenies() int32`

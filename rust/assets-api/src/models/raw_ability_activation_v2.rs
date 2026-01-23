@@ -26,6 +26,8 @@ pub enum RawAbilityActivationV2 {
     Press,
     #[serde(rename = "press_toggle")]
     PressToggle,
+    #[serde(rename = "instant_cast_toggle")]
+    InstantCastToggle,
 
 }
 
@@ -38,6 +40,7 @@ impl std::fmt::Display for RawAbilityActivationV2 {
             Self::Passive => write!(f, "passive"),
             Self::Press => write!(f, "press"),
             Self::PressToggle => write!(f, "press_toggle"),
+            Self::InstantCastToggle => write!(f, "instant_cast_toggle"),
         }
     }
 }

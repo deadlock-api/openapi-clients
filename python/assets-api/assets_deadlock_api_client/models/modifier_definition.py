@@ -32,11 +32,10 @@ class ModifierDefinition(BaseModel):
     duration: Optional[Union[StrictFloat, StrictInt]] = None
     time_min: Optional[Union[StrictFloat, StrictInt]] = None
     time_max: Optional[Union[StrictFloat, StrictInt]] = None
-    debuff_type: Optional[StrictStr] = None
     always_show_in_ui: Optional[List[StrictStr]] = None
     modifier_values: Optional[List[ModifierValue]] = None
     script_values: Optional[List[ModifierValue]] = None
-    __properties: ClassVar[List[str]] = ["class_name", "subclass_name", "duration", "time_min", "time_max", "debuff_type", "always_show_in_ui", "modifier_values", "script_values"]
+    __properties: ClassVar[List[str]] = ["class_name", "subclass_name", "duration", "time_min", "time_max", "always_show_in_ui", "modifier_values", "script_values"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,11 +115,6 @@ class ModifierDefinition(BaseModel):
         if self.time_max is None and "time_max" in self.model_fields_set:
             _dict['time_max'] = None
 
-        # set to None if debuff_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.debuff_type is None and "debuff_type" in self.model_fields_set:
-            _dict['debuff_type'] = None
-
         # set to None if always_show_in_ui (nullable) is None
         # and model_fields_set contains the field
         if self.always_show_in_ui is None and "always_show_in_ui" in self.model_fields_set:
@@ -153,7 +147,6 @@ class ModifierDefinition(BaseModel):
             "duration": obj.get("duration"),
             "time_min": obj.get("time_min"),
             "time_max": obj.get("time_max"),
-            "debuff_type": obj.get("debuff_type"),
             "always_show_in_ui": obj.get("always_show_in_ui"),
             "modifier_values": [ModifierValue.from_dict(_item) for _item in obj["modifier_values"]] if obj.get("modifier_values") is not None else None,
             "script_values": [ModifierValue.from_dict(_item) for _item in obj["script_values"]] if obj.get("script_values") is not None else None

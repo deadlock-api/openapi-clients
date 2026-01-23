@@ -8,8 +8,7 @@ Name | Type | Description | Notes
 **class_name** | **string** |  |
 **name** | **string** |  |
 **description** | [**\OpenAPI\Client\Model\HeroDescriptionV2**](HeroDescriptionV2.md) |  |
-**recommended_upgrades** | **string[]** |  | [optional]
-**recommended_ability_order** | **string[]** |  | [optional]
+**item_draft_weights** | **array<string,float>** |  | [optional]
 **player_selectable** | **bool** |  |
 **disabled** | **bool** |  |
 **in_development** | **bool** |  |

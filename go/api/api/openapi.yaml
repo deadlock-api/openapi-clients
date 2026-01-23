@@ -109,7 +109,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -314,7 +314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -446,7 +446,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -494,7 +494,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -730,7 +730,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -969,7 +969,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -1217,7 +1217,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -1482,7 +1482,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -1694,7 +1694,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -1945,7 +1945,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -2221,7 +2221,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -2426,7 +2426,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -2709,7 +2709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -4818,7 +4818,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -4937,7 +4937,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766361600
+          default: 1766534400
           format: int64
           nullable: true
           type: integer
@@ -6629,9 +6629,9 @@ components:
         cheats_enabled: true
         disable_auto_ready: true
         randomize_lanes: true
+        game_mode: ""
         min_roster_size: 0
         duplicate_heroes_enabled: true
-        experimental_heroes_enabled: true
       properties:
         callback_url:
           description: "If a callback url is provided, we will send a POST request\
@@ -6650,9 +6650,10 @@ components:
         duplicate_heroes_enabled:
           nullable: true
           type: boolean
-        experimental_heroes_enabled:
+        game_mode:
+          allOf:
+          - $ref: "#/components/schemas/GameMode"
           nullable: true
-          type: boolean
         is_publicly_visible:
           nullable: true
           type: boolean
@@ -6829,6 +6830,11 @@ components:
       - matches
       - rank
       - value
+    GameMode:
+      enum:
+      - normal
+      - street_brawl
+      type: string
     GetCustomMatchIdResponse:
       example:
         match_id: 0
@@ -7798,19 +7804,22 @@ components:
         net_worth: 0
         objectives_mask_team1: 0
         abandoned_time_s: 0
+        brawl_avg_round_time_s: 0
         match_id: 0
         player_deaths: 0
+        brawl_score_team1: 0
         denies: 0
-        player_team: 1
+        brawl_score_team0: 0
+        player_team: 9
         start_time: 0
         hero_level: 0
         last_hits: 0
         account_id: 0
         player_assists: 0
         match_result: 0
-        match_mode: 2
+        match_mode: 1
         match_duration_s: 0
-        game_mode: 5
+        game_mode: 7
         player_kills: 0
         hero_id: 0
         team_abandoned: true
@@ -7824,6 +7833,21 @@ components:
         account_id:
           format: int32
           minimum: 0
+          type: integer
+        brawl_avg_round_time_s:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        brawl_score_team0:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        brawl_score_team1:
+          format: int32
+          minimum: 0
+          nullable: true
           type: integer
         denies:
           format: int32

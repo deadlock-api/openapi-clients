@@ -46,6 +46,7 @@ api/Model/ESportsMatch.php
 api/Model/ESportsMatchStatus.php
 api/Model/EnemyStats.php
 api/Model/Entry.php
+api/Model/GameMode.php
 api/Model/GetCustomMatchIdResponse.php
 api/Model/HashMapValue.php
 api/Model/HeroCombStats.php
@@ -116,6 +117,7 @@ docs/Model/ESportsMatch.md
 docs/Model/ESportsMatchStatus.md
 docs/Model/EnemyStats.md
 docs/Model/Entry.md
+docs/Model/GameMode.md
 docs/Model/GetCustomMatchIdResponse.md
 docs/Model/HashMapValue.md
 docs/Model/HeroCombStats.md
@@ -185,6 +187,7 @@ test/Model/ESportsMatchStatusTest.php
 test/Model/ESportsMatchTest.php
 test/Model/EnemyStatsTest.php
 test/Model/EntryTest.php
+test/Model/GameModeTest.php
 test/Model/GetCustomMatchIdResponseTest.php
 test/Model/HashMapValueTest.php
 test/Model/HeroCombStatsTest.php

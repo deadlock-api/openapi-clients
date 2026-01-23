@@ -139,6 +139,24 @@ class PlayerMatchHistoryEntryTest : ShouldSpec() {
             //modelInstance.abandonedTimeS shouldBe ("TODO")
         }
 
+        // to test the property `brawlAvgRoundTimeS`
+        should("test brawlAvgRoundTimeS") {
+            // uncomment below to test the property
+            //modelInstance.brawlAvgRoundTimeS shouldBe ("TODO")
+        }
+
+        // to test the property `brawlScoreTeam0`
+        should("test brawlScoreTeam0") {
+            // uncomment below to test the property
+            //modelInstance.brawlScoreTeam0 shouldBe ("TODO")
+        }
+
+        // to test the property `brawlScoreTeam1`
+        should("test brawlScoreTeam1") {
+            // uncomment below to test the property
+            //modelInstance.brawlScoreTeam1 shouldBe ("TODO")
+        }
+
         // to test the property `teamAbandoned`
         should("test teamAbandoned") {
             // uncomment below to test the property

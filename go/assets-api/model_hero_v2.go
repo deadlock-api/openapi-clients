@@ -25,8 +25,7 @@ type HeroV2 struct {
 	ClassName string `json:"class_name"`
 	Name string `json:"name"`
 	Description HeroDescriptionV2 `json:"description"`
-	RecommendedUpgrades []string `json:"recommended_upgrades,omitempty"`
-	RecommendedAbilityOrder []string `json:"recommended_ability_order,omitempty"`
+	ItemDraftWeights map[string]float32 `json:"item_draft_weights,omitempty"`
 	PlayerSelectable bool `json:"player_selectable"`
 	Disabled bool `json:"disabled"`
 	InDevelopment bool `json:"in_development"`
@@ -196,70 +195,37 @@ func (o *HeroV2) SetDescription(v HeroDescriptionV2) {
 	o.Description = v
 }
 
-// GetRecommendedUpgrades returns the RecommendedUpgrades field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HeroV2) GetRecommendedUpgrades() []string {
+// GetItemDraftWeights returns the ItemDraftWeights field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroV2) GetItemDraftWeights() map[string]float32 {
 	if o == nil {
-		var ret []string
+		var ret map[string]float32
 		return ret
 	}
-	return o.RecommendedUpgrades
+	return o.ItemDraftWeights
 }
 
-// GetRecommendedUpgradesOk returns a tuple with the RecommendedUpgrades field value if set, nil otherwise
+// GetItemDraftWeightsOk returns a tuple with the ItemDraftWeights field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HeroV2) GetRecommendedUpgradesOk() ([]string, bool) {
-	if o == nil || IsNil(o.RecommendedUpgrades) {
-		return nil, false
+func (o *HeroV2) GetItemDraftWeightsOk() (map[string]float32, bool) {
+	if o == nil || IsNil(o.ItemDraftWeights) {
+		return map[string]float32{}, false
 	}
-	return o.RecommendedUpgrades, true
+	return o.ItemDraftWeights, true
 }
 
-// HasRecommendedUpgrades returns a boolean if a field has been set.
-func (o *HeroV2) HasRecommendedUpgrades() bool {
-	if o != nil && !IsNil(o.RecommendedUpgrades) {
+// HasItemDraftWeights returns a boolean if a field has been set.
+func (o *HeroV2) HasItemDraftWeights() bool {
+	if o != nil && !IsNil(o.ItemDraftWeights) {
 		return true
 	}
 
 	return false
 }
 
-// SetRecommendedUpgrades gets a reference to the given []string and assigns it to the RecommendedUpgrades field.
-func (o *HeroV2) SetRecommendedUpgrades(v []string) {
-	o.RecommendedUpgrades = v
-}
-
-// GetRecommendedAbilityOrder returns the RecommendedAbilityOrder field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HeroV2) GetRecommendedAbilityOrder() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.RecommendedAbilityOrder
-}
-
-// GetRecommendedAbilityOrderOk returns a tuple with the RecommendedAbilityOrder field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HeroV2) GetRecommendedAbilityOrderOk() ([]string, bool) {
-	if o == nil || IsNil(o.RecommendedAbilityOrder) {
-		return nil, false
-	}
-	return o.RecommendedAbilityOrder, true
-}
-
-// HasRecommendedAbilityOrder returns a boolean if a field has been set.
-func (o *HeroV2) HasRecommendedAbilityOrder() bool {
-	if o != nil && !IsNil(o.RecommendedAbilityOrder) {
-		return true
-	}
-
-	return false
-}
-
-// SetRecommendedAbilityOrder gets a reference to the given []string and assigns it to the RecommendedAbilityOrder field.
-func (o *HeroV2) SetRecommendedAbilityOrder(v []string) {
-	o.RecommendedAbilityOrder = v
+// SetItemDraftWeights gets a reference to the given map[string]float32 and assigns it to the ItemDraftWeights field.
+func (o *HeroV2) SetItemDraftWeights(v map[string]float32) {
+	o.ItemDraftWeights = v
 }
 
 // GetPlayerSelectable returns the PlayerSelectable field value
@@ -1014,11 +980,8 @@ func (o HeroV2) ToMap() (map[string]interface{}, error) {
 	toSerialize["class_name"] = o.ClassName
 	toSerialize["name"] = o.Name
 	toSerialize["description"] = o.Description
-	if o.RecommendedUpgrades != nil {
-		toSerialize["recommended_upgrades"] = o.RecommendedUpgrades
-	}
-	if o.RecommendedAbilityOrder != nil {
-		toSerialize["recommended_ability_order"] = o.RecommendedAbilityOrder
+	if o.ItemDraftWeights != nil {
+		toSerialize["item_draft_weights"] = o.ItemDraftWeights
 	}
 	toSerialize["player_selectable"] = o.PlayerSelectable
 	toSerialize["disabled"] = o.Disabled

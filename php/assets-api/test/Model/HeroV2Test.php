@@ -116,18 +116,9 @@ class HeroV2Test extends TestCase
     }
 
     /**
-     * Test attribute "recommended_upgrades"
+     * Test attribute "item_draft_weights"
      */
-    public function testPropertyRecommendedUpgrades()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "recommended_ability_order"
-     */
-    public function testPropertyRecommendedAbilityOrder()
+    public function testPropertyItemDraftWeights()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

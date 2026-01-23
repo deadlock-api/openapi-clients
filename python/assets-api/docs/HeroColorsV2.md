@@ -5,10 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**glow_enemy** | **List[object]** |  | 
-**glow_friendly** | **List[object]** |  | 
-**glow_team1** | **List[object]** |  | 
-**glow_team2** | **List[object]** |  | 
 **ui** | **List[object]** |  | 
 
 ## Example

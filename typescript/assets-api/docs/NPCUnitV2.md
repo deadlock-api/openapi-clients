@@ -44,6 +44,7 @@ Name | Type | Description | Notes
 **run_speed** | **number** |  | [optional] [default to undefined]
 **acceleration** | **number** |  | [optional] [default to undefined]
 **melee_damage** | **number** |  | [optional] [default to undefined]
+**spawn_breakables_on_death** | **boolean** |  | [optional] [default to undefined]
 **melee_attempt_range** | **number** |  | [optional] [default to undefined]
 **melee_hit_range** | **number** |  | [optional] [default to undefined]
 **melee_duration** | **number** |  | [optional] [default to undefined]
@@ -69,11 +70,6 @@ Name | Type | Description | Notes
 **health_bar_color_team1** | [**ColorV1**](ColorV1.md) |  | [optional] [default to undefined]
 **health_bar_color_team2** | [**ColorV1**](ColorV1.md) |  | [optional] [default to undefined]
 **health_bar_color_team_neutral** | [**ColorV1**](ColorV1.md) |  | [optional] [default to undefined]
-**glow_color_friend** | [**ColorV1**](ColorV1.md) |  | [optional] [default to undefined]
-**glow_color_enemy** | [**ColorV1**](ColorV1.md) |  | [optional] [default to undefined]
-**glow_color_team1** | [**ColorV1**](ColorV1.md) |  | [optional] [default to undefined]
-**glow_color_team2** | [**ColorV1**](ColorV1.md) |  | [optional] [default to undefined]
-**glow_color_team_neutral** | [**ColorV1**](ColorV1.md) |  | [optional] [default to undefined]
 **id** | **number** |  | [readonly] [default to undefined]
 
 ## Example
@@ -121,6 +117,7 @@ const instance: NPCUnitV2 = {
     run_speed,
     acceleration,
     melee_damage,
+    spawn_breakables_on_death,
     melee_attempt_range,
     melee_hit_range,
     melee_duration,
@@ -146,11 +143,6 @@ const instance: NPCUnitV2 = {
     health_bar_color_team1,
     health_bar_color_team2,
     health_bar_color_team_neutral,
-    glow_color_friend,
-    glow_color_enemy,
-    glow_color_team1,
-    glow_color_team2,
-    glow_color_team_neutral,
     id,
 };
 ```

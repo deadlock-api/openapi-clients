@@ -24,7 +24,6 @@ type ModifierDefinition struct {
 	Duration NullableFloat32 `json:"duration,omitempty"`
 	TimeMin NullableFloat32 `json:"time_min,omitempty"`
 	TimeMax NullableFloat32 `json:"time_max,omitempty"`
-	DebuffType NullableString `json:"debuff_type,omitempty"`
 	AlwaysShowInUi []string `json:"always_show_in_ui,omitempty"`
 	ModifierValues []ModifierValue `json:"modifier_values,omitempty"`
 	ScriptValues []ModifierValue `json:"script_values,omitempty"`
@@ -257,48 +256,6 @@ func (o *ModifierDefinition) UnsetTimeMax() {
 	o.TimeMax.Unset()
 }
 
-// GetDebuffType returns the DebuffType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModifierDefinition) GetDebuffType() string {
-	if o == nil || IsNil(o.DebuffType.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.DebuffType.Get()
-}
-
-// GetDebuffTypeOk returns a tuple with the DebuffType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModifierDefinition) GetDebuffTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.DebuffType.Get(), o.DebuffType.IsSet()
-}
-
-// HasDebuffType returns a boolean if a field has been set.
-func (o *ModifierDefinition) HasDebuffType() bool {
-	if o != nil && o.DebuffType.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDebuffType gets a reference to the given NullableString and assigns it to the DebuffType field.
-func (o *ModifierDefinition) SetDebuffType(v string) {
-	o.DebuffType.Set(&v)
-}
-// SetDebuffTypeNil sets the value for DebuffType to be an explicit nil
-func (o *ModifierDefinition) SetDebuffTypeNil() {
-	o.DebuffType.Set(nil)
-}
-
-// UnsetDebuffType ensures that no value is present for DebuffType, not even an explicit nil
-func (o *ModifierDefinition) UnsetDebuffType() {
-	o.DebuffType.Unset()
-}
-
 // GetAlwaysShowInUi returns the AlwaysShowInUi field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ModifierDefinition) GetAlwaysShowInUi() []string {
 	if o == nil {
@@ -422,9 +379,6 @@ func (o ModifierDefinition) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TimeMax.IsSet() {
 		toSerialize["time_max"] = o.TimeMax.Get()
-	}
-	if o.DebuffType.IsSet() {
-		toSerialize["debuff_type"] = o.DebuffType.Get()
 	}
 	if o.AlwaysShowInUi != nil {
 		toSerialize["always_show_in_ui"] = o.AlwaysShowInUi

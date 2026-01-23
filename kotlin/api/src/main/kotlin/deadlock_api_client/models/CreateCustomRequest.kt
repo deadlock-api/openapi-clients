@@ -15,6 +15,7 @@
 
 package deadlock_api_client.models
 
+import deadlock_api_client.models.GameMode
 import deadlock_api_client.models.RegionMode
 
 import com.squareup.moshi.Json
@@ -28,7 +29,7 @@ import java.io.Serializable
  * @param cheatsEnabled 
  * @param disableAutoReady If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
  * @param duplicateHeroesEnabled 
- * @param experimentalHeroesEnabled 
+ * @param gameMode 
  * @param isPubliclyVisible 
  * @param minRosterSize 
  * @param randomizeLanes 
@@ -52,8 +53,8 @@ data class CreateCustomRequest (
     @Json(name = "duplicate_heroes_enabled")
     val duplicateHeroesEnabled: kotlin.Boolean? = null,
 
-    @Json(name = "experimental_heroes_enabled")
-    val experimentalHeroesEnabled: kotlin.Boolean? = null,
+    @Json(name = "game_mode")
+    val gameMode: GameMode? = null,
 
     @Json(name = "is_publicly_visible")
     val isPubliclyVisible: kotlin.Boolean? = null,

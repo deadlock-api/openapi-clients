@@ -21,10 +21,8 @@ pub struct HeroV2 {
     pub name: String,
     #[serde(rename = "description")]
     pub description: Box<models::HeroDescriptionV2>,
-    #[serde(rename = "recommended_upgrades", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub recommended_upgrades: Option<Option<Vec<String>>>,
-    #[serde(rename = "recommended_ability_order", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub recommended_ability_order: Option<Option<Vec<String>>>,
+    #[serde(rename = "item_draft_weights", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub item_draft_weights: Option<Option<std::collections::HashMap<String, f64>>>,
     #[serde(rename = "player_selectable")]
     pub player_selectable: bool,
     #[serde(rename = "disabled")]
@@ -88,8 +86,7 @@ impl HeroV2 {
             class_name,
             name,
             description: Box::new(description),
-            recommended_upgrades: None,
-            recommended_ability_order: None,
+            item_draft_weights: None,
             player_selectable,
             disabled,
             in_development,

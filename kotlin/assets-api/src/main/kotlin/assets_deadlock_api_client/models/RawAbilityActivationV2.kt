@@ -22,7 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: hold_toggle,instant_cast,on_button_is_down,passive,press,press_toggle
+ * Values: hold_toggle,instant_cast,on_button_is_down,passive,press,press_toggle,instant_cast_toggle
  */
 
 @JsonClass(generateAdapter = false)
@@ -44,7 +44,10 @@ enum class RawAbilityActivationV2(val value: kotlin.String) {
     press("press"),
 
     @Json(name = "press_toggle")
-    press_toggle("press_toggle");
+    press_toggle("press_toggle"),
+
+    @Json(name = "instant_cast_toggle")
+    instant_cast_toggle("instant_cast_toggle");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

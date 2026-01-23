@@ -21,10 +21,6 @@ var _ MappedNullable = &HeroColorsV2{}
 
 // HeroColorsV2 struct for HeroColorsV2
 type HeroColorsV2 struct {
-	GlowEnemy []interface{} `json:"glow_enemy"`
-	GlowFriendly []interface{} `json:"glow_friendly"`
-	GlowTeam1 []interface{} `json:"glow_team1"`
-	GlowTeam2 []interface{} `json:"glow_team2"`
 	Ui []interface{} `json:"ui"`
 }
 
@@ -34,12 +30,8 @@ type _HeroColorsV2 HeroColorsV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroColorsV2(glowEnemy []interface{}, glowFriendly []interface{}, glowTeam1 []interface{}, glowTeam2 []interface{}, ui []interface{}) *HeroColorsV2 {
+func NewHeroColorsV2(ui []interface{}) *HeroColorsV2 {
 	this := HeroColorsV2{}
-	this.GlowEnemy = glowEnemy
-	this.GlowFriendly = glowFriendly
-	this.GlowTeam1 = glowTeam1
-	this.GlowTeam2 = glowTeam2
 	this.Ui = ui
 	return &this
 }
@@ -50,102 +42,6 @@ func NewHeroColorsV2(glowEnemy []interface{}, glowFriendly []interface{}, glowTe
 func NewHeroColorsV2WithDefaults() *HeroColorsV2 {
 	this := HeroColorsV2{}
 	return &this
-}
-
-// GetGlowEnemy returns the GlowEnemy field value
-func (o *HeroColorsV2) GetGlowEnemy() []interface{} {
-	if o == nil {
-		var ret []interface{}
-		return ret
-	}
-
-	return o.GlowEnemy
-}
-
-// GetGlowEnemyOk returns a tuple with the GlowEnemy field value
-// and a boolean to check if the value has been set.
-func (o *HeroColorsV2) GetGlowEnemyOk() ([]interface{}, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.GlowEnemy, true
-}
-
-// SetGlowEnemy sets field value
-func (o *HeroColorsV2) SetGlowEnemy(v []interface{}) {
-	o.GlowEnemy = v
-}
-
-// GetGlowFriendly returns the GlowFriendly field value
-func (o *HeroColorsV2) GetGlowFriendly() []interface{} {
-	if o == nil {
-		var ret []interface{}
-		return ret
-	}
-
-	return o.GlowFriendly
-}
-
-// GetGlowFriendlyOk returns a tuple with the GlowFriendly field value
-// and a boolean to check if the value has been set.
-func (o *HeroColorsV2) GetGlowFriendlyOk() ([]interface{}, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.GlowFriendly, true
-}
-
-// SetGlowFriendly sets field value
-func (o *HeroColorsV2) SetGlowFriendly(v []interface{}) {
-	o.GlowFriendly = v
-}
-
-// GetGlowTeam1 returns the GlowTeam1 field value
-func (o *HeroColorsV2) GetGlowTeam1() []interface{} {
-	if o == nil {
-		var ret []interface{}
-		return ret
-	}
-
-	return o.GlowTeam1
-}
-
-// GetGlowTeam1Ok returns a tuple with the GlowTeam1 field value
-// and a boolean to check if the value has been set.
-func (o *HeroColorsV2) GetGlowTeam1Ok() ([]interface{}, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.GlowTeam1, true
-}
-
-// SetGlowTeam1 sets field value
-func (o *HeroColorsV2) SetGlowTeam1(v []interface{}) {
-	o.GlowTeam1 = v
-}
-
-// GetGlowTeam2 returns the GlowTeam2 field value
-func (o *HeroColorsV2) GetGlowTeam2() []interface{} {
-	if o == nil {
-		var ret []interface{}
-		return ret
-	}
-
-	return o.GlowTeam2
-}
-
-// GetGlowTeam2Ok returns a tuple with the GlowTeam2 field value
-// and a boolean to check if the value has been set.
-func (o *HeroColorsV2) GetGlowTeam2Ok() ([]interface{}, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.GlowTeam2, true
-}
-
-// SetGlowTeam2 sets field value
-func (o *HeroColorsV2) SetGlowTeam2(v []interface{}) {
-	o.GlowTeam2 = v
 }
 
 // GetUi returns the Ui field value
@@ -182,10 +78,6 @@ func (o HeroColorsV2) MarshalJSON() ([]byte, error) {
 
 func (o HeroColorsV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["glow_enemy"] = o.GlowEnemy
-	toSerialize["glow_friendly"] = o.GlowFriendly
-	toSerialize["glow_team1"] = o.GlowTeam1
-	toSerialize["glow_team2"] = o.GlowTeam2
 	toSerialize["ui"] = o.Ui
 	return toSerialize, nil
 }
@@ -195,10 +87,6 @@ func (o *HeroColorsV2) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"glow_enemy",
-		"glow_friendly",
-		"glow_team1",
-		"glow_team2",
 		"ui",
 	}
 

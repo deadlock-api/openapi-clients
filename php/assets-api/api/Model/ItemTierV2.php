@@ -50,6 +50,8 @@ class ItemTierV2
 
     public const NUMBER_4 = 4;
 
+    public const NUMBER_5 = 5;
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -60,7 +62,8 @@ class ItemTierV2
             self::NUMBER_1,
             self::NUMBER_2,
             self::NUMBER_3,
-            self::NUMBER_4
+            self::NUMBER_4,
+            self::NUMBER_5
         ];
     }
 }

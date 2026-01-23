@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **duration** | **float** |  | [optional]
 **time_min** | **float** |  | [optional]
 **time_max** | **float** |  | [optional]
-**debuff_type** | **string** |  | [optional]
 **always_show_in_ui** | **string[]** |  | [optional]
 **modifier_values** | [**\OpenAPI\Client\Model\ModifierValue[]**](ModifierValue.md) |  | [optional]
 **script_values** | [**\OpenAPI\Client\Model\ModifierValue[]**](ModifierValue.md) |  | [optional]

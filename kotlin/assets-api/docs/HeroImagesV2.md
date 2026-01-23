@@ -10,10 +10,10 @@
 | **iconImageSmallWebp** | **kotlin.String** |  |  [optional] |
 | **minimapImage** | **kotlin.String** |  |  [optional] |
 | **minimapImageWebp** | **kotlin.String** |  |  [optional] |
-| **selectionImage** | **kotlin.String** |  |  [optional] |
-| **selectionImageWebp** | **kotlin.String** |  |  [optional] |
-| **topBarImage** | **kotlin.String** |  |  [optional] |
-| **topBarImageWebp** | **kotlin.String** |  |  [optional] |
+| **heroCardCritical** | **kotlin.String** |  |  [optional] |
+| **heroCardCriticalWebp** | **kotlin.String** |  |  [optional] |
+| **heroCardGloat** | **kotlin.String** |  |  [optional] |
+| **heroCardGloatWebp** | **kotlin.String** |  |  [optional] |
 | **topBarVerticalImage** | **kotlin.String** |  |  [optional] |
 | **topBarVerticalImageWebp** | **kotlin.String** |  |  [optional] |
 | **weaponImage** | **kotlin.String** |  |  [optional] |

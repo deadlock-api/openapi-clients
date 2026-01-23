@@ -24,6 +24,7 @@ const (
 	ITEMTIERV2__2 ItemTierV2 = 2
 	ITEMTIERV2__3 ItemTierV2 = 3
 	ITEMTIERV2__4 ItemTierV2 = 4
+	ITEMTIERV2__5 ItemTierV2 = 5
 )
 
 // All allowed values of ItemTierV2 enum
@@ -32,6 +33,7 @@ var AllowedItemTierV2EnumValues = []ItemTierV2{
 	2,
 	3,
 	4,
+	5,
 }
 
 func (v *ItemTierV2) UnmarshalJSON(src []byte) error {

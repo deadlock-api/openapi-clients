@@ -6,6 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **abandoned_time_s** | **int** |  | [optional]
 **account_id** | **int** |  |
+**brawl_avg_round_time_s** | **int** |  | [optional]
+**brawl_score_team0** | **int** |  | [optional]
+**brawl_score_team1** | **int** |  | [optional]
 **denies** | **int** |  |
 **game_mode** | **int** |  |
 **hero_id** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |

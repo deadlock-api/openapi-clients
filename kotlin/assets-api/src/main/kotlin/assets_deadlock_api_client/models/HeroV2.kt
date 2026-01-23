@@ -62,8 +62,7 @@ import java.io.Serializable
  * @param scalingStats 
  * @param purchaseBonuses 
  * @param standardLevelUpUpgrades 
- * @param recommendedUpgrades 
- * @param recommendedAbilityOrder 
+ * @param itemDraftWeights 
  * @param tags 
  * @param gunTag 
  * @param hideoutRichPresence 
@@ -150,11 +149,8 @@ data class HeroV2 (
     @Json(name = "standard_level_up_upgrades")
     val standardLevelUpUpgrades: kotlin.collections.Map<kotlin.String, java.math.BigDecimal>,
 
-    @Json(name = "recommended_upgrades")
-    val recommendedUpgrades: kotlin.collections.List<kotlin.String>? = null,
-
-    @Json(name = "recommended_ability_order")
-    val recommendedAbilityOrder: kotlin.collections.List<kotlin.String>? = null,
+    @Json(name = "item_draft_weights")
+    val itemDraftWeights: kotlin.collections.Map<kotlin.String, java.math.BigDecimal>? = null,
 
     @Json(name = "tags")
     val tags: kotlin.collections.List<kotlin.String>? = null,

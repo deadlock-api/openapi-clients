@@ -9,8 +9,7 @@ Name | Type | Description | Notes
 **class_name** | **string** |  | [default to undefined]
 **name** | **string** |  | [default to undefined]
 **description** | [**HeroDescriptionV2**](HeroDescriptionV2.md) |  | [default to undefined]
-**recommended_upgrades** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
-**recommended_ability_order** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
+**item_draft_weights** | **{ [key: string]: number; }** |  | [optional] [default to undefined]
 **player_selectable** | **boolean** |  | [default to undefined]
 **disabled** | **boolean** |  | [default to undefined]
 **in_development** | **boolean** |  | [default to undefined]
@@ -49,8 +48,7 @@ const instance: HeroV2 = {
     class_name,
     name,
     description,
-    recommended_upgrades,
-    recommended_ability_order,
+    item_draft_weights,
     player_selectable,
     disabled,
     in_development,

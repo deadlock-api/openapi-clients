@@ -134,36 +134,36 @@ class HeroImagesV2Test extends TestCase
     }
 
     /**
-     * Test attribute "selection_image"
+     * Test attribute "hero_card_critical"
      */
-    public function testPropertySelectionImage()
+    public function testPropertyHeroCardCritical()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "selection_image_webp"
+     * Test attribute "hero_card_critical_webp"
      */
-    public function testPropertySelectionImageWebp()
+    public function testPropertyHeroCardCriticalWebp()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "top_bar_image"
+     * Test attribute "hero_card_gloat"
      */
-    public function testPropertyTopBarImage()
+    public function testPropertyHeroCardGloat()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "top_bar_image_webp"
+     * Test attribute "hero_card_gloat_webp"
      */
-    public function testPropertyTopBarImageWebp()
+    public function testPropertyHeroCardGloatWebp()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

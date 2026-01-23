@@ -96,6 +96,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'run_speed' => 'float',
         'acceleration' => 'float',
         'melee_damage' => 'float',
+        'spawn_breakables_on_death' => 'bool',
         'melee_attempt_range' => 'float',
         'melee_hit_range' => 'float',
         'melee_duration' => 'float',
@@ -121,11 +122,6 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team1' => '\OpenAPI\Client\Model\ColorV1',
         'health_bar_color_team2' => '\OpenAPI\Client\Model\ColorV1',
         'health_bar_color_team_neutral' => '\OpenAPI\Client\Model\ColorV1',
-        'glow_color_friend' => '\OpenAPI\Client\Model\ColorV1',
-        'glow_color_enemy' => '\OpenAPI\Client\Model\ColorV1',
-        'glow_color_team1' => '\OpenAPI\Client\Model\ColorV1',
-        'glow_color_team2' => '\OpenAPI\Client\Model\ColorV1',
-        'glow_color_team_neutral' => '\OpenAPI\Client\Model\ColorV1',
         'id' => 'int'
     ];
 
@@ -176,6 +172,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'run_speed' => null,
         'acceleration' => null,
         'melee_damage' => null,
+        'spawn_breakables_on_death' => null,
         'melee_attempt_range' => null,
         'melee_hit_range' => null,
         'melee_duration' => null,
@@ -201,11 +198,6 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team1' => null,
         'health_bar_color_team2' => null,
         'health_bar_color_team_neutral' => null,
-        'glow_color_friend' => null,
-        'glow_color_enemy' => null,
-        'glow_color_team1' => null,
-        'glow_color_team2' => null,
-        'glow_color_team_neutral' => null,
         'id' => 'int64'
     ];
 
@@ -254,6 +246,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'run_speed' => true,
         'acceleration' => true,
         'melee_damage' => true,
+        'spawn_breakables_on_death' => true,
         'melee_attempt_range' => true,
         'melee_hit_range' => true,
         'melee_duration' => true,
@@ -279,11 +272,6 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team1' => true,
         'health_bar_color_team2' => true,
         'health_bar_color_team_neutral' => true,
-        'glow_color_friend' => true,
-        'glow_color_enemy' => true,
-        'glow_color_team1' => true,
-        'glow_color_team2' => true,
-        'glow_color_team_neutral' => true,
         'id' => false
     ];
 
@@ -412,6 +400,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'run_speed' => 'run_speed',
         'acceleration' => 'acceleration',
         'melee_damage' => 'melee_damage',
+        'spawn_breakables_on_death' => 'spawn_breakables_on_death',
         'melee_attempt_range' => 'melee_attempt_range',
         'melee_hit_range' => 'melee_hit_range',
         'melee_duration' => 'melee_duration',
@@ -437,11 +426,6 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team1' => 'health_bar_color_team1',
         'health_bar_color_team2' => 'health_bar_color_team2',
         'health_bar_color_team_neutral' => 'health_bar_color_team_neutral',
-        'glow_color_friend' => 'glow_color_friend',
-        'glow_color_enemy' => 'glow_color_enemy',
-        'glow_color_team1' => 'glow_color_team1',
-        'glow_color_team2' => 'glow_color_team2',
-        'glow_color_team_neutral' => 'glow_color_team_neutral',
         'id' => 'id'
     ];
 
@@ -490,6 +474,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'run_speed' => 'setRunSpeed',
         'acceleration' => 'setAcceleration',
         'melee_damage' => 'setMeleeDamage',
+        'spawn_breakables_on_death' => 'setSpawnBreakablesOnDeath',
         'melee_attempt_range' => 'setMeleeAttemptRange',
         'melee_hit_range' => 'setMeleeHitRange',
         'melee_duration' => 'setMeleeDuration',
@@ -515,11 +500,6 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team1' => 'setHealthBarColorTeam1',
         'health_bar_color_team2' => 'setHealthBarColorTeam2',
         'health_bar_color_team_neutral' => 'setHealthBarColorTeamNeutral',
-        'glow_color_friend' => 'setGlowColorFriend',
-        'glow_color_enemy' => 'setGlowColorEnemy',
-        'glow_color_team1' => 'setGlowColorTeam1',
-        'glow_color_team2' => 'setGlowColorTeam2',
-        'glow_color_team_neutral' => 'setGlowColorTeamNeutral',
         'id' => 'setId'
     ];
 
@@ -568,6 +548,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'run_speed' => 'getRunSpeed',
         'acceleration' => 'getAcceleration',
         'melee_damage' => 'getMeleeDamage',
+        'spawn_breakables_on_death' => 'getSpawnBreakablesOnDeath',
         'melee_attempt_range' => 'getMeleeAttemptRange',
         'melee_hit_range' => 'getMeleeHitRange',
         'melee_duration' => 'getMeleeDuration',
@@ -593,11 +574,6 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team1' => 'getHealthBarColorTeam1',
         'health_bar_color_team2' => 'getHealthBarColorTeam2',
         'health_bar_color_team_neutral' => 'getHealthBarColorTeamNeutral',
-        'glow_color_friend' => 'getGlowColorFriend',
-        'glow_color_enemy' => 'getGlowColorEnemy',
-        'glow_color_team1' => 'getGlowColorTeam1',
-        'glow_color_team2' => 'getGlowColorTeam2',
-        'glow_color_team_neutral' => 'getGlowColorTeamNeutral',
         'id' => 'getId'
     ];
 
@@ -697,6 +673,7 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('run_speed', $data ?? [], null);
         $this->setIfExists('acceleration', $data ?? [], null);
         $this->setIfExists('melee_damage', $data ?? [], null);
+        $this->setIfExists('spawn_breakables_on_death', $data ?? [], null);
         $this->setIfExists('melee_attempt_range', $data ?? [], null);
         $this->setIfExists('melee_hit_range', $data ?? [], null);
         $this->setIfExists('melee_duration', $data ?? [], null);
@@ -722,11 +699,6 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('health_bar_color_team1', $data ?? [], null);
         $this->setIfExists('health_bar_color_team2', $data ?? [], null);
         $this->setIfExists('health_bar_color_team_neutral', $data ?? [], null);
-        $this->setIfExists('glow_color_friend', $data ?? [], null);
-        $this->setIfExists('glow_color_enemy', $data ?? [], null);
-        $this->setIfExists('glow_color_team1', $data ?? [], null);
-        $this->setIfExists('glow_color_team2', $data ?? [], null);
-        $this->setIfExists('glow_color_team_neutral', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
     }
 
@@ -2098,6 +2070,40 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets spawn_breakables_on_death
+     *
+     * @return bool|null
+     */
+    public function getSpawnBreakablesOnDeath()
+    {
+        return $this->container['spawn_breakables_on_death'];
+    }
+
+    /**
+     * Sets spawn_breakables_on_death
+     *
+     * @param bool|null $spawn_breakables_on_death spawn_breakables_on_death
+     *
+     * @return self
+     */
+    public function setSpawnBreakablesOnDeath($spawn_breakables_on_death)
+    {
+        if (is_null($spawn_breakables_on_death)) {
+            array_push($this->openAPINullablesSetToNull, 'spawn_breakables_on_death');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('spawn_breakables_on_death', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['spawn_breakables_on_death'] = $spawn_breakables_on_death;
+
+        return $this;
+    }
+
+    /**
      * Gets melee_attempt_range
      *
      * @return float|null
@@ -2943,176 +2949,6 @@ class NPCUnitV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['health_bar_color_team_neutral'] = $health_bar_color_team_neutral;
-
-        return $this;
-    }
-
-    /**
-     * Gets glow_color_friend
-     *
-     * @return \OpenAPI\Client\Model\ColorV1|null
-     */
-    public function getGlowColorFriend()
-    {
-        return $this->container['glow_color_friend'];
-    }
-
-    /**
-     * Sets glow_color_friend
-     *
-     * @param \OpenAPI\Client\Model\ColorV1|null $glow_color_friend glow_color_friend
-     *
-     * @return self
-     */
-    public function setGlowColorFriend($glow_color_friend)
-    {
-        if (is_null($glow_color_friend)) {
-            array_push($this->openAPINullablesSetToNull, 'glow_color_friend');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('glow_color_friend', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['glow_color_friend'] = $glow_color_friend;
-
-        return $this;
-    }
-
-    /**
-     * Gets glow_color_enemy
-     *
-     * @return \OpenAPI\Client\Model\ColorV1|null
-     */
-    public function getGlowColorEnemy()
-    {
-        return $this->container['glow_color_enemy'];
-    }
-
-    /**
-     * Sets glow_color_enemy
-     *
-     * @param \OpenAPI\Client\Model\ColorV1|null $glow_color_enemy glow_color_enemy
-     *
-     * @return self
-     */
-    public function setGlowColorEnemy($glow_color_enemy)
-    {
-        if (is_null($glow_color_enemy)) {
-            array_push($this->openAPINullablesSetToNull, 'glow_color_enemy');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('glow_color_enemy', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['glow_color_enemy'] = $glow_color_enemy;
-
-        return $this;
-    }
-
-    /**
-     * Gets glow_color_team1
-     *
-     * @return \OpenAPI\Client\Model\ColorV1|null
-     */
-    public function getGlowColorTeam1()
-    {
-        return $this->container['glow_color_team1'];
-    }
-
-    /**
-     * Sets glow_color_team1
-     *
-     * @param \OpenAPI\Client\Model\ColorV1|null $glow_color_team1 glow_color_team1
-     *
-     * @return self
-     */
-    public function setGlowColorTeam1($glow_color_team1)
-    {
-        if (is_null($glow_color_team1)) {
-            array_push($this->openAPINullablesSetToNull, 'glow_color_team1');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('glow_color_team1', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['glow_color_team1'] = $glow_color_team1;
-
-        return $this;
-    }
-
-    /**
-     * Gets glow_color_team2
-     *
-     * @return \OpenAPI\Client\Model\ColorV1|null
-     */
-    public function getGlowColorTeam2()
-    {
-        return $this->container['glow_color_team2'];
-    }
-
-    /**
-     * Sets glow_color_team2
-     *
-     * @param \OpenAPI\Client\Model\ColorV1|null $glow_color_team2 glow_color_team2
-     *
-     * @return self
-     */
-    public function setGlowColorTeam2($glow_color_team2)
-    {
-        if (is_null($glow_color_team2)) {
-            array_push($this->openAPINullablesSetToNull, 'glow_color_team2');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('glow_color_team2', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['glow_color_team2'] = $glow_color_team2;
-
-        return $this;
-    }
-
-    /**
-     * Gets glow_color_team_neutral
-     *
-     * @return \OpenAPI\Client\Model\ColorV1|null
-     */
-    public function getGlowColorTeamNeutral()
-    {
-        return $this->container['glow_color_team_neutral'];
-    }
-
-    /**
-     * Sets glow_color_team_neutral
-     *
-     * @param \OpenAPI\Client\Model\ColorV1|null $glow_color_team_neutral glow_color_team_neutral
-     *
-     * @return self
-     */
-    public function setGlowColorTeamNeutral($glow_color_team_neutral)
-    {
-        if (is_null($glow_color_team_neutral)) {
-            array_push($this->openAPINullablesSetToNull, 'glow_color_team_neutral');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('glow_color_team_neutral', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['glow_color_team_neutral'] = $glow_color_team_neutral;
 
         return $this;
     }

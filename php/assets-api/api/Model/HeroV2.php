@@ -61,8 +61,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'string',
         'name' => 'string',
         'description' => '\OpenAPI\Client\Model\HeroDescriptionV2',
-        'recommended_upgrades' => 'string[]',
-        'recommended_ability_order' => 'string[]',
+        'item_draft_weights' => 'array<string,float>',
         'player_selectable' => 'bool',
         'disabled' => 'bool',
         'in_development' => 'bool',
@@ -104,8 +103,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => null,
         'name' => null,
         'description' => null,
-        'recommended_upgrades' => null,
-        'recommended_ability_order' => null,
+        'item_draft_weights' => null,
         'player_selectable' => null,
         'disabled' => null,
         'in_development' => null,
@@ -145,8 +143,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => false,
         'name' => false,
         'description' => false,
-        'recommended_upgrades' => true,
-        'recommended_ability_order' => true,
+        'item_draft_weights' => true,
         'player_selectable' => false,
         'disabled' => false,
         'in_development' => false,
@@ -266,8 +263,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'class_name',
         'name' => 'name',
         'description' => 'description',
-        'recommended_upgrades' => 'recommended_upgrades',
-        'recommended_ability_order' => 'recommended_ability_order',
+        'item_draft_weights' => 'item_draft_weights',
         'player_selectable' => 'player_selectable',
         'disabled' => 'disabled',
         'in_development' => 'in_development',
@@ -307,8 +303,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'setClassName',
         'name' => 'setName',
         'description' => 'setDescription',
-        'recommended_upgrades' => 'setRecommendedUpgrades',
-        'recommended_ability_order' => 'setRecommendedAbilityOrder',
+        'item_draft_weights' => 'setItemDraftWeights',
         'player_selectable' => 'setPlayerSelectable',
         'disabled' => 'setDisabled',
         'in_development' => 'setInDevelopment',
@@ -348,8 +343,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'class_name' => 'getClassName',
         'name' => 'getName',
         'description' => 'getDescription',
-        'recommended_upgrades' => 'getRecommendedUpgrades',
-        'recommended_ability_order' => 'getRecommendedAbilityOrder',
+        'item_draft_weights' => 'getItemDraftWeights',
         'player_selectable' => 'getPlayerSelectable',
         'disabled' => 'getDisabled',
         'in_development' => 'getInDevelopment',
@@ -440,8 +434,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('class_name', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('recommended_upgrades', $data ?? [], null);
-        $this->setIfExists('recommended_ability_order', $data ?? [], null);
+        $this->setIfExists('item_draft_weights', $data ?? [], null);
         $this->setIfExists('player_selectable', $data ?? [], null);
         $this->setIfExists('disabled', $data ?? [], null);
         $this->setIfExists('in_development', $data ?? [], null);
@@ -697,69 +690,35 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets recommended_upgrades
+     * Gets item_draft_weights
      *
-     * @return string[]|null
+     * @return array<string,float>|null
      */
-    public function getRecommendedUpgrades()
+    public function getItemDraftWeights()
     {
-        return $this->container['recommended_upgrades'];
+        return $this->container['item_draft_weights'];
     }
 
     /**
-     * Sets recommended_upgrades
+     * Sets item_draft_weights
      *
-     * @param string[]|null $recommended_upgrades recommended_upgrades
+     * @param array<string,float>|null $item_draft_weights item_draft_weights
      *
      * @return self
      */
-    public function setRecommendedUpgrades($recommended_upgrades)
+    public function setItemDraftWeights($item_draft_weights)
     {
-        if (is_null($recommended_upgrades)) {
-            array_push($this->openAPINullablesSetToNull, 'recommended_upgrades');
+        if (is_null($item_draft_weights)) {
+            array_push($this->openAPINullablesSetToNull, 'item_draft_weights');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('recommended_upgrades', $nullablesSetToNull);
+            $index = array_search('item_draft_weights', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['recommended_upgrades'] = $recommended_upgrades;
-
-        return $this;
-    }
-
-    /**
-     * Gets recommended_ability_order
-     *
-     * @return string[]|null
-     */
-    public function getRecommendedAbilityOrder()
-    {
-        return $this->container['recommended_ability_order'];
-    }
-
-    /**
-     * Sets recommended_ability_order
-     *
-     * @param string[]|null $recommended_ability_order recommended_ability_order
-     *
-     * @return self
-     */
-    public function setRecommendedAbilityOrder($recommended_ability_order)
-    {
-        if (is_null($recommended_ability_order)) {
-            array_push($this->openAPINullablesSetToNull, 'recommended_ability_order');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('recommended_ability_order', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['recommended_ability_order'] = $recommended_ability_order;
+        $this->container['item_draft_weights'] = $item_draft_weights;
 
         return $this;
     }

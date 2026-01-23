@@ -25,10 +25,10 @@ type HeroImagesV2 struct {
 	IconImageSmallWebp NullableString `json:"icon_image_small_webp,omitempty"`
 	MinimapImage NullableString `json:"minimap_image,omitempty"`
 	MinimapImageWebp NullableString `json:"minimap_image_webp,omitempty"`
-	SelectionImage NullableString `json:"selection_image,omitempty"`
-	SelectionImageWebp NullableString `json:"selection_image_webp,omitempty"`
-	TopBarImage NullableString `json:"top_bar_image,omitempty"`
-	TopBarImageWebp NullableString `json:"top_bar_image_webp,omitempty"`
+	HeroCardCritical NullableString `json:"hero_card_critical,omitempty"`
+	HeroCardCriticalWebp NullableString `json:"hero_card_critical_webp,omitempty"`
+	HeroCardGloat NullableString `json:"hero_card_gloat,omitempty"`
+	HeroCardGloatWebp NullableString `json:"hero_card_gloat_webp,omitempty"`
 	TopBarVerticalImage NullableString `json:"top_bar_vertical_image,omitempty"`
 	TopBarVerticalImageWebp NullableString `json:"top_bar_vertical_image_webp,omitempty"`
 	WeaponImage NullableString `json:"weapon_image,omitempty"`
@@ -307,172 +307,172 @@ func (o *HeroImagesV2) UnsetMinimapImageWebp() {
 	o.MinimapImageWebp.Unset()
 }
 
-// GetSelectionImage returns the SelectionImage field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HeroImagesV2) GetSelectionImage() string {
-	if o == nil || IsNil(o.SelectionImage.Get()) {
+// GetHeroCardCritical returns the HeroCardCritical field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroImagesV2) GetHeroCardCritical() string {
+	if o == nil || IsNil(o.HeroCardCritical.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SelectionImage.Get()
+	return *o.HeroCardCritical.Get()
 }
 
-// GetSelectionImageOk returns a tuple with the SelectionImage field value if set, nil otherwise
+// GetHeroCardCriticalOk returns a tuple with the HeroCardCritical field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HeroImagesV2) GetSelectionImageOk() (*string, bool) {
+func (o *HeroImagesV2) GetHeroCardCriticalOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.SelectionImage.Get(), o.SelectionImage.IsSet()
+	return o.HeroCardCritical.Get(), o.HeroCardCritical.IsSet()
 }
 
-// HasSelectionImage returns a boolean if a field has been set.
-func (o *HeroImagesV2) HasSelectionImage() bool {
-	if o != nil && o.SelectionImage.IsSet() {
+// HasHeroCardCritical returns a boolean if a field has been set.
+func (o *HeroImagesV2) HasHeroCardCritical() bool {
+	if o != nil && o.HeroCardCritical.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSelectionImage gets a reference to the given NullableString and assigns it to the SelectionImage field.
-func (o *HeroImagesV2) SetSelectionImage(v string) {
-	o.SelectionImage.Set(&v)
+// SetHeroCardCritical gets a reference to the given NullableString and assigns it to the HeroCardCritical field.
+func (o *HeroImagesV2) SetHeroCardCritical(v string) {
+	o.HeroCardCritical.Set(&v)
 }
-// SetSelectionImageNil sets the value for SelectionImage to be an explicit nil
-func (o *HeroImagesV2) SetSelectionImageNil() {
-	o.SelectionImage.Set(nil)
-}
-
-// UnsetSelectionImage ensures that no value is present for SelectionImage, not even an explicit nil
-func (o *HeroImagesV2) UnsetSelectionImage() {
-	o.SelectionImage.Unset()
+// SetHeroCardCriticalNil sets the value for HeroCardCritical to be an explicit nil
+func (o *HeroImagesV2) SetHeroCardCriticalNil() {
+	o.HeroCardCritical.Set(nil)
 }
 
-// GetSelectionImageWebp returns the SelectionImageWebp field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HeroImagesV2) GetSelectionImageWebp() string {
-	if o == nil || IsNil(o.SelectionImageWebp.Get()) {
+// UnsetHeroCardCritical ensures that no value is present for HeroCardCritical, not even an explicit nil
+func (o *HeroImagesV2) UnsetHeroCardCritical() {
+	o.HeroCardCritical.Unset()
+}
+
+// GetHeroCardCriticalWebp returns the HeroCardCriticalWebp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroImagesV2) GetHeroCardCriticalWebp() string {
+	if o == nil || IsNil(o.HeroCardCriticalWebp.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SelectionImageWebp.Get()
+	return *o.HeroCardCriticalWebp.Get()
 }
 
-// GetSelectionImageWebpOk returns a tuple with the SelectionImageWebp field value if set, nil otherwise
+// GetHeroCardCriticalWebpOk returns a tuple with the HeroCardCriticalWebp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HeroImagesV2) GetSelectionImageWebpOk() (*string, bool) {
+func (o *HeroImagesV2) GetHeroCardCriticalWebpOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.SelectionImageWebp.Get(), o.SelectionImageWebp.IsSet()
+	return o.HeroCardCriticalWebp.Get(), o.HeroCardCriticalWebp.IsSet()
 }
 
-// HasSelectionImageWebp returns a boolean if a field has been set.
-func (o *HeroImagesV2) HasSelectionImageWebp() bool {
-	if o != nil && o.SelectionImageWebp.IsSet() {
+// HasHeroCardCriticalWebp returns a boolean if a field has been set.
+func (o *HeroImagesV2) HasHeroCardCriticalWebp() bool {
+	if o != nil && o.HeroCardCriticalWebp.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSelectionImageWebp gets a reference to the given NullableString and assigns it to the SelectionImageWebp field.
-func (o *HeroImagesV2) SetSelectionImageWebp(v string) {
-	o.SelectionImageWebp.Set(&v)
+// SetHeroCardCriticalWebp gets a reference to the given NullableString and assigns it to the HeroCardCriticalWebp field.
+func (o *HeroImagesV2) SetHeroCardCriticalWebp(v string) {
+	o.HeroCardCriticalWebp.Set(&v)
 }
-// SetSelectionImageWebpNil sets the value for SelectionImageWebp to be an explicit nil
-func (o *HeroImagesV2) SetSelectionImageWebpNil() {
-	o.SelectionImageWebp.Set(nil)
-}
-
-// UnsetSelectionImageWebp ensures that no value is present for SelectionImageWebp, not even an explicit nil
-func (o *HeroImagesV2) UnsetSelectionImageWebp() {
-	o.SelectionImageWebp.Unset()
+// SetHeroCardCriticalWebpNil sets the value for HeroCardCriticalWebp to be an explicit nil
+func (o *HeroImagesV2) SetHeroCardCriticalWebpNil() {
+	o.HeroCardCriticalWebp.Set(nil)
 }
 
-// GetTopBarImage returns the TopBarImage field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HeroImagesV2) GetTopBarImage() string {
-	if o == nil || IsNil(o.TopBarImage.Get()) {
+// UnsetHeroCardCriticalWebp ensures that no value is present for HeroCardCriticalWebp, not even an explicit nil
+func (o *HeroImagesV2) UnsetHeroCardCriticalWebp() {
+	o.HeroCardCriticalWebp.Unset()
+}
+
+// GetHeroCardGloat returns the HeroCardGloat field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroImagesV2) GetHeroCardGloat() string {
+	if o == nil || IsNil(o.HeroCardGloat.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TopBarImage.Get()
+	return *o.HeroCardGloat.Get()
 }
 
-// GetTopBarImageOk returns a tuple with the TopBarImage field value if set, nil otherwise
+// GetHeroCardGloatOk returns a tuple with the HeroCardGloat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HeroImagesV2) GetTopBarImageOk() (*string, bool) {
+func (o *HeroImagesV2) GetHeroCardGloatOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TopBarImage.Get(), o.TopBarImage.IsSet()
+	return o.HeroCardGloat.Get(), o.HeroCardGloat.IsSet()
 }
 
-// HasTopBarImage returns a boolean if a field has been set.
-func (o *HeroImagesV2) HasTopBarImage() bool {
-	if o != nil && o.TopBarImage.IsSet() {
+// HasHeroCardGloat returns a boolean if a field has been set.
+func (o *HeroImagesV2) HasHeroCardGloat() bool {
+	if o != nil && o.HeroCardGloat.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTopBarImage gets a reference to the given NullableString and assigns it to the TopBarImage field.
-func (o *HeroImagesV2) SetTopBarImage(v string) {
-	o.TopBarImage.Set(&v)
+// SetHeroCardGloat gets a reference to the given NullableString and assigns it to the HeroCardGloat field.
+func (o *HeroImagesV2) SetHeroCardGloat(v string) {
+	o.HeroCardGloat.Set(&v)
 }
-// SetTopBarImageNil sets the value for TopBarImage to be an explicit nil
-func (o *HeroImagesV2) SetTopBarImageNil() {
-	o.TopBarImage.Set(nil)
-}
-
-// UnsetTopBarImage ensures that no value is present for TopBarImage, not even an explicit nil
-func (o *HeroImagesV2) UnsetTopBarImage() {
-	o.TopBarImage.Unset()
+// SetHeroCardGloatNil sets the value for HeroCardGloat to be an explicit nil
+func (o *HeroImagesV2) SetHeroCardGloatNil() {
+	o.HeroCardGloat.Set(nil)
 }
 
-// GetTopBarImageWebp returns the TopBarImageWebp field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HeroImagesV2) GetTopBarImageWebp() string {
-	if o == nil || IsNil(o.TopBarImageWebp.Get()) {
+// UnsetHeroCardGloat ensures that no value is present for HeroCardGloat, not even an explicit nil
+func (o *HeroImagesV2) UnsetHeroCardGloat() {
+	o.HeroCardGloat.Unset()
+}
+
+// GetHeroCardGloatWebp returns the HeroCardGloatWebp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroImagesV2) GetHeroCardGloatWebp() string {
+	if o == nil || IsNil(o.HeroCardGloatWebp.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TopBarImageWebp.Get()
+	return *o.HeroCardGloatWebp.Get()
 }
 
-// GetTopBarImageWebpOk returns a tuple with the TopBarImageWebp field value if set, nil otherwise
+// GetHeroCardGloatWebpOk returns a tuple with the HeroCardGloatWebp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HeroImagesV2) GetTopBarImageWebpOk() (*string, bool) {
+func (o *HeroImagesV2) GetHeroCardGloatWebpOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TopBarImageWebp.Get(), o.TopBarImageWebp.IsSet()
+	return o.HeroCardGloatWebp.Get(), o.HeroCardGloatWebp.IsSet()
 }
 
-// HasTopBarImageWebp returns a boolean if a field has been set.
-func (o *HeroImagesV2) HasTopBarImageWebp() bool {
-	if o != nil && o.TopBarImageWebp.IsSet() {
+// HasHeroCardGloatWebp returns a boolean if a field has been set.
+func (o *HeroImagesV2) HasHeroCardGloatWebp() bool {
+	if o != nil && o.HeroCardGloatWebp.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTopBarImageWebp gets a reference to the given NullableString and assigns it to the TopBarImageWebp field.
-func (o *HeroImagesV2) SetTopBarImageWebp(v string) {
-	o.TopBarImageWebp.Set(&v)
+// SetHeroCardGloatWebp gets a reference to the given NullableString and assigns it to the HeroCardGloatWebp field.
+func (o *HeroImagesV2) SetHeroCardGloatWebp(v string) {
+	o.HeroCardGloatWebp.Set(&v)
 }
-// SetTopBarImageWebpNil sets the value for TopBarImageWebp to be an explicit nil
-func (o *HeroImagesV2) SetTopBarImageWebpNil() {
-	o.TopBarImageWebp.Set(nil)
+// SetHeroCardGloatWebpNil sets the value for HeroCardGloatWebp to be an explicit nil
+func (o *HeroImagesV2) SetHeroCardGloatWebpNil() {
+	o.HeroCardGloatWebp.Set(nil)
 }
 
-// UnsetTopBarImageWebp ensures that no value is present for TopBarImageWebp, not even an explicit nil
-func (o *HeroImagesV2) UnsetTopBarImageWebp() {
-	o.TopBarImageWebp.Unset()
+// UnsetHeroCardGloatWebp ensures that no value is present for HeroCardGloatWebp, not even an explicit nil
+func (o *HeroImagesV2) UnsetHeroCardGloatWebp() {
+	o.HeroCardGloatWebp.Unset()
 }
 
 // GetTopBarVerticalImage returns the TopBarVerticalImage field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -797,17 +797,17 @@ func (o HeroImagesV2) ToMap() (map[string]interface{}, error) {
 	if o.MinimapImageWebp.IsSet() {
 		toSerialize["minimap_image_webp"] = o.MinimapImageWebp.Get()
 	}
-	if o.SelectionImage.IsSet() {
-		toSerialize["selection_image"] = o.SelectionImage.Get()
+	if o.HeroCardCritical.IsSet() {
+		toSerialize["hero_card_critical"] = o.HeroCardCritical.Get()
 	}
-	if o.SelectionImageWebp.IsSet() {
-		toSerialize["selection_image_webp"] = o.SelectionImageWebp.Get()
+	if o.HeroCardCriticalWebp.IsSet() {
+		toSerialize["hero_card_critical_webp"] = o.HeroCardCriticalWebp.Get()
 	}
-	if o.TopBarImage.IsSet() {
-		toSerialize["top_bar_image"] = o.TopBarImage.Get()
+	if o.HeroCardGloat.IsSet() {
+		toSerialize["hero_card_gloat"] = o.HeroCardGloat.Get()
 	}
-	if o.TopBarImageWebp.IsSet() {
-		toSerialize["top_bar_image_webp"] = o.TopBarImageWebp.Get()
+	if o.HeroCardGloatWebp.IsSet() {
+		toSerialize["hero_card_gloat_webp"] = o.HeroCardGloatWebp.Get()
 	}
 	if o.TopBarVerticalImage.IsSet() {
 		toSerialize["top_bar_vertical_image"] = o.TopBarVerticalImage.Get()

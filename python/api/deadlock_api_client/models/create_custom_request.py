@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from deadlock_api_client.models.game_mode import GameMode
 from deadlock_api_client.models.region_mode import RegionMode
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,12 +33,12 @@ class CreateCustomRequest(BaseModel):
     cheats_enabled: Optional[StrictBool] = None
     disable_auto_ready: Optional[StrictBool] = Field(default=None, description="If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.")
     duplicate_heroes_enabled: Optional[StrictBool] = None
-    experimental_heroes_enabled: Optional[StrictBool] = None
+    game_mode: Optional[GameMode] = None
     is_publicly_visible: Optional[StrictBool] = None
     min_roster_size: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     randomize_lanes: Optional[StrictBool] = None
     region_mode: Optional[RegionMode] = None
-    __properties: ClassVar[List[str]] = ["callback_url", "cheats_enabled", "disable_auto_ready", "duplicate_heroes_enabled", "experimental_heroes_enabled", "is_publicly_visible", "min_roster_size", "randomize_lanes", "region_mode"]
+    __properties: ClassVar[List[str]] = ["callback_url", "cheats_enabled", "disable_auto_ready", "duplicate_heroes_enabled", "game_mode", "is_publicly_visible", "min_roster_size", "randomize_lanes", "region_mode"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,10 +99,10 @@ class CreateCustomRequest(BaseModel):
         if self.duplicate_heroes_enabled is None and "duplicate_heroes_enabled" in self.model_fields_set:
             _dict['duplicate_heroes_enabled'] = None
 
-        # set to None if experimental_heroes_enabled (nullable) is None
+        # set to None if game_mode (nullable) is None
         # and model_fields_set contains the field
-        if self.experimental_heroes_enabled is None and "experimental_heroes_enabled" in self.model_fields_set:
-            _dict['experimental_heroes_enabled'] = None
+        if self.game_mode is None and "game_mode" in self.model_fields_set:
+            _dict['game_mode'] = None
 
         # set to None if is_publicly_visible (nullable) is None
         # and model_fields_set contains the field
@@ -139,7 +140,7 @@ class CreateCustomRequest(BaseModel):
             "cheats_enabled": obj.get("cheats_enabled"),
             "disable_auto_ready": obj.get("disable_auto_ready"),
             "duplicate_heroes_enabled": obj.get("duplicate_heroes_enabled"),
-            "experimental_heroes_enabled": obj.get("experimental_heroes_enabled"),
+            "game_mode": obj.get("game_mode"),
             "is_publicly_visible": obj.get("is_publicly_visible"),
             "min_roster_size": obj.get("min_roster_size"),
             "randomize_lanes": obj.get("randomize_lanes"),

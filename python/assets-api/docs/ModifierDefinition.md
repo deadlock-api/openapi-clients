@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **duration** | **float** |  | [optional] 
 **time_min** | **float** |  | [optional] 
 **time_max** | **float** |  | [optional] 
-**debuff_type** | **str** |  | [optional] 
 **always_show_in_ui** | **List[str]** |  | [optional] 
 **modifier_values** | [**List[ModifierValue]**](ModifierValue.md) |  | [optional] 
 **script_values** | [**List[ModifierValue]**](ModifierValue.md) |  | [optional] 

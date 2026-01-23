@@ -35,36 +35,12 @@ class TestHeroColorsV2(unittest.TestCase):
         model = HeroColorsV2()
         if include_optional:
             return HeroColorsV2(
-                glow_enemy = [
-                    null
-                    ],
-                glow_friendly = [
-                    null
-                    ],
-                glow_team1 = [
-                    null
-                    ],
-                glow_team2 = [
-                    null
-                    ],
                 ui = [
                     null
                     ]
             )
         else:
             return HeroColorsV2(
-                glow_enemy = [
-                    null
-                    ],
-                glow_friendly = [
-                    null
-                    ],
-                glow_team1 = [
-                    null
-                    ],
-                glow_team2 = [
-                    null
-                    ],
                 ui = [
                     null
                     ],

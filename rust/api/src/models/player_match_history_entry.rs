@@ -17,6 +17,12 @@ pub struct PlayerMatchHistoryEntry {
     pub abandoned_time_s: Option<Option<u32>>,
     #[serde(rename = "account_id")]
     pub account_id: u32,
+    #[serde(rename = "brawl_avg_round_time_s", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub brawl_avg_round_time_s: Option<Option<u32>>,
+    #[serde(rename = "brawl_score_team0", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub brawl_score_team0: Option<Option<u32>>,
+    #[serde(rename = "brawl_score_team1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub brawl_score_team1: Option<Option<u32>>,
     #[serde(rename = "denies")]
     pub denies: u32,
     #[serde(rename = "game_mode")]
@@ -63,6 +69,9 @@ impl PlayerMatchHistoryEntry {
         PlayerMatchHistoryEntry {
             abandoned_time_s: None,
             account_id,
+            brawl_avg_round_time_s: None,
+            brawl_score_team0: None,
+            brawl_score_team1: None,
             denies,
             game_mode,
             hero_id,

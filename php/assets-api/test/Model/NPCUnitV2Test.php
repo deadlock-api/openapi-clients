@@ -431,6 +431,15 @@ class NPCUnitV2Test extends TestCase
     }
 
     /**
+     * Test attribute "spawn_breakables_on_death"
+     */
+    public function testPropertySpawnBreakablesOnDeath()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "melee_attempt_range"
      */
     public function testPropertyMeleeAttemptRange()
@@ -650,51 +659,6 @@ class NPCUnitV2Test extends TestCase
      * Test attribute "health_bar_color_team_neutral"
      */
     public function testPropertyHealthBarColorTeamNeutral()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "glow_color_friend"
-     */
-    public function testPropertyGlowColorFriend()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "glow_color_enemy"
-     */
-    public function testPropertyGlowColorEnemy()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "glow_color_team1"
-     */
-    public function testPropertyGlowColorTeam1()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "glow_color_team2"
-     */
-    public function testPropertyGlowColorTeam2()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "glow_color_team_neutral"
-     */
-    public function testPropertyGlowColorTeamNeutral()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -63,10 +63,10 @@ class HeroImagesV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon_image_small_webp' => 'string',
         'minimap_image' => 'string',
         'minimap_image_webp' => 'string',
-        'selection_image' => 'string',
-        'selection_image_webp' => 'string',
-        'top_bar_image' => 'string',
-        'top_bar_image_webp' => 'string',
+        'hero_card_critical' => 'string',
+        'hero_card_critical_webp' => 'string',
+        'hero_card_gloat' => 'string',
+        'hero_card_gloat_webp' => 'string',
         'top_bar_vertical_image' => 'string',
         'top_bar_vertical_image_webp' => 'string',
         'weapon_image' => 'string',
@@ -90,10 +90,10 @@ class HeroImagesV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon_image_small_webp' => null,
         'minimap_image' => null,
         'minimap_image_webp' => null,
-        'selection_image' => null,
-        'selection_image_webp' => null,
-        'top_bar_image' => null,
-        'top_bar_image_webp' => null,
+        'hero_card_critical' => null,
+        'hero_card_critical_webp' => null,
+        'hero_card_gloat' => null,
+        'hero_card_gloat_webp' => null,
         'top_bar_vertical_image' => null,
         'top_bar_vertical_image_webp' => null,
         'weapon_image' => null,
@@ -115,10 +115,10 @@ class HeroImagesV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon_image_small_webp' => true,
         'minimap_image' => true,
         'minimap_image_webp' => true,
-        'selection_image' => true,
-        'selection_image_webp' => true,
-        'top_bar_image' => true,
-        'top_bar_image_webp' => true,
+        'hero_card_critical' => true,
+        'hero_card_critical_webp' => true,
+        'hero_card_gloat' => true,
+        'hero_card_gloat_webp' => true,
         'top_bar_vertical_image' => true,
         'top_bar_vertical_image_webp' => true,
         'weapon_image' => true,
@@ -220,10 +220,10 @@ class HeroImagesV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon_image_small_webp' => 'icon_image_small_webp',
         'minimap_image' => 'minimap_image',
         'minimap_image_webp' => 'minimap_image_webp',
-        'selection_image' => 'selection_image',
-        'selection_image_webp' => 'selection_image_webp',
-        'top_bar_image' => 'top_bar_image',
-        'top_bar_image_webp' => 'top_bar_image_webp',
+        'hero_card_critical' => 'hero_card_critical',
+        'hero_card_critical_webp' => 'hero_card_critical_webp',
+        'hero_card_gloat' => 'hero_card_gloat',
+        'hero_card_gloat_webp' => 'hero_card_gloat_webp',
         'top_bar_vertical_image' => 'top_bar_vertical_image',
         'top_bar_vertical_image_webp' => 'top_bar_vertical_image_webp',
         'weapon_image' => 'weapon_image',
@@ -245,10 +245,10 @@ class HeroImagesV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon_image_small_webp' => 'setIconImageSmallWebp',
         'minimap_image' => 'setMinimapImage',
         'minimap_image_webp' => 'setMinimapImageWebp',
-        'selection_image' => 'setSelectionImage',
-        'selection_image_webp' => 'setSelectionImageWebp',
-        'top_bar_image' => 'setTopBarImage',
-        'top_bar_image_webp' => 'setTopBarImageWebp',
+        'hero_card_critical' => 'setHeroCardCritical',
+        'hero_card_critical_webp' => 'setHeroCardCriticalWebp',
+        'hero_card_gloat' => 'setHeroCardGloat',
+        'hero_card_gloat_webp' => 'setHeroCardGloatWebp',
         'top_bar_vertical_image' => 'setTopBarVerticalImage',
         'top_bar_vertical_image_webp' => 'setTopBarVerticalImageWebp',
         'weapon_image' => 'setWeaponImage',
@@ -270,10 +270,10 @@ class HeroImagesV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon_image_small_webp' => 'getIconImageSmallWebp',
         'minimap_image' => 'getMinimapImage',
         'minimap_image_webp' => 'getMinimapImageWebp',
-        'selection_image' => 'getSelectionImage',
-        'selection_image_webp' => 'getSelectionImageWebp',
-        'top_bar_image' => 'getTopBarImage',
-        'top_bar_image_webp' => 'getTopBarImageWebp',
+        'hero_card_critical' => 'getHeroCardCritical',
+        'hero_card_critical_webp' => 'getHeroCardCriticalWebp',
+        'hero_card_gloat' => 'getHeroCardGloat',
+        'hero_card_gloat_webp' => 'getHeroCardGloatWebp',
         'top_bar_vertical_image' => 'getTopBarVerticalImage',
         'top_bar_vertical_image_webp' => 'getTopBarVerticalImageWebp',
         'weapon_image' => 'getWeaponImage',
@@ -346,10 +346,10 @@ class HeroImagesV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('icon_image_small_webp', $data ?? [], null);
         $this->setIfExists('minimap_image', $data ?? [], null);
         $this->setIfExists('minimap_image_webp', $data ?? [], null);
-        $this->setIfExists('selection_image', $data ?? [], null);
-        $this->setIfExists('selection_image_webp', $data ?? [], null);
-        $this->setIfExists('top_bar_image', $data ?? [], null);
-        $this->setIfExists('top_bar_image_webp', $data ?? [], null);
+        $this->setIfExists('hero_card_critical', $data ?? [], null);
+        $this->setIfExists('hero_card_critical_webp', $data ?? [], null);
+        $this->setIfExists('hero_card_gloat', $data ?? [], null);
+        $this->setIfExists('hero_card_gloat_webp', $data ?? [], null);
         $this->setIfExists('top_bar_vertical_image', $data ?? [], null);
         $this->setIfExists('top_bar_vertical_image_webp', $data ?? [], null);
         $this->setIfExists('weapon_image', $data ?? [], null);
@@ -606,137 +606,137 @@ class HeroImagesV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets selection_image
+     * Gets hero_card_critical
      *
      * @return string|null
      */
-    public function getSelectionImage()
+    public function getHeroCardCritical()
     {
-        return $this->container['selection_image'];
+        return $this->container['hero_card_critical'];
     }
 
     /**
-     * Sets selection_image
+     * Sets hero_card_critical
      *
-     * @param string|null $selection_image selection_image
+     * @param string|null $hero_card_critical hero_card_critical
      *
      * @return self
      */
-    public function setSelectionImage($selection_image)
+    public function setHeroCardCritical($hero_card_critical)
     {
-        if (is_null($selection_image)) {
-            array_push($this->openAPINullablesSetToNull, 'selection_image');
+        if (is_null($hero_card_critical)) {
+            array_push($this->openAPINullablesSetToNull, 'hero_card_critical');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('selection_image', $nullablesSetToNull);
+            $index = array_search('hero_card_critical', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['selection_image'] = $selection_image;
+        $this->container['hero_card_critical'] = $hero_card_critical;
 
         return $this;
     }
 
     /**
-     * Gets selection_image_webp
+     * Gets hero_card_critical_webp
      *
      * @return string|null
      */
-    public function getSelectionImageWebp()
+    public function getHeroCardCriticalWebp()
     {
-        return $this->container['selection_image_webp'];
+        return $this->container['hero_card_critical_webp'];
     }
 
     /**
-     * Sets selection_image_webp
+     * Sets hero_card_critical_webp
      *
-     * @param string|null $selection_image_webp selection_image_webp
+     * @param string|null $hero_card_critical_webp hero_card_critical_webp
      *
      * @return self
      */
-    public function setSelectionImageWebp($selection_image_webp)
+    public function setHeroCardCriticalWebp($hero_card_critical_webp)
     {
-        if (is_null($selection_image_webp)) {
-            array_push($this->openAPINullablesSetToNull, 'selection_image_webp');
+        if (is_null($hero_card_critical_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'hero_card_critical_webp');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('selection_image_webp', $nullablesSetToNull);
+            $index = array_search('hero_card_critical_webp', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['selection_image_webp'] = $selection_image_webp;
+        $this->container['hero_card_critical_webp'] = $hero_card_critical_webp;
 
         return $this;
     }
 
     /**
-     * Gets top_bar_image
+     * Gets hero_card_gloat
      *
      * @return string|null
      */
-    public function getTopBarImage()
+    public function getHeroCardGloat()
     {
-        return $this->container['top_bar_image'];
+        return $this->container['hero_card_gloat'];
     }
 
     /**
-     * Sets top_bar_image
+     * Sets hero_card_gloat
      *
-     * @param string|null $top_bar_image top_bar_image
+     * @param string|null $hero_card_gloat hero_card_gloat
      *
      * @return self
      */
-    public function setTopBarImage($top_bar_image)
+    public function setHeroCardGloat($hero_card_gloat)
     {
-        if (is_null($top_bar_image)) {
-            array_push($this->openAPINullablesSetToNull, 'top_bar_image');
+        if (is_null($hero_card_gloat)) {
+            array_push($this->openAPINullablesSetToNull, 'hero_card_gloat');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('top_bar_image', $nullablesSetToNull);
+            $index = array_search('hero_card_gloat', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['top_bar_image'] = $top_bar_image;
+        $this->container['hero_card_gloat'] = $hero_card_gloat;
 
         return $this;
     }
 
     /**
-     * Gets top_bar_image_webp
+     * Gets hero_card_gloat_webp
      *
      * @return string|null
      */
-    public function getTopBarImageWebp()
+    public function getHeroCardGloatWebp()
     {
-        return $this->container['top_bar_image_webp'];
+        return $this->container['hero_card_gloat_webp'];
     }
 
     /**
-     * Sets top_bar_image_webp
+     * Sets hero_card_gloat_webp
      *
-     * @param string|null $top_bar_image_webp top_bar_image_webp
+     * @param string|null $hero_card_gloat_webp hero_card_gloat_webp
      *
      * @return self
      */
-    public function setTopBarImageWebp($top_bar_image_webp)
+    public function setHeroCardGloatWebp($hero_card_gloat_webp)
     {
-        if (is_null($top_bar_image_webp)) {
-            array_push($this->openAPINullablesSetToNull, 'top_bar_image_webp');
+        if (is_null($hero_card_gloat_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'hero_card_gloat_webp');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('top_bar_image_webp', $nullablesSetToNull);
+            $index = array_search('hero_card_gloat_webp', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['top_bar_image_webp'] = $top_bar_image_webp;
+        $this->container['hero_card_gloat_webp'] = $hero_card_gloat_webp;
 
         return $this;
     }

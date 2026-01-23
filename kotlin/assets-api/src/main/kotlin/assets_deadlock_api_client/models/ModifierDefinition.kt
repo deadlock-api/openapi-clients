@@ -29,7 +29,6 @@ import java.io.Serializable
  * @param duration 
  * @param timeMin 
  * @param timeMax 
- * @param debuffType 
  * @param alwaysShowInUi 
  * @param modifierValues 
  * @param scriptValues 
@@ -52,9 +51,6 @@ data class ModifierDefinition (
 
     @Json(name = "time_max")
     val timeMax: java.math.BigDecimal? = null,
-
-    @Json(name = "debuff_type")
-    val debuffType: kotlin.String? = null,
 
     @Json(name = "always_show_in_ui")
     val alwaysShowInUi: kotlin.collections.List<kotlin.String>? = null,

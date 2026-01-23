@@ -61,28 +61,28 @@ class HeroImagesV2Test : ShouldSpec() {
             //modelInstance.minimapImageWebp shouldBe ("TODO")
         }
 
-        // to test the property `selectionImage`
-        should("test selectionImage") {
+        // to test the property `heroCardCritical`
+        should("test heroCardCritical") {
             // uncomment below to test the property
-            //modelInstance.selectionImage shouldBe ("TODO")
+            //modelInstance.heroCardCritical shouldBe ("TODO")
         }
 
-        // to test the property `selectionImageWebp`
-        should("test selectionImageWebp") {
+        // to test the property `heroCardCriticalWebp`
+        should("test heroCardCriticalWebp") {
             // uncomment below to test the property
-            //modelInstance.selectionImageWebp shouldBe ("TODO")
+            //modelInstance.heroCardCriticalWebp shouldBe ("TODO")
         }
 
-        // to test the property `topBarImage`
-        should("test topBarImage") {
+        // to test the property `heroCardGloat`
+        should("test heroCardGloat") {
             // uncomment below to test the property
-            //modelInstance.topBarImage shouldBe ("TODO")
+            //modelInstance.heroCardGloat shouldBe ("TODO")
         }
 
-        // to test the property `topBarImageWebp`
-        should("test topBarImageWebp") {
+        // to test the property `heroCardGloatWebp`
+        should("test heroCardGloatWebp") {
             // uncomment below to test the property
-            //modelInstance.topBarImageWebp shouldBe ("TODO")
+            //modelInstance.heroCardGloatWebp shouldBe ("TODO")
         }
 
         // to test the property `topBarVerticalImage`

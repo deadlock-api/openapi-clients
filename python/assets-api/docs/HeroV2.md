@@ -9,8 +9,7 @@ Name | Type | Description | Notes
 **class_name** | **str** |  | 
 **name** | **str** |  | 
 **description** | [**HeroDescriptionV2**](HeroDescriptionV2.md) |  | 
-**recommended_upgrades** | **List[str]** |  | [optional] 
-**recommended_ability_order** | **List[str]** |  | [optional] 
+**item_draft_weights** | **Dict[str, float]** |  | [optional] 
 **player_selectable** | **bool** |  | 
 **disabled** | **bool** |  | 
 **in_development** | **bool** |  | 

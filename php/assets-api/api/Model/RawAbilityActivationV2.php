@@ -54,6 +54,8 @@ class RawAbilityActivationV2
 
     public const PRESS_TOGGLE = 'press_toggle';
 
+    public const INSTANT_CAST_TOGGLE = 'instant_cast_toggle';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -66,7 +68,8 @@ class RawAbilityActivationV2
             self::ON_BUTTON_IS_DOWN,
             self::PASSIVE,
             self::PRESS,
-            self::PRESS_TOGGLE
+            self::PRESS_TOGGLE,
+            self::INSTANT_CAST_TOGGLE
         ];
     }
 }

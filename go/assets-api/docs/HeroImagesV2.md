@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **IconImageSmallWebp** | Pointer to **NullableString** |  | [optional] 
 **MinimapImage** | Pointer to **NullableString** |  | [optional] 
 **MinimapImageWebp** | Pointer to **NullableString** |  | [optional] 
-**SelectionImage** | Pointer to **NullableString** |  | [optional] 
-**SelectionImageWebp** | Pointer to **NullableString** |  | [optional] 
-**TopBarImage** | Pointer to **NullableString** |  | [optional] 
-**TopBarImageWebp** | Pointer to **NullableString** |  | [optional] 
+**HeroCardCritical** | Pointer to **NullableString** |  | [optional] 
+**HeroCardCriticalWebp** | Pointer to **NullableString** |  | [optional] 
+**HeroCardGloat** | Pointer to **NullableString** |  | [optional] 
+**HeroCardGloatWebp** | Pointer to **NullableString** |  | [optional] 
 **TopBarVerticalImage** | Pointer to **NullableString** |  | [optional] 
 **TopBarVerticalImageWebp** | Pointer to **NullableString** |  | [optional] 
 **WeaponImage** | Pointer to **NullableString** |  | [optional] 
@@ -251,146 +251,146 @@ HasMinimapImageWebp returns a boolean if a field has been set.
 `func (o *HeroImagesV2) UnsetMinimapImageWebp()`
 
 UnsetMinimapImageWebp ensures that no value is present for MinimapImageWebp, not even an explicit nil
-### GetSelectionImage
+### GetHeroCardCritical
 
-`func (o *HeroImagesV2) GetSelectionImage() string`
+`func (o *HeroImagesV2) GetHeroCardCritical() string`
 
-GetSelectionImage returns the SelectionImage field if non-nil, zero value otherwise.
+GetHeroCardCritical returns the HeroCardCritical field if non-nil, zero value otherwise.
 
-### GetSelectionImageOk
+### GetHeroCardCriticalOk
 
-`func (o *HeroImagesV2) GetSelectionImageOk() (*string, bool)`
+`func (o *HeroImagesV2) GetHeroCardCriticalOk() (*string, bool)`
 
-GetSelectionImageOk returns a tuple with the SelectionImage field if it's non-nil, zero value otherwise
+GetHeroCardCriticalOk returns a tuple with the HeroCardCritical field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSelectionImage
+### SetHeroCardCritical
 
-`func (o *HeroImagesV2) SetSelectionImage(v string)`
+`func (o *HeroImagesV2) SetHeroCardCritical(v string)`
 
-SetSelectionImage sets SelectionImage field to given value.
+SetHeroCardCritical sets HeroCardCritical field to given value.
 
-### HasSelectionImage
+### HasHeroCardCritical
 
-`func (o *HeroImagesV2) HasSelectionImage() bool`
+`func (o *HeroImagesV2) HasHeroCardCritical() bool`
 
-HasSelectionImage returns a boolean if a field has been set.
+HasHeroCardCritical returns a boolean if a field has been set.
 
-### SetSelectionImageNil
+### SetHeroCardCriticalNil
 
-`func (o *HeroImagesV2) SetSelectionImageNil(b bool)`
+`func (o *HeroImagesV2) SetHeroCardCriticalNil(b bool)`
 
- SetSelectionImageNil sets the value for SelectionImage to be an explicit nil
+ SetHeroCardCriticalNil sets the value for HeroCardCritical to be an explicit nil
 
-### UnsetSelectionImage
-`func (o *HeroImagesV2) UnsetSelectionImage()`
+### UnsetHeroCardCritical
+`func (o *HeroImagesV2) UnsetHeroCardCritical()`
 
-UnsetSelectionImage ensures that no value is present for SelectionImage, not even an explicit nil
-### GetSelectionImageWebp
+UnsetHeroCardCritical ensures that no value is present for HeroCardCritical, not even an explicit nil
+### GetHeroCardCriticalWebp
 
-`func (o *HeroImagesV2) GetSelectionImageWebp() string`
+`func (o *HeroImagesV2) GetHeroCardCriticalWebp() string`
 
-GetSelectionImageWebp returns the SelectionImageWebp field if non-nil, zero value otherwise.
+GetHeroCardCriticalWebp returns the HeroCardCriticalWebp field if non-nil, zero value otherwise.
 
-### GetSelectionImageWebpOk
+### GetHeroCardCriticalWebpOk
 
-`func (o *HeroImagesV2) GetSelectionImageWebpOk() (*string, bool)`
+`func (o *HeroImagesV2) GetHeroCardCriticalWebpOk() (*string, bool)`
 
-GetSelectionImageWebpOk returns a tuple with the SelectionImageWebp field if it's non-nil, zero value otherwise
+GetHeroCardCriticalWebpOk returns a tuple with the HeroCardCriticalWebp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSelectionImageWebp
+### SetHeroCardCriticalWebp
 
-`func (o *HeroImagesV2) SetSelectionImageWebp(v string)`
+`func (o *HeroImagesV2) SetHeroCardCriticalWebp(v string)`
 
-SetSelectionImageWebp sets SelectionImageWebp field to given value.
+SetHeroCardCriticalWebp sets HeroCardCriticalWebp field to given value.
 
-### HasSelectionImageWebp
+### HasHeroCardCriticalWebp
 
-`func (o *HeroImagesV2) HasSelectionImageWebp() bool`
+`func (o *HeroImagesV2) HasHeroCardCriticalWebp() bool`
 
-HasSelectionImageWebp returns a boolean if a field has been set.
+HasHeroCardCriticalWebp returns a boolean if a field has been set.
 
-### SetSelectionImageWebpNil
+### SetHeroCardCriticalWebpNil
 
-`func (o *HeroImagesV2) SetSelectionImageWebpNil(b bool)`
+`func (o *HeroImagesV2) SetHeroCardCriticalWebpNil(b bool)`
 
- SetSelectionImageWebpNil sets the value for SelectionImageWebp to be an explicit nil
+ SetHeroCardCriticalWebpNil sets the value for HeroCardCriticalWebp to be an explicit nil
 
-### UnsetSelectionImageWebp
-`func (o *HeroImagesV2) UnsetSelectionImageWebp()`
+### UnsetHeroCardCriticalWebp
+`func (o *HeroImagesV2) UnsetHeroCardCriticalWebp()`
 
-UnsetSelectionImageWebp ensures that no value is present for SelectionImageWebp, not even an explicit nil
-### GetTopBarImage
+UnsetHeroCardCriticalWebp ensures that no value is present for HeroCardCriticalWebp, not even an explicit nil
+### GetHeroCardGloat
 
-`func (o *HeroImagesV2) GetTopBarImage() string`
+`func (o *HeroImagesV2) GetHeroCardGloat() string`
 
-GetTopBarImage returns the TopBarImage field if non-nil, zero value otherwise.
+GetHeroCardGloat returns the HeroCardGloat field if non-nil, zero value otherwise.
 
-### GetTopBarImageOk
+### GetHeroCardGloatOk
 
-`func (o *HeroImagesV2) GetTopBarImageOk() (*string, bool)`
+`func (o *HeroImagesV2) GetHeroCardGloatOk() (*string, bool)`
 
-GetTopBarImageOk returns a tuple with the TopBarImage field if it's non-nil, zero value otherwise
+GetHeroCardGloatOk returns a tuple with the HeroCardGloat field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTopBarImage
+### SetHeroCardGloat
 
-`func (o *HeroImagesV2) SetTopBarImage(v string)`
+`func (o *HeroImagesV2) SetHeroCardGloat(v string)`
 
-SetTopBarImage sets TopBarImage field to given value.
+SetHeroCardGloat sets HeroCardGloat field to given value.
 
-### HasTopBarImage
+### HasHeroCardGloat
 
-`func (o *HeroImagesV2) HasTopBarImage() bool`
+`func (o *HeroImagesV2) HasHeroCardGloat() bool`
 
-HasTopBarImage returns a boolean if a field has been set.
+HasHeroCardGloat returns a boolean if a field has been set.
 
-### SetTopBarImageNil
+### SetHeroCardGloatNil
 
-`func (o *HeroImagesV2) SetTopBarImageNil(b bool)`
+`func (o *HeroImagesV2) SetHeroCardGloatNil(b bool)`
 
- SetTopBarImageNil sets the value for TopBarImage to be an explicit nil
+ SetHeroCardGloatNil sets the value for HeroCardGloat to be an explicit nil
 
-### UnsetTopBarImage
-`func (o *HeroImagesV2) UnsetTopBarImage()`
+### UnsetHeroCardGloat
+`func (o *HeroImagesV2) UnsetHeroCardGloat()`
 
-UnsetTopBarImage ensures that no value is present for TopBarImage, not even an explicit nil
-### GetTopBarImageWebp
+UnsetHeroCardGloat ensures that no value is present for HeroCardGloat, not even an explicit nil
+### GetHeroCardGloatWebp
 
-`func (o *HeroImagesV2) GetTopBarImageWebp() string`
+`func (o *HeroImagesV2) GetHeroCardGloatWebp() string`
 
-GetTopBarImageWebp returns the TopBarImageWebp field if non-nil, zero value otherwise.
+GetHeroCardGloatWebp returns the HeroCardGloatWebp field if non-nil, zero value otherwise.
 
-### GetTopBarImageWebpOk
+### GetHeroCardGloatWebpOk
 
-`func (o *HeroImagesV2) GetTopBarImageWebpOk() (*string, bool)`
+`func (o *HeroImagesV2) GetHeroCardGloatWebpOk() (*string, bool)`
 
-GetTopBarImageWebpOk returns a tuple with the TopBarImageWebp field if it's non-nil, zero value otherwise
+GetHeroCardGloatWebpOk returns a tuple with the HeroCardGloatWebp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTopBarImageWebp
+### SetHeroCardGloatWebp
 
-`func (o *HeroImagesV2) SetTopBarImageWebp(v string)`
+`func (o *HeroImagesV2) SetHeroCardGloatWebp(v string)`
 
-SetTopBarImageWebp sets TopBarImageWebp field to given value.
+SetHeroCardGloatWebp sets HeroCardGloatWebp field to given value.
 
-### HasTopBarImageWebp
+### HasHeroCardGloatWebp
 
-`func (o *HeroImagesV2) HasTopBarImageWebp() bool`
+`func (o *HeroImagesV2) HasHeroCardGloatWebp() bool`
 
-HasTopBarImageWebp returns a boolean if a field has been set.
+HasHeroCardGloatWebp returns a boolean if a field has been set.
 
-### SetTopBarImageWebpNil
+### SetHeroCardGloatWebpNil
 
-`func (o *HeroImagesV2) SetTopBarImageWebpNil(b bool)`
+`func (o *HeroImagesV2) SetHeroCardGloatWebpNil(b bool)`
 
- SetTopBarImageWebpNil sets the value for TopBarImageWebp to be an explicit nil
+ SetHeroCardGloatWebpNil sets the value for HeroCardGloatWebp to be an explicit nil
 
-### UnsetTopBarImageWebp
-`func (o *HeroImagesV2) UnsetTopBarImageWebp()`
+### UnsetHeroCardGloatWebp
+`func (o *HeroImagesV2) UnsetHeroCardGloatWebp()`
 
-UnsetTopBarImageWebp ensures that no value is present for TopBarImageWebp, not even an explicit nil
+UnsetHeroCardGloatWebp ensures that no value is present for HeroCardGloatWebp, not even an explicit nil
 ### GetTopBarVerticalImage
 
 `func (o *HeroImagesV2) GetTopBarVerticalImage() string`

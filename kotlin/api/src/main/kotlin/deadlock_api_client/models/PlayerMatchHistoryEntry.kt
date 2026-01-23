@@ -42,6 +42,9 @@ import java.io.Serializable
  * @param playerTeam 
  * @param startTime 
  * @param abandonedTimeS 
+ * @param brawlAvgRoundTimeS 
+ * @param brawlScoreTeam0 
+ * @param brawlScoreTeam1 
  * @param teamAbandoned 
  * @param username 
  */
@@ -106,6 +109,15 @@ data class PlayerMatchHistoryEntry (
 
     @Json(name = "abandoned_time_s")
     val abandonedTimeS: kotlin.Int? = null,
+
+    @Json(name = "brawl_avg_round_time_s")
+    val brawlAvgRoundTimeS: kotlin.Int? = null,
+
+    @Json(name = "brawl_score_team0")
+    val brawlScoreTeam0: kotlin.Int? = null,
+
+    @Json(name = "brawl_score_team1")
+    val brawlScoreTeam1: kotlin.Int? = null,
 
     @Json(name = "team_abandoned")
     val teamAbandoned: kotlin.Boolean? = null,

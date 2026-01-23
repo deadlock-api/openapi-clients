@@ -50,6 +50,7 @@ deadlock_api_client/models/e_sports_match.py
 deadlock_api_client/models/e_sports_match_status.py
 deadlock_api_client/models/enemy_stats.py
 deadlock_api_client/models/entry.py
+deadlock_api_client/models/game_mode.py
 deadlock_api_client/models/get_custom_match_id_response.py
 deadlock_api_client/models/hash_map_value.py
 deadlock_api_client/models/hero_comb_stats.py
@@ -111,6 +112,7 @@ docs/ESportsMatch.md
 docs/ESportsMatchStatus.md
 docs/EnemyStats.md
 docs/Entry.md
+docs/GameMode.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
 docs/HeroCombStats.md
@@ -185,6 +187,7 @@ test/test_e_sports_match.py
 test/test_e_sports_match_status.py
 test/test_enemy_stats.py
 test/test_entry.py
+test/test_game_mode.py
 test/test_get_custom_match_id_response.py
 test/test_hash_map_value.py
 test/test_hero_comb_stats.py

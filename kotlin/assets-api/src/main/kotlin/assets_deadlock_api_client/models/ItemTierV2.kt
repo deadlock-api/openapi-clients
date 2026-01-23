@@ -22,7 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: _1,_2,_3,_4
+ * Values: _1,_2,_3,_4,_5
  */
 
 @JsonClass(generateAdapter = false)
@@ -38,7 +38,10 @@ enum class ItemTierV2(val value: kotlin.Int) {
     _3(3),
 
     @Json(name = "4")
-    _4(4);
+    _4(4),
+
+    @Json(name = "5")
+    _5(5);
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

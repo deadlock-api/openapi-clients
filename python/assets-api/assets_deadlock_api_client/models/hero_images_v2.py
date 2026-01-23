@@ -32,10 +32,10 @@ class HeroImagesV2(BaseModel):
     icon_image_small_webp: Optional[StrictStr] = None
     minimap_image: Optional[StrictStr] = None
     minimap_image_webp: Optional[StrictStr] = None
-    selection_image: Optional[StrictStr] = None
-    selection_image_webp: Optional[StrictStr] = None
-    top_bar_image: Optional[StrictStr] = None
-    top_bar_image_webp: Optional[StrictStr] = None
+    hero_card_critical: Optional[StrictStr] = None
+    hero_card_critical_webp: Optional[StrictStr] = None
+    hero_card_gloat: Optional[StrictStr] = None
+    hero_card_gloat_webp: Optional[StrictStr] = None
     top_bar_vertical_image: Optional[StrictStr] = None
     top_bar_vertical_image_webp: Optional[StrictStr] = None
     weapon_image: Optional[StrictStr] = None
@@ -43,7 +43,7 @@ class HeroImagesV2(BaseModel):
     background_image: Optional[StrictStr] = None
     background_image_webp: Optional[StrictStr] = None
     name_image: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["icon_hero_card", "icon_hero_card_webp", "icon_image_small", "icon_image_small_webp", "minimap_image", "minimap_image_webp", "selection_image", "selection_image_webp", "top_bar_image", "top_bar_image_webp", "top_bar_vertical_image", "top_bar_vertical_image_webp", "weapon_image", "weapon_image_webp", "background_image", "background_image_webp", "name_image"]
+    __properties: ClassVar[List[str]] = ["icon_hero_card", "icon_hero_card_webp", "icon_image_small", "icon_image_small_webp", "minimap_image", "minimap_image_webp", "hero_card_critical", "hero_card_critical_webp", "hero_card_gloat", "hero_card_gloat_webp", "top_bar_vertical_image", "top_bar_vertical_image_webp", "weapon_image", "weapon_image_webp", "background_image", "background_image_webp", "name_image"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -114,25 +114,25 @@ class HeroImagesV2(BaseModel):
         if self.minimap_image_webp is None and "minimap_image_webp" in self.model_fields_set:
             _dict['minimap_image_webp'] = None
 
-        # set to None if selection_image (nullable) is None
+        # set to None if hero_card_critical (nullable) is None
         # and model_fields_set contains the field
-        if self.selection_image is None and "selection_image" in self.model_fields_set:
-            _dict['selection_image'] = None
+        if self.hero_card_critical is None and "hero_card_critical" in self.model_fields_set:
+            _dict['hero_card_critical'] = None
 
-        # set to None if selection_image_webp (nullable) is None
+        # set to None if hero_card_critical_webp (nullable) is None
         # and model_fields_set contains the field
-        if self.selection_image_webp is None and "selection_image_webp" in self.model_fields_set:
-            _dict['selection_image_webp'] = None
+        if self.hero_card_critical_webp is None and "hero_card_critical_webp" in self.model_fields_set:
+            _dict['hero_card_critical_webp'] = None
 
-        # set to None if top_bar_image (nullable) is None
+        # set to None if hero_card_gloat (nullable) is None
         # and model_fields_set contains the field
-        if self.top_bar_image is None and "top_bar_image" in self.model_fields_set:
-            _dict['top_bar_image'] = None
+        if self.hero_card_gloat is None and "hero_card_gloat" in self.model_fields_set:
+            _dict['hero_card_gloat'] = None
 
-        # set to None if top_bar_image_webp (nullable) is None
+        # set to None if hero_card_gloat_webp (nullable) is None
         # and model_fields_set contains the field
-        if self.top_bar_image_webp is None and "top_bar_image_webp" in self.model_fields_set:
-            _dict['top_bar_image_webp'] = None
+        if self.hero_card_gloat_webp is None and "hero_card_gloat_webp" in self.model_fields_set:
+            _dict['hero_card_gloat_webp'] = None
 
         # set to None if top_bar_vertical_image (nullable) is None
         # and model_fields_set contains the field
@@ -187,10 +187,10 @@ class HeroImagesV2(BaseModel):
             "icon_image_small_webp": obj.get("icon_image_small_webp"),
             "minimap_image": obj.get("minimap_image"),
             "minimap_image_webp": obj.get("minimap_image_webp"),
-            "selection_image": obj.get("selection_image"),
-            "selection_image_webp": obj.get("selection_image_webp"),
-            "top_bar_image": obj.get("top_bar_image"),
-            "top_bar_image_webp": obj.get("top_bar_image_webp"),
+            "hero_card_critical": obj.get("hero_card_critical"),
+            "hero_card_critical_webp": obj.get("hero_card_critical_webp"),
+            "hero_card_gloat": obj.get("hero_card_gloat"),
+            "hero_card_gloat_webp": obj.get("hero_card_gloat_webp"),
             "top_bar_vertical_image": obj.get("top_bar_vertical_image"),
             "top_bar_vertical_image_webp": obj.get("top_bar_vertical_image_webp"),
             "weapon_image": obj.get("weapon_image"),

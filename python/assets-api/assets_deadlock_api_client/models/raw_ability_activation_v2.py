@@ -32,6 +32,7 @@ class RawAbilityActivationV2(str, Enum):
     PASSIVE = 'passive'
     PRESS = 'press'
     PRESS_TOGGLE = 'press_toggle'
+    INSTANT_CAST_TOGGLE = 'instant_cast_toggle'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

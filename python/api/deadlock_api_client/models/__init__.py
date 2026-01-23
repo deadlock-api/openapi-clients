@@ -39,6 +39,7 @@ from deadlock_api_client.models.e_sports_match import ESportsMatch
 from deadlock_api_client.models.e_sports_match_status import ESportsMatchStatus
 from deadlock_api_client.models.enemy_stats import EnemyStats
 from deadlock_api_client.models.entry import Entry
+from deadlock_api_client.models.game_mode import GameMode
 from deadlock_api_client.models.get_custom_match_id_response import GetCustomMatchIdResponse
 from deadlock_api_client.models.hash_map_value import HashMapValue
 from deadlock_api_client.models.hero_comb_stats import HeroCombStats

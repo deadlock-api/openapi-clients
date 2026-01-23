@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **run_speed** | **float** |  | [optional]
 **acceleration** | **float** |  | [optional]
 **melee_damage** | **float** |  | [optional]
+**spawn_breakables_on_death** | **bool** |  | [optional]
 **melee_attempt_range** | **float** |  | [optional]
 **melee_hit_range** | **float** |  | [optional]
 **melee_duration** | **float** |  | [optional]
@@ -68,11 +69,6 @@ Name | Type | Description | Notes
 **health_bar_color_team1** | [**\OpenAPI\Client\Model\ColorV1**](ColorV1.md) |  | [optional]
 **health_bar_color_team2** | [**\OpenAPI\Client\Model\ColorV1**](ColorV1.md) |  | [optional]
 **health_bar_color_team_neutral** | [**\OpenAPI\Client\Model\ColorV1**](ColorV1.md) |  | [optional]
-**glow_color_friend** | [**\OpenAPI\Client\Model\ColorV1**](ColorV1.md) |  | [optional]
-**glow_color_enemy** | [**\OpenAPI\Client\Model\ColorV1**](ColorV1.md) |  | [optional]
-**glow_color_team1** | [**\OpenAPI\Client\Model\ColorV1**](ColorV1.md) |  | [optional]
-**glow_color_team2** | [**\OpenAPI\Client\Model\ColorV1**](ColorV1.md) |  | [optional]
-**glow_color_team_neutral** | [**\OpenAPI\Client\Model\ColorV1**](ColorV1.md) |  | [optional]
 **id** | **int** |  | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

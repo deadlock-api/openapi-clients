@@ -8,7 +8,7 @@
 | **cheatsEnabled** | **kotlin.Boolean** |  |  [optional] |
 | **disableAutoReady** | **kotlin.Boolean** | If auto-ready is disabled, the bot will not automatically ready up. You need to call the &#x60;ready&#x60; endpoint to ready up. |  [optional] |
 | **duplicateHeroesEnabled** | **kotlin.Boolean** |  |  [optional] |
-| **experimentalHeroesEnabled** | **kotlin.Boolean** |  |  [optional] |
+| **gameMode** | [**GameMode**](GameMode.md) |  |  [optional] |
 | **isPubliclyVisible** | **kotlin.Boolean** |  |  [optional] |
 | **minRosterSize** | **kotlin.Int** |  |  [optional] |
 | **randomizeLanes** | **kotlin.Boolean** |  |  [optional] |

@@ -24,8 +24,6 @@ pub struct ModifierDefinition {
     pub time_min: Option<Option<f64>>,
     #[serde(rename = "time_max", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub time_max: Option<Option<f64>>,
-    #[serde(rename = "debuff_type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub debuff_type: Option<Option<String>>,
     #[serde(rename = "always_show_in_ui", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub always_show_in_ui: Option<Option<Vec<String>>>,
     #[serde(rename = "modifier_values", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -43,7 +41,6 @@ impl ModifierDefinition {
             duration: None,
             time_min: None,
             time_max: None,
-            debuff_type: None,
             always_show_in_ui: None,
             modifier_values: None,
             script_values: None,

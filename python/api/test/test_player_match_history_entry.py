@@ -37,6 +37,9 @@ class TestPlayerMatchHistoryEntry(unittest.TestCase):
             return PlayerMatchHistoryEntry(
                 abandoned_time_s = 0,
                 account_id = 0,
+                brawl_avg_round_time_s = 0,
+                brawl_score_team0 = 0,
+                brawl_score_team1 = 0,
                 denies = 0,
                 game_mode = 56,
                 hero_id = 0,

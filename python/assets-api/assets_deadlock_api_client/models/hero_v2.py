@@ -44,8 +44,7 @@ class HeroV2(BaseModel):
     class_name: StrictStr
     name: StrictStr
     description: HeroDescriptionV2
-    recommended_upgrades: Optional[List[StrictStr]] = None
-    recommended_ability_order: Optional[List[StrictStr]] = None
+    item_draft_weights: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = None
     player_selectable: StrictBool
     disabled: StrictBool
     in_development: StrictBool
@@ -73,7 +72,7 @@ class HeroV2(BaseModel):
     scaling_stats: Dict[str, RawHeroScalingStatV2]
     purchase_bonuses: Dict[str, List[RawHeroPurchaseBonusV2]]
     standard_level_up_upgrades: Dict[str, Union[StrictFloat, StrictInt]]
-    __properties: ClassVar[List[str]] = ["id", "class_name", "name", "description", "recommended_upgrades", "recommended_ability_order", "player_selectable", "disabled", "in_development", "needs_testing", "assigned_players_only", "tags", "gun_tag", "hideout_rich_presence", "hero_type", "prerelease_only", "limited_testing", "complexity", "skin", "images", "items", "starting_stats", "item_slot_info", "physics", "colors", "shop_stat_display", "cost_bonuses", "stats_display", "hero_stats_ui", "level_info", "scaling_stats", "purchase_bonuses", "standard_level_up_upgrades"]
+    __properties: ClassVar[List[str]] = ["id", "class_name", "name", "description", "item_draft_weights", "player_selectable", "disabled", "in_development", "needs_testing", "assigned_players_only", "tags", "gun_tag", "hideout_rich_presence", "hero_type", "prerelease_only", "limited_testing", "complexity", "skin", "images", "items", "starting_stats", "item_slot_info", "physics", "colors", "shop_stat_display", "cost_bonuses", "stats_display", "hero_stats_ui", "level_info", "scaling_stats", "purchase_bonuses", "standard_level_up_upgrades"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -177,15 +176,10 @@ class HeroV2(BaseModel):
                         _item.to_dict() for _item in self.purchase_bonuses[_key_purchase_bonuses]
                     ]
             _dict['purchase_bonuses'] = _field_dict_of_array
-        # set to None if recommended_upgrades (nullable) is None
+        # set to None if item_draft_weights (nullable) is None
         # and model_fields_set contains the field
-        if self.recommended_upgrades is None and "recommended_upgrades" in self.model_fields_set:
-            _dict['recommended_upgrades'] = None
-
-        # set to None if recommended_ability_order (nullable) is None
-        # and model_fields_set contains the field
-        if self.recommended_ability_order is None and "recommended_ability_order" in self.model_fields_set:
-            _dict['recommended_ability_order'] = None
+        if self.item_draft_weights is None and "item_draft_weights" in self.model_fields_set:
+            _dict['item_draft_weights'] = None
 
         # set to None if tags (nullable) is None
         # and model_fields_set contains the field
@@ -233,8 +227,7 @@ class HeroV2(BaseModel):
             "class_name": obj.get("class_name"),
             "name": obj.get("name"),
             "description": HeroDescriptionV2.from_dict(obj["description"]) if obj.get("description") is not None else None,
-            "recommended_upgrades": obj.get("recommended_upgrades"),
-            "recommended_ability_order": obj.get("recommended_ability_order"),
+            "item_draft_weights": obj.get("item_draft_weights"),
             "player_selectable": obj.get("player_selectable"),
             "disabled": obj.get("disabled"),
             "in_development": obj.get("in_development"),

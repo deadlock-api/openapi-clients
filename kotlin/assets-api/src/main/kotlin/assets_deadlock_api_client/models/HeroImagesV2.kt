@@ -29,10 +29,10 @@ import java.io.Serializable
  * @param iconImageSmallWebp 
  * @param minimapImage 
  * @param minimapImageWebp 
- * @param selectionImage 
- * @param selectionImageWebp 
- * @param topBarImage 
- * @param topBarImageWebp 
+ * @param heroCardCritical 
+ * @param heroCardCriticalWebp 
+ * @param heroCardGloat 
+ * @param heroCardGloatWebp 
  * @param topBarVerticalImage 
  * @param topBarVerticalImageWebp 
  * @param weaponImage 
@@ -63,17 +63,17 @@ data class HeroImagesV2 (
     @Json(name = "minimap_image_webp")
     val minimapImageWebp: kotlin.String? = null,
 
-    @Json(name = "selection_image")
-    val selectionImage: kotlin.String? = null,
+    @Json(name = "hero_card_critical")
+    val heroCardCritical: kotlin.String? = null,
 
-    @Json(name = "selection_image_webp")
-    val selectionImageWebp: kotlin.String? = null,
+    @Json(name = "hero_card_critical_webp")
+    val heroCardCriticalWebp: kotlin.String? = null,
 
-    @Json(name = "top_bar_image")
-    val topBarImage: kotlin.String? = null,
+    @Json(name = "hero_card_gloat")
+    val heroCardGloat: kotlin.String? = null,
 
-    @Json(name = "top_bar_image_webp")
-    val topBarImageWebp: kotlin.String? = null,
+    @Json(name = "hero_card_gloat_webp")
+    val heroCardGloatWebp: kotlin.String? = null,
 
     @Json(name = "top_bar_vertical_image")
     val topBarVerticalImage: kotlin.String? = null,

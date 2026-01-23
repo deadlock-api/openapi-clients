@@ -1525,6 +1525,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6128
       - 6111
       - 6080
       - 6075
@@ -2021,51 +2022,11 @@ components:
       title: HTTPValidationError
     HeroColorsV2:
       example:
-        glow_team2:
-        - ""
-        - ""
-        - ""
-        glow_team1:
-        - ""
-        - ""
-        - ""
-        glow_enemy:
-        - ""
-        - ""
-        - ""
-        glow_friendly:
-        - ""
-        - ""
-        - ""
         ui:
         - ""
         - ""
         - ""
       properties:
-        glow_enemy:
-          items: {}
-          maxItems: 3
-          minItems: 3
-          title: Glow Enemy
-          type: array
-        glow_friendly:
-          items: {}
-          maxItems: 3
-          minItems: 3
-          title: Glow Friendly
-          type: array
-        glow_team1:
-          items: {}
-          maxItems: 3
-          minItems: 3
-          title: Glow Team1
-          type: array
-        glow_team2:
-          items: {}
-          maxItems: 3
-          minItems: 3
-          title: Glow Team2
-          type: array
         ui:
           items: {}
           maxItems: 3
@@ -2073,10 +2034,6 @@ components:
           title: Ui
           type: array
       required:
-      - glow_enemy
-      - glow_friendly
-      - glow_team1
-      - glow_team2
       - ui
       title: HeroColorsV2
     HeroDescriptionV2:
@@ -2102,18 +2059,18 @@ components:
         top_bar_vertical_image_webp: top_bar_vertical_image_webp
         icon_hero_card_webp: icon_hero_card_webp
         icon_image_small_webp: icon_image_small_webp
+        hero_card_gloat_webp: hero_card_gloat_webp
         background_image_webp: background_image_webp
         name_image: name_image
         minimap_image: minimap_image
         weapon_image_webp: weapon_image_webp
         background_image: background_image
-        top_bar_image: top_bar_image
-        selection_image: selection_image
+        hero_card_critical_webp: hero_card_critical_webp
+        hero_card_gloat: hero_card_gloat
         minimap_image_webp: minimap_image_webp
+        hero_card_critical: hero_card_critical
         icon_image_small: icon_image_small
         top_bar_vertical_image: top_bar_vertical_image
-        selection_image_webp: selection_image_webp
-        top_bar_image_webp: top_bar_image_webp
       properties:
         icon_hero_card:
           nullable: true
@@ -2133,16 +2090,16 @@ components:
         minimap_image_webp:
           nullable: true
           type: string
-        selection_image:
+        hero_card_critical:
           nullable: true
           type: string
-        selection_image_webp:
+        hero_card_critical_webp:
           nullable: true
           type: string
-        top_bar_image:
+        hero_card_gloat:
           nullable: true
           type: string
-        top_bar_image_webp:
+        hero_card_gloat_webp:
           nullable: true
           type: string
         top_bar_vertical_image:
@@ -2194,7 +2151,7 @@ components:
         bonus_currencies:
         - bonus_currencies
         - bonus_currencies
-        required_gold: 6
+        required_gold: 7
       properties:
         use_standard_upgrade:
           nullable: true
@@ -2212,13 +2169,13 @@ components:
       title: HeroLevelInfoV2
     HeroPhysicsV2:
       example:
-        footstep_sound_travel_distance_meters: 2.027123023002322
-        step_height: 3.616076749251911
-        collision_height: 7.061401241503109
-        collision_radius: 9.301444243932576
-        stealth_speed_meters_per_second: 2.3021358869347655
-        step_sound_time: 4.145608029883936
-        step_sound_time_sprinting: 7.386281948385884
+        footstep_sound_travel_distance_meters: 4.145608029883936
+        step_height: 2.027123023002322
+        collision_height: 9.301444243932576
+        collision_radius: 3.616076749251911
+        stealth_speed_meters_per_second: 7.061401241503109
+        step_sound_time: 7.386281948385884
+        step_sound_time_sprinting: 1.2315135367772556
       properties:
         stealth_speed_meters_per_second:
           title: Stealth Speed Meters Per Second
@@ -2473,33 +2430,16 @@ components:
       type: string
     HeroV2:
       example:
-        complexity: 6
-        recommended_upgrades:
-        - recommended_upgrades
-        - recommended_upgrades
-        skin: 1
+        complexity: 1
+        item_draft_weights:
+          key: 6.027456183070403
+        skin: 5
         description:
           role: role
           lore: lore
           playstyle: playstyle
         prerelease_only: true
         colors:
-          glow_team2:
-          - ""
-          - ""
-          - ""
-          glow_team1:
-          - ""
-          - ""
-          - ""
-          glow_enemy:
-          - ""
-          - ""
-          - ""
-          glow_friendly:
-          - ""
-          - ""
-          - ""
           ui:
           - ""
           - ""
@@ -2529,13 +2469,13 @@ components:
             - display_stats
             - display_stats
         physics:
-          footstep_sound_travel_distance_meters: 2.027123023002322
-          step_height: 3.616076749251911
-          collision_height: 7.061401241503109
-          collision_radius: 9.301444243932576
-          stealth_speed_meters_per_second: 2.3021358869347655
-          step_sound_time: 4.145608029883936
-          step_sound_time_sprinting: 7.386281948385884
+          footstep_sound_travel_distance_meters: 4.145608029883936
+          step_height: 2.027123023002322
+          collision_height: 9.301444243932576
+          collision_radius: 3.616076749251911
+          stealth_speed_meters_per_second: 7.061401241503109
+          step_sound_time: 7.386281948385884
+          step_sound_time_sprinting: 1.2315135367772556
         gun_tag: gun_tag
         disabled: true
         hero_type: ""
@@ -2545,7 +2485,7 @@ components:
             bonus_currencies:
             - bonus_currencies
             - bonus_currencies
-            required_gold: 6
+            required_gold: 7
         id: 0
         class_name: class_name
         stats_display:
@@ -2570,8 +2510,8 @@ components:
         item_slot_info:
           key:
             max_purchases_for_tier:
-            - 5
-            - 5
+            - 2
+            - 2
         assigned_players_only: true
         limited_testing: true
         images:
@@ -2580,26 +2520,26 @@ components:
           top_bar_vertical_image_webp: top_bar_vertical_image_webp
           icon_hero_card_webp: icon_hero_card_webp
           icon_image_small_webp: icon_image_small_webp
+          hero_card_gloat_webp: hero_card_gloat_webp
           background_image_webp: background_image_webp
           name_image: name_image
           minimap_image: minimap_image
           weapon_image_webp: weapon_image_webp
           background_image: background_image
-          top_bar_image: top_bar_image
-          selection_image: selection_image
+          hero_card_critical_webp: hero_card_critical_webp
+          hero_card_gloat: hero_card_gloat
           minimap_image_webp: minimap_image_webp
+          hero_card_critical: hero_card_critical
           icon_image_small: icon_image_small
           top_bar_vertical_image: top_bar_vertical_image
-          selection_image_webp: selection_image_webp
-          top_bar_image_webp: top_bar_image_webp
         cost_bonuses:
           key:
-          - bonus: 1.0246457001441578
+          - bonus: 1.4894159098541704
             gold_threshold: 1
-            percent_on_graph: 1.4894159098541704
-          - bonus: 1.0246457001441578
+            percent_on_graph: 6.84685269835264
+          - bonus: 1.4894159098541704
             gold_threshold: 1
-            percent_on_graph: 1.4894159098541704
+            percent_on_graph: 6.84685269835264
         hero_stats_ui:
           display_stats:
           - stat_type: stat_type
@@ -2610,7 +2550,7 @@ components:
         scaling_stats:
           key:
             scaling_stat: scaling_stat
-            scale: 7.457744773683766
+            scale: 1.1730742509559433
         starting_stats:
           heavy_melee_damage:
             display_stat_name: display_stat_name
@@ -2673,22 +2613,19 @@ components:
             value: 5
         in_development: true
         standard_level_up_upgrades:
-          key: 4.965218492984954
+          key: 5.025004791520295
         tags:
         - tags
         - tags
         purchase_bonuses:
           key:
           - value_type: value_type
-            tier: 1
+            tier: 4
             value: value
           - value_type: value_type
-            tier: 1
+            tier: 4
             value: value
         name: name
-        recommended_ability_order:
-        - recommended_ability_order
-        - recommended_ability_order
         player_selectable: true
         needs_testing: true
         hideout_rich_presence: hideout_rich_presence
@@ -2706,16 +2643,10 @@ components:
           type: string
         description:
           $ref: "#/components/schemas/HeroDescriptionV2"
-        recommended_upgrades:
-          items:
-            type: string
+        item_draft_weights:
+          additionalProperties:
+            type: number
           nullable: true
-          type: array
-        recommended_ability_order:
-          items:
-            type: string
-          nullable: true
-          type: array
         player_selectable:
           title: Player Selectable
           type: boolean
@@ -2948,6 +2879,7 @@ components:
       - 2
       - 3
       - 4
+      - 5
       title: ItemTierV2
       type: integer
     ItemTypeV2:
@@ -3353,9 +3285,6 @@ components:
         time_max:
           nullable: true
           type: number
-        debuff_type:
-          nullable: true
-          type: string
         always_show_in_ui:
           items:
             type: string
@@ -3402,10 +3331,8 @@ components:
         trooper_dps: 5.533258397034986
         melee_duration: 6.778324963048013
         acceleration: 3.5571952270680973
-        glow_color_friend: ""
         gold_reward_bonus_percent_per_minute: 2.027123023002322
         ranged_armor_modifier: ""
-        glow_color_enemy: ""
         stomp_damage: 9.965781217890562
         attack_trooper_max_range: 3.353193347011243
         id: 3
@@ -3437,7 +3364,6 @@ components:
         melee_attempt_range: 1.284659006116532
         player_damage_resist_pct: 4.145608029883936
         objective_health_growth_phase1: ""
-        glow_color_team_neutral: ""
         laser_dps_to_players: 1.1730742509559433
         phase2_health: 6
         objective_health_growth_phase2: ""
@@ -3446,14 +3372,13 @@ components:
         melee_damage: 6.965117697638846
         t2_boss_dps: 6.519180951018382
         melee_hit_range: 2.8841621266687802
-        glow_color_team2: ""
-        glow_color_team1: ""
         t2_boss_dpsbase_resist: 0.10263654006109402
         t2_boss_dpsmax_resist_time_in_seconds: 8.969578798196912
         sight_range_players: 7.061401241503109
         t3_boss_damage_resist_pct: 1.4894159098541704
         class_name: class_name
         weapon_info: ""
+        spawn_breakables_on_death: true
         health_bar_color_team2: ""
         stun_duration: 6.683562403749608
         max_health_generator: 5
@@ -3605,6 +3530,9 @@ components:
         melee_damage:
           nullable: true
           type: number
+        spawn_breakables_on_death:
+          nullable: true
+          type: boolean
         melee_attempt_range:
           nullable: true
           type: number
@@ -3682,26 +3610,6 @@ components:
           - $ref: "#/components/schemas/ColorV1"
           nullable: true
         health_bar_color_team_neutral:
-          allOf:
-          - $ref: "#/components/schemas/ColorV1"
-          nullable: true
-        glow_color_friend:
-          allOf:
-          - $ref: "#/components/schemas/ColorV1"
-          nullable: true
-        glow_color_enemy:
-          allOf:
-          - $ref: "#/components/schemas/ColorV1"
-          nullable: true
-        glow_color_team1:
-          allOf:
-          - $ref: "#/components/schemas/ColorV1"
-          nullable: true
-        glow_color_team2:
-          allOf:
-          - $ref: "#/components/schemas/ColorV1"
-          nullable: true
-        glow_color_team_neutral:
           allOf:
           - $ref: "#/components/schemas/ColorV1"
           nullable: true
@@ -4138,6 +4046,7 @@ components:
       - passive
       - press
       - press_toggle
+      - instant_cast_toggle
       title: RawAbilityActivationV2
       type: string
     RawAbilityImbueV2:
@@ -4197,8 +4106,8 @@ components:
     RawHeroItemSlotInfoValueV2:
       example:
         max_purchases_for_tier:
-        - 5
-        - 5
+        - 2
+        - 2
       properties:
         max_purchases_for_tier:
           items:
@@ -4210,9 +4119,9 @@ components:
       title: RawHeroItemSlotInfoValueV2
     RawHeroMapModCostBonusesV2:
       example:
-        bonus: 1.0246457001441578
+        bonus: 1.4894159098541704
         gold_threshold: 1
-        percent_on_graph: 1.4894159098541704
+        percent_on_graph: 6.84685269835264
       properties:
         gold_threshold:
           title: Gold Threshold
@@ -4231,7 +4140,7 @@ components:
     RawHeroPurchaseBonusV2:
       example:
         value_type: value_type
-        tier: 1
+        tier: 4
         value: value
       properties:
         value_type:
@@ -4251,7 +4160,7 @@ components:
     RawHeroScalingStatV2:
       example:
         scaling_stat: scaling_stat
-        scale: 7.457744773683766
+        scale: 1.1730742509559433
       properties:
         scaling_stat:
           title: Scaling Stat

@@ -50,6 +50,8 @@ pub mod enemy_stats;
 pub use self::enemy_stats::EnemyStats;
 pub mod entry;
 pub use self::entry::Entry;
+pub mod game_mode;
+pub use self::game_mode::GameMode;
 pub mod get_custom_match_id_response;
 pub use self::get_custom_match_id_response::GetCustomMatchIdResponse;
 pub mod hash_map_value;

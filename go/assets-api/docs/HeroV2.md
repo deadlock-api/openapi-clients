@@ -8,8 +8,7 @@ Name | Type | Description | Notes
 **ClassName** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | [**HeroDescriptionV2**](HeroDescriptionV2.md) |  | 
-**RecommendedUpgrades** | Pointer to **[]string** |  | [optional] 
-**RecommendedAbilityOrder** | Pointer to **[]string** |  | [optional] 
+**ItemDraftWeights** | Pointer to **map[string]float32** |  | [optional] 
 **PlayerSelectable** | **bool** |  | 
 **Disabled** | **bool** |  | 
 **InDevelopment** | **bool** |  | 
@@ -137,76 +136,41 @@ and a boolean to check if the value has been set.
 SetDescription sets Description field to given value.
 
 
-### GetRecommendedUpgrades
+### GetItemDraftWeights
 
-`func (o *HeroV2) GetRecommendedUpgrades() []string`
+`func (o *HeroV2) GetItemDraftWeights() map[string]float32`
 
-GetRecommendedUpgrades returns the RecommendedUpgrades field if non-nil, zero value otherwise.
+GetItemDraftWeights returns the ItemDraftWeights field if non-nil, zero value otherwise.
 
-### GetRecommendedUpgradesOk
+### GetItemDraftWeightsOk
 
-`func (o *HeroV2) GetRecommendedUpgradesOk() (*[]string, bool)`
+`func (o *HeroV2) GetItemDraftWeightsOk() (*map[string]float32, bool)`
 
-GetRecommendedUpgradesOk returns a tuple with the RecommendedUpgrades field if it's non-nil, zero value otherwise
+GetItemDraftWeightsOk returns a tuple with the ItemDraftWeights field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRecommendedUpgrades
+### SetItemDraftWeights
 
-`func (o *HeroV2) SetRecommendedUpgrades(v []string)`
+`func (o *HeroV2) SetItemDraftWeights(v map[string]float32)`
 
-SetRecommendedUpgrades sets RecommendedUpgrades field to given value.
+SetItemDraftWeights sets ItemDraftWeights field to given value.
 
-### HasRecommendedUpgrades
+### HasItemDraftWeights
 
-`func (o *HeroV2) HasRecommendedUpgrades() bool`
+`func (o *HeroV2) HasItemDraftWeights() bool`
 
-HasRecommendedUpgrades returns a boolean if a field has been set.
+HasItemDraftWeights returns a boolean if a field has been set.
 
-### SetRecommendedUpgradesNil
+### SetItemDraftWeightsNil
 
-`func (o *HeroV2) SetRecommendedUpgradesNil(b bool)`
+`func (o *HeroV2) SetItemDraftWeightsNil(b bool)`
 
- SetRecommendedUpgradesNil sets the value for RecommendedUpgrades to be an explicit nil
+ SetItemDraftWeightsNil sets the value for ItemDraftWeights to be an explicit nil
 
-### UnsetRecommendedUpgrades
-`func (o *HeroV2) UnsetRecommendedUpgrades()`
+### UnsetItemDraftWeights
+`func (o *HeroV2) UnsetItemDraftWeights()`
 
-UnsetRecommendedUpgrades ensures that no value is present for RecommendedUpgrades, not even an explicit nil
-### GetRecommendedAbilityOrder
-
-`func (o *HeroV2) GetRecommendedAbilityOrder() []string`
-
-GetRecommendedAbilityOrder returns the RecommendedAbilityOrder field if non-nil, zero value otherwise.
-
-### GetRecommendedAbilityOrderOk
-
-`func (o *HeroV2) GetRecommendedAbilityOrderOk() (*[]string, bool)`
-
-GetRecommendedAbilityOrderOk returns a tuple with the RecommendedAbilityOrder field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRecommendedAbilityOrder
-
-`func (o *HeroV2) SetRecommendedAbilityOrder(v []string)`
-
-SetRecommendedAbilityOrder sets RecommendedAbilityOrder field to given value.
-
-### HasRecommendedAbilityOrder
-
-`func (o *HeroV2) HasRecommendedAbilityOrder() bool`
-
-HasRecommendedAbilityOrder returns a boolean if a field has been set.
-
-### SetRecommendedAbilityOrderNil
-
-`func (o *HeroV2) SetRecommendedAbilityOrderNil(b bool)`
-
- SetRecommendedAbilityOrderNil sets the value for RecommendedAbilityOrder to be an explicit nil
-
-### UnsetRecommendedAbilityOrder
-`func (o *HeroV2) UnsetRecommendedAbilityOrder()`
-
-UnsetRecommendedAbilityOrder ensures that no value is present for RecommendedAbilityOrder, not even an explicit nil
+UnsetItemDraftWeights ensures that no value is present for ItemDraftWeights, not even an explicit nil
 ### GetPlayerSelectable
 
 `func (o *HeroV2) GetPlayerSelectable() bool`

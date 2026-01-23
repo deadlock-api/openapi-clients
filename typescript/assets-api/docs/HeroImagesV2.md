@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **icon_image_small_webp** | **string** |  | [optional] [default to undefined]
 **minimap_image** | **string** |  | [optional] [default to undefined]
 **minimap_image_webp** | **string** |  | [optional] [default to undefined]
-**selection_image** | **string** |  | [optional] [default to undefined]
-**selection_image_webp** | **string** |  | [optional] [default to undefined]
-**top_bar_image** | **string** |  | [optional] [default to undefined]
-**top_bar_image_webp** | **string** |  | [optional] [default to undefined]
+**hero_card_critical** | **string** |  | [optional] [default to undefined]
+**hero_card_critical_webp** | **string** |  | [optional] [default to undefined]
+**hero_card_gloat** | **string** |  | [optional] [default to undefined]
+**hero_card_gloat_webp** | **string** |  | [optional] [default to undefined]
 **top_bar_vertical_image** | **string** |  | [optional] [default to undefined]
 **top_bar_vertical_image_webp** | **string** |  | [optional] [default to undefined]
 **weapon_image** | **string** |  | [optional] [default to undefined]
@@ -35,10 +35,10 @@ const instance: HeroImagesV2 = {
     icon_image_small_webp,
     minimap_image,
     minimap_image_webp,
-    selection_image,
-    selection_image_webp,
-    top_bar_image,
-    top_bar_image_webp,
+    hero_card_critical,
+    hero_card_critical_webp,
+    hero_card_gloat,
+    hero_card_gloat_webp,
     top_bar_vertical_image,
     top_bar_vertical_image_webp,
     weapon_image,

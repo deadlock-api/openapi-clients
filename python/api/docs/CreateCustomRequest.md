@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **cheats_enabled** | **bool** |  | [optional] 
 **disable_auto_ready** | **bool** | If auto-ready is disabled, the bot will not automatically ready up. You need to call the &#x60;ready&#x60; endpoint to ready up. | [optional] 
 **duplicate_heroes_enabled** | **bool** |  | [optional] 
-**experimental_heroes_enabled** | **bool** |  | [optional] 
+**game_mode** | [**GameMode**](GameMode.md) |  | [optional] 
 **is_publicly_visible** | **bool** |  | [optional] 
 **min_roster_size** | **int** |  | [optional] 
 **randomize_lanes** | **bool** |  | [optional] 

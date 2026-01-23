@@ -56,12 +56,6 @@ class ModifierDefinitionTest : ShouldSpec() {
             //modelInstance.timeMax shouldBe ("TODO")
         }
 
-        // to test the property `debuffType`
-        should("test debuffType") {
-            // uncomment below to test the property
-            //modelInstance.debuffType shouldBe ("TODO")
-        }
-
         // to test the property `alwaysShowInUi`
         should("test alwaysShowInUi") {
             // uncomment below to test the property

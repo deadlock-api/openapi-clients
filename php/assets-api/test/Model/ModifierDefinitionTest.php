@@ -125,15 +125,6 @@ class ModifierDefinitionTest extends TestCase
     }
 
     /**
-     * Test attribute "debuff_type"
-     */
-    public function testPropertyDebuffType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "always_show_in_ui"
      */
     public function testPropertyAlwaysShowInUi()

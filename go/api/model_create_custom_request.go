@@ -25,7 +25,7 @@ type CreateCustomRequest struct {
 	// If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
 	DisableAutoReady NullableBool `json:"disable_auto_ready,omitempty"`
 	DuplicateHeroesEnabled NullableBool `json:"duplicate_heroes_enabled,omitempty"`
-	ExperimentalHeroesEnabled NullableBool `json:"experimental_heroes_enabled,omitempty"`
+	GameMode NullableGameMode `json:"game_mode,omitempty"`
 	IsPubliclyVisible NullableBool `json:"is_publicly_visible,omitempty"`
 	MinRosterSize NullableInt32 `json:"min_roster_size,omitempty"`
 	RandomizeLanes NullableBool `json:"randomize_lanes,omitempty"`
@@ -217,46 +217,46 @@ func (o *CreateCustomRequest) UnsetDuplicateHeroesEnabled() {
 	o.DuplicateHeroesEnabled.Unset()
 }
 
-// GetExperimentalHeroesEnabled returns the ExperimentalHeroesEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateCustomRequest) GetExperimentalHeroesEnabled() bool {
-	if o == nil || IsNil(o.ExperimentalHeroesEnabled.Get()) {
-		var ret bool
+// GetGameMode returns the GameMode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateCustomRequest) GetGameMode() GameMode {
+	if o == nil || IsNil(o.GameMode.Get()) {
+		var ret GameMode
 		return ret
 	}
-	return *o.ExperimentalHeroesEnabled.Get()
+	return *o.GameMode.Get()
 }
 
-// GetExperimentalHeroesEnabledOk returns a tuple with the ExperimentalHeroesEnabled field value if set, nil otherwise
+// GetGameModeOk returns a tuple with the GameMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateCustomRequest) GetExperimentalHeroesEnabledOk() (*bool, bool) {
+func (o *CreateCustomRequest) GetGameModeOk() (*GameMode, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ExperimentalHeroesEnabled.Get(), o.ExperimentalHeroesEnabled.IsSet()
+	return o.GameMode.Get(), o.GameMode.IsSet()
 }
 
-// HasExperimentalHeroesEnabled returns a boolean if a field has been set.
-func (o *CreateCustomRequest) HasExperimentalHeroesEnabled() bool {
-	if o != nil && o.ExperimentalHeroesEnabled.IsSet() {
+// HasGameMode returns a boolean if a field has been set.
+func (o *CreateCustomRequest) HasGameMode() bool {
+	if o != nil && o.GameMode.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExperimentalHeroesEnabled gets a reference to the given NullableBool and assigns it to the ExperimentalHeroesEnabled field.
-func (o *CreateCustomRequest) SetExperimentalHeroesEnabled(v bool) {
-	o.ExperimentalHeroesEnabled.Set(&v)
+// SetGameMode gets a reference to the given NullableGameMode and assigns it to the GameMode field.
+func (o *CreateCustomRequest) SetGameMode(v GameMode) {
+	o.GameMode.Set(&v)
 }
-// SetExperimentalHeroesEnabledNil sets the value for ExperimentalHeroesEnabled to be an explicit nil
-func (o *CreateCustomRequest) SetExperimentalHeroesEnabledNil() {
-	o.ExperimentalHeroesEnabled.Set(nil)
+// SetGameModeNil sets the value for GameMode to be an explicit nil
+func (o *CreateCustomRequest) SetGameModeNil() {
+	o.GameMode.Set(nil)
 }
 
-// UnsetExperimentalHeroesEnabled ensures that no value is present for ExperimentalHeroesEnabled, not even an explicit nil
-func (o *CreateCustomRequest) UnsetExperimentalHeroesEnabled() {
-	o.ExperimentalHeroesEnabled.Unset()
+// UnsetGameMode ensures that no value is present for GameMode, not even an explicit nil
+func (o *CreateCustomRequest) UnsetGameMode() {
+	o.GameMode.Unset()
 }
 
 // GetIsPubliclyVisible returns the IsPubliclyVisible field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -449,8 +449,8 @@ func (o CreateCustomRequest) ToMap() (map[string]interface{}, error) {
 	if o.DuplicateHeroesEnabled.IsSet() {
 		toSerialize["duplicate_heroes_enabled"] = o.DuplicateHeroesEnabled.Get()
 	}
-	if o.ExperimentalHeroesEnabled.IsSet() {
-		toSerialize["experimental_heroes_enabled"] = o.ExperimentalHeroesEnabled.Get()
+	if o.GameMode.IsSet() {
+		toSerialize["game_mode"] = o.GameMode.Get()
 	}
 	if o.IsPubliclyVisible.IsSet() {
 		toSerialize["is_publicly_visible"] = o.IsPubliclyVisible.Get()

@@ -72,6 +72,7 @@ import java.io.Serializable
  * @param runSpeed 
  * @param acceleration 
  * @param meleeDamage 
+ * @param spawnBreakablesOnDeath 
  * @param meleeAttemptRange 
  * @param meleeHitRange 
  * @param meleeDuration 
@@ -97,11 +98,6 @@ import java.io.Serializable
  * @param healthBarColorTeam1 
  * @param healthBarColorTeam2 
  * @param healthBarColorTeamNeutral 
- * @param glowColorFriend 
- * @param glowColorEnemy 
- * @param glowColorTeam1 
- * @param glowColorTeam2 
- * @param glowColorTeamNeutral 
  */
 
 
@@ -227,6 +223,9 @@ data class NPCUnitV2 (
     @Json(name = "melee_damage")
     val meleeDamage: java.math.BigDecimal? = null,
 
+    @Json(name = "spawn_breakables_on_death")
+    val spawnBreakablesOnDeath: kotlin.Boolean? = null,
+
     @Json(name = "melee_attempt_range")
     val meleeAttemptRange: java.math.BigDecimal? = null,
 
@@ -300,22 +299,7 @@ data class NPCUnitV2 (
     val healthBarColorTeam2: ColorV1? = null,
 
     @Json(name = "health_bar_color_team_neutral")
-    val healthBarColorTeamNeutral: ColorV1? = null,
-
-    @Json(name = "glow_color_friend")
-    val glowColorFriend: ColorV1? = null,
-
-    @Json(name = "glow_color_enemy")
-    val glowColorEnemy: ColorV1? = null,
-
-    @Json(name = "glow_color_team1")
-    val glowColorTeam1: ColorV1? = null,
-
-    @Json(name = "glow_color_team2")
-    val glowColorTeam2: ColorV1? = null,
-
-    @Json(name = "glow_color_team_neutral")
-    val glowColorTeamNeutral: ColorV1? = null
+    val healthBarColorTeamNeutral: ColorV1? = null
 
 ) : Serializable {
     companion object {

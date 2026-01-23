@@ -49,6 +49,7 @@ docs/ESportsMatch.md
 docs/ESportsMatchStatus.md
 docs/EnemyStats.md
 docs/Entry.md
+docs/GameMode.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
 docs/HeroCombStats.md
@@ -114,6 +115,7 @@ model_e_sports_match.go
 model_e_sports_match_status.go
 model_enemy_stats.go
 model_entry.go
+model_game_mode.go
 model_get_custom_match_id_response.go
 model_hash_map_value.go
 model_hero_comb_stats.go

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **cheats_enabled** | Option<**bool**> |  | [optional]
 **disable_auto_ready** | Option<**bool**> | If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up. | [optional]
 **duplicate_heroes_enabled** | Option<**bool**> |  | [optional]
-**experimental_heroes_enabled** | Option<**bool**> |  | [optional]
+**game_mode** | Option<[**models::GameMode**](GameMode.md)> |  | [optional]
 **is_publicly_visible** | Option<**bool**> |  | [optional]
 **min_roster_size** | Option<**u32**> |  | [optional]
 **randomize_lanes** | Option<**bool**> |  | [optional]

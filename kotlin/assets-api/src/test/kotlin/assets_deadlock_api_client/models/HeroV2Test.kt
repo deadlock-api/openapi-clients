@@ -189,16 +189,10 @@ class HeroV2Test : ShouldSpec() {
             //modelInstance.standardLevelUpUpgrades shouldBe ("TODO")
         }
 
-        // to test the property `recommendedUpgrades`
-        should("test recommendedUpgrades") {
+        // to test the property `itemDraftWeights`
+        should("test itemDraftWeights") {
             // uncomment below to test the property
-            //modelInstance.recommendedUpgrades shouldBe ("TODO")
-        }
-
-        // to test the property `recommendedAbilityOrder`
-        should("test recommendedAbilityOrder") {
-            // uncomment below to test the property
-            //modelInstance.recommendedAbilityOrder shouldBe ("TODO")
+            //modelInstance.itemDraftWeights shouldBe ("TODO")
         }
 
         // to test the property `tags`

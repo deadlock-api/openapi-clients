@@ -57,10 +57,6 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'glow_enemy' => 'mixed[]',
-        'glow_friendly' => 'mixed[]',
-        'glow_team1' => 'mixed[]',
-        'glow_team2' => 'mixed[]',
         'ui' => 'mixed[]'
     ];
 
@@ -72,10 +68,6 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'glow_enemy' => null,
-        'glow_friendly' => null,
-        'glow_team1' => null,
-        'glow_team2' => null,
         'ui' => null
     ];
 
@@ -85,10 +77,6 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'glow_enemy' => false,
-        'glow_friendly' => false,
-        'glow_team1' => false,
-        'glow_team2' => false,
         'ui' => false
     ];
 
@@ -178,10 +166,6 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'glow_enemy' => 'glow_enemy',
-        'glow_friendly' => 'glow_friendly',
-        'glow_team1' => 'glow_team1',
-        'glow_team2' => 'glow_team2',
         'ui' => 'ui'
     ];
 
@@ -191,10 +175,6 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'glow_enemy' => 'setGlowEnemy',
-        'glow_friendly' => 'setGlowFriendly',
-        'glow_team1' => 'setGlowTeam1',
-        'glow_team2' => 'setGlowTeam2',
         'ui' => 'setUi'
     ];
 
@@ -204,10 +184,6 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'glow_enemy' => 'getGlowEnemy',
-        'glow_friendly' => 'getGlowFriendly',
-        'glow_team1' => 'getGlowTeam1',
-        'glow_team2' => 'getGlowTeam2',
         'ui' => 'getUi'
     ];
 
@@ -268,10 +244,6 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('glow_enemy', $data ?? [], null);
-        $this->setIfExists('glow_friendly', $data ?? [], null);
-        $this->setIfExists('glow_team1', $data ?? [], null);
-        $this->setIfExists('glow_team2', $data ?? [], null);
         $this->setIfExists('ui', $data ?? [], null);
     }
 
@@ -302,50 +274,6 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['glow_enemy'] === null) {
-            $invalidProperties[] = "'glow_enemy' can't be null";
-        }
-        if ((count($this->container['glow_enemy']) > 3)) {
-            $invalidProperties[] = "invalid value for 'glow_enemy', number of items must be less than or equal to 3.";
-        }
-
-        if ((count($this->container['glow_enemy']) < 3)) {
-            $invalidProperties[] = "invalid value for 'glow_enemy', number of items must be greater than or equal to 3.";
-        }
-
-        if ($this->container['glow_friendly'] === null) {
-            $invalidProperties[] = "'glow_friendly' can't be null";
-        }
-        if ((count($this->container['glow_friendly']) > 3)) {
-            $invalidProperties[] = "invalid value for 'glow_friendly', number of items must be less than or equal to 3.";
-        }
-
-        if ((count($this->container['glow_friendly']) < 3)) {
-            $invalidProperties[] = "invalid value for 'glow_friendly', number of items must be greater than or equal to 3.";
-        }
-
-        if ($this->container['glow_team1'] === null) {
-            $invalidProperties[] = "'glow_team1' can't be null";
-        }
-        if ((count($this->container['glow_team1']) > 3)) {
-            $invalidProperties[] = "invalid value for 'glow_team1', number of items must be less than or equal to 3.";
-        }
-
-        if ((count($this->container['glow_team1']) < 3)) {
-            $invalidProperties[] = "invalid value for 'glow_team1', number of items must be greater than or equal to 3.";
-        }
-
-        if ($this->container['glow_team2'] === null) {
-            $invalidProperties[] = "'glow_team2' can't be null";
-        }
-        if ((count($this->container['glow_team2']) > 3)) {
-            $invalidProperties[] = "invalid value for 'glow_team2', number of items must be less than or equal to 3.";
-        }
-
-        if ((count($this->container['glow_team2']) < 3)) {
-            $invalidProperties[] = "invalid value for 'glow_team2', number of items must be greater than or equal to 3.";
-        }
-
         if ($this->container['ui'] === null) {
             $invalidProperties[] = "'ui' can't be null";
         }
@@ -371,142 +299,6 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets glow_enemy
-     *
-     * @return mixed[]
-     */
-    public function getGlowEnemy()
-    {
-        return $this->container['glow_enemy'];
-    }
-
-    /**
-     * Sets glow_enemy
-     *
-     * @param mixed[] $glow_enemy glow_enemy
-     *
-     * @return self
-     */
-    public function setGlowEnemy($glow_enemy)
-    {
-        if (is_null($glow_enemy)) {
-            throw new \InvalidArgumentException('non-nullable glow_enemy cannot be null');
-        }
-
-        if ((count($glow_enemy) > 3)) {
-            throw new \InvalidArgumentException('invalid value for $glow_enemy when calling HeroColorsV2., number of items must be less than or equal to 3.');
-        }
-        if ((count($glow_enemy) < 3)) {
-            throw new \InvalidArgumentException('invalid length for $glow_enemy when calling HeroColorsV2., number of items must be greater than or equal to 3.');
-        }
-        $this->container['glow_enemy'] = $glow_enemy;
-
-        return $this;
-    }
-
-    /**
-     * Gets glow_friendly
-     *
-     * @return mixed[]
-     */
-    public function getGlowFriendly()
-    {
-        return $this->container['glow_friendly'];
-    }
-
-    /**
-     * Sets glow_friendly
-     *
-     * @param mixed[] $glow_friendly glow_friendly
-     *
-     * @return self
-     */
-    public function setGlowFriendly($glow_friendly)
-    {
-        if (is_null($glow_friendly)) {
-            throw new \InvalidArgumentException('non-nullable glow_friendly cannot be null');
-        }
-
-        if ((count($glow_friendly) > 3)) {
-            throw new \InvalidArgumentException('invalid value for $glow_friendly when calling HeroColorsV2., number of items must be less than or equal to 3.');
-        }
-        if ((count($glow_friendly) < 3)) {
-            throw new \InvalidArgumentException('invalid length for $glow_friendly when calling HeroColorsV2., number of items must be greater than or equal to 3.');
-        }
-        $this->container['glow_friendly'] = $glow_friendly;
-
-        return $this;
-    }
-
-    /**
-     * Gets glow_team1
-     *
-     * @return mixed[]
-     */
-    public function getGlowTeam1()
-    {
-        return $this->container['glow_team1'];
-    }
-
-    /**
-     * Sets glow_team1
-     *
-     * @param mixed[] $glow_team1 glow_team1
-     *
-     * @return self
-     */
-    public function setGlowTeam1($glow_team1)
-    {
-        if (is_null($glow_team1)) {
-            throw new \InvalidArgumentException('non-nullable glow_team1 cannot be null');
-        }
-
-        if ((count($glow_team1) > 3)) {
-            throw new \InvalidArgumentException('invalid value for $glow_team1 when calling HeroColorsV2., number of items must be less than or equal to 3.');
-        }
-        if ((count($glow_team1) < 3)) {
-            throw new \InvalidArgumentException('invalid length for $glow_team1 when calling HeroColorsV2., number of items must be greater than or equal to 3.');
-        }
-        $this->container['glow_team1'] = $glow_team1;
-
-        return $this;
-    }
-
-    /**
-     * Gets glow_team2
-     *
-     * @return mixed[]
-     */
-    public function getGlowTeam2()
-    {
-        return $this->container['glow_team2'];
-    }
-
-    /**
-     * Sets glow_team2
-     *
-     * @param mixed[] $glow_team2 glow_team2
-     *
-     * @return self
-     */
-    public function setGlowTeam2($glow_team2)
-    {
-        if (is_null($glow_team2)) {
-            throw new \InvalidArgumentException('non-nullable glow_team2 cannot be null');
-        }
-
-        if ((count($glow_team2) > 3)) {
-            throw new \InvalidArgumentException('invalid value for $glow_team2 when calling HeroColorsV2., number of items must be less than or equal to 3.');
-        }
-        if ((count($glow_team2) < 3)) {
-            throw new \InvalidArgumentException('invalid length for $glow_team2 when calling HeroColorsV2., number of items must be greater than or equal to 3.');
-        }
-        $this->container['glow_team2'] = $glow_team2;
-
-        return $this;
-    }
 
     /**
      * Gets ui

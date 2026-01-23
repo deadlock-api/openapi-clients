@@ -116,9 +116,9 @@ class CreateCustomRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "experimental_heroes_enabled"
+     * Test attribute "game_mode"
      */
-    public function testPropertyExperimentalHeroesEnabled()
+    public function testPropertyGameMode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

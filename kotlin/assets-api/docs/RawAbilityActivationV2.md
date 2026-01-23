@@ -16,5 +16,7 @@
 
     * `press_toggle` (value: `"press_toggle"`)
 
+    * `instant_cast_toggle` (value: `"instant_cast_toggle"`)
+
 
 

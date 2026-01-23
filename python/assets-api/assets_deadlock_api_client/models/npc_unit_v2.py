@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.color_v1 import ColorV1
 from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier
@@ -74,6 +74,7 @@ class NPCUnitV2(BaseModel):
     run_speed: Optional[Union[StrictFloat, StrictInt]] = None
     acceleration: Optional[Union[StrictFloat, StrictInt]] = None
     melee_damage: Optional[Union[StrictFloat, StrictInt]] = None
+    spawn_breakables_on_death: Optional[StrictBool] = None
     melee_attempt_range: Optional[Union[StrictFloat, StrictInt]] = None
     melee_hit_range: Optional[Union[StrictFloat, StrictInt]] = None
     melee_duration: Optional[Union[StrictFloat, StrictInt]] = None
@@ -99,13 +100,8 @@ class NPCUnitV2(BaseModel):
     health_bar_color_team1: Optional[ColorV1] = None
     health_bar_color_team2: Optional[ColorV1] = None
     health_bar_color_team_neutral: Optional[ColorV1] = None
-    glow_color_friend: Optional[ColorV1] = None
-    glow_color_enemy: Optional[ColorV1] = None
-    glow_color_team1: Optional[ColorV1] = None
-    glow_color_team2: Optional[ColorV1] = None
-    glow_color_team_neutral: Optional[ColorV1] = None
     id: StrictInt
-    __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "phase2_health", "bound_abilities", "max_health_final", "max_health_generator", "enemy_trooper_protection_range", "empowered_modifier_level1", "empowered_modifier_level2", "backdoor_bullet_resist_modifier", "objective_regen", "objective_health_growth_phase1", "objective_health_growth_phase2", "enemy_trooper_damage_reduction", "ranged_armor_modifier", "intrinsic_modifiers", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "player_damage_resist_pct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "laser_dps_to_players", "laser_dps_max_health", "no_shield_laser_dps_to_players", "stomp_damage", "stomp_damage_max_health_percent", "stun_duration", "stomp_impact_radius", "walk_speed", "run_speed", "acceleration", "melee_damage", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "glow_color_friend", "glow_color_enemy", "glow_color_team1", "glow_color_team2", "glow_color_team_neutral", "id"]
+    __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "phase2_health", "bound_abilities", "max_health_final", "max_health_generator", "enemy_trooper_protection_range", "empowered_modifier_level1", "empowered_modifier_level2", "backdoor_bullet_resist_modifier", "objective_regen", "objective_health_growth_phase1", "objective_health_growth_phase2", "enemy_trooper_damage_reduction", "ranged_armor_modifier", "intrinsic_modifiers", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "player_damage_resist_pct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "laser_dps_to_players", "laser_dps_max_health", "no_shield_laser_dps_to_players", "stomp_damage", "stomp_damage_max_health_percent", "stun_duration", "stomp_impact_radius", "walk_speed", "run_speed", "acceleration", "melee_damage", "spawn_breakables_on_death", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -197,21 +193,6 @@ class NPCUnitV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of health_bar_color_team_neutral
         if self.health_bar_color_team_neutral:
             _dict['health_bar_color_team_neutral'] = self.health_bar_color_team_neutral.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of glow_color_friend
-        if self.glow_color_friend:
-            _dict['glow_color_friend'] = self.glow_color_friend.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of glow_color_enemy
-        if self.glow_color_enemy:
-            _dict['glow_color_enemy'] = self.glow_color_enemy.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of glow_color_team1
-        if self.glow_color_team1:
-            _dict['glow_color_team1'] = self.glow_color_team1.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of glow_color_team2
-        if self.glow_color_team2:
-            _dict['glow_color_team2'] = self.glow_color_team2.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of glow_color_team_neutral
-        if self.glow_color_team_neutral:
-            _dict['glow_color_team_neutral'] = self.glow_color_team_neutral.to_dict()
         # set to None if weapon_info (nullable) is None
         # and model_fields_set contains the field
         if self.weapon_info is None and "weapon_info" in self.model_fields_set:
@@ -402,6 +383,11 @@ class NPCUnitV2(BaseModel):
         if self.melee_damage is None and "melee_damage" in self.model_fields_set:
             _dict['melee_damage'] = None
 
+        # set to None if spawn_breakables_on_death (nullable) is None
+        # and model_fields_set contains the field
+        if self.spawn_breakables_on_death is None and "spawn_breakables_on_death" in self.model_fields_set:
+            _dict['spawn_breakables_on_death'] = None
+
         # set to None if melee_attempt_range (nullable) is None
         # and model_fields_set contains the field
         if self.melee_attempt_range is None and "melee_attempt_range" in self.model_fields_set:
@@ -527,31 +513,6 @@ class NPCUnitV2(BaseModel):
         if self.health_bar_color_team_neutral is None and "health_bar_color_team_neutral" in self.model_fields_set:
             _dict['health_bar_color_team_neutral'] = None
 
-        # set to None if glow_color_friend (nullable) is None
-        # and model_fields_set contains the field
-        if self.glow_color_friend is None and "glow_color_friend" in self.model_fields_set:
-            _dict['glow_color_friend'] = None
-
-        # set to None if glow_color_enemy (nullable) is None
-        # and model_fields_set contains the field
-        if self.glow_color_enemy is None and "glow_color_enemy" in self.model_fields_set:
-            _dict['glow_color_enemy'] = None
-
-        # set to None if glow_color_team1 (nullable) is None
-        # and model_fields_set contains the field
-        if self.glow_color_team1 is None and "glow_color_team1" in self.model_fields_set:
-            _dict['glow_color_team1'] = None
-
-        # set to None if glow_color_team2 (nullable) is None
-        # and model_fields_set contains the field
-        if self.glow_color_team2 is None and "glow_color_team2" in self.model_fields_set:
-            _dict['glow_color_team2'] = None
-
-        # set to None if glow_color_team_neutral (nullable) is None
-        # and model_fields_set contains the field
-        if self.glow_color_team_neutral is None and "glow_color_team_neutral" in self.model_fields_set:
-            _dict['glow_color_team_neutral'] = None
-
         return _dict
 
     @classmethod
@@ -603,6 +564,7 @@ class NPCUnitV2(BaseModel):
             "run_speed": obj.get("run_speed"),
             "acceleration": obj.get("acceleration"),
             "melee_damage": obj.get("melee_damage"),
+            "spawn_breakables_on_death": obj.get("spawn_breakables_on_death"),
             "melee_attempt_range": obj.get("melee_attempt_range"),
             "melee_hit_range": obj.get("melee_hit_range"),
             "melee_duration": obj.get("melee_duration"),
@@ -628,11 +590,6 @@ class NPCUnitV2(BaseModel):
             "health_bar_color_team1": ColorV1.from_dict(obj["health_bar_color_team1"]) if obj.get("health_bar_color_team1") is not None else None,
             "health_bar_color_team2": ColorV1.from_dict(obj["health_bar_color_team2"]) if obj.get("health_bar_color_team2") is not None else None,
             "health_bar_color_team_neutral": ColorV1.from_dict(obj["health_bar_color_team_neutral"]) if obj.get("health_bar_color_team_neutral") is not None else None,
-            "glow_color_friend": ColorV1.from_dict(obj["glow_color_friend"]) if obj.get("glow_color_friend") is not None else None,
-            "glow_color_enemy": ColorV1.from_dict(obj["glow_color_enemy"]) if obj.get("glow_color_enemy") is not None else None,
-            "glow_color_team1": ColorV1.from_dict(obj["glow_color_team1"]) if obj.get("glow_color_team1") is not None else None,
-            "glow_color_team2": ColorV1.from_dict(obj["glow_color_team2"]) if obj.get("glow_color_team2") is not None else None,
-            "glow_color_team_neutral": ColorV1.from_dict(obj["glow_color_team_neutral"]) if obj.get("glow_color_team_neutral") is not None else None,
             "id": obj.get("id")
         })
         return _obj

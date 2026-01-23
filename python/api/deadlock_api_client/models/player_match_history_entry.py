@@ -29,6 +29,9 @@ class PlayerMatchHistoryEntry(BaseModel):
     """ # noqa: E501
     abandoned_time_s: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     account_id: Annotated[int, Field(strict=True, ge=0)]
+    brawl_avg_round_time_s: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    brawl_score_team0: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    brawl_score_team1: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     denies: Annotated[int, Field(strict=True, ge=0)]
     game_mode: StrictInt
     hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://assets.deadlock-api.com/v2/heroes>")
@@ -48,7 +51,7 @@ class PlayerMatchHistoryEntry(BaseModel):
     start_time: Annotated[int, Field(strict=True, ge=0)]
     team_abandoned: Optional[StrictBool] = None
     username: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_team", "start_time", "team_abandoned", "username"]
+    __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "brawl_avg_round_time_s", "brawl_score_team0", "brawl_score_team1", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_team", "start_time", "team_abandoned", "username"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,6 +97,21 @@ class PlayerMatchHistoryEntry(BaseModel):
         if self.abandoned_time_s is None and "abandoned_time_s" in self.model_fields_set:
             _dict['abandoned_time_s'] = None
 
+        # set to None if brawl_avg_round_time_s (nullable) is None
+        # and model_fields_set contains the field
+        if self.brawl_avg_round_time_s is None and "brawl_avg_round_time_s" in self.model_fields_set:
+            _dict['brawl_avg_round_time_s'] = None
+
+        # set to None if brawl_score_team0 (nullable) is None
+        # and model_fields_set contains the field
+        if self.brawl_score_team0 is None and "brawl_score_team0" in self.model_fields_set:
+            _dict['brawl_score_team0'] = None
+
+        # set to None if brawl_score_team1 (nullable) is None
+        # and model_fields_set contains the field
+        if self.brawl_score_team1 is None and "brawl_score_team1" in self.model_fields_set:
+            _dict['brawl_score_team1'] = None
+
         # set to None if team_abandoned (nullable) is None
         # and model_fields_set contains the field
         if self.team_abandoned is None and "team_abandoned" in self.model_fields_set:
@@ -118,6 +136,9 @@ class PlayerMatchHistoryEntry(BaseModel):
         _obj = cls.model_validate({
             "abandoned_time_s": obj.get("abandoned_time_s"),
             "account_id": obj.get("account_id"),
+            "brawl_avg_round_time_s": obj.get("brawl_avg_round_time_s"),
+            "brawl_score_team0": obj.get("brawl_score_team0"),
+            "brawl_score_team1": obj.get("brawl_score_team1"),
             "denies": obj.get("denies"),
             "game_mode": obj.get("game_mode"),
             "hero_id": obj.get("hero_id"),

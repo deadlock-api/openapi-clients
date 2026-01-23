@@ -139,6 +139,7 @@ Class | Method | HTTP request | Description
  - [ESportsMatchStatus](docs/ESportsMatchStatus.md)
  - [EnemyStats](docs/EnemyStats.md)
  - [Entry](docs/Entry.md)
+ - [GameMode](docs/GameMode.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [HashMapValue](docs/HashMapValue.md)
  - [HeroCombStats](docs/HeroCombStats.md)

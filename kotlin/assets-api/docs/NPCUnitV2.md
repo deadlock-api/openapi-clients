@@ -44,6 +44,7 @@
 | **runSpeed** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **acceleration** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **meleeDamage** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **spawnBreakablesOnDeath** | **kotlin.Boolean** |  |  [optional] |
 | **meleeAttemptRange** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **meleeHitRange** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **meleeDuration** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
@@ -69,11 +70,6 @@
 | **healthBarColorTeam1** | [**ColorV1**](ColorV1.md) |  |  [optional] |
 | **healthBarColorTeam2** | [**ColorV1**](ColorV1.md) |  |  [optional] |
 | **healthBarColorTeamNeutral** | [**ColorV1**](ColorV1.md) |  |  [optional] |
-| **glowColorFriend** | [**ColorV1**](ColorV1.md) |  |  [optional] |
-| **glowColorEnemy** | [**ColorV1**](ColorV1.md) |  |  [optional] |
-| **glowColorTeam1** | [**ColorV1**](ColorV1.md) |  |  [optional] |
-| **glowColorTeam2** | [**ColorV1**](ColorV1.md) |  |  [optional] |
-| **glowColorTeamNeutral** | [**ColorV1**](ColorV1.md) |  |  [optional] |
 
 
 

@@ -98,6 +98,33 @@ class PlayerMatchHistoryEntryTest extends TestCase
     }
 
     /**
+     * Test attribute "brawl_avg_round_time_s"
+     */
+    public function testPropertyBrawlAvgRoundTimeS()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "brawl_score_team0"
+     */
+    public function testPropertyBrawlScoreTeam0()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "brawl_score_team1"
+     */
+    public function testPropertyBrawlScoreTeam1()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "denies"
      */
     public function testPropertyDenies()

@@ -59,6 +59,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'abandoned_time_s' => 'int',
         'account_id' => 'int',
+        'brawl_avg_round_time_s' => 'int',
+        'brawl_score_team0' => 'int',
+        'brawl_score_team1' => 'int',
         'denies' => 'int',
         'game_mode' => 'int',
         'hero_id' => 'int',
@@ -90,6 +93,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPIFormats = [
         'abandoned_time_s' => 'int32',
         'account_id' => 'int32',
+        'brawl_avg_round_time_s' => 'int32',
+        'brawl_score_team0' => 'int32',
+        'brawl_score_team1' => 'int32',
         'denies' => 'int32',
         'game_mode' => 'int32',
         'hero_id' => 'int32',
@@ -119,6 +125,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     protected static array $openAPINullables = [
         'abandoned_time_s' => true,
         'account_id' => false,
+        'brawl_avg_round_time_s' => true,
+        'brawl_score_team0' => true,
+        'brawl_score_team1' => true,
         'denies' => false,
         'game_mode' => false,
         'hero_id' => false,
@@ -228,6 +237,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $attributeMap = [
         'abandoned_time_s' => 'abandoned_time_s',
         'account_id' => 'account_id',
+        'brawl_avg_round_time_s' => 'brawl_avg_round_time_s',
+        'brawl_score_team0' => 'brawl_score_team0',
+        'brawl_score_team1' => 'brawl_score_team1',
         'denies' => 'denies',
         'game_mode' => 'game_mode',
         'hero_id' => 'hero_id',
@@ -257,6 +269,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $setters = [
         'abandoned_time_s' => 'setAbandonedTimeS',
         'account_id' => 'setAccountId',
+        'brawl_avg_round_time_s' => 'setBrawlAvgRoundTimeS',
+        'brawl_score_team0' => 'setBrawlScoreTeam0',
+        'brawl_score_team1' => 'setBrawlScoreTeam1',
         'denies' => 'setDenies',
         'game_mode' => 'setGameMode',
         'hero_id' => 'setHeroId',
@@ -286,6 +301,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $getters = [
         'abandoned_time_s' => 'getAbandonedTimeS',
         'account_id' => 'getAccountId',
+        'brawl_avg_round_time_s' => 'getBrawlAvgRoundTimeS',
+        'brawl_score_team0' => 'getBrawlScoreTeam0',
+        'brawl_score_team1' => 'getBrawlScoreTeam1',
         'denies' => 'getDenies',
         'game_mode' => 'getGameMode',
         'hero_id' => 'getHeroId',
@@ -366,6 +384,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $this->setIfExists('abandoned_time_s', $data ?? [], null);
         $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('brawl_avg_round_time_s', $data ?? [], null);
+        $this->setIfExists('brawl_score_team0', $data ?? [], null);
+        $this->setIfExists('brawl_score_team1', $data ?? [], null);
         $this->setIfExists('denies', $data ?? [], null);
         $this->setIfExists('game_mode', $data ?? [], null);
         $this->setIfExists('hero_id', $data ?? [], null);
@@ -423,6 +444,18 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         }
         if (($this->container['account_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'account_id', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['brawl_avg_round_time_s']) && ($this->container['brawl_avg_round_time_s'] < 0)) {
+            $invalidProperties[] = "invalid value for 'brawl_avg_round_time_s', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['brawl_score_team0']) && ($this->container['brawl_score_team0'] < 0)) {
+            $invalidProperties[] = "invalid value for 'brawl_score_team0', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['brawl_score_team1']) && ($this->container['brawl_score_team1'] < 0)) {
+            $invalidProperties[] = "invalid value for 'brawl_score_team1', must be bigger than or equal to 0.";
         }
 
         if ($this->container['denies'] === null) {
@@ -614,6 +647,123 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         }
 
         $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets brawl_avg_round_time_s
+     *
+     * @return int|null
+     */
+    public function getBrawlAvgRoundTimeS()
+    {
+        return $this->container['brawl_avg_round_time_s'];
+    }
+
+    /**
+     * Sets brawl_avg_round_time_s
+     *
+     * @param int|null $brawl_avg_round_time_s brawl_avg_round_time_s
+     *
+     * @return self
+     */
+    public function setBrawlAvgRoundTimeS($brawl_avg_round_time_s)
+    {
+        if (is_null($brawl_avg_round_time_s)) {
+            array_push($this->openAPINullablesSetToNull, 'brawl_avg_round_time_s');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('brawl_avg_round_time_s', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($brawl_avg_round_time_s) && ($brawl_avg_round_time_s < 0)) {
+            throw new \InvalidArgumentException('invalid value for $brawl_avg_round_time_s when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
+        }
+
+        $this->container['brawl_avg_round_time_s'] = $brawl_avg_round_time_s;
+
+        return $this;
+    }
+
+    /**
+     * Gets brawl_score_team0
+     *
+     * @return int|null
+     */
+    public function getBrawlScoreTeam0()
+    {
+        return $this->container['brawl_score_team0'];
+    }
+
+    /**
+     * Sets brawl_score_team0
+     *
+     * @param int|null $brawl_score_team0 brawl_score_team0
+     *
+     * @return self
+     */
+    public function setBrawlScoreTeam0($brawl_score_team0)
+    {
+        if (is_null($brawl_score_team0)) {
+            array_push($this->openAPINullablesSetToNull, 'brawl_score_team0');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('brawl_score_team0', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($brawl_score_team0) && ($brawl_score_team0 < 0)) {
+            throw new \InvalidArgumentException('invalid value for $brawl_score_team0 when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
+        }
+
+        $this->container['brawl_score_team0'] = $brawl_score_team0;
+
+        return $this;
+    }
+
+    /**
+     * Gets brawl_score_team1
+     *
+     * @return int|null
+     */
+    public function getBrawlScoreTeam1()
+    {
+        return $this->container['brawl_score_team1'];
+    }
+
+    /**
+     * Sets brawl_score_team1
+     *
+     * @param int|null $brawl_score_team1 brawl_score_team1
+     *
+     * @return self
+     */
+    public function setBrawlScoreTeam1($brawl_score_team1)
+    {
+        if (is_null($brawl_score_team1)) {
+            array_push($this->openAPINullablesSetToNull, 'brawl_score_team1');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('brawl_score_team1', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($brawl_score_team1) && ($brawl_score_team1 < 0)) {
+            throw new \InvalidArgumentException('invalid value for $brawl_score_team1 when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
+        }
+
+        $this->container['brawl_score_team1'] = $brawl_score_team1;
 
         return $this;
     }

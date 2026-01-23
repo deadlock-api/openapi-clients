@@ -23,6 +23,9 @@
 | **playerTeam** | **kotlin.Int** |  |  |
 | **startTime** | **kotlin.Int** |  |  |
 | **abandonedTimeS** | **kotlin.Int** |  |  [optional] |
+| **brawlAvgRoundTimeS** | **kotlin.Int** |  |  [optional] |
+| **brawlScoreTeam0** | **kotlin.Int** |  |  [optional] |
+| **brawlScoreTeam1** | **kotlin.Int** |  |  [optional] |
 | **teamAbandoned** | **kotlin.Boolean** |  |  [optional] |
 | **username** | **kotlin.String** |  |  [optional] |
 

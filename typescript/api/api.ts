@@ -254,7 +254,7 @@ export interface CreateCustomRequest {
      */
     'disable_auto_ready'?: boolean | null;
     'duplicate_heroes_enabled'?: boolean | null;
-    'experimental_heroes_enabled'?: boolean | null;
+    'game_mode'?: GameMode | null;
     'is_publicly_visible'?: boolean | null;
     'min_roster_size'?: number | null;
     'randomize_lanes'?: boolean | null;
@@ -346,6 +346,15 @@ export interface Entry {
     'rank': number;
     'value': number;
 }
+
+export const GameMode = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl'
+} as const;
+
+export type GameMode = typeof GameMode[keyof typeof GameMode];
+
+
 export interface GetCustomMatchIdResponse {
     'match_id': number;
 }
@@ -720,6 +729,9 @@ export interface PatchGuid {
 export interface PlayerMatchHistoryEntry {
     'abandoned_time_s'?: number | null;
     'account_id': number;
+    'brawl_avg_round_time_s'?: number | null;
+    'brawl_score_team0'?: number | null;
+    'brawl_score_team1'?: number | null;
     'denies': number;
     'game_mode': number;
     /**

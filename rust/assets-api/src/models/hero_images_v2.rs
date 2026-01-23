@@ -25,14 +25,14 @@ pub struct HeroImagesV2 {
     pub minimap_image: Option<Option<String>>,
     #[serde(rename = "minimap_image_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub minimap_image_webp: Option<Option<String>>,
-    #[serde(rename = "selection_image", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub selection_image: Option<Option<String>>,
-    #[serde(rename = "selection_image_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub selection_image_webp: Option<Option<String>>,
-    #[serde(rename = "top_bar_image", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub top_bar_image: Option<Option<String>>,
-    #[serde(rename = "top_bar_image_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub top_bar_image_webp: Option<Option<String>>,
+    #[serde(rename = "hero_card_critical", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub hero_card_critical: Option<Option<String>>,
+    #[serde(rename = "hero_card_critical_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub hero_card_critical_webp: Option<Option<String>>,
+    #[serde(rename = "hero_card_gloat", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub hero_card_gloat: Option<Option<String>>,
+    #[serde(rename = "hero_card_gloat_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub hero_card_gloat_webp: Option<Option<String>>,
     #[serde(rename = "top_bar_vertical_image", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub top_bar_vertical_image: Option<Option<String>>,
     #[serde(rename = "top_bar_vertical_image_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -58,10 +58,10 @@ impl HeroImagesV2 {
             icon_image_small_webp: None,
             minimap_image: None,
             minimap_image_webp: None,
-            selection_image: None,
-            selection_image_webp: None,
-            top_bar_image: None,
-            top_bar_image_webp: None,
+            hero_card_critical: None,
+            hero_card_critical_webp: None,
+            hero_card_gloat: None,
+            hero_card_gloat_webp: None,
             top_bar_vertical_image: None,
             top_bar_vertical_image_webp: None,
             weapon_image: None,

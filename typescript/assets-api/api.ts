@@ -156,6 +156,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6128: 6128,
     NUMBER_6111: 6111,
     NUMBER_6080: 6080,
     NUMBER_6075: 6075,
@@ -272,10 +273,6 @@ export interface HTTPValidationError {
     'detail'?: Array<ValidationError>;
 }
 export interface HeroColorsV2 {
-    'glow_enemy': Array<any>;
-    'glow_friendly': Array<any>;
-    'glow_team1': Array<any>;
-    'glow_team2': Array<any>;
     'ui': Array<any>;
 }
 export interface HeroDescriptionV2 {
@@ -290,10 +287,10 @@ export interface HeroImagesV2 {
     'icon_image_small_webp'?: string | null;
     'minimap_image'?: string | null;
     'minimap_image_webp'?: string | null;
-    'selection_image'?: string | null;
-    'selection_image_webp'?: string | null;
-    'top_bar_image'?: string | null;
-    'top_bar_image_webp'?: string | null;
+    'hero_card_critical'?: string | null;
+    'hero_card_critical_webp'?: string | null;
+    'hero_card_gloat'?: string | null;
+    'hero_card_gloat_webp'?: string | null;
     'top_bar_vertical_image'?: string | null;
     'top_bar_vertical_image_webp'?: string | null;
     'weapon_image'?: string | null;
@@ -395,8 +392,7 @@ export interface HeroV2 {
     'class_name': string;
     'name': string;
     'description': HeroDescriptionV2;
-    'recommended_upgrades'?: Array<string> | null;
-    'recommended_ability_order'?: Array<string> | null;
+    'item_draft_weights'?: { [key: string]: number; } | null;
     'player_selectable': boolean;
     'disabled': boolean;
     'in_development': boolean;
@@ -468,7 +464,8 @@ export const ItemTierV2 = {
     NUMBER_1: 1,
     NUMBER_2: 2,
     NUMBER_3: 3,
-    NUMBER_4: 4
+    NUMBER_4: 4,
+    NUMBER_5: 5
 } as const;
 
 export type ItemTierV2 = typeof ItemTierV2[keyof typeof ItemTierV2];
@@ -619,7 +616,6 @@ export interface ModifierDefinition {
     'duration'?: number | null;
     'time_min'?: number | null;
     'time_max'?: number | null;
-    'debuff_type'?: string | null;
     'always_show_in_ui'?: Array<string> | null;
     'modifier_values'?: Array<ModifierValue> | null;
     'script_values'?: Array<ModifierValue> | null;
@@ -673,6 +669,7 @@ export interface NPCUnitV2 {
     'run_speed'?: number | null;
     'acceleration'?: number | null;
     'melee_damage'?: number | null;
+    'spawn_breakables_on_death'?: boolean | null;
     'melee_attempt_range'?: number | null;
     'melee_hit_range'?: number | null;
     'melee_duration'?: number | null;
@@ -698,11 +695,6 @@ export interface NPCUnitV2 {
     'health_bar_color_team1'?: ColorV1 | null;
     'health_bar_color_team2'?: ColorV1 | null;
     'health_bar_color_team_neutral'?: ColorV1 | null;
-    'glow_color_friend'?: ColorV1 | null;
-    'glow_color_enemy'?: ColorV1 | null;
-    'glow_color_team1'?: ColorV1 | null;
-    'glow_color_team2'?: ColorV1 | null;
-    'glow_color_team_neutral'?: ColorV1 | null;
     'id': number;
 }
 export interface NewPlayerMetricsV2 {
@@ -830,7 +822,8 @@ export const RawAbilityActivationV2 = {
     OnButtonIsDown: 'on_button_is_down',
     Passive: 'passive',
     Press: 'press',
-    PressToggle: 'press_toggle'
+    PressToggle: 'press_toggle',
+    InstantCastToggle: 'instant_cast_toggle'
 } as const;
 
 export type RawAbilityActivationV2 = typeof RawAbilityActivationV2[keyof typeof RawAbilityActivationV2];

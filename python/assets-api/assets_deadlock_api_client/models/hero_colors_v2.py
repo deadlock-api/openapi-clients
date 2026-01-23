@@ -27,12 +27,8 @@ class HeroColorsV2(BaseModel):
     """
     HeroColorsV2
     """ # noqa: E501
-    glow_enemy: Annotated[List[Any], Field(min_length=3, max_length=3)]
-    glow_friendly: Annotated[List[Any], Field(min_length=3, max_length=3)]
-    glow_team1: Annotated[List[Any], Field(min_length=3, max_length=3)]
-    glow_team2: Annotated[List[Any], Field(min_length=3, max_length=3)]
     ui: Annotated[List[Any], Field(min_length=3, max_length=3)]
-    __properties: ClassVar[List[str]] = ["glow_enemy", "glow_friendly", "glow_team1", "glow_team2", "ui"]
+    __properties: ClassVar[List[str]] = ["ui"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,10 +81,6 @@ class HeroColorsV2(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "glow_enemy": obj.get("glow_enemy"),
-            "glow_friendly": obj.get("glow_friendly"),
-            "glow_team1": obj.get("glow_team1"),
-            "glow_team2": obj.get("glow_team2"),
             "ui": obj.get("ui")
         })
         return _obj

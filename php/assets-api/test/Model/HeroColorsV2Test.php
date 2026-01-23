@@ -80,42 +80,6 @@ class HeroColorsV2Test extends TestCase
     }
 
     /**
-     * Test attribute "glow_enemy"
-     */
-    public function testPropertyGlowEnemy()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "glow_friendly"
-     */
-    public function testPropertyGlowFriendly()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "glow_team1"
-     */
-    public function testPropertyGlowTeam1()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "glow_team2"
-     */
-    public function testPropertyGlowTeam2()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "ui"
      */
     public function testPropertyUi()

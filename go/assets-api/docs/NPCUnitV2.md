@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **RunSpeed** | Pointer to **NullableFloat32** |  | [optional] 
 **Acceleration** | Pointer to **NullableFloat32** |  | [optional] 
 **MeleeDamage** | Pointer to **NullableFloat32** |  | [optional] 
+**SpawnBreakablesOnDeath** | Pointer to **NullableBool** |  | [optional] 
 **MeleeAttemptRange** | Pointer to **NullableFloat32** |  | [optional] 
 **MeleeHitRange** | Pointer to **NullableFloat32** |  | [optional] 
 **MeleeDuration** | Pointer to **NullableFloat32** |  | [optional] 
@@ -68,11 +69,6 @@ Name | Type | Description | Notes
 **HealthBarColorTeam1** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
 **HealthBarColorTeam2** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
 **HealthBarColorTeamNeutral** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
-**GlowColorFriend** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
-**GlowColorEnemy** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
-**GlowColorTeam1** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
-**GlowColorTeam2** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
-**GlowColorTeamNeutral** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
 **Id** | **int64** |  | [readonly] 
 
 ## Methods
@@ -1444,6 +1440,41 @@ HasMeleeDamage returns a boolean if a field has been set.
 `func (o *NPCUnitV2) UnsetMeleeDamage()`
 
 UnsetMeleeDamage ensures that no value is present for MeleeDamage, not even an explicit nil
+### GetSpawnBreakablesOnDeath
+
+`func (o *NPCUnitV2) GetSpawnBreakablesOnDeath() bool`
+
+GetSpawnBreakablesOnDeath returns the SpawnBreakablesOnDeath field if non-nil, zero value otherwise.
+
+### GetSpawnBreakablesOnDeathOk
+
+`func (o *NPCUnitV2) GetSpawnBreakablesOnDeathOk() (*bool, bool)`
+
+GetSpawnBreakablesOnDeathOk returns a tuple with the SpawnBreakablesOnDeath field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSpawnBreakablesOnDeath
+
+`func (o *NPCUnitV2) SetSpawnBreakablesOnDeath(v bool)`
+
+SetSpawnBreakablesOnDeath sets SpawnBreakablesOnDeath field to given value.
+
+### HasSpawnBreakablesOnDeath
+
+`func (o *NPCUnitV2) HasSpawnBreakablesOnDeath() bool`
+
+HasSpawnBreakablesOnDeath returns a boolean if a field has been set.
+
+### SetSpawnBreakablesOnDeathNil
+
+`func (o *NPCUnitV2) SetSpawnBreakablesOnDeathNil(b bool)`
+
+ SetSpawnBreakablesOnDeathNil sets the value for SpawnBreakablesOnDeath to be an explicit nil
+
+### UnsetSpawnBreakablesOnDeath
+`func (o *NPCUnitV2) UnsetSpawnBreakablesOnDeath()`
+
+UnsetSpawnBreakablesOnDeath ensures that no value is present for SpawnBreakablesOnDeath, not even an explicit nil
 ### GetMeleeAttemptRange
 
 `func (o *NPCUnitV2) GetMeleeAttemptRange() float32`
@@ -2319,181 +2350,6 @@ HasHealthBarColorTeamNeutral returns a boolean if a field has been set.
 `func (o *NPCUnitV2) UnsetHealthBarColorTeamNeutral()`
 
 UnsetHealthBarColorTeamNeutral ensures that no value is present for HealthBarColorTeamNeutral, not even an explicit nil
-### GetGlowColorFriend
-
-`func (o *NPCUnitV2) GetGlowColorFriend() ColorV1`
-
-GetGlowColorFriend returns the GlowColorFriend field if non-nil, zero value otherwise.
-
-### GetGlowColorFriendOk
-
-`func (o *NPCUnitV2) GetGlowColorFriendOk() (*ColorV1, bool)`
-
-GetGlowColorFriendOk returns a tuple with the GlowColorFriend field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGlowColorFriend
-
-`func (o *NPCUnitV2) SetGlowColorFriend(v ColorV1)`
-
-SetGlowColorFriend sets GlowColorFriend field to given value.
-
-### HasGlowColorFriend
-
-`func (o *NPCUnitV2) HasGlowColorFriend() bool`
-
-HasGlowColorFriend returns a boolean if a field has been set.
-
-### SetGlowColorFriendNil
-
-`func (o *NPCUnitV2) SetGlowColorFriendNil(b bool)`
-
- SetGlowColorFriendNil sets the value for GlowColorFriend to be an explicit nil
-
-### UnsetGlowColorFriend
-`func (o *NPCUnitV2) UnsetGlowColorFriend()`
-
-UnsetGlowColorFriend ensures that no value is present for GlowColorFriend, not even an explicit nil
-### GetGlowColorEnemy
-
-`func (o *NPCUnitV2) GetGlowColorEnemy() ColorV1`
-
-GetGlowColorEnemy returns the GlowColorEnemy field if non-nil, zero value otherwise.
-
-### GetGlowColorEnemyOk
-
-`func (o *NPCUnitV2) GetGlowColorEnemyOk() (*ColorV1, bool)`
-
-GetGlowColorEnemyOk returns a tuple with the GlowColorEnemy field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGlowColorEnemy
-
-`func (o *NPCUnitV2) SetGlowColorEnemy(v ColorV1)`
-
-SetGlowColorEnemy sets GlowColorEnemy field to given value.
-
-### HasGlowColorEnemy
-
-`func (o *NPCUnitV2) HasGlowColorEnemy() bool`
-
-HasGlowColorEnemy returns a boolean if a field has been set.
-
-### SetGlowColorEnemyNil
-
-`func (o *NPCUnitV2) SetGlowColorEnemyNil(b bool)`
-
- SetGlowColorEnemyNil sets the value for GlowColorEnemy to be an explicit nil
-
-### UnsetGlowColorEnemy
-`func (o *NPCUnitV2) UnsetGlowColorEnemy()`
-
-UnsetGlowColorEnemy ensures that no value is present for GlowColorEnemy, not even an explicit nil
-### GetGlowColorTeam1
-
-`func (o *NPCUnitV2) GetGlowColorTeam1() ColorV1`
-
-GetGlowColorTeam1 returns the GlowColorTeam1 field if non-nil, zero value otherwise.
-
-### GetGlowColorTeam1Ok
-
-`func (o *NPCUnitV2) GetGlowColorTeam1Ok() (*ColorV1, bool)`
-
-GetGlowColorTeam1Ok returns a tuple with the GlowColorTeam1 field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGlowColorTeam1
-
-`func (o *NPCUnitV2) SetGlowColorTeam1(v ColorV1)`
-
-SetGlowColorTeam1 sets GlowColorTeam1 field to given value.
-
-### HasGlowColorTeam1
-
-`func (o *NPCUnitV2) HasGlowColorTeam1() bool`
-
-HasGlowColorTeam1 returns a boolean if a field has been set.
-
-### SetGlowColorTeam1Nil
-
-`func (o *NPCUnitV2) SetGlowColorTeam1Nil(b bool)`
-
- SetGlowColorTeam1Nil sets the value for GlowColorTeam1 to be an explicit nil
-
-### UnsetGlowColorTeam1
-`func (o *NPCUnitV2) UnsetGlowColorTeam1()`
-
-UnsetGlowColorTeam1 ensures that no value is present for GlowColorTeam1, not even an explicit nil
-### GetGlowColorTeam2
-
-`func (o *NPCUnitV2) GetGlowColorTeam2() ColorV1`
-
-GetGlowColorTeam2 returns the GlowColorTeam2 field if non-nil, zero value otherwise.
-
-### GetGlowColorTeam2Ok
-
-`func (o *NPCUnitV2) GetGlowColorTeam2Ok() (*ColorV1, bool)`
-
-GetGlowColorTeam2Ok returns a tuple with the GlowColorTeam2 field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGlowColorTeam2
-
-`func (o *NPCUnitV2) SetGlowColorTeam2(v ColorV1)`
-
-SetGlowColorTeam2 sets GlowColorTeam2 field to given value.
-
-### HasGlowColorTeam2
-
-`func (o *NPCUnitV2) HasGlowColorTeam2() bool`
-
-HasGlowColorTeam2 returns a boolean if a field has been set.
-
-### SetGlowColorTeam2Nil
-
-`func (o *NPCUnitV2) SetGlowColorTeam2Nil(b bool)`
-
- SetGlowColorTeam2Nil sets the value for GlowColorTeam2 to be an explicit nil
-
-### UnsetGlowColorTeam2
-`func (o *NPCUnitV2) UnsetGlowColorTeam2()`
-
-UnsetGlowColorTeam2 ensures that no value is present for GlowColorTeam2, not even an explicit nil
-### GetGlowColorTeamNeutral
-
-`func (o *NPCUnitV2) GetGlowColorTeamNeutral() ColorV1`
-
-GetGlowColorTeamNeutral returns the GlowColorTeamNeutral field if non-nil, zero value otherwise.
-
-### GetGlowColorTeamNeutralOk
-
-`func (o *NPCUnitV2) GetGlowColorTeamNeutralOk() (*ColorV1, bool)`
-
-GetGlowColorTeamNeutralOk returns a tuple with the GlowColorTeamNeutral field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGlowColorTeamNeutral
-
-`func (o *NPCUnitV2) SetGlowColorTeamNeutral(v ColorV1)`
-
-SetGlowColorTeamNeutral sets GlowColorTeamNeutral field to given value.
-
-### HasGlowColorTeamNeutral
-
-`func (o *NPCUnitV2) HasGlowColorTeamNeutral() bool`
-
-HasGlowColorTeamNeutral returns a boolean if a field has been set.
-
-### SetGlowColorTeamNeutralNil
-
-`func (o *NPCUnitV2) SetGlowColorTeamNeutralNil(b bool)`
-
- SetGlowColorTeamNeutralNil sets the value for GlowColorTeamNeutral to be an explicit nil
-
-### UnsetGlowColorTeamNeutral
-`func (o *NPCUnitV2) UnsetGlowColorTeamNeutral()`
-
-UnsetGlowColorTeamNeutral ensures that no value is present for GlowColorTeamNeutral, not even an explicit nil
 ### GetId
 
 `func (o *NPCUnitV2) GetId() int64`

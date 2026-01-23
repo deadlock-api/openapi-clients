@@ -84,7 +84,6 @@ class TestMiscV2(unittest.TestCase):
                         duration = 1.337, 
                         time_min = 1.337, 
                         time_max = 1.337, 
-                        debuff_type = '', 
                         always_show_in_ui = [
                             ''
                             ], 

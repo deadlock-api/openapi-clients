@@ -29,8 +29,7 @@
 | **scalingStats** | [**kotlin.collections.Map&lt;kotlin.String, RawHeroScalingStatV2&gt;**](RawHeroScalingStatV2.md) |  |  |
 | **purchaseBonuses** | **kotlin.collections.Map&lt;kotlin.String, kotlin.collections.List&lt;RawHeroPurchaseBonusV2&gt;&gt;** |  |  |
 | **standardLevelUpUpgrades** | [**kotlin.collections.Map&lt;kotlin.String, java.math.BigDecimal&gt;**](java.math.BigDecimal.md) |  |  |
-| **recommendedUpgrades** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
-| **recommendedAbilityOrder** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
+| **itemDraftWeights** | [**kotlin.collections.Map&lt;kotlin.String, java.math.BigDecimal&gt;**](java.math.BigDecimal.md) |  |  [optional] |
 | **tags** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **gunTag** | **kotlin.String** |  |  [optional] |
 | **hideoutRichPresence** | **kotlin.String** |  |  [optional] |
