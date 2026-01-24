@@ -24,5 +24,6 @@ Name | Type | Description | Notes
 **weapon_groups** | [**\OpenAPI\Client\Model\ItemGroup[]**](ItemGroup.md) |  |
 **armor_groups** | [**\OpenAPI\Client\Model\ItemGroup[]**](ItemGroup.md) |  |
 **spirit_groups** | [**\OpenAPI\Client\Model\ItemGroup[]**](ItemGroup.md) |  |
+**street_brawl** | [**\OpenAPI\Client\Model\StreetBrawl**](StreetBrawl.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

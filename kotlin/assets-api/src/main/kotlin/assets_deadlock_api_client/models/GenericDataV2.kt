@@ -24,6 +24,7 @@ import assets_deadlock_api_client.models.MiniMapOffsets
 import assets_deadlock_api_client.models.NewPlayerMetricsV2
 import assets_deadlock_api_client.models.ObjectiveParams
 import assets_deadlock_api_client.models.RejuvParams
+import assets_deadlock_api_client.models.StreetBrawl
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -52,6 +53,7 @@ import java.io.Serializable
  * @param weaponGroups 
  * @param armorGroups 
  * @param spiritGroups 
+ * @param streetBrawl 
  */
 
 
@@ -115,7 +117,10 @@ data class GenericDataV2 (
     val armorGroups: kotlin.collections.List<ItemGroup>,
 
     @Json(name = "spirit_groups")
-    val spiritGroups: kotlin.collections.List<ItemGroup>
+    val spiritGroups: kotlin.collections.List<ItemGroup>,
+
+    @Json(name = "street_brawl")
+    val streetBrawl: StreetBrawl
 
 ) : Serializable {
     companion object {

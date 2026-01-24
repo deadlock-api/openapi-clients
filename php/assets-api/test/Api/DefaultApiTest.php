@@ -144,6 +144,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for getLootTablesV2LootTablesGet
+     *
+     * Get Loot Tables.
+     *
+     */
+    public function testGetLootTablesV2LootTablesGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getMapV1MapGet
      *
      * Get Map.

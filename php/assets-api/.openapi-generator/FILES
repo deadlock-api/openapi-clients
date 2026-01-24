@@ -51,6 +51,8 @@ api/Model/HeroStartingStatsV2.php
 api/Model/HeroTypeV2.php
 api/Model/HeroV2.php
 api/Model/IntrinsicModifiers.php
+api/Model/ItemDraftRound.php
+api/Model/ItemDraftRoundPerGameRound.php
 api/Model/ItemGroup.php
 api/Model/ItemPropertyV2.php
 api/Model/ItemSlotTypeV2.php
@@ -59,6 +61,8 @@ api/Model/ItemTypeV2.php
 api/Model/LaneInfoV2.php
 api/Model/Language.php
 api/Model/LocationInner.php
+api/Model/LootTableV2.php
+api/Model/LootTableV2Entry.php
 api/Model/MapImagesV1.php
 api/Model/MapV1.php
 api/Model/MiniMapOffsets.php
@@ -73,6 +77,7 @@ api/Model/ObjectiveParams.php
 api/Model/ObjectivePositionV1.php
 api/Model/ObjectivePositionsV1.php
 api/Model/ObjectiveRegen.php
+api/Model/OutcomeToWeights.php
 api/Model/PickupDefinition.php
 api/Model/PickupRadius.php
 api/Model/Range.php
@@ -105,6 +110,7 @@ api/Model/ResponseGetItemsV2ItemsGetInner.php
 api/Model/ScriptValues.php
 api/Model/StandingShotSpreadPenalty.php
 api/Model/StatsUsageFlagV2.php
+api/Model/StreetBrawl.php
 api/Model/SubclassBulletResistModifier.php
 api/Model/SubclassEmpoweredModifierLevel.php
 api/Model/SubclassIntrinsicModifiers.php
@@ -175,6 +181,8 @@ docs/Model/HeroStartingStatsV2.md
 docs/Model/HeroTypeV2.md
 docs/Model/HeroV2.md
 docs/Model/IntrinsicModifiers.md
+docs/Model/ItemDraftRound.md
+docs/Model/ItemDraftRoundPerGameRound.md
 docs/Model/ItemGroup.md
 docs/Model/ItemPropertyV2.md
 docs/Model/ItemSlotTypeV2.md
@@ -183,6 +191,8 @@ docs/Model/ItemTypeV2.md
 docs/Model/LaneInfoV2.md
 docs/Model/Language.md
 docs/Model/LocationInner.md
+docs/Model/LootTableV2.md
+docs/Model/LootTableV2Entry.md
 docs/Model/MapImagesV1.md
 docs/Model/MapV1.md
 docs/Model/MiniMapOffsets.md
@@ -196,6 +206,7 @@ docs/Model/ObjectiveParams.md
 docs/Model/ObjectivePositionV1.md
 docs/Model/ObjectivePositionsV1.md
 docs/Model/ObjectiveRegen.md
+docs/Model/OutcomeToWeights.md
 docs/Model/PickupDefinition.md
 docs/Model/PickupRadius.md
 docs/Model/Range.md
@@ -228,6 +239,7 @@ docs/Model/ResponseGetItemsV2ItemsGetInner.md
 docs/Model/ScriptValues.md
 docs/Model/StandingShotSpreadPenalty.md
 docs/Model/StatsUsageFlagV2.md
+docs/Model/StreetBrawl.md
 docs/Model/SubclassBulletResistModifier.md
 docs/Model/SubclassEmpoweredModifierLevel.md
 docs/Model/SubclassIntrinsicModifiers.md
@@ -298,6 +310,8 @@ test/Model/HeroStartingStatsV2Test.php
 test/Model/HeroTypeV2Test.php
 test/Model/HeroV2Test.php
 test/Model/IntrinsicModifiersTest.php
+test/Model/ItemDraftRoundPerGameRoundTest.php
+test/Model/ItemDraftRoundTest.php
 test/Model/ItemGroupTest.php
 test/Model/ItemPropertyV2Test.php
 test/Model/ItemSlotTypeV2Test.php
@@ -306,6 +320,8 @@ test/Model/ItemTypeV2Test.php
 test/Model/LaneInfoV2Test.php
 test/Model/LanguageTest.php
 test/Model/LocationInnerTest.php
+test/Model/LootTableV2EntryTest.php
+test/Model/LootTableV2Test.php
 test/Model/MapImagesV1Test.php
 test/Model/MapV1Test.php
 test/Model/MiniMapOffsetsTest.php
@@ -319,6 +335,7 @@ test/Model/ObjectiveParamsTest.php
 test/Model/ObjectivePositionV1Test.php
 test/Model/ObjectivePositionsV1Test.php
 test/Model/ObjectiveRegenTest.php
+test/Model/OutcomeToWeightsTest.php
 test/Model/PickupDefinitionTest.php
 test/Model/PickupRadiusTest.php
 test/Model/RangeTest.php
@@ -351,6 +368,7 @@ test/Model/ResponseGetItemsV2ItemsGetInnerTest.php
 test/Model/ScriptValuesTest.php
 test/Model/StandingShotSpreadPenaltyTest.php
 test/Model/StatsUsageFlagV2Test.php
+test/Model/StreetBrawlTest.php
 test/Model/SubclassBulletResistModifierTest.php
 test/Model/SubclassEmpoweredModifierLevelTest.php
 test/Model/SubclassIntrinsicModifiersTest.php

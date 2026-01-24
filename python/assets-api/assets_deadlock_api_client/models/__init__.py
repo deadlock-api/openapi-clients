@@ -50,6 +50,8 @@ from assets_deadlock_api_client.models.hero_starting_stats_v2 import HeroStartin
 from assets_deadlock_api_client.models.hero_type_v2 import HeroTypeV2
 from assets_deadlock_api_client.models.hero_v2 import HeroV2
 from assets_deadlock_api_client.models.intrinsic_modifiers import IntrinsicModifiers
+from assets_deadlock_api_client.models.item_draft_round import ItemDraftRound
+from assets_deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound
 from assets_deadlock_api_client.models.item_group import ItemGroup
 from assets_deadlock_api_client.models.item_property_v2 import ItemPropertyV2
 from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2
@@ -58,6 +60,8 @@ from assets_deadlock_api_client.models.item_type_v2 import ItemTypeV2
 from assets_deadlock_api_client.models.lane_info_v2 import LaneInfoV2
 from assets_deadlock_api_client.models.language import Language
 from assets_deadlock_api_client.models.location_inner import LocationInner
+from assets_deadlock_api_client.models.loot_table_v2 import LootTableV2
+from assets_deadlock_api_client.models.loot_table_v2_entry import LootTableV2Entry
 from assets_deadlock_api_client.models.map_images_v1 import MapImagesV1
 from assets_deadlock_api_client.models.map_v1 import MapV1
 from assets_deadlock_api_client.models.mini_map_offsets import MiniMapOffsets
@@ -71,6 +75,7 @@ from assets_deadlock_api_client.models.objective_params import ObjectiveParams
 from assets_deadlock_api_client.models.objective_position_v1 import ObjectivePositionV1
 from assets_deadlock_api_client.models.objective_positions_v1 import ObjectivePositionsV1
 from assets_deadlock_api_client.models.objective_regen import ObjectiveRegen
+from assets_deadlock_api_client.models.outcome_to_weights import OutcomeToWeights
 from assets_deadlock_api_client.models.pickup_definition import PickupDefinition
 from assets_deadlock_api_client.models.pickup_radius import PickupRadius
 from assets_deadlock_api_client.models.range import Range
@@ -103,6 +108,7 @@ from assets_deadlock_api_client.models.response_get_items_v2_items_get_inner imp
 from assets_deadlock_api_client.models.script_values import ScriptValues
 from assets_deadlock_api_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty
 from assets_deadlock_api_client.models.stats_usage_flag_v2 import StatsUsageFlagV2
+from assets_deadlock_api_client.models.street_brawl import StreetBrawl
 from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier
 from assets_deadlock_api_client.models.subclass_empowered_modifier_level import SubclassEmpoweredModifierLevel
 from assets_deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers

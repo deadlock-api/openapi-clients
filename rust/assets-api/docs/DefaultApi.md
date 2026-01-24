@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_generic_data_v2_generic_data_get**](DefaultApi.md#get_generic_data_v2_generic_data_get) | **GET** /v2/generic-data | Get Generic Data
 [**get_icons_v1_icons_get**](DefaultApi.md#get_icons_v1_icons_get) | **GET** /v1/icons | Get Icons
 [**get_images_v1_images_get**](DefaultApi.md#get_images_v1_images_get) | **GET** /v1/images | Get Images
+[**get_loot_tables_v2_loot_tables_get**](DefaultApi.md#get_loot_tables_v2_loot_tables_get) | **GET** /v2/loot-tables | Get Loot Tables
 [**get_map_v1_map_get**](DefaultApi.md#get_map_v1_map_get) | **GET** /v1/map | Get Map
 [**get_ranks_v2_ranks_get**](DefaultApi.md#get_ranks_v2_ranks_get) | **GET** /v2/ranks | Get Ranks
 [**get_sounds_v1_sounds_get**](DefaultApi.md#get_sounds_v1_sounds_get) | **GET** /v1/sounds | Get Sounds
@@ -170,6 +171,34 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 **std::collections::HashMap<String, String>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_loot_tables_v2_loot_tables_get
+
+> std::collections::HashMap<String, models::LootTableV2> get_loot_tables_v2_loot_tables_get(client_version)
+Get Loot Tables
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
+
+### Return type
+
+[**std::collections::HashMap<String, models::LootTableV2>**](LootTableV2.md)
 
 ### Authorization
 

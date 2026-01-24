@@ -46,6 +46,8 @@ docs/HeroTypeV2.md
 docs/HeroV2.md
 docs/HeroesApi.md
 docs/IntrinsicModifiers.md
+docs/ItemDraftRound.md
+docs/ItemDraftRoundPerGameRound.md
 docs/ItemGroup.md
 docs/ItemPropertyV2.md
 docs/ItemSlotTypeV2.md
@@ -55,6 +57,8 @@ docs/ItemsApi.md
 docs/LaneInfoV2.md
 docs/Language.md
 docs/LocationInner.md
+docs/LootTableV2.md
+docs/LootTableV2Entry.md
 docs/MapImagesV1.md
 docs/MapV1.md
 docs/MiniMapOffsets.md
@@ -70,6 +74,7 @@ docs/ObjectiveParams.md
 docs/ObjectivePositionV1.md
 docs/ObjectivePositionsV1.md
 docs/ObjectiveRegen.md
+docs/OutcomeToWeights.md
 docs/PickupDefinition.md
 docs/PickupRadius.md
 docs/Range.md
@@ -103,6 +108,7 @@ docs/ResponseGetItemsV2ItemsGetInner.md
 docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
+docs/StreetBrawl.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassEmpoweredModifierLevel.md
 docs/SubclassIntrinsicModifiers.md

@@ -53,10 +53,12 @@ pub struct GenericDataV2 {
     pub armor_groups: Vec<models::ItemGroup>,
     #[serde(rename = "spirit_groups")]
     pub spirit_groups: Vec<models::ItemGroup>,
+    #[serde(rename = "street_brawl")]
+    pub street_brawl: Box<models::StreetBrawl>,
 }
 
 impl GenericDataV2 {
-    pub fn new(damage_flash: models::DamageFlashV2, glitch_settings: models::GlitchSettingsV2, lane_info: Vec<models::LaneInfoV2>, new_player_metrics: Vec<models::NewPlayerMetricsV2>, minimap_team_rebels_color: models::ColorV1, minimap_team_combine_color: models::ColorV1, enemy_objectives_and_zipline_color: models::ColorV1, enemy_objectives_color: models::ColorV1, enemy_zipline_color: models::ColorV1, item_price_per_tier: Vec<i32>, trooper_kill_gold_share_frac: Vec<f64>, hero_kill_gold_share_frac: Vec<f64>, aim_spring_strength: Vec<f64>, targeting_spring_strength: Vec<f64>, objective_params: models::ObjectiveParams, rejuv_params: models::RejuvParams, mini_map_offsets: Vec<models::MiniMapOffsets>, weapon_groups: Vec<models::ItemGroup>, armor_groups: Vec<models::ItemGroup>, spirit_groups: Vec<models::ItemGroup>) -> GenericDataV2 {
+    pub fn new(damage_flash: models::DamageFlashV2, glitch_settings: models::GlitchSettingsV2, lane_info: Vec<models::LaneInfoV2>, new_player_metrics: Vec<models::NewPlayerMetricsV2>, minimap_team_rebels_color: models::ColorV1, minimap_team_combine_color: models::ColorV1, enemy_objectives_and_zipline_color: models::ColorV1, enemy_objectives_color: models::ColorV1, enemy_zipline_color: models::ColorV1, item_price_per_tier: Vec<i32>, trooper_kill_gold_share_frac: Vec<f64>, hero_kill_gold_share_frac: Vec<f64>, aim_spring_strength: Vec<f64>, targeting_spring_strength: Vec<f64>, objective_params: models::ObjectiveParams, rejuv_params: models::RejuvParams, mini_map_offsets: Vec<models::MiniMapOffsets>, weapon_groups: Vec<models::ItemGroup>, armor_groups: Vec<models::ItemGroup>, spirit_groups: Vec<models::ItemGroup>, street_brawl: models::StreetBrawl) -> GenericDataV2 {
         GenericDataV2 {
             damage_flash: Box::new(damage_flash),
             glitch_settings: Box::new(glitch_settings),
@@ -78,6 +80,7 @@ impl GenericDataV2 {
             weapon_groups,
             armor_groups,
             spirit_groups,
+            street_brawl: Box::new(street_brawl),
         }
     }
 }

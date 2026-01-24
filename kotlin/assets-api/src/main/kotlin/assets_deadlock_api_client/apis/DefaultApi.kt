@@ -25,6 +25,7 @@ import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesValidClientVersi
 import assets_deadlock_api_client.models.GenericDataV2
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.Language
+import assets_deadlock_api_client.models.LootTableV2
 import assets_deadlock_api_client.models.MapV1
 import assets_deadlock_api_client.models.RankV2
 
@@ -511,6 +512,84 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/images",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v2/loot-tables
+     * Get Loot Tables
+     * 
+     * @param clientVersion  (optional)
+     * @return kotlin.collections.Map<kotlin.String, LootTableV2>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getLootTablesV2LootTablesGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, LootTableV2> {
+        val localVarResponse = getLootTablesV2LootTablesGetWithHttpInfo(clientVersion = clientVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, LootTableV2>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v2/loot-tables
+     * Get Loot Tables
+     * 
+     * @param clientVersion  (optional)
+     * @return ApiResponse<kotlin.collections.Map<kotlin.String, LootTableV2>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getLootTablesV2LootTablesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, LootTableV2>?> {
+        val localVariableConfig = getLootTablesV2LootTablesGetRequestConfig(clientVersion = clientVersion)
+
+        return request<Unit, kotlin.collections.Map<kotlin.String, LootTableV2>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getLootTablesV2LootTablesGet
+     *
+     * @param clientVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getLootTablesV2LootTablesGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (clientVersion != null) {
+                    put("client_version", listOf(clientVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v2/loot-tables",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

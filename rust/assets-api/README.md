@@ -53,6 +53,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**get_generic_data_v2_generic_data_get**](docs/DefaultApi.md#get_generic_data_v2_generic_data_get) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**get_icons_v1_icons_get**](docs/DefaultApi.md#get_icons_v1_icons_get) | **GET** /v1/icons | Get Icons
 *DefaultApi* | [**get_images_v1_images_get**](docs/DefaultApi.md#get_images_v1_images_get) | **GET** /v1/images | Get Images
+*DefaultApi* | [**get_loot_tables_v2_loot_tables_get**](docs/DefaultApi.md#get_loot_tables_v2_loot_tables_get) | **GET** /v2/loot-tables | Get Loot Tables
 *DefaultApi* | [**get_map_v1_map_get**](docs/DefaultApi.md#get_map_v1_map_get) | **GET** /v1/map | Get Map
 *DefaultApi* | [**get_ranks_v2_ranks_get**](docs/DefaultApi.md#get_ranks_v2_ranks_get) | **GET** /v2/ranks | Get Ranks
 *DefaultApi* | [**get_sounds_v1_sounds_get**](docs/DefaultApi.md#get_sounds_v1_sounds_get) | **GET** /v1/sounds | Get Sounds
@@ -113,6 +114,8 @@ Class | Method | HTTP request | Description
  - [HeroV2](docs/HeroV2.md)
  - [HttpValidationError](docs/HttpValidationError.md)
  - [IntrinsicModifiers](docs/IntrinsicModifiers.md)
+ - [ItemDraftRound](docs/ItemDraftRound.md)
+ - [ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)
  - [ItemGroup](docs/ItemGroup.md)
  - [ItemPropertyV2](docs/ItemPropertyV2.md)
  - [ItemSlotTypeV2](docs/ItemSlotTypeV2.md)
@@ -121,6 +124,8 @@ Class | Method | HTTP request | Description
  - [LaneInfoV2](docs/LaneInfoV2.md)
  - [Language](docs/Language.md)
  - [LocationInner](docs/LocationInner.md)
+ - [LootTableV2](docs/LootTableV2.md)
+ - [LootTableV2Entry](docs/LootTableV2Entry.md)
  - [MapImagesV1](docs/MapImagesV1.md)
  - [MapV1](docs/MapV1.md)
  - [MiniMapOffsets](docs/MiniMapOffsets.md)
@@ -134,6 +139,7 @@ Class | Method | HTTP request | Description
  - [ObjectivePositionV1](docs/ObjectivePositionV1.md)
  - [ObjectivePositionsV1](docs/ObjectivePositionsV1.md)
  - [ObjectiveRegen](docs/ObjectiveRegen.md)
+ - [OutcomeToWeights](docs/OutcomeToWeights.md)
  - [PickupDefinition](docs/PickupDefinition.md)
  - [PickupRadius](docs/PickupRadius.md)
  - [Range](docs/Range.md)
@@ -166,6 +172,7 @@ Class | Method | HTTP request | Description
  - [ScriptValues](docs/ScriptValues.md)
  - [StandingShotSpreadPenalty](docs/StandingShotSpreadPenalty.md)
  - [StatsUsageFlagV2](docs/StatsUsageFlagV2.md)
+ - [StreetBrawl](docs/StreetBrawl.md)
  - [SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
  - [SubclassEmpoweredModifierLevel](docs/SubclassEmpoweredModifierLevel.md)
  - [SubclassIntrinsicModifiers](docs/SubclassIntrinsicModifiers.md)

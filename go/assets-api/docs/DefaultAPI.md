@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetGenericDataV2GenericDataGet**](DefaultAPI.md#GetGenericDataV2GenericDataGet) | **Get** /v2/generic-data | Get Generic Data
 [**GetIconsV1IconsGet**](DefaultAPI.md#GetIconsV1IconsGet) | **Get** /v1/icons | Get Icons
 [**GetImagesV1ImagesGet**](DefaultAPI.md#GetImagesV1ImagesGet) | **Get** /v1/images | Get Images
+[**GetLootTablesV2LootTablesGet**](DefaultAPI.md#GetLootTablesV2LootTablesGet) | **Get** /v2/loot-tables | Get Loot Tables
 [**GetMapV1MapGet**](DefaultAPI.md#GetMapV1MapGet) | **Get** /v1/map | Get Map
 [**GetRanksV2RanksGet**](DefaultAPI.md#GetRanksV2RanksGet) | **Get** /v2/ranks | Get Ranks
 [**GetSoundsV1SoundsGet**](DefaultAPI.md#GetSoundsV1SoundsGet) | **Get** /v1/sounds | Get Sounds
@@ -383,6 +384,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 **map[string]string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetLootTablesV2LootTablesGet
+
+> map[string]LootTableV2 GetLootTablesV2LootTablesGet(ctx).ClientVersion(clientVersion).Execute()
+
+Get Loot Tables
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6128) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetLootTablesV2LootTablesGet(context.Background()).ClientVersion(clientVersion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetLootTablesV2LootTablesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetLootTablesV2LootTablesGet`: map[string]LootTableV2
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetLootTablesV2LootTablesGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetLootTablesV2LootTablesGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](DeadlockAssetsApiRoutesValidClientVersions.md) |  | 
+
+### Return type
+
+[**map[string]LootTableV2**](LootTableV2.md)
 
 ### Authorization
 

@@ -105,6 +105,7 @@ Class | Method | HTTP request | Description
 *DefaultAPI* | [**GetGenericDataV2GenericDataGet**](docs/DefaultAPI.md#getgenericdatav2genericdataget) | **Get** /v2/generic-data | Get Generic Data
 *DefaultAPI* | [**GetIconsV1IconsGet**](docs/DefaultAPI.md#geticonsv1iconsget) | **Get** /v1/icons | Get Icons
 *DefaultAPI* | [**GetImagesV1ImagesGet**](docs/DefaultAPI.md#getimagesv1imagesget) | **Get** /v1/images | Get Images
+*DefaultAPI* | [**GetLootTablesV2LootTablesGet**](docs/DefaultAPI.md#getloottablesv2loottablesget) | **Get** /v2/loot-tables | Get Loot Tables
 *DefaultAPI* | [**GetMapV1MapGet**](docs/DefaultAPI.md#getmapv1mapget) | **Get** /v1/map | Get Map
 *DefaultAPI* | [**GetRanksV2RanksGet**](docs/DefaultAPI.md#getranksv2ranksget) | **Get** /v2/ranks | Get Ranks
 *DefaultAPI* | [**GetSoundsV1SoundsGet**](docs/DefaultAPI.md#getsoundsv1soundsget) | **Get** /v1/sounds | Get Sounds
@@ -165,6 +166,8 @@ Class | Method | HTTP request | Description
  - [HeroTypeV2](docs/HeroTypeV2.md)
  - [HeroV2](docs/HeroV2.md)
  - [IntrinsicModifiers](docs/IntrinsicModifiers.md)
+ - [ItemDraftRound](docs/ItemDraftRound.md)
+ - [ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)
  - [ItemGroup](docs/ItemGroup.md)
  - [ItemPropertyV2](docs/ItemPropertyV2.md)
  - [ItemSlotTypeV2](docs/ItemSlotTypeV2.md)
@@ -173,6 +176,8 @@ Class | Method | HTTP request | Description
  - [LaneInfoV2](docs/LaneInfoV2.md)
  - [Language](docs/Language.md)
  - [LocationInner](docs/LocationInner.md)
+ - [LootTableV2](docs/LootTableV2.md)
+ - [LootTableV2Entry](docs/LootTableV2Entry.md)
  - [MapImagesV1](docs/MapImagesV1.md)
  - [MapV1](docs/MapV1.md)
  - [MiniMapOffsets](docs/MiniMapOffsets.md)
@@ -186,6 +191,7 @@ Class | Method | HTTP request | Description
  - [ObjectivePositionV1](docs/ObjectivePositionV1.md)
  - [ObjectivePositionsV1](docs/ObjectivePositionsV1.md)
  - [ObjectiveRegen](docs/ObjectiveRegen.md)
+ - [OutcomeToWeights](docs/OutcomeToWeights.md)
  - [PickupDefinition](docs/PickupDefinition.md)
  - [PickupRadius](docs/PickupRadius.md)
  - [Range](docs/Range.md)
@@ -218,6 +224,7 @@ Class | Method | HTTP request | Description
  - [ScriptValues](docs/ScriptValues.md)
  - [StandingShotSpreadPenalty](docs/StandingShotSpreadPenalty.md)
  - [StatsUsageFlagV2](docs/StatsUsageFlagV2.md)
+ - [StreetBrawl](docs/StreetBrawl.md)
  - [SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
  - [SubclassEmpoweredModifierLevel](docs/SubclassEmpoweredModifierLevel.md)
  - [SubclassIntrinsicModifiers](docs/SubclassIntrinsicModifiers.md)

@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 **WeaponGroups** | [**[]ItemGroup**](ItemGroup.md) |  | 
 **ArmorGroups** | [**[]ItemGroup**](ItemGroup.md) |  | 
 **SpiritGroups** | [**[]ItemGroup**](ItemGroup.md) |  | 
+**StreetBrawl** | [**StreetBrawl**](StreetBrawl.md) |  | 
 
 ## Methods
 
 ### NewGenericDataV2
 
-`func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, minimapTeamRebelsColor ColorV1, minimapTeamCombineColor ColorV1, enemyObjectivesAndZiplineColor ColorV1, enemyObjectivesColor ColorV1, enemyZiplineColor ColorV1, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup, ) *GenericDataV2`
+`func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, minimapTeamRebelsColor ColorV1, minimapTeamCombineColor ColorV1, enemyObjectivesAndZiplineColor ColorV1, enemyObjectivesColor ColorV1, enemyZiplineColor ColorV1, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup, streetBrawl StreetBrawl, ) *GenericDataV2`
 
 NewGenericDataV2 instantiates a new GenericDataV2 object
 This constructor will assign default values to properties that have it defined,
@@ -442,6 +443,26 @@ and a boolean to check if the value has been set.
 `func (o *GenericDataV2) SetSpiritGroups(v []ItemGroup)`
 
 SetSpiritGroups sets SpiritGroups field to given value.
+
+
+### GetStreetBrawl
+
+`func (o *GenericDataV2) GetStreetBrawl() StreetBrawl`
+
+GetStreetBrawl returns the StreetBrawl field if non-nil, zero value otherwise.
+
+### GetStreetBrawlOk
+
+`func (o *GenericDataV2) GetStreetBrawlOk() (*StreetBrawl, bool)`
+
+GetStreetBrawlOk returns a tuple with the StreetBrawl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStreetBrawl
+
+`func (o *GenericDataV2) SetStreetBrawl(v StreetBrawl)`
+
+SetStreetBrawl sets StreetBrawl field to given value.
 
 
 

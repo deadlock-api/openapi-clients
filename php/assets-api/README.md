@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getGenericDataV2GenericDataGet**](docs/Api/DefaultApi.md#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**getIconsV1IconsGet**](docs/Api/DefaultApi.md#geticonsv1iconsget) | **GET** /v1/icons | Get Icons
 *DefaultApi* | [**getImagesV1ImagesGet**](docs/Api/DefaultApi.md#getimagesv1imagesget) | **GET** /v1/images | Get Images
+*DefaultApi* | [**getLootTablesV2LootTablesGet**](docs/Api/DefaultApi.md#getloottablesv2loottablesget) | **GET** /v2/loot-tables | Get Loot Tables
 *DefaultApi* | [**getMapV1MapGet**](docs/Api/DefaultApi.md#getmapv1mapget) | **GET** /v1/map | Get Map
 *DefaultApi* | [**getRanksV2RanksGet**](docs/Api/DefaultApi.md#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks
 *DefaultApi* | [**getSoundsV1SoundsGet**](docs/Api/DefaultApi.md#getsoundsv1soundsget) | **GET** /v1/sounds | Get Sounds
@@ -159,6 +160,8 @@ Class | Method | HTTP request | Description
 - [HeroTypeV2](docs/Model/HeroTypeV2.md)
 - [HeroV2](docs/Model/HeroV2.md)
 - [IntrinsicModifiers](docs/Model/IntrinsicModifiers.md)
+- [ItemDraftRound](docs/Model/ItemDraftRound.md)
+- [ItemDraftRoundPerGameRound](docs/Model/ItemDraftRoundPerGameRound.md)
 - [ItemGroup](docs/Model/ItemGroup.md)
 - [ItemPropertyV2](docs/Model/ItemPropertyV2.md)
 - [ItemSlotTypeV2](docs/Model/ItemSlotTypeV2.md)
@@ -167,6 +170,8 @@ Class | Method | HTTP request | Description
 - [LaneInfoV2](docs/Model/LaneInfoV2.md)
 - [Language](docs/Model/Language.md)
 - [LocationInner](docs/Model/LocationInner.md)
+- [LootTableV2](docs/Model/LootTableV2.md)
+- [LootTableV2Entry](docs/Model/LootTableV2Entry.md)
 - [MapImagesV1](docs/Model/MapImagesV1.md)
 - [MapV1](docs/Model/MapV1.md)
 - [MiniMapOffsets](docs/Model/MiniMapOffsets.md)
@@ -180,6 +185,7 @@ Class | Method | HTTP request | Description
 - [ObjectivePositionV1](docs/Model/ObjectivePositionV1.md)
 - [ObjectivePositionsV1](docs/Model/ObjectivePositionsV1.md)
 - [ObjectiveRegen](docs/Model/ObjectiveRegen.md)
+- [OutcomeToWeights](docs/Model/OutcomeToWeights.md)
 - [PickupDefinition](docs/Model/PickupDefinition.md)
 - [PickupRadius](docs/Model/PickupRadius.md)
 - [Range](docs/Model/Range.md)
@@ -212,6 +218,7 @@ Class | Method | HTTP request | Description
 - [ScriptValues](docs/Model/ScriptValues.md)
 - [StandingShotSpreadPenalty](docs/Model/StandingShotSpreadPenalty.md)
 - [StatsUsageFlagV2](docs/Model/StatsUsageFlagV2.md)
+- [StreetBrawl](docs/Model/StreetBrawl.md)
 - [SubclassBulletResistModifier](docs/Model/SubclassBulletResistModifier.md)
 - [SubclassEmpoweredModifierLevel](docs/Model/SubclassEmpoweredModifierLevel.md)
 - [SubclassIntrinsicModifiers](docs/Model/SubclassIntrinsicModifiers.md)

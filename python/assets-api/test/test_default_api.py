@@ -68,6 +68,13 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_get_loot_tables_v2_loot_tables_get(self) -> None:
+        """Test case for get_loot_tables_v2_loot_tables_get
+
+        Get Loot Tables
+        """
+        pass
+
     def test_get_map_v1_map_get(self) -> None:
         """Test case for get_map_v1_map_get
 

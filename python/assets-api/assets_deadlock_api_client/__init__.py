@@ -71,6 +71,8 @@ __all__ = [
     "HeroTypeV2",
     "HeroV2",
     "IntrinsicModifiers",
+    "ItemDraftRound",
+    "ItemDraftRoundPerGameRound",
     "ItemGroup",
     "ItemPropertyV2",
     "ItemSlotTypeV2",
@@ -79,6 +81,8 @@ __all__ = [
     "LaneInfoV2",
     "Language",
     "LocationInner",
+    "LootTableV2",
+    "LootTableV2Entry",
     "MapImagesV1",
     "MapV1",
     "MiniMapOffsets",
@@ -92,6 +96,7 @@ __all__ = [
     "ObjectivePositionV1",
     "ObjectivePositionsV1",
     "ObjectiveRegen",
+    "OutcomeToWeights",
     "PickupDefinition",
     "PickupRadius",
     "Range",
@@ -124,6 +129,7 @@ __all__ = [
     "ScriptValues",
     "StandingShotSpreadPenalty",
     "StatsUsageFlagV2",
+    "StreetBrawl",
     "SubclassBulletResistModifier",
     "SubclassEmpoweredModifierLevel",
     "SubclassIntrinsicModifiers",
@@ -208,6 +214,8 @@ from assets_deadlock_api_client.models.hero_starting_stats_v2 import HeroStartin
 from assets_deadlock_api_client.models.hero_type_v2 import HeroTypeV2 as HeroTypeV2
 from assets_deadlock_api_client.models.hero_v2 import HeroV2 as HeroV2
 from assets_deadlock_api_client.models.intrinsic_modifiers import IntrinsicModifiers as IntrinsicModifiers
+from assets_deadlock_api_client.models.item_draft_round import ItemDraftRound as ItemDraftRound
+from assets_deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound as ItemDraftRoundPerGameRound
 from assets_deadlock_api_client.models.item_group import ItemGroup as ItemGroup
 from assets_deadlock_api_client.models.item_property_v2 import ItemPropertyV2 as ItemPropertyV2
 from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2 as ItemSlotTypeV2
@@ -216,6 +224,8 @@ from assets_deadlock_api_client.models.item_type_v2 import ItemTypeV2 as ItemTyp
 from assets_deadlock_api_client.models.lane_info_v2 import LaneInfoV2 as LaneInfoV2
 from assets_deadlock_api_client.models.language import Language as Language
 from assets_deadlock_api_client.models.location_inner import LocationInner as LocationInner
+from assets_deadlock_api_client.models.loot_table_v2 import LootTableV2 as LootTableV2
+from assets_deadlock_api_client.models.loot_table_v2_entry import LootTableV2Entry as LootTableV2Entry
 from assets_deadlock_api_client.models.map_images_v1 import MapImagesV1 as MapImagesV1
 from assets_deadlock_api_client.models.map_v1 import MapV1 as MapV1
 from assets_deadlock_api_client.models.mini_map_offsets import MiniMapOffsets as MiniMapOffsets
@@ -229,6 +239,7 @@ from assets_deadlock_api_client.models.objective_params import ObjectiveParams a
 from assets_deadlock_api_client.models.objective_position_v1 import ObjectivePositionV1 as ObjectivePositionV1
 from assets_deadlock_api_client.models.objective_positions_v1 import ObjectivePositionsV1 as ObjectivePositionsV1
 from assets_deadlock_api_client.models.objective_regen import ObjectiveRegen as ObjectiveRegen
+from assets_deadlock_api_client.models.outcome_to_weights import OutcomeToWeights as OutcomeToWeights
 from assets_deadlock_api_client.models.pickup_definition import PickupDefinition as PickupDefinition
 from assets_deadlock_api_client.models.pickup_radius import PickupRadius as PickupRadius
 from assets_deadlock_api_client.models.range import Range as Range
@@ -261,6 +272,7 @@ from assets_deadlock_api_client.models.response_get_items_v2_items_get_inner imp
 from assets_deadlock_api_client.models.script_values import ScriptValues as ScriptValues
 from assets_deadlock_api_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty as StandingShotSpreadPenalty
 from assets_deadlock_api_client.models.stats_usage_flag_v2 import StatsUsageFlagV2 as StatsUsageFlagV2
+from assets_deadlock_api_client.models.street_brawl import StreetBrawl as StreetBrawl
 from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier as SubclassBulletResistModifier
 from assets_deadlock_api_client.models.subclass_empowered_modifier_level import SubclassEmpoweredModifierLevel as SubclassEmpoweredModifierLevel
 from assets_deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers as SubclassIntrinsicModifiers

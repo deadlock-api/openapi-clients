@@ -797,6 +797,33 @@ paths:
                 $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Get Generic Data
+  /v2/loot-tables:
+    get:
+      operationId: get_loot_tables_v2_loot_tables_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          allOf:
+          - $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
+          nullable: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LootTablesV2"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Loot Tables
   /v1/map:
     get:
       operationId: get_map_v1_map_get
@@ -1699,6 +1726,99 @@ components:
           trooper_health_mult:
           - 0.2025324113236393
           - 0.2025324113236393
+        street_brawl:
+          objective_max_health:
+          - 8
+          - 8
+          overtime_trooper_damage_scale:
+          - 8.251625748923757
+          - 8.251625748923757
+          pre_buy_time:
+          - 3.901545264248647
+          - 3.901545264248647
+          outline_color_enemy:
+          - 3
+          - 3
+          tier2_max_resist_time: 0.4182561061793122
+          tier2_bonus_health: 6
+          outline_color_neutral:
+          - 5
+          - 5
+          overtime_trooper_health_scale:
+          - 6.073898085781152
+          - 6.073898085781152
+          overtime_respawn_time_increase:
+          - 5.507386964179881
+          - 5.507386964179881
+          item_draft_rerolls_per_round:
+          - 9
+          - 9
+          trooper_spawn_before_round_start_timer: 1.8268702177058116
+          outline_color_friend:
+          - 7
+          - 7
+          comeback_bonus_health: 4
+          ultimate_unlock_round: 5
+          item_draft_rounds_per_game_round:
+          - chance_enhanced:
+              outcomes_to_weights:
+                key: 5.312489704336296
+            item_draft_rounds:
+            - chance_enhanced: null
+              chance_rare: 8
+            - chance_enhanced: null
+              chance_rare: 8
+            chance_rare:
+              outcomes_to_weights:
+                key: 5.312489704336296
+          - chance_enhanced:
+              outcomes_to_weights:
+                key: 5.312489704336296
+            item_draft_rounds:
+            - chance_enhanced: null
+              chance_rare: 8
+            - chance_enhanced: null
+              chance_rare: 8
+            chance_rare:
+              outcomes_to_weights:
+                key: 5.312489704336296
+          lane_number: 1
+          trooper_spawn_timer:
+          - 9.254183946267839
+          - 9.254183946267839
+          respawn_times:
+          - 7
+          - 7
+          outline_color_team2:
+          - 9
+          - 9
+          round_length_minutes:
+          - 0
+          - 0
+          outline_color_team1:
+          - 3
+          - 3
+          round_length_minutes_urgent:
+          - 7.933506881737151
+          - 7.933506881737151
+          overtime_respawn_time_increase_urgent:
+          - 4.86315908102884
+          - 4.86315908102884
+          buy_time_grace_period: 9.183123594773994
+          apper_round:
+          - 0
+          - 0
+          buy_time:
+          - 4
+          - 4
+          scoring_time: 2.9409642974827896
+          gold_per_round:
+          - 9
+          - 9
+          score_to_win: 0
+          comeback_bonus_health_critical: 8
+          tier1_max_resist_time: 8.761432466225475
+          zip_boost_cooldown_on_start: 3.502657762086401
         glitch_settings:
           uantize_type: 4.145608029883936
           breakup_strength: 5.025004791520295
@@ -1918,6 +2038,8 @@ components:
             $ref: "#/components/schemas/ItemGroup"
           title: Spirit Groups
           type: array
+        street_brawl:
+          $ref: "#/components/schemas/StreetBrawl"
       required:
       - aim_spring_strength
       - armor_groups
@@ -1936,6 +2058,7 @@ components:
       - objective_params
       - rejuv_params
       - spirit_groups
+      - street_brawl
       - targeting_spring_strength
       - trooper_kill_gold_share_frac
       - weapon_groups
@@ -2774,6 +2897,47 @@ components:
           nullable: true
           type: array
       title: IntrinsicModifiers
+    ItemDraftRound:
+      example:
+        chance_enhanced: null
+        chance_rare: 8
+      properties:
+        chance_rare:
+          $ref: "#/components/schemas/ItemTierV2"
+        chance_enhanced:
+          $ref: "#/components/schemas/ItemTierV2"
+      required:
+      - chance_enhanced
+      - chance_rare
+      title: ItemDraftRound
+    ItemDraftRoundPerGameRound:
+      example:
+        chance_enhanced:
+          outcomes_to_weights:
+            key: 5.312489704336296
+        item_draft_rounds:
+        - chance_enhanced: null
+          chance_rare: 8
+        - chance_enhanced: null
+          chance_rare: 8
+        chance_rare:
+          outcomes_to_weights:
+            key: 5.312489704336296
+      properties:
+        chance_rare:
+          $ref: "#/components/schemas/OutcomeToWeights"
+        chance_enhanced:
+          $ref: "#/components/schemas/OutcomeToWeights"
+        item_draft_rounds:
+          items:
+            $ref: "#/components/schemas/ItemDraftRound"
+          title: Item Draft Rounds
+          type: array
+      required:
+      - chance_enhanced
+      - chance_rare
+      - item_draft_rounds
+      title: ItemDraftRoundPerGameRound
     ItemGroup:
       example:
         shop_group: shop_group
@@ -2956,6 +3120,28 @@ components:
       - vietnamese
       title: Language
       type: string
+    LootTableV2:
+      properties:
+        entries:
+          items:
+            $ref: "#/components/schemas/LootTableV2Entry"
+          title: Entries
+          type: array
+      required:
+      - entries
+      title: LootTableV2
+    LootTableV2Entry:
+      properties:
+        item:
+          title: Item
+          type: string
+      required:
+      - item
+      title: LootTableV2Entry
+    LootTablesV2:
+      additionalProperties:
+        $ref: "#/components/schemas/LootTableV2"
+      title: LootTablesV2
     MapImagesV1:
       properties:
         minimap:
@@ -3845,6 +4031,18 @@ components:
           nullable: true
           type: number
       title: ObjectiveRegen
+    OutcomeToWeights:
+      example:
+        outcomes_to_weights:
+          key: 5.312489704336296
+      properties:
+        outcomes_to_weights:
+          additionalProperties:
+            type: number
+          title: Outcomes To Weights
+      required:
+      - outcomes_to_weights
+      title: OutcomeToWeights
     PickupDefinition:
       example:
         pickup_weight: 7.386281948385884
@@ -4466,6 +4664,266 @@ components:
       - IntrinsicallyProvidedInModifier
       title: StatsUsageFlagV2
       type: string
+    StreetBrawl:
+      example:
+        objective_max_health:
+        - 8
+        - 8
+        overtime_trooper_damage_scale:
+        - 8.251625748923757
+        - 8.251625748923757
+        pre_buy_time:
+        - 3.901545264248647
+        - 3.901545264248647
+        outline_color_enemy:
+        - 3
+        - 3
+        tier2_max_resist_time: 0.4182561061793122
+        tier2_bonus_health: 6
+        outline_color_neutral:
+        - 5
+        - 5
+        overtime_trooper_health_scale:
+        - 6.073898085781152
+        - 6.073898085781152
+        overtime_respawn_time_increase:
+        - 5.507386964179881
+        - 5.507386964179881
+        item_draft_rerolls_per_round:
+        - 9
+        - 9
+        trooper_spawn_before_round_start_timer: 1.8268702177058116
+        outline_color_friend:
+        - 7
+        - 7
+        comeback_bonus_health: 4
+        ultimate_unlock_round: 5
+        item_draft_rounds_per_game_round:
+        - chance_enhanced:
+            outcomes_to_weights:
+              key: 5.312489704336296
+          item_draft_rounds:
+          - chance_enhanced: null
+            chance_rare: 8
+          - chance_enhanced: null
+            chance_rare: 8
+          chance_rare:
+            outcomes_to_weights:
+              key: 5.312489704336296
+        - chance_enhanced:
+            outcomes_to_weights:
+              key: 5.312489704336296
+          item_draft_rounds:
+          - chance_enhanced: null
+            chance_rare: 8
+          - chance_enhanced: null
+            chance_rare: 8
+          chance_rare:
+            outcomes_to_weights:
+              key: 5.312489704336296
+        lane_number: 1
+        trooper_spawn_timer:
+        - 9.254183946267839
+        - 9.254183946267839
+        respawn_times:
+        - 7
+        - 7
+        outline_color_team2:
+        - 9
+        - 9
+        round_length_minutes:
+        - 0
+        - 0
+        outline_color_team1:
+        - 3
+        - 3
+        round_length_minutes_urgent:
+        - 7.933506881737151
+        - 7.933506881737151
+        overtime_respawn_time_increase_urgent:
+        - 4.86315908102884
+        - 4.86315908102884
+        buy_time_grace_period: 9.183123594773994
+        apper_round:
+        - 0
+        - 0
+        buy_time:
+        - 4
+        - 4
+        scoring_time: 2.9409642974827896
+        gold_per_round:
+        - 9
+        - 9
+        score_to_win: 0
+        comeback_bonus_health_critical: 8
+        tier1_max_resist_time: 8.761432466225475
+        zip_boost_cooldown_on_start: 3.502657762086401
+      properties:
+        respawn_times:
+          items:
+            type: integer
+          title: Respawn Times
+          type: array
+        gold_per_round:
+          items:
+            type: integer
+          title: Gold Per Round
+          type: array
+        apper_round:
+          items:
+            type: integer
+          title: Apper Round
+          type: array
+        item_draft_rerolls_per_round:
+          items:
+            type: integer
+          title: Item Draft Rerolls Per Round
+          type: array
+        round_length_minutes:
+          items:
+            type: integer
+          title: Round Length Minutes
+          type: array
+        round_length_minutes_urgent:
+          items:
+            type: number
+          title: Round Length Minutes Urgent
+          type: array
+        overtime_respawn_time_increase:
+          items:
+            type: number
+          title: Overtime Respawn Time Increase
+          type: array
+        overtime_respawn_time_increase_urgent:
+          items:
+            type: number
+          title: Overtime Respawn Time Increase Urgent
+          type: array
+        overtime_trooper_health_scale:
+          items:
+            type: number
+          title: Overtime Trooper Health Scale
+          type: array
+        overtime_trooper_damage_scale:
+          items:
+            type: number
+          title: Overtime Trooper Damage Scale
+          type: array
+        buy_time:
+          items:
+            type: integer
+          title: Buy Time
+          type: array
+        pre_buy_time:
+          items:
+            type: number
+          title: Pre Buy Time
+          type: array
+        score_to_win:
+          title: Score To Win
+          type: integer
+        scoring_time:
+          title: Scoring Time
+          type: number
+        lane_number:
+          title: Lane Number
+          type: integer
+        objective_max_health:
+          items:
+            type: integer
+          title: Objective Max Health
+          type: array
+        tier2_bonus_health:
+          title: Tier2 Bonus Health
+          type: integer
+        comeback_bonus_health:
+          title: Comeback Bonus Health
+          type: integer
+        comeback_bonus_health_critical:
+          title: Comeback Bonus Health Critical
+          type: integer
+        trooper_spawn_timer:
+          items:
+            type: number
+          title: Trooper Spawn Timer
+          type: array
+        trooper_spawn_before_round_start_timer:
+          title: Trooper Spawn Before Round Start Timer
+          type: number
+        zip_boost_cooldown_on_start:
+          title: Zip Boost Cooldown On Start
+          type: number
+        buy_time_grace_period:
+          title: Buy Time Grace Period
+          type: number
+        tier1_max_resist_time:
+          title: Tier1 Max Resist Time
+          type: number
+        tier2_max_resist_time:
+          title: Tier2 Max Resist Time
+          type: number
+        ultimate_unlock_round:
+          title: Ultimate Unlock Round
+          type: integer
+        item_draft_rounds_per_game_round:
+          items:
+            $ref: "#/components/schemas/ItemDraftRoundPerGameRound"
+          title: Item Draft Rounds Per Game Round
+          type: array
+        outline_color_friend:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        outline_color_enemy:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        outline_color_team1:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        outline_color_team2:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        outline_color_neutral:
+          items:
+            type: integer
+          nullable: true
+          type: array
+      required:
+      - apper_round
+      - buy_time
+      - buy_time_grace_period
+      - comeback_bonus_health
+      - comeback_bonus_health_critical
+      - gold_per_round
+      - item_draft_rerolls_per_round
+      - item_draft_rounds_per_game_round
+      - lane_number
+      - objective_max_health
+      - overtime_respawn_time_increase
+      - overtime_respawn_time_increase_urgent
+      - overtime_trooper_damage_scale
+      - overtime_trooper_health_scale
+      - pre_buy_time
+      - respawn_times
+      - round_length_minutes
+      - round_length_minutes_urgent
+      - score_to_win
+      - scoring_time
+      - tier1_max_resist_time
+      - tier2_bonus_health
+      - tier2_max_resist_time
+      - trooper_spawn_before_round_start_timer
+      - trooper_spawn_timer
+      - ultimate_unlock_round
+      - zip_boost_cooldown_on_start
+      title: StreetBrawl
     SubclassBulletResistModifier:
       properties:
         subclass:

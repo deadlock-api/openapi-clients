@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **weapon_groups** | [**Array&lt;ItemGroup&gt;**](ItemGroup.md) |  | [default to undefined]
 **armor_groups** | [**Array&lt;ItemGroup&gt;**](ItemGroup.md) |  | [default to undefined]
 **spirit_groups** | [**Array&lt;ItemGroup&gt;**](ItemGroup.md) |  | [default to undefined]
+**street_brawl** | [**StreetBrawl**](StreetBrawl.md) |  | [default to undefined]
 
 ## Example
 
@@ -52,6 +53,7 @@ const instance: GenericDataV2 = {
     weapon_groups,
     armor_groups,
     spirit_groups,
+    street_brawl,
 };
 ```
 

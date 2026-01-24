@@ -55,6 +55,8 @@ assets_deadlock_api_client/models/hero_type_v2.py
 assets_deadlock_api_client/models/hero_v2.py
 assets_deadlock_api_client/models/http_validation_error.py
 assets_deadlock_api_client/models/intrinsic_modifiers.py
+assets_deadlock_api_client/models/item_draft_round.py
+assets_deadlock_api_client/models/item_draft_round_per_game_round.py
 assets_deadlock_api_client/models/item_group.py
 assets_deadlock_api_client/models/item_property_v2.py
 assets_deadlock_api_client/models/item_slot_type_v2.py
@@ -63,6 +65,8 @@ assets_deadlock_api_client/models/item_type_v2.py
 assets_deadlock_api_client/models/lane_info_v2.py
 assets_deadlock_api_client/models/language.py
 assets_deadlock_api_client/models/location_inner.py
+assets_deadlock_api_client/models/loot_table_v2.py
+assets_deadlock_api_client/models/loot_table_v2_entry.py
 assets_deadlock_api_client/models/map_images_v1.py
 assets_deadlock_api_client/models/map_v1.py
 assets_deadlock_api_client/models/mini_map_offsets.py
@@ -76,6 +80,7 @@ assets_deadlock_api_client/models/objective_params.py
 assets_deadlock_api_client/models/objective_position_v1.py
 assets_deadlock_api_client/models/objective_positions_v1.py
 assets_deadlock_api_client/models/objective_regen.py
+assets_deadlock_api_client/models/outcome_to_weights.py
 assets_deadlock_api_client/models/pickup_definition.py
 assets_deadlock_api_client/models/pickup_radius.py
 assets_deadlock_api_client/models/range.py
@@ -108,6 +113,7 @@ assets_deadlock_api_client/models/response_get_items_v2_items_get_inner.py
 assets_deadlock_api_client/models/script_values.py
 assets_deadlock_api_client/models/standing_shot_spread_penalty.py
 assets_deadlock_api_client/models/stats_usage_flag_v2.py
+assets_deadlock_api_client/models/street_brawl.py
 assets_deadlock_api_client/models/subclass_bullet_resist_modifier.py
 assets_deadlock_api_client/models/subclass_empowered_modifier_level.py
 assets_deadlock_api_client/models/subclass_intrinsic_modifiers.py
@@ -174,6 +180,8 @@ docs/HeroTypeV2.md
 docs/HeroV2.md
 docs/HeroesApi.md
 docs/IntrinsicModifiers.md
+docs/ItemDraftRound.md
+docs/ItemDraftRoundPerGameRound.md
 docs/ItemGroup.md
 docs/ItemPropertyV2.md
 docs/ItemSlotTypeV2.md
@@ -183,6 +191,8 @@ docs/ItemsApi.md
 docs/LaneInfoV2.md
 docs/Language.md
 docs/LocationInner.md
+docs/LootTableV2.md
+docs/LootTableV2Entry.md
 docs/MapImagesV1.md
 docs/MapV1.md
 docs/MiniMapOffsets.md
@@ -198,6 +208,7 @@ docs/ObjectiveParams.md
 docs/ObjectivePositionV1.md
 docs/ObjectivePositionsV1.md
 docs/ObjectiveRegen.md
+docs/OutcomeToWeights.md
 docs/PickupDefinition.md
 docs/PickupRadius.md
 docs/Range.md
@@ -231,6 +242,7 @@ docs/ResponseGetItemsV2ItemsGetInner.md
 docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
+docs/StreetBrawl.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassEmpoweredModifierLevel.md
 docs/SubclassIntrinsicModifiers.md
@@ -302,6 +314,8 @@ test/test_hero_v2.py
 test/test_heroes_api.py
 test/test_http_validation_error.py
 test/test_intrinsic_modifiers.py
+test/test_item_draft_round.py
+test/test_item_draft_round_per_game_round.py
 test/test_item_group.py
 test/test_item_property_v2.py
 test/test_item_slot_type_v2.py
@@ -311,6 +325,8 @@ test/test_items_api.py
 test/test_lane_info_v2.py
 test/test_language.py
 test/test_location_inner.py
+test/test_loot_table_v2.py
+test/test_loot_table_v2_entry.py
 test/test_map_images_v1.py
 test/test_map_v1.py
 test/test_mini_map_offsets.py
@@ -326,6 +342,7 @@ test/test_objective_params.py
 test/test_objective_position_v1.py
 test/test_objective_positions_v1.py
 test/test_objective_regen.py
+test/test_outcome_to_weights.py
 test/test_pickup_definition.py
 test/test_pickup_radius.py
 test/test_range.py
@@ -359,6 +376,7 @@ test/test_response_get_items_v2_items_get_inner.py
 test/test_script_values.py
 test/test_standing_shot_spread_penalty.py
 test/test_stats_usage_flag_v2.py
+test/test_street_brawl.py
 test/test_subclass_bullet_resist_modifier.py
 test/test_subclass_empowered_modifier_level.py
 test/test_subclass_intrinsic_modifiers.py

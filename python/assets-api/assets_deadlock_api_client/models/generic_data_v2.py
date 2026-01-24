@@ -28,6 +28,7 @@ from assets_deadlock_api_client.models.mini_map_offsets import MiniMapOffsets
 from assets_deadlock_api_client.models.new_player_metrics_v2 import NewPlayerMetricsV2
 from assets_deadlock_api_client.models.objective_params import ObjectiveParams
 from assets_deadlock_api_client.models.rejuv_params import RejuvParams
+from assets_deadlock_api_client.models.street_brawl import StreetBrawl
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -55,7 +56,8 @@ class GenericDataV2(BaseModel):
     weapon_groups: List[ItemGroup]
     armor_groups: List[ItemGroup]
     spirit_groups: List[ItemGroup]
-    __properties: ClassVar[List[str]] = ["damage_flash", "glitch_settings", "lane_info", "new_player_metrics", "minimap_team_rebels_color", "minimap_team_combine_color", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "item_price_per_tier", "trooper_kill_gold_share_frac", "hero_kill_gold_share_frac", "aim_spring_strength", "targeting_spring_strength", "objective_params", "rejuv_params", "mini_map_offsets", "weapon_groups", "armor_groups", "spirit_groups"]
+    street_brawl: StreetBrawl
+    __properties: ClassVar[List[str]] = ["damage_flash", "glitch_settings", "lane_info", "new_player_metrics", "minimap_team_rebels_color", "minimap_team_combine_color", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "item_price_per_tier", "trooper_kill_gold_share_frac", "hero_kill_gold_share_frac", "aim_spring_strength", "targeting_spring_strength", "objective_params", "rejuv_params", "mini_map_offsets", "weapon_groups", "armor_groups", "spirit_groups", "street_brawl"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -165,6 +167,9 @@ class GenericDataV2(BaseModel):
                 if _item_spirit_groups:
                     _items.append(_item_spirit_groups.to_dict())
             _dict['spirit_groups'] = _items
+        # override the default output from pydantic by calling `to_dict()` of street_brawl
+        if self.street_brawl:
+            _dict['street_brawl'] = self.street_brawl.to_dict()
         return _dict
 
     @classmethod
@@ -196,7 +201,8 @@ class GenericDataV2(BaseModel):
             "mini_map_offsets": [MiniMapOffsets.from_dict(_item) for _item in obj["mini_map_offsets"]] if obj.get("mini_map_offsets") is not None else None,
             "weapon_groups": [ItemGroup.from_dict(_item) for _item in obj["weapon_groups"]] if obj.get("weapon_groups") is not None else None,
             "armor_groups": [ItemGroup.from_dict(_item) for _item in obj["armor_groups"]] if obj.get("armor_groups") is not None else None,
-            "spirit_groups": [ItemGroup.from_dict(_item) for _item in obj["spirit_groups"]] if obj.get("spirit_groups") is not None else None
+            "spirit_groups": [ItemGroup.from_dict(_item) for _item in obj["spirit_groups"]] if obj.get("spirit_groups") is not None else None,
+            "street_brawl": StreetBrawl.from_dict(obj["street_brawl"]) if obj.get("street_brawl") is not None else None
         })
         return _obj
 

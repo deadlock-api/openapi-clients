@@ -10,6 +10,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 | [**getGenericDataV2GenericDataGet**](DefaultApi.md#getGenericDataV2GenericDataGet) | **GET** /v2/generic-data | Get Generic Data |
 | [**getIconsV1IconsGet**](DefaultApi.md#getIconsV1IconsGet) | **GET** /v1/icons | Get Icons |
 | [**getImagesV1ImagesGet**](DefaultApi.md#getImagesV1ImagesGet) | **GET** /v1/images | Get Images |
+| [**getLootTablesV2LootTablesGet**](DefaultApi.md#getLootTablesV2LootTablesGet) | **GET** /v2/loot-tables | Get Loot Tables |
 | [**getMapV1MapGet**](DefaultApi.md#getMapV1MapGet) | **GET** /v1/map | Get Map |
 | [**getRanksV2RanksGet**](DefaultApi.md#getRanksV2RanksGet) | **GET** /v2/ranks | Get Ranks |
 | [**getSoundsV1SoundsGet**](DefaultApi.md#getSoundsV1SoundsGet) | **GET** /v1/sounds | Get Sounds |
@@ -269,6 +270,50 @@ try {
 ### Return type
 
 **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getLootTablesV2LootTablesGet"></a>
+# **getLootTablesV2LootTablesGet**
+> kotlin.collections.Map&lt;kotlin.String, LootTableV2&gt; getLootTablesV2LootTablesGet(clientVersion)
+
+Get Loot Tables
+
+### Example
+```kotlin
+// Import classes:
+//import assets_deadlock_api_client.infrastructure.*
+//import assets_deadlock_api_client.models.*
+
+val apiInstance = DefaultApi()
+val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
+try {
+    val result : kotlin.collections.Map<kotlin.String, LootTableV2> = apiInstance.getLootTablesV2LootTablesGet(clientVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DefaultApi#getLootTablesV2LootTablesGet")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DefaultApi#getLootTablesV2LootTablesGet")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+
+### Return type
+
+[**kotlin.collections.Map&lt;kotlin.String, LootTableV2&gt;**](LootTableV2.md)
 
 ### Authorization
 

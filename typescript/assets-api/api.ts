@@ -255,6 +255,7 @@ export interface GenericDataV2 {
     'weapon_groups': Array<ItemGroup>;
     'armor_groups': Array<ItemGroup>;
     'spirit_groups': Array<ItemGroup>;
+    'street_brawl': StreetBrawl;
 }
 export interface GlitchSettingsV2 {
     'strength': number;
@@ -426,6 +427,17 @@ export interface HeroV2 {
 export interface IntrinsicModifiers {
     'script_values'?: Array<ScriptValues> | null;
 }
+export interface ItemDraftRound {
+    'chance_rare': ItemTierV2;
+    'chance_enhanced': ItemTierV2;
+}
+
+
+export interface ItemDraftRoundPerGameRound {
+    'chance_rare': OutcomeToWeights;
+    'chance_enhanced': OutcomeToWeights;
+    'item_draft_rounds': Array<ItemDraftRound>;
+}
 export interface ItemGroup {
     'shop_group': string;
     'upgrades': Array<string>;
@@ -527,6 +539,12 @@ export type Language = typeof Language[keyof typeof Language];
 
 
 export interface LocationInner {
+}
+export interface LootTableV2 {
+    'entries': Array<LootTableV2Entry>;
+}
+export interface LootTableV2Entry {
+    'item': string;
 }
 export interface MapImagesV1 {
     /**
@@ -764,6 +782,9 @@ export interface ObjectiveRegen {
     'out_of_combat_health_regen'?: number | null;
     'out_of_combat_regen_delay'?: number | null;
 }
+export interface OutcomeToWeights {
+    'outcomes_to_weights': { [key: string]: number; };
+}
 export interface PickupDefinition {
     'pickup_name'?: string | null;
     'pickup_weight'?: number | null;
@@ -965,6 +986,40 @@ export const StatsUsageFlagV2 = {
 export type StatsUsageFlagV2 = typeof StatsUsageFlagV2[keyof typeof StatsUsageFlagV2];
 
 
+export interface StreetBrawl {
+    'respawn_times': Array<number>;
+    'gold_per_round': Array<number>;
+    'apper_round': Array<number>;
+    'item_draft_rerolls_per_round': Array<number>;
+    'round_length_minutes': Array<number>;
+    'round_length_minutes_urgent': Array<number>;
+    'overtime_respawn_time_increase': Array<number>;
+    'overtime_respawn_time_increase_urgent': Array<number>;
+    'overtime_trooper_health_scale': Array<number>;
+    'overtime_trooper_damage_scale': Array<number>;
+    'buy_time': Array<number>;
+    'pre_buy_time': Array<number>;
+    'score_to_win': number;
+    'scoring_time': number;
+    'lane_number': number;
+    'objective_max_health': Array<number>;
+    'tier2_bonus_health': number;
+    'comeback_bonus_health': number;
+    'comeback_bonus_health_critical': number;
+    'trooper_spawn_timer': Array<number>;
+    'trooper_spawn_before_round_start_timer': number;
+    'zip_boost_cooldown_on_start': number;
+    'buy_time_grace_period': number;
+    'tier1_max_resist_time': number;
+    'tier2_max_resist_time': number;
+    'ultimate_unlock_round': number;
+    'item_draft_rounds_per_game_round': Array<ItemDraftRoundPerGameRound>;
+    'outline_color_friend'?: Array<number> | null;
+    'outline_color_enemy'?: Array<number> | null;
+    'outline_color_team1'?: Array<number> | null;
+    'outline_color_team2'?: Array<number> | null;
+    'outline_color_neutral'?: Array<number> | null;
+}
 export interface SubclassBulletResistModifier {
     'subclass'?: BulletResistModifier;
 }
@@ -1767,6 +1822,41 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @summary Get Loot Tables
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLootTablesV2LootTablesGet: async (clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v2/loot-tables`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Get Map
          * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -1999,6 +2089,19 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Get Loot Tables
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getLootTablesV2LootTablesGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: LootTableV2; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLootTablesV2LootTablesGet(clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getLootTablesV2LootTablesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Get Map
          * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -2120,6 +2223,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
+         * @summary Get Loot Tables
+         * @param {DefaultApiGetLootTablesV2LootTablesGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLootTablesV2LootTablesGet(requestParameters: DefaultApiGetLootTablesV2LootTablesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: LootTableV2; }> {
+            return localVarFp.getLootTablesV2LootTablesGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Get Map
          * @param {DefaultApiGetMapV1MapGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -2195,6 +2308,13 @@ export interface DefaultApiGetIconsV1IconsGetRequest {
  * Request parameters for getImagesV1ImagesGet operation in DefaultApi.
  */
 export interface DefaultApiGetImagesV1ImagesGetRequest {
+    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
+}
+
+/**
+ * Request parameters for getLootTablesV2LootTablesGet operation in DefaultApi.
+ */
+export interface DefaultApiGetLootTablesV2LootTablesGetRequest {
     readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
 }
 
@@ -2295,6 +2415,17 @@ export class DefaultApi extends BaseAPI {
      */
     public getImagesV1ImagesGet(requestParameters: DefaultApiGetImagesV1ImagesGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getImagesV1ImagesGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Loot Tables
+     * @param {DefaultApiGetLootTablesV2LootTablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getLootTablesV2LootTablesGet(requestParameters: DefaultApiGetLootTablesV2LootTablesGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getLootTablesV2LootTablesGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

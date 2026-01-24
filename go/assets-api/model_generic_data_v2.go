@@ -41,6 +41,7 @@ type GenericDataV2 struct {
 	WeaponGroups []ItemGroup `json:"weapon_groups"`
 	ArmorGroups []ItemGroup `json:"armor_groups"`
 	SpiritGroups []ItemGroup `json:"spirit_groups"`
+	StreetBrawl StreetBrawl `json:"street_brawl"`
 }
 
 type _GenericDataV2 GenericDataV2
@@ -49,7 +50,7 @@ type _GenericDataV2 GenericDataV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, minimapTeamRebelsColor ColorV1, minimapTeamCombineColor ColorV1, enemyObjectivesAndZiplineColor ColorV1, enemyObjectivesColor ColorV1, enemyZiplineColor ColorV1, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup) *GenericDataV2 {
+func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, minimapTeamRebelsColor ColorV1, minimapTeamCombineColor ColorV1, enemyObjectivesAndZiplineColor ColorV1, enemyObjectivesColor ColorV1, enemyZiplineColor ColorV1, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup, streetBrawl StreetBrawl) *GenericDataV2 {
 	this := GenericDataV2{}
 	this.DamageFlash = damageFlash
 	this.GlitchSettings = glitchSettings
@@ -71,6 +72,7 @@ func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2
 	this.WeaponGroups = weaponGroups
 	this.ArmorGroups = armorGroups
 	this.SpiritGroups = spiritGroups
+	this.StreetBrawl = streetBrawl
 	return &this
 }
 
@@ -562,6 +564,30 @@ func (o *GenericDataV2) SetSpiritGroups(v []ItemGroup) {
 	o.SpiritGroups = v
 }
 
+// GetStreetBrawl returns the StreetBrawl field value
+func (o *GenericDataV2) GetStreetBrawl() StreetBrawl {
+	if o == nil {
+		var ret StreetBrawl
+		return ret
+	}
+
+	return o.StreetBrawl
+}
+
+// GetStreetBrawlOk returns a tuple with the StreetBrawl field value
+// and a boolean to check if the value has been set.
+func (o *GenericDataV2) GetStreetBrawlOk() (*StreetBrawl, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StreetBrawl, true
+}
+
+// SetStreetBrawl sets field value
+func (o *GenericDataV2) SetStreetBrawl(v StreetBrawl) {
+	o.StreetBrawl = v
+}
+
 func (o GenericDataV2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -592,6 +618,7 @@ func (o GenericDataV2) ToMap() (map[string]interface{}, error) {
 	toSerialize["weapon_groups"] = o.WeaponGroups
 	toSerialize["armor_groups"] = o.ArmorGroups
 	toSerialize["spirit_groups"] = o.SpiritGroups
+	toSerialize["street_brawl"] = o.StreetBrawl
 	return toSerialize, nil
 }
 
@@ -620,6 +647,7 @@ func (o *GenericDataV2) UnmarshalJSON(data []byte) (err error) {
 		"weapon_groups",
 		"armor_groups",
 		"spirit_groups",
+		"street_brawl",
 	}
 
 	allProperties := make(map[string]interface{})

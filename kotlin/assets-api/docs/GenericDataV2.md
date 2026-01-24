@@ -24,6 +24,7 @@
 | **weaponGroups** | [**kotlin.collections.List&lt;ItemGroup&gt;**](ItemGroup.md) |  |  |
 | **armorGroups** | [**kotlin.collections.List&lt;ItemGroup&gt;**](ItemGroup.md) |  |  |
 | **spiritGroups** | [**kotlin.collections.List&lt;ItemGroup&gt;**](ItemGroup.md) |  |  |
+| **streetBrawl** | [**StreetBrawl**](StreetBrawl.md) |  |  |
 
 
 

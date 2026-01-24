@@ -28,6 +28,7 @@ import assets_deadlock_api_client.models.MiniMapOffsets
 import assets_deadlock_api_client.models.NewPlayerMetricsV2
 import assets_deadlock_api_client.models.ObjectiveParams
 import assets_deadlock_api_client.models.RejuvParams
+import assets_deadlock_api_client.models.StreetBrawl
 
 class GenericDataV2Test : ShouldSpec() {
     init {
@@ -152,6 +153,12 @@ class GenericDataV2Test : ShouldSpec() {
         should("test spiritGroups") {
             // uncomment below to test the property
             //modelInstance.spiritGroups shouldBe ("TODO")
+        }
+
+        // to test the property `streetBrawl`
+        should("test streetBrawl") {
+            // uncomment below to test the property
+            //modelInstance.streetBrawl shouldBe ("TODO")
         }
 
     }

@@ -76,7 +76,8 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'mini_map_offsets' => '\OpenAPI\Client\Model\MiniMapOffsets[]',
         'weapon_groups' => '\OpenAPI\Client\Model\ItemGroup[]',
         'armor_groups' => '\OpenAPI\Client\Model\ItemGroup[]',
-        'spirit_groups' => '\OpenAPI\Client\Model\ItemGroup[]'
+        'spirit_groups' => '\OpenAPI\Client\Model\ItemGroup[]',
+        'street_brawl' => '\OpenAPI\Client\Model\StreetBrawl'
     ];
 
     /**
@@ -106,7 +107,8 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'mini_map_offsets' => null,
         'weapon_groups' => null,
         'armor_groups' => null,
-        'spirit_groups' => null
+        'spirit_groups' => null,
+        'street_brawl' => null
     ];
 
     /**
@@ -134,7 +136,8 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'mini_map_offsets' => false,
         'weapon_groups' => false,
         'armor_groups' => false,
-        'spirit_groups' => false
+        'spirit_groups' => false,
+        'street_brawl' => false
     ];
 
     /**
@@ -242,7 +245,8 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'mini_map_offsets' => 'mini_map_offsets',
         'weapon_groups' => 'weapon_groups',
         'armor_groups' => 'armor_groups',
-        'spirit_groups' => 'spirit_groups'
+        'spirit_groups' => 'spirit_groups',
+        'street_brawl' => 'street_brawl'
     ];
 
     /**
@@ -270,7 +274,8 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'mini_map_offsets' => 'setMiniMapOffsets',
         'weapon_groups' => 'setWeaponGroups',
         'armor_groups' => 'setArmorGroups',
-        'spirit_groups' => 'setSpiritGroups'
+        'spirit_groups' => 'setSpiritGroups',
+        'street_brawl' => 'setStreetBrawl'
     ];
 
     /**
@@ -298,7 +303,8 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'mini_map_offsets' => 'getMiniMapOffsets',
         'weapon_groups' => 'getWeaponGroups',
         'armor_groups' => 'getArmorGroups',
-        'spirit_groups' => 'getSpiritGroups'
+        'spirit_groups' => 'getSpiritGroups',
+        'street_brawl' => 'getStreetBrawl'
     ];
 
     /**
@@ -378,6 +384,7 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('weapon_groups', $data ?? [], null);
         $this->setIfExists('armor_groups', $data ?? [], null);
         $this->setIfExists('spirit_groups', $data ?? [], null);
+        $this->setIfExists('street_brawl', $data ?? [], null);
     }
 
     /**
@@ -466,6 +473,9 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['spirit_groups'] === null) {
             $invalidProperties[] = "'spirit_groups' can't be null";
+        }
+        if ($this->container['street_brawl'] === null) {
+            $invalidProperties[] = "'street_brawl' can't be null";
         }
         return $invalidProperties;
     }
@@ -1018,6 +1028,33 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable spirit_groups cannot be null');
         }
         $this->container['spirit_groups'] = $spirit_groups;
+
+        return $this;
+    }
+
+    /**
+     * Gets street_brawl
+     *
+     * @return \OpenAPI\Client\Model\StreetBrawl
+     */
+    public function getStreetBrawl()
+    {
+        return $this->container['street_brawl'];
+    }
+
+    /**
+     * Sets street_brawl
+     *
+     * @param \OpenAPI\Client\Model\StreetBrawl $street_brawl street_brawl
+     *
+     * @return self
+     */
+    public function setStreetBrawl($street_brawl)
+    {
+        if (is_null($street_brawl)) {
+            throw new \InvalidArgumentException('non-nullable street_brawl cannot be null');
+        }
+        $this->container['street_brawl'] = $street_brawl;
 
         return $this;
     }

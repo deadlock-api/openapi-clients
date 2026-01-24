@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **weapon_groups** | [**List[ItemGroup]**](ItemGroup.md) |  | 
 **armor_groups** | [**List[ItemGroup]**](ItemGroup.md) |  | 
 **spirit_groups** | [**List[ItemGroup]**](ItemGroup.md) |  | 
+**street_brawl** | [**StreetBrawl**](StreetBrawl.md) |  | 
 
 ## Example
 

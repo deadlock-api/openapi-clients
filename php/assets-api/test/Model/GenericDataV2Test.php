@@ -258,4 +258,13 @@ class GenericDataV2Test extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "street_brawl"
+     */
+    public function testPropertyStreetBrawl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

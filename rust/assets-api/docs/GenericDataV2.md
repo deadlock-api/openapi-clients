@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **weapon_groups** | [**Vec<models::ItemGroup>**](ItemGroup.md) |  | 
 **armor_groups** | [**Vec<models::ItemGroup>**](ItemGroup.md) |  | 
 **spirit_groups** | [**Vec<models::ItemGroup>**](ItemGroup.md) |  | 
+**street_brawl** | [**models::StreetBrawl**](StreetBrawl.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -43,6 +43,8 @@ docs/HeroV2.md
 docs/HeroesApi.md
 docs/HttpValidationError.md
 docs/IntrinsicModifiers.md
+docs/ItemDraftRound.md
+docs/ItemDraftRoundPerGameRound.md
 docs/ItemGroup.md
 docs/ItemPropertyV2.md
 docs/ItemSlotTypeV2.md
@@ -52,6 +54,8 @@ docs/ItemsApi.md
 docs/LaneInfoV2.md
 docs/Language.md
 docs/LocationInner.md
+docs/LootTableV2.md
+docs/LootTableV2Entry.md
 docs/MapImagesV1.md
 docs/MapV1.md
 docs/MiniMapOffsets.md
@@ -67,6 +71,7 @@ docs/ObjectiveParams.md
 docs/ObjectivePositionV1.md
 docs/ObjectivePositionsV1.md
 docs/ObjectiveRegen.md
+docs/OutcomeToWeights.md
 docs/PickupDefinition.md
 docs/PickupRadius.md
 docs/Range.md
@@ -100,6 +105,7 @@ docs/ResponseGetItemsV2ItemsGetInner.md
 docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
+docs/StreetBrawl.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassEmpoweredModifierLevel.md
 docs/SubclassIntrinsicModifiers.md
@@ -172,6 +178,8 @@ src/models/hero_type_v2.rs
 src/models/hero_v2.rs
 src/models/http_validation_error.rs
 src/models/intrinsic_modifiers.rs
+src/models/item_draft_round.rs
+src/models/item_draft_round_per_game_round.rs
 src/models/item_group.rs
 src/models/item_property_v2.rs
 src/models/item_slot_type_v2.rs
@@ -180,6 +188,8 @@ src/models/item_type_v2.rs
 src/models/lane_info_v2.rs
 src/models/language.rs
 src/models/location_inner.rs
+src/models/loot_table_v2.rs
+src/models/loot_table_v2_entry.rs
 src/models/map_images_v1.rs
 src/models/map_v1.rs
 src/models/mini_map_offsets.rs
@@ -194,6 +204,7 @@ src/models/objective_params.rs
 src/models/objective_position_v1.rs
 src/models/objective_positions_v1.rs
 src/models/objective_regen.rs
+src/models/outcome_to_weights.rs
 src/models/pickup_definition.rs
 src/models/pickup_radius.rs
 src/models/range.rs
@@ -226,6 +237,7 @@ src/models/response_get_items_v2_items_get_inner.rs
 src/models/script_values.rs
 src/models/standing_shot_spread_penalty.rs
 src/models/stats_usage_flag_v2.rs
+src/models/street_brawl.rs
 src/models/subclass_bullet_resist_modifier.rs
 src/models/subclass_empowered_modifier_level.rs
 src/models/subclass_intrinsic_modifiers.rs

@@ -25,6 +25,7 @@ import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesValidClientVersi
 import assets_deadlock_api_client.models.GenericDataV2
 import assets_deadlock_api_client.models.HTTPValidationError
 import assets_deadlock_api_client.models.Language
+import assets_deadlock_api_client.models.LootTableV2
 import assets_deadlock_api_client.models.MapV1
 import assets_deadlock_api_client.models.RankV2
 
@@ -78,6 +79,14 @@ class DefaultApiTest : ShouldSpec() {
             // uncomment below to test getImagesV1ImagesGet
             //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
             //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getImagesV1ImagesGet(clientVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getLootTablesV2LootTablesGet
+        should("test getLootTablesV2LootTablesGet") {
+            // uncomment below to test getLootTablesV2LootTablesGet
+            //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
+            //val result : kotlin.collections.Map<kotlin.String, LootTableV2> = apiInstance.getLootTablesV2LootTablesGet(clientVersion)
             //result shouldBe ("TODO")
         }
 
