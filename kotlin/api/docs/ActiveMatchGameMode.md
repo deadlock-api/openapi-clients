@@ -12,5 +12,7 @@
 
     * `KECitadelGameModeSandbox` (value: `"KECitadelGameModeSandbox"`)
 
+    * `KECitadelGameModeStreetBrawl` (value: `"KECitadelGameModeStreetBrawl"`)
+
 
 

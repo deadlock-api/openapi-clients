@@ -22,7 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: KECitadelGameModeInvalid,KECitadelGameModeNormal,KECitadelGameMode1v1Test,KECitadelGameModeSandbox
+ * Values: KECitadelGameModeInvalid,KECitadelGameModeNormal,KECitadelGameMode1v1Test,KECitadelGameModeSandbox,KECitadelGameModeStreetBrawl
  */
 
 @JsonClass(generateAdapter = false)
@@ -38,7 +38,10 @@ enum class ActiveMatchGameMode(val value: kotlin.String) {
     KECitadelGameMode1v1Test("KECitadelGameMode1v1Test"),
 
     @Json(name = "KECitadelGameModeSandbox")
-    KECitadelGameModeSandbox("KECitadelGameModeSandbox");
+    KECitadelGameModeSandbox("KECitadelGameModeSandbox"),
+
+    @Json(name = "KECitadelGameModeStreetBrawl")
+    KECitadelGameModeStreetBrawl("KECitadelGameModeStreetBrawl");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

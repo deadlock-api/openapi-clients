@@ -41,7 +41,7 @@ type GenericDataV2 struct {
 	WeaponGroups []ItemGroup `json:"weapon_groups"`
 	ArmorGroups []ItemGroup `json:"armor_groups"`
 	SpiritGroups []ItemGroup `json:"spirit_groups"`
-	StreetBrawl StreetBrawl `json:"street_brawl"`
+	StreetBrawl NullableStreetBrawl `json:"street_brawl,omitempty"`
 }
 
 type _GenericDataV2 GenericDataV2
@@ -50,7 +50,7 @@ type _GenericDataV2 GenericDataV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, minimapTeamRebelsColor ColorV1, minimapTeamCombineColor ColorV1, enemyObjectivesAndZiplineColor ColorV1, enemyObjectivesColor ColorV1, enemyZiplineColor ColorV1, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup, streetBrawl StreetBrawl) *GenericDataV2 {
+func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, minimapTeamRebelsColor ColorV1, minimapTeamCombineColor ColorV1, enemyObjectivesAndZiplineColor ColorV1, enemyObjectivesColor ColorV1, enemyZiplineColor ColorV1, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup) *GenericDataV2 {
 	this := GenericDataV2{}
 	this.DamageFlash = damageFlash
 	this.GlitchSettings = glitchSettings
@@ -72,7 +72,6 @@ func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2
 	this.WeaponGroups = weaponGroups
 	this.ArmorGroups = armorGroups
 	this.SpiritGroups = spiritGroups
-	this.StreetBrawl = streetBrawl
 	return &this
 }
 
@@ -564,28 +563,46 @@ func (o *GenericDataV2) SetSpiritGroups(v []ItemGroup) {
 	o.SpiritGroups = v
 }
 
-// GetStreetBrawl returns the StreetBrawl field value
+// GetStreetBrawl returns the StreetBrawl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GenericDataV2) GetStreetBrawl() StreetBrawl {
-	if o == nil {
+	if o == nil || IsNil(o.StreetBrawl.Get()) {
 		var ret StreetBrawl
 		return ret
 	}
-
-	return o.StreetBrawl
+	return *o.StreetBrawl.Get()
 }
 
-// GetStreetBrawlOk returns a tuple with the StreetBrawl field value
+// GetStreetBrawlOk returns a tuple with the StreetBrawl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GenericDataV2) GetStreetBrawlOk() (*StreetBrawl, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.StreetBrawl, true
+	return o.StreetBrawl.Get(), o.StreetBrawl.IsSet()
 }
 
-// SetStreetBrawl sets field value
+// HasStreetBrawl returns a boolean if a field has been set.
+func (o *GenericDataV2) HasStreetBrawl() bool {
+	if o != nil && o.StreetBrawl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStreetBrawl gets a reference to the given NullableStreetBrawl and assigns it to the StreetBrawl field.
 func (o *GenericDataV2) SetStreetBrawl(v StreetBrawl) {
-	o.StreetBrawl = v
+	o.StreetBrawl.Set(&v)
+}
+// SetStreetBrawlNil sets the value for StreetBrawl to be an explicit nil
+func (o *GenericDataV2) SetStreetBrawlNil() {
+	o.StreetBrawl.Set(nil)
+}
+
+// UnsetStreetBrawl ensures that no value is present for StreetBrawl, not even an explicit nil
+func (o *GenericDataV2) UnsetStreetBrawl() {
+	o.StreetBrawl.Unset()
 }
 
 func (o GenericDataV2) MarshalJSON() ([]byte, error) {
@@ -618,7 +635,9 @@ func (o GenericDataV2) ToMap() (map[string]interface{}, error) {
 	toSerialize["weapon_groups"] = o.WeaponGroups
 	toSerialize["armor_groups"] = o.ArmorGroups
 	toSerialize["spirit_groups"] = o.SpiritGroups
-	toSerialize["street_brawl"] = o.StreetBrawl
+	if o.StreetBrawl.IsSet() {
+		toSerialize["street_brawl"] = o.StreetBrawl.Get()
+	}
 	return toSerialize, nil
 }
 
@@ -647,7 +666,6 @@ func (o *GenericDataV2) UnmarshalJSON(data []byte) (err error) {
 		"weapon_groups",
 		"armor_groups",
 		"spirit_groups",
-		"street_brawl",
 	}
 
 	allProperties := make(map[string]interface{})

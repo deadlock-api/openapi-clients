@@ -51,10 +51,28 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
+     * enum for parameter gameMode
+     */
+     enum class GameModeEnemyStats(val value: kotlin.String) {
+         @Json(name = "normal") normal("normal"),
+         @Json(name = "street_brawl") street_brawl("street_brawl");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/players/{account_id}/enemy-stats
      * Enemy Stats
      *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountId The players &#x60;SteamID3&#x60;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -72,8 +90,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun enemyStats(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatchesPlayed: kotlin.Long? = null, maxMatchesPlayed: kotlin.Long? = null) : kotlin.collections.List<EnemyStats> {
-        val localVarResponse = enemyStatsWithHttpInfo(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed)
+    fun enemyStats(accountId: kotlin.Int, gameMode: GameModeEnemyStats? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatchesPlayed: kotlin.Long? = null, maxMatchesPlayed: kotlin.Long? = null) : kotlin.collections.List<EnemyStats> {
+        val localVarResponse = enemyStatsWithHttpInfo(accountId = accountId, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<EnemyStats>
@@ -95,6 +113,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Enemy Stats
      *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountId The players &#x60;SteamID3&#x60;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -109,8 +128,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun enemyStatsWithHttpInfo(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?) : ApiResponse<kotlin.collections.List<EnemyStats>?> {
-        val localVariableConfig = enemyStatsRequestConfig(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed)
+    fun enemyStatsWithHttpInfo(accountId: kotlin.Int, gameMode: GameModeEnemyStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?) : ApiResponse<kotlin.collections.List<EnemyStats>?> {
+        val localVariableConfig = enemyStatsRequestConfig(accountId = accountId, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed)
 
         return request<Unit, kotlin.collections.List<EnemyStats>>(
             localVariableConfig
@@ -121,6 +140,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * To obtain the request config of the operation enemyStats
      *
      * @param accountId The players &#x60;SteamID3&#x60;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -131,10 +151,13 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param maxMatchesPlayed Filter based on the number of matches played. (optional)
      * @return RequestConfig
      */
-    fun enemyStatsRequestConfig(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?) : RequestConfig<Unit> {
+    fun enemyStatsRequestConfig(accountId: kotlin.Int, gameMode: GameModeEnemyStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (gameMode != null) {
+                    put("game_mode", listOf(gameMode.value))
+                }
                 if (minUnixTimestamp != null) {
                     put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
                 }
@@ -261,10 +284,28 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
+     * enum for parameter gameMode
+     */
+     enum class GameModeMateStats(val value: kotlin.String) {
+         @Json(name = "normal") normal("normal"),
+         @Json(name = "street_brawl") street_brawl("street_brawl");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/players/{account_id}/mate-stats
      * Mate Stats
      *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountId The players &#x60;SteamID3&#x60;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -283,8 +324,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun mateStats(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatchesPlayed: kotlin.Long? = null, maxMatchesPlayed: kotlin.Long? = null, sameParty: kotlin.Boolean? = true) : kotlin.collections.List<MateStats> {
-        val localVarResponse = mateStatsWithHttpInfo(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed, sameParty = sameParty)
+    fun mateStats(accountId: kotlin.Int, gameMode: GameModeMateStats? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatchesPlayed: kotlin.Long? = null, maxMatchesPlayed: kotlin.Long? = null, sameParty: kotlin.Boolean? = true) : kotlin.collections.List<MateStats> {
+        val localVarResponse = mateStatsWithHttpInfo(accountId = accountId, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed, sameParty = sameParty)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MateStats>
@@ -306,6 +347,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Mate Stats
      *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountId The players &#x60;SteamID3&#x60;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -321,8 +363,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun mateStatsWithHttpInfo(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MateStats>?> {
-        val localVariableConfig = mateStatsRequestConfig(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed, sameParty = sameParty)
+    fun mateStatsWithHttpInfo(accountId: kotlin.Int, gameMode: GameModeMateStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MateStats>?> {
+        val localVariableConfig = mateStatsRequestConfig(accountId = accountId, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed, sameParty = sameParty)
 
         return request<Unit, kotlin.collections.List<MateStats>>(
             localVariableConfig
@@ -333,6 +375,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * To obtain the request config of the operation mateStats
      *
      * @param accountId The players &#x60;SteamID3&#x60;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -344,10 +387,13 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param sameParty Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)
      * @return RequestConfig
      */
-    fun mateStatsRequestConfig(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun mateStatsRequestConfig(accountId: kotlin.Int, gameMode: GameModeMateStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (gameMode != null) {
+                    put("game_mode", listOf(gameMode.value))
+                }
                 if (minUnixTimestamp != null) {
                     put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
                 }
@@ -390,10 +436,28 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
+     * enum for parameter gameMode
+     */
+     enum class GameModePartyStats(val value: kotlin.String) {
+         @Json(name = "normal") normal("normal"),
+         @Json(name = "street_brawl") street_brawl("street_brawl");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/players/{account_id}/party-stats
      * Party Stats
      *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountId The players &#x60;SteamID3&#x60;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -409,8 +473,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun partyStats(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<PartyStats> {
-        val localVarResponse = partyStatsWithHttpInfo(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId)
+    fun partyStats(accountId: kotlin.Int, gameMode: GameModePartyStats? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<PartyStats> {
+        val localVarResponse = partyStatsWithHttpInfo(accountId = accountId, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PartyStats>
@@ -432,6 +496,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Party Stats
      *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountId The players &#x60;SteamID3&#x60;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -444,8 +509,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun partyStatsWithHttpInfo(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<PartyStats>?> {
-        val localVariableConfig = partyStatsRequestConfig(accountId = accountId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId)
+    fun partyStatsWithHttpInfo(accountId: kotlin.Int, gameMode: GameModePartyStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<PartyStats>?> {
+        val localVariableConfig = partyStatsRequestConfig(accountId = accountId, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return request<Unit, kotlin.collections.List<PartyStats>>(
             localVariableConfig
@@ -456,6 +521,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * To obtain the request config of the operation partyStats
      *
      * @param accountId The players &#x60;SteamID3&#x60;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -464,10 +530,13 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig
      */
-    fun partyStatsRequestConfig(accountId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+    fun partyStatsRequestConfig(accountId: kotlin.Int, gameMode: GameModePartyStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (gameMode != null) {
+                    put("game_mode", listOf(gameMode.value))
+                }
                 if (minUnixTimestamp != null) {
                     put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
                 }
@@ -501,10 +570,28 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
+     * enum for parameter gameMode
+     */
+     enum class GameModePlayerHeroStats(val value: kotlin.String) {
+         @Json(name = "normal") normal("normal"),
+         @Json(name = "street_brawl") street_brawl("street_brawl");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/players/hero-stats
      * Hero Stats
      *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -525,8 +612,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun playerHeroStats(accountIds: kotlin.collections.List<kotlin.Int>, heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<HeroStats> {
-        val localVarResponse = playerHeroStatsWithHttpInfo(accountIds = accountIds, heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
+    fun playerHeroStats(accountIds: kotlin.collections.List<kotlin.Int>, gameMode: GameModePlayerHeroStats? = null, heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<HeroStats> {
+        val localVarResponse = playerHeroStatsWithHttpInfo(accountIds = accountIds, gameMode = gameMode, heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<HeroStats>
@@ -548,6 +635,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Hero Stats
      *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -565,8 +653,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun playerHeroStatsWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<HeroStats>?> {
-        val localVariableConfig = playerHeroStatsRequestConfig(accountIds = accountIds, heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
+    fun playerHeroStatsWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, gameMode: GameModePlayerHeroStats?, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<HeroStats>?> {
+        val localVariableConfig = playerHeroStatsRequestConfig(accountIds = accountIds, gameMode = gameMode, heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return request<Unit, kotlin.collections.List<HeroStats>>(
             localVariableConfig
@@ -577,6 +665,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * To obtain the request config of the operation playerHeroStats
      *
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -590,11 +679,14 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig
      */
-    fun playerHeroStatsRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+    fun playerHeroStatsRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, gameMode: GameModePlayerHeroStats?, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+                if (gameMode != null) {
+                    put("game_mode", listOf(gameMode.value))
+                }
                 if (heroIds != null) {
                     put("hero_ids", listOf(heroIds.toString()))
                 }

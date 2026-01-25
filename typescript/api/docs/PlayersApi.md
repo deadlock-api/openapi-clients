@@ -29,6 +29,7 @@ const configuration = new Configuration();
 const apiInstance = new PlayersApi(configuration);
 
 let accountId: number; //The players `SteamID3` (default to undefined)
+let gameMode: 'normal' | 'street_brawl'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included. (optional) (default to undefined)
 let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -40,6 +41,7 @@ let maxMatchesPlayed: number; //Filter based on the number of matches played. (o
 
 const { status, data } = await apiInstance.enemyStats(
     accountId,
+    gameMode,
     minUnixTimestamp,
     maxUnixTimestamp,
     minDurationS,
@@ -56,6 +58,7 @@ const { status, data } = await apiInstance.enemyStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
+| **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. | (optional) defaults to undefined|
 | **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -166,6 +169,7 @@ const configuration = new Configuration();
 const apiInstance = new PlayersApi(configuration);
 
 let accountId: number; //The players `SteamID3` (default to undefined)
+let gameMode: 'normal' | 'street_brawl'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included. (optional) (default to undefined)
 let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -178,6 +182,7 @@ let sameParty: boolean; //Filter based on whether the mates were on the same par
 
 const { status, data } = await apiInstance.mateStats(
     accountId,
+    gameMode,
     minUnixTimestamp,
     maxUnixTimestamp,
     minDurationS,
@@ -195,6 +200,7 @@ const { status, data } = await apiInstance.mateStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
+| **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. | (optional) defaults to undefined|
 | **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -246,6 +252,7 @@ const configuration = new Configuration();
 const apiInstance = new PlayersApi(configuration);
 
 let accountId: number; //The players `SteamID3` (default to undefined)
+let gameMode: 'normal' | 'street_brawl'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included. (optional) (default to undefined)
 let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -255,6 +262,7 @@ let maxMatchId: number; //Filter matches based on their ID. (optional) (default 
 
 const { status, data } = await apiInstance.partyStats(
     accountId,
+    gameMode,
     minUnixTimestamp,
     maxUnixTimestamp,
     minDurationS,
@@ -269,6 +277,7 @@ const { status, data } = await apiInstance.partyStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
+| **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. | (optional) defaults to undefined|
 | **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -317,6 +326,7 @@ const configuration = new Configuration();
 const apiInstance = new PlayersApi(configuration);
 
 let accountIds: Array<number>; //Comma separated list of account ids, Account IDs are in `SteamID3` format. (default to undefined)
+let gameMode: 'normal' | 'street_brawl'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included. (optional) (default to undefined)
 let heroIds: string; //Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
 let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
@@ -331,6 +341,7 @@ let maxMatchId: number; //Filter matches based on their ID. (optional) (default 
 
 const { status, data } = await apiInstance.playerHeroStats(
     accountIds,
+    gameMode,
     heroIds,
     minUnixTimestamp,
     maxUnixTimestamp,
@@ -350,6 +361,7 @@ const { status, data } = await apiInstance.playerHeroStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | defaults to undefined|
+| **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. | (optional) defaults to undefined|
 | **heroIds** | [**string**] | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
 | **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|

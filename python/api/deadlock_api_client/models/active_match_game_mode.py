@@ -30,6 +30,7 @@ class ActiveMatchGameMode(str, Enum):
     KECITADELGAMEMODENORMAL = 'KECitadelGameModeNormal'
     KECITADELGAMEMODE1V1TEST = 'KECitadelGameMode1v1Test'
     KECITADELGAMEMODESANDBOX = 'KECitadelGameModeSandbox'
+    KECITADELGAMEMODESTREETBRAWL = 'KECitadelGameModeStreetBrawl'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -24,6 +24,7 @@ const (
 	ACTIVEMATCHGAMEMODE_KE_CITADEL_GAME_MODE_NORMAL ActiveMatchGameMode = "KECitadelGameModeNormal"
 	ACTIVEMATCHGAMEMODE_KE_CITADEL_GAME_MODE1V1_TEST ActiveMatchGameMode = "KECitadelGameMode1v1Test"
 	ACTIVEMATCHGAMEMODE_KE_CITADEL_GAME_MODE_SANDBOX ActiveMatchGameMode = "KECitadelGameModeSandbox"
+	ACTIVEMATCHGAMEMODE_KE_CITADEL_GAME_MODE_STREET_BRAWL ActiveMatchGameMode = "KECitadelGameModeStreetBrawl"
 )
 
 // All allowed values of ActiveMatchGameMode enum
@@ -32,6 +33,7 @@ var AllowedActiveMatchGameModeEnumValues = []ActiveMatchGameMode{
 	"KECitadelGameModeNormal",
 	"KECitadelGameMode1v1Test",
 	"KECitadelGameModeSandbox",
+	"KECitadelGameModeStreetBrawl",
 }
 
 func (v *ActiveMatchGameMode) UnmarshalJSON(src []byte) error {

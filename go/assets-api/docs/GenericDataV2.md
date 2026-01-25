@@ -24,13 +24,13 @@ Name | Type | Description | Notes
 **WeaponGroups** | [**[]ItemGroup**](ItemGroup.md) |  | 
 **ArmorGroups** | [**[]ItemGroup**](ItemGroup.md) |  | 
 **SpiritGroups** | [**[]ItemGroup**](ItemGroup.md) |  | 
-**StreetBrawl** | [**StreetBrawl**](StreetBrawl.md) |  | 
+**StreetBrawl** | Pointer to [**NullableStreetBrawl**](StreetBrawl.md) |  | [optional] 
 
 ## Methods
 
 ### NewGenericDataV2
 
-`func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, minimapTeamRebelsColor ColorV1, minimapTeamCombineColor ColorV1, enemyObjectivesAndZiplineColor ColorV1, enemyObjectivesColor ColorV1, enemyZiplineColor ColorV1, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup, streetBrawl StreetBrawl, ) *GenericDataV2`
+`func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, minimapTeamRebelsColor ColorV1, minimapTeamCombineColor ColorV1, enemyObjectivesAndZiplineColor ColorV1, enemyObjectivesColor ColorV1, enemyZiplineColor ColorV1, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup, ) *GenericDataV2`
 
 NewGenericDataV2 instantiates a new GenericDataV2 object
 This constructor will assign default values to properties that have it defined,
@@ -464,7 +464,22 @@ and a boolean to check if the value has been set.
 
 SetStreetBrawl sets StreetBrawl field to given value.
 
+### HasStreetBrawl
 
+`func (o *GenericDataV2) HasStreetBrawl() bool`
+
+HasStreetBrawl returns a boolean if a field has been set.
+
+### SetStreetBrawlNil
+
+`func (o *GenericDataV2) SetStreetBrawlNil(b bool)`
+
+ SetStreetBrawlNil sets the value for StreetBrawl to be an explicit nil
+
+### UnsetStreetBrawl
+`func (o *GenericDataV2) UnsetStreetBrawl()`
+
+UnsetStreetBrawl ensures that no value is present for StreetBrawl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

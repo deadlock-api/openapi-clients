@@ -55,6 +55,7 @@ class AnalyticsApi:
     def ability_order_stats(
         self,
         hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -89,6 +90,8 @@ class AnalyticsApi:
 
         :param hero_id: See more: <https://assets.deadlock-api.com/v2/heroes> (required)
         :type hero_id: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -143,6 +146,7 @@ class AnalyticsApi:
 
         _param = self._ability_order_stats_serialize(
             hero_id=hero_id,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -184,6 +188,7 @@ class AnalyticsApi:
     def ability_order_stats_with_http_info(
         self,
         hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -218,6 +223,8 @@ class AnalyticsApi:
 
         :param hero_id: See more: <https://assets.deadlock-api.com/v2/heroes> (required)
         :type hero_id: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -272,6 +279,7 @@ class AnalyticsApi:
 
         _param = self._ability_order_stats_serialize(
             hero_id=hero_id,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -313,6 +321,7 @@ class AnalyticsApi:
     def ability_order_stats_without_preload_content(
         self,
         hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -347,6 +356,8 @@ class AnalyticsApi:
 
         :param hero_id: See more: <https://assets.deadlock-api.com/v2/heroes> (required)
         :type hero_id: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -401,6 +412,7 @@ class AnalyticsApi:
 
         _param = self._ability_order_stats_serialize(
             hero_id=hero_id,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -437,6 +449,7 @@ class AnalyticsApi:
     def _ability_order_stats_serialize(
         self,
         hero_id,
+        game_mode,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -478,6 +491,10 @@ class AnalyticsApi:
         if hero_id is not None:
             
             _query_params.append(('hero_id', hero_id))
+            
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
             
         if min_unix_timestamp is not None:
             
@@ -578,6 +595,7 @@ class AnalyticsApi:
     @validate_call
     def badge_distribution(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -604,6 +622,8 @@ class AnalyticsApi:
 
          This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -645,6 +665,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._badge_distribution_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -679,6 +700,7 @@ class AnalyticsApi:
     @validate_call
     def badge_distribution_with_http_info(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -705,6 +727,8 @@ class AnalyticsApi:
 
          This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -746,6 +770,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._badge_distribution_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -780,6 +805,7 @@ class AnalyticsApi:
     @validate_call
     def badge_distribution_without_preload_content(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -806,6 +832,8 @@ class AnalyticsApi:
 
          This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -847,6 +875,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._badge_distribution_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -876,6 +905,7 @@ class AnalyticsApi:
 
     def _badge_distribution_serialize(
         self,
+        game_mode,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -907,6 +937,10 @@ class AnalyticsApi:
 
         # process the path parameters
         # process the query parameters
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
+            
         if min_unix_timestamp is not None:
             
             _query_params.append(('min_unix_timestamp', min_unix_timestamp))
@@ -1284,6 +1318,7 @@ class AnalyticsApi:
     @validate_call
     def hero_comb_stats(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -1318,6 +1353,8 @@ class AnalyticsApi:
 
          Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -1375,6 +1412,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_comb_stats_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -1417,6 +1455,7 @@ class AnalyticsApi:
     @validate_call
     def hero_comb_stats_with_http_info(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -1451,6 +1490,8 @@ class AnalyticsApi:
 
          Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -1508,6 +1549,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_comb_stats_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -1550,6 +1592,7 @@ class AnalyticsApi:
     @validate_call
     def hero_comb_stats_without_preload_content(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -1584,6 +1627,8 @@ class AnalyticsApi:
 
          Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -1641,6 +1686,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_comb_stats_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -1678,6 +1724,7 @@ class AnalyticsApi:
 
     def _hero_comb_stats_serialize(
         self,
+        game_mode,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -1720,6 +1767,10 @@ class AnalyticsApi:
 
         # process the path parameters
         # process the query parameters
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
+            
         if min_unix_timestamp is not None:
             
             _query_params.append(('min_unix_timestamp', min_unix_timestamp))
@@ -1827,6 +1878,7 @@ class AnalyticsApi:
     @validate_call
     def hero_counters_stats(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -1861,6 +1913,8 @@ class AnalyticsApi:
 
          Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -1918,6 +1972,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_counters_stats_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -1960,6 +2015,7 @@ class AnalyticsApi:
     @validate_call
     def hero_counters_stats_with_http_info(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -1994,6 +2050,8 @@ class AnalyticsApi:
 
          Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -2051,6 +2109,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_counters_stats_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -2093,6 +2152,7 @@ class AnalyticsApi:
     @validate_call
     def hero_counters_stats_without_preload_content(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -2127,6 +2187,8 @@ class AnalyticsApi:
 
          Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -2184,6 +2246,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_counters_stats_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -2221,6 +2284,7 @@ class AnalyticsApi:
 
     def _hero_counters_stats_serialize(
         self,
+        game_mode,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -2261,6 +2325,10 @@ class AnalyticsApi:
 
         # process the path parameters
         # process the query parameters
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
+            
         if min_unix_timestamp is not None:
             
             _query_params.append(('min_unix_timestamp', min_unix_timestamp))
@@ -2370,6 +2438,7 @@ class AnalyticsApi:
         self,
         sort_by: Annotated[StrictStr, Field(description="The field to sort by.")],
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort heroes in.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter by min number of matches played.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -2404,6 +2473,8 @@ class AnalyticsApi:
         :type sort_by: str
         :param sort_direction: The direction to sort heroes in.
         :type sort_direction: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_matches: Filter by min number of matches played.
         :type min_matches: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -2455,6 +2526,7 @@ class AnalyticsApi:
         _param = self._hero_scoreboard_serialize(
             sort_by=sort_by,
             sort_direction=sort_direction,
+            game_mode=game_mode,
             min_matches=min_matches,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
@@ -2495,6 +2567,7 @@ class AnalyticsApi:
         self,
         sort_by: Annotated[StrictStr, Field(description="The field to sort by.")],
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort heroes in.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter by min number of matches played.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -2529,6 +2602,8 @@ class AnalyticsApi:
         :type sort_by: str
         :param sort_direction: The direction to sort heroes in.
         :type sort_direction: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_matches: Filter by min number of matches played.
         :type min_matches: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -2580,6 +2655,7 @@ class AnalyticsApi:
         _param = self._hero_scoreboard_serialize(
             sort_by=sort_by,
             sort_direction=sort_direction,
+            game_mode=game_mode,
             min_matches=min_matches,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
@@ -2620,6 +2696,7 @@ class AnalyticsApi:
         self,
         sort_by: Annotated[StrictStr, Field(description="The field to sort by.")],
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort heroes in.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter by min number of matches played.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -2654,6 +2731,8 @@ class AnalyticsApi:
         :type sort_by: str
         :param sort_direction: The direction to sort heroes in.
         :type sort_direction: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_matches: Filter by min number of matches played.
         :type min_matches: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -2705,6 +2784,7 @@ class AnalyticsApi:
         _param = self._hero_scoreboard_serialize(
             sort_by=sort_by,
             sort_direction=sort_direction,
+            game_mode=game_mode,
             min_matches=min_matches,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
@@ -2740,6 +2820,7 @@ class AnalyticsApi:
         self,
         sort_by,
         sort_direction,
+        game_mode,
         min_matches,
         min_unix_timestamp,
         max_unix_timestamp,
@@ -2783,6 +2864,10 @@ class AnalyticsApi:
         if sort_direction is not None:
             
             _query_params.append(('sort_direction', sort_direction))
+            
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
             
         if min_matches is not None:
             
@@ -2876,6 +2961,7 @@ class AnalyticsApi:
     def hero_stats(
         self,
         bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -2913,6 +2999,8 @@ class AnalyticsApi:
 
         :param bucket: Bucket allows you to group the stats by a specific field.
         :type bucket: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -2973,6 +3061,7 @@ class AnalyticsApi:
 
         _param = self._hero_stats_serialize(
             bucket=bucket,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -3017,6 +3106,7 @@ class AnalyticsApi:
     def hero_stats_with_http_info(
         self,
         bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -3054,6 +3144,8 @@ class AnalyticsApi:
 
         :param bucket: Bucket allows you to group the stats by a specific field.
         :type bucket: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -3114,6 +3206,7 @@ class AnalyticsApi:
 
         _param = self._hero_stats_serialize(
             bucket=bucket,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -3158,6 +3251,7 @@ class AnalyticsApi:
     def hero_stats_without_preload_content(
         self,
         bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -3195,6 +3289,8 @@ class AnalyticsApi:
 
         :param bucket: Bucket allows you to group the stats by a specific field.
         :type bucket: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -3255,6 +3351,7 @@ class AnalyticsApi:
 
         _param = self._hero_stats_serialize(
             bucket=bucket,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -3294,6 +3391,7 @@ class AnalyticsApi:
     def _hero_stats_serialize(
         self,
         bucket,
+        game_mode,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -3340,6 +3438,10 @@ class AnalyticsApi:
         if bucket is not None:
             
             _query_params.append(('bucket', bucket))
+            
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
             
         if min_unix_timestamp is not None:
             
@@ -3452,6 +3554,7 @@ class AnalyticsApi:
     @validate_call
     def hero_synergies_stats(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -3485,6 +3588,8 @@ class AnalyticsApi:
 
          Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -3540,6 +3645,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_synergies_stats_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -3581,6 +3687,7 @@ class AnalyticsApi:
     @validate_call
     def hero_synergies_stats_with_http_info(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -3614,6 +3721,8 @@ class AnalyticsApi:
 
          Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -3669,6 +3778,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_synergies_stats_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -3710,6 +3820,7 @@ class AnalyticsApi:
     @validate_call
     def hero_synergies_stats_without_preload_content(
         self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -3743,6 +3854,8 @@ class AnalyticsApi:
 
          Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -3798,6 +3911,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_synergies_stats_serialize(
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -3834,6 +3948,7 @@ class AnalyticsApi:
 
     def _hero_synergies_stats_serialize(
         self,
+        game_mode,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -3873,6 +3988,10 @@ class AnalyticsApi:
 
         # process the path parameters
         # process the query parameters
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
+            
         if min_unix_timestamp is not None:
             
             _query_params.append(('min_unix_timestamp', min_unix_timestamp))
@@ -3978,6 +4097,7 @@ class AnalyticsApi:
         self,
         item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=12, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
@@ -4013,6 +4133,8 @@ class AnalyticsApi:
         :type item_ids: List[int]
         :param comb_size: The combination size to return.
         :type comb_size: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -4066,6 +4188,7 @@ class AnalyticsApi:
         _param = self._item_permutation_stats_serialize(
             item_ids=item_ids,
             comb_size=comb_size,
+            game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
             min_unix_timestamp=min_unix_timestamp,
@@ -4107,6 +4230,7 @@ class AnalyticsApi:
         self,
         item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=12, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
@@ -4142,6 +4266,8 @@ class AnalyticsApi:
         :type item_ids: List[int]
         :param comb_size: The combination size to return.
         :type comb_size: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -4195,6 +4321,7 @@ class AnalyticsApi:
         _param = self._item_permutation_stats_serialize(
             item_ids=item_ids,
             comb_size=comb_size,
+            game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
             min_unix_timestamp=min_unix_timestamp,
@@ -4236,6 +4363,7 @@ class AnalyticsApi:
         self,
         item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=12, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
@@ -4271,6 +4399,8 @@ class AnalyticsApi:
         :type item_ids: List[int]
         :param comb_size: The combination size to return.
         :type comb_size: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -4324,6 +4454,7 @@ class AnalyticsApi:
         _param = self._item_permutation_stats_serialize(
             item_ids=item_ids,
             comb_size=comb_size,
+            game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
             min_unix_timestamp=min_unix_timestamp,
@@ -4360,6 +4491,7 @@ class AnalyticsApi:
         self,
         item_ids,
         comb_size,
+        game_mode,
         hero_ids,
         hero_id,
         min_unix_timestamp,
@@ -4405,6 +4537,10 @@ class AnalyticsApi:
         if comb_size is not None:
             
             _query_params.append(('comb_size', comb_size))
+            
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
             
         if hero_ids is not None:
             
@@ -4502,6 +4638,7 @@ class AnalyticsApi:
     def item_stats(
         self,
         bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
@@ -4541,6 +4678,8 @@ class AnalyticsApi:
 
         :param bucket: Bucket allows you to group the stats by a specific field.
         :type bucket: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -4605,6 +4744,7 @@ class AnalyticsApi:
 
         _param = self._item_stats_serialize(
             bucket=bucket,
+            game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
             min_unix_timestamp=min_unix_timestamp,
@@ -4651,6 +4791,7 @@ class AnalyticsApi:
     def item_stats_with_http_info(
         self,
         bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
@@ -4690,6 +4831,8 @@ class AnalyticsApi:
 
         :param bucket: Bucket allows you to group the stats by a specific field.
         :type bucket: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -4754,6 +4897,7 @@ class AnalyticsApi:
 
         _param = self._item_stats_serialize(
             bucket=bucket,
+            game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
             min_unix_timestamp=min_unix_timestamp,
@@ -4800,6 +4944,7 @@ class AnalyticsApi:
     def item_stats_without_preload_content(
         self,
         bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
@@ -4839,6 +4984,8 @@ class AnalyticsApi:
 
         :param bucket: Bucket allows you to group the stats by a specific field.
         :type bucket: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -4903,6 +5050,7 @@ class AnalyticsApi:
 
         _param = self._item_stats_serialize(
             bucket=bucket,
+            game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
             min_unix_timestamp=min_unix_timestamp,
@@ -4944,6 +5092,7 @@ class AnalyticsApi:
     def _item_stats_serialize(
         self,
         bucket,
+        game_mode,
         hero_ids,
         hero_id,
         min_unix_timestamp,
@@ -4992,6 +5141,10 @@ class AnalyticsApi:
         if bucket is not None:
             
             _query_params.append(('bucket', bucket))
+            
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
             
         if hero_ids is not None:
             
@@ -5113,6 +5266,7 @@ class AnalyticsApi:
     def kill_death_stats(
         self,
         team: Annotated[Optional[Annotated[int, Field(le=1, strict=True, ge=0)]], Field(description="Filter by team number.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -5153,6 +5307,8 @@ class AnalyticsApi:
 
         :param team: Filter by team number.
         :type team: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -5219,6 +5375,7 @@ class AnalyticsApi:
 
         _param = self._kill_death_stats_serialize(
             team=team,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -5266,6 +5423,7 @@ class AnalyticsApi:
     def kill_death_stats_with_http_info(
         self,
         team: Annotated[Optional[Annotated[int, Field(le=1, strict=True, ge=0)]], Field(description="Filter by team number.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -5306,6 +5464,8 @@ class AnalyticsApi:
 
         :param team: Filter by team number.
         :type team: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -5372,6 +5532,7 @@ class AnalyticsApi:
 
         _param = self._kill_death_stats_serialize(
             team=team,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -5419,6 +5580,7 @@ class AnalyticsApi:
     def kill_death_stats_without_preload_content(
         self,
         team: Annotated[Optional[Annotated[int, Field(le=1, strict=True, ge=0)]], Field(description="Filter by team number.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -5459,6 +5621,8 @@ class AnalyticsApi:
 
         :param team: Filter by team number.
         :type team: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -5525,6 +5689,7 @@ class AnalyticsApi:
 
         _param = self._kill_death_stats_serialize(
             team=team,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -5567,6 +5732,7 @@ class AnalyticsApi:
     def _kill_death_stats_serialize(
         self,
         team,
+        game_mode,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -5614,6 +5780,10 @@ class AnalyticsApi:
         if team is not None:
             
             _query_params.append(('team', team))
+            
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
             
         if min_unix_timestamp is not None:
             
@@ -5739,6 +5909,7 @@ class AnalyticsApi:
     def player_performance_curve(
         self,
         resolution: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=0)]], Field(description="Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -5772,6 +5943,8 @@ class AnalyticsApi:
 
         :param resolution: Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
         :type resolution: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -5824,6 +5997,7 @@ class AnalyticsApi:
 
         _param = self._player_performance_curve_serialize(
             resolution=resolution,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -5864,6 +6038,7 @@ class AnalyticsApi:
     def player_performance_curve_with_http_info(
         self,
         resolution: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=0)]], Field(description="Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -5897,6 +6072,8 @@ class AnalyticsApi:
 
         :param resolution: Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
         :type resolution: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -5949,6 +6126,7 @@ class AnalyticsApi:
 
         _param = self._player_performance_curve_serialize(
             resolution=resolution,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -5989,6 +6167,7 @@ class AnalyticsApi:
     def player_performance_curve_without_preload_content(
         self,
         resolution: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=0)]], Field(description="Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -6022,6 +6201,8 @@ class AnalyticsApi:
 
         :param resolution: Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
         :type resolution: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -6074,6 +6255,7 @@ class AnalyticsApi:
 
         _param = self._player_performance_curve_serialize(
             resolution=resolution,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -6109,6 +6291,7 @@ class AnalyticsApi:
     def _player_performance_curve_serialize(
         self,
         resolution,
+        game_mode,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -6151,6 +6334,10 @@ class AnalyticsApi:
         if resolution is not None:
             
             _query_params.append(('resolution', resolution))
+            
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
             
         if min_unix_timestamp is not None:
             
@@ -6249,6 +6436,7 @@ class AnalyticsApi:
         self,
         sort_by: Annotated[StrictStr, Field(description="The field to sort by.")],
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort players in.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a player to be included in the scoreboard.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
@@ -6286,6 +6474,8 @@ class AnalyticsApi:
         :type sort_by: str
         :param sort_direction: The direction to sort players in.
         :type sort_direction: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_id: int
         :param min_matches: The minimum number of matches played for a player to be included in the scoreboard.
@@ -6343,6 +6533,7 @@ class AnalyticsApi:
         _param = self._player_scoreboard_serialize(
             sort_by=sort_by,
             sort_direction=sort_direction,
+            game_mode=game_mode,
             hero_id=hero_id,
             min_matches=min_matches,
             max_matches=max_matches,
@@ -6386,6 +6577,7 @@ class AnalyticsApi:
         self,
         sort_by: Annotated[StrictStr, Field(description="The field to sort by.")],
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort players in.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a player to be included in the scoreboard.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
@@ -6423,6 +6615,8 @@ class AnalyticsApi:
         :type sort_by: str
         :param sort_direction: The direction to sort players in.
         :type sort_direction: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_id: int
         :param min_matches: The minimum number of matches played for a player to be included in the scoreboard.
@@ -6480,6 +6674,7 @@ class AnalyticsApi:
         _param = self._player_scoreboard_serialize(
             sort_by=sort_by,
             sort_direction=sort_direction,
+            game_mode=game_mode,
             hero_id=hero_id,
             min_matches=min_matches,
             max_matches=max_matches,
@@ -6523,6 +6718,7 @@ class AnalyticsApi:
         self,
         sort_by: Annotated[StrictStr, Field(description="The field to sort by.")],
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort players in.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a player to be included in the scoreboard.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
@@ -6560,6 +6756,8 @@ class AnalyticsApi:
         :type sort_by: str
         :param sort_direction: The direction to sort players in.
         :type sort_direction: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_id: int
         :param min_matches: The minimum number of matches played for a player to be included in the scoreboard.
@@ -6617,6 +6815,7 @@ class AnalyticsApi:
         _param = self._player_scoreboard_serialize(
             sort_by=sort_by,
             sort_direction=sort_direction,
+            game_mode=game_mode,
             hero_id=hero_id,
             min_matches=min_matches,
             max_matches=max_matches,
@@ -6655,6 +6854,7 @@ class AnalyticsApi:
         self,
         sort_by,
         sort_direction,
+        game_mode,
         hero_id,
         min_matches,
         max_matches,
@@ -6701,6 +6901,10 @@ class AnalyticsApi:
         if sort_direction is not None:
             
             _query_params.append(('sort_direction', sort_direction))
+            
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
             
         if hero_id is not None:
             
@@ -6806,6 +7010,7 @@ class AnalyticsApi:
     def player_stats_metrics(
         self,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -6839,6 +7044,8 @@ class AnalyticsApi:
 
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -6891,6 +7098,7 @@ class AnalyticsApi:
 
         _param = self._player_stats_metrics_serialize(
             hero_ids=hero_ids,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -6931,6 +7139,7 @@ class AnalyticsApi:
     def player_stats_metrics_with_http_info(
         self,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -6964,6 +7173,8 @@ class AnalyticsApi:
 
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -7016,6 +7227,7 @@ class AnalyticsApi:
 
         _param = self._player_stats_metrics_serialize(
             hero_ids=hero_ids,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -7056,6 +7268,7 @@ class AnalyticsApi:
     def player_stats_metrics_without_preload_content(
         self,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -7089,6 +7302,8 @@ class AnalyticsApi:
 
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :type game_mode: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -7141,6 +7356,7 @@ class AnalyticsApi:
 
         _param = self._player_stats_metrics_serialize(
             hero_ids=hero_ids,
+            game_mode=game_mode,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -7176,6 +7392,7 @@ class AnalyticsApi:
     def _player_stats_metrics_serialize(
         self,
         hero_ids,
+        game_mode,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -7218,6 +7435,10 @@ class AnalyticsApi:
         if hero_ids is not None:
             
             _query_params.append(('hero_ids', hero_ids))
+            
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
             
         if min_unix_timestamp is not None:
             

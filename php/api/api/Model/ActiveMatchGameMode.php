@@ -50,6 +50,8 @@ class ActiveMatchGameMode
 
     public const KE_CITADEL_GAME_MODE_SANDBOX = 'KECitadelGameModeSandbox';
 
+    public const KE_CITADEL_GAME_MODE_STREET_BRAWL = 'KECitadelGameModeStreetBrawl';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -60,7 +62,8 @@ class ActiveMatchGameMode
             self::KE_CITADEL_GAME_MODE_INVALID,
             self::KE_CITADEL_GAME_MODE_NORMAL,
             self::KE_CITADEL_GAME_MODE1V1_TEST,
-            self::KE_CITADEL_GAME_MODE_SANDBOX
+            self::KE_CITADEL_GAME_MODE_SANDBOX,
+            self::KE_CITADEL_GAME_MODE_STREET_BRAWL
         ];
     }
 }

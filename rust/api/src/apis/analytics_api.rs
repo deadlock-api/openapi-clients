@@ -19,6 +19,8 @@ use super::{Error, configuration, ContentType};
 pub struct AbilityOrderStatsParams {
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_id: u32,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -54,6 +56,8 @@ pub struct AbilityOrderStatsParams {
 /// struct for passing parameters to the method [`badge_distribution`]
 #[derive(Clone, Debug)]
 pub struct BadgeDistributionParams {
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -88,6 +92,8 @@ pub struct BuildItemStatsParams {
 /// struct for passing parameters to the method [`hero_comb_stats`]
 #[derive(Clone, Debug)]
 pub struct HeroCombStatsParams {
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -127,6 +133,8 @@ pub struct HeroCombStatsParams {
 /// struct for passing parameters to the method [`hero_counters_stats`]
 #[derive(Clone, Debug)]
 pub struct HeroCountersStatsParams {
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -170,6 +178,8 @@ pub struct HeroScoreboardParams {
     pub sort_by: String,
     /// The direction to sort heroes in.
     pub sort_direction: Option<String>,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter by min number of matches played.
     pub min_matches: Option<u32>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -203,6 +213,8 @@ pub struct HeroScoreboardParams {
 pub struct HeroStatsParams {
     /// Bucket allows you to group the stats by a specific field.
     pub bucket: Option<String>,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -244,6 +256,8 @@ pub struct HeroStatsParams {
 /// struct for passing parameters to the method [`hero_synergies_stats`]
 #[derive(Clone, Debug)]
 pub struct HeroSynergiesStatsParams {
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -285,6 +299,8 @@ pub struct ItemPermutationStatsParams {
     pub item_ids: Option<Vec<u32>>,
     /// The combination size to return.
     pub comb_size: Option<u32>,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
     /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -320,6 +336,8 @@ pub struct ItemPermutationStatsParams {
 pub struct ItemStatsParams {
     /// Bucket allows you to group the stats by a specific field.
     pub bucket: Option<String>,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
     /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
@@ -367,6 +385,8 @@ pub struct ItemStatsParams {
 pub struct KillDeathStatsParams {
     /// Filter by team number.
     pub team: Option<u32>,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -416,6 +436,8 @@ pub struct KillDeathStatsParams {
 pub struct PlayerPerformanceCurveParams {
     /// Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
     pub resolution: Option<u32>,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -453,6 +475,8 @@ pub struct PlayerScoreboardParams {
     pub sort_by: String,
     /// The direction to sort players in.
     pub sort_direction: Option<String>,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_id: Option<u32>,
     /// The minimum number of matches played for a player to be included in the scoreboard.
@@ -492,6 +516,8 @@ pub struct PlayerScoreboardParams {
 pub struct PlayerStatsMetricsParams {
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -657,6 +683,9 @@ pub async fn ability_order_stats(configuration: &configuration::Configuration, p
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("hero_id", &params.hero_id.to_string())]);
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
@@ -740,6 +769,9 @@ pub async fn badge_distribution(configuration: &configuration::Configuration, pa
     let uri_str = format!("{}/v1/analytics/badge-distribution", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
@@ -846,6 +878,9 @@ pub async fn hero_comb_stats(configuration: &configuration::Configuration, param
     let uri_str = format!("{}/v1/analytics/hero-comb-stats", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
@@ -941,6 +976,9 @@ pub async fn hero_counters_stats(configuration: &configuration::Configuration, p
     let uri_str = format!("{}/v1/analytics/hero-counter-stats", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
@@ -1034,6 +1072,9 @@ pub async fn hero_scoreboard(configuration: &configuration::Configuration, param
     if let Some(ref param_value) = params.sort_direction {
         req_builder = req_builder.query(&[("sort_direction", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_matches {
         req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
     }
@@ -1113,6 +1154,9 @@ pub async fn hero_stats(configuration: &configuration::Configuration, params: He
 
     if let Some(ref param_value) = params.bucket {
         req_builder = req_builder.query(&[("bucket", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
@@ -1212,6 +1256,9 @@ pub async fn hero_synergies_stats(configuration: &configuration::Configuration, 
     let uri_str = format!("{}/v1/analytics/hero-synergy-stats", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
@@ -1307,6 +1354,9 @@ pub async fn item_permutation_stats(configuration: &configuration::Configuration
     if let Some(ref param_value) = params.comb_size {
         req_builder = req_builder.query(&[("comb_size", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.hero_ids {
         req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
     }
@@ -1389,6 +1439,9 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
 
     if let Some(ref param_value) = params.bucket {
         req_builder = req_builder.query(&[("bucket", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.hero_ids {
         req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
@@ -1497,6 +1550,9 @@ pub async fn kill_death_stats(configuration: &configuration::Configuration, para
     if let Some(ref param_value) = params.team {
         req_builder = req_builder.query(&[("team", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
@@ -1601,6 +1657,9 @@ pub async fn player_performance_curve(configuration: &configuration::Configurati
     if let Some(ref param_value) = params.resolution {
         req_builder = req_builder.query(&[("resolution", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }
@@ -1691,6 +1750,9 @@ pub async fn player_scoreboard(configuration: &configuration::Configuration, par
     if let Some(ref param_value) = params.sort_direction {
         req_builder = req_builder.query(&[("sort_direction", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.hero_id {
         req_builder = req_builder.query(&[("hero_id", &param_value.to_string())]);
     }
@@ -1779,6 +1841,9 @@ pub async fn player_stats_metrics(configuration: &configuration::Configuration, 
 
     if let Some(ref param_value) = params.hero_ids {
         req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);

@@ -137,7 +137,7 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'weapon_groups' => false,
         'armor_groups' => false,
         'spirit_groups' => false,
-        'street_brawl' => false
+        'street_brawl' => true
     ];
 
     /**
@@ -473,9 +473,6 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['spirit_groups'] === null) {
             $invalidProperties[] = "'spirit_groups' can't be null";
-        }
-        if ($this->container['street_brawl'] === null) {
-            $invalidProperties[] = "'street_brawl' can't be null";
         }
         return $invalidProperties;
     }
@@ -1035,7 +1032,7 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets street_brawl
      *
-     * @return \OpenAPI\Client\Model\StreetBrawl
+     * @return \OpenAPI\Client\Model\StreetBrawl|null
      */
     public function getStreetBrawl()
     {
@@ -1045,14 +1042,21 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets street_brawl
      *
-     * @param \OpenAPI\Client\Model\StreetBrawl $street_brawl street_brawl
+     * @param \OpenAPI\Client\Model\StreetBrawl|null $street_brawl street_brawl
      *
      * @return self
      */
     public function setStreetBrawl($street_brawl)
     {
         if (is_null($street_brawl)) {
-            throw new \InvalidArgumentException('non-nullable street_brawl cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'street_brawl');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('street_brawl', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['street_brawl'] = $street_brawl;
 

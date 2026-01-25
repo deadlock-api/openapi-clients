@@ -28,6 +28,7 @@ type ApiEnemyStatsRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
 	accountId int32
+	gameMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
 	minDurationS *int64
@@ -36,6 +37,12 @@ type ApiEnemyStatsRequest struct {
 	maxMatchId *int64
 	minMatchesPlayed *int64
 	maxMatchesPlayed *int64
+}
+
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included.
+func (r ApiEnemyStatsRequest) GameMode(gameMode string) ApiEnemyStatsRequest {
+	r.gameMode = &gameMode
+	return r
 }
 
 // Filter matches based on their start time (Unix timestamp).
@@ -141,6 +148,9 @@ func (a *PlayersAPIService) EnemyStatsExecute(r ApiEnemyStatsRequest) ([]EnemySt
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
 	}
 
+	if r.gameMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "game_mode", r.gameMode, "form", "")
+	}
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	}
@@ -366,6 +376,7 @@ type ApiMateStatsRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
 	accountId int32
+	gameMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
 	minDurationS *int64
@@ -375,6 +386,12 @@ type ApiMateStatsRequest struct {
 	minMatchesPlayed *int64
 	maxMatchesPlayed *int64
 	sameParty *bool
+}
+
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included.
+func (r ApiMateStatsRequest) GameMode(gameMode string) ApiMateStatsRequest {
+	r.gameMode = &gameMode
+	return r
 }
 
 // Filter matches based on their start time (Unix timestamp).
@@ -486,6 +503,9 @@ func (a *PlayersAPIService) MateStatsExecute(r ApiMateStatsRequest) ([]MateStats
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
 	}
 
+	if r.gameMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "game_mode", r.gameMode, "form", "")
+	}
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	}
@@ -575,12 +595,19 @@ type ApiPartyStatsRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
 	accountId int32
+	gameMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
 	minDurationS *int64
 	maxDurationS *int64
 	minMatchId *int64
 	maxMatchId *int64
+}
+
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included.
+func (r ApiPartyStatsRequest) GameMode(gameMode string) ApiPartyStatsRequest {
+	r.gameMode = &gameMode
+	return r
 }
 
 // Filter matches based on their start time (Unix timestamp).
@@ -674,6 +701,9 @@ func (a *PlayersAPIService) PartyStatsExecute(r ApiPartyStatsRequest) ([]PartySt
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
 	}
 
+	if r.gameMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "game_mode", r.gameMode, "form", "")
+	}
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	}
@@ -750,6 +780,7 @@ type ApiPlayerHeroStatsRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
 	accountIds *[]int32
+	gameMode *string
 	heroIds *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
@@ -766,6 +797,12 @@ type ApiPlayerHeroStatsRequest struct {
 // Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
 func (r ApiPlayerHeroStatsRequest) AccountIds(accountIds []int32) ApiPlayerHeroStatsRequest {
 	r.accountIds = &accountIds
+	return r
+}
+
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included.
+func (r ApiPlayerHeroStatsRequest) GameMode(gameMode string) ApiPlayerHeroStatsRequest {
+	r.gameMode = &gameMode
 	return r
 }
 
@@ -903,6 +940,9 @@ func (a *PlayersAPIService) PlayerHeroStatsExecute(r ApiPlayerHeroStatsRequest) 
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
 		}
+	}
+	if r.gameMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "game_mode", r.gameMode, "form", "")
 	}
 	if r.heroIds != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "form", "")

@@ -156,6 +156,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6140: 6140,
     NUMBER_6128: 6128,
     NUMBER_6111: 6111,
     NUMBER_6080: 6080,
@@ -255,7 +256,7 @@ export interface GenericDataV2 {
     'weapon_groups': Array<ItemGroup>;
     'armor_groups': Array<ItemGroup>;
     'spirit_groups': Array<ItemGroup>;
-    'street_brawl': StreetBrawl;
+    'street_brawl'?: StreetBrawl | null;
 }
 export interface GlitchSettingsV2 {
     'strength': number;

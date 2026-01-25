@@ -180,7 +180,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **bulk_metadata**
-> List[int] bulk_metadata(include_info=include_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, hero_ids=hero_ids, order_by=order_by, order_direction=order_direction, limit=limit)
+> List[int] bulk_metadata(include_info=include_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, game_mode=game_mode, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, hero_ids=hero_ids, order_by=order_by, order_direction=order_direction, limit=limit)
 
 Bulk Metadata
 
@@ -221,6 +221,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     include_player_items = True # bool | Include player items in the response. (optional)
     include_player_stats = True # bool | Include player stats in the response. (optional)
     include_player_death_details = True # bool | Include player death details in the response. (optional)
+    game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included. (optional)
     match_ids = [56] # List[int] | Comma separated list of match ids, limited by `limit` (optional)
     min_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
@@ -241,7 +242,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Bulk Metadata
-        api_response = api_instance.bulk_metadata(include_info=include_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, hero_ids=hero_ids, order_by=order_by, order_direction=order_direction, limit=limit)
+        api_response = api_instance.bulk_metadata(include_info=include_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, game_mode=game_mode, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, hero_ids=hero_ids, order_by=order_by, order_direction=order_direction, limit=limit)
         print("The response of MatchesApi->bulk_metadata:\n")
         pprint(api_response)
     except Exception as e:
@@ -262,6 +263,7 @@ Name | Type | Description  | Notes
  **include_player_items** | **bool**| Include player items in the response. | [optional] 
  **include_player_stats** | **bool**| Include player stats in the response. | [optional] 
  **include_player_death_details** | **bool**| Include player death details in the response. | [optional] 
+ **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. | [optional] 
  **match_ids** | [**List[int]**](int.md)| Comma separated list of match ids, limited by &#x60;limit&#x60; | [optional] 
  **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 

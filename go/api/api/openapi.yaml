@@ -102,6 +102,19 @@ paths:
           minimum: 0
           type: integer
         style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -109,7 +122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -307,6 +320,19 @@ paths:
         \ | - |\n| Global | - |\n    "
       operationId: badge_distribution
       parameters:
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -314,7 +340,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -446,7 +472,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -487,6 +513,19 @@ paths:
         \ | 100req/s |\n| Key | - |\n| Global | - |\n    "
       operationId: hero_comb_stats
       parameters:
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -494,7 +533,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -723,6 +762,19 @@ paths:
         \ - |\n    "
       operationId: hero_counters_stats
       parameters:
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -730,7 +782,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -962,6 +1014,19 @@ paths:
           - start_time_month
           type: string
         style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -969,7 +1034,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -1210,6 +1275,19 @@ paths:
         \ | - |\n| Global | - |\n    "
       operationId: hero_synergies_stats
       parameters:
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -1217,7 +1295,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -1454,6 +1532,19 @@ paths:
           nullable: true
           type: integer
         style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
         explode: true
         in: query
@@ -1482,7 +1573,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -1666,6 +1757,19 @@ paths:
           - net_worth_by_10000
           type: string
         style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
         explode: true
         in: query
@@ -1694,7 +1798,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -1938,6 +2042,19 @@ paths:
           nullable: true
           type: integer
         style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -1945,7 +2062,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -2214,6 +2331,19 @@ paths:
           nullable: true
           type: integer
         style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -2221,7 +2351,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -2419,6 +2549,19 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -2426,7 +2569,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -2691,6 +2834,19 @@ paths:
           - asc
           type: string
         style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter by min number of matches played.
         explode: true
         in: query
@@ -2709,7 +2865,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -2947,6 +3103,19 @@ paths:
           enum:
           - desc
           - asc
+          type: string
+        style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
           type: string
         style: form
       - description: "Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>"
@@ -4116,6 +4285,19 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: "Comma separated list of match ids, limited by `limit`"
         explode: true
         in: query
@@ -4616,6 +4798,19 @@ paths:
           minItems: 1
           type: array
         style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
         explode: true
         in: query
@@ -4818,7 +5013,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -4937,7 +5132,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1766534400
+          default: 1766620800
           format: int64
           nullable: true
           type: integer
@@ -5202,6 +5397,19 @@ paths:
           minimum: 0
           type: integer
         style: simple
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp).
         explode: true
         in: query
@@ -5387,6 +5595,19 @@ paths:
           minimum: 0
           type: integer
         style: simple
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp).
         explode: true
         in: query
@@ -5591,6 +5812,19 @@ paths:
           minimum: 0
           type: integer
         style: simple
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. If not specified, both are included."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
       - description: Filter matches based on their start time (Unix timestamp).
         explode: true
         in: query
@@ -5934,6 +6168,7 @@ components:
       - KECitadelGameModeNormal
       - KECitadelGameMode1v1Test
       - KECitadelGameModeSandbox
+      - KECitadelGameModeStreetBrawl
       type: string
     ActiveMatchMode:
       enum:

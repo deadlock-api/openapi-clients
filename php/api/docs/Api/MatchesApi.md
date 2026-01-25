@@ -130,7 +130,7 @@ No authorization required
 ## `bulkMetadata()`
 
 ```php
-bulkMetadata($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit): int[]
+bulkMetadata($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $game_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit): int[]
 ```
 
 Bulk Metadata
@@ -157,6 +157,7 @@ $include_player_info = True; // bool | Include player info in the response.
 $include_player_items = True; // bool | Include player items in the response.
 $include_player_stats = True; // bool | Include player stats in the response.
 $include_player_death_details = True; // bool | Include player death details in the response.
+$game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
 $match_ids = array(56); // int[] | Comma separated list of match ids, limited by `limit`
 $min_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
@@ -176,7 +177,7 @@ $order_direction = 'order_direction_example'; // string | The direction to order
 $limit = 1000; // int | The maximum number of matches to return.
 
 try {
-    $result = $apiInstance->bulkMetadata($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit);
+    $result = $apiInstance->bulkMetadata($include_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $game_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MatchesApi->bulkMetadata: ', $e->getMessage(), PHP_EOL;
@@ -194,6 +195,7 @@ try {
 | **include_player_items** | **bool**| Include player items in the response. | [optional] |
 | **include_player_stats** | **bool**| Include player stats in the response. | [optional] |
 | **include_player_death_details** | **bool**| Include player death details in the response. | [optional] |
+| **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. | [optional] |
 | **match_ids** | [**int[]**](../Model/int.md)| Comma separated list of match ids, limited by &#x60;limit&#x60; | [optional] |
 | **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |

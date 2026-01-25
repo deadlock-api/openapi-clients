@@ -120,7 +120,7 @@ data class GenericDataV2 (
     val spiritGroups: kotlin.collections.List<ItemGroup>,
 
     @Json(name = "street_brawl")
-    val streetBrawl: StreetBrawl
+    val streetBrawl: StreetBrawl? = null
 
 ) : Serializable {
     companion object {

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.color_v1 import ColorV1
 from assets_deadlock_api_client.models.damage_flash_v2 import DamageFlashV2
 from assets_deadlock_api_client.models.glitch_settings_v2 import GlitchSettingsV2
@@ -56,7 +56,7 @@ class GenericDataV2(BaseModel):
     weapon_groups: List[ItemGroup]
     armor_groups: List[ItemGroup]
     spirit_groups: List[ItemGroup]
-    street_brawl: StreetBrawl
+    street_brawl: Optional[StreetBrawl] = None
     __properties: ClassVar[List[str]] = ["damage_flash", "glitch_settings", "lane_info", "new_player_metrics", "minimap_team_rebels_color", "minimap_team_combine_color", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "item_price_per_tier", "trooper_kill_gold_share_frac", "hero_kill_gold_share_frac", "aim_spring_strength", "targeting_spring_strength", "objective_params", "rejuv_params", "mini_map_offsets", "weapon_groups", "armor_groups", "spirit_groups", "street_brawl"]
 
     model_config = ConfigDict(
@@ -170,6 +170,11 @@ class GenericDataV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of street_brawl
         if self.street_brawl:
             _dict['street_brawl'] = self.street_brawl.to_dict()
+        # set to None if street_brawl (nullable) is None
+        # and model_fields_set contains the field
+        if self.street_brawl is None and "street_brawl" in self.model_fields_set:
+            _dict['street_brawl'] = None
+
         return _dict
 
     @classmethod

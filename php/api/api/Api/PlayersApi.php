@@ -149,6 +149,7 @@ class PlayersApi
      * Enemy Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -163,9 +164,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EnemyStats[]
      */
-    public function enemyStats($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
+    public function enemyStats($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
     {
-        list($response) = $this->enemyStatsWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
+        list($response) = $this->enemyStatsWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
         return $response;
     }
 
@@ -175,6 +176,7 @@ class PlayersApi
      * Enemy Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -189,9 +191,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EnemyStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function enemyStatsWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
+    public function enemyStatsWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
     {
-        $request = $this->enemyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
+        $request = $this->enemyStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -268,6 +270,7 @@ class PlayersApi
      * Enemy Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -281,9 +284,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enemyStatsAsync($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
+    public function enemyStatsAsync($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
     {
-        return $this->enemyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType)
+        return $this->enemyStatsAsyncWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -297,6 +300,7 @@ class PlayersApi
      * Enemy Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -310,10 +314,10 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enemyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
+    public function enemyStatsAsyncWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EnemyStats[]';
-        $request = $this->enemyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
+        $request = $this->enemyStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -355,6 +359,7 @@ class PlayersApi
      * Create request for operation 'enemyStats'
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -368,7 +373,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function enemyStatsRequest($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
+    public function enemyStatsRequest($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['enemyStats'][0])
     {
 
         // verify the required parameter 'account_id' is set
@@ -381,6 +386,7 @@ class PlayersApi
             throw new \InvalidArgumentException('invalid value for "$account_id" when calling PlayersApi.enemyStats, must be bigger than or equal to 0.');
         }
         
+
 
 
         if ($min_duration_s !== null && $min_duration_s > 7000) {
@@ -421,6 +427,15 @@ class PlayersApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $game_mode,
+            'game_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $min_unix_timestamp,
@@ -865,6 +880,7 @@ class PlayersApi
      * Mate Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -880,9 +896,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MateStats[]
      */
-    public function mateStats($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStats($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
     {
-        list($response) = $this->mateStatsWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
+        list($response) = $this->mateStatsWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
         return $response;
     }
 
@@ -892,6 +908,7 @@ class PlayersApi
      * Mate Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -907,9 +924,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MateStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function mateStatsWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
     {
-        $request = $this->mateStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
+        $request = $this->mateStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -986,6 +1003,7 @@ class PlayersApi
      * Mate Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1000,9 +1018,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mateStatsAsync($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsAsync($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
     {
-        return $this->mateStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType)
+        return $this->mateStatsAsyncWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1016,6 +1034,7 @@ class PlayersApi
      * Mate Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1030,10 +1049,10 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mateStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsAsyncWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MateStats[]';
-        $request = $this->mateStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
+        $request = $this->mateStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1075,6 +1094,7 @@ class PlayersApi
      * Create request for operation 'mateStats'
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1089,7 +1109,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function mateStatsRequest($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsRequest($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
     {
 
         // verify the required parameter 'account_id' is set
@@ -1102,6 +1122,7 @@ class PlayersApi
             throw new \InvalidArgumentException('invalid value for "$account_id" when calling PlayersApi.mateStats, must be bigger than or equal to 0.');
         }
         
+
 
 
         if ($min_duration_s !== null && $min_duration_s > 7000) {
@@ -1143,6 +1164,15 @@ class PlayersApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $game_mode,
+            'game_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $min_unix_timestamp,
@@ -1295,6 +1325,7 @@ class PlayersApi
      * Party Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1307,9 +1338,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PartyStats[]
      */
-    public function partyStats($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
+    public function partyStats($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
     {
-        list($response) = $this->partyStatsWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
+        list($response) = $this->partyStatsWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
         return $response;
     }
 
@@ -1319,6 +1350,7 @@ class PlayersApi
      * Party Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1331,9 +1363,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PartyStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function partyStatsWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
+    public function partyStatsWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
     {
-        $request = $this->partyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
+        $request = $this->partyStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1410,6 +1442,7 @@ class PlayersApi
      * Party Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1421,9 +1454,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function partyStatsAsync($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
+    public function partyStatsAsync($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
     {
-        return $this->partyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType)
+        return $this->partyStatsAsyncWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1437,6 +1470,7 @@ class PlayersApi
      * Party Stats
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1448,10 +1482,10 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function partyStatsAsyncWithHttpInfo($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
+    public function partyStatsAsyncWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PartyStats[]';
-        $request = $this->partyStatsRequest($account_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
+        $request = $this->partyStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1493,6 +1527,7 @@ class PlayersApi
      * Create request for operation 'partyStats'
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1504,7 +1539,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function partyStatsRequest($account_id, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
+    public function partyStatsRequest($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
     {
 
         // verify the required parameter 'account_id' is set
@@ -1517,6 +1552,7 @@ class PlayersApi
             throw new \InvalidArgumentException('invalid value for "$account_id" when calling PlayersApi.partyStats, must be bigger than or equal to 0.');
         }
         
+
 
 
         if ($min_duration_s !== null && $min_duration_s > 7000) {
@@ -1549,6 +1585,15 @@ class PlayersApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $game_mode,
+            'game_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $min_unix_timestamp,
@@ -1674,6 +1719,7 @@ class PlayersApi
      * Hero Stats
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -1691,9 +1737,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroStats[]
      */
-    public function playerHeroStats($account_ids, $hero_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['playerHeroStats'][0])
+    public function playerHeroStats($account_ids, $game_mode = null, $hero_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['playerHeroStats'][0])
     {
-        list($response) = $this->playerHeroStatsWithHttpInfo($account_ids, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
+        list($response) = $this->playerHeroStatsWithHttpInfo($account_ids, $game_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
         return $response;
     }
 
@@ -1703,6 +1749,7 @@ class PlayersApi
      * Hero Stats
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -1720,9 +1767,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function playerHeroStatsWithHttpInfo($account_ids, $hero_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['playerHeroStats'][0])
+    public function playerHeroStatsWithHttpInfo($account_ids, $game_mode = null, $hero_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['playerHeroStats'][0])
     {
-        $request = $this->playerHeroStatsRequest($account_ids, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
+        $request = $this->playerHeroStatsRequest($account_ids, $game_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1799,6 +1846,7 @@ class PlayersApi
      * Hero Stats
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -1815,9 +1863,9 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerHeroStatsAsync($account_ids, $hero_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['playerHeroStats'][0])
+    public function playerHeroStatsAsync($account_ids, $game_mode = null, $hero_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['playerHeroStats'][0])
     {
-        return $this->playerHeroStatsAsyncWithHttpInfo($account_ids, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType)
+        return $this->playerHeroStatsAsyncWithHttpInfo($account_ids, $game_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1831,6 +1879,7 @@ class PlayersApi
      * Hero Stats
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -1847,10 +1896,10 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerHeroStatsAsyncWithHttpInfo($account_ids, $hero_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['playerHeroStats'][0])
+    public function playerHeroStatsAsyncWithHttpInfo($account_ids, $game_mode = null, $hero_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['playerHeroStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroStats[]';
-        $request = $this->playerHeroStatsRequest($account_ids, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
+        $request = $this->playerHeroStatsRequest($account_ids, $game_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1892,6 +1941,7 @@ class PlayersApi
      * Create request for operation 'playerHeroStats'
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -1908,7 +1958,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function playerHeroStatsRequest($account_ids, $hero_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['playerHeroStats'][0])
+    public function playerHeroStatsRequest($account_ids, $game_mode = null, $hero_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['playerHeroStats'][0])
     {
 
         // verify the required parameter 'account_ids' is set
@@ -1924,6 +1974,7 @@ class PlayersApi
             throw new \InvalidArgumentException('invalid value for "$account_ids" when calling PlayersApi.playerHeroStats, number of items must be greater than or equal to 1.');
         }
         
+
 
 
 
@@ -1987,6 +2038,15 @@ class PlayersApi
             'form', // style
             true, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $game_mode,
+            'game_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
