@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.ItemSlotTypeV2
 import assets_deadlock_api_client.models.ItemTierV2
 import assets_deadlock_api_client.models.RawAbilityActivationV2
 import assets_deadlock_api_client.models.RawAbilityImbueV2
+import assets_deadlock_api_client.models.RawAbilityUpgradeV2
 import assets_deadlock_api_client.models.RawItemWeaponInfoV2
 import assets_deadlock_api_client.models.UpgradeDescriptionV2
 import assets_deadlock_api_client.models.UpgradePropertyV2
@@ -58,6 +59,7 @@ import java.io.Serializable
  * @param imbue 
  * @param componentItems 
  * @param tooltipSections 
+ * @param upgrades 
  */
 
 
@@ -142,7 +144,10 @@ data class UpgradeV2 (
     val componentItems: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "tooltip_sections")
-    val tooltipSections: kotlin.collections.List<UpgradeTooltipSectionV2>? = null
+    val tooltipSections: kotlin.collections.List<UpgradeTooltipSectionV2>? = null,
+
+    @Json(name = "upgrades")
+    val upgrades: kotlin.collections.List<RawAbilityUpgradeV2>? = null
 
 ) : Serializable {
     companion object {

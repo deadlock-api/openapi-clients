@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **imbue** | [**\OpenAPI\Client\Model\RawAbilityImbueV2**](RawAbilityImbueV2.md) |  | [optional]
 **component_items** | **string[]** |  | [optional]
 **tooltip_sections** | [**\OpenAPI\Client\Model\UpgradeTooltipSectionV2[]**](UpgradeTooltipSectionV2.md) |  | [optional]
+**upgrades** | [**\OpenAPI\Client\Model\RawAbilityUpgradeV2[]**](RawAbilityUpgradeV2.md) |  | [optional]
 **is_active_item** | **bool** |  | [readonly]
 **shopable** | **bool** |  | [readonly]
 **cost** | **int** |  | [readonly]

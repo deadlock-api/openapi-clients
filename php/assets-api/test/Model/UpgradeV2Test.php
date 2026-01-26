@@ -296,6 +296,15 @@ class UpgradeV2Test extends TestCase
     }
 
     /**
+     * Test attribute "upgrades"
+     */
+    public function testPropertyUpgrades()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "is_active_item"
      */
     public function testPropertyIsActiveItem()

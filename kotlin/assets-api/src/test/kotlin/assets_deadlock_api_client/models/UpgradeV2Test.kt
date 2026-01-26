@@ -23,6 +23,7 @@ import assets_deadlock_api_client.models.ItemSlotTypeV2
 import assets_deadlock_api_client.models.ItemTierV2
 import assets_deadlock_api_client.models.RawAbilityActivationV2
 import assets_deadlock_api_client.models.RawAbilityImbueV2
+import assets_deadlock_api_client.models.RawAbilityUpgradeV2
 import assets_deadlock_api_client.models.RawItemWeaponInfoV2
 import assets_deadlock_api_client.models.UpgradeDescriptionV2
 import assets_deadlock_api_client.models.UpgradePropertyV2
@@ -193,6 +194,12 @@ class UpgradeV2Test : ShouldSpec() {
         should("test tooltipSections") {
             // uncomment below to test the property
             //modelInstance.tooltipSections shouldBe ("TODO")
+        }
+
+        // to test the property `upgrades`
+        should("test upgrades") {
+            // uncomment below to test the property
+            //modelInstance.upgrades shouldBe ("TODO")
         }
 
     }

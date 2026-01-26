@@ -23,6 +23,7 @@ from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2
 from assets_deadlock_api_client.models.item_tier_v2 import ItemTierV2
 from assets_deadlock_api_client.models.raw_ability_activation_v2 import RawAbilityActivationV2
 from assets_deadlock_api_client.models.raw_ability_imbue_v2 import RawAbilityImbueV2
+from assets_deadlock_api_client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2
 from assets_deadlock_api_client.models.raw_item_weapon_info_v2 import RawItemWeaponInfoV2
 from assets_deadlock_api_client.models.upgrade_description_v2 import UpgradeDescriptionV2
 from assets_deadlock_api_client.models.upgrade_property_v2 import UpgradePropertyV2
@@ -58,10 +59,11 @@ class UpgradeV2(BaseModel):
     imbue: Optional[RawAbilityImbueV2] = None
     component_items: Optional[List[StrictStr]] = None
     tooltip_sections: Optional[List[UpgradeTooltipSectionV2]] = None
+    upgrades: Optional[List[RawAbilityUpgradeV2]] = None
     is_active_item: StrictBool
     shopable: StrictBool
     cost: Optional[StrictInt]
-    __properties: ClassVar[List[str]] = ["id", "class_name", "name", "start_trained", "image", "image_webp", "hero", "heroes", "update_time", "properties", "weapon_info", "type", "shop_image", "shop_image_webp", "shop_image_small", "shop_image_small_webp", "item_slot_type", "item_tier", "disabled", "description", "activation", "imbue", "component_items", "tooltip_sections", "is_active_item", "shopable", "cost"]
+    __properties: ClassVar[List[str]] = ["id", "class_name", "name", "start_trained", "image", "image_webp", "hero", "heroes", "update_time", "properties", "weapon_info", "type", "shop_image", "shop_image_webp", "shop_image_small", "shop_image_small_webp", "item_slot_type", "item_tier", "disabled", "description", "activation", "imbue", "component_items", "tooltip_sections", "upgrades", "is_active_item", "shopable", "cost"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -138,6 +140,13 @@ class UpgradeV2(BaseModel):
                 if _item_tooltip_sections:
                     _items.append(_item_tooltip_sections.to_dict())
             _dict['tooltip_sections'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in upgrades (list)
+        _items = []
+        if self.upgrades:
+            for _item_upgrades in self.upgrades:
+                if _item_upgrades:
+                    _items.append(_item_upgrades.to_dict())
+            _dict['upgrades'] = _items
         # set to None if start_trained (nullable) is None
         # and model_fields_set contains the field
         if self.start_trained is None and "start_trained" in self.model_fields_set:
@@ -223,6 +232,11 @@ class UpgradeV2(BaseModel):
         if self.tooltip_sections is None and "tooltip_sections" in self.model_fields_set:
             _dict['tooltip_sections'] = None
 
+        # set to None if upgrades (nullable) is None
+        # and model_fields_set contains the field
+        if self.upgrades is None and "upgrades" in self.model_fields_set:
+            _dict['upgrades'] = None
+
         # set to None if cost (nullable) is None
         # and model_fields_set contains the field
         if self.cost is None and "cost" in self.model_fields_set:
@@ -269,6 +283,7 @@ class UpgradeV2(BaseModel):
             "imbue": obj.get("imbue"),
             "component_items": obj.get("component_items"),
             "tooltip_sections": [UpgradeTooltipSectionV2.from_dict(_item) for _item in obj["tooltip_sections"]] if obj.get("tooltip_sections") is not None else None,
+            "upgrades": [RawAbilityUpgradeV2.from_dict(_item) for _item in obj["upgrades"]] if obj.get("upgrades") is not None else None,
             "is_active_item": obj.get("is_active_item"),
             "shopable": obj.get("shopable"),
             "cost": obj.get("cost")

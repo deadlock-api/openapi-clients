@@ -81,6 +81,7 @@ class UpgradeV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imbue' => '\OpenAPI\Client\Model\RawAbilityImbueV2',
         'component_items' => 'string[]',
         'tooltip_sections' => '\OpenAPI\Client\Model\UpgradeTooltipSectionV2[]',
+        'upgrades' => '\OpenAPI\Client\Model\RawAbilityUpgradeV2[]',
         'is_active_item' => 'bool',
         'shopable' => 'bool',
         'cost' => 'int'
@@ -118,6 +119,7 @@ class UpgradeV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imbue' => null,
         'component_items' => null,
         'tooltip_sections' => null,
+        'upgrades' => null,
         'is_active_item' => null,
         'shopable' => null,
         'cost' => null
@@ -153,6 +155,7 @@ class UpgradeV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imbue' => true,
         'component_items' => true,
         'tooltip_sections' => true,
+        'upgrades' => true,
         'is_active_item' => false,
         'shopable' => false,
         'cost' => true
@@ -268,6 +271,7 @@ class UpgradeV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imbue' => 'imbue',
         'component_items' => 'component_items',
         'tooltip_sections' => 'tooltip_sections',
+        'upgrades' => 'upgrades',
         'is_active_item' => 'is_active_item',
         'shopable' => 'shopable',
         'cost' => 'cost'
@@ -303,6 +307,7 @@ class UpgradeV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imbue' => 'setImbue',
         'component_items' => 'setComponentItems',
         'tooltip_sections' => 'setTooltipSections',
+        'upgrades' => 'setUpgrades',
         'is_active_item' => 'setIsActiveItem',
         'shopable' => 'setShopable',
         'cost' => 'setCost'
@@ -338,6 +343,7 @@ class UpgradeV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imbue' => 'getImbue',
         'component_items' => 'getComponentItems',
         'tooltip_sections' => 'getTooltipSections',
+        'upgrades' => 'getUpgrades',
         'is_active_item' => 'getIsActiveItem',
         'shopable' => 'getShopable',
         'cost' => 'getCost'
@@ -437,6 +443,7 @@ class UpgradeV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('imbue', $data ?? [], null);
         $this->setIfExists('component_items', $data ?? [], null);
         $this->setIfExists('tooltip_sections', $data ?? [], null);
+        $this->setIfExists('upgrades', $data ?? [], null);
         $this->setIfExists('is_active_item', $data ?? [], null);
         $this->setIfExists('shopable', $data ?? [], null);
         $this->setIfExists('cost', $data ?? [], null);
@@ -1293,6 +1300,40 @@ class UpgradeV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['tooltip_sections'] = $tooltip_sections;
+
+        return $this;
+    }
+
+    /**
+     * Gets upgrades
+     *
+     * @return \OpenAPI\Client\Model\RawAbilityUpgradeV2[]|null
+     */
+    public function getUpgrades()
+    {
+        return $this->container['upgrades'];
+    }
+
+    /**
+     * Sets upgrades
+     *
+     * @param \OpenAPI\Client\Model\RawAbilityUpgradeV2[]|null $upgrades upgrades
+     *
+     * @return self
+     */
+    public function setUpgrades($upgrades)
+    {
+        if (is_null($upgrades)) {
+            array_push($this->openAPINullablesSetToNull, 'upgrades');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('upgrades', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['upgrades'] = $upgrades;
 
         return $this;
     }

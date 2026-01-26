@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **imbue** | Option<[**models::RawAbilityImbueV2**](RawAbilityImbueV2.md)> |  | [optional]
 **component_items** | Option<**Vec<String>**> |  | [optional]
 **tooltip_sections** | Option<[**Vec<models::UpgradeTooltipSectionV2>**](UpgradeTooltipSectionV2.md)> |  | [optional]
+**upgrades** | Option<[**Vec<models::RawAbilityUpgradeV2>**](RawAbilityUpgradeV2.md)> |  | [optional]
 **is_active_item** | **bool** |  | [readonly]
 **shopable** | **bool** |  | [readonly]
 **cost** | Option<**i32**> |  | [readonly]

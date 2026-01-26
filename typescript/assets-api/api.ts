@@ -156,6 +156,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6162: 6162,
     NUMBER_6140: 6140,
     NUMBER_6128: 6128,
     NUMBER_6111: 6111,
@@ -1167,6 +1168,7 @@ export interface UpgradeV2 {
     'imbue'?: RawAbilityImbueV2 | null;
     'component_items'?: Array<string> | null;
     'tooltip_sections'?: Array<UpgradeTooltipSectionV2> | null;
+    'upgrades'?: Array<RawAbilityUpgradeV2> | null;
     'is_active_item': boolean;
     'shopable': boolean;
     'cost': number | null;

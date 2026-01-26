@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **imbue** | [**RawAbilityImbueV2**](RawAbilityImbueV2.md) |  | [optional] 
 **component_items** | **List[str]** |  | [optional] 
 **tooltip_sections** | [**List[UpgradeTooltipSectionV2]**](UpgradeTooltipSectionV2.md) |  | [optional] 
+**upgrades** | [**List[RawAbilityUpgradeV2]**](RawAbilityUpgradeV2.md) |  | [optional] 
 **is_active_item** | **bool** |  | [readonly] 
 **shopable** | **bool** |  | [readonly] 
 **cost** | **int** |  | [readonly] 

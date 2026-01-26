@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **Imbue** | Pointer to [**NullableRawAbilityImbueV2**](RawAbilityImbueV2.md) |  | [optional] 
 **ComponentItems** | Pointer to **[]string** |  | [optional] 
 **TooltipSections** | Pointer to [**[]UpgradeTooltipSectionV2**](UpgradeTooltipSectionV2.md) |  | [optional] 
+**Upgrades** | Pointer to [**[]RawAbilityUpgradeV2**](RawAbilityUpgradeV2.md) |  | [optional] 
 **IsActiveItem** | **bool** |  | [readonly] 
 **Shopable** | **bool** |  | [readonly] 
 **Cost** | **NullableInt32** |  | [readonly] 
@@ -791,6 +792,41 @@ HasTooltipSections returns a boolean if a field has been set.
 `func (o *UpgradeV2) UnsetTooltipSections()`
 
 UnsetTooltipSections ensures that no value is present for TooltipSections, not even an explicit nil
+### GetUpgrades
+
+`func (o *UpgradeV2) GetUpgrades() []RawAbilityUpgradeV2`
+
+GetUpgrades returns the Upgrades field if non-nil, zero value otherwise.
+
+### GetUpgradesOk
+
+`func (o *UpgradeV2) GetUpgradesOk() (*[]RawAbilityUpgradeV2, bool)`
+
+GetUpgradesOk returns a tuple with the Upgrades field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpgrades
+
+`func (o *UpgradeV2) SetUpgrades(v []RawAbilityUpgradeV2)`
+
+SetUpgrades sets Upgrades field to given value.
+
+### HasUpgrades
+
+`func (o *UpgradeV2) HasUpgrades() bool`
+
+HasUpgrades returns a boolean if a field has been set.
+
+### SetUpgradesNil
+
+`func (o *UpgradeV2) SetUpgradesNil(b bool)`
+
+ SetUpgradesNil sets the value for Upgrades to be an explicit nil
+
+### UnsetUpgrades
+`func (o *UpgradeV2) UnsetUpgrades()`
+
+UnsetUpgrades ensures that no value is present for Upgrades, not even an explicit nil
 ### GetIsActiveItem
 
 `func (o *UpgradeV2) GetIsActiveItem() bool`

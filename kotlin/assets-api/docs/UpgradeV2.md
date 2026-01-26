@@ -31,6 +31,7 @@
 | **imbue** | [**RawAbilityImbueV2**](RawAbilityImbueV2.md) |  |  [optional] |
 | **componentItems** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **tooltipSections** | [**kotlin.collections.List&lt;UpgradeTooltipSectionV2&gt;**](UpgradeTooltipSectionV2.md) |  |  [optional] |
+| **upgrades** | [**kotlin.collections.List&lt;RawAbilityUpgradeV2&gt;**](RawAbilityUpgradeV2.md) |  |  [optional] |
 
 
 <a id="Type"></a>

@@ -111,6 +111,16 @@ class TestUpgradeV2(unittest.TestCase):
                                     ], )
                             ], )
                     ],
+                upgrades = [
+                    assets_deadlock_api_client.models.raw_ability_upgrade_v2.RawAbilityUpgradeV2(
+                        property_upgrades = [
+                            assets_deadlock_api_client.models.raw_ability_upgrade_property_upgrade_v2.RawAbilityUpgradePropertyUpgradeV2(
+                                name = '', 
+                                bonus = null, 
+                                scale_stat_filter = '', 
+                                upgrade_type = '', )
+                            ], )
+                    ],
                 is_active_item = True,
                 shopable = True,
                 cost = 56

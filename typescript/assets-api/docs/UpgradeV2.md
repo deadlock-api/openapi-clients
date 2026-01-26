@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **imbue** | [**RawAbilityImbueV2**](RawAbilityImbueV2.md) |  | [optional] [default to undefined]
 **component_items** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **tooltip_sections** | [**Array&lt;UpgradeTooltipSectionV2&gt;**](UpgradeTooltipSectionV2.md) |  | [optional] [default to undefined]
+**upgrades** | [**Array&lt;RawAbilityUpgradeV2&gt;**](RawAbilityUpgradeV2.md) |  | [optional] [default to undefined]
 **is_active_item** | **boolean** |  | [readonly] [default to undefined]
 **shopable** | **boolean** |  | [readonly] [default to undefined]
 **cost** | **number** |  | [readonly] [default to undefined]
@@ -63,6 +64,7 @@ const instance: UpgradeV2 = {
     imbue,
     component_items,
     tooltip_sections,
+    upgrades,
     is_active_item,
     shopable,
     cost,

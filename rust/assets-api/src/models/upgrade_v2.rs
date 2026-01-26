@@ -61,6 +61,8 @@ pub struct UpgradeV2 {
     pub component_items: Option<Option<Vec<String>>>,
     #[serde(rename = "tooltip_sections", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tooltip_sections: Option<Option<Vec<models::UpgradeTooltipSectionV2>>>,
+    #[serde(rename = "upgrades", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub upgrades: Option<Option<Vec<models::RawAbilityUpgradeV2>>>,
     #[serde(rename = "is_active_item")]
     pub is_active_item: bool,
     #[serde(rename = "shopable")]
@@ -96,6 +98,7 @@ impl UpgradeV2 {
             imbue: None,
             component_items: None,
             tooltip_sections: None,
+            upgrades: None,
             is_active_item,
             shopable,
             cost,

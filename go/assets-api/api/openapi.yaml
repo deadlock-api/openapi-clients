@@ -1552,6 +1552,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6162
       - 6140
       - 6128
       - 6111
@@ -5024,6 +5025,11 @@ components:
         tooltip_sections:
           items:
             $ref: "#/components/schemas/UpgradeTooltipSectionV2"
+          nullable: true
+          type: array
+        upgrades:
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgradeV2"
           nullable: true
           type: array
         is_active_item:

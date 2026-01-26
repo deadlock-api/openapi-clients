@@ -45,6 +45,7 @@ type UpgradeV2 struct {
 	Imbue NullableRawAbilityImbueV2 `json:"imbue,omitempty"`
 	ComponentItems []string `json:"component_items,omitempty"`
 	TooltipSections []UpgradeTooltipSectionV2 `json:"tooltip_sections,omitempty"`
+	Upgrades []RawAbilityUpgradeV2 `json:"upgrades,omitempty"`
 	IsActiveItem bool `json:"is_active_item"`
 	Shopable bool `json:"shopable"`
 	Cost NullableInt32 `json:"cost"`
@@ -936,6 +937,39 @@ func (o *UpgradeV2) SetTooltipSections(v []UpgradeTooltipSectionV2) {
 	o.TooltipSections = v
 }
 
+// GetUpgrades returns the Upgrades field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpgradeV2) GetUpgrades() []RawAbilityUpgradeV2 {
+	if o == nil {
+		var ret []RawAbilityUpgradeV2
+		return ret
+	}
+	return o.Upgrades
+}
+
+// GetUpgradesOk returns a tuple with the Upgrades field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpgradeV2) GetUpgradesOk() ([]RawAbilityUpgradeV2, bool) {
+	if o == nil || IsNil(o.Upgrades) {
+		return nil, false
+	}
+	return o.Upgrades, true
+}
+
+// HasUpgrades returns a boolean if a field has been set.
+func (o *UpgradeV2) HasUpgrades() bool {
+	if o != nil && !IsNil(o.Upgrades) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpgrades gets a reference to the given []RawAbilityUpgradeV2 and assigns it to the Upgrades field.
+func (o *UpgradeV2) SetUpgrades(v []RawAbilityUpgradeV2) {
+	o.Upgrades = v
+}
+
 // GetIsActiveItem returns the IsActiveItem field value
 func (o *UpgradeV2) GetIsActiveItem() bool {
 	if o == nil {
@@ -1079,6 +1113,9 @@ func (o UpgradeV2) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TooltipSections != nil {
 		toSerialize["tooltip_sections"] = o.TooltipSections
+	}
+	if o.Upgrades != nil {
+		toSerialize["upgrades"] = o.Upgrades
 	}
 	toSerialize["is_active_item"] = o.IsActiveItem
 	toSerialize["shopable"] = o.Shopable
