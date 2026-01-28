@@ -16,5 +16,7 @@
 
     * `melee` (value: `"melee"`)
 
+    * `cosmetic` (value: `"cosmetic"`)
+
 
 

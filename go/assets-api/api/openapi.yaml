@@ -1161,6 +1161,7 @@ components:
       - ultimate
       - weapon
       - melee
+      - cosmetic
       title: AbilityTypeV2
       type: string
     AbilityV2:
@@ -1552,6 +1553,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6181
       - 6169
       - 6164
       - 6162

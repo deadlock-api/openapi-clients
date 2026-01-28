@@ -26,6 +26,7 @@ class DeadlockAssetsApiRoutesValidClientVersions(int, Enum):
     """
     allowed enum values
     """
+    NUMBER_6181 = 6181
     NUMBER_6169 = 6169
     NUMBER_6164 = 6164
     NUMBER_6162 = 6162

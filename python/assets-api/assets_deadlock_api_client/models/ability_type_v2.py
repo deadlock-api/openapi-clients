@@ -32,6 +32,7 @@ class AbilityTypeV2(str, Enum):
     ULTIMATE = 'ultimate'
     WEAPON = 'weapon'
     MELEE = 'melee'
+    COSMETIC = 'cosmetic'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

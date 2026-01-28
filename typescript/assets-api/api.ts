@@ -53,7 +53,8 @@ export const AbilityTypeV2 = {
     Signature: 'signature',
     Ultimate: 'ultimate',
     Weapon: 'weapon',
-    Melee: 'melee'
+    Melee: 'melee',
+    Cosmetic: 'cosmetic'
 } as const;
 
 export type AbilityTypeV2 = typeof AbilityTypeV2[keyof typeof AbilityTypeV2];
@@ -156,6 +157,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6181: 6181,
     NUMBER_6169: 6169,
     NUMBER_6164: 6164,
     NUMBER_6162: 6162,

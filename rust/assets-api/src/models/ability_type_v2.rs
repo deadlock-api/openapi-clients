@@ -26,6 +26,8 @@ pub enum AbilityTypeV2 {
     Weapon,
     #[serde(rename = "melee")]
     Melee,
+    #[serde(rename = "cosmetic")]
+    Cosmetic,
 
 }
 
@@ -38,6 +40,7 @@ impl std::fmt::Display for AbilityTypeV2 {
             Self::Ultimate => write!(f, "ultimate"),
             Self::Weapon => write!(f, "weapon"),
             Self::Melee => write!(f, "melee"),
+            Self::Cosmetic => write!(f, "cosmetic"),
         }
     }
 }

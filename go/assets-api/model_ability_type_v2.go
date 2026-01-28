@@ -26,6 +26,7 @@ const (
 	ABILITYTYPEV2_ULTIMATE AbilityTypeV2 = "ultimate"
 	ABILITYTYPEV2_WEAPON AbilityTypeV2 = "weapon"
 	ABILITYTYPEV2_MELEE AbilityTypeV2 = "melee"
+	ABILITYTYPEV2_COSMETIC AbilityTypeV2 = "cosmetic"
 )
 
 // All allowed values of AbilityTypeV2 enum
@@ -36,6 +37,7 @@ var AllowedAbilityTypeV2EnumValues = []AbilityTypeV2{
 	"ultimate",
 	"weapon",
 	"melee",
+	"cosmetic",
 }
 
 func (v *AbilityTypeV2) UnmarshalJSON(src []byte) error {

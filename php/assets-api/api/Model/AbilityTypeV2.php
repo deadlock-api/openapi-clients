@@ -54,6 +54,8 @@ class AbilityTypeV2
 
     public const MELEE = 'melee';
 
+    public const COSMETIC = 'cosmetic';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -66,7 +68,8 @@ class AbilityTypeV2
             self::SIGNATURE,
             self::ULTIMATE,
             self::WEAPON,
-            self::MELEE
+            self::MELEE,
+            self::COSMETIC
         ];
     }
 }
