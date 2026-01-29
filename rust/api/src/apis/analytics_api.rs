@@ -19,7 +19,7 @@ use super::{Error, configuration, ContentType};
 pub struct AbilityOrderStatsParams {
     /// See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_id: u32,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
@@ -56,7 +56,7 @@ pub struct AbilityOrderStatsParams {
 /// struct for passing parameters to the method [`badge_distribution`]
 #[derive(Clone, Debug)]
 pub struct BadgeDistributionParams {
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
@@ -92,7 +92,7 @@ pub struct BuildItemStatsParams {
 /// struct for passing parameters to the method [`hero_comb_stats`]
 #[derive(Clone, Debug)]
 pub struct HeroCombStatsParams {
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
@@ -133,7 +133,7 @@ pub struct HeroCombStatsParams {
 /// struct for passing parameters to the method [`hero_counters_stats`]
 #[derive(Clone, Debug)]
 pub struct HeroCountersStatsParams {
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
@@ -178,7 +178,7 @@ pub struct HeroScoreboardParams {
     pub sort_by: String,
     /// The direction to sort heroes in.
     pub sort_direction: Option<String>,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter by min number of matches played.
     pub min_matches: Option<u32>,
@@ -213,7 +213,7 @@ pub struct HeroScoreboardParams {
 pub struct HeroStatsParams {
     /// Bucket allows you to group the stats by a specific field.
     pub bucket: Option<String>,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
@@ -256,7 +256,7 @@ pub struct HeroStatsParams {
 /// struct for passing parameters to the method [`hero_synergies_stats`]
 #[derive(Clone, Debug)]
 pub struct HeroSynergiesStatsParams {
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
@@ -299,7 +299,7 @@ pub struct ItemPermutationStatsParams {
     pub item_ids: Option<Vec<u32>>,
     /// The combination size to return.
     pub comb_size: Option<u32>,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
@@ -336,7 +336,7 @@ pub struct ItemPermutationStatsParams {
 pub struct ItemStatsParams {
     /// Bucket allows you to group the stats by a specific field.
     pub bucket: Option<String>,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
@@ -385,7 +385,7 @@ pub struct ItemStatsParams {
 pub struct KillDeathStatsParams {
     /// Filter by team number.
     pub team: Option<u32>,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
@@ -436,7 +436,7 @@ pub struct KillDeathStatsParams {
 pub struct PlayerPerformanceCurveParams {
     /// Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
     pub resolution: Option<u32>,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
@@ -475,7 +475,7 @@ pub struct PlayerScoreboardParams {
     pub sort_by: String,
     /// The direction to sort players in.
     pub sort_direction: Option<String>,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_id: Option<u32>,
@@ -516,7 +516,7 @@ pub struct PlayerScoreboardParams {
 pub struct PlayerStatsMetricsParams {
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,

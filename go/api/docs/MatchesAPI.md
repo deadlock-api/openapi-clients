@@ -172,7 +172,7 @@ func main() {
 	includePlayerItems := true // bool | Include player items in the response. (optional)
 	includePlayerStats := true // bool | Include player stats in the response. (optional)
 	includePlayerDeathDetails := true // bool | Include player death details in the response. (optional)
-	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included. (optional)
+	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchIds := []int64{int64(123)} // []int64 | Comma separated list of match ids, limited by `limit` (optional)
 	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
  **includePlayerItems** | **bool** | Include player items in the response. | 
  **includePlayerStats** | **bool** | Include player stats in the response. | 
  **includePlayerDeathDetails** | **bool** | Include player death details in the response. | 
- **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included. | 
+ **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchIds** | **[]int64** | Comma separated list of match ids, limited by &#x60;limit&#x60; | 
  **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 

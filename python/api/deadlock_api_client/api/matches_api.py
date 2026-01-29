@@ -586,7 +586,7 @@ class MatchesApi:
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
-        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -635,7 +635,7 @@ class MatchesApi:
         :type include_player_stats: bool
         :param include_player_death_details: Include player death details in the response.
         :type include_player_death_details: bool
-        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
         :param match_ids: Comma separated list of match ids, limited by `limit`
         :type match_ids: List[int]
@@ -751,7 +751,7 @@ class MatchesApi:
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
-        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -800,7 +800,7 @@ class MatchesApi:
         :type include_player_stats: bool
         :param include_player_death_details: Include player death details in the response.
         :type include_player_death_details: bool
-        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
         :param match_ids: Comma separated list of match ids, limited by `limit`
         :type match_ids: List[int]
@@ -916,7 +916,7 @@ class MatchesApi:
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
-        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.")] = None,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -965,7 +965,7 @@ class MatchesApi:
         :type include_player_stats: bool
         :param include_player_death_details: Include player death details in the response.
         :type include_player_death_details: bool
-        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
         :param match_ids: Comma separated list of match ids, limited by `limit`
         :type match_ids: List[int]

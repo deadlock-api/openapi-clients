@@ -19,7 +19,7 @@ use super::{Error, configuration, ContentType};
 pub struct EnemyStatsParams {
     /// The players `SteamID3`
     pub account_id: u32,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp).
     pub min_unix_timestamp: Option<i64>,
@@ -55,7 +55,7 @@ pub struct MatchHistoryParams {
 pub struct MateStatsParams {
     /// The players `SteamID3`
     pub account_id: u32,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp).
     pub min_unix_timestamp: Option<i64>,
@@ -82,7 +82,7 @@ pub struct MateStatsParams {
 pub struct PartyStatsParams {
     /// The players `SteamID3`
     pub account_id: u32,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on their start time (Unix timestamp).
     pub min_unix_timestamp: Option<i64>,
@@ -103,7 +103,7 @@ pub struct PartyStatsParams {
 pub struct PlayerHeroStatsParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
     pub account_ids: Vec<u32>,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,

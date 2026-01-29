@@ -92,7 +92,7 @@ Name | Type | Description  | Required | Notes
 **include_player_items** | Option<**bool**> | Include player items in the response. |  |
 **include_player_stats** | Option<**bool**> | Include player stats in the response. |  |
 **include_player_death_details** | Option<**bool**> | Include player death details in the response. |  |
-**game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. If not specified, both are included. |  |
+**game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_ids** | Option<[**Vec<u64>**](U64.md)> | Comma separated list of match ids, limited by `limit` |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |

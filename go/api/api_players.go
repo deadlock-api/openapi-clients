@@ -39,7 +39,7 @@ type ApiEnemyStatsRequest struct {
 	maxMatchesPlayed *int64
 }
 
-// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included.
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
 func (r ApiEnemyStatsRequest) GameMode(gameMode string) ApiEnemyStatsRequest {
 	r.gameMode = &gameMode
 	return r
@@ -388,7 +388,7 @@ type ApiMateStatsRequest struct {
 	sameParty *bool
 }
 
-// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included.
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
 func (r ApiMateStatsRequest) GameMode(gameMode string) ApiMateStatsRequest {
 	r.gameMode = &gameMode
 	return r
@@ -604,7 +604,7 @@ type ApiPartyStatsRequest struct {
 	maxMatchId *int64
 }
 
-// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included.
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
 func (r ApiPartyStatsRequest) GameMode(gameMode string) ApiPartyStatsRequest {
 	r.gameMode = &gameMode
 	return r
@@ -800,7 +800,7 @@ func (r ApiPlayerHeroStatsRequest) AccountIds(accountIds []int32) ApiPlayerHeroS
 	return r
 }
 
-// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. If not specified, both are included.
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
 func (r ApiPlayerHeroStatsRequest) GameMode(gameMode string) ApiPlayerHeroStatsRequest {
 	r.gameMode = &gameMode
 	return r
