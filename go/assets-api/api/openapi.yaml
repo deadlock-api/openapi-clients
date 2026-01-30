@@ -1686,11 +1686,7 @@ components:
             alpha: 237
           minimap_zipline_color_override: ""
           lane_name: lane_name
-        enemy_objectives_and_zipline_color:
-          red: 143
-          green: 58
-          blue: 180
-          alpha: 237
+        enemy_objectives_and_zipline_color: ""
         hero_kill_gold_share_frac:
         - 6.878052220127876
         - 6.878052220127876
@@ -1745,11 +1741,7 @@ components:
           speed: 1.4894159098541704
           jump_strength: 6.84685269835264
           white_noise_strength: 1.1730742509559433
-        enemy_zipline_color:
-          red: 143
-          green: 58
-          blue: 180
-          alpha: 237
+        enemy_zipline_color: ""
         item_price_per_tier:
         - 2
         - 2
@@ -1782,11 +1774,7 @@ components:
           upgrades:
           - upgrades
           - upgrades
-        minimap_team_combine_color:
-          red: 143
-          green: 58
-          blue: 180
-          alpha: 237
+        minimap_team_combine_color: ""
         objective_params:
           tier1_gold_orbs: 0
           tier2_gold_kill: 7
@@ -1856,19 +1844,11 @@ components:
               blue: 180
               alpha: 237
             brightness_in_light_sensitivity_mode: 3.616076749251911
-        enemy_objectives_color:
-          red: 143
-          green: 58
-          blue: 180
-          alpha: 237
+        enemy_objectives_color: ""
         aim_spring_strength:
         - 5.944895607614016
         - 5.944895607614016
-        minimap_team_rebels_color:
-          red: 143
-          green: 58
-          blue: 180
-          alpha: 237
+        minimap_team_rebels_color: ""
         spirit_groups:
         - shop_group: shop_group
           upgrades:
@@ -1894,15 +1874,25 @@ components:
           title: New Player Metrics
           type: array
         minimap_team_rebels_color:
-          $ref: "#/components/schemas/ColorV1"
+          allOf:
+          - $ref: "#/components/schemas/ColorV1"
+          nullable: true
         minimap_team_combine_color:
-          $ref: "#/components/schemas/ColorV1"
+          allOf:
+          - $ref: "#/components/schemas/ColorV1"
+          nullable: true
         enemy_objectives_and_zipline_color:
-          $ref: "#/components/schemas/ColorV1"
+          allOf:
+          - $ref: "#/components/schemas/ColorV1"
+          nullable: true
         enemy_objectives_color:
-          $ref: "#/components/schemas/ColorV1"
+          allOf:
+          - $ref: "#/components/schemas/ColorV1"
+          nullable: true
         enemy_zipline_color:
-          $ref: "#/components/schemas/ColorV1"
+          allOf:
+          - $ref: "#/components/schemas/ColorV1"
+          nullable: true
         item_price_per_tier:
           items:
             type: integer
@@ -1960,16 +1950,11 @@ components:
       - aim_spring_strength
       - armor_groups
       - damage_flash
-      - enemy_objectives_and_zipline_color
-      - enemy_objectives_color
-      - enemy_zipline_color
       - glitch_settings
       - hero_kill_gold_share_frac
       - item_price_per_tier
       - lane_info
       - mini_map_offsets
-      - minimap_team_combine_color
-      - minimap_team_rebels_color
       - new_player_metrics
       - objective_params
       - rejuv_params

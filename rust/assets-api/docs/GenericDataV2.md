@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **glitch_settings** | [**models::GlitchSettingsV2**](GlitchSettingsV2.md) |  | 
 **lane_info** | [**Vec<models::LaneInfoV2>**](LaneInfoV2.md) |  | 
 **new_player_metrics** | [**Vec<models::NewPlayerMetricsV2>**](NewPlayerMetricsV2.md) |  | 
-**minimap_team_rebels_color** | [**models::ColorV1**](ColorV1.md) |  | 
-**minimap_team_combine_color** | [**models::ColorV1**](ColorV1.md) |  | 
-**enemy_objectives_and_zipline_color** | [**models::ColorV1**](ColorV1.md) |  | 
-**enemy_objectives_color** | [**models::ColorV1**](ColorV1.md) |  | 
-**enemy_zipline_color** | [**models::ColorV1**](ColorV1.md) |  | 
+**minimap_team_rebels_color** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
+**minimap_team_combine_color** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
+**enemy_objectives_and_zipline_color** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
+**enemy_objectives_color** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
+**enemy_zipline_color** | Option<[**models::ColorV1**](ColorV1.md)> |  | [optional]
 **item_price_per_tier** | **Vec<i32>** |  | 
 **trooper_kill_gold_share_frac** | **Vec<f64>** |  | 
 **hero_kill_gold_share_frac** | **Vec<f64>** |  | 

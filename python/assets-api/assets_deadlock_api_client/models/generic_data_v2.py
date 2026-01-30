@@ -40,11 +40,11 @@ class GenericDataV2(BaseModel):
     glitch_settings: GlitchSettingsV2
     lane_info: List[LaneInfoV2]
     new_player_metrics: List[NewPlayerMetricsV2]
-    minimap_team_rebels_color: ColorV1
-    minimap_team_combine_color: ColorV1
-    enemy_objectives_and_zipline_color: ColorV1
-    enemy_objectives_color: ColorV1
-    enemy_zipline_color: ColorV1
+    minimap_team_rebels_color: Optional[ColorV1] = None
+    minimap_team_combine_color: Optional[ColorV1] = None
+    enemy_objectives_and_zipline_color: Optional[ColorV1] = None
+    enemy_objectives_color: Optional[ColorV1] = None
+    enemy_zipline_color: Optional[ColorV1] = None
     item_price_per_tier: List[StrictInt]
     trooper_kill_gold_share_frac: List[Union[StrictFloat, StrictInt]]
     hero_kill_gold_share_frac: List[Union[StrictFloat, StrictInt]]
@@ -170,6 +170,31 @@ class GenericDataV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of street_brawl
         if self.street_brawl:
             _dict['street_brawl'] = self.street_brawl.to_dict()
+        # set to None if minimap_team_rebels_color (nullable) is None
+        # and model_fields_set contains the field
+        if self.minimap_team_rebels_color is None and "minimap_team_rebels_color" in self.model_fields_set:
+            _dict['minimap_team_rebels_color'] = None
+
+        # set to None if minimap_team_combine_color (nullable) is None
+        # and model_fields_set contains the field
+        if self.minimap_team_combine_color is None and "minimap_team_combine_color" in self.model_fields_set:
+            _dict['minimap_team_combine_color'] = None
+
+        # set to None if enemy_objectives_and_zipline_color (nullable) is None
+        # and model_fields_set contains the field
+        if self.enemy_objectives_and_zipline_color is None and "enemy_objectives_and_zipline_color" in self.model_fields_set:
+            _dict['enemy_objectives_and_zipline_color'] = None
+
+        # set to None if enemy_objectives_color (nullable) is None
+        # and model_fields_set contains the field
+        if self.enemy_objectives_color is None and "enemy_objectives_color" in self.model_fields_set:
+            _dict['enemy_objectives_color'] = None
+
+        # set to None if enemy_zipline_color (nullable) is None
+        # and model_fields_set contains the field
+        if self.enemy_zipline_color is None and "enemy_zipline_color" in self.model_fields_set:
+            _dict['enemy_zipline_color'] = None
+
         # set to None if street_brawl (nullable) is None
         # and model_fields_set contains the field
         if self.street_brawl is None and "street_brawl" in self.model_fields_set:

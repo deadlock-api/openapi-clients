@@ -59,36 +59,6 @@ class GenericDataV2Test : ShouldSpec() {
             //modelInstance.newPlayerMetrics shouldBe ("TODO")
         }
 
-        // to test the property `minimapTeamRebelsColor`
-        should("test minimapTeamRebelsColor") {
-            // uncomment below to test the property
-            //modelInstance.minimapTeamRebelsColor shouldBe ("TODO")
-        }
-
-        // to test the property `minimapTeamCombineColor`
-        should("test minimapTeamCombineColor") {
-            // uncomment below to test the property
-            //modelInstance.minimapTeamCombineColor shouldBe ("TODO")
-        }
-
-        // to test the property `enemyObjectivesAndZiplineColor`
-        should("test enemyObjectivesAndZiplineColor") {
-            // uncomment below to test the property
-            //modelInstance.enemyObjectivesAndZiplineColor shouldBe ("TODO")
-        }
-
-        // to test the property `enemyObjectivesColor`
-        should("test enemyObjectivesColor") {
-            // uncomment below to test the property
-            //modelInstance.enemyObjectivesColor shouldBe ("TODO")
-        }
-
-        // to test the property `enemyZiplineColor`
-        should("test enemyZiplineColor") {
-            // uncomment below to test the property
-            //modelInstance.enemyZiplineColor shouldBe ("TODO")
-        }
-
         // to test the property `itemPricePerTier`
         should("test itemPricePerTier") {
             // uncomment below to test the property
@@ -153,6 +123,36 @@ class GenericDataV2Test : ShouldSpec() {
         should("test spiritGroups") {
             // uncomment below to test the property
             //modelInstance.spiritGroups shouldBe ("TODO")
+        }
+
+        // to test the property `minimapTeamRebelsColor`
+        should("test minimapTeamRebelsColor") {
+            // uncomment below to test the property
+            //modelInstance.minimapTeamRebelsColor shouldBe ("TODO")
+        }
+
+        // to test the property `minimapTeamCombineColor`
+        should("test minimapTeamCombineColor") {
+            // uncomment below to test the property
+            //modelInstance.minimapTeamCombineColor shouldBe ("TODO")
+        }
+
+        // to test the property `enemyObjectivesAndZiplineColor`
+        should("test enemyObjectivesAndZiplineColor") {
+            // uncomment below to test the property
+            //modelInstance.enemyObjectivesAndZiplineColor shouldBe ("TODO")
+        }
+
+        // to test the property `enemyObjectivesColor`
+        should("test enemyObjectivesColor") {
+            // uncomment below to test the property
+            //modelInstance.enemyObjectivesColor shouldBe ("TODO")
+        }
+
+        // to test the property `enemyZiplineColor`
+        should("test enemyZiplineColor") {
+            // uncomment below to test the property
+            //modelInstance.enemyZiplineColor shouldBe ("TODO")
         }
 
         // to test the property `streetBrawl`

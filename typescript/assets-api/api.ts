@@ -245,11 +245,11 @@ export interface GenericDataV2 {
     'glitch_settings': GlitchSettingsV2;
     'lane_info': Array<LaneInfoV2>;
     'new_player_metrics': Array<NewPlayerMetricsV2>;
-    'minimap_team_rebels_color': ColorV1;
-    'minimap_team_combine_color': ColorV1;
-    'enemy_objectives_and_zipline_color': ColorV1;
-    'enemy_objectives_color': ColorV1;
-    'enemy_zipline_color': ColorV1;
+    'minimap_team_rebels_color'?: ColorV1 | null;
+    'minimap_team_combine_color'?: ColorV1 | null;
+    'enemy_objectives_and_zipline_color'?: ColorV1 | null;
+    'enemy_objectives_color'?: ColorV1 | null;
+    'enemy_zipline_color'?: ColorV1 | null;
     'item_price_per_tier': Array<number>;
     'trooper_kill_gold_share_frac': Array<number>;
     'hero_kill_gold_share_frac': Array<number>;

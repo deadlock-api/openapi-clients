@@ -8,11 +8,6 @@
 | **glitchSettings** | [**GlitchSettingsV2**](GlitchSettingsV2.md) |  |  |
 | **laneInfo** | [**kotlin.collections.List&lt;LaneInfoV2&gt;**](LaneInfoV2.md) |  |  |
 | **newPlayerMetrics** | [**kotlin.collections.List&lt;NewPlayerMetricsV2&gt;**](NewPlayerMetricsV2.md) |  |  |
-| **minimapTeamRebelsColor** | [**ColorV1**](ColorV1.md) |  |  |
-| **minimapTeamCombineColor** | [**ColorV1**](ColorV1.md) |  |  |
-| **enemyObjectivesAndZiplineColor** | [**ColorV1**](ColorV1.md) |  |  |
-| **enemyObjectivesColor** | [**ColorV1**](ColorV1.md) |  |  |
-| **enemyZiplineColor** | [**ColorV1**](ColorV1.md) |  |  |
 | **itemPricePerTier** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  |
 | **trooperKillGoldShareFrac** | [**kotlin.collections.List&lt;java.math.BigDecimal&gt;**](java.math.BigDecimal.md) |  |  |
 | **heroKillGoldShareFrac** | [**kotlin.collections.List&lt;java.math.BigDecimal&gt;**](java.math.BigDecimal.md) |  |  |
@@ -24,6 +19,11 @@
 | **weaponGroups** | [**kotlin.collections.List&lt;ItemGroup&gt;**](ItemGroup.md) |  |  |
 | **armorGroups** | [**kotlin.collections.List&lt;ItemGroup&gt;**](ItemGroup.md) |  |  |
 | **spiritGroups** | [**kotlin.collections.List&lt;ItemGroup&gt;**](ItemGroup.md) |  |  |
+| **minimapTeamRebelsColor** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **minimapTeamCombineColor** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **enemyObjectivesAndZiplineColor** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **enemyObjectivesColor** | [**ColorV1**](ColorV1.md) |  |  [optional] |
+| **enemyZiplineColor** | [**ColorV1**](ColorV1.md) |  |  [optional] |
 | **streetBrawl** | [**StreetBrawl**](StreetBrawl.md) |  |  [optional] |
 
 

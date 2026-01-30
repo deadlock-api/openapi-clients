@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **glitch_settings** | [**GlitchSettingsV2**](GlitchSettingsV2.md) |  | 
 **lane_info** | [**List[LaneInfoV2]**](LaneInfoV2.md) |  | 
 **new_player_metrics** | [**List[NewPlayerMetricsV2]**](NewPlayerMetricsV2.md) |  | 
-**minimap_team_rebels_color** | [**ColorV1**](ColorV1.md) |  | 
-**minimap_team_combine_color** | [**ColorV1**](ColorV1.md) |  | 
-**enemy_objectives_and_zipline_color** | [**ColorV1**](ColorV1.md) |  | 
-**enemy_objectives_color** | [**ColorV1**](ColorV1.md) |  | 
-**enemy_zipline_color** | [**ColorV1**](ColorV1.md) |  | 
+**minimap_team_rebels_color** | [**ColorV1**](ColorV1.md) |  | [optional] 
+**minimap_team_combine_color** | [**ColorV1**](ColorV1.md) |  | [optional] 
+**enemy_objectives_and_zipline_color** | [**ColorV1**](ColorV1.md) |  | [optional] 
+**enemy_objectives_color** | [**ColorV1**](ColorV1.md) |  | [optional] 
+**enemy_zipline_color** | [**ColorV1**](ColorV1.md) |  | [optional] 
 **item_price_per_tier** | **List[int]** |  | 
 **trooper_kill_gold_share_frac** | **List[float]** |  | 
 **hero_kill_gold_share_frac** | **List[float]** |  | 

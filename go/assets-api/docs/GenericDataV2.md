@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **GlitchSettings** | [**GlitchSettingsV2**](GlitchSettingsV2.md) |  | 
 **LaneInfo** | [**[]LaneInfoV2**](LaneInfoV2.md) |  | 
 **NewPlayerMetrics** | [**[]NewPlayerMetricsV2**](NewPlayerMetricsV2.md) |  | 
-**MinimapTeamRebelsColor** | [**ColorV1**](ColorV1.md) |  | 
-**MinimapTeamCombineColor** | [**ColorV1**](ColorV1.md) |  | 
-**EnemyObjectivesAndZiplineColor** | [**ColorV1**](ColorV1.md) |  | 
-**EnemyObjectivesColor** | [**ColorV1**](ColorV1.md) |  | 
-**EnemyZiplineColor** | [**ColorV1**](ColorV1.md) |  | 
+**MinimapTeamRebelsColor** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**MinimapTeamCombineColor** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**EnemyObjectivesAndZiplineColor** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**EnemyObjectivesColor** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
+**EnemyZiplineColor** | Pointer to [**NullableColorV1**](ColorV1.md) |  | [optional] 
 **ItemPricePerTier** | **[]int32** |  | 
 **TrooperKillGoldShareFrac** | **[]float32** |  | 
 **HeroKillGoldShareFrac** | **[]float32** |  | 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewGenericDataV2
 
-`func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, minimapTeamRebelsColor ColorV1, minimapTeamCombineColor ColorV1, enemyObjectivesAndZiplineColor ColorV1, enemyObjectivesColor ColorV1, enemyZiplineColor ColorV1, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup, ) *GenericDataV2`
+`func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup, ) *GenericDataV2`
 
 NewGenericDataV2 instantiates a new GenericDataV2 object
 This constructor will assign default values to properties that have it defined,
@@ -144,7 +144,22 @@ and a boolean to check if the value has been set.
 
 SetMinimapTeamRebelsColor sets MinimapTeamRebelsColor field to given value.
 
+### HasMinimapTeamRebelsColor
 
+`func (o *GenericDataV2) HasMinimapTeamRebelsColor() bool`
+
+HasMinimapTeamRebelsColor returns a boolean if a field has been set.
+
+### SetMinimapTeamRebelsColorNil
+
+`func (o *GenericDataV2) SetMinimapTeamRebelsColorNil(b bool)`
+
+ SetMinimapTeamRebelsColorNil sets the value for MinimapTeamRebelsColor to be an explicit nil
+
+### UnsetMinimapTeamRebelsColor
+`func (o *GenericDataV2) UnsetMinimapTeamRebelsColor()`
+
+UnsetMinimapTeamRebelsColor ensures that no value is present for MinimapTeamRebelsColor, not even an explicit nil
 ### GetMinimapTeamCombineColor
 
 `func (o *GenericDataV2) GetMinimapTeamCombineColor() ColorV1`
@@ -164,7 +179,22 @@ and a boolean to check if the value has been set.
 
 SetMinimapTeamCombineColor sets MinimapTeamCombineColor field to given value.
 
+### HasMinimapTeamCombineColor
 
+`func (o *GenericDataV2) HasMinimapTeamCombineColor() bool`
+
+HasMinimapTeamCombineColor returns a boolean if a field has been set.
+
+### SetMinimapTeamCombineColorNil
+
+`func (o *GenericDataV2) SetMinimapTeamCombineColorNil(b bool)`
+
+ SetMinimapTeamCombineColorNil sets the value for MinimapTeamCombineColor to be an explicit nil
+
+### UnsetMinimapTeamCombineColor
+`func (o *GenericDataV2) UnsetMinimapTeamCombineColor()`
+
+UnsetMinimapTeamCombineColor ensures that no value is present for MinimapTeamCombineColor, not even an explicit nil
 ### GetEnemyObjectivesAndZiplineColor
 
 `func (o *GenericDataV2) GetEnemyObjectivesAndZiplineColor() ColorV1`
@@ -184,7 +214,22 @@ and a boolean to check if the value has been set.
 
 SetEnemyObjectivesAndZiplineColor sets EnemyObjectivesAndZiplineColor field to given value.
 
+### HasEnemyObjectivesAndZiplineColor
 
+`func (o *GenericDataV2) HasEnemyObjectivesAndZiplineColor() bool`
+
+HasEnemyObjectivesAndZiplineColor returns a boolean if a field has been set.
+
+### SetEnemyObjectivesAndZiplineColorNil
+
+`func (o *GenericDataV2) SetEnemyObjectivesAndZiplineColorNil(b bool)`
+
+ SetEnemyObjectivesAndZiplineColorNil sets the value for EnemyObjectivesAndZiplineColor to be an explicit nil
+
+### UnsetEnemyObjectivesAndZiplineColor
+`func (o *GenericDataV2) UnsetEnemyObjectivesAndZiplineColor()`
+
+UnsetEnemyObjectivesAndZiplineColor ensures that no value is present for EnemyObjectivesAndZiplineColor, not even an explicit nil
 ### GetEnemyObjectivesColor
 
 `func (o *GenericDataV2) GetEnemyObjectivesColor() ColorV1`
@@ -204,7 +249,22 @@ and a boolean to check if the value has been set.
 
 SetEnemyObjectivesColor sets EnemyObjectivesColor field to given value.
 
+### HasEnemyObjectivesColor
 
+`func (o *GenericDataV2) HasEnemyObjectivesColor() bool`
+
+HasEnemyObjectivesColor returns a boolean if a field has been set.
+
+### SetEnemyObjectivesColorNil
+
+`func (o *GenericDataV2) SetEnemyObjectivesColorNil(b bool)`
+
+ SetEnemyObjectivesColorNil sets the value for EnemyObjectivesColor to be an explicit nil
+
+### UnsetEnemyObjectivesColor
+`func (o *GenericDataV2) UnsetEnemyObjectivesColor()`
+
+UnsetEnemyObjectivesColor ensures that no value is present for EnemyObjectivesColor, not even an explicit nil
 ### GetEnemyZiplineColor
 
 `func (o *GenericDataV2) GetEnemyZiplineColor() ColorV1`
@@ -224,7 +284,22 @@ and a boolean to check if the value has been set.
 
 SetEnemyZiplineColor sets EnemyZiplineColor field to given value.
 
+### HasEnemyZiplineColor
 
+`func (o *GenericDataV2) HasEnemyZiplineColor() bool`
+
+HasEnemyZiplineColor returns a boolean if a field has been set.
+
+### SetEnemyZiplineColorNil
+
+`func (o *GenericDataV2) SetEnemyZiplineColorNil(b bool)`
+
+ SetEnemyZiplineColorNil sets the value for EnemyZiplineColor to be an explicit nil
+
+### UnsetEnemyZiplineColor
+`func (o *GenericDataV2) UnsetEnemyZiplineColor()`
+
+UnsetEnemyZiplineColor ensures that no value is present for EnemyZiplineColor, not even an explicit nil
 ### GetItemPricePerTier
 
 `func (o *GenericDataV2) GetItemPricePerTier() []int32`

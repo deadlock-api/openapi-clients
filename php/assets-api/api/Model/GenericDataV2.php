@@ -121,11 +121,11 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'glitch_settings' => false,
         'lane_info' => false,
         'new_player_metrics' => false,
-        'minimap_team_rebels_color' => false,
-        'minimap_team_combine_color' => false,
-        'enemy_objectives_and_zipline_color' => false,
-        'enemy_objectives_color' => false,
-        'enemy_zipline_color' => false,
+        'minimap_team_rebels_color' => true,
+        'minimap_team_combine_color' => true,
+        'enemy_objectives_and_zipline_color' => true,
+        'enemy_objectives_color' => true,
+        'enemy_zipline_color' => true,
         'item_price_per_tier' => false,
         'trooper_kill_gold_share_frac' => false,
         'hero_kill_gold_share_frac' => false,
@@ -426,21 +426,6 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['new_player_metrics'] === null) {
             $invalidProperties[] = "'new_player_metrics' can't be null";
         }
-        if ($this->container['minimap_team_rebels_color'] === null) {
-            $invalidProperties[] = "'minimap_team_rebels_color' can't be null";
-        }
-        if ($this->container['minimap_team_combine_color'] === null) {
-            $invalidProperties[] = "'minimap_team_combine_color' can't be null";
-        }
-        if ($this->container['enemy_objectives_and_zipline_color'] === null) {
-            $invalidProperties[] = "'enemy_objectives_and_zipline_color' can't be null";
-        }
-        if ($this->container['enemy_objectives_color'] === null) {
-            $invalidProperties[] = "'enemy_objectives_color' can't be null";
-        }
-        if ($this->container['enemy_zipline_color'] === null) {
-            $invalidProperties[] = "'enemy_zipline_color' can't be null";
-        }
         if ($this->container['item_price_per_tier'] === null) {
             $invalidProperties[] = "'item_price_per_tier' can't be null";
         }
@@ -600,7 +585,7 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets minimap_team_rebels_color
      *
-     * @return \OpenAPI\Client\Model\ColorV1
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getMinimapTeamRebelsColor()
     {
@@ -610,14 +595,21 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets minimap_team_rebels_color
      *
-     * @param \OpenAPI\Client\Model\ColorV1 $minimap_team_rebels_color minimap_team_rebels_color
+     * @param \OpenAPI\Client\Model\ColorV1|null $minimap_team_rebels_color minimap_team_rebels_color
      *
      * @return self
      */
     public function setMinimapTeamRebelsColor($minimap_team_rebels_color)
     {
         if (is_null($minimap_team_rebels_color)) {
-            throw new \InvalidArgumentException('non-nullable minimap_team_rebels_color cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'minimap_team_rebels_color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('minimap_team_rebels_color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['minimap_team_rebels_color'] = $minimap_team_rebels_color;
 
@@ -627,7 +619,7 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets minimap_team_combine_color
      *
-     * @return \OpenAPI\Client\Model\ColorV1
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getMinimapTeamCombineColor()
     {
@@ -637,14 +629,21 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets minimap_team_combine_color
      *
-     * @param \OpenAPI\Client\Model\ColorV1 $minimap_team_combine_color minimap_team_combine_color
+     * @param \OpenAPI\Client\Model\ColorV1|null $minimap_team_combine_color minimap_team_combine_color
      *
      * @return self
      */
     public function setMinimapTeamCombineColor($minimap_team_combine_color)
     {
         if (is_null($minimap_team_combine_color)) {
-            throw new \InvalidArgumentException('non-nullable minimap_team_combine_color cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'minimap_team_combine_color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('minimap_team_combine_color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['minimap_team_combine_color'] = $minimap_team_combine_color;
 
@@ -654,7 +653,7 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets enemy_objectives_and_zipline_color
      *
-     * @return \OpenAPI\Client\Model\ColorV1
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getEnemyObjectivesAndZiplineColor()
     {
@@ -664,14 +663,21 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enemy_objectives_and_zipline_color
      *
-     * @param \OpenAPI\Client\Model\ColorV1 $enemy_objectives_and_zipline_color enemy_objectives_and_zipline_color
+     * @param \OpenAPI\Client\Model\ColorV1|null $enemy_objectives_and_zipline_color enemy_objectives_and_zipline_color
      *
      * @return self
      */
     public function setEnemyObjectivesAndZiplineColor($enemy_objectives_and_zipline_color)
     {
         if (is_null($enemy_objectives_and_zipline_color)) {
-            throw new \InvalidArgumentException('non-nullable enemy_objectives_and_zipline_color cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'enemy_objectives_and_zipline_color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enemy_objectives_and_zipline_color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['enemy_objectives_and_zipline_color'] = $enemy_objectives_and_zipline_color;
 
@@ -681,7 +687,7 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets enemy_objectives_color
      *
-     * @return \OpenAPI\Client\Model\ColorV1
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getEnemyObjectivesColor()
     {
@@ -691,14 +697,21 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enemy_objectives_color
      *
-     * @param \OpenAPI\Client\Model\ColorV1 $enemy_objectives_color enemy_objectives_color
+     * @param \OpenAPI\Client\Model\ColorV1|null $enemy_objectives_color enemy_objectives_color
      *
      * @return self
      */
     public function setEnemyObjectivesColor($enemy_objectives_color)
     {
         if (is_null($enemy_objectives_color)) {
-            throw new \InvalidArgumentException('non-nullable enemy_objectives_color cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'enemy_objectives_color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enemy_objectives_color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['enemy_objectives_color'] = $enemy_objectives_color;
 
@@ -708,7 +721,7 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets enemy_zipline_color
      *
-     * @return \OpenAPI\Client\Model\ColorV1
+     * @return \OpenAPI\Client\Model\ColorV1|null
      */
     public function getEnemyZiplineColor()
     {
@@ -718,14 +731,21 @@ class GenericDataV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enemy_zipline_color
      *
-     * @param \OpenAPI\Client\Model\ColorV1 $enemy_zipline_color enemy_zipline_color
+     * @param \OpenAPI\Client\Model\ColorV1|null $enemy_zipline_color enemy_zipline_color
      *
      * @return self
      */
     public function setEnemyZiplineColor($enemy_zipline_color)
     {
         if (is_null($enemy_zipline_color)) {
-            throw new \InvalidArgumentException('non-nullable enemy_zipline_color cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'enemy_zipline_color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enemy_zipline_color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['enemy_zipline_color'] = $enemy_zipline_color;
 

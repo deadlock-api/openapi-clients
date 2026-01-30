@@ -346,31 +346,6 @@ class TestGenericDataV2(unittest.TestCase):
                         abilities_upgraded = 56, 
                         mods_purchased = 56, )
                     ],
-                minimap_team_rebels_color = assets_deadlock_api_client.models.color_v1.ColorV1(
-                    red = 0.0, 
-                    green = 0.0, 
-                    blue = 0.0, 
-                    alpha = 0.0, ),
-                minimap_team_combine_color = assets_deadlock_api_client.models.color_v1.ColorV1(
-                    red = 0.0, 
-                    green = 0.0, 
-                    blue = 0.0, 
-                    alpha = 0.0, ),
-                enemy_objectives_and_zipline_color = assets_deadlock_api_client.models.color_v1.ColorV1(
-                    red = 0.0, 
-                    green = 0.0, 
-                    blue = 0.0, 
-                    alpha = 0.0, ),
-                enemy_objectives_color = assets_deadlock_api_client.models.color_v1.ColorV1(
-                    red = 0.0, 
-                    green = 0.0, 
-                    blue = 0.0, 
-                    alpha = 0.0, ),
-                enemy_zipline_color = assets_deadlock_api_client.models.color_v1.ColorV1(
-                    red = 0.0, 
-                    green = 0.0, 
-                    blue = 0.0, 
-                    alpha = 0.0, ),
                 item_price_per_tier = [
                     56
                     ],

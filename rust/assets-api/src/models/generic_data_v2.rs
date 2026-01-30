@@ -21,16 +21,16 @@ pub struct GenericDataV2 {
     pub lane_info: Vec<models::LaneInfoV2>,
     #[serde(rename = "new_player_metrics")]
     pub new_player_metrics: Vec<models::NewPlayerMetricsV2>,
-    #[serde(rename = "minimap_team_rebels_color")]
-    pub minimap_team_rebels_color: Box<models::ColorV1>,
-    #[serde(rename = "minimap_team_combine_color")]
-    pub minimap_team_combine_color: Box<models::ColorV1>,
-    #[serde(rename = "enemy_objectives_and_zipline_color")]
-    pub enemy_objectives_and_zipline_color: Box<models::ColorV1>,
-    #[serde(rename = "enemy_objectives_color")]
-    pub enemy_objectives_color: Box<models::ColorV1>,
-    #[serde(rename = "enemy_zipline_color")]
-    pub enemy_zipline_color: Box<models::ColorV1>,
+    #[serde(rename = "minimap_team_rebels_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub minimap_team_rebels_color: Option<Option<Box<models::ColorV1>>>,
+    #[serde(rename = "minimap_team_combine_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub minimap_team_combine_color: Option<Option<Box<models::ColorV1>>>,
+    #[serde(rename = "enemy_objectives_and_zipline_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub enemy_objectives_and_zipline_color: Option<Option<Box<models::ColorV1>>>,
+    #[serde(rename = "enemy_objectives_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub enemy_objectives_color: Option<Option<Box<models::ColorV1>>>,
+    #[serde(rename = "enemy_zipline_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub enemy_zipline_color: Option<Option<Box<models::ColorV1>>>,
     #[serde(rename = "item_price_per_tier")]
     pub item_price_per_tier: Vec<i32>,
     #[serde(rename = "trooper_kill_gold_share_frac")]
@@ -58,17 +58,17 @@ pub struct GenericDataV2 {
 }
 
 impl GenericDataV2 {
-    pub fn new(damage_flash: models::DamageFlashV2, glitch_settings: models::GlitchSettingsV2, lane_info: Vec<models::LaneInfoV2>, new_player_metrics: Vec<models::NewPlayerMetricsV2>, minimap_team_rebels_color: models::ColorV1, minimap_team_combine_color: models::ColorV1, enemy_objectives_and_zipline_color: models::ColorV1, enemy_objectives_color: models::ColorV1, enemy_zipline_color: models::ColorV1, item_price_per_tier: Vec<i32>, trooper_kill_gold_share_frac: Vec<f64>, hero_kill_gold_share_frac: Vec<f64>, aim_spring_strength: Vec<f64>, targeting_spring_strength: Vec<f64>, objective_params: models::ObjectiveParams, rejuv_params: models::RejuvParams, mini_map_offsets: Vec<models::MiniMapOffsets>, weapon_groups: Vec<models::ItemGroup>, armor_groups: Vec<models::ItemGroup>, spirit_groups: Vec<models::ItemGroup>) -> GenericDataV2 {
+    pub fn new(damage_flash: models::DamageFlashV2, glitch_settings: models::GlitchSettingsV2, lane_info: Vec<models::LaneInfoV2>, new_player_metrics: Vec<models::NewPlayerMetricsV2>, item_price_per_tier: Vec<i32>, trooper_kill_gold_share_frac: Vec<f64>, hero_kill_gold_share_frac: Vec<f64>, aim_spring_strength: Vec<f64>, targeting_spring_strength: Vec<f64>, objective_params: models::ObjectiveParams, rejuv_params: models::RejuvParams, mini_map_offsets: Vec<models::MiniMapOffsets>, weapon_groups: Vec<models::ItemGroup>, armor_groups: Vec<models::ItemGroup>, spirit_groups: Vec<models::ItemGroup>) -> GenericDataV2 {
         GenericDataV2 {
             damage_flash: Box::new(damage_flash),
             glitch_settings: Box::new(glitch_settings),
             lane_info,
             new_player_metrics,
-            minimap_team_rebels_color: Box::new(minimap_team_rebels_color),
-            minimap_team_combine_color: Box::new(minimap_team_combine_color),
-            enemy_objectives_and_zipline_color: Box::new(enemy_objectives_and_zipline_color),
-            enemy_objectives_color: Box::new(enemy_objectives_color),
-            enemy_zipline_color: Box::new(enemy_zipline_color),
+            minimap_team_rebels_color: None,
+            minimap_team_combine_color: None,
+            enemy_objectives_and_zipline_color: None,
+            enemy_objectives_color: None,
+            enemy_zipline_color: None,
             item_price_per_tier,
             trooper_kill_gold_share_frac,
             hero_kill_gold_share_frac,

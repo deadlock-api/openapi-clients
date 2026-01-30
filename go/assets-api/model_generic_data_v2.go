@@ -25,11 +25,11 @@ type GenericDataV2 struct {
 	GlitchSettings GlitchSettingsV2 `json:"glitch_settings"`
 	LaneInfo []LaneInfoV2 `json:"lane_info"`
 	NewPlayerMetrics []NewPlayerMetricsV2 `json:"new_player_metrics"`
-	MinimapTeamRebelsColor ColorV1 `json:"minimap_team_rebels_color"`
-	MinimapTeamCombineColor ColorV1 `json:"minimap_team_combine_color"`
-	EnemyObjectivesAndZiplineColor ColorV1 `json:"enemy_objectives_and_zipline_color"`
-	EnemyObjectivesColor ColorV1 `json:"enemy_objectives_color"`
-	EnemyZiplineColor ColorV1 `json:"enemy_zipline_color"`
+	MinimapTeamRebelsColor NullableColorV1 `json:"minimap_team_rebels_color,omitempty"`
+	MinimapTeamCombineColor NullableColorV1 `json:"minimap_team_combine_color,omitempty"`
+	EnemyObjectivesAndZiplineColor NullableColorV1 `json:"enemy_objectives_and_zipline_color,omitempty"`
+	EnemyObjectivesColor NullableColorV1 `json:"enemy_objectives_color,omitempty"`
+	EnemyZiplineColor NullableColorV1 `json:"enemy_zipline_color,omitempty"`
 	ItemPricePerTier []int32 `json:"item_price_per_tier"`
 	TrooperKillGoldShareFrac []float32 `json:"trooper_kill_gold_share_frac"`
 	HeroKillGoldShareFrac []float32 `json:"hero_kill_gold_share_frac"`
@@ -50,17 +50,12 @@ type _GenericDataV2 GenericDataV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, minimapTeamRebelsColor ColorV1, minimapTeamCombineColor ColorV1, enemyObjectivesAndZiplineColor ColorV1, enemyObjectivesColor ColorV1, enemyZiplineColor ColorV1, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup) *GenericDataV2 {
+func NewGenericDataV2(damageFlash DamageFlashV2, glitchSettings GlitchSettingsV2, laneInfo []LaneInfoV2, newPlayerMetrics []NewPlayerMetricsV2, itemPricePerTier []int32, trooperKillGoldShareFrac []float32, heroKillGoldShareFrac []float32, aimSpringStrength []float32, targetingSpringStrength []float32, objectiveParams ObjectiveParams, rejuvParams RejuvParams, miniMapOffsets []MiniMapOffsets, weaponGroups []ItemGroup, armorGroups []ItemGroup, spiritGroups []ItemGroup) *GenericDataV2 {
 	this := GenericDataV2{}
 	this.DamageFlash = damageFlash
 	this.GlitchSettings = glitchSettings
 	this.LaneInfo = laneInfo
 	this.NewPlayerMetrics = newPlayerMetrics
-	this.MinimapTeamRebelsColor = minimapTeamRebelsColor
-	this.MinimapTeamCombineColor = minimapTeamCombineColor
-	this.EnemyObjectivesAndZiplineColor = enemyObjectivesAndZiplineColor
-	this.EnemyObjectivesColor = enemyObjectivesColor
-	this.EnemyZiplineColor = enemyZiplineColor
 	this.ItemPricePerTier = itemPricePerTier
 	this.TrooperKillGoldShareFrac = trooperKillGoldShareFrac
 	this.HeroKillGoldShareFrac = heroKillGoldShareFrac
@@ -179,124 +174,214 @@ func (o *GenericDataV2) SetNewPlayerMetrics(v []NewPlayerMetricsV2) {
 	o.NewPlayerMetrics = v
 }
 
-// GetMinimapTeamRebelsColor returns the MinimapTeamRebelsColor field value
+// GetMinimapTeamRebelsColor returns the MinimapTeamRebelsColor field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GenericDataV2) GetMinimapTeamRebelsColor() ColorV1 {
-	if o == nil {
+	if o == nil || IsNil(o.MinimapTeamRebelsColor.Get()) {
 		var ret ColorV1
 		return ret
 	}
-
-	return o.MinimapTeamRebelsColor
+	return *o.MinimapTeamRebelsColor.Get()
 }
 
-// GetMinimapTeamRebelsColorOk returns a tuple with the MinimapTeamRebelsColor field value
+// GetMinimapTeamRebelsColorOk returns a tuple with the MinimapTeamRebelsColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GenericDataV2) GetMinimapTeamRebelsColorOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MinimapTeamRebelsColor, true
+	return o.MinimapTeamRebelsColor.Get(), o.MinimapTeamRebelsColor.IsSet()
 }
 
-// SetMinimapTeamRebelsColor sets field value
+// HasMinimapTeamRebelsColor returns a boolean if a field has been set.
+func (o *GenericDataV2) HasMinimapTeamRebelsColor() bool {
+	if o != nil && o.MinimapTeamRebelsColor.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMinimapTeamRebelsColor gets a reference to the given NullableColorV1 and assigns it to the MinimapTeamRebelsColor field.
 func (o *GenericDataV2) SetMinimapTeamRebelsColor(v ColorV1) {
-	o.MinimapTeamRebelsColor = v
+	o.MinimapTeamRebelsColor.Set(&v)
+}
+// SetMinimapTeamRebelsColorNil sets the value for MinimapTeamRebelsColor to be an explicit nil
+func (o *GenericDataV2) SetMinimapTeamRebelsColorNil() {
+	o.MinimapTeamRebelsColor.Set(nil)
 }
 
-// GetMinimapTeamCombineColor returns the MinimapTeamCombineColor field value
+// UnsetMinimapTeamRebelsColor ensures that no value is present for MinimapTeamRebelsColor, not even an explicit nil
+func (o *GenericDataV2) UnsetMinimapTeamRebelsColor() {
+	o.MinimapTeamRebelsColor.Unset()
+}
+
+// GetMinimapTeamCombineColor returns the MinimapTeamCombineColor field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GenericDataV2) GetMinimapTeamCombineColor() ColorV1 {
-	if o == nil {
+	if o == nil || IsNil(o.MinimapTeamCombineColor.Get()) {
 		var ret ColorV1
 		return ret
 	}
-
-	return o.MinimapTeamCombineColor
+	return *o.MinimapTeamCombineColor.Get()
 }
 
-// GetMinimapTeamCombineColorOk returns a tuple with the MinimapTeamCombineColor field value
+// GetMinimapTeamCombineColorOk returns a tuple with the MinimapTeamCombineColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GenericDataV2) GetMinimapTeamCombineColorOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MinimapTeamCombineColor, true
+	return o.MinimapTeamCombineColor.Get(), o.MinimapTeamCombineColor.IsSet()
 }
 
-// SetMinimapTeamCombineColor sets field value
+// HasMinimapTeamCombineColor returns a boolean if a field has been set.
+func (o *GenericDataV2) HasMinimapTeamCombineColor() bool {
+	if o != nil && o.MinimapTeamCombineColor.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMinimapTeamCombineColor gets a reference to the given NullableColorV1 and assigns it to the MinimapTeamCombineColor field.
 func (o *GenericDataV2) SetMinimapTeamCombineColor(v ColorV1) {
-	o.MinimapTeamCombineColor = v
+	o.MinimapTeamCombineColor.Set(&v)
+}
+// SetMinimapTeamCombineColorNil sets the value for MinimapTeamCombineColor to be an explicit nil
+func (o *GenericDataV2) SetMinimapTeamCombineColorNil() {
+	o.MinimapTeamCombineColor.Set(nil)
 }
 
-// GetEnemyObjectivesAndZiplineColor returns the EnemyObjectivesAndZiplineColor field value
+// UnsetMinimapTeamCombineColor ensures that no value is present for MinimapTeamCombineColor, not even an explicit nil
+func (o *GenericDataV2) UnsetMinimapTeamCombineColor() {
+	o.MinimapTeamCombineColor.Unset()
+}
+
+// GetEnemyObjectivesAndZiplineColor returns the EnemyObjectivesAndZiplineColor field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GenericDataV2) GetEnemyObjectivesAndZiplineColor() ColorV1 {
-	if o == nil {
+	if o == nil || IsNil(o.EnemyObjectivesAndZiplineColor.Get()) {
 		var ret ColorV1
 		return ret
 	}
-
-	return o.EnemyObjectivesAndZiplineColor
+	return *o.EnemyObjectivesAndZiplineColor.Get()
 }
 
-// GetEnemyObjectivesAndZiplineColorOk returns a tuple with the EnemyObjectivesAndZiplineColor field value
+// GetEnemyObjectivesAndZiplineColorOk returns a tuple with the EnemyObjectivesAndZiplineColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GenericDataV2) GetEnemyObjectivesAndZiplineColorOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.EnemyObjectivesAndZiplineColor, true
+	return o.EnemyObjectivesAndZiplineColor.Get(), o.EnemyObjectivesAndZiplineColor.IsSet()
 }
 
-// SetEnemyObjectivesAndZiplineColor sets field value
+// HasEnemyObjectivesAndZiplineColor returns a boolean if a field has been set.
+func (o *GenericDataV2) HasEnemyObjectivesAndZiplineColor() bool {
+	if o != nil && o.EnemyObjectivesAndZiplineColor.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEnemyObjectivesAndZiplineColor gets a reference to the given NullableColorV1 and assigns it to the EnemyObjectivesAndZiplineColor field.
 func (o *GenericDataV2) SetEnemyObjectivesAndZiplineColor(v ColorV1) {
-	o.EnemyObjectivesAndZiplineColor = v
+	o.EnemyObjectivesAndZiplineColor.Set(&v)
+}
+// SetEnemyObjectivesAndZiplineColorNil sets the value for EnemyObjectivesAndZiplineColor to be an explicit nil
+func (o *GenericDataV2) SetEnemyObjectivesAndZiplineColorNil() {
+	o.EnemyObjectivesAndZiplineColor.Set(nil)
 }
 
-// GetEnemyObjectivesColor returns the EnemyObjectivesColor field value
+// UnsetEnemyObjectivesAndZiplineColor ensures that no value is present for EnemyObjectivesAndZiplineColor, not even an explicit nil
+func (o *GenericDataV2) UnsetEnemyObjectivesAndZiplineColor() {
+	o.EnemyObjectivesAndZiplineColor.Unset()
+}
+
+// GetEnemyObjectivesColor returns the EnemyObjectivesColor field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GenericDataV2) GetEnemyObjectivesColor() ColorV1 {
-	if o == nil {
+	if o == nil || IsNil(o.EnemyObjectivesColor.Get()) {
 		var ret ColorV1
 		return ret
 	}
-
-	return o.EnemyObjectivesColor
+	return *o.EnemyObjectivesColor.Get()
 }
 
-// GetEnemyObjectivesColorOk returns a tuple with the EnemyObjectivesColor field value
+// GetEnemyObjectivesColorOk returns a tuple with the EnemyObjectivesColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GenericDataV2) GetEnemyObjectivesColorOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.EnemyObjectivesColor, true
+	return o.EnemyObjectivesColor.Get(), o.EnemyObjectivesColor.IsSet()
 }
 
-// SetEnemyObjectivesColor sets field value
+// HasEnemyObjectivesColor returns a boolean if a field has been set.
+func (o *GenericDataV2) HasEnemyObjectivesColor() bool {
+	if o != nil && o.EnemyObjectivesColor.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEnemyObjectivesColor gets a reference to the given NullableColorV1 and assigns it to the EnemyObjectivesColor field.
 func (o *GenericDataV2) SetEnemyObjectivesColor(v ColorV1) {
-	o.EnemyObjectivesColor = v
+	o.EnemyObjectivesColor.Set(&v)
+}
+// SetEnemyObjectivesColorNil sets the value for EnemyObjectivesColor to be an explicit nil
+func (o *GenericDataV2) SetEnemyObjectivesColorNil() {
+	o.EnemyObjectivesColor.Set(nil)
 }
 
-// GetEnemyZiplineColor returns the EnemyZiplineColor field value
+// UnsetEnemyObjectivesColor ensures that no value is present for EnemyObjectivesColor, not even an explicit nil
+func (o *GenericDataV2) UnsetEnemyObjectivesColor() {
+	o.EnemyObjectivesColor.Unset()
+}
+
+// GetEnemyZiplineColor returns the EnemyZiplineColor field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GenericDataV2) GetEnemyZiplineColor() ColorV1 {
-	if o == nil {
+	if o == nil || IsNil(o.EnemyZiplineColor.Get()) {
 		var ret ColorV1
 		return ret
 	}
-
-	return o.EnemyZiplineColor
+	return *o.EnemyZiplineColor.Get()
 }
 
-// GetEnemyZiplineColorOk returns a tuple with the EnemyZiplineColor field value
+// GetEnemyZiplineColorOk returns a tuple with the EnemyZiplineColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GenericDataV2) GetEnemyZiplineColorOk() (*ColorV1, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.EnemyZiplineColor, true
+	return o.EnemyZiplineColor.Get(), o.EnemyZiplineColor.IsSet()
 }
 
-// SetEnemyZiplineColor sets field value
+// HasEnemyZiplineColor returns a boolean if a field has been set.
+func (o *GenericDataV2) HasEnemyZiplineColor() bool {
+	if o != nil && o.EnemyZiplineColor.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEnemyZiplineColor gets a reference to the given NullableColorV1 and assigns it to the EnemyZiplineColor field.
 func (o *GenericDataV2) SetEnemyZiplineColor(v ColorV1) {
-	o.EnemyZiplineColor = v
+	o.EnemyZiplineColor.Set(&v)
+}
+// SetEnemyZiplineColorNil sets the value for EnemyZiplineColor to be an explicit nil
+func (o *GenericDataV2) SetEnemyZiplineColorNil() {
+	o.EnemyZiplineColor.Set(nil)
+}
+
+// UnsetEnemyZiplineColor ensures that no value is present for EnemyZiplineColor, not even an explicit nil
+func (o *GenericDataV2) UnsetEnemyZiplineColor() {
+	o.EnemyZiplineColor.Unset()
 }
 
 // GetItemPricePerTier returns the ItemPricePerTier field value
@@ -619,11 +704,21 @@ func (o GenericDataV2) ToMap() (map[string]interface{}, error) {
 	toSerialize["glitch_settings"] = o.GlitchSettings
 	toSerialize["lane_info"] = o.LaneInfo
 	toSerialize["new_player_metrics"] = o.NewPlayerMetrics
-	toSerialize["minimap_team_rebels_color"] = o.MinimapTeamRebelsColor
-	toSerialize["minimap_team_combine_color"] = o.MinimapTeamCombineColor
-	toSerialize["enemy_objectives_and_zipline_color"] = o.EnemyObjectivesAndZiplineColor
-	toSerialize["enemy_objectives_color"] = o.EnemyObjectivesColor
-	toSerialize["enemy_zipline_color"] = o.EnemyZiplineColor
+	if o.MinimapTeamRebelsColor.IsSet() {
+		toSerialize["minimap_team_rebels_color"] = o.MinimapTeamRebelsColor.Get()
+	}
+	if o.MinimapTeamCombineColor.IsSet() {
+		toSerialize["minimap_team_combine_color"] = o.MinimapTeamCombineColor.Get()
+	}
+	if o.EnemyObjectivesAndZiplineColor.IsSet() {
+		toSerialize["enemy_objectives_and_zipline_color"] = o.EnemyObjectivesAndZiplineColor.Get()
+	}
+	if o.EnemyObjectivesColor.IsSet() {
+		toSerialize["enemy_objectives_color"] = o.EnemyObjectivesColor.Get()
+	}
+	if o.EnemyZiplineColor.IsSet() {
+		toSerialize["enemy_zipline_color"] = o.EnemyZiplineColor.Get()
+	}
 	toSerialize["item_price_per_tier"] = o.ItemPricePerTier
 	toSerialize["trooper_kill_gold_share_frac"] = o.TrooperKillGoldShareFrac
 	toSerialize["hero_kill_gold_share_frac"] = o.HeroKillGoldShareFrac
@@ -650,11 +745,6 @@ func (o *GenericDataV2) UnmarshalJSON(data []byte) (err error) {
 		"glitch_settings",
 		"lane_info",
 		"new_player_metrics",
-		"minimap_team_rebels_color",
-		"minimap_team_combine_color",
-		"enemy_objectives_and_zipline_color",
-		"enemy_objectives_color",
-		"enemy_zipline_color",
 		"item_price_per_tier",
 		"trooper_kill_gold_share_frac",
 		"hero_kill_gold_share_frac",

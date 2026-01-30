@@ -37,11 +37,6 @@ import java.io.Serializable
  * @param glitchSettings 
  * @param laneInfo 
  * @param newPlayerMetrics 
- * @param minimapTeamRebelsColor 
- * @param minimapTeamCombineColor 
- * @param enemyObjectivesAndZiplineColor 
- * @param enemyObjectivesColor 
- * @param enemyZiplineColor 
  * @param itemPricePerTier 
  * @param trooperKillGoldShareFrac 
  * @param heroKillGoldShareFrac 
@@ -53,6 +48,11 @@ import java.io.Serializable
  * @param weaponGroups 
  * @param armorGroups 
  * @param spiritGroups 
+ * @param minimapTeamRebelsColor 
+ * @param minimapTeamCombineColor 
+ * @param enemyObjectivesAndZiplineColor 
+ * @param enemyObjectivesColor 
+ * @param enemyZiplineColor 
  * @param streetBrawl 
  */
 
@@ -70,21 +70,6 @@ data class GenericDataV2 (
 
     @Json(name = "new_player_metrics")
     val newPlayerMetrics: kotlin.collections.List<NewPlayerMetricsV2>,
-
-    @Json(name = "minimap_team_rebels_color")
-    val minimapTeamRebelsColor: ColorV1,
-
-    @Json(name = "minimap_team_combine_color")
-    val minimapTeamCombineColor: ColorV1,
-
-    @Json(name = "enemy_objectives_and_zipline_color")
-    val enemyObjectivesAndZiplineColor: ColorV1,
-
-    @Json(name = "enemy_objectives_color")
-    val enemyObjectivesColor: ColorV1,
-
-    @Json(name = "enemy_zipline_color")
-    val enemyZiplineColor: ColorV1,
 
     @Json(name = "item_price_per_tier")
     val itemPricePerTier: kotlin.collections.List<kotlin.Int>,
@@ -118,6 +103,21 @@ data class GenericDataV2 (
 
     @Json(name = "spirit_groups")
     val spiritGroups: kotlin.collections.List<ItemGroup>,
+
+    @Json(name = "minimap_team_rebels_color")
+    val minimapTeamRebelsColor: ColorV1? = null,
+
+    @Json(name = "minimap_team_combine_color")
+    val minimapTeamCombineColor: ColorV1? = null,
+
+    @Json(name = "enemy_objectives_and_zipline_color")
+    val enemyObjectivesAndZiplineColor: ColorV1? = null,
+
+    @Json(name = "enemy_objectives_color")
+    val enemyObjectivesColor: ColorV1? = null,
+
+    @Json(name = "enemy_zipline_color")
+    val enemyZiplineColor: ColorV1? = null,
 
     @Json(name = "street_brawl")
     val streetBrawl: StreetBrawl? = null
