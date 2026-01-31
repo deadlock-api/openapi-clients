@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **desc** | **str** |  | [optional] 
+**desc2** | **str** |  | [optional] 
 **active** | **str** |  | [optional] 
 **passive** | **str** |  | [optional] 
 

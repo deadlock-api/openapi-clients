@@ -15,6 +15,8 @@ use serde::{Deserialize, Serialize};
 pub struct UpgradeDescriptionV2 {
     #[serde(rename = "desc", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub desc: Option<Option<String>>,
+    #[serde(rename = "desc2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub desc2: Option<Option<String>>,
     #[serde(rename = "active", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub active: Option<Option<String>>,
     #[serde(rename = "passive", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -25,6 +27,7 @@ impl UpgradeDescriptionV2 {
     pub fn new() -> UpgradeDescriptionV2 {
         UpgradeDescriptionV2 {
             desc: None,
+            desc2: None,
             active: None,
             passive: None,
         }

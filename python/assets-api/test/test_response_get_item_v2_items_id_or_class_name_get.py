@@ -77,6 +77,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                     ],
                 description = assets_deadlock_api_client.models.upgrade_description_v2.UpgradeDescriptionV2(
                     desc = '', 
+                    desc2 = '', 
                     active = '', 
                     passive = '', ),
                 tooltip_details = assets_deadlock_api_client.models.ability_tooltip_details_v2.AbilityTooltipDetailsV2(
@@ -168,6 +169,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                 name = '',
                 description = assets_deadlock_api_client.models.upgrade_description_v2.UpgradeDescriptionV2(
                     desc = '', 
+                    desc2 = '', 
                     active = '', 
                     passive = '', ),
                 item_slot_type = 'weapon',

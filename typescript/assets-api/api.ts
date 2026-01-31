@@ -157,6 +157,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6203: 6203,
     NUMBER_6181: 6181,
     NUMBER_6169: 6169,
     NUMBER_6164: 6164,
@@ -1102,6 +1103,7 @@ export interface TrooperDamageReduction {
 }
 export interface UpgradeDescriptionV2 {
     'desc'?: string | null;
+    'desc2'?: string | null;
     'active'?: string | null;
     'passive'?: string | null;
 }

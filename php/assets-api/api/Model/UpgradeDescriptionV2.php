@@ -58,6 +58,7 @@ class UpgradeDescriptionV2 implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'desc' => 'string',
+        'desc2' => 'string',
         'active' => 'string',
         'passive' => 'string'
     ];
@@ -71,6 +72,7 @@ class UpgradeDescriptionV2 implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'desc' => null,
+        'desc2' => null,
         'active' => null,
         'passive' => null
     ];
@@ -82,6 +84,7 @@ class UpgradeDescriptionV2 implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'desc' => true,
+        'desc2' => true,
         'active' => true,
         'passive' => true
     ];
@@ -173,6 +176,7 @@ class UpgradeDescriptionV2 implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'desc' => 'desc',
+        'desc2' => 'desc2',
         'active' => 'active',
         'passive' => 'passive'
     ];
@@ -184,6 +188,7 @@ class UpgradeDescriptionV2 implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'desc' => 'setDesc',
+        'desc2' => 'setDesc2',
         'active' => 'setActive',
         'passive' => 'setPassive'
     ];
@@ -195,6 +200,7 @@ class UpgradeDescriptionV2 implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'desc' => 'getDesc',
+        'desc2' => 'getDesc2',
         'active' => 'getActive',
         'passive' => 'getPassive'
     ];
@@ -257,6 +263,7 @@ class UpgradeDescriptionV2 implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(?array $data = null)
     {
         $this->setIfExists('desc', $data ?? [], null);
+        $this->setIfExists('desc2', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('passive', $data ?? [], null);
     }
@@ -333,6 +340,40 @@ class UpgradeDescriptionV2 implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['desc'] = $desc;
+
+        return $this;
+    }
+
+    /**
+     * Gets desc2
+     *
+     * @return string|null
+     */
+    public function getDesc2()
+    {
+        return $this->container['desc2'];
+    }
+
+    /**
+     * Sets desc2
+     *
+     * @param string|null $desc2 desc2
+     *
+     * @return self
+     */
+    public function setDesc2($desc2)
+    {
+        if (is_null($desc2)) {
+            array_push($this->openAPINullablesSetToNull, 'desc2');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('desc2', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['desc2'] = $desc2;
 
         return $this;
     }

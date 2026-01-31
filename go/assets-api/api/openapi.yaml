@@ -1553,6 +1553,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6203
       - 6181
       - 6169
       - 6164
@@ -4810,6 +4811,9 @@ components:
     UpgradeDescriptionV2:
       properties:
         desc:
+          nullable: true
+          type: string
+        desc2:
           nullable: true
           type: string
         active:

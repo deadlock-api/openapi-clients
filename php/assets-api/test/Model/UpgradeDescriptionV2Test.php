@@ -89,6 +89,15 @@ class UpgradeDescriptionV2Test extends TestCase
     }
 
     /**
+     * Test attribute "desc2"
+     */
+    public function testPropertyDesc2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "active"
      */
     public function testPropertyActive()

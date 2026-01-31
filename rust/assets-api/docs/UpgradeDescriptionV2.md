@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **desc** | Option<**String**> |  | [optional]
+**desc2** | Option<**String**> |  | [optional]
 **active** | Option<**String**> |  | [optional]
 **passive** | Option<**String**> |  | [optional]
 

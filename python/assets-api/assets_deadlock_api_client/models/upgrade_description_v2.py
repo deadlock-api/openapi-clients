@@ -27,9 +27,10 @@ class UpgradeDescriptionV2(BaseModel):
     UpgradeDescriptionV2
     """ # noqa: E501
     desc: Optional[StrictStr] = None
+    desc2: Optional[StrictStr] = None
     active: Optional[StrictStr] = None
     passive: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["desc", "active", "passive"]
+    __properties: ClassVar[List[str]] = ["desc", "desc2", "active", "passive"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +76,11 @@ class UpgradeDescriptionV2(BaseModel):
         if self.desc is None and "desc" in self.model_fields_set:
             _dict['desc'] = None
 
+        # set to None if desc2 (nullable) is None
+        # and model_fields_set contains the field
+        if self.desc2 is None and "desc2" in self.model_fields_set:
+            _dict['desc2'] = None
+
         # set to None if active (nullable) is None
         # and model_fields_set contains the field
         if self.active is None and "active" in self.model_fields_set:
@@ -98,6 +104,7 @@ class UpgradeDescriptionV2(BaseModel):
 
         _obj = cls.model_validate({
             "desc": obj.get("desc"),
+            "desc2": obj.get("desc2"),
             "active": obj.get("active"),
             "passive": obj.get("passive")
         })

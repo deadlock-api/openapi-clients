@@ -81,6 +81,7 @@ class TestUpgradeV2(unittest.TestCase):
                 disabled = True,
                 description = assets_deadlock_api_client.models.upgrade_description_v2.UpgradeDescriptionV2(
                     desc = '', 
+                    desc2 = '', 
                     active = '', 
                     passive = '', ),
                 activation = 'hold_toggle',

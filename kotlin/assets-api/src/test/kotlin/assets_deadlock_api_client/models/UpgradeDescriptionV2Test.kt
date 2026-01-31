@@ -31,6 +31,12 @@ class UpgradeDescriptionV2Test : ShouldSpec() {
             //modelInstance.desc shouldBe ("TODO")
         }
 
+        // to test the property `desc2`
+        should("test desc2") {
+            // uncomment below to test the property
+            //modelInstance.desc2 shouldBe ("TODO")
+        }
+
         // to test the property `active`
         should("test active") {
             // uncomment below to test the property

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **desc** | **string** |  | [optional]
+**desc2** | **string** |  | [optional]
 **active** | **string** |  | [optional]
 **passive** | **string** |  | [optional]
 

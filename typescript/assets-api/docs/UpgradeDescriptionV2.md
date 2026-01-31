@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **desc** | **string** |  | [optional] [default to undefined]
+**desc2** | **string** |  | [optional] [default to undefined]
 **active** | **string** |  | [optional] [default to undefined]
 **passive** | **string** |  | [optional] [default to undefined]
 
@@ -16,6 +17,7 @@ import { UpgradeDescriptionV2 } from 'assets_deadlock_api_client';
 
 const instance: UpgradeDescriptionV2 = {
     desc,
+    desc2,
     active,
     passive,
 };

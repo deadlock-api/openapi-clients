@@ -36,6 +36,7 @@ class TestUpgradeDescriptionV2(unittest.TestCase):
         if include_optional:
             return UpgradeDescriptionV2(
                 desc = '',
+                desc2 = '',
                 active = '',
                 passive = ''
             )

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Desc** | Pointer to **NullableString** |  | [optional] 
+**Desc2** | Pointer to **NullableString** |  | [optional] 
 **Active** | Pointer to **NullableString** |  | [optional] 
 **Passive** | Pointer to **NullableString** |  | [optional] 
 
@@ -62,6 +63,41 @@ HasDesc returns a boolean if a field has been set.
 `func (o *UpgradeDescriptionV2) UnsetDesc()`
 
 UnsetDesc ensures that no value is present for Desc, not even an explicit nil
+### GetDesc2
+
+`func (o *UpgradeDescriptionV2) GetDesc2() string`
+
+GetDesc2 returns the Desc2 field if non-nil, zero value otherwise.
+
+### GetDesc2Ok
+
+`func (o *UpgradeDescriptionV2) GetDesc2Ok() (*string, bool)`
+
+GetDesc2Ok returns a tuple with the Desc2 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDesc2
+
+`func (o *UpgradeDescriptionV2) SetDesc2(v string)`
+
+SetDesc2 sets Desc2 field to given value.
+
+### HasDesc2
+
+`func (o *UpgradeDescriptionV2) HasDesc2() bool`
+
+HasDesc2 returns a boolean if a field has been set.
+
+### SetDesc2Nil
+
+`func (o *UpgradeDescriptionV2) SetDesc2Nil(b bool)`
+
+ SetDesc2Nil sets the value for Desc2 to be an explicit nil
+
+### UnsetDesc2
+`func (o *UpgradeDescriptionV2) UnsetDesc2()`
+
+UnsetDesc2 ensures that no value is present for Desc2, not even an explicit nil
 ### GetActive
 
 `func (o *UpgradeDescriptionV2) GetActive() string`

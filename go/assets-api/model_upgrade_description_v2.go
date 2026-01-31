@@ -20,6 +20,7 @@ var _ MappedNullable = &UpgradeDescriptionV2{}
 // UpgradeDescriptionV2 struct for UpgradeDescriptionV2
 type UpgradeDescriptionV2 struct {
 	Desc NullableString `json:"desc,omitempty"`
+	Desc2 NullableString `json:"desc2,omitempty"`
 	Active NullableString `json:"active,omitempty"`
 	Passive NullableString `json:"passive,omitempty"`
 }
@@ -81,6 +82,48 @@ func (o *UpgradeDescriptionV2) SetDescNil() {
 // UnsetDesc ensures that no value is present for Desc, not even an explicit nil
 func (o *UpgradeDescriptionV2) UnsetDesc() {
 	o.Desc.Unset()
+}
+
+// GetDesc2 returns the Desc2 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpgradeDescriptionV2) GetDesc2() string {
+	if o == nil || IsNil(o.Desc2.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Desc2.Get()
+}
+
+// GetDesc2Ok returns a tuple with the Desc2 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpgradeDescriptionV2) GetDesc2Ok() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Desc2.Get(), o.Desc2.IsSet()
+}
+
+// HasDesc2 returns a boolean if a field has been set.
+func (o *UpgradeDescriptionV2) HasDesc2() bool {
+	if o != nil && o.Desc2.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDesc2 gets a reference to the given NullableString and assigns it to the Desc2 field.
+func (o *UpgradeDescriptionV2) SetDesc2(v string) {
+	o.Desc2.Set(&v)
+}
+// SetDesc2Nil sets the value for Desc2 to be an explicit nil
+func (o *UpgradeDescriptionV2) SetDesc2Nil() {
+	o.Desc2.Set(nil)
+}
+
+// UnsetDesc2 ensures that no value is present for Desc2, not even an explicit nil
+func (o *UpgradeDescriptionV2) UnsetDesc2() {
+	o.Desc2.Unset()
 }
 
 // GetActive returns the Active field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -179,6 +222,9 @@ func (o UpgradeDescriptionV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Desc.IsSet() {
 		toSerialize["desc"] = o.Desc.Get()
+	}
+	if o.Desc2.IsSet() {
+		toSerialize["desc2"] = o.Desc2.Get()
 	}
 	if o.Active.IsSet() {
 		toSerialize["active"] = o.Active.Get()

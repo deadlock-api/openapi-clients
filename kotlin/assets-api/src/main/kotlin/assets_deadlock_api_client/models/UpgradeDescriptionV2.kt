@@ -24,6 +24,7 @@ import java.io.Serializable
  * 
  *
  * @param desc 
+ * @param desc2 
  * @param active 
  * @param passive 
  */
@@ -33,6 +34,9 @@ data class UpgradeDescriptionV2 (
 
     @Json(name = "desc")
     val desc: kotlin.String? = null,
+
+    @Json(name = "desc2")
+    val desc2: kotlin.String? = null,
 
     @Json(name = "active")
     val active: kotlin.String? = null,
