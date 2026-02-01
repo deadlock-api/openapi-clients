@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **specific_stat_scale_type** | **string** |  | [optional] [default to undefined]
 **scaling_stats** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **stat_scale** | **number** |  | [optional] [default to undefined]
+**street_brawl_stat_scale** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -22,6 +23,7 @@ const instance: RawItemPropertyScaleFunctionSubclassV2 = {
     specific_stat_scale_type,
     scaling_stats,
     stat_scale,
+    street_brawl_stat_scale,
 };
 ```
 

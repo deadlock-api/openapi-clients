@@ -106,6 +106,7 @@ docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
 docs/StreetBrawl.md
+docs/StreetBrawlValue.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassEmpoweredModifierLevel.md
 docs/SubclassIntrinsicModifiers.md
@@ -238,6 +239,7 @@ src/models/script_values.rs
 src/models/standing_shot_spread_penalty.rs
 src/models/stats_usage_flag_v2.rs
 src/models/street_brawl.rs
+src/models/street_brawl_value.rs
 src/models/subclass_bullet_resist_modifier.rs
 src/models/subclass_empowered_modifier_level.rs
 src/models/subclass_intrinsic_modifiers.rs

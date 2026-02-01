@@ -114,6 +114,7 @@ assets_deadlock_api_client/models/script_values.py
 assets_deadlock_api_client/models/standing_shot_spread_penalty.py
 assets_deadlock_api_client/models/stats_usage_flag_v2.py
 assets_deadlock_api_client/models/street_brawl.py
+assets_deadlock_api_client/models/street_brawl_value.py
 assets_deadlock_api_client/models/subclass_bullet_resist_modifier.py
 assets_deadlock_api_client/models/subclass_empowered_modifier_level.py
 assets_deadlock_api_client/models/subclass_intrinsic_modifiers.py
@@ -243,6 +244,7 @@ docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
 docs/StreetBrawl.md
+docs/StreetBrawlValue.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassEmpoweredModifierLevel.md
 docs/SubclassIntrinsicModifiers.md
@@ -377,6 +379,7 @@ test/test_script_values.py
 test/test_standing_shot_spread_penalty.py
 test/test_stats_usage_flag_v2.py
 test/test_street_brawl.py
+test/test_street_brawl_value.py
 test/test_subclass_bullet_resist_modifier.py
 test/test_subclass_empowered_modifier_level.py
 test/test_subclass_intrinsic_modifiers.py

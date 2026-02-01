@@ -20,6 +20,7 @@ var _ MappedNullable = &UpgradePropertyV2{}
 // UpgradePropertyV2 struct for UpgradePropertyV2
 type UpgradePropertyV2 struct {
 	Value NullableValue1 `json:"value,omitempty"`
+	StreetBrawlValue NullableStreetBrawlValue `json:"street_brawl_value,omitempty"`
 	CanSetTokenOverride NullableBool `json:"can_set_token_override,omitempty"`
 	ProvidedPropertyType NullableString `json:"provided_property_type,omitempty"`
 	CssClass NullableString `json:"css_class,omitempty"`
@@ -98,6 +99,48 @@ func (o *UpgradePropertyV2) SetValueNil() {
 // UnsetValue ensures that no value is present for Value, not even an explicit nil
 func (o *UpgradePropertyV2) UnsetValue() {
 	o.Value.Unset()
+}
+
+// GetStreetBrawlValue returns the StreetBrawlValue field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpgradePropertyV2) GetStreetBrawlValue() StreetBrawlValue {
+	if o == nil || IsNil(o.StreetBrawlValue.Get()) {
+		var ret StreetBrawlValue
+		return ret
+	}
+	return *o.StreetBrawlValue.Get()
+}
+
+// GetStreetBrawlValueOk returns a tuple with the StreetBrawlValue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpgradePropertyV2) GetStreetBrawlValueOk() (*StreetBrawlValue, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StreetBrawlValue.Get(), o.StreetBrawlValue.IsSet()
+}
+
+// HasStreetBrawlValue returns a boolean if a field has been set.
+func (o *UpgradePropertyV2) HasStreetBrawlValue() bool {
+	if o != nil && o.StreetBrawlValue.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStreetBrawlValue gets a reference to the given NullableStreetBrawlValue and assigns it to the StreetBrawlValue field.
+func (o *UpgradePropertyV2) SetStreetBrawlValue(v StreetBrawlValue) {
+	o.StreetBrawlValue.Set(&v)
+}
+// SetStreetBrawlValueNil sets the value for StreetBrawlValue to be an explicit nil
+func (o *UpgradePropertyV2) SetStreetBrawlValueNil() {
+	o.StreetBrawlValue.Set(nil)
+}
+
+// UnsetStreetBrawlValue ensures that no value is present for StreetBrawlValue, not even an explicit nil
+func (o *UpgradePropertyV2) UnsetStreetBrawlValue() {
+	o.StreetBrawlValue.Unset()
 }
 
 // GetCanSetTokenOverride returns the CanSetTokenOverride field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -910,6 +953,9 @@ func (o UpgradePropertyV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Value.IsSet() {
 		toSerialize["value"] = o.Value.Get()
+	}
+	if o.StreetBrawlValue.IsSet() {
+		toSerialize["street_brawl_value"] = o.StreetBrawlValue.Get()
 	}
 	if o.CanSetTokenOverride.IsSet() {
 		toSerialize["can_set_token_override"] = o.CanSetTokenOverride.Get()

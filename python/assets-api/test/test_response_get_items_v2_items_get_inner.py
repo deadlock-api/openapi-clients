@@ -49,6 +49,7 @@ class TestResponseGetItemsV2ItemsGetInner(unittest.TestCase):
                 properties = {
                     'key' : assets_deadlock_api_client.models.upgrade_property_v2.UpgradePropertyV2(
                         value = null, 
+                        street_brawl_value = null, 
                         can_set_token_override = True, 
                         provided_property_type = '', 
                         css_class = '', 

@@ -28,6 +28,7 @@ import java.io.Serializable
  * @param specificStatScaleType 
  * @param scalingStats 
  * @param statScale 
+ * @param streetBrawlStatScale 
  */
 
 
@@ -46,7 +47,10 @@ data class RawItemPropertyScaleFunctionSubclassV2 (
     val scalingStats: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "stat_scale")
-    val statScale: java.math.BigDecimal? = null
+    val statScale: java.math.BigDecimal? = null,
+
+    @Json(name = "street_brawl_stat_scale")
+    val streetBrawlStatScale: java.math.BigDecimal? = null
 
 ) : Serializable {
     companion object {

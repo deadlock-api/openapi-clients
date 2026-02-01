@@ -36,6 +36,7 @@ class TestItemPropertyV2(unittest.TestCase):
         if include_optional:
             return ItemPropertyV2(
                 value = None,
+                street_brawl_value = None,
                 can_set_token_override = True,
                 provided_property_type = '',
                 css_class = '',
@@ -52,7 +53,8 @@ class TestItemPropertyV2(unittest.TestCase):
                     scaling_stats = [
                         ''
                         ], 
-                    stat_scale = 1.337, ),
+                    stat_scale = 1.337, 
+                    street_brawl_stat_scale = 1.337, ),
                 prefix = '',
                 label = '',
                 postfix = '',

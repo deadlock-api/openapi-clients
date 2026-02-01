@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | [**\OpenAPI\Client\Model\Value1**](Value1.md) |  | [optional]
+**street_brawl_value** | [**\OpenAPI\Client\Model\StreetBrawlValue**](StreetBrawlValue.md) |  | [optional]
 **can_set_token_override** | **bool** |  | [optional]
 **provided_property_type** | **string** |  | [optional]
 **css_class** | **string** |  | [optional]

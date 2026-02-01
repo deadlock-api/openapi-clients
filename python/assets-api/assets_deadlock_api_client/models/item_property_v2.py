@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from assets_deadlock_api_client.models.raw_item_property_scale_function_subclass_v2 import RawItemPropertyScaleFunctionSubclassV2
+from assets_deadlock_api_client.models.street_brawl_value import StreetBrawlValue
 from assets_deadlock_api_client.models.usage_flags import UsageFlags
 from assets_deadlock_api_client.models.value1 import Value1
 from typing import Optional, Set
@@ -30,6 +31,7 @@ class ItemPropertyV2(BaseModel):
     ItemPropertyV2
     """ # noqa: E501
     value: Optional[Value1] = None
+    street_brawl_value: Optional[StreetBrawlValue] = None
     can_set_token_override: Optional[StrictBool] = None
     provided_property_type: Optional[StrictStr] = None
     css_class: Optional[StrictStr] = None
@@ -46,7 +48,7 @@ class ItemPropertyV2(BaseModel):
     postvalue_label: Optional[StrictStr] = None
     conditional: Optional[StrictStr] = None
     icon: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["value", "can_set_token_override", "provided_property_type", "css_class", "usage_flags", "negative_attribute", "disable_value", "loc_token_override", "display_units", "icon_path", "scale_function", "prefix", "label", "postfix", "postvalue_label", "conditional", "icon"]
+    __properties: ClassVar[List[str]] = ["value", "street_brawl_value", "can_set_token_override", "provided_property_type", "css_class", "usage_flags", "negative_attribute", "disable_value", "loc_token_override", "display_units", "icon_path", "scale_function", "prefix", "label", "postfix", "postvalue_label", "conditional", "icon"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,6 +92,9 @@ class ItemPropertyV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of value
         if self.value:
             _dict['value'] = self.value.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of street_brawl_value
+        if self.street_brawl_value:
+            _dict['street_brawl_value'] = self.street_brawl_value.to_dict()
         # override the default output from pydantic by calling `to_dict()` of usage_flags
         if self.usage_flags:
             _dict['usage_flags'] = self.usage_flags.to_dict()
@@ -100,6 +105,11 @@ class ItemPropertyV2(BaseModel):
         # and model_fields_set contains the field
         if self.value is None and "value" in self.model_fields_set:
             _dict['value'] = None
+
+        # set to None if street_brawl_value (nullable) is None
+        # and model_fields_set contains the field
+        if self.street_brawl_value is None and "street_brawl_value" in self.model_fields_set:
+            _dict['street_brawl_value'] = None
 
         # set to None if can_set_token_override (nullable) is None
         # and model_fields_set contains the field
@@ -194,6 +204,7 @@ class ItemPropertyV2(BaseModel):
 
         _obj = cls.model_validate({
             "value": Value1.from_dict(obj["value"]) if obj.get("value") is not None else None,
+            "street_brawl_value": StreetBrawlValue.from_dict(obj["street_brawl_value"]) if obj.get("street_brawl_value") is not None else None,
             "can_set_token_override": obj.get("can_set_token_override"),
             "provided_property_type": obj.get("provided_property_type"),
             "css_class": obj.get("css_class"),

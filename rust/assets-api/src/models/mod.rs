@@ -190,6 +190,8 @@ pub mod stats_usage_flag_v2;
 pub use self::stats_usage_flag_v2::StatsUsageFlagV2;
 pub mod street_brawl;
 pub use self::street_brawl::StreetBrawl;
+pub mod street_brawl_value;
+pub use self::street_brawl_value::StreetBrawlValue;
 pub mod subclass_bullet_resist_modifier;
 pub use self::subclass_bullet_resist_modifier::SubclassBulletResistModifier;
 pub mod subclass_empowered_modifier_level;

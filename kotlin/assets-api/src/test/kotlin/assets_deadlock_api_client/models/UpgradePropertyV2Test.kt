@@ -21,6 +21,7 @@ import io.kotlintest.specs.ShouldSpec
 import assets_deadlock_api_client.models.UpgradePropertyV2
 import assets_deadlock_api_client.models.RawAbilitySectionTypeV2
 import assets_deadlock_api_client.models.RawItemPropertyScaleFunctionSubclassV2
+import assets_deadlock_api_client.models.StreetBrawlValue
 import assets_deadlock_api_client.models.UsageFlags
 import assets_deadlock_api_client.models.Value1
 
@@ -33,6 +34,12 @@ class UpgradePropertyV2Test : ShouldSpec() {
         should("test `value`") {
             // uncomment below to test the property
             //modelInstance.`value` shouldBe ("TODO")
+        }
+
+        // to test the property `streetBrawlValue`
+        should("test streetBrawlValue") {
+            // uncomment below to test the property
+            //modelInstance.streetBrawlValue shouldBe ("TODO")
         }
 
         // to test the property `canSetTokenOverride`

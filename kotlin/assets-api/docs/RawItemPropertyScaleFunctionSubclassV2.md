@@ -9,6 +9,7 @@
 | **specificStatScaleType** | **kotlin.String** |  |  [optional] |
 | **scalingStats** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **statScale** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
+| **streetBrawlStatScale** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 
 
 

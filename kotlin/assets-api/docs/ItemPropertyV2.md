@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **&#x60;value&#x60;** | [**Value1**](Value1.md) |  |  [optional] |
+| **streetBrawlValue** | [**StreetBrawlValue**](StreetBrawlValue.md) |  |  [optional] |
 | **canSetTokenOverride** | **kotlin.Boolean** |  |  [optional] |
 | **providedPropertyType** | **kotlin.String** |  |  [optional] |
 | **cssClass** | **kotlin.String** |  |  [optional] |

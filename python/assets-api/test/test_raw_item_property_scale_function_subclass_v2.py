@@ -41,7 +41,8 @@ class TestRawItemPropertyScaleFunctionSubclassV2(unittest.TestCase):
                 scaling_stats = [
                     ''
                     ],
-                stat_scale = 1.337
+                stat_scale = 1.337,
+                street_brawl_stat_scale = 1.337
             )
         else:
             return RawItemPropertyScaleFunctionSubclassV2(

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | Option<[**models::Value1**](Value1.md)> |  | [optional]
+**street_brawl_value** | Option<[**models::StreetBrawlValue**](StreetBrawlValue.md)> |  | [optional]
 **can_set_token_override** | Option<**bool**> |  | [optional]
 **provided_property_type** | Option<**String**> |  | [optional]
 **css_class** | Option<**String**> |  | [optional]

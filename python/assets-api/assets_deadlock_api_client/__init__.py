@@ -130,6 +130,7 @@ __all__ = [
     "StandingShotSpreadPenalty",
     "StatsUsageFlagV2",
     "StreetBrawl",
+    "StreetBrawlValue",
     "SubclassBulletResistModifier",
     "SubclassEmpoweredModifierLevel",
     "SubclassIntrinsicModifiers",
@@ -273,6 +274,7 @@ from assets_deadlock_api_client.models.script_values import ScriptValues as Scri
 from assets_deadlock_api_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty as StandingShotSpreadPenalty
 from assets_deadlock_api_client.models.stats_usage_flag_v2 import StatsUsageFlagV2 as StatsUsageFlagV2
 from assets_deadlock_api_client.models.street_brawl import StreetBrawl as StreetBrawl
+from assets_deadlock_api_client.models.street_brawl_value import StreetBrawlValue as StreetBrawlValue
 from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier as SubclassBulletResistModifier
 from assets_deadlock_api_client.models.subclass_empowered_modifier_level import SubclassEmpoweredModifierLevel as SubclassEmpoweredModifierLevel
 from assets_deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers as SubclassIntrinsicModifiers

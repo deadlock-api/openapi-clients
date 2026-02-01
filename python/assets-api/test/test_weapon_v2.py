@@ -49,6 +49,7 @@ class TestWeaponV2(unittest.TestCase):
                 properties = {
                     'key' : assets_deadlock_api_client.models.item_property_v2.ItemPropertyV2(
                         value = null, 
+                        street_brawl_value = null, 
                         can_set_token_override = True, 
                         provided_property_type = '', 
                         css_class = '', 

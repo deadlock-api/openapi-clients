@@ -61,7 +61,8 @@ class RawItemPropertyScaleFunctionSubclassV2 implements ModelInterface, ArrayAcc
         'subclass_name' => 'string',
         'specific_stat_scale_type' => 'string',
         'scaling_stats' => 'string[]',
-        'stat_scale' => 'float'
+        'stat_scale' => 'float',
+        'street_brawl_stat_scale' => 'float'
     ];
 
     /**
@@ -76,7 +77,8 @@ class RawItemPropertyScaleFunctionSubclassV2 implements ModelInterface, ArrayAcc
         'subclass_name' => null,
         'specific_stat_scale_type' => null,
         'scaling_stats' => null,
-        'stat_scale' => null
+        'stat_scale' => null,
+        'street_brawl_stat_scale' => null
     ];
 
     /**
@@ -89,7 +91,8 @@ class RawItemPropertyScaleFunctionSubclassV2 implements ModelInterface, ArrayAcc
         'subclass_name' => true,
         'specific_stat_scale_type' => true,
         'scaling_stats' => true,
-        'stat_scale' => true
+        'stat_scale' => true,
+        'street_brawl_stat_scale' => true
     ];
 
     /**
@@ -182,7 +185,8 @@ class RawItemPropertyScaleFunctionSubclassV2 implements ModelInterface, ArrayAcc
         'subclass_name' => 'subclass_name',
         'specific_stat_scale_type' => 'specific_stat_scale_type',
         'scaling_stats' => 'scaling_stats',
-        'stat_scale' => 'stat_scale'
+        'stat_scale' => 'stat_scale',
+        'street_brawl_stat_scale' => 'street_brawl_stat_scale'
     ];
 
     /**
@@ -195,7 +199,8 @@ class RawItemPropertyScaleFunctionSubclassV2 implements ModelInterface, ArrayAcc
         'subclass_name' => 'setSubclassName',
         'specific_stat_scale_type' => 'setSpecificStatScaleType',
         'scaling_stats' => 'setScalingStats',
-        'stat_scale' => 'setStatScale'
+        'stat_scale' => 'setStatScale',
+        'street_brawl_stat_scale' => 'setStreetBrawlStatScale'
     ];
 
     /**
@@ -208,7 +213,8 @@ class RawItemPropertyScaleFunctionSubclassV2 implements ModelInterface, ArrayAcc
         'subclass_name' => 'getSubclassName',
         'specific_stat_scale_type' => 'getSpecificStatScaleType',
         'scaling_stats' => 'getScalingStats',
-        'stat_scale' => 'getStatScale'
+        'stat_scale' => 'getStatScale',
+        'street_brawl_stat_scale' => 'getStreetBrawlStatScale'
     ];
 
     /**
@@ -273,6 +279,7 @@ class RawItemPropertyScaleFunctionSubclassV2 implements ModelInterface, ArrayAcc
         $this->setIfExists('specific_stat_scale_type', $data ?? [], null);
         $this->setIfExists('scaling_stats', $data ?? [], null);
         $this->setIfExists('stat_scale', $data ?? [], null);
+        $this->setIfExists('street_brawl_stat_scale', $data ?? [], null);
     }
 
     /**
@@ -483,6 +490,40 @@ class RawItemPropertyScaleFunctionSubclassV2 implements ModelInterface, ArrayAcc
             }
         }
         $this->container['stat_scale'] = $stat_scale;
+
+        return $this;
+    }
+
+    /**
+     * Gets street_brawl_stat_scale
+     *
+     * @return float|null
+     */
+    public function getStreetBrawlStatScale()
+    {
+        return $this->container['street_brawl_stat_scale'];
+    }
+
+    /**
+     * Sets street_brawl_stat_scale
+     *
+     * @param float|null $street_brawl_stat_scale street_brawl_stat_scale
+     *
+     * @return self
+     */
+    public function setStreetBrawlStatScale($street_brawl_stat_scale)
+    {
+        if (is_null($street_brawl_stat_scale)) {
+            array_push($this->openAPINullablesSetToNull, 'street_brawl_stat_scale');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('street_brawl_stat_scale', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['street_brawl_stat_scale'] = $street_brawl_stat_scale;
 
         return $this;
     }

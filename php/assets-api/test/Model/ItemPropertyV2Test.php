@@ -89,6 +89,15 @@ class ItemPropertyV2Test extends TestCase
     }
 
     /**
+     * Test attribute "street_brawl_value"
+     */
+    public function testPropertyStreetBrawlValue()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "can_set_token_override"
      */
     public function testPropertyCanSetTokenOverride()

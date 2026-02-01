@@ -24,6 +24,7 @@ type RawItemPropertyScaleFunctionSubclassV2 struct {
 	SpecificStatScaleType NullableString `json:"specific_stat_scale_type,omitempty"`
 	ScalingStats []string `json:"scaling_stats,omitempty"`
 	StatScale NullableFloat32 `json:"stat_scale,omitempty"`
+	StreetBrawlStatScale NullableFloat32 `json:"street_brawl_stat_scale,omitempty"`
 }
 
 // NewRawItemPropertyScaleFunctionSubclassV2 instantiates a new RawItemPropertyScaleFunctionSubclassV2 object
@@ -244,6 +245,48 @@ func (o *RawItemPropertyScaleFunctionSubclassV2) UnsetStatScale() {
 	o.StatScale.Unset()
 }
 
+// GetStreetBrawlStatScale returns the StreetBrawlStatScale field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RawItemPropertyScaleFunctionSubclassV2) GetStreetBrawlStatScale() float32 {
+	if o == nil || IsNil(o.StreetBrawlStatScale.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.StreetBrawlStatScale.Get()
+}
+
+// GetStreetBrawlStatScaleOk returns a tuple with the StreetBrawlStatScale field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RawItemPropertyScaleFunctionSubclassV2) GetStreetBrawlStatScaleOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StreetBrawlStatScale.Get(), o.StreetBrawlStatScale.IsSet()
+}
+
+// HasStreetBrawlStatScale returns a boolean if a field has been set.
+func (o *RawItemPropertyScaleFunctionSubclassV2) HasStreetBrawlStatScale() bool {
+	if o != nil && o.StreetBrawlStatScale.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStreetBrawlStatScale gets a reference to the given NullableFloat32 and assigns it to the StreetBrawlStatScale field.
+func (o *RawItemPropertyScaleFunctionSubclassV2) SetStreetBrawlStatScale(v float32) {
+	o.StreetBrawlStatScale.Set(&v)
+}
+// SetStreetBrawlStatScaleNil sets the value for StreetBrawlStatScale to be an explicit nil
+func (o *RawItemPropertyScaleFunctionSubclassV2) SetStreetBrawlStatScaleNil() {
+	o.StreetBrawlStatScale.Set(nil)
+}
+
+// UnsetStreetBrawlStatScale ensures that no value is present for StreetBrawlStatScale, not even an explicit nil
+func (o *RawItemPropertyScaleFunctionSubclassV2) UnsetStreetBrawlStatScale() {
+	o.StreetBrawlStatScale.Unset()
+}
+
 func (o RawItemPropertyScaleFunctionSubclassV2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -268,6 +311,9 @@ func (o RawItemPropertyScaleFunctionSubclassV2) ToMap() (map[string]interface{},
 	}
 	if o.StatScale.IsSet() {
 		toSerialize["stat_scale"] = o.StatScale.Get()
+	}
+	if o.StreetBrawlStatScale.IsSet() {
+		toSerialize["street_brawl_stat_scale"] = o.StreetBrawlStatScale.Get()
 	}
 	return toSerialize, nil
 }

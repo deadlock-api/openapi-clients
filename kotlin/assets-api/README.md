@@ -193,6 +193,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets_deadlock_api_client.models.StandingShotSpreadPenalty](docs/StandingShotSpreadPenalty.md)
  - [assets_deadlock_api_client.models.StatsUsageFlagV2](docs/StatsUsageFlagV2.md)
  - [assets_deadlock_api_client.models.StreetBrawl](docs/StreetBrawl.md)
+ - [assets_deadlock_api_client.models.StreetBrawlValue](docs/StreetBrawlValue.md)
  - [assets_deadlock_api_client.models.SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
  - [assets_deadlock_api_client.models.SubclassEmpoweredModifierLevel](docs/SubclassEmpoweredModifierLevel.md)
  - [assets_deadlock_api_client.models.SubclassIntrinsicModifiers](docs/SubclassIntrinsicModifiers.md)

@@ -157,6 +157,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6217: 6217,
     NUMBER_6203: 6203,
     NUMBER_6181: 6181,
     NUMBER_6169: 6169,
@@ -451,6 +452,7 @@ export interface ItemGroup {
 }
 export interface ItemPropertyV2 {
     'value'?: Value1 | null;
+    'street_brawl_value'?: StreetBrawlValue | null;
     'can_set_token_override'?: boolean | null;
     'provided_property_type'?: string | null;
     'css_class'?: string | null;
@@ -932,6 +934,7 @@ export interface RawItemPropertyScaleFunctionSubclassV2 {
     'specific_stat_scale_type'?: string | null;
     'scaling_stats'?: Array<string> | null;
     'stat_scale'?: number | null;
+    'street_brawl_stat_scale'?: number | null;
 }
 export interface RawItemWeaponInfoBulletSpeedCurveSplineV2 {
     'slope_incoming': number;
@@ -1027,6 +1030,8 @@ export interface StreetBrawl {
     'outline_color_team2'?: Array<number> | null;
     'outline_color_neutral'?: Array<number> | null;
 }
+export interface StreetBrawlValue {
+}
 export interface SubclassBulletResistModifier {
     'subclass'?: BulletResistModifier;
 }
@@ -1109,6 +1114,7 @@ export interface UpgradeDescriptionV2 {
 }
 export interface UpgradePropertyV2 {
     'value'?: Value1 | null;
+    'street_brawl_value'?: StreetBrawlValue | null;
     'can_set_token_override'?: boolean | null;
     'provided_property_type'?: string | null;
     'css_class'?: string | null;

@@ -31,7 +31,8 @@ class RawItemPropertyScaleFunctionSubclassV2(BaseModel):
     specific_stat_scale_type: Optional[StrictStr] = None
     scaling_stats: Optional[List[StrictStr]] = None
     stat_scale: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["class_name", "subclass_name", "specific_stat_scale_type", "scaling_stats", "stat_scale"]
+    street_brawl_stat_scale: Optional[Union[StrictFloat, StrictInt]] = None
+    __properties: ClassVar[List[str]] = ["class_name", "subclass_name", "specific_stat_scale_type", "scaling_stats", "stat_scale", "street_brawl_stat_scale"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +98,11 @@ class RawItemPropertyScaleFunctionSubclassV2(BaseModel):
         if self.stat_scale is None and "stat_scale" in self.model_fields_set:
             _dict['stat_scale'] = None
 
+        # set to None if street_brawl_stat_scale (nullable) is None
+        # and model_fields_set contains the field
+        if self.street_brawl_stat_scale is None and "street_brawl_stat_scale" in self.model_fields_set:
+            _dict['street_brawl_stat_scale'] = None
+
         return _dict
 
     @classmethod
@@ -113,7 +119,8 @@ class RawItemPropertyScaleFunctionSubclassV2(BaseModel):
             "subclass_name": obj.get("subclass_name"),
             "specific_stat_scale_type": obj.get("specific_stat_scale_type"),
             "scaling_stats": obj.get("scaling_stats"),
-            "stat_scale": obj.get("stat_scale")
+            "stat_scale": obj.get("stat_scale"),
+            "street_brawl_stat_scale": obj.get("street_brawl_stat_scale")
         })
         return _obj
 

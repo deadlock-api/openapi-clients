@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **SpecificStatScaleType** | Pointer to **NullableString** |  | [optional] 
 **ScalingStats** | Pointer to **[]string** |  | [optional] 
 **StatScale** | Pointer to **NullableFloat32** |  | [optional] 
+**StreetBrawlStatScale** | Pointer to **NullableFloat32** |  | [optional] 
 
 ## Methods
 
@@ -204,6 +205,41 @@ HasStatScale returns a boolean if a field has been set.
 `func (o *RawItemPropertyScaleFunctionSubclassV2) UnsetStatScale()`
 
 UnsetStatScale ensures that no value is present for StatScale, not even an explicit nil
+### GetStreetBrawlStatScale
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetStreetBrawlStatScale() float32`
+
+GetStreetBrawlStatScale returns the StreetBrawlStatScale field if non-nil, zero value otherwise.
+
+### GetStreetBrawlStatScaleOk
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) GetStreetBrawlStatScaleOk() (*float32, bool)`
+
+GetStreetBrawlStatScaleOk returns a tuple with the StreetBrawlStatScale field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStreetBrawlStatScale
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetStreetBrawlStatScale(v float32)`
+
+SetStreetBrawlStatScale sets StreetBrawlStatScale field to given value.
+
+### HasStreetBrawlStatScale
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) HasStreetBrawlStatScale() bool`
+
+HasStreetBrawlStatScale returns a boolean if a field has been set.
+
+### SetStreetBrawlStatScaleNil
+
+`func (o *RawItemPropertyScaleFunctionSubclassV2) SetStreetBrawlStatScaleNil(b bool)`
+
+ SetStreetBrawlStatScaleNil sets the value for StreetBrawlStatScale to be an explicit nil
+
+### UnsetStreetBrawlStatScale
+`func (o *RawItemPropertyScaleFunctionSubclassV2) UnsetStreetBrawlStatScale()`
+
+UnsetStreetBrawlStatScale ensures that no value is present for StreetBrawlStatScale, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

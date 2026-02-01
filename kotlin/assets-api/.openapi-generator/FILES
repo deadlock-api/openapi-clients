@@ -104,6 +104,7 @@ docs/ScriptValues.md
 docs/StandingShotSpreadPenalty.md
 docs/StatsUsageFlagV2.md
 docs/StreetBrawl.md
+docs/StreetBrawlValue.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassEmpoweredModifierLevel.md
 docs/SubclassIntrinsicModifiers.md
@@ -249,6 +250,7 @@ src/main/kotlin/assets_deadlock_api_client/models/ScriptValues.kt
 src/main/kotlin/assets_deadlock_api_client/models/StandingShotSpreadPenalty.kt
 src/main/kotlin/assets_deadlock_api_client/models/StatsUsageFlagV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/StreetBrawl.kt
+src/main/kotlin/assets_deadlock_api_client/models/StreetBrawlValue.kt
 src/main/kotlin/assets_deadlock_api_client/models/SubclassBulletResistModifier.kt
 src/main/kotlin/assets_deadlock_api_client/models/SubclassEmpoweredModifierLevel.kt
 src/main/kotlin/assets_deadlock_api_client/models/SubclassIntrinsicModifiers.kt
@@ -376,6 +378,7 @@ src/test/kotlin/assets_deadlock_api_client/models/ScriptValuesTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/StandingShotSpreadPenaltyTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/StatsUsageFlagV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/StreetBrawlTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/StreetBrawlValueTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/SubclassBulletResistModifierTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/SubclassEmpoweredModifierLevelTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/SubclassIntrinsicModifiersTest.kt

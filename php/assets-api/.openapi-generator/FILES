@@ -111,6 +111,7 @@ api/Model/ScriptValues.php
 api/Model/StandingShotSpreadPenalty.php
 api/Model/StatsUsageFlagV2.php
 api/Model/StreetBrawl.php
+api/Model/StreetBrawlValue.php
 api/Model/SubclassBulletResistModifier.php
 api/Model/SubclassEmpoweredModifierLevel.php
 api/Model/SubclassIntrinsicModifiers.php
@@ -240,6 +241,7 @@ docs/Model/ScriptValues.md
 docs/Model/StandingShotSpreadPenalty.md
 docs/Model/StatsUsageFlagV2.md
 docs/Model/StreetBrawl.md
+docs/Model/StreetBrawlValue.md
 docs/Model/SubclassBulletResistModifier.md
 docs/Model/SubclassEmpoweredModifierLevel.md
 docs/Model/SubclassIntrinsicModifiers.md
@@ -369,6 +371,7 @@ test/Model/ScriptValuesTest.php
 test/Model/StandingShotSpreadPenaltyTest.php
 test/Model/StatsUsageFlagV2Test.php
 test/Model/StreetBrawlTest.php
+test/Model/StreetBrawlValueTest.php
 test/Model/SubclassBulletResistModifierTest.php
 test/Model/SubclassEmpoweredModifierLevelTest.php
 test/Model/SubclassIntrinsicModifiersTest.php

@@ -58,6 +58,7 @@ class ItemPropertyV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'value' => '\OpenAPI\Client\Model\Value1',
+        'street_brawl_value' => '\OpenAPI\Client\Model\StreetBrawlValue',
         'can_set_token_override' => 'bool',
         'provided_property_type' => 'string',
         'css_class' => 'string',
@@ -85,6 +86,7 @@ class ItemPropertyV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'value' => null,
+        'street_brawl_value' => null,
         'can_set_token_override' => null,
         'provided_property_type' => null,
         'css_class' => null,
@@ -110,6 +112,7 @@ class ItemPropertyV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'value' => true,
+        'street_brawl_value' => true,
         'can_set_token_override' => true,
         'provided_property_type' => true,
         'css_class' => true,
@@ -215,6 +218,7 @@ class ItemPropertyV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'value' => 'value',
+        'street_brawl_value' => 'street_brawl_value',
         'can_set_token_override' => 'can_set_token_override',
         'provided_property_type' => 'provided_property_type',
         'css_class' => 'css_class',
@@ -240,6 +244,7 @@ class ItemPropertyV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'value' => 'setValue',
+        'street_brawl_value' => 'setStreetBrawlValue',
         'can_set_token_override' => 'setCanSetTokenOverride',
         'provided_property_type' => 'setProvidedPropertyType',
         'css_class' => 'setCssClass',
@@ -265,6 +270,7 @@ class ItemPropertyV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'value' => 'getValue',
+        'street_brawl_value' => 'getStreetBrawlValue',
         'can_set_token_override' => 'getCanSetTokenOverride',
         'provided_property_type' => 'getProvidedPropertyType',
         'css_class' => 'getCssClass',
@@ -341,6 +347,7 @@ class ItemPropertyV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('street_brawl_value', $data ?? [], null);
         $this->setIfExists('can_set_token_override', $data ?? [], null);
         $this->setIfExists('provided_property_type', $data ?? [], null);
         $this->setIfExists('css_class', $data ?? [], null);
@@ -431,6 +438,40 @@ class ItemPropertyV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets street_brawl_value
+     *
+     * @return \OpenAPI\Client\Model\StreetBrawlValue|null
+     */
+    public function getStreetBrawlValue()
+    {
+        return $this->container['street_brawl_value'];
+    }
+
+    /**
+     * Sets street_brawl_value
+     *
+     * @param \OpenAPI\Client\Model\StreetBrawlValue|null $street_brawl_value street_brawl_value
+     *
+     * @return self
+     */
+    public function setStreetBrawlValue($street_brawl_value)
+    {
+        if (is_null($street_brawl_value)) {
+            array_push($this->openAPINullablesSetToNull, 'street_brawl_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('street_brawl_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['street_brawl_value'] = $street_brawl_value;
 
         return $this;
     }

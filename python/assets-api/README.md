@@ -234,6 +234,7 @@ Class | Method | HTTP request | Description
  - [StandingShotSpreadPenalty](docs/StandingShotSpreadPenalty.md)
  - [StatsUsageFlagV2](docs/StatsUsageFlagV2.md)
  - [StreetBrawl](docs/StreetBrawl.md)
+ - [StreetBrawlValue](docs/StreetBrawlValue.md)
  - [SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
  - [SubclassEmpoweredModifierLevel](docs/SubclassEmpoweredModifierLevel.md)
  - [SubclassIntrinsicModifiers](docs/SubclassIntrinsicModifiers.md)

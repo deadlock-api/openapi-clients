@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | [**Value1**](Value1.md) |  | [optional] [default to undefined]
+**street_brawl_value** | [**StreetBrawlValue**](StreetBrawlValue.md) |  | [optional] [default to undefined]
 **can_set_token_override** | **boolean** |  | [optional] [default to undefined]
 **provided_property_type** | **string** |  | [optional] [default to undefined]
 **css_class** | **string** |  | [optional] [default to undefined]
@@ -33,6 +34,7 @@ import { UpgradePropertyV2 } from 'assets_deadlock_api_client';
 
 const instance: UpgradePropertyV2 = {
     value,
+    street_brawl_value,
     can_set_token_override,
     provided_property_type,
     css_class,

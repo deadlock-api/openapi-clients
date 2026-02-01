@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Value** | Pointer to [**NullableValue1**](Value1.md) |  | [optional] 
+**StreetBrawlValue** | Pointer to [**NullableStreetBrawlValue**](StreetBrawlValue.md) |  | [optional] 
 **CanSetTokenOverride** | Pointer to **NullableBool** |  | [optional] 
 **ProvidedPropertyType** | Pointer to **NullableString** |  | [optional] 
 **CssClass** | Pointer to **NullableString** |  | [optional] 
@@ -76,6 +77,41 @@ HasValue returns a boolean if a field has been set.
 `func (o *ItemPropertyV2) UnsetValue()`
 
 UnsetValue ensures that no value is present for Value, not even an explicit nil
+### GetStreetBrawlValue
+
+`func (o *ItemPropertyV2) GetStreetBrawlValue() StreetBrawlValue`
+
+GetStreetBrawlValue returns the StreetBrawlValue field if non-nil, zero value otherwise.
+
+### GetStreetBrawlValueOk
+
+`func (o *ItemPropertyV2) GetStreetBrawlValueOk() (*StreetBrawlValue, bool)`
+
+GetStreetBrawlValueOk returns a tuple with the StreetBrawlValue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStreetBrawlValue
+
+`func (o *ItemPropertyV2) SetStreetBrawlValue(v StreetBrawlValue)`
+
+SetStreetBrawlValue sets StreetBrawlValue field to given value.
+
+### HasStreetBrawlValue
+
+`func (o *ItemPropertyV2) HasStreetBrawlValue() bool`
+
+HasStreetBrawlValue returns a boolean if a field has been set.
+
+### SetStreetBrawlValueNil
+
+`func (o *ItemPropertyV2) SetStreetBrawlValueNil(b bool)`
+
+ SetStreetBrawlValueNil sets the value for StreetBrawlValue to be an explicit nil
+
+### UnsetStreetBrawlValue
+`func (o *ItemPropertyV2) UnsetStreetBrawlValue()`
+
+UnsetStreetBrawlValue ensures that no value is present for StreetBrawlValue, not even an explicit nil
 ### GetCanSetTokenOverride
 
 `func (o *ItemPropertyV2) GetCanSetTokenOverride() bool`

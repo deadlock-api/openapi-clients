@@ -55,5 +55,11 @@ class RawItemPropertyScaleFunctionSubclassV2Test : ShouldSpec() {
             //modelInstance.statScale shouldBe ("TODO")
         }
 
+        // to test the property `streetBrawlStatScale`
+        should("test streetBrawlStatScale") {
+            // uncomment below to test the property
+            //modelInstance.streetBrawlStatScale shouldBe ("TODO")
+        }
+
     }
 }

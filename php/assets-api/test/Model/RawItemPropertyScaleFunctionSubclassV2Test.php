@@ -123,4 +123,13 @@ class RawItemPropertyScaleFunctionSubclassV2Test extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "street_brawl_stat_scale"
+     */
+    public function testPropertyStreetBrawlStatScale()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

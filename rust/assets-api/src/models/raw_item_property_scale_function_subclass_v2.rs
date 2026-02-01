@@ -23,6 +23,8 @@ pub struct RawItemPropertyScaleFunctionSubclassV2 {
     pub scaling_stats: Option<Option<Vec<String>>>,
     #[serde(rename = "stat_scale", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub stat_scale: Option<Option<f64>>,
+    #[serde(rename = "street_brawl_stat_scale", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub street_brawl_stat_scale: Option<Option<f64>>,
 }
 
 impl RawItemPropertyScaleFunctionSubclassV2 {
@@ -33,6 +35,7 @@ impl RawItemPropertyScaleFunctionSubclassV2 {
             specific_stat_scale_type: None,
             scaling_stats: None,
             stat_scale: None,
+            street_brawl_stat_scale: None,
         }
     }
 }

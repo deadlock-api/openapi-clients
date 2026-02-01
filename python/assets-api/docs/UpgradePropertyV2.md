@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | [**Value1**](Value1.md) |  | [optional] 
+**street_brawl_value** | [**StreetBrawlValue**](StreetBrawlValue.md) |  | [optional] 
 **can_set_token_override** | **bool** |  | [optional] 
 **provided_property_type** | **str** |  | [optional] 
 **css_class** | **str** |  | [optional] 

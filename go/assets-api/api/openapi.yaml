@@ -1224,6 +1224,7 @@ components:
             prefix: prefix
             icon: icon
             can_set_token_override: true
+            street_brawl_value: Street_Brawl_Value
             scale_function: ""
             label: label
             loc_token_override: loc_token_override
@@ -1553,6 +1554,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6217
       - 6203
       - 6181
       - 6169
@@ -2852,6 +2854,7 @@ components:
         prefix: prefix
         icon: icon
         can_set_token_override: true
+        street_brawl_value: Street_Brawl_Value
         scale_function: ""
         label: label
         loc_token_override: loc_token_override
@@ -2867,6 +2870,8 @@ components:
       properties:
         value:
           $ref: "#/components/schemas/Value_1"
+        street_brawl_value:
+          $ref: "#/components/schemas/Street_Brawl_Value"
         can_set_token_override:
           nullable: true
           type: boolean
@@ -4404,6 +4409,9 @@ components:
         stat_scale:
           nullable: true
           type: number
+        street_brawl_stat_scale:
+          nullable: true
+          type: number
       title: RawItemPropertyScaleFunctionSubclassV2
     RawItemWeaponInfoBulletSpeedCurveSplineV2:
       properties:
@@ -4827,6 +4835,8 @@ components:
       properties:
         value:
           $ref: "#/components/schemas/Value_1"
+        street_brawl_value:
+          $ref: "#/components/schemas/Street_Brawl_Value"
         can_set_token_override:
           nullable: true
           type: boolean
@@ -5470,6 +5480,12 @@ components:
       - type: number
       nullable: true
       title: Value
+    Street_Brawl_Value:
+      anyOf:
+      - type: string
+      - type: number
+      nullable: true
+      title: Street Brawl Value
     Usage_Flags:
       anyOf:
       - items:

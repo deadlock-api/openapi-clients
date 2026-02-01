@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **specific_stat_scale_type** | **str** |  | [optional] 
 **scaling_stats** | **List[str]** |  | [optional] 
 **stat_scale** | **float** |  | [optional] 
+**street_brawl_stat_scale** | **float** |  | [optional] 
 
 ## Example
 

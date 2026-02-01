@@ -15,6 +15,8 @@ use serde::{Deserialize, Serialize};
 pub struct ItemPropertyV2 {
     #[serde(rename = "value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub value: Option<Option<Box<models::Value1>>>,
+    #[serde(rename = "street_brawl_value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub street_brawl_value: Option<Option<Box<models::StreetBrawlValue>>>,
     #[serde(rename = "can_set_token_override", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub can_set_token_override: Option<Option<bool>>,
     #[serde(rename = "provided_property_type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -53,6 +55,7 @@ impl ItemPropertyV2 {
     pub fn new() -> ItemPropertyV2 {
         ItemPropertyV2 {
             value: None,
+            street_brawl_value: None,
             can_set_token_override: None,
             provided_property_type: None,
             css_class: None,

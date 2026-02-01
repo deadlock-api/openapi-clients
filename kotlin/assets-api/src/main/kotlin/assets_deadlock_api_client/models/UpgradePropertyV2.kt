@@ -17,6 +17,7 @@ package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.RawAbilitySectionTypeV2
 import assets_deadlock_api_client.models.RawItemPropertyScaleFunctionSubclassV2
+import assets_deadlock_api_client.models.StreetBrawlValue
 import assets_deadlock_api_client.models.UsageFlags
 import assets_deadlock_api_client.models.Value1
 
@@ -28,6 +29,7 @@ import java.io.Serializable
  * 
  *
  * @param `value` 
+ * @param streetBrawlValue 
  * @param canSetTokenOverride 
  * @param providedPropertyType 
  * @param cssClass 
@@ -54,6 +56,9 @@ data class UpgradePropertyV2 (
 
     @Json(name = "value")
     val `value`: Value1? = null,
+
+    @Json(name = "street_brawl_value")
+    val streetBrawlValue: StreetBrawlValue? = null,
 
     @Json(name = "can_set_token_override")
     val canSetTokenOverride: kotlin.Boolean? = null,
