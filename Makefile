@@ -1,4 +1,4 @@
-all: python typescript rust kotlin go php jetbrains-client
+all: python typescript rust kotlin go php jetbrains-client csharp
 
 python: generate-api-python generate-assets-api-python
 
@@ -132,6 +132,22 @@ generate-assets-api-jetbrains-client:
 	@echo "--> Generating Jetbrains client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://assets.deadlock-api.com/openapi.json -g jetbrains-http-client -o jetbrains-client/assets-api/ --skip-validate-spec
 	@echo "--> Assets API client generated successfully in jetbrains-client/assets-api/"
+
+csharp: generate-api-csharp generate-assets-api-csharp
+
+generate-api-csharp:
+	@echo "--> Creating directory for the main API client..."
+	@mkdir -p csharp/api
+	@echo "--> Generating C# client for the main API..."
+	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://api.deadlock-api.com/openapi.json -g csharp -o csharp/api/ --skip-validate-spec --additional-properties=packageName=DeadlockApiClient,nullableReferenceTypes=true
+	@echo "--> Main API client generated successfully in csharp/api/"
+
+generate-assets-api-csharp:
+	@echo "--> Creating directory for the assets API client..."
+	@mkdir -p csharp/assets-api
+	@echo "--> Generating C# client for the assets API..."
+	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://assets.deadlock-api.com/openapi.json -g csharp -o csharp/assets-api/ --skip-validate-spec --additional-properties=packageName=AssetsDeadlockApiClient,nullableReferenceTypes=true
+	@echo "--> Assets API client generated successfully in csharp/assets-api/"
 
 # Target to clean up all generated directories.
 clean:
