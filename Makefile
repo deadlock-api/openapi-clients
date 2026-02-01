@@ -152,5 +152,5 @@ generate-assets-api-csharp:
 # Target to clean up all generated directories.
 clean:
 	@echo "--> Removing generated client directories..."
-	@rm -rf openapitools.json python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api php/api php/assets-api jetbrains-client/api jetbrains-client/assets-api
+	@rm -rf openapitools.json python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api php/api php/assets-api jetbrains-client/api jetbrains-client/assets-api csharp/api csharp/assets-api
 	@echo "--> Cleanup complete."

@@ -24,6 +24,9 @@ The clients are organized by language and API:
 -   **PHP**:
     -   `php/api`: Client for the main Deadlock API.
     -   `php/assets-api`: Client for the Deadlock Assets API.
+-   **C#**:
+    -   `csharp/api`: Client for the main Deadlock API.
+    -   `csharp/assets-api`: Client for the Deadlock Assets API.
 
 ## Installation from GitHub
 
@@ -141,6 +144,21 @@ Use `go get` to install the clients:
     go get github.com/deadlock-api/openapi-clients/go/assets-api
     ```
 
+### C#
+
+Clone the repository and add a project reference:
+
+-   **API Client:**
+    ```bash
+    git clone https://github.com/deadlock-api/openapi-clients.git
+    dotnet add reference openapi-clients/csharp/api/src/DeadlockApiClient/DeadlockApiClient.csproj
+    ```
+-   **Assets API Client:**
+    ```bash
+    git clone https://github.com/deadlock-api/openapi-clients.git
+    dotnet add reference openapi-clients/csharp/assets-api/src/AssetsDeadlockApiClient/AssetsDeadlockApiClient.csproj
+    ```
+
 ## Usage
 
 Each client is located in its respective directory. Please refer to the `README.md` and documentation within each client's directory for specific installation and usage instructions.
@@ -167,6 +185,7 @@ You can regenerate the clients manually using the provided `Makefile`:
     make java
     make go
     make php
+    make csharp
     ```
 
 -   **Clean all generated clients:**
