@@ -75,7 +75,7 @@ namespace AssetsDeadlockApiClient.Test.Api
             Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
             var response = await _instance.GetItemsByHeroIdV2ItemsByHeroIdIdGetAsync(id, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<List<GetItemsV2ItemsGet200ResponseInner>>(model);
+            Assert.IsType<List<ResponseGetItemsV2ItemsGetInner>>(model);
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace AssetsDeadlockApiClient.Test.Api
             Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
             var response = await _instance.GetItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetAsync(slotType, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<List<GetItemsV2ItemsGet200ResponseInner>>(model);
+            Assert.IsType<List<ResponseGetItemsV2ItemsGetInner>>(model);
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace AssetsDeadlockApiClient.Test.Api
             Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
             var response = await _instance.GetItemsByTypeV2ItemsByTypeTypeGetAsync(type, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<List<GetItemsV2ItemsGet200ResponseInner>>(model);
+            Assert.IsType<List<ResponseGetItemsV2ItemsGetInner>>(model);
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace AssetsDeadlockApiClient.Test.Api
             Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
             var response = await _instance.GetItemsV2ItemsGetAsync(language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<List<GetItemsV2ItemsGet200ResponseInner>>(model);
+            Assert.IsType<List<ResponseGetItemsV2ItemsGetInner>>(model);
         }
     }
 }
