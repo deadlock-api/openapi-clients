@@ -1,4 +1,4 @@
-all: python typescript rust kotlin go php jetbrains-client csharp
+all: python typescript typescript-redux-query rust kotlin go php jetbrains-client csharp
 
 python: generate-api-python generate-assets-api-python
 
@@ -32,6 +32,22 @@ generate-assets-api-typescript:
 	@echo "--> Generating Typescript client for the assets API..."
 	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://assets.deadlock-api.com/openapi.json -g typescript-axios -o typescript/assets-api/ --skip-validate-spec --additional-properties=npmName=assets_deadlock_api_client,useSingleRequestParameter=true
 	@echo "--> Assets API client generated successfully in typescript/assets-api/"
+
+typescript-redux-query: generate-api-typescript-redux-query generate-assets-api-typescript-redux-query
+
+generate-api-typescript-redux-query:
+	@echo "--> Creating directory for the main API client..."
+	@mkdir -p typescript-redux-query/api
+	@echo "--> Generating Typescript Redux Query client for the main API..."
+	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://api.deadlock-api.com/openapi.json -g typescript-redux-query -o typescript-redux-query/api/ --skip-validate-spec --additional-properties=npmName=deadlock_api_client_redux_query,useSingleRequestParameter=true,supportsES6=true
+	@echo "--> Main API client generated successfully in typescript-redux-query/api/"
+
+generate-assets-api-typescript-redux-query:
+	@echo "--> Creating directory for the assets API client..."
+	@mkdir -p typescript-redux-query/assets-api
+	@echo "--> Generating Typescript Redux Query client for the assets API..."
+	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://assets.deadlock-api.com/openapi.json -g typescript-redux-query -o typescript-redux-query/assets-api/ --skip-validate-spec --additional-properties=npmName=assets_deadlock_api_client_redux_query,useSingleRequestParameter=true,supportsES6=true
+	@echo "--> Assets API client generated successfully in typescript-redux-query/assets-api/"
 
 rust: generate-api-rust generate-assets-api-rust
 
@@ -152,5 +168,5 @@ generate-assets-api-csharp:
 # Target to clean up all generated directories.
 clean:
 	@echo "--> Removing generated client directories..."
-	@rm -rf openapitools.json python/api python/assets-api typescript/api typescript/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api php/api php/assets-api jetbrains-client/api jetbrains-client/assets-api csharp/api csharp/assets-api
+	@rm -rf openapitools.json python/api python/assets-api typescript/api typescript/assets-api typescript-redux-query/api typescript-redux-query/assets-api rust/api rust/assets-api kotlin/api kotlin/assets-api go/api go/assets-api php/api php/assets-api jetbrains-client/api jetbrains-client/assets-api csharp/api csharp/assets-api
 	@echo "--> Cleanup complete."
