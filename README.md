@@ -15,6 +15,9 @@ The clients are organized by language and API:
 -   **TypeScript**:
     -   `typescript/api`: Client for the main Deadlock API.
     -   `typescript/assets-api`: Client for the Deadlock Assets API.
+-   **TypeScript Redux Query**:
+    -   `typescript-redux-query/api`: Client for the main Deadlock API.
+    -   `typescript-redux-query/assets-api`: Client for the Deadlock Assets API.
 -   **Kotlin & Java**:
     -   `kotlin/api`: Client for the main Deadlock API.
     -   `kotlin/assets-api`: Client for the Deadlock Assets API.
@@ -99,6 +102,33 @@ Use `npm`, `yarn`, `pnpm`, or `bun` to install the clients:
     pnpm add github:deadlock-api/openapi-clients#path:/typescript/assets-api
     ```
 
+### TypeScript Redux Query
+
+Use `npm`, `yarn`, `pnpm`, or `bun` to install the clients:
+
+-   **API Client:**
+    ```bash
+    # npm
+    npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redux-query/api?master'
+
+    # yarn
+    yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redux-query/api?master'
+
+    # pnpm
+    pnpm add github:deadlock-api/openapi-clients#path:/typescript-redux-query/api
+    ```
+-   **Assets API Client:**
+    ```bash
+    # npm
+    npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redux-query/assets-api?master'
+
+    # yarn
+    yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redux-query/assets-api?master'
+
+    # pnpm
+    pnpm add github:deadlock-api/openapi-clients#path:/typescript-redux-query/assets-api
+    ```
+
 ### Kotlin & Java
 
 Use `gradle` or `maven` to install the clients:
@@ -181,6 +211,7 @@ You can regenerate the clients manually using the provided `Makefile`:
     make python
     make rust
     make typescript
+    make typescript-redux-query
     make kotlin
     make java
     make go
