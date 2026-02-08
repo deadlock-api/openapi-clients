@@ -44,5 +44,17 @@ class ValidationErrorTest : ShouldSpec() {
             //modelInstance.type shouldBe ("TODO")
         }
 
+        // to test the property `input`
+        should("test input") {
+            // uncomment below to test the property
+            //modelInstance.input shouldBe ("TODO")
+        }
+
+        // to test the property `ctx`
+        should("test ctx") {
+            // uncomment below to test the property
+            //modelInstance.ctx shouldBe ("TODO")
+        }
+
     }
 }

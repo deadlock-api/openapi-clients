@@ -19,6 +19,10 @@ pub struct ValidationError {
     pub msg: String,
     #[serde(rename = "type")]
     pub r#type: String,
+    #[serde(rename = "input", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub input: Option<Option<serde_json::Value>>,
+    #[serde(rename = "ctx", skip_serializing_if = "Option::is_none")]
+    pub ctx: Option<serde_json::Value>,
 }
 
 impl ValidationError {
@@ -27,6 +31,8 @@ impl ValidationError {
             loc,
             msg,
             r#type,
+            input: None,
+            ctx: None,
         }
     }
 }

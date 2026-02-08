@@ -36,12 +36,16 @@ namespace AssetsDeadlockApiClient.Model
         /// <param name="loc">loc</param>
         /// <param name="msg">msg</param>
         /// <param name="type">type</param>
+        /// <param name="input">input</param>
+        /// <param name="ctx">ctx</param>
         [JsonConstructor]
-        public ValidationError(List<LocationInner> loc, string msg, string type)
+        public ValidationError(List<LocationInner> loc, string msg, string type, Option<Object?> input = default, Option<Object?> ctx = default)
         {
             Loc = loc;
             Msg = msg;
             Type = type;
+            InputOption = input;
+            CtxOption = ctx;
             OnCreated();
         }
 
@@ -66,6 +70,32 @@ namespace AssetsDeadlockApiClient.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Used to track the state of Input
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Object?> InputOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Input
+        /// </summary>
+        [JsonPropertyName("input")]
+        public Object? Input { get { return this.InputOption; } set { this.InputOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of Ctx
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Object?> CtxOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Ctx
+        /// </summary>
+        [JsonPropertyName("ctx")]
+        public Object? Ctx { get { return this.CtxOption; } set { this.CtxOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +106,8 @@ namespace AssetsDeadlockApiClient.Model
             sb.Append("  Loc: ").Append(Loc).Append("\n");
             sb.Append("  Msg: ").Append(Msg).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Input: ").Append(Input).Append("\n");
+            sb.Append("  Ctx: ").Append(Ctx).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,6 +148,8 @@ namespace AssetsDeadlockApiClient.Model
             Option<List<LocationInner>?> loc = default;
             Option<string?> msg = default;
             Option<string?> type = default;
+            Option<Object?> input = default;
+            Option<Object?> ctx = default;
 
             while (utf8JsonReader.Read())
             {
@@ -141,6 +175,12 @@ namespace AssetsDeadlockApiClient.Model
                         case "type":
                             type = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
+                        case "input":
+                            input = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "ctx":
+                            ctx = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
                         default:
                             break;
                     }
@@ -165,7 +205,10 @@ namespace AssetsDeadlockApiClient.Model
             if (type.IsSet && type.Value == null)
                 throw new ArgumentNullException(nameof(type), "Property is not nullable for class ValidationError.");
 
-            return new ValidationError(loc.Value!, msg.Value!, type.Value!);
+            if (ctx.IsSet && ctx.Value == null)
+                throw new ArgumentNullException(nameof(ctx), "Property is not nullable for class ValidationError.");
+
+            return new ValidationError(loc.Value!, msg.Value!, type.Value!, input, ctx);
         }
 
         /// <summary>
@@ -201,11 +244,28 @@ namespace AssetsDeadlockApiClient.Model
             if (validationError.Type == null)
                 throw new ArgumentNullException(nameof(validationError.Type), "Property is required for class ValidationError.");
 
+            if (validationError.CtxOption.IsSet && validationError.Ctx == null)
+                throw new ArgumentNullException(nameof(validationError.Ctx), "Property is required for class ValidationError.");
+
             writer.WritePropertyName("loc");
             JsonSerializer.Serialize(writer, validationError.Loc, jsonSerializerOptions);
             writer.WriteString("msg", validationError.Msg);
 
             writer.WriteString("type", validationError.Type);
+
+            if (validationError.InputOption.IsSet)
+                if (validationError.InputOption.Value != null)
+                {
+                    writer.WritePropertyName("input");
+                    JsonSerializer.Serialize(writer, validationError.Input, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("input");
+            if (validationError.CtxOption.IsSet)
+            {
+                writer.WritePropertyName("ctx");
+                JsonSerializer.Serialize(writer, validationError.Ctx, jsonSerializerOptions);
+            }
         }
     }
 }

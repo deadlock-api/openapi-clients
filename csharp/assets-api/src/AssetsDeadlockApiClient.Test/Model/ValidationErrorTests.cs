@@ -79,5 +79,23 @@ namespace AssetsDeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'Type'
         }
+
+        /// <summary>
+        /// Test the property 'Input'
+        /// </summary>
+        [Fact]
+        public void InputTest()
+        {
+            // TODO unit test for the property 'Input'
+        }
+
+        /// <summary>
+        /// Test the property 'Ctx'
+        /// </summary>
+        [Fact]
+        public void CtxTest()
+        {
+            // TODO unit test for the property 'Ctx'
+        }
     }
 }

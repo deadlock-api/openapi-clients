@@ -105,4 +105,22 @@ class ValidationErrorTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "input"
+     */
+    public function testPropertyInput()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ctx"
+     */
+    public function testPropertyCtx()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

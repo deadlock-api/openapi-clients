@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **loc** | [**Array&lt;LocationInner&gt;**](LocationInner.md) |  | [default to undefined]
 **msg** | **string** |  | [default to undefined]
 **type** | **string** |  | [default to undefined]
+**input** | **any** |  | [optional] [default to undefined]
+**ctx** | **object** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -18,6 +20,8 @@ const instance: ValidationError = {
     loc,
     msg,
     type,
+    input,
+    ctx,
 };
 ```
 

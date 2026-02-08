@@ -27,6 +27,8 @@ import java.io.Serializable
  * @param loc 
  * @param msg 
  * @param type 
+ * @param input 
+ * @param ctx 
  */
 
 
@@ -39,7 +41,13 @@ data class ValidationError (
     val msg: kotlin.String,
 
     @Json(name = "type")
-    val type: kotlin.String
+    val type: kotlin.String,
+
+    @Json(name = "input")
+    val input: kotlin.Any? = null,
+
+    @Json(name = "ctx")
+    val ctx: kotlin.Any? = null
 
 ) : Serializable {
     companion object {

@@ -41,7 +41,9 @@ class TestHTTPValidationError(unittest.TestCase):
                             null
                             ], 
                         msg = '', 
-                        type = '', )
+                        type = '', 
+                        input = null, 
+                        ctx = assets_deadlock_api_client.models.context.Context(), )
                     ]
             )
         else:

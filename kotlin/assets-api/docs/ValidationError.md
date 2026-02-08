@@ -7,6 +7,8 @@
 | **loc** | [**kotlin.collections.List&lt;LocationInner&gt;**](LocationInner.md) |  |  |
 | **msg** | **kotlin.String** |  |  |
 | **type** | **kotlin.String** |  |  |
+| **input** | [**kotlin.Any**](.md) |  |  [optional] |
+| **ctx** | [**kotlin.Any**](.md) |  |  [optional] |
 
 
 

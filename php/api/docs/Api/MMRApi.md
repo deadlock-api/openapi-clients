@@ -1,6 +1,6 @@
 # OpenAPI\Client\MMRApi
 
-# STOP! READ THIS FIRST!  Please be very careful when using this endpoint and make yourself familiar with the way we calculate the MMR.  This is how we calculate a player MMR.  1. We take the average badge of the team the player was on in a match. 2. We convert the badge to a MMR score using the formula: &#x60;(intDiv(badge, 10) - 1) * 6 + (badge % 10)&#x60; 3. We do a exponential moving average (EMA) of the last 50 matches to get the player&#39;s MMR score. 4. We convert the MMR score back to a badge using the formula: &#x60;10 * intDiv(mmr_score, 6) + 1 + mmr_score % 6&#x60;  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+# STOP! READ THIS FIRST!  Please be very careful when using this endpoint and make yourself familiar with the way we calculate the MMR.  This is how we calculate a player MMR.  1. We take the average badge of the team the player was on in a match. 2. We convert the badge to a MMR score using the formula: &#x60;(intDiv(badge, 10) - 1) * 6 + (badge % 10)&#x60; 3. We do a exponential moving average (EMA) of the last 50 matches to get the player&#39;s MMR score. 4. We convert the MMR score back to a badge using the formula: &#x60;10 * intDiv(mmr_score, 6) + 1 + mmr_score % 6&#x60;  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/10s | | Key | 10req/10s | | Global | 20req/10s |
 
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
@@ -98,7 +98,7 @@ $apiInstance = new OpenAPI\Client\Api\MMRApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1767744000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1767830400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -121,7 +121,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1767744000] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1767830400] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -287,7 +287,7 @@ $apiInstance = new OpenAPI\Client\Api\MMRApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$min_unix_timestamp = 1767744000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1767830400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -309,7 +309,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1767744000] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1767830400] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

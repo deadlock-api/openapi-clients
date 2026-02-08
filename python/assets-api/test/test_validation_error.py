@@ -39,7 +39,9 @@ class TestValidationError(unittest.TestCase):
                     null
                     ],
                 msg = '',
-                type = ''
+                type = '',
+                input = None,
+                ctx = assets_deadlock_api_client.models.context.Context()
             )
         else:
             return ValidationError(
