@@ -20,6 +20,7 @@ type DeadlockAssetsApiRoutesValidClientVersions int32
 
 // List of DeadlockAssetsApiRoutesValidClientVersions
 const (
+	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6268 DeadlockAssetsApiRoutesValidClientVersions = 6268
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6245 DeadlockAssetsApiRoutesValidClientVersions = 6245
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6237 DeadlockAssetsApiRoutesValidClientVersions = 6237
 	DEADLOCKASSETSAPIROUTESVALIDCLIENTVERSIONS__6228 DeadlockAssetsApiRoutesValidClientVersions = 6228
@@ -83,6 +84,7 @@ const (
 
 // All allowed values of DeadlockAssetsApiRoutesValidClientVersions enum
 var AllowedDeadlockAssetsApiRoutesValidClientVersionsEnumValues = []DeadlockAssetsApiRoutesValidClientVersions{
+	6268,
 	6245,
 	6237,
 	6228,
