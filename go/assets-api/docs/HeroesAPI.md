@@ -31,7 +31,7 @@ import (
 func main() {
 	name := "name_example" // string | 
 	language := openapiclient.Language("brazilian") // Language |  (optional)
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6284) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6290) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -103,7 +103,7 @@ import (
 func main() {
 	id := int32(56) // int32 | 
 	language := openapiclient.Language("brazilian") // Language |  (optional)
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6284) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6290) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -174,7 +174,7 @@ import (
 
 func main() {
 	language := openapiclient.Language("brazilian") // Language |  (optional)
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6284) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6290) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 	onlyActive := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
