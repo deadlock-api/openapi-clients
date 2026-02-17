@@ -60,7 +60,7 @@ enum class ESportsMatchStatus(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): ESportsMatchStatus? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

@@ -66,7 +66,7 @@ enum class RegionMode(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): RegionMode? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

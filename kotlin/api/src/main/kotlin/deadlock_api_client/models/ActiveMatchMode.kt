@@ -72,7 +72,7 @@ enum class ActiveMatchMode(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): ActiveMatchMode? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

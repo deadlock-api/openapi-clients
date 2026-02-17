@@ -69,7 +69,7 @@ enum class RawAbilityActivationV2(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): RawAbilityActivationV2? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

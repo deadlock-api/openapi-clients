@@ -66,7 +66,7 @@ enum class VariableCategory(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): VariableCategory? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

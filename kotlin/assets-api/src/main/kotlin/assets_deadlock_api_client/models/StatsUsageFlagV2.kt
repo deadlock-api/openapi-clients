@@ -60,7 +60,7 @@ enum class StatsUsageFlagV2(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): StatsUsageFlagV2? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

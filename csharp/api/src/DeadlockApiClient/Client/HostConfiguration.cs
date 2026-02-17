@@ -138,19 +138,19 @@ namespace DeadlockApiClient.Client
 
             List<IHttpClientBuilder> builders = new List<IHttpClientBuilder>();
 
-            builders.Add(_services.AddHttpClient<IAnalyticsApi, AnalyticsApi>(client));
-            builders.Add(_services.AddHttpClient<IBuildsApi, BuildsApi>(client));
-            builders.Add(_services.AddHttpClient<ICommandsApi, CommandsApi>(client));
-            builders.Add(_services.AddHttpClient<ICustomMatchesApi, CustomMatchesApi>(client));
-            builders.Add(_services.AddHttpClient<IESportsApi, ESportsApi>(client));
-            builders.Add(_services.AddHttpClient<IInfoApi, InfoApi>(client));
-            builders.Add(_services.AddHttpClient<IInternalApi, InternalApi>(client));
-            builders.Add(_services.AddHttpClient<ILeaderboardApi, LeaderboardApi>(client));
-            builders.Add(_services.AddHttpClient<IMMRApi, MMRApi>(client));
-            builders.Add(_services.AddHttpClient<IMatchesApi, MatchesApi>(client));
-            builders.Add(_services.AddHttpClient<IPatchesApi, PatchesApi>(client));
-            builders.Add(_services.AddHttpClient<IPlayersApi, PlayersApi>(client));
-            builders.Add(_services.AddHttpClient<ISQLApi, SQLApi>(client));
+            builders.Add(_services.AddHttpClient<IAnalyticsApi, AnalyticsApi>("DeadlockApiClient.Api.IAnalyticsApi", client));
+            builders.Add(_services.AddHttpClient<IBuildsApi, BuildsApi>("DeadlockApiClient.Api.IBuildsApi", client));
+            builders.Add(_services.AddHttpClient<ICommandsApi, CommandsApi>("DeadlockApiClient.Api.ICommandsApi", client));
+            builders.Add(_services.AddHttpClient<ICustomMatchesApi, CustomMatchesApi>("DeadlockApiClient.Api.ICustomMatchesApi", client));
+            builders.Add(_services.AddHttpClient<IESportsApi, ESportsApi>("DeadlockApiClient.Api.IESportsApi", client));
+            builders.Add(_services.AddHttpClient<IInfoApi, InfoApi>("DeadlockApiClient.Api.IInfoApi", client));
+            builders.Add(_services.AddHttpClient<IInternalApi, InternalApi>("DeadlockApiClient.Api.IInternalApi", client));
+            builders.Add(_services.AddHttpClient<ILeaderboardApi, LeaderboardApi>("DeadlockApiClient.Api.ILeaderboardApi", client));
+            builders.Add(_services.AddHttpClient<IMMRApi, MMRApi>("DeadlockApiClient.Api.IMMRApi", client));
+            builders.Add(_services.AddHttpClient<IMatchesApi, MatchesApi>("DeadlockApiClient.Api.IMatchesApi", client));
+            builders.Add(_services.AddHttpClient<IPatchesApi, PatchesApi>("DeadlockApiClient.Api.IPatchesApi", client));
+            builders.Add(_services.AddHttpClient<IPlayersApi, PlayersApi>("DeadlockApiClient.Api.IPlayersApi", client));
+            builders.Add(_services.AddHttpClient<ISQLApi, SQLApi>("DeadlockApiClient.Api.ISQLApi", client));
             
             if (builder != null)
                 foreach (IHttpClientBuilder instance in builders)

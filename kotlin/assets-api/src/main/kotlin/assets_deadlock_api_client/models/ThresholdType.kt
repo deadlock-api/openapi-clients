@@ -54,7 +54,7 @@ enum class ThresholdType(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): ThresholdType? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

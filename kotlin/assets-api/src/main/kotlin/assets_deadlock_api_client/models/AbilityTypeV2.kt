@@ -69,7 +69,7 @@ enum class AbilityTypeV2(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): AbilityTypeV2? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

@@ -57,7 +57,7 @@ enum class ItemSlotTypeV2(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): ItemSlotTypeV2? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

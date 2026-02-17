@@ -63,7 +63,7 @@ enum class ActiveMatchGameMode(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): ActiveMatchGameMode? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

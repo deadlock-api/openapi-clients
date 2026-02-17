@@ -51,7 +51,7 @@ enum class GameMode(val value: kotlin.String) {
          */
         fun decode(data: kotlin.Any?): GameMode? = data?.let {
           val normalizedData = "$it".lowercase()
-          values().firstOrNull { value ->
+          entries.firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()
           }
         }

@@ -206,13 +206,13 @@ namespace AssetsDeadlockApiClient.Client
 
             List<IHttpClientBuilder> builders = new List<IHttpClientBuilder>();
 
-            builders.Add(_services.AddHttpClient<IAccoladesApi, AccoladesApi>(client));
-            builders.Add(_services.AddHttpClient<IDefaultApi, DefaultApi>(client));
-            builders.Add(_services.AddHttpClient<IHeroesApi, HeroesApi>(client));
-            builders.Add(_services.AddHttpClient<IItemsApi, ItemsApi>(client));
-            builders.Add(_services.AddHttpClient<IMiscEntitiesApi, MiscEntitiesApi>(client));
-            builders.Add(_services.AddHttpClient<INPCUnitsApi, NPCUnitsApi>(client));
-            builders.Add(_services.AddHttpClient<IRawApi, RawApi>(client));
+            builders.Add(_services.AddHttpClient<IAccoladesApi, AccoladesApi>("AssetsDeadlockApiClient.Api.IAccoladesApi", client));
+            builders.Add(_services.AddHttpClient<IDefaultApi, DefaultApi>("AssetsDeadlockApiClient.Api.IDefaultApi", client));
+            builders.Add(_services.AddHttpClient<IHeroesApi, HeroesApi>("AssetsDeadlockApiClient.Api.IHeroesApi", client));
+            builders.Add(_services.AddHttpClient<IItemsApi, ItemsApi>("AssetsDeadlockApiClient.Api.IItemsApi", client));
+            builders.Add(_services.AddHttpClient<IMiscEntitiesApi, MiscEntitiesApi>("AssetsDeadlockApiClient.Api.IMiscEntitiesApi", client));
+            builders.Add(_services.AddHttpClient<INPCUnitsApi, NPCUnitsApi>("AssetsDeadlockApiClient.Api.INPCUnitsApi", client));
+            builders.Add(_services.AddHttpClient<IRawApi, RawApi>("AssetsDeadlockApiClient.Api.IRawApi", client));
             
             if (builder != null)
                 foreach (IHttpClientBuilder instance in builders)
