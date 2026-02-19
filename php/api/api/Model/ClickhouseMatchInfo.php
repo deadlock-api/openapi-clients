@@ -60,6 +60,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'average_badge_team0' => 'int',
         'average_badge_team1' => 'int',
         'duration_s' => 'int',
+        'game_mode' => 'int',
         'match_id' => 'int',
         'match_mode' => 'int',
         'start_time' => 'int'
@@ -76,6 +77,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'average_badge_team0' => 'int32',
         'average_badge_team1' => 'int32',
         'duration_s' => 'int32',
+        'game_mode' => 'int32',
         'match_id' => 'int64',
         'match_mode' => 'int32',
         'start_time' => 'int32'
@@ -90,6 +92,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'average_badge_team0' => true,
         'average_badge_team1' => true,
         'duration_s' => false,
+        'game_mode' => false,
         'match_id' => false,
         'match_mode' => false,
         'start_time' => false
@@ -184,6 +187,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'average_badge_team0' => 'average_badge_team0',
         'average_badge_team1' => 'average_badge_team1',
         'duration_s' => 'duration_s',
+        'game_mode' => 'game_mode',
         'match_id' => 'match_id',
         'match_mode' => 'match_mode',
         'start_time' => 'start_time'
@@ -198,6 +202,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'average_badge_team0' => 'setAverageBadgeTeam0',
         'average_badge_team1' => 'setAverageBadgeTeam1',
         'duration_s' => 'setDurationS',
+        'game_mode' => 'setGameMode',
         'match_id' => 'setMatchId',
         'match_mode' => 'setMatchMode',
         'start_time' => 'setStartTime'
@@ -212,6 +217,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'average_badge_team0' => 'getAverageBadgeTeam0',
         'average_badge_team1' => 'getAverageBadgeTeam1',
         'duration_s' => 'getDurationS',
+        'game_mode' => 'getGameMode',
         'match_id' => 'getMatchId',
         'match_mode' => 'getMatchMode',
         'start_time' => 'getStartTime'
@@ -277,6 +283,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('average_badge_team0', $data ?? [], null);
         $this->setIfExists('average_badge_team1', $data ?? [], null);
         $this->setIfExists('duration_s', $data ?? [], null);
+        $this->setIfExists('game_mode', $data ?? [], null);
         $this->setIfExists('match_id', $data ?? [], null);
         $this->setIfExists('match_mode', $data ?? [], null);
         $this->setIfExists('start_time', $data ?? [], null);
@@ -324,6 +331,9 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
             $invalidProperties[] = "invalid value for 'duration_s', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['game_mode'] === null) {
+            $invalidProperties[] = "'game_mode' can't be null";
+        }
         if ($this->container['match_id'] === null) {
             $invalidProperties[] = "'match_id' can't be null";
         }
@@ -462,6 +472,33 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['duration_s'] = $duration_s;
+
+        return $this;
+    }
+
+    /**
+     * Gets game_mode
+     *
+     * @return int
+     */
+    public function getGameMode()
+    {
+        return $this->container['game_mode'];
+    }
+
+    /**
+     * Sets game_mode
+     *
+     * @param int $game_mode game_mode
+     *
+     * @return self
+     */
+    public function setGameMode($game_mode)
+    {
+        if (is_null($game_mode)) {
+            throw new \InvalidArgumentException('non-nullable game_mode cannot be null');
+        }
+        $this->container['game_mode'] = $game_mode;
 
         return $this;
     }

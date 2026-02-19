@@ -44,6 +44,13 @@ class CustomMatchesApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
+        // to test leave
+        should("test leave") {
+            // uncomment below to test leave
+            //val lobbyId : kotlin.String = lobbyId_example // kotlin.String | 
+            //apiInstance.leave(lobbyId)
+        }
+
         // to test readyUp
         should("test readyUp") {
             // uncomment below to test readyUp

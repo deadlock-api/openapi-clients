@@ -26,6 +26,12 @@ pub struct GetCustomParams {
     pub party_id: u64
 }
 
+/// struct for passing parameters to the method [`leave`]
+#[derive(Clone, Debug)]
+pub struct LeaveParams {
+    pub lobby_id: String
+}
+
 /// struct for passing parameters to the method [`ready_up`]
 #[derive(Clone, Debug)]
 pub struct ReadyUpParams {
@@ -53,6 +59,16 @@ pub enum CreateCustomError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCustomError {
+    Status400(),
+    Status429(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`leave`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum LeaveError {
     Status400(),
     Status429(),
     Status500(),
@@ -147,6 +163,30 @@ pub async fn get_custom(configuration: &configuration::Configuration, params: Ge
     } else {
         let content = resp.text().await?;
         let entity: Option<GetCustomError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+pub async fn leave(configuration: &configuration::Configuration, params: LeaveParams) -> Result<(), Error<LeaveError>> {
+
+    let uri_str = format!("{}/v1/matches/custom/{lobby_id}/leave", configuration.base_path, lobby_id=crate::apis::urlencode(params.lobby_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<LeaveError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

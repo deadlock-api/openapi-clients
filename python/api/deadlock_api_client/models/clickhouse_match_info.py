@@ -30,10 +30,11 @@ class ClickhouseMatchInfo(BaseModel):
     average_badge_team0: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://assets.deadlock-api.com/v2/ranks>")
     average_badge_team1: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://assets.deadlock-api.com/v2/ranks>")
     duration_s: Annotated[int, Field(strict=True, ge=0)]
+    game_mode: StrictInt
     match_id: Annotated[int, Field(strict=True, ge=0)]
     match_mode: StrictInt
     start_time: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["average_badge_team0", "average_badge_team1", "duration_s", "match_id", "match_mode", "start_time"]
+    __properties: ClassVar[List[str]] = ["average_badge_team0", "average_badge_team1", "duration_s", "game_mode", "match_id", "match_mode", "start_time"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -99,6 +100,7 @@ class ClickhouseMatchInfo(BaseModel):
             "average_badge_team0": obj.get("average_badge_team0"),
             "average_badge_team1": obj.get("average_badge_team1"),
             "duration_s": obj.get("duration_s"),
+            "game_mode": obj.get("game_mode"),
             "match_id": obj.get("match_id"),
             "match_mode": obj.get("match_mode"),
             "start_time": obj.get("start_time")

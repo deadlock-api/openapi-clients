@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *CommandsAPI* | [**WidgetVersions**](docs/CommandsAPI.md#widgetversions) | **Get** /v1/commands/widgets/versions | Widget Versions
 *CustomMatchesAPI* | [**CreateCustom**](docs/CustomMatchesAPI.md#createcustom) | **Post** /v1/matches/custom/create | Create Match
 *CustomMatchesAPI* | [**GetCustom**](docs/CustomMatchesAPI.md#getcustom) | **Get** /v1/matches/custom/{party_id}/match-id | Get Match ID
+*CustomMatchesAPI* | [**Leave**](docs/CustomMatchesAPI.md#leave) | **Post** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 *CustomMatchesAPI* | [**ReadyUp**](docs/CustomMatchesAPI.md#readyup) | **Post** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesAPI* | [**Unready**](docs/CustomMatchesAPI.md#unready) | **Post** /v1/matches/custom/{lobby_id}/unready | Unready
 *ESportsAPI* | [**IngestMatch**](docs/ESportsAPI.md#ingestmatch) | **Post** /v1/esports/ingest/match | Ingest

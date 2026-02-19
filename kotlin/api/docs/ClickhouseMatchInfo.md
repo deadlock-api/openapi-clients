@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **durationS** | **kotlin.Int** |  |  |
+| **gameMode** | **kotlin.Int** |  |  |
 | **matchId** | **kotlin.Long** |  |  |
 | **matchMode** | **kotlin.Int** |  |  |
 | **startTime** | **kotlin.Int** |  |  |

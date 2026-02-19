@@ -75,6 +75,16 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test Leave
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task LeaveAsyncTest()
+        {
+            string lobbyId = default!;
+            await _instance.LeaveAsync(lobbyId);
+        }
+
+        /// <summary>
         /// Test ReadyUp
         /// </summary>
         [Fact (Skip = "not implemented")]

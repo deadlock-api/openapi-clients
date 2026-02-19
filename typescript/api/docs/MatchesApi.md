@@ -131,6 +131,7 @@ const configuration = new Configuration();
 const apiInstance = new MatchesApi(configuration);
 
 let includeInfo: boolean; //Include match info in the response. (optional) (default to true)
+let includeMoreInfo: boolean; //Include more match info in the response. (optional) (default to undefined)
 let includeObjectives: boolean; //Include objectives in the response. (optional) (default to undefined)
 let includeMidBoss: boolean; //Include midboss in the response. (optional) (default to undefined)
 let includePlayerInfo: boolean; //Include player info in the response. (optional) (default to undefined)
@@ -158,6 +159,7 @@ let limit: number; //The maximum number of matches to return. (optional) (defaul
 
 const { status, data } = await apiInstance.bulkMetadata(
     includeInfo,
+    includeMoreInfo,
     includeObjectives,
     includeMidBoss,
     includePlayerInfo,
@@ -190,6 +192,7 @@ const { status, data } = await apiInstance.bulkMetadata(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **includeInfo** | [**boolean**] | Include match info in the response. | (optional) defaults to true|
+| **includeMoreInfo** | [**boolean**] | Include more match info in the response. | (optional) defaults to undefined|
 | **includeObjectives** | [**boolean**] | Include objectives in the response. | (optional) defaults to undefined|
 | **includeMidBoss** | [**boolean**] | Include midboss in the response. | (optional) defaults to undefined|
 | **includePlayerInfo** | [**boolean**] | Include player info in the response. | (optional) defaults to undefined|
@@ -242,7 +245,7 @@ No authorization required
 # **metadata**
 > metadata()
 
- This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+ This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 
 ### Example
 
@@ -300,7 +303,7 @@ No authorization required
 # **metadataRaw**
 > Array<number> metadataRaw()
 
- This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+ This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 
 ### Example
 

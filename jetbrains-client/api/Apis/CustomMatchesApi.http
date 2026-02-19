@@ -24,6 +24,10 @@ Accept: application/json
 GET https://api.deadlock-api.com/v1/matches/custom/{{party_id}}/match-id
 Accept: application/json
 
+### Leave Lobby
+## Leave Lobby
+POST https://api.deadlock-api.com/v1/matches/custom/{{lobby_id}}/leave
+
 ### Ready Up
 ## Ready Up
 POST https://api.deadlock-api.com/v1/matches/custom/{{lobby_id}}/ready

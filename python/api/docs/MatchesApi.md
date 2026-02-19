@@ -180,7 +180,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **bulk_metadata**
-> List[int] bulk_metadata(include_info=include_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, game_mode=game_mode, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, hero_ids=hero_ids, order_by=order_by, order_direction=order_direction, limit=limit)
+> List[int] bulk_metadata(include_info=include_info, include_more_info=include_more_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, game_mode=game_mode, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, hero_ids=hero_ids, order_by=order_by, order_direction=order_direction, limit=limit)
 
 Bulk Metadata
 
@@ -215,6 +215,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.MatchesApi(api_client)
     include_info = True # bool | Include match info in the response. (optional) (default to True)
+    include_more_info = True # bool | Include more match info in the response. (optional)
     include_objectives = True # bool | Include objectives in the response. (optional)
     include_mid_boss = True # bool | Include midboss in the response. (optional)
     include_player_info = True # bool | Include player info in the response. (optional)
@@ -242,7 +243,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Bulk Metadata
-        api_response = api_instance.bulk_metadata(include_info=include_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, game_mode=game_mode, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, hero_ids=hero_ids, order_by=order_by, order_direction=order_direction, limit=limit)
+        api_response = api_instance.bulk_metadata(include_info=include_info, include_more_info=include_more_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_death_details=include_player_death_details, game_mode=game_mode, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, hero_ids=hero_ids, order_by=order_by, order_direction=order_direction, limit=limit)
         print("The response of MatchesApi->bulk_metadata:\n")
         pprint(api_response)
     except Exception as e:
@@ -257,6 +258,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **include_info** | **bool**| Include match info in the response. | [optional] [default to True]
+ **include_more_info** | **bool**| Include more match info in the response. | [optional] 
  **include_objectives** | **bool**| Include objectives in the response. | [optional] 
  **include_mid_boss** | **bool**| Include midboss in the response. | [optional] 
  **include_player_info** | **bool**| Include player info in the response. | [optional] 
@@ -322,9 +324,9 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |
+| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |
+| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |
+| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |
     
 
 ### Example
@@ -410,9 +412,9 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |
+| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |
+| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |
+| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |
     
 
 ### Example

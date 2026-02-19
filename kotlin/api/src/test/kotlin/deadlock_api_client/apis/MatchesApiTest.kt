@@ -49,6 +49,7 @@ class MatchesApiTest : ShouldSpec() {
         should("test bulkMetadata") {
             // uncomment below to test bulkMetadata
             //val includeInfo : kotlin.Boolean = true // kotlin.Boolean | Include match info in the response.
+            //val includeMoreInfo : kotlin.Boolean = true // kotlin.Boolean | Include more match info in the response.
             //val includeObjectives : kotlin.Boolean = true // kotlin.Boolean | Include objectives in the response.
             //val includeMidBoss : kotlin.Boolean = true // kotlin.Boolean | Include midboss in the response.
             //val includePlayerInfo : kotlin.Boolean = true // kotlin.Boolean | Include player info in the response.
@@ -73,7 +74,7 @@ class MatchesApiTest : ShouldSpec() {
             //val orderBy : kotlin.String = orderBy_example // kotlin.String | The field to order the results by.
             //val orderDirection : kotlin.String = orderDirection_example // kotlin.String | The direction to order the results by.
             //val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit)
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit)
             //result shouldBe ("TODO")
         }
 

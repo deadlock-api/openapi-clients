@@ -35,6 +35,7 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**widgetVersions**](Apis/CommandsApi.http#widgetversions) | **GET** /v1/commands/widgets/versions | Widget Versions
 *CustomMatchesApi* | [**createCustom**](Apis/CustomMatchesApi.http#createcustom) | **POST** /v1/matches/custom/create | Create Match
 *CustomMatchesApi* | [**getCustom**](Apis/CustomMatchesApi.http#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
+*CustomMatchesApi* | [**leave**](Apis/CustomMatchesApi.http#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 *CustomMatchesApi* | [**readyUp**](Apis/CustomMatchesApi.http#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**unready**](Apis/CustomMatchesApi.http#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
 *ESportsApi* | [**ingestMatch**](Apis/ESportsApi.http#ingestmatch) | **POST** /v1/esports/ingest/match | Ingest

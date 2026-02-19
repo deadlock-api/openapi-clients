@@ -24,6 +24,7 @@ import java.io.Serializable
  * 
  *
  * @param durationS 
+ * @param gameMode 
  * @param matchId 
  * @param matchMode 
  * @param startTime 
@@ -36,6 +37,9 @@ data class ClickhouseMatchInfo (
 
     @Json(name = "duration_s")
     val durationS: kotlin.Int,
+
+    @Json(name = "game_mode")
+    val gameMode: kotlin.Int,
 
     @Json(name = "match_id")
     val matchId: kotlin.Long,

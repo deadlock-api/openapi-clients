@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AverageBadgeTeam0** | Pointer to **NullableInt32** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
 **AverageBadgeTeam1** | Pointer to **NullableInt32** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
 **DurationS** | **int32** |  | 
+**GameMode** | **int32** |  | 
 **MatchId** | **int64** |  | 
 **MatchMode** | **int32** |  | 
 **StartTime** | **int32** |  | 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewClickhouseMatchInfo
 
-`func NewClickhouseMatchInfo(durationS int32, matchId int64, matchMode int32, startTime int32, ) *ClickhouseMatchInfo`
+`func NewClickhouseMatchInfo(durationS int32, gameMode int32, matchId int64, matchMode int32, startTime int32, ) *ClickhouseMatchInfo`
 
 NewClickhouseMatchInfo instantiates a new ClickhouseMatchInfo object
 This constructor will assign default values to properties that have it defined,
@@ -118,6 +119,26 @@ and a boolean to check if the value has been set.
 `func (o *ClickhouseMatchInfo) SetDurationS(v int32)`
 
 SetDurationS sets DurationS field to given value.
+
+
+### GetGameMode
+
+`func (o *ClickhouseMatchInfo) GetGameMode() int32`
+
+GetGameMode returns the GameMode field if non-nil, zero value otherwise.
+
+### GetGameModeOk
+
+`func (o *ClickhouseMatchInfo) GetGameModeOk() (*int32, bool)`
+
+GetGameModeOk returns a tuple with the GameMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGameMode
+
+`func (o *ClickhouseMatchInfo) SetGameMode(v int32)`
+
+SetGameMode sets GameMode field to given value.
 
 
 ### GetMatchId

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DurationS** | **int** |  | 
+**GameMode** | **int** |  | 
 **MatchId** | **long** |  | 
 **MatchMode** | **int** |  | 
 **StartTime** | **int** |  | 

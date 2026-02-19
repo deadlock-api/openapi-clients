@@ -284,6 +284,7 @@ type ApiBulkMetadataRequest struct {
 	ctx context.Context
 	ApiService *MatchesAPIService
 	includeInfo *bool
+	includeMoreInfo *bool
 	includeObjectives *bool
 	includeMidBoss *bool
 	includePlayerInfo *bool
@@ -313,6 +314,12 @@ type ApiBulkMetadataRequest struct {
 // Include match info in the response.
 func (r ApiBulkMetadataRequest) IncludeInfo(includeInfo bool) ApiBulkMetadataRequest {
 	r.includeInfo = &includeInfo
+	return r
+}
+
+// Include more match info in the response.
+func (r ApiBulkMetadataRequest) IncludeMoreInfo(includeMoreInfo bool) ApiBulkMetadataRequest {
+	r.includeMoreInfo = &includeMoreInfo
 	return r
 }
 
@@ -516,6 +523,9 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_info", defaultValue, "form", "")
 		r.includeInfo = &defaultValue
 	}
+	if r.includeMoreInfo != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_more_info", r.includeMoreInfo, "form", "")
+	}
 	if r.includeObjectives != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_objectives", r.includeObjectives, "form", "")
 	}
@@ -693,9 +703,9 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |
+| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |
+| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |
+| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -814,9 +824,9 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |
+| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |
+| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |
+| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

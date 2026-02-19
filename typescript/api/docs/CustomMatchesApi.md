@@ -6,6 +6,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |------------- | ------------- | -------------|
 |[**createCustom**](#createcustom) | **POST** /v1/matches/custom/create | Create Match|
 |[**getCustom**](#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID|
+|[**leave**](#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby|
 |[**readyUp**](#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up|
 |[**unready**](#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready|
 
@@ -115,6 +116,60 @@ No authorization required
 |**400** | Provided parameters are invalid. |  -  |
 |**429** | Rate limit exceeded |  -  |
 |**500** | Fetch Custom Match ID failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **leave**
+> leave()
+
+ This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+
+### Example
+
+```typescript
+import {
+    CustomMatchesApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new CustomMatchesApi(configuration);
+
+let lobbyId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.leave(
+    lobbyId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **lobbyId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successfully left the lobby. |  -  |
+|**400** | Provided parameters are invalid. |  -  |
+|**429** | Rate limit exceeded |  -  |
+|**500** | Leaving lobby failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

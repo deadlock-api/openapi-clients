@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateCustom**](CustomMatchesAPI.md#CreateCustom) | **Post** /v1/matches/custom/create | Create Match
 [**GetCustom**](CustomMatchesAPI.md#GetCustom) | **Get** /v1/matches/custom/{party_id}/match-id | Get Match ID
+[**Leave**](CustomMatchesAPI.md#Leave) | **Post** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 [**ReadyUp**](CustomMatchesAPI.md#ReadyUp) | **Post** /v1/matches/custom/{lobby_id}/ready | Ready Up
 [**Unready**](CustomMatchesAPI.md#Unready) | **Post** /v1/matches/custom/{lobby_id}/unready | Unready
 
@@ -141,6 +142,74 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Leave
+
+> Leave(ctx, lobbyId).Execute()
+
+Leave Lobby
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	lobbyId := "lobbyId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CustomMatchesAPI.Leave(context.Background(), lobbyId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomMatchesAPI.Leave``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**lobbyId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLeaveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

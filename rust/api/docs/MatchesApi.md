@@ -75,7 +75,7 @@ No authorization required
 
 ## bulk_metadata
 
-> Vec<u32> bulk_metadata(include_info, include_objectives, include_mid_boss, include_player_info, include_player_items, include_player_stats, include_player_death_details, game_mode, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, hero_ids, order_by, order_direction, limit)
+> Vec<u32> bulk_metadata(include_info, include_more_info, include_objectives, include_mid_boss, include_player_info, include_player_items, include_player_stats, include_player_death_details, game_mode, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, hero_ids, order_by, order_direction, limit)
 Bulk Metadata
 
  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
@@ -86,6 +86,7 @@ Bulk Metadata
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **include_info** | Option<**bool**> | Include match info in the response. |  |[default to true]
+**include_more_info** | Option<**bool**> | Include more match info in the response. |  |
 **include_objectives** | Option<**bool**> | Include objectives in the response. |  |
 **include_mid_boss** | Option<**bool**> | Include midboss in the response. |  |
 **include_player_info** | Option<**bool**> | Include player info in the response. |  |
@@ -132,7 +133,7 @@ No authorization required
 > metadata(match_id, is_custom)
 Metadata
 
- This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+ This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 
 ### Parameters
 
@@ -163,7 +164,7 @@ No authorization required
 > Vec<u32> metadata_raw(match_id, is_custom)
 Metadata as Protobuf
 
- This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+ This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 
 ### Parameters
 

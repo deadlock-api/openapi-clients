@@ -6,6 +6,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | ------------- | ------------- | ------------- |
 | [**createCustom**](CustomMatchesApi.md#createCustom) | **POST** /v1/matches/custom/create | Create Match |
 | [**getCustom**](CustomMatchesApi.md#getCustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID |
+| [**leave**](CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby |
 | [**readyUp**](CustomMatchesApi.md#readyUp) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up |
 | [**unready**](CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready |
 
@@ -101,6 +102,51 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a id="leave"></a>
+# **leave**
+> leave(lobbyId)
+
+Leave Lobby
+
+ This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = CustomMatchesApi()
+val lobbyId : kotlin.String = lobbyId_example // kotlin.String | 
+try {
+    apiInstance.leave(lobbyId)
+} catch (e: ClientException) {
+    println("4xx response calling CustomMatchesApi#leave")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CustomMatchesApi#leave")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **lobbyId** | **kotlin.String**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a id="readyUp"></a>
 # **readyUp**

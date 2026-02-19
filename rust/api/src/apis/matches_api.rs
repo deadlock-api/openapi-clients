@@ -28,6 +28,8 @@ pub struct ActiveMatchesParams {
 pub struct BulkMetadataParams {
     /// Include match info in the response.
     pub include_info: Option<bool>,
+    /// Include more match info in the response.
+    pub include_more_info: Option<bool>,
     /// Include objectives in the response.
     pub include_objectives: Option<bool>,
     /// Include midboss in the response.
@@ -281,6 +283,9 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
     if let Some(ref param_value) = params.include_info {
         req_builder = req_builder.query(&[("include_info", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.include_more_info {
+        req_builder = req_builder.query(&[("include_more_info", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.include_objectives {
         req_builder = req_builder.query(&[("include_objectives", &param_value.to_string())]);
     }
@@ -388,7 +393,7 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
     }
 }
 
-///  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+///  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 pub async fn metadata(configuration: &configuration::Configuration, params: MetadataParams) -> Result<(), Error<MetadataError>> {
 
     let uri_str = format!("{}/v1/matches/{match_id}/metadata", configuration.base_path, match_id=params.match_id);
@@ -415,7 +420,7 @@ pub async fn metadata(configuration: &configuration::Configuration, params: Meta
     }
 }
 
-///  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+///  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 pub async fn metadata_raw(configuration: &configuration::Configuration, params: MetadataRawParams) -> Result<Vec<u32>, Error<MetadataRawError>> {
 
     let uri_str = format!("{}/v1/matches/{match_id}/metadata/raw", configuration.base_path, match_id=params.match_id);

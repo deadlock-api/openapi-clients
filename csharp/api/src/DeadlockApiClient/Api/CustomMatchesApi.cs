@@ -84,6 +84,29 @@ namespace DeadlockApiClient.Api
         Task<IGetCustomApiResponse?> GetCustomOrDefaultAsync(long partyId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Leave Lobby
+        /// </summary>
+        /// <remarks>
+        ///  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lobbyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILeaveApiResponse"/>&gt;</returns>
+        Task<ILeaveApiResponse> LeaveAsync(string lobbyId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Leave Lobby
+        /// </summary>
+        /// <remarks>
+        ///  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// </remarks>
+        /// <param name="lobbyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILeaveApiResponse"/>?&gt;</returns>
+        Task<ILeaveApiResponse?> LeaveOrDefaultAsync(string lobbyId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Ready Up
         /// </summary>
         /// <remarks>
@@ -164,6 +187,36 @@ namespace DeadlockApiClient.Api
     /// The <see cref="IGetCustomApiResponse"/>
     /// </summary>
     public interface IGetCustomApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.GetCustomMatchIdResponse?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="ILeaveApiResponse"/>
+    /// </summary>
+    public interface ILeaveApiResponse : DeadlockApiClient.Client.IApiResponse
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -293,6 +346,26 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorGetCustom(Exception exception)
         {
             OnErrorGetCustom?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnLeave;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorLeave;
+
+        internal void ExecuteOnLeave(CustomMatchesApi.LeaveApiResponse apiResponse)
+        {
+            OnLeave?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorLeave(Exception exception)
+        {
+            OnErrorLeave?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -872,6 +945,225 @@ namespace DeadlockApiClient.Api
 
                 return result != null;
             }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatLeave(ref string lobbyId);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="lobbyId"></param>
+        /// <returns></returns>
+        private void ValidateLeave(string lobbyId)
+        {
+            if (lobbyId == null)
+                throw new ArgumentNullException(nameof(lobbyId));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="lobbyId"></param>
+        private void AfterLeaveDefaultImplementation(ILeaveApiResponse apiResponseLocalVar, string lobbyId)
+        {
+            bool suppressDefaultLog = false;
+            AfterLeave(ref suppressDefaultLog, apiResponseLocalVar, lobbyId);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="lobbyId"></param>
+        partial void AfterLeave(ref bool suppressDefaultLog, ILeaveApiResponse apiResponseLocalVar, string lobbyId);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="lobbyId"></param>
+        private void OnErrorLeaveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string lobbyId)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorLeave(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, lobbyId);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="lobbyId"></param>
+        partial void OnErrorLeave(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string lobbyId);
+
+        /// <summary>
+        /// Leave Lobby  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// </summary>
+        /// <param name="lobbyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILeaveApiResponse"/>&gt;</returns>
+        public async Task<ILeaveApiResponse?> LeaveOrDefaultAsync(string lobbyId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await LeaveAsync(lobbyId, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Leave Lobby  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lobbyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILeaveApiResponse"/>&gt;</returns>
+        public async Task<ILeaveApiResponse> LeaveAsync(string lobbyId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateLeave(lobbyId);
+
+                FormatLeave(ref lobbyId);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/matches/custom/{lobby_id}/leave"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/custom/{lobby_id}/leave");
+                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Blobby_id%7D", Uri.EscapeDataString(lobbyId.ToString()));
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Post;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        ILogger<LeaveApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<LeaveApiResponse>();
+                        LeaveApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/matches/custom/{lobby_id}/leave", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterLeaveDefaultImplementation(apiResponseLocalVar, lobbyId);
+
+                        Events.ExecuteOnLeave(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorLeaveDefaultImplementation(e, "/v1/matches/custom/{lobby_id}/leave", uriBuilderLocalVar.Path, lobbyId);
+                Events.ExecuteOnErrorLeave(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="LeaveApiResponse"/>
+        /// </summary>
+        public partial class LeaveApiResponse : DeadlockApiClient.Client.ApiResponse, ILeaveApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<LeaveApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="LeaveApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public LeaveApiResponse(ILogger<LeaveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="LeaveApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public LeaveApiResponse(ILogger<LeaveApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
 
             /// <summary>
             /// Returns true if the response is 400 BadRequest

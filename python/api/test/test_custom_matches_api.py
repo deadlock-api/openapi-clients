@@ -40,6 +40,13 @@ class TestCustomMatchesApi(unittest.TestCase):
         """
         pass
 
+    def test_leave(self) -> None:
+        """Test case for leave
+
+        Leave Lobby
+        """
+        pass
+
     def test_ready_up(self) -> None:
         """Test case for ready_up
 

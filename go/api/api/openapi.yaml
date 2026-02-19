@@ -46,7 +46,7 @@ tags:
     \ moving average (EMA) of the last 50 matches to get the player's MMR score.\n\
     4. We convert the MMR score back to a badge using the formula: `10 * intDiv(mmr_score,\
     \ 6) + 1 + mmr_score % 6`\n\n### Rate Limits:\n| Type | Limit |\n| ---- | -----\
-    \ |\n| IP | 10req/10s |\n| Key | 10req/10s |\n| Global | 20req/10s |\n    "
+    \ |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
   name: MMR
 - description: Steam related endpoints
   name: Steam
@@ -122,7 +122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -340,7 +340,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -472,7 +472,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -533,7 +533,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -782,7 +782,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -1034,7 +1034,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -1295,7 +1295,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -1573,7 +1573,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -1798,7 +1798,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -2062,7 +2062,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -2351,7 +2351,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -2569,7 +2569,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -2865,7 +2865,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -4115,6 +4115,40 @@ paths:
       summary: Create Match
       tags:
       - Custom Matches
+  /v1/matches/custom/{lobby_id}/leave:
+    post:
+      description: |2
+
+        This endpoint makes the bot leave the custom match lobby early.
+        By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | API-Key ONLY |
+        | Key | 100req/30min |
+        | Global | 1000req/h |
+      operationId: leave
+      parameters:
+      - explode: false
+        in: path
+        name: lobby_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Successfully left the lobby.
+        "400":
+          description: Provided parameters are invalid.
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Leaving lobby failed
+      summary: Leave Lobby
+      tags:
+      - Custom Matches
   /v1/matches/custom/{lobby_id}/ready:
     post:
       description: |2
@@ -4235,6 +4269,14 @@ paths:
         required: false
         schema:
           default: true
+          type: boolean
+        style: form
+      - description: Include more match info in the response.
+        explode: true
+        in: query
+        name: include_more_info
+        required: false
+        schema:
           type: boolean
         style: form
       - description: Include objectives in the response.
@@ -4607,10 +4649,9 @@ paths:
         \ parsed into JSON.\n\nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Messages:\n- CMsgMatchMetaData\n- CMsgMatchMetaDataContents\n\
         \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | From Cache:\
-        \ 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins |\n| Key | From\
-        \ Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min |\n| Global\
-        \ | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |\n\
-        \    "
+        \ 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |\n| Key | From Cache:\
+        \ 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |\n| Global | From\
+        \ Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |\n    "
       operationId: metadata
       parameters:
       - description: The match ID
@@ -4652,10 +4693,9 @@ paths:
         \nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Messages:\n- CMsgMatchMetaData\n- CMsgMatchMetaDataContents\n\
         \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | From Cache:\
-        \ 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins |\n| Key | From\
-        \ Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min |\n| Global\
-        \ | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |\n\
-        \    "
+        \ 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |\n| Key | From Cache:\
+        \ 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |\n| Global | From\
+        \ Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |\n    "
       operationId: metadata_raw
       parameters:
       - description: The match ID
@@ -5013,7 +5053,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -5132,7 +5172,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768003200
+          default: 1768780800
           format: int64
           nullable: true
           type: integer
@@ -5521,11 +5561,11 @@ paths:
         \ **Steam** and **ClickHouse**, so you always get the most up-to-date data\
         \ and full history.\n\nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Messages:\n- CMsgClientToGcGetMatchHistory\n- CMsgClientToGcGetMatchHistoryResponse\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 5req/min<br>With\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 5req/h<br>With\
         \ `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 5req/h\
-        \ |\n| Key | 50req/min & 1000req/h<br>With `only_stored_history=true`: -<br>With\
-        \ `force_refetch=true`: 5req/h |\n| Global | 2000req/h<br>With `only_stored_history=true`:\
-        \ -<br>With `force_refetch=true`: 10req/h |\n    "
+        \ |\n| Key | 400req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`:\
+        \ 5req/h |\n| Global | 2000req/h<br>With `only_stored_history=true`: -<br>With\
+        \ `force_refetch=true`: 10req/h |\n    "
       operationId: match_history
       parameters:
       - description: The players `SteamID3`
@@ -6787,8 +6827,9 @@ components:
       example:
         start_time: 0
         match_id: 0
-        match_mode: 5
+        match_mode: 2
         average_badge_team0: 0
+        game_mode: 5
         average_badge_team1: 0
         duration_s: 0
       properties:
@@ -6808,6 +6849,9 @@ components:
           format: int32
           minimum: 0
           type: integer
+        game_mode:
+          format: int32
+          type: integer
         match_id:
           format: int64
           minimum: 0
@@ -6821,6 +6865,7 @@ components:
           type: integer
       required:
       - duration_s
+      - game_mode
       - match_id
       - match_mode
       - start_time

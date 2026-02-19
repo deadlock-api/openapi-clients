@@ -31,6 +31,12 @@ class ClickhouseMatchInfoTest : ShouldSpec() {
             //modelInstance.durationS shouldBe ("TODO")
         }
 
+        // to test the property `gameMode`
+        should("test gameMode") {
+            // uncomment below to test the property
+            //modelInstance.gameMode shouldBe ("TODO")
+        }
+
         // to test the property `matchId`
         should("test matchId") {
             // uncomment below to test the property

@@ -107,6 +107,15 @@ class ClickhouseMatchInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "game_mode"
+     */
+    public function testPropertyGameMode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "match_id"
      */
     public function testPropertyMatchId()

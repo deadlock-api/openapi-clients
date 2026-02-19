@@ -81,6 +81,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task BulkMetadataAsyncTest()
         {
             Client.Option<bool> includeInfo = default!;
+            Client.Option<bool> includeMoreInfo = default!;
             Client.Option<bool> includeObjectives = default!;
             Client.Option<bool> includeMidBoss = default!;
             Client.Option<bool> includePlayerInfo = default!;
@@ -105,7 +106,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<string> orderBy = default!;
             Client.Option<string> orderDirection = default!;
             Client.Option<int> limit = default!;
-            var response = await _instance.BulkMetadataAsync(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
+            var response = await _instance.BulkMetadataAsync(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }

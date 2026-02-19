@@ -129,8 +129,8 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 5req/min<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 5req/h |
-| Key | 50req/min & 1000req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h |
+| IP | 5req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 5req/h |
+| Key | 400req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h |
 | Global | 2000req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |
     
 

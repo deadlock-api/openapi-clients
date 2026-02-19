@@ -34,6 +34,10 @@ export interface GetCustomRequest {
     partyId: number;
 }
 
+export interface LeaveRequest {
+    lobbyId: string;
+}
+
 export interface ReadyUpRequest {
     lobbyId: string;
 }
@@ -139,6 +143,53 @@ function getCustomRaw<T>(requestParameters: GetCustomRequest, requestConfig: run
 */
 export function getCustom<T>(requestParameters: GetCustomRequest, requestConfig?: runtime.TypedQueryConfig<T, GetCustomMatchIdResponse>): QueryConfig<T> {
     return getCustomRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+ * Leave Lobby
+ */
+function leaveRaw<T>(requestParameters: LeaveRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
+    if (requestParameters.lobbyId === null || requestParameters.lobbyId === undefined) {
+        throw new runtime.RequiredError('lobbyId','Required parameter requestParameters.lobbyId was null or undefined when calling leave.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/matches/custom/{lobby_id}/leave`.replace(`{${"lobby_id"}}`, encodeURIComponent(String(requestParameters.lobbyId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'POST',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+*  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+* Leave Lobby
+*/
+export function leave<T>(requestParameters: LeaveRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
+    return leaveRaw(requestParameters, requestConfig);
 }
 
 /**

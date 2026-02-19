@@ -21,6 +21,8 @@ pub struct ClickhouseMatchInfo {
     pub average_badge_team1: Option<Option<u32>>,
     #[serde(rename = "duration_s")]
     pub duration_s: u32,
+    #[serde(rename = "game_mode")]
+    pub game_mode: i32,
     #[serde(rename = "match_id")]
     pub match_id: u64,
     #[serde(rename = "match_mode")]
@@ -30,11 +32,12 @@ pub struct ClickhouseMatchInfo {
 }
 
 impl ClickhouseMatchInfo {
-    pub fn new(duration_s: u32, match_id: u64, match_mode: i32, start_time: u32) -> ClickhouseMatchInfo {
+    pub fn new(duration_s: u32, game_mode: i32, match_id: u64, match_mode: i32, start_time: u32) -> ClickhouseMatchInfo {
         ClickhouseMatchInfo {
             average_badge_team0: None,
             average_badge_team1: None,
             duration_s,
+            game_mode,
             match_id,
             match_mode,
             start_time,

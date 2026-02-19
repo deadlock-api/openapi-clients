@@ -63,6 +63,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GameMode'
+        /// </summary>
+        [Fact]
+        public void GameModeTest()
+        {
+            // TODO unit test for the property 'GameMode'
+        }
+
+        /// <summary>
         /// Test the property 'MatchId'
         /// </summary>
         [Fact]

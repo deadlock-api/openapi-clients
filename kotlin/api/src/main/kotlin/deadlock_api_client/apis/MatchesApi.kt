@@ -258,6 +258,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Bulk Metadata
      *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
      * @param includeInfo Include match info in the response. (optional, default to true)
+     * @param includeMoreInfo Include more match info in the response. (optional)
      * @param includeObjectives Include objectives in the response. (optional)
      * @param includeMidBoss Include midboss in the response. (optional)
      * @param includePlayerInfo Include player info in the response. (optional)
@@ -291,8 +292,8 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun bulkMetadata(includeInfo: kotlin.Boolean? = true, includeObjectives: kotlin.Boolean? = null, includeMidBoss: kotlin.Boolean? = null, includePlayerInfo: kotlin.Boolean? = null, includePlayerItems: kotlin.Boolean? = null, includePlayerStats: kotlin.Boolean? = null, includePlayerDeathDetails: kotlin.Boolean? = null, gameMode: GameModeBulkMetadata? = null, matchIds: kotlin.collections.List<kotlin.Long>? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroIds: kotlin.String? = null, orderBy: OrderByBulkMetadata? = null, orderDirection: OrderDirectionBulkMetadata? = null, limit: kotlin.Int? = 1000) : kotlin.collections.List<kotlin.Int> {
-        val localVarResponse = bulkMetadataWithHttpInfo(includeInfo = includeInfo, includeObjectives = includeObjectives, includeMidBoss = includeMidBoss, includePlayerInfo = includePlayerInfo, includePlayerItems = includePlayerItems, includePlayerStats = includePlayerStats, includePlayerDeathDetails = includePlayerDeathDetails, gameMode = gameMode, matchIds = matchIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, accountIds = accountIds, heroIds = heroIds, orderBy = orderBy, orderDirection = orderDirection, limit = limit)
+    fun bulkMetadata(includeInfo: kotlin.Boolean? = true, includeMoreInfo: kotlin.Boolean? = null, includeObjectives: kotlin.Boolean? = null, includeMidBoss: kotlin.Boolean? = null, includePlayerInfo: kotlin.Boolean? = null, includePlayerItems: kotlin.Boolean? = null, includePlayerStats: kotlin.Boolean? = null, includePlayerDeathDetails: kotlin.Boolean? = null, gameMode: GameModeBulkMetadata? = null, matchIds: kotlin.collections.List<kotlin.Long>? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroIds: kotlin.String? = null, orderBy: OrderByBulkMetadata? = null, orderDirection: OrderDirectionBulkMetadata? = null, limit: kotlin.Int? = 1000) : kotlin.collections.List<kotlin.Int> {
+        val localVarResponse = bulkMetadataWithHttpInfo(includeInfo = includeInfo, includeMoreInfo = includeMoreInfo, includeObjectives = includeObjectives, includeMidBoss = includeMidBoss, includePlayerInfo = includePlayerInfo, includePlayerItems = includePlayerItems, includePlayerStats = includePlayerStats, includePlayerDeathDetails = includePlayerDeathDetails, gameMode = gameMode, matchIds = matchIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, accountIds = accountIds, heroIds = heroIds, orderBy = orderBy, orderDirection = orderDirection, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
@@ -314,6 +315,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Bulk Metadata
      *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
      * @param includeInfo Include match info in the response. (optional, default to true)
+     * @param includeMoreInfo Include more match info in the response. (optional)
      * @param includeObjectives Include objectives in the response. (optional)
      * @param includeMidBoss Include midboss in the response. (optional)
      * @param includePlayerInfo Include player info in the response. (optional)
@@ -344,8 +346,8 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun bulkMetadataWithHttpInfo(includeInfo: kotlin.Boolean?, includeObjectives: kotlin.Boolean?, includeMidBoss: kotlin.Boolean?, includePlayerInfo: kotlin.Boolean?, includePlayerItems: kotlin.Boolean?, includePlayerStats: kotlin.Boolean?, includePlayerDeathDetails: kotlin.Boolean?, gameMode: GameModeBulkMetadata?, matchIds: kotlin.collections.List<kotlin.Long>?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, orderBy: OrderByBulkMetadata?, orderDirection: OrderDirectionBulkMetadata?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
-        val localVariableConfig = bulkMetadataRequestConfig(includeInfo = includeInfo, includeObjectives = includeObjectives, includeMidBoss = includeMidBoss, includePlayerInfo = includePlayerInfo, includePlayerItems = includePlayerItems, includePlayerStats = includePlayerStats, includePlayerDeathDetails = includePlayerDeathDetails, gameMode = gameMode, matchIds = matchIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, accountIds = accountIds, heroIds = heroIds, orderBy = orderBy, orderDirection = orderDirection, limit = limit)
+    fun bulkMetadataWithHttpInfo(includeInfo: kotlin.Boolean?, includeMoreInfo: kotlin.Boolean?, includeObjectives: kotlin.Boolean?, includeMidBoss: kotlin.Boolean?, includePlayerInfo: kotlin.Boolean?, includePlayerItems: kotlin.Boolean?, includePlayerStats: kotlin.Boolean?, includePlayerDeathDetails: kotlin.Boolean?, gameMode: GameModeBulkMetadata?, matchIds: kotlin.collections.List<kotlin.Long>?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, orderBy: OrderByBulkMetadata?, orderDirection: OrderDirectionBulkMetadata?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        val localVariableConfig = bulkMetadataRequestConfig(includeInfo = includeInfo, includeMoreInfo = includeMoreInfo, includeObjectives = includeObjectives, includeMidBoss = includeMidBoss, includePlayerInfo = includePlayerInfo, includePlayerItems = includePlayerItems, includePlayerStats = includePlayerStats, includePlayerDeathDetails = includePlayerDeathDetails, gameMode = gameMode, matchIds = matchIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, accountIds = accountIds, heroIds = heroIds, orderBy = orderBy, orderDirection = orderDirection, limit = limit)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
             localVariableConfig
@@ -356,6 +358,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * To obtain the request config of the operation bulkMetadata
      *
      * @param includeInfo Include match info in the response. (optional, default to true)
+     * @param includeMoreInfo Include more match info in the response. (optional)
      * @param includeObjectives Include objectives in the response. (optional)
      * @param includeMidBoss Include midboss in the response. (optional)
      * @param includePlayerInfo Include player info in the response. (optional)
@@ -382,12 +385,15 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param limit The maximum number of matches to return. (optional, default to 1000)
      * @return RequestConfig
      */
-    fun bulkMetadataRequestConfig(includeInfo: kotlin.Boolean?, includeObjectives: kotlin.Boolean?, includeMidBoss: kotlin.Boolean?, includePlayerInfo: kotlin.Boolean?, includePlayerItems: kotlin.Boolean?, includePlayerStats: kotlin.Boolean?, includePlayerDeathDetails: kotlin.Boolean?, gameMode: GameModeBulkMetadata?, matchIds: kotlin.collections.List<kotlin.Long>?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, orderBy: OrderByBulkMetadata?, orderDirection: OrderDirectionBulkMetadata?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun bulkMetadataRequestConfig(includeInfo: kotlin.Boolean?, includeMoreInfo: kotlin.Boolean?, includeObjectives: kotlin.Boolean?, includeMidBoss: kotlin.Boolean?, includePlayerInfo: kotlin.Boolean?, includePlayerItems: kotlin.Boolean?, includePlayerStats: kotlin.Boolean?, includePlayerDeathDetails: kotlin.Boolean?, gameMode: GameModeBulkMetadata?, matchIds: kotlin.collections.List<kotlin.Long>?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, orderBy: OrderByBulkMetadata?, orderDirection: OrderDirectionBulkMetadata?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (includeInfo != null) {
                     put("include_info", listOf(includeInfo.toString()))
+                }
+                if (includeMoreInfo != null) {
+                    put("include_more_info", listOf(includeMoreInfo.toString()))
                 }
                 if (includeObjectives != null) {
                     put("include_objectives", listOf(includeObjectives.toString()))
@@ -478,7 +484,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/metadata
      * Metadata
-     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
      * @return void
@@ -510,7 +516,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/metadata
      * Metadata
-     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
      * @return ApiResponse<Unit?>
@@ -556,7 +562,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/metadata/raw
      * Metadata as Protobuf
-     *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+     *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
      * @return kotlin.collections.List<kotlin.Int>
@@ -589,7 +595,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/metadata/raw
      * Metadata as Protobuf
-     *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+     *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>

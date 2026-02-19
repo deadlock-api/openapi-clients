@@ -17,6 +17,7 @@
  * @enum {string}
  */
 export enum DeadlockAssetsApiRoutesValidClientVersions {
+    NUMBER_6325 = 6325,
     NUMBER_6290 = 6290,
     NUMBER_6284 = 6284,
     NUMBER_6279 = 6279,

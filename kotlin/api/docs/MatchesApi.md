@@ -107,7 +107,7 @@ No authorization required
 
 <a id="bulkMetadata"></a>
 # **bulkMetadata**
-> kotlin.collections.List&lt;kotlin.Int&gt; bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit)
+> kotlin.collections.List&lt;kotlin.Int&gt; bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit)
 
 Bulk Metadata
 
@@ -121,6 +121,7 @@ Bulk Metadata
 
 val apiInstance = MatchesApi()
 val includeInfo : kotlin.Boolean = true // kotlin.Boolean | Include match info in the response.
+val includeMoreInfo : kotlin.Boolean = true // kotlin.Boolean | Include more match info in the response.
 val includeObjectives : kotlin.Boolean = true // kotlin.Boolean | Include objectives in the response.
 val includeMidBoss : kotlin.Boolean = true // kotlin.Boolean | Include midboss in the response.
 val includePlayerInfo : kotlin.Boolean = true // kotlin.Boolean | Include player info in the response.
@@ -146,7 +147,7 @@ val orderBy : kotlin.String = orderBy_example // kotlin.String | The field to or
 val orderDirection : kotlin.String = orderDirection_example // kotlin.String | The direction to order the results by.
 val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MatchesApi#bulkMetadata")
@@ -159,6 +160,7 @@ try {
 
 ### Parameters
 | **includeInfo** | **kotlin.Boolean**| Include match info in the response. | [optional] [default to true] |
+| **includeMoreInfo** | **kotlin.Boolean**| Include more match info in the response. | [optional] |
 | **includeObjectives** | **kotlin.Boolean**| Include objectives in the response. | [optional] |
 | **includeMidBoss** | **kotlin.Boolean**| Include midboss in the response. | [optional] |
 | **includePlayerInfo** | **kotlin.Boolean**| Include player info in the response. | [optional] |
@@ -205,7 +207,7 @@ No authorization required
 
 Metadata
 
- This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+ This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
 
 ### Example
 ```kotlin
@@ -252,7 +254,7 @@ No authorization required
 
 Metadata as Protobuf
 
- This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+ This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
 
 ### Example
 ```kotlin

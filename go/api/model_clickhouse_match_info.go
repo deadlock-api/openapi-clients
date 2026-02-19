@@ -26,6 +26,7 @@ type ClickhouseMatchInfo struct {
 	// See more: <https://assets.deadlock-api.com/v2/ranks>
 	AverageBadgeTeam1 NullableInt32 `json:"average_badge_team1,omitempty"`
 	DurationS int32 `json:"duration_s"`
+	GameMode int32 `json:"game_mode"`
 	MatchId int64 `json:"match_id"`
 	MatchMode int32 `json:"match_mode"`
 	StartTime int32 `json:"start_time"`
@@ -37,9 +38,10 @@ type _ClickhouseMatchInfo ClickhouseMatchInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClickhouseMatchInfo(durationS int32, matchId int64, matchMode int32, startTime int32) *ClickhouseMatchInfo {
+func NewClickhouseMatchInfo(durationS int32, gameMode int32, matchId int64, matchMode int32, startTime int32) *ClickhouseMatchInfo {
 	this := ClickhouseMatchInfo{}
 	this.DurationS = durationS
+	this.GameMode = gameMode
 	this.MatchId = matchId
 	this.MatchMode = matchMode
 	this.StartTime = startTime
@@ -162,6 +164,30 @@ func (o *ClickhouseMatchInfo) SetDurationS(v int32) {
 	o.DurationS = v
 }
 
+// GetGameMode returns the GameMode field value
+func (o *ClickhouseMatchInfo) GetGameMode() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.GameMode
+}
+
+// GetGameModeOk returns a tuple with the GameMode field value
+// and a boolean to check if the value has been set.
+func (o *ClickhouseMatchInfo) GetGameModeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GameMode, true
+}
+
+// SetGameMode sets field value
+func (o *ClickhouseMatchInfo) SetGameMode(v int32) {
+	o.GameMode = v
+}
+
 // GetMatchId returns the MatchId field value
 func (o *ClickhouseMatchInfo) GetMatchId() int64 {
 	if o == nil {
@@ -251,6 +277,7 @@ func (o ClickhouseMatchInfo) ToMap() (map[string]interface{}, error) {
 		toSerialize["average_badge_team1"] = o.AverageBadgeTeam1.Get()
 	}
 	toSerialize["duration_s"] = o.DurationS
+	toSerialize["game_mode"] = o.GameMode
 	toSerialize["match_id"] = o.MatchId
 	toSerialize["match_mode"] = o.MatchMode
 	toSerialize["start_time"] = o.StartTime
@@ -263,6 +290,7 @@ func (o *ClickhouseMatchInfo) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"duration_s",
+		"game_mode",
 		"match_id",
 		"match_mode",
 		"start_time",

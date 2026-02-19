@@ -41,6 +41,12 @@ export interface ClickhouseMatchInfo  {
      * @type {number}
      * @memberof ClickhouseMatchInfo
      */
+    gameMode: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ClickhouseMatchInfo
+     */
     matchId: number;
     /**
      * 
@@ -61,6 +67,7 @@ export function ClickhouseMatchInfoFromJSON(json: any): ClickhouseMatchInfo {
         'averageBadgeTeam0': !exists(json, 'average_badge_team0') ? undefined : json['average_badge_team0'],
         'averageBadgeTeam1': !exists(json, 'average_badge_team1') ? undefined : json['average_badge_team1'],
         'durationS': json['duration_s'],
+        'gameMode': json['game_mode'],
         'matchId': json['match_id'],
         'matchMode': json['match_mode'],
         'startTime': json['start_time'],
@@ -75,6 +82,7 @@ export function ClickhouseMatchInfoToJSON(value?: ClickhouseMatchInfo): any {
         'average_badge_team0': value.averageBadgeTeam0,
         'average_badge_team1': value.averageBadgeTeam1,
         'duration_s': value.durationS,
+        'game_mode': value.gameMode,
         'match_id': value.matchId,
         'match_mode': value.matchMode,
         'start_time': value.startTime,

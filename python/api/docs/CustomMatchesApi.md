@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_custom**](CustomMatchesApi.md#create_custom) | **POST** /v1/matches/custom/create | Create Match
 [**get_custom**](CustomMatchesApi.md#get_custom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
+[**leave**](CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 [**ready_up**](CustomMatchesApi.md#ready_up) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 [**unready**](CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
 
@@ -186,6 +187,84 @@ No authorization required
 **400** | Provided parameters are invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Fetch Custom Match ID failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **leave**
+> leave(lobby_id)
+
+Leave Lobby
+
+
+This endpoint makes the bot leave the custom match lobby early.
+By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | API-Key ONLY |
+| Key | 100req/30min |
+| Global | 1000req/h |
+
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.CustomMatchesApi(api_client)
+    lobby_id = 'lobby_id_example' # str | 
+
+    try:
+        # Leave Lobby
+        api_instance.leave(lobby_id)
+    except Exception as e:
+        print("Exception when calling CustomMatchesApi->leave: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lobby_id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully left the lobby. |  -  |
+**400** | Provided parameters are invalid. |  -  |
+**429** | Rate limit exceeded |  -  |
+**500** | Leaving lobby failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -579,6 +579,7 @@ class MatchesApi:
     def bulk_metadata(
         self,
         include_info: Annotated[Optional[StrictBool], Field(description="Include match info in the response.")] = None,
+        include_more_info: Annotated[Optional[StrictBool], Field(description="Include more match info in the response.")] = None,
         include_objectives: Annotated[Optional[StrictBool], Field(description="Include objectives in the response.")] = None,
         include_mid_boss: Annotated[Optional[StrictBool], Field(description="Include midboss in the response.")] = None,
         include_player_info: Annotated[Optional[StrictBool], Field(description="Include player info in the response.")] = None,
@@ -622,6 +623,8 @@ class MatchesApi:
 
         :param include_info: Include match info in the response.
         :type include_info: bool
+        :param include_more_info: Include more match info in the response.
+        :type include_more_info: bool
         :param include_objectives: Include objectives in the response.
         :type include_objectives: bool
         :param include_mid_boss: Include midboss in the response.
@@ -694,6 +697,7 @@ class MatchesApi:
 
         _param = self._bulk_metadata_serialize(
             include_info=include_info,
+            include_more_info=include_more_info,
             include_objectives=include_objectives,
             include_mid_boss=include_mid_boss,
             include_player_info=include_player_info,
@@ -744,6 +748,7 @@ class MatchesApi:
     def bulk_metadata_with_http_info(
         self,
         include_info: Annotated[Optional[StrictBool], Field(description="Include match info in the response.")] = None,
+        include_more_info: Annotated[Optional[StrictBool], Field(description="Include more match info in the response.")] = None,
         include_objectives: Annotated[Optional[StrictBool], Field(description="Include objectives in the response.")] = None,
         include_mid_boss: Annotated[Optional[StrictBool], Field(description="Include midboss in the response.")] = None,
         include_player_info: Annotated[Optional[StrictBool], Field(description="Include player info in the response.")] = None,
@@ -787,6 +792,8 @@ class MatchesApi:
 
         :param include_info: Include match info in the response.
         :type include_info: bool
+        :param include_more_info: Include more match info in the response.
+        :type include_more_info: bool
         :param include_objectives: Include objectives in the response.
         :type include_objectives: bool
         :param include_mid_boss: Include midboss in the response.
@@ -859,6 +866,7 @@ class MatchesApi:
 
         _param = self._bulk_metadata_serialize(
             include_info=include_info,
+            include_more_info=include_more_info,
             include_objectives=include_objectives,
             include_mid_boss=include_mid_boss,
             include_player_info=include_player_info,
@@ -909,6 +917,7 @@ class MatchesApi:
     def bulk_metadata_without_preload_content(
         self,
         include_info: Annotated[Optional[StrictBool], Field(description="Include match info in the response.")] = None,
+        include_more_info: Annotated[Optional[StrictBool], Field(description="Include more match info in the response.")] = None,
         include_objectives: Annotated[Optional[StrictBool], Field(description="Include objectives in the response.")] = None,
         include_mid_boss: Annotated[Optional[StrictBool], Field(description="Include midboss in the response.")] = None,
         include_player_info: Annotated[Optional[StrictBool], Field(description="Include player info in the response.")] = None,
@@ -952,6 +961,8 @@ class MatchesApi:
 
         :param include_info: Include match info in the response.
         :type include_info: bool
+        :param include_more_info: Include more match info in the response.
+        :type include_more_info: bool
         :param include_objectives: Include objectives in the response.
         :type include_objectives: bool
         :param include_mid_boss: Include midboss in the response.
@@ -1024,6 +1035,7 @@ class MatchesApi:
 
         _param = self._bulk_metadata_serialize(
             include_info=include_info,
+            include_more_info=include_more_info,
             include_objectives=include_objectives,
             include_mid_boss=include_mid_boss,
             include_player_info=include_player_info,
@@ -1069,6 +1081,7 @@ class MatchesApi:
     def _bulk_metadata_serialize(
         self,
         include_info,
+        include_more_info,
         include_objectives,
         include_mid_boss,
         include_player_info,
@@ -1120,6 +1133,10 @@ class MatchesApi:
         if include_info is not None:
             
             _query_params.append(('include_info', include_info))
+            
+        if include_more_info is not None:
+            
+            _query_params.append(('include_more_info', include_more_info))
             
         if include_objectives is not None:
             
@@ -1273,7 +1290,7 @@ class MatchesApi:
     ) -> None:
         """Metadata
 
-         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1348,7 +1365,7 @@ class MatchesApi:
     ) -> ApiResponse[None]:
         """Metadata
 
-         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1423,7 +1440,7 @@ class MatchesApi:
     ) -> RESTResponseType:
         """Metadata
 
-         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1555,7 +1572,7 @@ class MatchesApi:
     ) -> List[int]:
         """Metadata as Protobuf
 
-         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1630,7 +1647,7 @@ class MatchesApi:
     ) -> ApiResponse[List[int]]:
         """Metadata as Protobuf
 
-         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1705,7 +1722,7 @@ class MatchesApi:
     ) -> RESTResponseType:
         """Metadata as Protobuf
 
-         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 10req/30mins | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 10req/min | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 10req/10s |     
+         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int

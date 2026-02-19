@@ -96,6 +96,18 @@ class CustomMatchesApiTest extends TestCase
     }
 
     /**
+     * Test case for leave
+     *
+     * Leave Lobby.
+     *
+     */
+    public function testLeave()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for readyUp
      *
      * Ready Up.

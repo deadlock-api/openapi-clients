@@ -91,6 +91,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
+        /// <param name="includeMoreInfo">Include more match info in the response. (optional)</param>
         /// <param name="includeObjectives">Include objectives in the response. (optional)</param>
         /// <param name="includeMidBoss">Include midboss in the response. (optional)</param>
         /// <param name="includePlayerInfo">Include player info in the response. (optional)</param>
@@ -117,7 +118,7 @@ namespace DeadlockApiClient.Api
         /// <param name="limit">The maximum number of matches to return. (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBulkMetadataApiResponse"/>&gt;</returns>
-        Task<IBulkMetadataApiResponse> BulkMetadataAsync(Option<bool> includeInfo = default, Option<bool> includeObjectives = default, Option<bool> includeMidBoss = default, Option<bool> includePlayerInfo = default, Option<bool> includePlayerItems = default, Option<bool> includePlayerStats = default, Option<bool> includePlayerDeathDetails = default, Option<string?> gameMode = default, Option<List<long>?> matchIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<List<int>?> accountIds = default, Option<string?> heroIds = default, Option<string> orderBy = default, Option<string> orderDirection = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBulkMetadataApiResponse> BulkMetadataAsync(Option<bool> includeInfo = default, Option<bool> includeMoreInfo = default, Option<bool> includeObjectives = default, Option<bool> includeMidBoss = default, Option<bool> includePlayerInfo = default, Option<bool> includePlayerItems = default, Option<bool> includePlayerStats = default, Option<bool> includePlayerDeathDetails = default, Option<string?> gameMode = default, Option<List<long>?> matchIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<List<int>?> accountIds = default, Option<string?> heroIds = default, Option<string> orderBy = default, Option<string> orderDirection = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Bulk Metadata
@@ -126,6 +127,7 @@ namespace DeadlockApiClient.Api
         ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
         /// </remarks>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
+        /// <param name="includeMoreInfo">Include more match info in the response. (optional)</param>
         /// <param name="includeObjectives">Include objectives in the response. (optional)</param>
         /// <param name="includeMidBoss">Include midboss in the response. (optional)</param>
         /// <param name="includePlayerInfo">Include player info in the response. (optional)</param>
@@ -152,13 +154,13 @@ namespace DeadlockApiClient.Api
         /// <param name="limit">The maximum number of matches to return. (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBulkMetadataApiResponse"/>?&gt;</returns>
-        Task<IBulkMetadataApiResponse?> BulkMetadataOrDefaultAsync(Option<bool> includeInfo = default, Option<bool> includeObjectives = default, Option<bool> includeMidBoss = default, Option<bool> includePlayerInfo = default, Option<bool> includePlayerItems = default, Option<bool> includePlayerStats = default, Option<bool> includePlayerDeathDetails = default, Option<string?> gameMode = default, Option<List<long>?> matchIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<List<int>?> accountIds = default, Option<string?> heroIds = default, Option<string> orderBy = default, Option<string> orderDirection = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBulkMetadataApiResponse?> BulkMetadataOrDefaultAsync(Option<bool> includeInfo = default, Option<bool> includeMoreInfo = default, Option<bool> includeObjectives = default, Option<bool> includeMidBoss = default, Option<bool> includePlayerInfo = default, Option<bool> includePlayerItems = default, Option<bool> includePlayerStats = default, Option<bool> includePlayerDeathDetails = default, Option<string?> gameMode = default, Option<List<long>?> matchIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<List<int>?> accountIds = default, Option<string?> heroIds = default, Option<string> orderBy = default, Option<string> orderDirection = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Metadata
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
@@ -171,7 +173,7 @@ namespace DeadlockApiClient.Api
         /// Metadata
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
         /// </remarks>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
@@ -183,7 +185,7 @@ namespace DeadlockApiClient.Api
         /// Metadata as Protobuf
         /// </summary>
         /// <remarks>
-        ///  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+        ///  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
@@ -196,7 +198,7 @@ namespace DeadlockApiClient.Api
         /// Metadata as Protobuf
         /// </summary>
         /// <remarks>
-        ///  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+        ///  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
         /// </remarks>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
@@ -1183,7 +1185,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatBulkMetadata(ref Option<bool> includeInfo, ref Option<bool> includeObjectives, ref Option<bool> includeMidBoss, ref Option<bool> includePlayerInfo, ref Option<bool> includePlayerItems, ref Option<bool> includePlayerStats, ref Option<bool> includePlayerDeathDetails, ref Option<string?> gameMode, Option<List<long>?> matchIds, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<bool?> isHighSkillRangeParties, ref Option<bool?> isLowPriPool, ref Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, ref Option<string?> heroIds, ref Option<string> orderBy, ref Option<string> orderDirection, ref Option<int> limit);
+        partial void FormatBulkMetadata(ref Option<bool> includeInfo, ref Option<bool> includeMoreInfo, ref Option<bool> includeObjectives, ref Option<bool> includeMidBoss, ref Option<bool> includePlayerInfo, ref Option<bool> includePlayerItems, ref Option<bool> includePlayerStats, ref Option<bool> includePlayerDeathDetails, ref Option<string?> gameMode, Option<List<long>?> matchIds, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<bool?> isHighSkillRangeParties, ref Option<bool?> isLowPriPool, ref Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, ref Option<string?> heroIds, ref Option<string> orderBy, ref Option<string> orderDirection, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1205,6 +1207,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="includeInfo"></param>
+        /// <param name="includeMoreInfo"></param>
         /// <param name="includeObjectives"></param>
         /// <param name="includeMidBoss"></param>
         /// <param name="includePlayerInfo"></param>
@@ -1229,10 +1232,10 @@ namespace DeadlockApiClient.Api
         /// <param name="orderBy"></param>
         /// <param name="orderDirection"></param>
         /// <param name="limit"></param>
-        private void AfterBulkMetadataDefaultImplementation(IBulkMetadataApiResponse apiResponseLocalVar, Option<bool> includeInfo, Option<bool> includeObjectives, Option<bool> includeMidBoss, Option<bool> includePlayerInfo, Option<bool> includePlayerItems, Option<bool> includePlayerStats, Option<bool> includePlayerDeathDetails, Option<string?> gameMode, Option<List<long>?> matchIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, Option<string?> heroIds, Option<string> orderBy, Option<string> orderDirection, Option<int> limit)
+        private void AfterBulkMetadataDefaultImplementation(IBulkMetadataApiResponse apiResponseLocalVar, Option<bool> includeInfo, Option<bool> includeMoreInfo, Option<bool> includeObjectives, Option<bool> includeMidBoss, Option<bool> includePlayerInfo, Option<bool> includePlayerItems, Option<bool> includePlayerStats, Option<bool> includePlayerDeathDetails, Option<string?> gameMode, Option<List<long>?> matchIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, Option<string?> heroIds, Option<string> orderBy, Option<string> orderDirection, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterBulkMetadata(ref suppressDefaultLog, apiResponseLocalVar, includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
+            AfterBulkMetadata(ref suppressDefaultLog, apiResponseLocalVar, includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1243,6 +1246,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="includeInfo"></param>
+        /// <param name="includeMoreInfo"></param>
         /// <param name="includeObjectives"></param>
         /// <param name="includeMidBoss"></param>
         /// <param name="includePlayerInfo"></param>
@@ -1267,7 +1271,7 @@ namespace DeadlockApiClient.Api
         /// <param name="orderBy"></param>
         /// <param name="orderDirection"></param>
         /// <param name="limit"></param>
-        partial void AfterBulkMetadata(ref bool suppressDefaultLog, IBulkMetadataApiResponse apiResponseLocalVar, Option<bool> includeInfo, Option<bool> includeObjectives, Option<bool> includeMidBoss, Option<bool> includePlayerInfo, Option<bool> includePlayerItems, Option<bool> includePlayerStats, Option<bool> includePlayerDeathDetails, Option<string?> gameMode, Option<List<long>?> matchIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, Option<string?> heroIds, Option<string> orderBy, Option<string> orderDirection, Option<int> limit);
+        partial void AfterBulkMetadata(ref bool suppressDefaultLog, IBulkMetadataApiResponse apiResponseLocalVar, Option<bool> includeInfo, Option<bool> includeMoreInfo, Option<bool> includeObjectives, Option<bool> includeMidBoss, Option<bool> includePlayerInfo, Option<bool> includePlayerItems, Option<bool> includePlayerStats, Option<bool> includePlayerDeathDetails, Option<string?> gameMode, Option<List<long>?> matchIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, Option<string?> heroIds, Option<string> orderBy, Option<string> orderDirection, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1276,6 +1280,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="includeInfo"></param>
+        /// <param name="includeMoreInfo"></param>
         /// <param name="includeObjectives"></param>
         /// <param name="includeMidBoss"></param>
         /// <param name="includePlayerInfo"></param>
@@ -1300,10 +1305,10 @@ namespace DeadlockApiClient.Api
         /// <param name="orderBy"></param>
         /// <param name="orderDirection"></param>
         /// <param name="limit"></param>
-        private void OnErrorBulkMetadataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> includeInfo, Option<bool> includeObjectives, Option<bool> includeMidBoss, Option<bool> includePlayerInfo, Option<bool> includePlayerItems, Option<bool> includePlayerStats, Option<bool> includePlayerDeathDetails, Option<string?> gameMode, Option<List<long>?> matchIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, Option<string?> heroIds, Option<string> orderBy, Option<string> orderDirection, Option<int> limit)
+        private void OnErrorBulkMetadataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> includeInfo, Option<bool> includeMoreInfo, Option<bool> includeObjectives, Option<bool> includeMidBoss, Option<bool> includePlayerInfo, Option<bool> includePlayerItems, Option<bool> includePlayerStats, Option<bool> includePlayerDeathDetails, Option<string?> gameMode, Option<List<long>?> matchIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, Option<string?> heroIds, Option<string> orderBy, Option<string> orderDirection, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorBulkMetadata(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
+            OnErrorBulkMetadata(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1316,6 +1321,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="includeInfo"></param>
+        /// <param name="includeMoreInfo"></param>
         /// <param name="includeObjectives"></param>
         /// <param name="includeMidBoss"></param>
         /// <param name="includePlayerInfo"></param>
@@ -1340,12 +1346,13 @@ namespace DeadlockApiClient.Api
         /// <param name="orderBy"></param>
         /// <param name="orderDirection"></param>
         /// <param name="limit"></param>
-        partial void OnErrorBulkMetadata(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> includeInfo, Option<bool> includeObjectives, Option<bool> includeMidBoss, Option<bool> includePlayerInfo, Option<bool> includePlayerItems, Option<bool> includePlayerStats, Option<bool> includePlayerDeathDetails, Option<string?> gameMode, Option<List<long>?> matchIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, Option<string?> heroIds, Option<string> orderBy, Option<string> orderDirection, Option<int> limit);
+        partial void OnErrorBulkMetadata(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> includeInfo, Option<bool> includeMoreInfo, Option<bool> includeObjectives, Option<bool> includeMidBoss, Option<bool> includePlayerInfo, Option<bool> includePlayerItems, Option<bool> includePlayerStats, Option<bool> includePlayerDeathDetails, Option<string?> gameMode, Option<List<long>?> matchIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, Option<string?> heroIds, Option<string> orderBy, Option<string> orderDirection, Option<int> limit);
 
         /// <summary>
         /// Bulk Metadata  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
         /// </summary>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
+        /// <param name="includeMoreInfo">Include more match info in the response. (optional)</param>
         /// <param name="includeObjectives">Include objectives in the response. (optional)</param>
         /// <param name="includeMidBoss">Include midboss in the response. (optional)</param>
         /// <param name="includePlayerInfo">Include player info in the response. (optional)</param>
@@ -1372,11 +1379,11 @@ namespace DeadlockApiClient.Api
         /// <param name="limit">The maximum number of matches to return. (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBulkMetadataApiResponse"/>&gt;</returns>
-        public async Task<IBulkMetadataApiResponse?> BulkMetadataOrDefaultAsync(Option<bool> includeInfo = default, Option<bool> includeObjectives = default, Option<bool> includeMidBoss = default, Option<bool> includePlayerInfo = default, Option<bool> includePlayerItems = default, Option<bool> includePlayerStats = default, Option<bool> includePlayerDeathDetails = default, Option<string?> gameMode = default, Option<List<long>?> matchIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<List<int>?> accountIds = default, Option<string?> heroIds = default, Option<string> orderBy = default, Option<string> orderDirection = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBulkMetadataApiResponse?> BulkMetadataOrDefaultAsync(Option<bool> includeInfo = default, Option<bool> includeMoreInfo = default, Option<bool> includeObjectives = default, Option<bool> includeMidBoss = default, Option<bool> includePlayerInfo = default, Option<bool> includePlayerItems = default, Option<bool> includePlayerStats = default, Option<bool> includePlayerDeathDetails = default, Option<string?> gameMode = default, Option<List<long>?> matchIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<List<int>?> accountIds = default, Option<string?> heroIds = default, Option<string> orderBy = default, Option<string> orderDirection = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await BulkMetadataAsync(includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit, cancellationToken).ConfigureAwait(false);
+                return await BulkMetadataAsync(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1389,6 +1396,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
+        /// <param name="includeMoreInfo">Include more match info in the response. (optional)</param>
         /// <param name="includeObjectives">Include objectives in the response. (optional)</param>
         /// <param name="includeMidBoss">Include midboss in the response. (optional)</param>
         /// <param name="includePlayerInfo">Include player info in the response. (optional)</param>
@@ -1415,7 +1423,7 @@ namespace DeadlockApiClient.Api
         /// <param name="limit">The maximum number of matches to return. (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBulkMetadataApiResponse"/>&gt;</returns>
-        public async Task<IBulkMetadataApiResponse> BulkMetadataAsync(Option<bool> includeInfo = default, Option<bool> includeObjectives = default, Option<bool> includeMidBoss = default, Option<bool> includePlayerInfo = default, Option<bool> includePlayerItems = default, Option<bool> includePlayerStats = default, Option<bool> includePlayerDeathDetails = default, Option<string?> gameMode = default, Option<List<long>?> matchIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<List<int>?> accountIds = default, Option<string?> heroIds = default, Option<string> orderBy = default, Option<string> orderDirection = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBulkMetadataApiResponse> BulkMetadataAsync(Option<bool> includeInfo = default, Option<bool> includeMoreInfo = default, Option<bool> includeObjectives = default, Option<bool> includeMidBoss = default, Option<bool> includePlayerInfo = default, Option<bool> includePlayerItems = default, Option<bool> includePlayerStats = default, Option<bool> includePlayerDeathDetails = default, Option<string?> gameMode = default, Option<List<long>?> matchIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<List<int>?> accountIds = default, Option<string?> heroIds = default, Option<string> orderBy = default, Option<string> orderDirection = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1423,7 +1431,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidateBulkMetadata(orderBy, orderDirection);
 
-                FormatBulkMetadata(ref includeInfo, ref includeObjectives, ref includeMidBoss, ref includePlayerInfo, ref includePlayerItems, ref includePlayerStats, ref includePlayerDeathDetails, ref gameMode, matchIds, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId, ref isHighSkillRangeParties, ref isLowPriPool, ref isNewPlayerPool, accountIds, ref heroIds, ref orderBy, ref orderDirection, ref limit);
+                FormatBulkMetadata(ref includeInfo, ref includeMoreInfo, ref includeObjectives, ref includeMidBoss, ref includePlayerInfo, ref includePlayerItems, ref includePlayerStats, ref includePlayerDeathDetails, ref gameMode, matchIds, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId, ref isHighSkillRangeParties, ref isLowPriPool, ref isNewPlayerPool, accountIds, ref heroIds, ref orderBy, ref orderDirection, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1438,6 +1446,9 @@ namespace DeadlockApiClient.Api
 
                     if (includeInfo.IsSet)
                         parseQueryStringLocalVar["include_info"] = ClientUtils.ParameterToString(includeInfo.Value);
+
+                    if (includeMoreInfo.IsSet)
+                        parseQueryStringLocalVar["include_more_info"] = ClientUtils.ParameterToString(includeMoreInfo.Value);
 
                     if (includeObjectives.IsSet)
                         parseQueryStringLocalVar["include_objectives"] = ClientUtils.ParameterToString(includeObjectives.Value);
@@ -1542,7 +1553,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterBulkMetadataDefaultImplementation(apiResponseLocalVar, includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
+                        AfterBulkMetadataDefaultImplementation(apiResponseLocalVar, includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
 
                         Events.ExecuteOnBulkMetadata(apiResponseLocalVar);
 
@@ -1552,7 +1563,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorBulkMetadataDefaultImplementation(e, "/v1/matches/metadata", uriBuilderLocalVar.Path, includeInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
+                OnErrorBulkMetadataDefaultImplementation(e, "/v1/matches/metadata", uriBuilderLocalVar.Path, includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
                 Events.ExecuteOnErrorBulkMetadata(e);
                 throw;
             }
@@ -1716,7 +1727,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorMetadata(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom);
 
         /// <summary>
-        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
         /// </summary>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
@@ -1735,7 +1746,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
@@ -1941,7 +1952,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorMetadataRaw(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom);
 
         /// <summary>
-        /// Metadata as Protobuf  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+        /// Metadata as Protobuf  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
         /// </summary>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
@@ -1960,7 +1971,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Metadata as Protobuf  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 10req/30mins | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 10req/min | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 10req/10s |     
+        /// Metadata as Protobuf  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>

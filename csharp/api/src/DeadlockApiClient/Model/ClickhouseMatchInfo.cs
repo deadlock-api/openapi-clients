@@ -34,15 +34,17 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="ClickhouseMatchInfo" /> class.
         /// </summary>
         /// <param name="durationS">durationS</param>
+        /// <param name="gameMode">gameMode</param>
         /// <param name="matchId">matchId</param>
         /// <param name="matchMode">matchMode</param>
         /// <param name="startTime">startTime</param>
         /// <param name="averageBadgeTeam0">See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
         /// <param name="averageBadgeTeam1">See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
         [JsonConstructor]
-        public ClickhouseMatchInfo(int durationS, long matchId, int matchMode, int startTime, Option<int?> averageBadgeTeam0 = default, Option<int?> averageBadgeTeam1 = default)
+        public ClickhouseMatchInfo(int durationS, int gameMode, long matchId, int matchMode, int startTime, Option<int?> averageBadgeTeam0 = default, Option<int?> averageBadgeTeam1 = default)
         {
             DurationS = durationS;
+            GameMode = gameMode;
             MatchId = matchId;
             MatchMode = matchMode;
             StartTime = startTime;
@@ -58,6 +60,12 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("duration_s")]
         public int DurationS { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GameMode
+        /// </summary>
+        [JsonPropertyName("game_mode")]
+        public int GameMode { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchId
@@ -114,6 +122,7 @@ namespace DeadlockApiClient.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ClickhouseMatchInfo {\n");
             sb.Append("  DurationS: ").Append(DurationS).Append("\n");
+            sb.Append("  GameMode: ").Append(GameMode).Append("\n");
             sb.Append("  MatchId: ").Append(MatchId).Append("\n");
             sb.Append("  MatchMode: ").Append(MatchMode).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
@@ -187,6 +196,7 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<int?> durationS = default;
+            Option<int?> gameMode = default;
             Option<long?> matchId = default;
             Option<int?> matchMode = default;
             Option<int?> startTime = default;
@@ -210,6 +220,9 @@ namespace DeadlockApiClient.Model
                     {
                         case "duration_s":
                             durationS = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
+                        case "game_mode":
+                            gameMode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "match_id":
                             matchId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -235,6 +248,9 @@ namespace DeadlockApiClient.Model
             if (!durationS.IsSet)
                 throw new ArgumentException("Property is required for class ClickhouseMatchInfo.", nameof(durationS));
 
+            if (!gameMode.IsSet)
+                throw new ArgumentException("Property is required for class ClickhouseMatchInfo.", nameof(gameMode));
+
             if (!matchId.IsSet)
                 throw new ArgumentException("Property is required for class ClickhouseMatchInfo.", nameof(matchId));
 
@@ -247,6 +263,9 @@ namespace DeadlockApiClient.Model
             if (durationS.IsSet && durationS.Value == null)
                 throw new ArgumentNullException(nameof(durationS), "Property is not nullable for class ClickhouseMatchInfo.");
 
+            if (gameMode.IsSet && gameMode.Value == null)
+                throw new ArgumentNullException(nameof(gameMode), "Property is not nullable for class ClickhouseMatchInfo.");
+
             if (matchId.IsSet && matchId.Value == null)
                 throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class ClickhouseMatchInfo.");
 
@@ -256,7 +275,7 @@ namespace DeadlockApiClient.Model
             if (startTime.IsSet && startTime.Value == null)
                 throw new ArgumentNullException(nameof(startTime), "Property is not nullable for class ClickhouseMatchInfo.");
 
-            return new ClickhouseMatchInfo(durationS.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, startTime.Value!.Value!, averageBadgeTeam0, averageBadgeTeam1);
+            return new ClickhouseMatchInfo(durationS.Value!.Value!, gameMode.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, startTime.Value!.Value!, averageBadgeTeam0, averageBadgeTeam1);
         }
 
         /// <summary>
@@ -284,6 +303,8 @@ namespace DeadlockApiClient.Model
         public void WriteProperties(Utf8JsonWriter writer, ClickhouseMatchInfo clickhouseMatchInfo, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("duration_s", clickhouseMatchInfo.DurationS);
+
+            writer.WriteNumber("game_mode", clickhouseMatchInfo.GameMode);
 
             writer.WriteNumber("match_id", clickhouseMatchInfo.MatchId);
 

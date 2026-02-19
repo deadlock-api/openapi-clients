@@ -146,7 +146,7 @@ No authorization required
 
 ## BulkMetadata
 
-> []int32 BulkMetadata(ctx).IncludeInfo(includeInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
+> []int32 BulkMetadata(ctx).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
 
 Bulk Metadata
 
@@ -166,6 +166,7 @@ import (
 
 func main() {
 	includeInfo := true // bool | Include match info in the response. (optional) (default to true)
+	includeMoreInfo := true // bool | Include more match info in the response. (optional)
 	includeObjectives := true // bool | Include objectives in the response. (optional)
 	includeMidBoss := true // bool | Include midboss in the response. (optional)
 	includePlayerInfo := true // bool | Include player info in the response. (optional)
@@ -193,7 +194,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MatchesAPI.BulkMetadata(context.Background()).IncludeInfo(includeInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
+	resp, r, err := apiClient.MatchesAPI.BulkMetadata(context.Background()).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.BulkMetadata``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -215,6 +216,7 @@ Other parameters are passed through a pointer to a apiBulkMetadataRequest struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **includeInfo** | **bool** | Include match info in the response. | [default to true]
+ **includeMoreInfo** | **bool** | Include more match info in the response. | 
  **includeObjectives** | **bool** | Include objectives in the response. | 
  **includeMidBoss** | **bool** | Include midboss in the response. | 
  **includePlayerInfo** | **bool** | Include player info in the response. | 
