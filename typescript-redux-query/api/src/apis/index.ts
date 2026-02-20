@@ -2,7 +2,6 @@ export * from './AnalyticsApi';
 export * from './BuildsApi';
 export * from './CommandsApi';
 export * from './CustomMatchesApi';
-export * from './ESportsApi';
 export * from './InfoApi';
 export * from './InternalApi';
 export * from './LeaderboardApi';

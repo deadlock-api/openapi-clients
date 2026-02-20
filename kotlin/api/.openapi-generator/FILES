@@ -27,9 +27,6 @@ docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
 docs/DistributionEntry.md
-docs/ESportsApi.md
-docs/ESportsMatch.md
-docs/ESportsMatchStatus.md
 docs/EnemyStats.md
 docs/Entry.md
 docs/GameMode.md
@@ -58,6 +55,12 @@ docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesApi.md
+docs/PlayerAccountHeroStats.md
+docs/PlayerAccountStats.md
+docs/PlayerCard.md
+docs/PlayerCardSlot.md
+docs/PlayerCardSlotHero.md
+docs/PlayerCardSlotStat.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
@@ -74,7 +77,6 @@ src/main/kotlin/deadlock_api_client/apis/AnalyticsApi.kt
 src/main/kotlin/deadlock_api_client/apis/BuildsApi.kt
 src/main/kotlin/deadlock_api_client/apis/CommandsApi.kt
 src/main/kotlin/deadlock_api_client/apis/CustomMatchesApi.kt
-src/main/kotlin/deadlock_api_client/apis/ESportsApi.kt
 src/main/kotlin/deadlock_api_client/apis/InfoApi.kt
 src/main/kotlin/deadlock_api_client/apis/InternalApi.kt
 src/main/kotlin/deadlock_api_client/apis/LeaderboardApi.kt
@@ -122,8 +124,6 @@ src/main/kotlin/deadlock_api_client/models/ClickhouseSalts.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomRequest.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomResponse.kt
 src/main/kotlin/deadlock_api_client/models/DistributionEntry.kt
-src/main/kotlin/deadlock_api_client/models/ESportsMatch.kt
-src/main/kotlin/deadlock_api_client/models/ESportsMatchStatus.kt
 src/main/kotlin/deadlock_api_client/models/EnemyStats.kt
 src/main/kotlin/deadlock_api_client/models/Entry.kt
 src/main/kotlin/deadlock_api_client/models/GameMode.kt
@@ -146,6 +146,12 @@ src/main/kotlin/deadlock_api_client/models/PartyStats.kt
 src/main/kotlin/deadlock_api_client/models/Patch.kt
 src/main/kotlin/deadlock_api_client/models/PatchCategory.kt
 src/main/kotlin/deadlock_api_client/models/PatchGuid.kt
+src/main/kotlin/deadlock_api_client/models/PlayerAccountHeroStats.kt
+src/main/kotlin/deadlock_api_client/models/PlayerAccountStats.kt
+src/main/kotlin/deadlock_api_client/models/PlayerCard.kt
+src/main/kotlin/deadlock_api_client/models/PlayerCardSlot.kt
+src/main/kotlin/deadlock_api_client/models/PlayerCardSlotHero.kt
+src/main/kotlin/deadlock_api_client/models/PlayerCardSlotStat.kt
 src/main/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntry.kt
 src/main/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePoint.kt
 src/main/kotlin/deadlock_api_client/models/RegionMode.kt
@@ -159,7 +165,6 @@ src/test/kotlin/deadlock_api_client/apis/AnalyticsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/BuildsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CommandsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CustomMatchesApiTest.kt
-src/test/kotlin/deadlock_api_client/apis/ESportsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/InfoApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/InternalApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/LeaderboardApiTest.kt
@@ -190,8 +195,6 @@ src/test/kotlin/deadlock_api_client/models/ClickhouseSaltsTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomRequestTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/DistributionEntryTest.kt
-src/test/kotlin/deadlock_api_client/models/ESportsMatchStatusTest.kt
-src/test/kotlin/deadlock_api_client/models/ESportsMatchTest.kt
 src/test/kotlin/deadlock_api_client/models/EnemyStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/EntryTest.kt
 src/test/kotlin/deadlock_api_client/models/GameModeTest.kt
@@ -214,6 +217,12 @@ src/test/kotlin/deadlock_api_client/models/PartyStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/PatchCategoryTest.kt
 src/test/kotlin/deadlock_api_client/models/PatchGuidTest.kt
 src/test/kotlin/deadlock_api_client/models/PatchTest.kt
+src/test/kotlin/deadlock_api_client/models/PlayerAccountHeroStatsTest.kt
+src/test/kotlin/deadlock_api_client/models/PlayerAccountStatsTest.kt
+src/test/kotlin/deadlock_api_client/models/PlayerCardSlotHeroTest.kt
+src/test/kotlin/deadlock_api_client/models/PlayerCardSlotStatTest.kt
+src/test/kotlin/deadlock_api_client/models/PlayerCardSlotTest.kt
+src/test/kotlin/deadlock_api_client/models/PlayerCardTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePointTest.kt
 src/test/kotlin/deadlock_api_client/models/RegionModeTest.kt

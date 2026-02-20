@@ -4,6 +4,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**account_stats**](PlayersApi.md#account_stats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
+[**card**](PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card
 [**enemy_stats**](PlayersApi.md#enemy_stats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
 [**match_history**](PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 [**mate_stats**](PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
@@ -12,6 +14,192 @@ Method | HTTP request | Description
 [**steam**](PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 [**steam_search**](PlayersApi.md#steam_search) | **GET** /v1/players/steam-search | Steam Profile Search
 
+
+# **account_stats**
+> List[PlayerAccountStats] account_stats(account_id)
+
+Account Stats
+
+
+This endpoint returns the player account stats for the given `account_id`.
+
+!THIS IS A PATREON ONLY ENDPOINT!
+
+You have to be friend with one of the bots to use this endpoint.
+On first use this endpoint will return an error with a list of invite links to add the bot as friend.
+From then on you can use this endpoint.
+
+Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+Relevant Protobuf Messages:
+- CMsgClientToGcGetAccountStats
+- CMsgAccountStats
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 5req/min |
+| Key | 20req/min & 800req/h |
+| Global | 200req/min |
+    
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.player_account_stats import PlayerAccountStats
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    account_id = 56 # int | The players `SteamID3`
+
+    try:
+        # Account Stats
+        api_response = api_instance.account_stats(account_id)
+        print("The response of PlayersApi->account_stats:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->account_stats: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
+
+### Return type
+
+[**List[PlayerAccountStats]**](PlayerAccountStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**400** | Provided parameters are invalid. |  -  |
+**403** | Account is not a Patreon subscriber or not prioritized. |  -  |
+**429** | Rate limit exceeded |  -  |
+**500** | Fetching account stats failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **card**
+> List[PlayerCard] card(account_id)
+
+Card
+
+
+This endpoint returns the player card for the given `account_id`.
+
+!THIS IS A PATREON ONLY ENDPOINT!
+
+You have to be friend with one of the bots to use this endpoint.
+On first use this endpoint will return an error with a list of invite links to add the bot as friend.
+From then on you can use this endpoint.
+
+Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+Relevant Protobuf Messages:
+- CMsgClientToGcGetProfileCard
+- CMsgCitadelProfileCard
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 5req/min |
+| Key | 20req/min & 800req/h |
+| Global | 200req/min |
+    
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.player_card import PlayerCard
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    account_id = 56 # int | The players `SteamID3`
+
+    try:
+        # Card
+        api_response = api_instance.card(account_id)
+        print("The response of PlayersApi->card:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->card: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
+
+### Return type
+
+[**List[PlayerCard]**](PlayerCard.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**400** | Provided parameters are invalid. |  -  |
+**403** | Account is not a Patreon subscriber or not prioritized. |  -  |
+**429** | Rate limit exceeded |  -  |
+**500** | Fetching card failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enemy_stats**
 > List[EnemyStats] enemy_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played)

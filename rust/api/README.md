@@ -68,8 +68,6 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**leave**](docs/CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 *CustomMatchesApi* | [**ready_up**](docs/CustomMatchesApi.md#ready_up) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**unready**](docs/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
-*ESportsApi* | [**ingest_match**](docs/ESportsApi.md#ingest_match) | **POST** /v1/esports/ingest/match | Ingest
-*ESportsApi* | [**matches**](docs/ESportsApi.md#matches) | **GET** /v1/esports/matches | List Matches
 *InfoApi* | [**health_check**](docs/InfoApi.md#health_check) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info
 *InternalApi* | [**ingest_salts**](docs/InternalApi.md#ingest_salts) | **POST** /v1/matches/salts | Match Salts Ingest
@@ -93,6 +91,8 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**url**](docs/MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
 *PatchesApi* | [**big_patch_days**](docs/PatchesApi.md#big_patch_days) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes
+*PlayersApi* | [**account_stats**](docs/PlayersApi.md#account_stats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
+*PlayersApi* | [**card**](docs/PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card
 *PlayersApi* | [**enemy_stats**](docs/PlayersApi.md#enemy_stats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
 *PlayersApi* | [**match_history**](docs/PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mate_stats**](docs/PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
@@ -129,8 +129,6 @@ Class | Method | HTTP request | Description
  - [CreateCustomRequest](docs/CreateCustomRequest.md)
  - [CreateCustomResponse](docs/CreateCustomResponse.md)
  - [DistributionEntry](docs/DistributionEntry.md)
- - [ESportsMatch](docs/ESportsMatch.md)
- - [ESportsMatchStatus](docs/ESportsMatchStatus.md)
  - [EnemyStats](docs/EnemyStats.md)
  - [Entry](docs/Entry.md)
  - [GameMode](docs/GameMode.md)
@@ -153,6 +151,12 @@ Class | Method | HTTP request | Description
  - [Patch](docs/Patch.md)
  - [PatchCategory](docs/PatchCategory.md)
  - [PatchGuid](docs/PatchGuid.md)
+ - [PlayerAccountHeroStats](docs/PlayerAccountHeroStats.md)
+ - [PlayerAccountStats](docs/PlayerAccountStats.md)
+ - [PlayerCard](docs/PlayerCard.md)
+ - [PlayerCardSlot](docs/PlayerCardSlot.md)
+ - [PlayerCardSlotHero](docs/PlayerCardSlotHero.md)
+ - [PlayerCardSlotStat](docs/PlayerCardSlotStat.md)
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [RegionMode](docs/RegionMode.md)

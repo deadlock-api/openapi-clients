@@ -6,6 +6,8 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**accountStats()**](PlayersApi.md#accountStats) | **GET** /v1/players/{account_id}/account-stats | Account Stats |
+| [**card()**](PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card |
 | [**enemyStats()**](PlayersApi.md#enemyStats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
 | [**matchHistory()**](PlayersApi.md#matchHistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | [**mateStats()**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
@@ -14,6 +16,118 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**steam()**](PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile |
 | [**steamSearch()**](PlayersApi.md#steamSearch) | **GET** /v1/players/steam-search | Steam Profile Search |
 
+
+## `accountStats()`
+
+```php
+accountStats($account_id): \OpenAPI\Client\Model\PlayerAccountStats[]
+```
+
+Account Stats
+
+This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_id = 56; // int | The players `SteamID3`
+
+try {
+    $result = $apiInstance->accountStats($account_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->accountStats: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_id** | **int**| The players &#x60;SteamID3&#x60; | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\PlayerAccountStats[]**](../Model/PlayerAccountStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `card()`
+
+```php
+card($account_id): \OpenAPI\Client\Model\PlayerCard[]
+```
+
+Card
+
+This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_id = 56; // int | The players `SteamID3`
+
+try {
+    $result = $apiInstance->card($account_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->card: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_id** | **int**| The players &#x60;SteamID3&#x60; | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\PlayerCard[]**](../Model/PlayerCard.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `enemyStats()`
 

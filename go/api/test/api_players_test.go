@@ -22,6 +22,34 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test PlayersAPIService AccountStats", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var accountId int32
+
+		resp, httpRes, err := apiClient.PlayersAPI.AccountStats(context.Background(), accountId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PlayersAPIService Card", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var accountId int32
+
+		resp, httpRes, err := apiClient.PlayersAPI.Card(context.Background(), accountId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test PlayersAPIService EnemyStats", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

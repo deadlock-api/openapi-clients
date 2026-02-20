@@ -57,8 +57,6 @@ type APIClient struct {
 
 	CustomMatchesAPI *CustomMatchesAPIService
 
-	ESportsAPI *ESportsAPIService
-
 	InfoAPI *InfoAPIService
 
 	InternalAPI *InternalAPIService
@@ -96,7 +94,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BuildsAPI = (*BuildsAPIService)(&c.common)
 	c.CommandsAPI = (*CommandsAPIService)(&c.common)
 	c.CustomMatchesAPI = (*CustomMatchesAPIService)(&c.common)
-	c.ESportsAPI = (*ESportsAPIService)(&c.common)
 	c.InfoAPI = (*InfoAPIService)(&c.common)
 	c.InternalAPI = (*InternalAPIService)(&c.common)
 	c.LeaderboardAPI = (*LeaderboardAPIService)(&c.common)

@@ -7,7 +7,6 @@ api_analytics.go
 api_builds.go
 api_commands.go
 api_custom_matches.go
-api_e_sports.go
 api_info.go
 api_internal.go
 api_leaderboard.go
@@ -44,9 +43,6 @@ docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/CustomMatchesAPI.md
 docs/DistributionEntry.md
-docs/ESportsAPI.md
-docs/ESportsMatch.md
-docs/ESportsMatchStatus.md
 docs/EnemyStats.md
 docs/Entry.md
 docs/GameMode.md
@@ -75,6 +71,12 @@ docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesAPI.md
+docs/PlayerAccountHeroStats.md
+docs/PlayerAccountStats.md
+docs/PlayerCard.md
+docs/PlayerCardSlot.md
+docs/PlayerCardSlotHero.md
+docs/PlayerCardSlotStat.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersAPI.md
@@ -111,8 +113,6 @@ model_clickhouse_salts.go
 model_create_custom_request.go
 model_create_custom_response.go
 model_distribution_entry.go
-model_e_sports_match.go
-model_e_sports_match_status.go
 model_enemy_stats.go
 model_entry.go
 model_game_mode.go
@@ -135,6 +135,12 @@ model_party_stats.go
 model_patch.go
 model_patch_category.go
 model_patch_guid.go
+model_player_account_hero_stats.go
+model_player_account_stats.go
+model_player_card.go
+model_player_card_slot.go
+model_player_card_slot_hero.go
+model_player_card_slot_stat.go
 model_player_match_history_entry.go
 model_player_performance_curve_point.go
 model_region_mode.go
@@ -149,7 +155,6 @@ test/api_analytics_test.go
 test/api_builds_test.go
 test/api_commands_test.go
 test/api_custom_matches_test.go
-test/api_e_sports_test.go
 test/api_info_test.go
 test/api_internal_test.go
 test/api_leaderboard_test.go

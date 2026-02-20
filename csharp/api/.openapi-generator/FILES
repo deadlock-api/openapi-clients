@@ -8,7 +8,6 @@ docs/apis/AnalyticsApi.md
 docs/apis/BuildsApi.md
 docs/apis/CommandsApi.md
 docs/apis/CustomMatchesApi.md
-docs/apis/ESportsApi.md
 docs/apis/InfoApi.md
 docs/apis/InternalApi.md
 docs/apis/LeaderboardApi.md
@@ -39,8 +38,6 @@ docs/models/ClickhouseSalts.md
 docs/models/CreateCustomRequest.md
 docs/models/CreateCustomResponse.md
 docs/models/DistributionEntry.md
-docs/models/ESportsMatch.md
-docs/models/ESportsMatchStatus.md
 docs/models/EnemyStats.md
 docs/models/Entry.md
 docs/models/GameMode.md
@@ -63,6 +60,12 @@ docs/models/PartyStats.md
 docs/models/Patch.md
 docs/models/PatchCategory.md
 docs/models/PatchGuid.md
+docs/models/PlayerAccountHeroStats.md
+docs/models/PlayerAccountStats.md
+docs/models/PlayerCard.md
+docs/models/PlayerCardSlot.md
+docs/models/PlayerCardSlotHero.md
+docs/models/PlayerCardSlotStat.md
 docs/models/PlayerMatchHistoryEntry.md
 docs/models/PlayerPerformanceCurvePoint.md
 docs/models/RegionMode.md
@@ -80,7 +83,6 @@ src/DeadlockApiClient.Test/Api/BuildsApiTests.cs
 src/DeadlockApiClient.Test/Api/CommandsApiTests.cs
 src/DeadlockApiClient.Test/Api/CustomMatchesApiTests.cs
 src/DeadlockApiClient.Test/Api/DependencyInjectionTests.cs
-src/DeadlockApiClient.Test/Api/ESportsApiTests.cs
 src/DeadlockApiClient.Test/Api/InfoApiTests.cs
 src/DeadlockApiClient.Test/Api/InternalApiTests.cs
 src/DeadlockApiClient.Test/Api/LeaderboardApiTests.cs
@@ -112,8 +114,6 @@ src/DeadlockApiClient.Test/Model/ClickhouseSaltsTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomRequestTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomResponseTests.cs
 src/DeadlockApiClient.Test/Model/DistributionEntryTests.cs
-src/DeadlockApiClient.Test/Model/ESportsMatchStatusTests.cs
-src/DeadlockApiClient.Test/Model/ESportsMatchTests.cs
 src/DeadlockApiClient.Test/Model/EnemyStatsTests.cs
 src/DeadlockApiClient.Test/Model/EntryTests.cs
 src/DeadlockApiClient.Test/Model/GameModeTests.cs
@@ -136,6 +136,12 @@ src/DeadlockApiClient.Test/Model/PartyStatsTests.cs
 src/DeadlockApiClient.Test/Model/PatchCategoryTests.cs
 src/DeadlockApiClient.Test/Model/PatchGuidTests.cs
 src/DeadlockApiClient.Test/Model/PatchTests.cs
+src/DeadlockApiClient.Test/Model/PlayerAccountHeroStatsTests.cs
+src/DeadlockApiClient.Test/Model/PlayerAccountStatsTests.cs
+src/DeadlockApiClient.Test/Model/PlayerCardSlotHeroTests.cs
+src/DeadlockApiClient.Test/Model/PlayerCardSlotStatTests.cs
+src/DeadlockApiClient.Test/Model/PlayerCardSlotTests.cs
+src/DeadlockApiClient.Test/Model/PlayerCardTests.cs
 src/DeadlockApiClient.Test/Model/PlayerMatchHistoryEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerPerformanceCurvePointTests.cs
 src/DeadlockApiClient.Test/Model/RegionModeTests.cs
@@ -150,7 +156,6 @@ src/DeadlockApiClient/Api/AnalyticsApi.cs
 src/DeadlockApiClient/Api/BuildsApi.cs
 src/DeadlockApiClient/Api/CommandsApi.cs
 src/DeadlockApiClient/Api/CustomMatchesApi.cs
-src/DeadlockApiClient/Api/ESportsApi.cs
 src/DeadlockApiClient/Api/IApi.cs
 src/DeadlockApiClient/Api/InfoApi.cs
 src/DeadlockApiClient/Api/InternalApi.cs
@@ -205,8 +210,6 @@ src/DeadlockApiClient/Model/ClickhouseSalts.cs
 src/DeadlockApiClient/Model/CreateCustomRequest.cs
 src/DeadlockApiClient/Model/CreateCustomResponse.cs
 src/DeadlockApiClient/Model/DistributionEntry.cs
-src/DeadlockApiClient/Model/ESportsMatch.cs
-src/DeadlockApiClient/Model/ESportsMatchStatus.cs
 src/DeadlockApiClient/Model/EnemyStats.cs
 src/DeadlockApiClient/Model/Entry.cs
 src/DeadlockApiClient/Model/GameMode.cs
@@ -229,6 +232,12 @@ src/DeadlockApiClient/Model/PartyStats.cs
 src/DeadlockApiClient/Model/Patch.cs
 src/DeadlockApiClient/Model/PatchCategory.cs
 src/DeadlockApiClient/Model/PatchGuid.cs
+src/DeadlockApiClient/Model/PlayerAccountHeroStats.cs
+src/DeadlockApiClient/Model/PlayerAccountStats.cs
+src/DeadlockApiClient/Model/PlayerCard.cs
+src/DeadlockApiClient/Model/PlayerCardSlot.cs
+src/DeadlockApiClient/Model/PlayerCardSlotHero.cs
+src/DeadlockApiClient/Model/PlayerCardSlotStat.cs
 src/DeadlockApiClient/Model/PlayerMatchHistoryEntry.cs
 src/DeadlockApiClient/Model/PlayerPerformanceCurvePoint.cs
 src/DeadlockApiClient/Model/RegionMode.cs

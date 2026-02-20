@@ -51,6 +51,30 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test AccountStats
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task AccountStatsAsyncTest()
+        {
+            int accountId = default!;
+            var response = await _instance.AccountStatsAsync(accountId);
+            var model = response.Ok();
+            Assert.IsType<List<PlayerAccountStats>>(model);
+        }
+
+        /// <summary>
+        /// Test Card
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task CardAsyncTest()
+        {
+            int accountId = default!;
+            var response = await _instance.CardAsync(accountId);
+            var model = response.Ok();
+            Assert.IsType<List<PlayerCard>>(model);
+        }
+
+        /// <summary>
         /// Test EnemyStats
         /// </summary>
         [Fact (Skip = "not implemented")]

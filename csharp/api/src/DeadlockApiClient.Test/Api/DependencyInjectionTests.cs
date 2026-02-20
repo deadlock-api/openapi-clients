@@ -94,9 +94,6 @@ namespace DeadlockApiClient.Test.Api
             var customMatchesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
 
-            var eSportsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IESportsApi>();
-            Assert.True(eSportsApi.HttpClient.BaseAddress != null);
-
             var infoApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IInfoApi>();
             Assert.True(infoApi.HttpClient.BaseAddress != null);
 
@@ -139,9 +136,6 @@ namespace DeadlockApiClient.Test.Api
 
             var customMatchesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
-
-            var eSportsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IESportsApi>();
-            Assert.True(eSportsApi.HttpClient.BaseAddress != null);
 
             var infoApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IInfoApi>();
             Assert.True(infoApi.HttpClient.BaseAddress != null);
@@ -186,9 +180,6 @@ namespace DeadlockApiClient.Test.Api
             var customMatchesApi = _hostUsingAddWithAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
             
-            var eSportsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IESportsApi>();
-            Assert.True(eSportsApi.HttpClient.BaseAddress != null);
-            
             var infoApi = _hostUsingAddWithAClient.Services.GetRequiredService<IInfoApi>();
             Assert.True(infoApi.HttpClient.BaseAddress != null);
             
@@ -231,9 +222,6 @@ namespace DeadlockApiClient.Test.Api
 
             var customMatchesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
-
-            var eSportsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IESportsApi>();
-            Assert.True(eSportsApi.HttpClient.BaseAddress != null);
 
             var infoApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IInfoApi>();
             Assert.True(infoApi.HttpClient.BaseAddress != null);

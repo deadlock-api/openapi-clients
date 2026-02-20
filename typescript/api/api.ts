@@ -276,57 +276,6 @@ export interface DistributionEntry {
     'players': number;
     'rank': number;
 }
-export interface ESportsMatch {
-    /**
-     * Valve\'s match id of the match.
-     */
-    'match_id'?: number | null;
-    /**
-     * The provider of the match data. Some string that identifies the source of the data.
-     */
-    'provider': string;
-    /**
-     * The scheduled date of the match.
-     */
-    'scheduled_date'?: string | null;
-    /**
-     * The status of the match, e.g. live, completed, scheduled, cancelled.
-     */
-    'status'?: ESportsMatchStatus | null;
-    /**
-     * The name of the first team.
-     */
-    'team0_name'?: string | null;
-    /**
-     * The name of the second team.
-     */
-    'team1_name'?: string | null;
-    /**
-     * The name of the tournament.
-     */
-    'tournament_name'?: string | null;
-    /**
-     * The stage of the tournament.
-     */
-    'tournament_stage'?: string | null;
-    /**
-     * If you want to update an existing match, you can provide an update id.
-     */
-    'update_id'?: string | null;
-}
-
-
-
-export const ESportsMatchStatus = {
-    Live: 'Live',
-    Completed: 'Completed',
-    Scheduled: 'Scheduled',
-    Cancelled: 'Cancelled'
-} as const;
-
-export type ESportsMatchStatus = typeof ESportsMatchStatus[keyof typeof ESportsMatchStatus];
-
-
 export interface EnemyStats {
     'enemy_id': number;
     'matches': Array<number>;
@@ -727,6 +676,51 @@ export interface PatchCategory {
 export interface PatchGuid {
     'is_perma_link': boolean;
     'text': string;
+}
+export interface PlayerAccountHeroStats {
+    'hero_id'?: number | null;
+    'medals_bronze': Array<number>;
+    'medals_gold': Array<number>;
+    'medals_silver': Array<number>;
+    'stat_id': Array<number>;
+    'total_value': Array<number>;
+}
+export interface PlayerAccountStats {
+    'account_id': number;
+    'stats': Array<PlayerAccountHeroStats>;
+}
+export interface PlayerCard {
+    'account_id': number;
+    /**
+     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     */
+    'ranked_badge_level'?: number | null;
+    /**
+     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     */
+    'ranked_rank'?: number | null;
+    /**
+     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     */
+    'ranked_subrank'?: number | null;
+    'slots': Array<PlayerCardSlot>;
+}
+export interface PlayerCardSlot {
+    'hero'?: PlayerCardSlotHero | null;
+    'slot_id'?: number | null;
+    'stat'?: PlayerCardSlotStat | null;
+}
+export interface PlayerCardSlotHero {
+    /**
+     * See more: <https://assets.deadlock-api.com/v2/heroes>
+     */
+    'id'?: number | null;
+    'kills'?: number | null;
+    'wins'?: number | null;
+}
+export interface PlayerCardSlotStat {
+    'stat_id'?: number | null;
+    'stat_score'?: number | null;
 }
 export interface PlayerMatchHistoryEntry {
     'abandoned_time_s'?: number | null;
@@ -5812,175 +5806,6 @@ export class CustomMatchesApi extends BaseAPI {
 
 
 /**
- * ESportsApi - axios parameter creator
- */
-export const ESportsApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         *  To use this Endpoint you need to have special permissions. Please contact us if you organize E-Sports Matches and want to ingest them to us.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 1000req/h | | Key | - | | Global | 10000req/h |     
-         * @summary Ingest
-         * @param {ESportsMatch} eSportsMatch 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        ingestMatch: async (eSportsMatch: ESportsMatch, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'eSportsMatch' is not null or undefined
-            assertParamExists('ingestMatch', 'eSportsMatch', eSportsMatch)
-            const localVarPath = `/v1/esports/ingest/match`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(eSportsMatch, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         *  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary List Matches
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        matches: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/esports/matches`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            localVarHeaderParameter['Accept'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * ESportsApi - functional programming interface
- */
-export const ESportsApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ESportsApiAxiosParamCreator(configuration)
-    return {
-        /**
-         *  To use this Endpoint you need to have special permissions. Please contact us if you organize E-Sports Matches and want to ingest them to us.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 1000req/h | | Key | - | | Global | 10000req/h |     
-         * @summary Ingest
-         * @param {ESportsMatch} eSportsMatch 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async ingestMatch(eSportsMatch: ESportsMatch, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.ingestMatch(eSportsMatch, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ESportsApi.ingestMatch']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         *  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary List Matches
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async matches(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ESportsMatch>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.matches(options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ESportsApi.matches']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-    }
-};
-
-/**
- * ESportsApi - factory interface
- */
-export const ESportsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ESportsApiFp(configuration)
-    return {
-        /**
-         *  To use this Endpoint you need to have special permissions. Please contact us if you organize E-Sports Matches and want to ingest them to us.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 1000req/h | | Key | - | | Global | 10000req/h |     
-         * @summary Ingest
-         * @param {ESportsApiIngestMatchRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        ingestMatch(requestParameters: ESportsApiIngestMatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.ingestMatch(requestParameters.eSportsMatch, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary List Matches
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        matches(options?: RawAxiosRequestConfig): AxiosPromise<Array<ESportsMatch>> {
-            return localVarFp.matches(options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * Request parameters for ingestMatch operation in ESportsApi.
- */
-export interface ESportsApiIngestMatchRequest {
-    readonly eSportsMatch: ESportsMatch
-}
-
-/**
- * ESportsApi - object-oriented interface
- */
-export class ESportsApi extends BaseAPI {
-    /**
-     *  To use this Endpoint you need to have special permissions. Please contact us if you organize E-Sports Matches and want to ingest them to us.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 1000req/h | | Key | - | | Global | 10000req/h |     
-     * @summary Ingest
-     * @param {ESportsApiIngestMatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public ingestMatch(requestParameters: ESportsApiIngestMatchRequest, options?: RawAxiosRequestConfig) {
-        return ESportsApiFp(this.configuration).ingestMatch(requestParameters.eSportsMatch, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     *  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @summary List Matches
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public matches(options?: RawAxiosRequestConfig) {
-        return ESportsApiFp(this.configuration).matches(options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-
-/**
  * InfoApi - axios parameter creator
  */
 export const InfoApiAxiosParamCreator = function (configuration?: Configuration) {
@@ -8497,6 +8322,74 @@ export class PatchesApi extends BaseAPI {
 export const PlayersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         *  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
+         * @summary Account Stats
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        accountStats: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('accountStats', 'accountId', accountId)
+            const localVarPath = `/v1/players/{account_id}/account-stats`
+                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
+         * @summary Card
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        card: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('card', 'accountId', accountId)
+            const localVarPath = `/v1/players/{account_id}/card`
+                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Enemy Stats
          * @param {number} accountId The players &#x60;SteamID3&#x60;
@@ -8953,6 +8846,32 @@ export const PlayersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PlayersApiAxiosParamCreator(configuration)
     return {
         /**
+         *  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
+         * @summary Account Stats
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async accountStats(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerAccountStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.accountStats(accountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PlayersApi.accountStats']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
+         * @summary Card
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async card(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerCard>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.card(accountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PlayersApi.card']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Enemy Stats
          * @param {number} accountId The players &#x60;SteamID3&#x60;
@@ -9093,6 +9012,26 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = PlayersApiFp(configuration)
     return {
         /**
+         *  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
+         * @summary Account Stats
+         * @param {PlayersApiAccountStatsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        accountStats(requestParameters: PlayersApiAccountStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerAccountStats>> {
+            return localVarFp.accountStats(requestParameters.accountId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
+         * @summary Card
+         * @param {PlayersApiCardRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        card(requestParameters: PlayersApiCardRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerCard>> {
+            return localVarFp.card(requestParameters.accountId, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Enemy Stats
          * @param {PlayersApiEnemyStatsRequest} requestParameters Request parameters.
@@ -9164,6 +9103,26 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
         },
     };
 };
+
+/**
+ * Request parameters for accountStats operation in PlayersApi.
+ */
+export interface PlayersApiAccountStatsRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number
+}
+
+/**
+ * Request parameters for card operation in PlayersApi.
+ */
+export interface PlayersApiCardRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number
+}
 
 /**
  * Request parameters for enemyStats operation in PlayersApi.
@@ -9439,6 +9398,28 @@ export interface PlayersApiSteamSearchRequest {
  * PlayersApi - object-oriented interface
  */
 export class PlayersApi extends BaseAPI {
+    /**
+     *  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
+     * @summary Account Stats
+     * @param {PlayersApiAccountStatsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public accountStats(requestParameters: PlayersApiAccountStatsRequest, options?: RawAxiosRequestConfig) {
+        return PlayersApiFp(this.configuration).accountStats(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
+     * @summary Card
+     * @param {PlayersApiCardRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public card(requestParameters: PlayersApiCardRequest, options?: RawAxiosRequestConfig) {
+        return PlayersApiFp(this.configuration).card(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @summary Enemy Stats

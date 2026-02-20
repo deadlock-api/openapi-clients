@@ -22,7 +22,6 @@ __all__ = [
     "BuildsApi",
     "CommandsApi",
     "CustomMatchesApi",
-    "ESportsApi",
     "InfoApi",
     "InternalApi",
     "LeaderboardApi",
@@ -62,8 +61,6 @@ __all__ = [
     "CreateCustomRequest",
     "CreateCustomResponse",
     "DistributionEntry",
-    "ESportsMatch",
-    "ESportsMatchStatus",
     "EnemyStats",
     "Entry",
     "GameMode",
@@ -86,6 +83,12 @@ __all__ = [
     "Patch",
     "PatchCategory",
     "PatchGuid",
+    "PlayerAccountHeroStats",
+    "PlayerAccountStats",
+    "PlayerCard",
+    "PlayerCardSlot",
+    "PlayerCardSlotHero",
+    "PlayerCardSlotStat",
     "PlayerMatchHistoryEntry",
     "PlayerPerformanceCurvePoint",
     "RegionMode",
@@ -102,7 +105,6 @@ from deadlock_api_client.api.analytics_api import AnalyticsApi as AnalyticsApi
 from deadlock_api_client.api.builds_api import BuildsApi as BuildsApi
 from deadlock_api_client.api.commands_api import CommandsApi as CommandsApi
 from deadlock_api_client.api.custom_matches_api import CustomMatchesApi as CustomMatchesApi
-from deadlock_api_client.api.e_sports_api import ESportsApi as ESportsApi
 from deadlock_api_client.api.info_api import InfoApi as InfoApi
 from deadlock_api_client.api.internal_api import InternalApi as InternalApi
 from deadlock_api_client.api.leaderboard_api import LeaderboardApi as LeaderboardApi
@@ -146,8 +148,6 @@ from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts as Click
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest as CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
 from deadlock_api_client.models.distribution_entry import DistributionEntry as DistributionEntry
-from deadlock_api_client.models.e_sports_match import ESportsMatch as ESportsMatch
-from deadlock_api_client.models.e_sports_match_status import ESportsMatchStatus as ESportsMatchStatus
 from deadlock_api_client.models.enemy_stats import EnemyStats as EnemyStats
 from deadlock_api_client.models.entry import Entry as Entry
 from deadlock_api_client.models.game_mode import GameMode as GameMode
@@ -170,6 +170,12 @@ from deadlock_api_client.models.party_stats import PartyStats as PartyStats
 from deadlock_api_client.models.patch import Patch as Patch
 from deadlock_api_client.models.patch_category import PatchCategory as PatchCategory
 from deadlock_api_client.models.patch_guid import PatchGuid as PatchGuid
+from deadlock_api_client.models.player_account_hero_stats import PlayerAccountHeroStats as PlayerAccountHeroStats
+from deadlock_api_client.models.player_account_stats import PlayerAccountStats as PlayerAccountStats
+from deadlock_api_client.models.player_card import PlayerCard as PlayerCard
+from deadlock_api_client.models.player_card_slot import PlayerCardSlot as PlayerCardSlot
+from deadlock_api_client.models.player_card_slot_hero import PlayerCardSlotHero as PlayerCardSlotHero
+from deadlock_api_client.models.player_card_slot_stat import PlayerCardSlotStat as PlayerCardSlotStat
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry as PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint as PlayerPerformanceCurvePoint
 from deadlock_api_client.models.region_mode import RegionMode as RegionMode

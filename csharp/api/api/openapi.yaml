@@ -78,7 +78,6 @@ tags:
     System status and info endpoints.
     Provides health checks for monitoring service availability (Clickhouse, Postgres, Redis) and API statistics including database table sizes, match fetching rates, and missed matches.
   name: Info
-- name: E-Sports
 - description: |2
 
     Database exploration endpoints for direct SQL access.
@@ -122,7 +121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -340,7 +339,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -472,7 +471,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -533,7 +532,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -782,7 +781,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -1034,7 +1033,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -1295,7 +1294,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -1573,7 +1572,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -1798,7 +1797,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -2062,7 +2061,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -2351,7 +2350,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -2569,7 +2568,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -2865,7 +2864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -3720,50 +3719,6 @@ paths:
       summary: Widget Versions
       tags:
       - Commands
-  /v1/esports/ingest/match:
-    post:
-      description: "\nTo use this Endpoint you need to have special permissions.\n\
-        Please contact us if you organize E-Sports Matches and want to ingest them\
-        \ to us.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 1000req/h\
-        \ |\n| Key | - |\n| Global | 10000req/h |\n    "
-      operationId: ingest_match
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ESportsMatch"
-        required: true
-      responses:
-        "200":
-          description: ""
-        "400":
-          description: Provided parameters are invalid.
-        "500":
-          description: Ingest failed
-      summary: Ingest
-      tags:
-      - E-Sports
-  /v1/esports/matches:
-    get:
-      description: "\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP |\
-        \ 100req/s |\n| Key | - |\n| Global | - |\n    "
-      operationId: matches
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/ESportsMatch"
-                type: array
-          description: ""
-        "400":
-          description: Provided parameters are invalid.
-        "500":
-          description: Internal server error
-      summary: List Matches
-      tags:
-      - E-Sports
   /v1/info:
     get:
       description: "\nReturns information about the API.\n\n### Rate Limits:\n| Type\
@@ -5053,7 +5008,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -5172,7 +5127,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768780800
+          default: 1768867200
           format: int64
           nullable: true
           type: integer
@@ -5418,6 +5373,91 @@ paths:
         "500":
           description: Failed to fetch steam profiles.
       summary: Steam Profile Search
+      tags:
+      - Players
+  /v1/players/{account_id}/account-stats:
+    get:
+      description: "\nThis endpoint returns the player account stats for the given\
+        \ `account_id`.\n\n!THIS IS A PATREON ONLY ENDPOINT!\n\nYou have to be friend\
+        \ with one of the bots to use this endpoint.\nOn first use this endpoint will\
+        \ return an error with a list of invite links to add the bot as friend.\n\
+        From then on you can use this endpoint.\n\nProtobuf definitions can be found\
+        \ here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
+        \nRelevant Protobuf Messages:\n- CMsgClientToGcGetAccountStats\n- CMsgAccountStats\n\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 5req/min |\n\
+        | Key | 20req/min & 800req/h |\n| Global | 200req/min |\n    "
+      operationId: account_stats
+      parameters:
+      - description: The players `SteamID3`
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/PlayerAccountStats"
+                type: array
+          description: ""
+        "400":
+          description: Provided parameters are invalid.
+        "403":
+          description: Account is not a Patreon subscriber or not prioritized.
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Fetching account stats failed
+      summary: Account Stats
+      tags:
+      - Players
+  /v1/players/{account_id}/card:
+    get:
+      description: "\nThis endpoint returns the player card for the given `account_id`.\n\
+        \n!THIS IS A PATREON ONLY ENDPOINT!\n\nYou have to be friend with one of the\
+        \ bots to use this endpoint.\nOn first use this endpoint will return an error\
+        \ with a list of invite links to add the bot as friend.\nFrom then on you\
+        \ can use this endpoint.\n\nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
+        \nRelevant Protobuf Messages:\n- CMsgClientToGcGetProfileCard\n- CMsgCitadelProfileCard\n\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 5req/min |\n\
+        | Key | 20req/min & 800req/h |\n| Global | 200req/min |\n    "
+      operationId: card
+      parameters:
+      - description: The players `SteamID3`
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/PlayerCard"
+                type: array
+          description: ""
+        "400":
+          description: Provided parameters are invalid.
+        "403":
+          description: Account is not a Patreon subscriber or not prioritized.
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Fetching card failed
+      summary: Card
       tags:
       - Players
   /v1/players/{account_id}/enemy-stats:
@@ -6985,69 +7025,6 @@ components:
       required:
       - players
       - rank
-    ESportsMatch:
-      example:
-        team0_name: team0_name
-        update_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        provider: provider
-        tournament_name: tournament_name
-        tournament_stage: tournament_stage
-        match_id: 0
-        scheduled_date: 2000-01-23T04:56:07.000+00:00
-        team1_name: team1_name
-        status: ""
-      properties:
-        match_id:
-          description: Valve's match id of the match.
-          format: int64
-          nullable: true
-          type: integer
-        provider:
-          description: The provider of the match data. Some string that identifies
-            the source of the data.
-          type: string
-        scheduled_date:
-          description: The scheduled date of the match.
-          format: date-time
-          nullable: true
-          type: string
-        status:
-          allOf:
-          - $ref: "#/components/schemas/ESportsMatchStatus"
-          description: "The status of the match, e.g. live, completed, scheduled,\
-            \ cancelled."
-          nullable: true
-        team0_name:
-          description: The name of the first team.
-          nullable: true
-          type: string
-        team1_name:
-          description: The name of the second team.
-          nullable: true
-          type: string
-        tournament_name:
-          description: The name of the tournament.
-          nullable: true
-          type: string
-        tournament_stage:
-          description: The stage of the tournament.
-          nullable: true
-          type: string
-        update_id:
-          description: "If you want to update an existing match, you can provide an\
-            \ update id."
-          format: uuid
-          nullable: true
-          type: string
-      required:
-      - provider
-    ESportsMatchStatus:
-      enum:
-      - Live
-      - Completed
-      - Scheduled
-      - Cancelled
-      type: string
     EnemyStats:
       example:
         matches_played: 0
@@ -8078,6 +8055,205 @@ components:
       required:
       - is_perma_link
       - text
+    PlayerAccountHeroStats:
+      example:
+        total_value:
+        - 0
+        - 0
+        medals_gold:
+        - 0
+        - 0
+        medals_silver:
+        - 0
+        - 0
+        medals_bronze:
+        - 0
+        - 0
+        hero_id: 0
+        stat_id:
+        - 0
+        - 0
+      properties:
+        hero_id:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        medals_bronze:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+        medals_gold:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+        medals_silver:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+        stat_id:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+        total_value:
+          items:
+            format: int64
+            minimum: 0
+            type: integer
+          type: array
+      required:
+      - medals_bronze
+      - medals_gold
+      - medals_silver
+      - stat_id
+      - total_value
+    PlayerAccountStats:
+      example:
+        account_id: 0
+        stats:
+        - total_value:
+          - 0
+          - 0
+          medals_gold:
+          - 0
+          - 0
+          medals_silver:
+          - 0
+          - 0
+          medals_bronze:
+          - 0
+          - 0
+          hero_id: 0
+          stat_id:
+          - 0
+          - 0
+        - total_value:
+          - 0
+          - 0
+          medals_gold:
+          - 0
+          - 0
+          medals_silver:
+          - 0
+          - 0
+          medals_bronze:
+          - 0
+          - 0
+          hero_id: 0
+          stat_id:
+          - 0
+          - 0
+      properties:
+        account_id:
+          format: int32
+          minimum: 0
+          type: integer
+        stats:
+          items:
+            $ref: "#/components/schemas/PlayerAccountHeroStats"
+          type: array
+      required:
+      - account_id
+      - stats
+    PlayerCard:
+      example:
+        slots:
+        - stat: ""
+          slot_id: 0
+          hero: ""
+        - stat: ""
+          slot_id: 0
+          hero: ""
+        account_id: 0
+        ranked_rank: 0
+        ranked_badge_level: 0
+        ranked_subrank: 0
+      properties:
+        account_id:
+          format: int32
+          minimum: 0
+          type: integer
+        ranked_badge_level:
+          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        ranked_rank:
+          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        ranked_subrank:
+          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        slots:
+          items:
+            $ref: "#/components/schemas/PlayerCardSlot"
+          type: array
+      required:
+      - account_id
+      - slots
+    PlayerCardSlot:
+      example:
+        stat: ""
+        slot_id: 0
+        hero: ""
+      properties:
+        hero:
+          allOf:
+          - $ref: "#/components/schemas/PlayerCardSlotHero"
+          nullable: true
+        slot_id:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        stat:
+          allOf:
+          - $ref: "#/components/schemas/PlayerCardSlotStat"
+          nullable: true
+    PlayerCardSlotHero:
+      properties:
+        id:
+          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        kills:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        wins:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+    PlayerCardSlotStat:
+      properties:
+        stat_id:
+          format: int32
+          nullable: true
+          type: integer
+        stat_score:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
     PlayerMatchHistoryEntry:
       example:
         objectives_mask_team0: 0

@@ -7,7 +7,6 @@ api/Api/AnalyticsApi.php
 api/Api/BuildsApi.php
 api/Api/CommandsApi.php
 api/Api/CustomMatchesApi.php
-api/Api/ESportsApi.php
 api/Api/InfoApi.php
 api/Api/InternalApi.php
 api/Api/LeaderboardApi.php
@@ -42,8 +41,6 @@ api/Model/ClickhouseSalts.php
 api/Model/CreateCustomRequest.php
 api/Model/CreateCustomResponse.php
 api/Model/DistributionEntry.php
-api/Model/ESportsMatch.php
-api/Model/ESportsMatchStatus.php
 api/Model/EnemyStats.php
 api/Model/Entry.php
 api/Model/GameMode.php
@@ -67,6 +64,12 @@ api/Model/PartyStats.php
 api/Model/Patch.php
 api/Model/PatchCategory.php
 api/Model/PatchGuid.php
+api/Model/PlayerAccountHeroStats.php
+api/Model/PlayerAccountStats.php
+api/Model/PlayerCard.php
+api/Model/PlayerCardSlot.php
+api/Model/PlayerCardSlotHero.php
+api/Model/PlayerCardSlotStat.php
 api/Model/PlayerMatchHistoryEntry.php
 api/Model/PlayerPerformanceCurvePoint.php
 api/Model/RegionMode.php
@@ -82,7 +85,6 @@ docs/Api/AnalyticsApi.md
 docs/Api/BuildsApi.md
 docs/Api/CommandsApi.md
 docs/Api/CustomMatchesApi.md
-docs/Api/ESportsApi.md
 docs/Api/InfoApi.md
 docs/Api/InternalApi.md
 docs/Api/LeaderboardApi.md
@@ -113,8 +115,6 @@ docs/Model/ClickhouseSalts.md
 docs/Model/CreateCustomRequest.md
 docs/Model/CreateCustomResponse.md
 docs/Model/DistributionEntry.md
-docs/Model/ESportsMatch.md
-docs/Model/ESportsMatchStatus.md
 docs/Model/EnemyStats.md
 docs/Model/Entry.md
 docs/Model/GameMode.md
@@ -137,6 +137,12 @@ docs/Model/PartyStats.md
 docs/Model/Patch.md
 docs/Model/PatchCategory.md
 docs/Model/PatchGuid.md
+docs/Model/PlayerAccountHeroStats.md
+docs/Model/PlayerAccountStats.md
+docs/Model/PlayerCard.md
+docs/Model/PlayerCardSlot.md
+docs/Model/PlayerCardSlotHero.md
+docs/Model/PlayerCardSlotStat.md
 docs/Model/PlayerMatchHistoryEntry.md
 docs/Model/PlayerPerformanceCurvePoint.md
 docs/Model/RegionMode.md
@@ -152,7 +158,6 @@ test/Api/AnalyticsApiTest.php
 test/Api/BuildsApiTest.php
 test/Api/CommandsApiTest.php
 test/Api/CustomMatchesApiTest.php
-test/Api/ESportsApiTest.php
 test/Api/InfoApiTest.php
 test/Api/InternalApiTest.php
 test/Api/LeaderboardApiTest.php
@@ -183,8 +188,6 @@ test/Model/ClickhouseSaltsTest.php
 test/Model/CreateCustomRequestTest.php
 test/Model/CreateCustomResponseTest.php
 test/Model/DistributionEntryTest.php
-test/Model/ESportsMatchStatusTest.php
-test/Model/ESportsMatchTest.php
 test/Model/EnemyStatsTest.php
 test/Model/EntryTest.php
 test/Model/GameModeTest.php
@@ -207,6 +210,12 @@ test/Model/PartyStatsTest.php
 test/Model/PatchCategoryTest.php
 test/Model/PatchGuidTest.php
 test/Model/PatchTest.php
+test/Model/PlayerAccountHeroStatsTest.php
+test/Model/PlayerAccountStatsTest.php
+test/Model/PlayerCardSlotHeroTest.php
+test/Model/PlayerCardSlotStatTest.php
+test/Model/PlayerCardSlotTest.php
+test/Model/PlayerCardTest.php
 test/Model/PlayerMatchHistoryEntryTest.php
 test/Model/PlayerPerformanceCurvePointTest.php
 test/Model/RegionModeTest.php

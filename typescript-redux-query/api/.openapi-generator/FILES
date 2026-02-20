@@ -7,7 +7,6 @@ src/apis/AnalyticsApi.ts
 src/apis/BuildsApi.ts
 src/apis/CommandsApi.ts
 src/apis/CustomMatchesApi.ts
-src/apis/ESportsApi.ts
 src/apis/InfoApi.ts
 src/apis/InternalApi.ts
 src/apis/LeaderboardApi.ts
@@ -40,8 +39,6 @@ src/models/ClickhouseSalts.ts
 src/models/CreateCustomRequest.ts
 src/models/CreateCustomResponse.ts
 src/models/DistributionEntry.ts
-src/models/ESportsMatch.ts
-src/models/ESportsMatchStatus.ts
 src/models/EnemyStats.ts
 src/models/Entry.ts
 src/models/GameMode.ts
@@ -64,6 +61,12 @@ src/models/PartyStats.ts
 src/models/Patch.ts
 src/models/PatchCategory.ts
 src/models/PatchGuid.ts
+src/models/PlayerAccountHeroStats.ts
+src/models/PlayerAccountStats.ts
+src/models/PlayerCard.ts
+src/models/PlayerCardSlot.ts
+src/models/PlayerCardSlotHero.ts
+src/models/PlayerCardSlotStat.ts
 src/models/PlayerMatchHistoryEntry.ts
 src/models/PlayerPerformanceCurvePoint.ts
 src/models/RegionMode.ts

@@ -32,9 +32,6 @@ docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
 docs/DistributionEntry.md
-docs/ESportsApi.md
-docs/ESportsMatch.md
-docs/ESportsMatchStatus.md
 docs/EnemyStats.md
 docs/Entry.md
 docs/GameMode.md
@@ -63,6 +60,12 @@ docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesApi.md
+docs/PlayerAccountHeroStats.md
+docs/PlayerAccountStats.md
+docs/PlayerCard.md
+docs/PlayerCardSlot.md
+docs/PlayerCardSlotHero.md
+docs/PlayerCardSlotStat.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md

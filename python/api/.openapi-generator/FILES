@@ -10,7 +10,6 @@ deadlock_api_client/api/analytics_api.py
 deadlock_api_client/api/builds_api.py
 deadlock_api_client/api/commands_api.py
 deadlock_api_client/api/custom_matches_api.py
-deadlock_api_client/api/e_sports_api.py
 deadlock_api_client/api/info_api.py
 deadlock_api_client/api/internal_api.py
 deadlock_api_client/api/leaderboard_api.py
@@ -46,8 +45,6 @@ deadlock_api_client/models/clickhouse_salts.py
 deadlock_api_client/models/create_custom_request.py
 deadlock_api_client/models/create_custom_response.py
 deadlock_api_client/models/distribution_entry.py
-deadlock_api_client/models/e_sports_match.py
-deadlock_api_client/models/e_sports_match_status.py
 deadlock_api_client/models/enemy_stats.py
 deadlock_api_client/models/entry.py
 deadlock_api_client/models/game_mode.py
@@ -70,6 +67,12 @@ deadlock_api_client/models/party_stats.py
 deadlock_api_client/models/patch.py
 deadlock_api_client/models/patch_category.py
 deadlock_api_client/models/patch_guid.py
+deadlock_api_client/models/player_account_hero_stats.py
+deadlock_api_client/models/player_account_stats.py
+deadlock_api_client/models/player_card.py
+deadlock_api_client/models/player_card_slot.py
+deadlock_api_client/models/player_card_slot_hero.py
+deadlock_api_client/models/player_card_slot_stat.py
 deadlock_api_client/models/player_match_history_entry.py
 deadlock_api_client/models/player_performance_curve_point.py
 deadlock_api_client/models/region_mode.py
@@ -107,9 +110,6 @@ docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
 docs/DistributionEntry.md
-docs/ESportsApi.md
-docs/ESportsMatch.md
-docs/ESportsMatchStatus.md
 docs/EnemyStats.md
 docs/Entry.md
 docs/GameMode.md
@@ -138,6 +138,12 @@ docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesApi.md
+docs/PlayerAccountHeroStats.md
+docs/PlayerAccountStats.md
+docs/PlayerCard.md
+docs/PlayerCardSlot.md
+docs/PlayerCardSlotHero.md
+docs/PlayerCardSlotStat.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
@@ -182,9 +188,6 @@ test/test_create_custom_request.py
 test/test_create_custom_response.py
 test/test_custom_matches_api.py
 test/test_distribution_entry.py
-test/test_e_sports_api.py
-test/test_e_sports_match.py
-test/test_e_sports_match_status.py
 test/test_enemy_stats.py
 test/test_entry.py
 test/test_game_mode.py
@@ -213,6 +216,12 @@ test/test_patch.py
 test/test_patch_category.py
 test/test_patch_guid.py
 test/test_patches_api.py
+test/test_player_account_hero_stats.py
+test/test_player_account_stats.py
+test/test_player_card.py
+test/test_player_card_slot.py
+test/test_player_card_slot_hero.py
+test/test_player_card_slot_stat.py
 test/test_player_match_history_entry.py
 test/test_player_performance_curve_point.py
 test/test_players_api.py

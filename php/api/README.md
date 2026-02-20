@@ -74,7 +74,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1768780800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1768867200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -129,8 +129,6 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**leave**](docs/Api/CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 *CustomMatchesApi* | [**readyUp**](docs/Api/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**unready**](docs/Api/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
-*ESportsApi* | [**ingestMatch**](docs/Api/ESportsApi.md#ingestmatch) | **POST** /v1/esports/ingest/match | Ingest
-*ESportsApi* | [**matches**](docs/Api/ESportsApi.md#matches) | **GET** /v1/esports/matches | List Matches
 *InfoApi* | [**healthCheck**](docs/Api/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](docs/Api/InfoApi.md#info) | **GET** /v1/info | API Info
 *InternalApi* | [**ingestSalts**](docs/Api/InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest
@@ -154,6 +152,8 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**url**](docs/Api/MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
 *PatchesApi* | [**bigPatchDays**](docs/Api/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](docs/Api/PatchesApi.md#feed) | **GET** /v1/patches | Notes
+*PlayersApi* | [**accountStats**](docs/Api/PlayersApi.md#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
+*PlayersApi* | [**card**](docs/Api/PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card
 *PlayersApi* | [**enemyStats**](docs/Api/PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
 *PlayersApi* | [**matchHistory**](docs/Api/PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mateStats**](docs/Api/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
@@ -189,8 +189,6 @@ Class | Method | HTTP request | Description
 - [CreateCustomRequest](docs/Model/CreateCustomRequest.md)
 - [CreateCustomResponse](docs/Model/CreateCustomResponse.md)
 - [DistributionEntry](docs/Model/DistributionEntry.md)
-- [ESportsMatch](docs/Model/ESportsMatch.md)
-- [ESportsMatchStatus](docs/Model/ESportsMatchStatus.md)
 - [EnemyStats](docs/Model/EnemyStats.md)
 - [Entry](docs/Model/Entry.md)
 - [GameMode](docs/Model/GameMode.md)
@@ -213,6 +211,12 @@ Class | Method | HTTP request | Description
 - [Patch](docs/Model/Patch.md)
 - [PatchCategory](docs/Model/PatchCategory.md)
 - [PatchGuid](docs/Model/PatchGuid.md)
+- [PlayerAccountHeroStats](docs/Model/PlayerAccountHeroStats.md)
+- [PlayerAccountStats](docs/Model/PlayerAccountStats.md)
+- [PlayerCard](docs/Model/PlayerCard.md)
+- [PlayerCardSlot](docs/Model/PlayerCardSlot.md)
+- [PlayerCardSlotHero](docs/Model/PlayerCardSlotHero.md)
+- [PlayerCardSlotStat](docs/Model/PlayerCardSlotStat.md)
 - [PlayerMatchHistoryEntry](docs/Model/PlayerMatchHistoryEntry.md)
 - [PlayerPerformanceCurvePoint](docs/Model/PlayerPerformanceCurvePoint.md)
 - [RegionMode](docs/Model/RegionMode.md)

@@ -23,6 +23,8 @@ import deadlock_api_client.models.EnemyStats
 import deadlock_api_client.models.HeroStats
 import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PartyStats
+import deadlock_api_client.models.PlayerAccountStats
+import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
 import deadlock_api_client.models.SteamProfile
 
@@ -30,6 +32,22 @@ class PlayersApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of PlayersApi
         //val apiInstance = PlayersApi()
+
+        // to test accountStats
+        should("test accountStats") {
+            // uncomment below to test accountStats
+            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val result : kotlin.collections.List<PlayerAccountStats> = apiInstance.accountStats(accountId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test card
+        should("test card") {
+            // uncomment below to test card
+            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val result : kotlin.collections.List<PlayerCard> = apiInstance.card(accountId)
+            //result shouldBe ("TODO")
+        }
 
         // to test enemyStats
         should("test enemyStats") {

@@ -26,6 +26,20 @@ class TestPlayersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_account_stats(self) -> None:
+        """Test case for account_stats
+
+        Account Stats
+        """
+        pass
+
+    def test_card(self) -> None:
+        """Test case for card
+
+        Card
+        """
+        pass
+
     def test_enemy_stats(self) -> None:
         """Test case for enemy_stats
 
