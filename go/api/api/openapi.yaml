@@ -121,7 +121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -339,7 +339,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -471,7 +471,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -532,7 +532,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -781,7 +781,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -1033,7 +1033,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -1294,7 +1294,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -1572,7 +1572,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -1797,7 +1797,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -2061,7 +2061,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -2350,7 +2350,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -2568,7 +2568,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -2864,7 +2864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -5008,7 +5008,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -5127,7 +5127,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1768867200
+          default: 1769126400
           format: int64
           nullable: true
           type: integer
@@ -5602,7 +5602,7 @@ paths:
         \ and full history.\n\nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Messages:\n- CMsgClientToGcGetMatchHistory\n- CMsgClientToGcGetMatchHistoryResponse\n\
         \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 5req/h<br>With\
-        \ `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 5req/h\
+        \ `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h\
         \ |\n| Key | 400req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`:\
         \ 5req/h |\n| Global | 2000req/h<br>With `only_stored_history=true`: -<br>With\
         \ `force_refetch=true`: 10req/h |\n    "
