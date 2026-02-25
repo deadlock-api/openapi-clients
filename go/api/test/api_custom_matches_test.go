@@ -74,6 +74,19 @@ func Test_deadlock_api_client_CustomMatchesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test CustomMatchesAPIService Start", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var lobbyId string
+
+		httpRes, err := apiClient.CustomMatchesAPI.Start(context.Background(), lobbyId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CustomMatchesAPIService Unready", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

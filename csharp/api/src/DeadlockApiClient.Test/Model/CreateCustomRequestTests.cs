@@ -126,12 +126,12 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'RegionMode'
+        /// Test the property 'ServerRegion'
         /// </summary>
         [Fact]
-        public void RegionModeTest()
+        public void ServerRegionTest()
         {
-            // TODO unit test for the property 'RegionMode'
+            // TODO unit test for the property 'ServerRegion'
         }
     }
 }

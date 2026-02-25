@@ -87,7 +87,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1769299200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1769299200)
+    min_unix_timestamp = 1769385600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1769385600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -142,6 +142,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**get_custom**](docs/CustomMatchesApi.md#get_custom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 *CustomMatchesApi* | [**leave**](docs/CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 *CustomMatchesApi* | [**ready_up**](docs/CustomMatchesApi.md#ready_up) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
+*CustomMatchesApi* | [**start**](docs/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](docs/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
 *InfoApi* | [**health_check**](docs/InfoApi.md#health_check) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info
@@ -235,6 +236,7 @@ Class | Method | HTTP request | Description
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [RegionMode](docs/RegionMode.md)
+ - [ServerRegion](docs/ServerRegion.md)
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
  - [SteamProfile](docs/SteamProfile.md)

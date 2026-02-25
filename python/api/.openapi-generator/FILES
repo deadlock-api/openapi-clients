@@ -76,6 +76,7 @@ deadlock_api_client/models/player_card_slot_stat.py
 deadlock_api_client/models/player_match_history_entry.py
 deadlock_api_client/models/player_performance_curve_point.py
 deadlock_api_client/models/region_mode.py
+deadlock_api_client/models/server_region.py
 deadlock_api_client/models/status.py
 deadlock_api_client/models/status_services.py
 deadlock_api_client/models/steam_profile.py
@@ -149,6 +150,7 @@ docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
 docs/RegionMode.md
 docs/SQLApi.md
+docs/ServerRegion.md
 docs/Status.md
 docs/StatusServices.md
 docs/SteamProfile.md
@@ -226,6 +228,7 @@ test/test_player_match_history_entry.py
 test/test_player_performance_curve_point.py
 test/test_players_api.py
 test/test_region_mode.py
+test/test_server_region.py
 test/test_sql_api.py
 test/test_status.py
 test/test_status_services.py

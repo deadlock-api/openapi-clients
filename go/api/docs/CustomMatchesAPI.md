@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetCustom**](CustomMatchesAPI.md#GetCustom) | **Get** /v1/matches/custom/{party_id}/match-id | Get Match ID
 [**Leave**](CustomMatchesAPI.md#Leave) | **Post** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 [**ReadyUp**](CustomMatchesAPI.md#ReadyUp) | **Post** /v1/matches/custom/{lobby_id}/ready | Ready Up
+[**Start**](CustomMatchesAPI.md#Start) | **Post** /v1/matches/custom/{lobby_id}/start | Start Match
 [**Unready**](CustomMatchesAPI.md#Unready) | **Post** /v1/matches/custom/{lobby_id}/unready | Unready
 
 
@@ -260,6 +261,74 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiReadyUpRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Start
+
+> Start(ctx, lobbyId).Execute()
+
+Start Match
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	lobbyId := "lobbyId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CustomMatchesAPI.Start(context.Background(), lobbyId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomMatchesAPI.Start``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**lobbyId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStartRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

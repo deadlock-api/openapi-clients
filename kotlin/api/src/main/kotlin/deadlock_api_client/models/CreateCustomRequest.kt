@@ -16,7 +16,7 @@
 package deadlock_api_client.models
 
 import deadlock_api_client.models.GameMode
-import deadlock_api_client.models.RegionMode
+import deadlock_api_client.models.ServerRegion
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -33,7 +33,7 @@ import java.io.Serializable
  * @param isPubliclyVisible 
  * @param minRosterSize 
  * @param randomizeLanes 
- * @param regionMode 
+ * @param serverRegion 
  */
 
 
@@ -65,8 +65,8 @@ data class CreateCustomRequest (
     @Json(name = "randomize_lanes")
     val randomizeLanes: kotlin.Boolean? = null,
 
-    @Json(name = "region_mode")
-    val regionMode: RegionMode? = null
+    @Json(name = "server_region")
+    val serverRegion: ServerRegion? = null
 
 ) : Serializable {
     companion object {

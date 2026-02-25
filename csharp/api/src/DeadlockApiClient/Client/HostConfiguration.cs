@@ -101,6 +101,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new PlayerPerformanceCurvePointJsonConverter());
             _jsonOptions.Converters.Add(new RegionModeJsonConverter());
             _jsonOptions.Converters.Add(new RegionModeNullableJsonConverter());
+            _jsonOptions.Converters.Add(new ServerRegionJsonConverter());
+            _jsonOptions.Converters.Add(new ServerRegionNullableJsonConverter());
             _jsonOptions.Converters.Add(new StatusJsonConverter());
             _jsonOptions.Converters.Add(new StatusServicesJsonConverter());
             _jsonOptions.Converters.Add(new SteamProfileJsonConverter());

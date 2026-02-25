@@ -121,7 +121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -339,7 +339,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -471,7 +471,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -532,7 +532,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -781,7 +781,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -1033,7 +1033,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -1294,7 +1294,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -1572,7 +1572,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -1797,7 +1797,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -2061,7 +2061,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -2350,7 +2350,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -2568,7 +2568,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -2864,7 +2864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -4137,6 +4137,39 @@ paths:
       summary: Ready Up
       tags:
       - Custom Matches
+  /v1/matches/custom/{lobby_id}/start:
+    post:
+      description: |2
+
+        This endpoint starts a custom match.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | API-Key ONLY |
+        | Key | 100req/30min |
+        | Global | 1000req/h |
+      operationId: start
+      parameters:
+      - explode: false
+        in: path
+        name: lobby_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Successfully started the match.
+        "400":
+          description: Provided parameters are invalid.
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Starting match failed
+      summary: Start Match
+      tags:
+      - Custom Matches
   /v1/matches/custom/{lobby_id}/unready:
     post:
       description: |2
@@ -5008,7 +5041,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -5127,7 +5160,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769299200
+          default: 1769385600
           format: int64
           nullable: true
           type: integer
@@ -6945,7 +6978,7 @@ components:
       example:
         callback_url: callback_url
         is_publicly_visible: true
-        region_mode: ""
+        server_region: ""
         cheats_enabled: true
         disable_auto_ready: true
         randomize_lanes: true
@@ -6985,9 +7018,9 @@ components:
         randomize_lanes:
           nullable: true
           type: boolean
-        region_mode:
+        server_region:
           allOf:
-          - $ref: "#/components/schemas/RegionMode"
+          - $ref: "#/components/schemas/ServerRegion"
           nullable: true
     CreateCustomResponse:
       example:
@@ -8466,6 +8499,35 @@ components:
       - s_america
       - russia
       - oceania
+      type: string
+    ServerRegion:
+      enum:
+      - europe
+      - eu_amsterdam
+      - eu_poland
+      - eu_stockholm
+      - eu_helsinki
+      - eu_falkenstein
+      - eu_spain
+      - eu_east
+      - eu_london
+      - south_africa
+      - us_west
+      - us_east
+      - us_north_central
+      - us_south_central
+      - us_south_east
+      - us_south_west
+      - australia
+      - singapore
+      - japan
+      - hong_kong
+      - mp_hong_kong
+      - seoul
+      - chile
+      - peru
+      - argentina
+      - south_america
       type: string
     Status:
       example:

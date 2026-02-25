@@ -12,7 +12,7 @@
 | **isPubliclyVisible** | **kotlin.Boolean** |  |  [optional] |
 | **minRosterSize** | **kotlin.Int** |  |  [optional] |
 | **randomizeLanes** | **kotlin.Boolean** |  |  [optional] |
-| **regionMode** | [**RegionMode**](RegionMode.md) |  |  [optional] |
+| **serverRegion** | [**ServerRegion**](ServerRegion.md) |  |  [optional] |
 
 
 

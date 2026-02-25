@@ -21,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.game_mode import GameMode
-from deadlock_api_client.models.region_mode import RegionMode
+from deadlock_api_client.models.server_region import ServerRegion
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -37,8 +37,8 @@ class CreateCustomRequest(BaseModel):
     is_publicly_visible: Optional[StrictBool] = None
     min_roster_size: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     randomize_lanes: Optional[StrictBool] = None
-    region_mode: Optional[RegionMode] = None
-    __properties: ClassVar[List[str]] = ["callback_url", "cheats_enabled", "disable_auto_ready", "duplicate_heroes_enabled", "game_mode", "is_publicly_visible", "min_roster_size", "randomize_lanes", "region_mode"]
+    server_region: Optional[ServerRegion] = None
+    __properties: ClassVar[List[str]] = ["callback_url", "cheats_enabled", "disable_auto_ready", "duplicate_heroes_enabled", "game_mode", "is_publicly_visible", "min_roster_size", "randomize_lanes", "server_region"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -119,10 +119,10 @@ class CreateCustomRequest(BaseModel):
         if self.randomize_lanes is None and "randomize_lanes" in self.model_fields_set:
             _dict['randomize_lanes'] = None
 
-        # set to None if region_mode (nullable) is None
+        # set to None if server_region (nullable) is None
         # and model_fields_set contains the field
-        if self.region_mode is None and "region_mode" in self.model_fields_set:
-            _dict['region_mode'] = None
+        if self.server_region is None and "server_region" in self.model_fields_set:
+            _dict['server_region'] = None
 
         return _dict
 
@@ -144,7 +144,7 @@ class CreateCustomRequest(BaseModel):
             "is_publicly_visible": obj.get("is_publicly_visible"),
             "min_roster_size": obj.get("min_roster_size"),
             "randomize_lanes": obj.get("randomize_lanes"),
-            "region_mode": obj.get("region_mode")
+            "server_region": obj.get("server_region")
         })
         return _obj
 

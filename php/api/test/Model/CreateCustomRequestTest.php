@@ -152,9 +152,9 @@ class CreateCustomRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "region_mode"
+     * Test attribute "server_region"
      */
-    public function testPropertyRegionMode()
+    public function testPropertyServerRegion()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

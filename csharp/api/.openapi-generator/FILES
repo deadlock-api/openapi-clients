@@ -69,6 +69,7 @@ docs/models/PlayerCardSlotStat.md
 docs/models/PlayerMatchHistoryEntry.md
 docs/models/PlayerPerformanceCurvePoint.md
 docs/models/RegionMode.md
+docs/models/ServerRegion.md
 docs/models/Status.md
 docs/models/StatusServices.md
 docs/models/SteamProfile.md
@@ -145,6 +146,7 @@ src/DeadlockApiClient.Test/Model/PlayerCardTests.cs
 src/DeadlockApiClient.Test/Model/PlayerMatchHistoryEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerPerformanceCurvePointTests.cs
 src/DeadlockApiClient.Test/Model/RegionModeTests.cs
+src/DeadlockApiClient.Test/Model/ServerRegionTests.cs
 src/DeadlockApiClient.Test/Model/StatusServicesTests.cs
 src/DeadlockApiClient.Test/Model/StatusTests.cs
 src/DeadlockApiClient.Test/Model/SteamProfileTests.cs
@@ -241,6 +243,7 @@ src/DeadlockApiClient/Model/PlayerCardSlotStat.cs
 src/DeadlockApiClient/Model/PlayerMatchHistoryEntry.cs
 src/DeadlockApiClient/Model/PlayerPerformanceCurvePoint.cs
 src/DeadlockApiClient/Model/RegionMode.cs
+src/DeadlockApiClient/Model/ServerRegion.cs
 src/DeadlockApiClient/Model/Status.cs
 src/DeadlockApiClient/Model/StatusServices.cs
 src/DeadlockApiClient/Model/SteamProfile.cs

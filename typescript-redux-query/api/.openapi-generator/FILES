@@ -70,6 +70,7 @@ src/models/PlayerCardSlotStat.ts
 src/models/PlayerMatchHistoryEntry.ts
 src/models/PlayerPerformanceCurvePoint.ts
 src/models/RegionMode.ts
+src/models/ServerRegion.ts
 src/models/Status.ts
 src/models/StatusServices.ts
 src/models/SteamProfile.ts

@@ -43,7 +43,7 @@ class TestCreateCustomRequest(unittest.TestCase):
                 is_publicly_visible = True,
                 min_roster_size = 0,
                 randomize_lanes = True,
-                region_mode = 'row'
+                server_region = 'europe'
             )
         else:
             return CreateCustomRequest(

@@ -16,9 +16,9 @@ import {
     GameMode,
     GameModeFromJSON,
     GameModeToJSON,
-    RegionMode,
-    RegionModeFromJSON,
-    RegionModeToJSON,
+    ServerRegion,
+    ServerRegionFromJSON,
+    ServerRegionToJSON,
 } from './';
 
 /**
@@ -77,10 +77,10 @@ export interface CreateCustomRequest  {
     randomizeLanes?: boolean;
     /**
      * 
-     * @type {RegionMode}
+     * @type {ServerRegion}
      * @memberof CreateCustomRequest
      */
-    regionMode?: RegionMode;
+    serverRegion?: ServerRegion;
 }
 
 export function CreateCustomRequestFromJSON(json: any): CreateCustomRequest {
@@ -93,7 +93,7 @@ export function CreateCustomRequestFromJSON(json: any): CreateCustomRequest {
         'isPubliclyVisible': !exists(json, 'is_publicly_visible') ? undefined : json['is_publicly_visible'],
         'minRosterSize': !exists(json, 'min_roster_size') ? undefined : json['min_roster_size'],
         'randomizeLanes': !exists(json, 'randomize_lanes') ? undefined : json['randomize_lanes'],
-        'regionMode': !exists(json, 'region_mode') ? undefined : RegionModeFromJSON(json['region_mode']),
+        'serverRegion': !exists(json, 'server_region') ? undefined : ServerRegionFromJSON(json['server_region']),
     };
 }
 
@@ -110,7 +110,7 @@ export function CreateCustomRequestToJSON(value?: CreateCustomRequest): any {
         'is_publicly_visible': value.isPubliclyVisible,
         'min_roster_size': value.minRosterSize,
         'randomize_lanes': value.randomizeLanes,
-        'region_mode': RegionModeToJSON(value.regionMode),
+        'server_region': ServerRegionToJSON(value.serverRegion),
     };
 }
 

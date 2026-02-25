@@ -67,6 +67,7 @@ docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
 docs/RegionMode.md
+docs/ServerRegion.md
 docs/SqlApi.md
 docs/Status.md
 docs/StatusServices.md
@@ -144,6 +145,7 @@ src/models/player_card_slot_stat.rs
 src/models/player_match_history_entry.rs
 src/models/player_performance_curve_point.rs
 src/models/region_mode.rs
+src/models/server_region.rs
 src/models/status.rs
 src/models/status_services.rs
 src/models/steam_profile.rs

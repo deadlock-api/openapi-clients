@@ -73,6 +73,7 @@ api/Model/PlayerCardSlotStat.php
 api/Model/PlayerMatchHistoryEntry.php
 api/Model/PlayerPerformanceCurvePoint.php
 api/Model/RegionMode.php
+api/Model/ServerRegion.php
 api/Model/Status.php
 api/Model/StatusServices.php
 api/Model/SteamProfile.php
@@ -146,6 +147,7 @@ docs/Model/PlayerCardSlotStat.md
 docs/Model/PlayerMatchHistoryEntry.md
 docs/Model/PlayerPerformanceCurvePoint.md
 docs/Model/RegionMode.md
+docs/Model/ServerRegion.md
 docs/Model/Status.md
 docs/Model/StatusServices.md
 docs/Model/SteamProfile.md
@@ -219,6 +221,7 @@ test/Model/PlayerCardTest.php
 test/Model/PlayerMatchHistoryEntryTest.php
 test/Model/PlayerPerformanceCurvePointTest.php
 test/Model/RegionModeTest.php
+test/Model/ServerRegionTest.php
 test/Model/StatusServicesTest.php
 test/Model/StatusTest.php
 test/Model/SteamProfileTest.php

@@ -86,6 +86,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *CustomMatchesApi* | [**getCustom**](docs/CustomMatchesApi.md#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID |
 | *CustomMatchesApi* | [**leave**](docs/CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby |
 | *CustomMatchesApi* | [**readyUp**](docs/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up |
+| *CustomMatchesApi* | [**start**](docs/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match |
 | *CustomMatchesApi* | [**unready**](docs/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready |
 | *InfoApi* | [**healthCheck**](docs/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check |
 | *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info |
@@ -180,6 +181,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [deadlock_api_client.models.PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [deadlock_api_client.models.RegionMode](docs/RegionMode.md)
+ - [deadlock_api_client.models.ServerRegion](docs/ServerRegion.md)
  - [deadlock_api_client.models.Status](docs/Status.md)
  - [deadlock_api_client.models.StatusServices](docs/StatusServices.md)
  - [deadlock_api_client.models.SteamProfile](docs/SteamProfile.md)

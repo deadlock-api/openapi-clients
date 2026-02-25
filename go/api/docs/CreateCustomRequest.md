@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **IsPubliclyVisible** | Pointer to **NullableBool** |  | [optional] 
 **MinRosterSize** | Pointer to **NullableInt32** |  | [optional] 
 **RandomizeLanes** | Pointer to **NullableBool** |  | [optional] 
-**RegionMode** | Pointer to [**NullableRegionMode**](RegionMode.md) |  | [optional] 
+**ServerRegion** | Pointer to [**NullableServerRegion**](ServerRegion.md) |  | [optional] 
 
 ## Methods
 
@@ -313,41 +313,41 @@ HasRandomizeLanes returns a boolean if a field has been set.
 `func (o *CreateCustomRequest) UnsetRandomizeLanes()`
 
 UnsetRandomizeLanes ensures that no value is present for RandomizeLanes, not even an explicit nil
-### GetRegionMode
+### GetServerRegion
 
-`func (o *CreateCustomRequest) GetRegionMode() RegionMode`
+`func (o *CreateCustomRequest) GetServerRegion() ServerRegion`
 
-GetRegionMode returns the RegionMode field if non-nil, zero value otherwise.
+GetServerRegion returns the ServerRegion field if non-nil, zero value otherwise.
 
-### GetRegionModeOk
+### GetServerRegionOk
 
-`func (o *CreateCustomRequest) GetRegionModeOk() (*RegionMode, bool)`
+`func (o *CreateCustomRequest) GetServerRegionOk() (*ServerRegion, bool)`
 
-GetRegionModeOk returns a tuple with the RegionMode field if it's non-nil, zero value otherwise
+GetServerRegionOk returns a tuple with the ServerRegion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRegionMode
+### SetServerRegion
 
-`func (o *CreateCustomRequest) SetRegionMode(v RegionMode)`
+`func (o *CreateCustomRequest) SetServerRegion(v ServerRegion)`
 
-SetRegionMode sets RegionMode field to given value.
+SetServerRegion sets ServerRegion field to given value.
 
-### HasRegionMode
+### HasServerRegion
 
-`func (o *CreateCustomRequest) HasRegionMode() bool`
+`func (o *CreateCustomRequest) HasServerRegion() bool`
 
-HasRegionMode returns a boolean if a field has been set.
+HasServerRegion returns a boolean if a field has been set.
 
-### SetRegionModeNil
+### SetServerRegionNil
 
-`func (o *CreateCustomRequest) SetRegionModeNil(b bool)`
+`func (o *CreateCustomRequest) SetServerRegionNil(b bool)`
 
- SetRegionModeNil sets the value for RegionMode to be an explicit nil
+ SetServerRegionNil sets the value for ServerRegion to be an explicit nil
 
-### UnsetRegionMode
-`func (o *CreateCustomRequest) UnsetRegionMode()`
+### UnsetServerRegion
+`func (o *CreateCustomRequest) UnsetServerRegion()`
 
-UnsetRegionMode ensures that no value is present for RegionMode, not even an explicit nil
+UnsetServerRegion ensures that no value is present for ServerRegion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

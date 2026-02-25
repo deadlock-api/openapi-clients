@@ -153,6 +153,8 @@ namespace DeadlockApiClient.Client
                 return GameModeValueConverter.ToJsonValue(gameMode);
             if (obj is RegionMode regionMode)
                 return RegionModeValueConverter.ToJsonValue(regionMode);
+            if (obj is ServerRegion serverRegion)
+                return ServerRegionValueConverter.ToJsonValue(serverRegion);
             if (obj is VariableCategory variableCategory)
                 return VariableCategoryValueConverter.ToJsonValue(variableCategory);
             if (obj is ICollection collection)

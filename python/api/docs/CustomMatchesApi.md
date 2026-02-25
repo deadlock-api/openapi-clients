@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_custom**](CustomMatchesApi.md#get_custom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 [**leave**](CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 [**ready_up**](CustomMatchesApi.md#ready_up) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
+[**start**](CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 [**unready**](CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
 
 
@@ -342,6 +343,83 @@ No authorization required
 **400** | Provided parameters are invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Ready up failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start**
+> start(lobby_id)
+
+Start Match
+
+
+This endpoint starts a custom match.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | API-Key ONLY |
+| Key | 100req/30min |
+| Global | 1000req/h |
+
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.CustomMatchesApi(api_client)
+    lobby_id = 'lobby_id_example' # str | 
+
+    try:
+        # Start Match
+        api_instance.start(lobby_id)
+    except Exception as e:
+        print("Exception when calling CustomMatchesApi->start: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lobby_id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully started the match. |  -  |
+**400** | Provided parameters are invalid. |  -  |
+**429** | Rate limit exceeded |  -  |
+**500** | Starting match failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

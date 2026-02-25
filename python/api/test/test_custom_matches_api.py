@@ -54,6 +54,13 @@ class TestCustomMatchesApi(unittest.TestCase):
         """
         pass
 
+    def test_start(self) -> None:
+        """Test case for start
+
+        Start Match
+        """
+        pass
+
     def test_unready(self) -> None:
         """Test case for unready
 

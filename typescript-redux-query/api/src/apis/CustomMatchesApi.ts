@@ -42,6 +42,10 @@ export interface ReadyUpRequest {
     lobbyId: string;
 }
 
+export interface StartRequest {
+    lobbyId: string;
+}
+
 export interface UnreadyRequest {
     lobbyId: string;
 }
@@ -237,6 +241,53 @@ function readyUpRaw<T>(requestParameters: ReadyUpRequest, requestConfig: runtime
 */
 export function readyUp<T>(requestParameters: ReadyUpRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
     return readyUpRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+ * Start Match
+ */
+function startRaw<T>(requestParameters: StartRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
+    if (requestParameters.lobbyId === null || requestParameters.lobbyId === undefined) {
+        throw new runtime.RequiredError('lobbyId','Required parameter requestParameters.lobbyId was null or undefined when calling start.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/matches/custom/{lobby_id}/start`.replace(`{${"lobby_id"}}`, encodeURIComponent(String(requestParameters.lobbyId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'POST',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+*  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+* Start Match
+*/
+export function start<T>(requestParameters: StartRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
+    return startRaw(requestParameters, requestConfig);
 }
 
 /**

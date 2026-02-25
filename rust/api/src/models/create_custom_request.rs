@@ -31,8 +31,8 @@ pub struct CreateCustomRequest {
     pub min_roster_size: Option<Option<u32>>,
     #[serde(rename = "randomize_lanes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub randomize_lanes: Option<Option<bool>>,
-    #[serde(rename = "region_mode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub region_mode: Option<Option<models::RegionMode>>,
+    #[serde(rename = "server_region", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub server_region: Option<Option<models::ServerRegion>>,
 }
 
 impl CreateCustomRequest {
@@ -46,7 +46,7 @@ impl CreateCustomRequest {
             is_publicly_visible: None,
             min_roster_size: None,
             randomize_lanes: None,
-            region_mode: None,
+            server_region: None,
         }
     }
 }

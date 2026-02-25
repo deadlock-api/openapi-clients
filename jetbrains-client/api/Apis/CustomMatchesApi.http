@@ -15,7 +15,7 @@ Accept: application/json
  "is_publicly_visible": "<string>",
  "min_roster_size": "<number>",
  "randomize_lanes": "<string>",
- "region_mode": "<string>"
+ "server_region": "<string>"
 }
 
 
@@ -31,6 +31,10 @@ POST https://api.deadlock-api.com/v1/matches/custom/{{lobby_id}}/leave
 ### Ready Up
 ## Ready Up
 POST https://api.deadlock-api.com/v1/matches/custom/{{lobby_id}}/ready
+
+### Start Match
+## Start Match
+POST https://api.deadlock-api.com/v1/matches/custom/{{lobby_id}}/start
 
 ### Unready
 ## Unready

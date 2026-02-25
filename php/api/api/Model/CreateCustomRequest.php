@@ -65,7 +65,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'is_publicly_visible' => 'bool',
         'min_roster_size' => 'int',
         'randomize_lanes' => 'bool',
-        'region_mode' => '\OpenAPI\Client\Model\RegionMode'
+        'server_region' => '\OpenAPI\Client\Model\ServerRegion'
     ];
 
     /**
@@ -84,7 +84,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'is_publicly_visible' => null,
         'min_roster_size' => 'int32',
         'randomize_lanes' => null,
-        'region_mode' => null
+        'server_region' => null
     ];
 
     /**
@@ -101,7 +101,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'is_publicly_visible' => true,
         'min_roster_size' => true,
         'randomize_lanes' => true,
-        'region_mode' => true
+        'server_region' => true
     ];
 
     /**
@@ -198,7 +198,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'is_publicly_visible' => 'is_publicly_visible',
         'min_roster_size' => 'min_roster_size',
         'randomize_lanes' => 'randomize_lanes',
-        'region_mode' => 'region_mode'
+        'server_region' => 'server_region'
     ];
 
     /**
@@ -215,7 +215,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'is_publicly_visible' => 'setIsPubliclyVisible',
         'min_roster_size' => 'setMinRosterSize',
         'randomize_lanes' => 'setRandomizeLanes',
-        'region_mode' => 'setRegionMode'
+        'server_region' => 'setServerRegion'
     ];
 
     /**
@@ -232,7 +232,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'is_publicly_visible' => 'getIsPubliclyVisible',
         'min_roster_size' => 'getMinRosterSize',
         'randomize_lanes' => 'getRandomizeLanes',
-        'region_mode' => 'getRegionMode'
+        'server_region' => 'getServerRegion'
     ];
 
     /**
@@ -300,7 +300,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('is_publicly_visible', $data ?? [], null);
         $this->setIfExists('min_roster_size', $data ?? [], null);
         $this->setIfExists('randomize_lanes', $data ?? [], null);
-        $this->setIfExists('region_mode', $data ?? [], null);
+        $this->setIfExists('server_region', $data ?? [], null);
     }
 
     /**
@@ -627,35 +627,35 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets region_mode
+     * Gets server_region
      *
-     * @return \OpenAPI\Client\Model\RegionMode|null
+     * @return \OpenAPI\Client\Model\ServerRegion|null
      */
-    public function getRegionMode()
+    public function getServerRegion()
     {
-        return $this->container['region_mode'];
+        return $this->container['server_region'];
     }
 
     /**
-     * Sets region_mode
+     * Sets server_region
      *
-     * @param \OpenAPI\Client\Model\RegionMode|null $region_mode region_mode
+     * @param \OpenAPI\Client\Model\ServerRegion|null $server_region server_region
      *
      * @return self
      */
-    public function setRegionMode($region_mode)
+    public function setServerRegion($server_region)
     {
-        if (is_null($region_mode)) {
-            array_push($this->openAPINullablesSetToNull, 'region_mode');
+        if (is_null($server_region)) {
+            array_push($this->openAPINullablesSetToNull, 'server_region');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('region_mode', $nullablesSetToNull);
+            $index = array_search('server_region', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['region_mode'] = $region_mode;
+        $this->container['server_region'] = $server_region;
 
         return $this;
     }

@@ -74,7 +74,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1769299200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1769385600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -128,6 +128,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**getCustom**](docs/Api/CustomMatchesApi.md#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 *CustomMatchesApi* | [**leave**](docs/Api/CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 *CustomMatchesApi* | [**readyUp**](docs/Api/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
+*CustomMatchesApi* | [**start**](docs/Api/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](docs/Api/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
 *InfoApi* | [**healthCheck**](docs/Api/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](docs/Api/InfoApi.md#info) | **GET** /v1/info | API Info
@@ -220,6 +221,7 @@ Class | Method | HTTP request | Description
 - [PlayerMatchHistoryEntry](docs/Model/PlayerMatchHistoryEntry.md)
 - [PlayerPerformanceCurvePoint](docs/Model/PlayerPerformanceCurvePoint.md)
 - [RegionMode](docs/Model/RegionMode.md)
+- [ServerRegion](docs/Model/ServerRegion.md)
 - [Status](docs/Model/Status.md)
 - [StatusServices](docs/Model/StatusServices.md)
 - [SteamProfile](docs/Model/SteamProfile.md)

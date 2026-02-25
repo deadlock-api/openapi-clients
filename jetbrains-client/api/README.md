@@ -37,6 +37,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**getCustom**](Apis/CustomMatchesApi.http#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 *CustomMatchesApi* | [**leave**](Apis/CustomMatchesApi.http#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 *CustomMatchesApi* | [**readyUp**](Apis/CustomMatchesApi.http#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
+*CustomMatchesApi* | [**start**](Apis/CustomMatchesApi.http#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](Apis/CustomMatchesApi.http#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
 *InfoApi* | [**healthCheck**](Apis/InfoApi.http#healthcheck) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](Apis/InfoApi.http#info) | **GET** /v1/info | API Info

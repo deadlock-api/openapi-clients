@@ -20,7 +20,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.CreateCustomRequest
 import deadlock_api_client.models.GameMode
-import deadlock_api_client.models.RegionMode
+import deadlock_api_client.models.ServerRegion
 
 class CreateCustomRequestTest : ShouldSpec() {
     init {
@@ -75,10 +75,10 @@ class CreateCustomRequestTest : ShouldSpec() {
             //modelInstance.randomizeLanes shouldBe ("TODO")
         }
 
-        // to test the property `regionMode`
-        should("test regionMode") {
+        // to test the property `serverRegion`
+        should("test serverRegion") {
             // uncomment below to test the property
-            //modelInstance.regionMode shouldBe ("TODO")
+            //modelInstance.serverRegion shouldBe ("TODO")
         }
 
     }

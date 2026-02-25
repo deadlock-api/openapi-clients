@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **IsPubliclyVisible** | **bool** |  | [optional] 
 **MinRosterSize** | **int** |  | [optional] 
 **RandomizeLanes** | **bool** |  | [optional] 
-**RegionMode** | **RegionMode** |  | [optional] 
+**ServerRegion** | **ServerRegion** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

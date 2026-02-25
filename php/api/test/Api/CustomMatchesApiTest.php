@@ -120,6 +120,18 @@ class CustomMatchesApiTest extends TestCase
     }
 
     /**
+     * Test case for start
+     *
+     * Start Match.
+     *
+     */
+    public function testStart()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for unready
      *
      * Unready.

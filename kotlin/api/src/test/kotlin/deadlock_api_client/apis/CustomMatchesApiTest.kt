@@ -58,6 +58,13 @@ class CustomMatchesApiTest : ShouldSpec() {
             //apiInstance.readyUp(lobbyId)
         }
 
+        // to test start
+        should("test start") {
+            // uncomment below to test start
+            //val lobbyId : kotlin.String = lobbyId_example // kotlin.String | 
+            //apiInstance.start(lobbyId)
+        }
+
         // to test unready
         should("test unready") {
             // uncomment below to test unready

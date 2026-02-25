@@ -92,6 +92,7 @@ __all__ = [
     "PlayerMatchHistoryEntry",
     "PlayerPerformanceCurvePoint",
     "RegionMode",
+    "ServerRegion",
     "Status",
     "StatusServices",
     "SteamProfile",
@@ -179,6 +180,7 @@ from deadlock_api_client.models.player_card_slot_stat import PlayerCardSlotStat 
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry as PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint as PlayerPerformanceCurvePoint
 from deadlock_api_client.models.region_mode import RegionMode as RegionMode
+from deadlock_api_client.models.server_region import ServerRegion as ServerRegion
 from deadlock_api_client.models.status import Status as Status
 from deadlock_api_client.models.status_services import StatusServices as StatusServices
 from deadlock_api_client.models.steam_profile import SteamProfile as SteamProfile

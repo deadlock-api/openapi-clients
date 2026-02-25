@@ -104,6 +104,8 @@ pub mod player_performance_curve_point;
 pub use self::player_performance_curve_point::PlayerPerformanceCurvePoint;
 pub mod region_mode;
 pub use self::region_mode::RegionMode;
+pub mod server_region;
+pub use self::server_region::ServerRegion;
 pub mod status;
 pub use self::status::Status;
 pub mod status_services;

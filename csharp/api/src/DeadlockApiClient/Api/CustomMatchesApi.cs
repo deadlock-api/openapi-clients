@@ -130,6 +130,29 @@ namespace DeadlockApiClient.Api
         Task<IReadyUpApiResponse?> ReadyUpOrDefaultAsync(string lobbyId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Start Match
+        /// </summary>
+        /// <remarks>
+        ///  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lobbyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IStartApiResponse"/>&gt;</returns>
+        Task<IStartApiResponse> StartAsync(string lobbyId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Start Match
+        /// </summary>
+        /// <remarks>
+        ///  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// </remarks>
+        /// <param name="lobbyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IStartApiResponse"/>?&gt;</returns>
+        Task<IStartApiResponse?> StartOrDefaultAsync(string lobbyId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Unready
         /// </summary>
         /// <remarks>
@@ -274,6 +297,36 @@ namespace DeadlockApiClient.Api
     }
 
     /// <summary>
+    /// The <see cref="IStartApiResponse"/>
+    /// </summary>
+    public interface IStartApiResponse : DeadlockApiClient.Client.IApiResponse
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
     /// The <see cref="IUnreadyApiResponse"/>
     /// </summary>
     public interface IUnreadyApiResponse : DeadlockApiClient.Client.IApiResponse
@@ -386,6 +439,26 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorReadyUp(Exception exception)
         {
             OnErrorReadyUp?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnStart;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorStart;
+
+        internal void ExecuteOnStart(CustomMatchesApi.StartApiResponse apiResponse)
+        {
+            OnStart?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorStart(Exception exception)
+        {
+            OnErrorStart?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -1371,6 +1444,225 @@ namespace DeadlockApiClient.Api
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
             public ReadyUpApiResponse(ILogger<ReadyUpApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatStart(ref string lobbyId);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="lobbyId"></param>
+        /// <returns></returns>
+        private void ValidateStart(string lobbyId)
+        {
+            if (lobbyId == null)
+                throw new ArgumentNullException(nameof(lobbyId));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="lobbyId"></param>
+        private void AfterStartDefaultImplementation(IStartApiResponse apiResponseLocalVar, string lobbyId)
+        {
+            bool suppressDefaultLog = false;
+            AfterStart(ref suppressDefaultLog, apiResponseLocalVar, lobbyId);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="lobbyId"></param>
+        partial void AfterStart(ref bool suppressDefaultLog, IStartApiResponse apiResponseLocalVar, string lobbyId);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="lobbyId"></param>
+        private void OnErrorStartDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string lobbyId)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorStart(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, lobbyId);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="lobbyId"></param>
+        partial void OnErrorStart(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string lobbyId);
+
+        /// <summary>
+        /// Start Match  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// </summary>
+        /// <param name="lobbyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IStartApiResponse"/>&gt;</returns>
+        public async Task<IStartApiResponse?> StartOrDefaultAsync(string lobbyId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await StartAsync(lobbyId, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Start Match  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lobbyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IStartApiResponse"/>&gt;</returns>
+        public async Task<IStartApiResponse> StartAsync(string lobbyId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateStart(lobbyId);
+
+                FormatStart(ref lobbyId);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/matches/custom/{lobby_id}/start"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/custom/{lobby_id}/start");
+                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Blobby_id%7D", Uri.EscapeDataString(lobbyId.ToString()));
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Post;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        ILogger<StartApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<StartApiResponse>();
+                        StartApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/matches/custom/{lobby_id}/start", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterStartDefaultImplementation(apiResponseLocalVar, lobbyId);
+
+                        Events.ExecuteOnStart(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorStartDefaultImplementation(e, "/v1/matches/custom/{lobby_id}/start", uriBuilderLocalVar.Path, lobbyId);
+                Events.ExecuteOnErrorStart(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="StartApiResponse"/>
+        /// </summary>
+        public partial class StartApiResponse : DeadlockApiClient.Client.ApiResponse, IStartApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<StartApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="StartApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public StartApiResponse(ILogger<StartApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="StartApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public StartApiResponse(ILogger<StartApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);

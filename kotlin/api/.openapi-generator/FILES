@@ -66,6 +66,7 @@ docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
 docs/RegionMode.md
 docs/SQLApi.md
+docs/ServerRegion.md
 docs/Status.md
 docs/StatusServices.md
 docs/SteamProfile.md
@@ -155,6 +156,7 @@ src/main/kotlin/deadlock_api_client/models/PlayerCardSlotStat.kt
 src/main/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntry.kt
 src/main/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePoint.kt
 src/main/kotlin/deadlock_api_client/models/RegionMode.kt
+src/main/kotlin/deadlock_api_client/models/ServerRegion.kt
 src/main/kotlin/deadlock_api_client/models/Status.kt
 src/main/kotlin/deadlock_api_client/models/StatusServices.kt
 src/main/kotlin/deadlock_api_client/models/SteamProfile.kt
@@ -226,6 +228,7 @@ src/test/kotlin/deadlock_api_client/models/PlayerCardTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePointTest.kt
 src/test/kotlin/deadlock_api_client/models/RegionModeTest.kt
+src/test/kotlin/deadlock_api_client/models/ServerRegionTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusServicesTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusTest.kt
 src/test/kotlin/deadlock_api_client/models/SteamProfileTest.kt

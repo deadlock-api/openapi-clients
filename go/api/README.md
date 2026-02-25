@@ -119,6 +119,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesAPI* | [**GetCustom**](docs/CustomMatchesAPI.md#getcustom) | **Get** /v1/matches/custom/{party_id}/match-id | Get Match ID
 *CustomMatchesAPI* | [**Leave**](docs/CustomMatchesAPI.md#leave) | **Post** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
 *CustomMatchesAPI* | [**ReadyUp**](docs/CustomMatchesAPI.md#readyup) | **Post** /v1/matches/custom/{lobby_id}/ready | Ready Up
+*CustomMatchesAPI* | [**Start**](docs/CustomMatchesAPI.md#start) | **Post** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesAPI* | [**Unready**](docs/CustomMatchesAPI.md#unready) | **Post** /v1/matches/custom/{lobby_id}/unready | Unready
 *InfoAPI* | [**HealthCheck**](docs/InfoAPI.md#healthcheck) | **Get** /v1/info/health | Health Check
 *InfoAPI* | [**Info**](docs/InfoAPI.md#info) | **Get** /v1/info | API Info
@@ -212,6 +213,7 @@ Class | Method | HTTP request | Description
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [RegionMode](docs/RegionMode.md)
+ - [ServerRegion](docs/ServerRegion.md)
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
  - [SteamProfile](docs/SteamProfile.md)

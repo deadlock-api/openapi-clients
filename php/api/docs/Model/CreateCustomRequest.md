@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **is_publicly_visible** | **bool** |  | [optional]
 **min_roster_size** | **int** |  | [optional]
 **randomize_lanes** | **bool** |  | [optional]
-**region_mode** | [**\OpenAPI\Client\Model\RegionMode**](RegionMode.md) |  | [optional]
+**server_region** | [**\OpenAPI\Client\Model\ServerRegion**](ServerRegion.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

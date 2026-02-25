@@ -38,6 +38,12 @@ pub struct ReadyUpParams {
     pub lobby_id: String
 }
 
+/// struct for passing parameters to the method [`start`]
+#[derive(Clone, Debug)]
+pub struct StartParams {
+    pub lobby_id: String
+}
+
 /// struct for passing parameters to the method [`unready`]
 #[derive(Clone, Debug)]
 pub struct UnreadyParams {
@@ -79,6 +85,16 @@ pub enum LeaveError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadyUpError {
+    Status400(),
+    Status429(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`start`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum StartError {
     Status400(),
     Status429(),
     Status500(),
@@ -211,6 +227,30 @@ pub async fn ready_up(configuration: &configuration::Configuration, params: Read
     } else {
         let content = resp.text().await?;
         let entity: Option<ReadyUpError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+pub async fn start(configuration: &configuration::Configuration, params: StartParams) -> Result<(), Error<StartError>> {
+
+    let uri_str = format!("{}/v1/matches/custom/{lobby_id}/start", configuration.base_path, lobby_id=crate::apis::urlencode(params.lobby_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<StartError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

@@ -51,6 +51,7 @@ export * from './PlayerCardSlotStat';
 export * from './PlayerMatchHistoryEntry';
 export * from './PlayerPerformanceCurvePoint';
 export * from './RegionMode';
+export * from './ServerRegion';
 export * from './Status';
 export * from './StatusServices';
 export * from './SteamProfile';

@@ -260,7 +260,7 @@ export interface CreateCustomRequest {
     'is_publicly_visible'?: boolean | null;
     'min_roster_size'?: number | null;
     'randomize_lanes'?: boolean | null;
-    'region_mode'?: RegionMode | null;
+    'server_region'?: ServerRegion | null;
 }
 
 
@@ -800,6 +800,39 @@ export const RegionMode = {
 } as const;
 
 export type RegionMode = typeof RegionMode[keyof typeof RegionMode];
+
+
+
+export const ServerRegion = {
+    Europe: 'europe',
+    EuAmsterdam: 'eu_amsterdam',
+    EuPoland: 'eu_poland',
+    EuStockholm: 'eu_stockholm',
+    EuHelsinki: 'eu_helsinki',
+    EuFalkenstein: 'eu_falkenstein',
+    EuSpain: 'eu_spain',
+    EuEast: 'eu_east',
+    EuLondon: 'eu_london',
+    SouthAfrica: 'south_africa',
+    UsWest: 'us_west',
+    UsEast: 'us_east',
+    UsNorthCentral: 'us_north_central',
+    UsSouthCentral: 'us_south_central',
+    UsSouthEast: 'us_south_east',
+    UsSouthWest: 'us_south_west',
+    Australia: 'australia',
+    Singapore: 'singapore',
+    Japan: 'japan',
+    HongKong: 'hong_kong',
+    MpHongKong: 'mp_hong_kong',
+    Seoul: 'seoul',
+    Chile: 'chile',
+    Peru: 'peru',
+    Argentina: 'argentina',
+    SouthAmerica: 'south_america'
+} as const;
+
+export type ServerRegion = typeof ServerRegion[keyof typeof ServerRegion];
 
 
 export interface Status {
@@ -5540,6 +5573,39 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
+         *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+         * @summary Start Match
+         * @param {string} lobbyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        start: async (lobbyId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'lobbyId' is not null or undefined
+            assertParamExists('start', 'lobbyId', lobbyId)
+            const localVarPath = `/v1/matches/custom/{lobby_id}/start`
+                .replace(`{${"lobby_id"}}`, encodeURIComponent(String(lobbyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
          * @summary Unready
          * @param {string} lobbyId 
@@ -5634,6 +5700,19 @@ export const CustomMatchesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+         * @summary Start Match
+         * @param {string} lobbyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async start(lobbyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.start(lobbyId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomMatchesApi.start']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
          * @summary Unready
          * @param {string} lobbyId 
@@ -5696,6 +5775,16 @@ export const CustomMatchesApiFactory = function (configuration?: Configuration, 
             return localVarFp.readyUp(requestParameters.lobbyId, options).then((request) => request(axios, basePath));
         },
         /**
+         *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+         * @summary Start Match
+         * @param {CustomMatchesApiStartRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        start(requestParameters: CustomMatchesApiStartRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.start(requestParameters.lobbyId, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
          * @summary Unready
          * @param {CustomMatchesApiUnreadyRequest} requestParameters Request parameters.
@@ -5733,6 +5822,13 @@ export interface CustomMatchesApiLeaveRequest {
  * Request parameters for readyUp operation in CustomMatchesApi.
  */
 export interface CustomMatchesApiReadyUpRequest {
+    readonly lobbyId: string
+}
+
+/**
+ * Request parameters for start operation in CustomMatchesApi.
+ */
+export interface CustomMatchesApiStartRequest {
     readonly lobbyId: string
 }
 
@@ -5789,6 +5885,17 @@ export class CustomMatchesApi extends BaseAPI {
      */
     public readyUp(requestParameters: CustomMatchesApiReadyUpRequest, options?: RawAxiosRequestConfig) {
         return CustomMatchesApiFp(this.configuration).readyUp(requestParameters.lobbyId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+     * @summary Start Match
+     * @param {CustomMatchesApiStartRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public start(requestParameters: CustomMatchesApiStartRequest, options?: RawAxiosRequestConfig) {
+        return CustomMatchesApiFp(this.configuration).start(requestParameters.lobbyId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

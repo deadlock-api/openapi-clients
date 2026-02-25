@@ -29,7 +29,7 @@ type CreateCustomRequest struct {
 	IsPubliclyVisible NullableBool `json:"is_publicly_visible,omitempty"`
 	MinRosterSize NullableInt32 `json:"min_roster_size,omitempty"`
 	RandomizeLanes NullableBool `json:"randomize_lanes,omitempty"`
-	RegionMode NullableRegionMode `json:"region_mode,omitempty"`
+	ServerRegion NullableServerRegion `json:"server_region,omitempty"`
 }
 
 // NewCreateCustomRequest instantiates a new CreateCustomRequest object
@@ -385,46 +385,46 @@ func (o *CreateCustomRequest) UnsetRandomizeLanes() {
 	o.RandomizeLanes.Unset()
 }
 
-// GetRegionMode returns the RegionMode field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateCustomRequest) GetRegionMode() RegionMode {
-	if o == nil || IsNil(o.RegionMode.Get()) {
-		var ret RegionMode
+// GetServerRegion returns the ServerRegion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateCustomRequest) GetServerRegion() ServerRegion {
+	if o == nil || IsNil(o.ServerRegion.Get()) {
+		var ret ServerRegion
 		return ret
 	}
-	return *o.RegionMode.Get()
+	return *o.ServerRegion.Get()
 }
 
-// GetRegionModeOk returns a tuple with the RegionMode field value if set, nil otherwise
+// GetServerRegionOk returns a tuple with the ServerRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateCustomRequest) GetRegionModeOk() (*RegionMode, bool) {
+func (o *CreateCustomRequest) GetServerRegionOk() (*ServerRegion, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.RegionMode.Get(), o.RegionMode.IsSet()
+	return o.ServerRegion.Get(), o.ServerRegion.IsSet()
 }
 
-// HasRegionMode returns a boolean if a field has been set.
-func (o *CreateCustomRequest) HasRegionMode() bool {
-	if o != nil && o.RegionMode.IsSet() {
+// HasServerRegion returns a boolean if a field has been set.
+func (o *CreateCustomRequest) HasServerRegion() bool {
+	if o != nil && o.ServerRegion.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRegionMode gets a reference to the given NullableRegionMode and assigns it to the RegionMode field.
-func (o *CreateCustomRequest) SetRegionMode(v RegionMode) {
-	o.RegionMode.Set(&v)
+// SetServerRegion gets a reference to the given NullableServerRegion and assigns it to the ServerRegion field.
+func (o *CreateCustomRequest) SetServerRegion(v ServerRegion) {
+	o.ServerRegion.Set(&v)
 }
-// SetRegionModeNil sets the value for RegionMode to be an explicit nil
-func (o *CreateCustomRequest) SetRegionModeNil() {
-	o.RegionMode.Set(nil)
+// SetServerRegionNil sets the value for ServerRegion to be an explicit nil
+func (o *CreateCustomRequest) SetServerRegionNil() {
+	o.ServerRegion.Set(nil)
 }
 
-// UnsetRegionMode ensures that no value is present for RegionMode, not even an explicit nil
-func (o *CreateCustomRequest) UnsetRegionMode() {
-	o.RegionMode.Unset()
+// UnsetServerRegion ensures that no value is present for ServerRegion, not even an explicit nil
+func (o *CreateCustomRequest) UnsetServerRegion() {
+	o.ServerRegion.Unset()
 }
 
 func (o CreateCustomRequest) MarshalJSON() ([]byte, error) {
@@ -461,8 +461,8 @@ func (o CreateCustomRequest) ToMap() (map[string]interface{}, error) {
 	if o.RandomizeLanes.IsSet() {
 		toSerialize["randomize_lanes"] = o.RandomizeLanes.Get()
 	}
-	if o.RegionMode.IsSet() {
-		toSerialize["region_mode"] = o.RegionMode.Get()
+	if o.ServerRegion.IsSet() {
+		toSerialize["server_region"] = o.ServerRegion.Get()
 	}
 	return toSerialize, nil
 }

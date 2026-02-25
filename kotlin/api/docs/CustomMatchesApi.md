@@ -8,6 +8,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**getCustom**](CustomMatchesApi.md#getCustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID |
 | [**leave**](CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby |
 | [**readyUp**](CustomMatchesApi.md#readyUp) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up |
+| [**start**](CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match |
 | [**unready**](CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready |
 
 
@@ -171,6 +172,51 @@ try {
     e.printStackTrace()
 } catch (e: ServerException) {
     println("5xx response calling CustomMatchesApi#readyUp")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **lobbyId** | **kotlin.String**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a id="start"></a>
+# **start**
+> start(lobbyId)
+
+Start Match
+
+ This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = CustomMatchesApi()
+val lobbyId : kotlin.String = lobbyId_example // kotlin.String | 
+try {
+    apiInstance.start(lobbyId)
+} catch (e: ClientException) {
+    println("4xx response calling CustomMatchesApi#start")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CustomMatchesApi#start")
     e.printStackTrace()
 }
 ```

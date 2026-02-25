@@ -41,9 +41,9 @@ namespace DeadlockApiClient.Model
         /// <param name="isPubliclyVisible">isPubliclyVisible</param>
         /// <param name="minRosterSize">minRosterSize</param>
         /// <param name="randomizeLanes">randomizeLanes</param>
-        /// <param name="regionMode">regionMode</param>
+        /// <param name="serverRegion">serverRegion</param>
         [JsonConstructor]
-        public CreateCustomRequest(Option<string?> callbackUrl = default, Option<bool?> cheatsEnabled = default, Option<bool?> disableAutoReady = default, Option<bool?> duplicateHeroesEnabled = default, Option<GameMode?> gameMode = default, Option<bool?> isPubliclyVisible = default, Option<int?> minRosterSize = default, Option<bool?> randomizeLanes = default, Option<RegionMode?> regionMode = default)
+        public CreateCustomRequest(Option<string?> callbackUrl = default, Option<bool?> cheatsEnabled = default, Option<bool?> disableAutoReady = default, Option<bool?> duplicateHeroesEnabled = default, Option<GameMode?> gameMode = default, Option<bool?> isPubliclyVisible = default, Option<int?> minRosterSize = default, Option<bool?> randomizeLanes = default, Option<ServerRegion?> serverRegion = default)
         {
             CallbackUrlOption = callbackUrl;
             CheatsEnabledOption = cheatsEnabled;
@@ -53,7 +53,7 @@ namespace DeadlockApiClient.Model
             IsPubliclyVisibleOption = isPubliclyVisible;
             MinRosterSizeOption = minRosterSize;
             RandomizeLanesOption = randomizeLanes;
-            RegionModeOption = regionMode;
+            ServerRegionOption = serverRegion;
             OnCreated();
         }
 
@@ -73,17 +73,17 @@ namespace DeadlockApiClient.Model
         public GameMode? GameMode { get { return this.GameModeOption; } set { this.GameModeOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of RegionMode
+        /// Used to track the state of ServerRegion
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<RegionMode?> RegionModeOption { get; private set; }
+        public Option<ServerRegion?> ServerRegionOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets RegionMode
+        /// Gets or Sets ServerRegion
         /// </summary>
-        [JsonPropertyName("region_mode")]
-        public RegionMode? RegionMode { get { return this.RegionModeOption; } set { this.RegionModeOption = new(value); } }
+        [JsonPropertyName("server_region")]
+        public ServerRegion? ServerRegion { get { return this.ServerRegionOption; } set { this.ServerRegionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CallbackUrl
@@ -194,7 +194,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  IsPubliclyVisible: ").Append(IsPubliclyVisible).Append("\n");
             sb.Append("  MinRosterSize: ").Append(MinRosterSize).Append("\n");
             sb.Append("  RandomizeLanes: ").Append(RandomizeLanes).Append("\n");
-            sb.Append("  RegionMode: ").Append(RegionMode).Append("\n");
+            sb.Append("  ServerRegion: ").Append(ServerRegion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -246,7 +246,7 @@ namespace DeadlockApiClient.Model
             Option<bool?> isPubliclyVisible = default;
             Option<int?> minRosterSize = default;
             Option<bool?> randomizeLanes = default;
-            Option<RegionMode?> regionMode = default;
+            Option<ServerRegion?> serverRegion = default;
 
             while (utf8JsonReader.Read())
             {
@@ -289,10 +289,10 @@ namespace DeadlockApiClient.Model
                         case "randomize_lanes":
                             randomizeLanes = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
-                        case "region_mode":
-                            string? regionModeRawValue = utf8JsonReader.GetString();
-                            if (regionModeRawValue != null)
-                                regionMode = new Option<RegionMode?>(RegionModeValueConverter.FromStringOrDefault(regionModeRawValue));
+                        case "server_region":
+                            string? serverRegionRawValue = utf8JsonReader.GetString();
+                            if (serverRegionRawValue != null)
+                                serverRegion = new Option<ServerRegion?>(ServerRegionValueConverter.FromStringOrDefault(serverRegionRawValue));
                             break;
                         default:
                             break;
@@ -300,7 +300,7 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            return new CreateCustomRequest(callbackUrl, cheatsEnabled, disableAutoReady, duplicateHeroesEnabled, gameMode, isPubliclyVisible, minRosterSize, randomizeLanes, regionMode);
+            return new CreateCustomRequest(callbackUrl, cheatsEnabled, disableAutoReady, duplicateHeroesEnabled, gameMode, isPubliclyVisible, minRosterSize, randomizeLanes, serverRegion);
         }
 
         /// <summary>
@@ -377,14 +377,14 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("randomize_lanes");
 
-            if (createCustomRequest.RegionModeOption.IsSet)
-                if (createCustomRequest.RegionModeOption!.Value != null)
+            if (createCustomRequest.ServerRegionOption.IsSet)
+                if (createCustomRequest.ServerRegionOption!.Value != null)
                 {
-                    var regionModeRawValue = RegionModeValueConverter.ToJsonValue(createCustomRequest.RegionModeOption.Value!.Value);
-                    writer.WriteString("region_mode", regionModeRawValue);
+                    var serverRegionRawValue = ServerRegionValueConverter.ToJsonValue(createCustomRequest.ServerRegionOption.Value!.Value);
+                    writer.WriteString("server_region", serverRegionRawValue);
                 }
                 else
-                    writer.WriteNull("region_mode");
+                    writer.WriteNull("server_region");
         }
     }
 }

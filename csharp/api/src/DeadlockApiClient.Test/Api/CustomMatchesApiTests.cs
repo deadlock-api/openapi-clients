@@ -95,6 +95,16 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test Start
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task StartAsyncTest()
+        {
+            string lobbyId = default!;
+            await _instance.StartAsync(lobbyId);
+        }
+
+        /// <summary>
         /// Test Unready
         /// </summary>
         [Fact (Skip = "not implemented")]
