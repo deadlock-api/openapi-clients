@@ -897,7 +897,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: "#/components/schemas/SteamInfoV1"
           description: Successful Response
         "422":
           content:
@@ -1009,7 +1010,11 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                items:
+                  $ref: "#/components/schemas/RawHeroV2"
+                title: Response Get Raw Heroes Raw Heroes Get
+                type: array
           description: Successful Response
         "422":
           content:
@@ -1037,7 +1042,11 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                items:
+                  $ref: "#/components/schemas/Response_Get_Raw_Items_Raw_Items_Get_inner"
+                title: Response Get Raw Items Raw Items Get
+                type: array
           description: Successful Response
         "422":
           content:
@@ -1065,7 +1074,11 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                items:
+                  $ref: "#/components/schemas/RawAccoladeV2"
+                title: Response Get Raw Accolades Raw Accolades Get
+                type: array
           description: Successful Response
         "422":
           content:
@@ -4202,6 +4215,224 @@ components:
           title: Property Upgrades
           type: array
       title: RawAbilityUpgradeV2
+    RawAbilityV2:
+      example:
+        image: image
+        start_trained: true
+        boss_damage_scale: 6.027456183070403
+        video: video
+        type: ability
+        behaviour_bits: behaviour_bits
+        upgrades:
+        - property_upgrades:
+          - scale_stat_filter: scale_stat_filter
+            bonus: Bonus
+            name: name
+            upgrade_type: upgrade_type
+          - scale_stat_filter: scale_stat_filter
+            bonus: Bonus
+            name: name
+            upgrade_type: upgrade_type
+        - property_upgrades:
+          - scale_stat_filter: scale_stat_filter
+            bonus: Bonus
+            name: name
+            upgrade_type: upgrade_type
+          - scale_stat_filter: scale_stat_filter
+            bonus: Bonus
+            name: name
+            upgrade_type: upgrade_type
+        css_class: css_class
+        update_time: 0
+        tooltip_details: ""
+        ability_type: ""
+        class_name: class_name
+        dependant_abilities:
+        - dependant_abilities
+        - dependant_abilities
+        properties:
+          key:
+            css_class: css_class
+            disable_value: disable_value
+            usage_flags:
+            - ConditionallyApplied
+            - ConditionallyApplied
+            icon_path: icon_path
+            can_set_token_override: true
+            provided_property_type: provided_property_type
+            street_brawl_value: Street_Brawl_Value
+            negative_attribute: true
+            scale_function: ""
+            value: Value_1
+            loc_token_override: loc_token_override
+            display_units: display_units
+        weapon_info: ""
+      properties:
+        class_name:
+          title: Class Name
+          type: string
+        start_trained:
+          nullable: true
+          type: boolean
+        image:
+          nullable: true
+          type: string
+        update_time:
+          nullable: true
+          type: integer
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/RawItemPropertyV2"
+          nullable: true
+        weapon_info:
+          allOf:
+          - $ref: "#/components/schemas/RawItemWeaponInfoV2"
+          nullable: true
+        css_class:
+          nullable: true
+          type: string
+        type:
+          default: ability
+          enum:
+          - ability
+          title: Type
+          type: string
+        behaviour_bits:
+          nullable: true
+          type: string
+        upgrades:
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgradeV2"
+          title: Upgrades
+          type: array
+        ability_type:
+          allOf:
+          - $ref: "#/components/schemas/AbilityTypeV2"
+          nullable: true
+        boss_damage_scale:
+          nullable: true
+          type: number
+        dependant_abilities:
+          items:
+            type: string
+          nullable: true
+          type: array
+        video:
+          nullable: true
+          type: string
+        tooltip_details:
+          allOf:
+          - $ref: "#/components/schemas/RawAbilityV2TooltipDetails"
+          nullable: true
+      required:
+      - class_name
+      - upgrades
+      title: RawAbilityV2
+    RawAbilityV2TooltipDetails:
+      properties:
+        info_sections:
+          items:
+            $ref: "#/components/schemas/RawAbilityV2TooltipDetailsInfoSection"
+          nullable: true
+          type: array
+        additional_header_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: RawAbilityV2TooltipDetails
+    RawAbilityV2TooltipDetailsInfoSection:
+      properties:
+        property_upgrade_required:
+          nullable: true
+          type: string
+        loc_string:
+          nullable: true
+          type: string
+        properties_block:
+          items:
+            $ref: "#/components/schemas/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock"
+          nullable: true
+          type: array
+        basic_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: RawAbilityV2TooltipDetailsInfoSection
+    RawAbilityV2TooltipDetailsInfoSectionPropertyBlock:
+      properties:
+        loc_string:
+          nullable: true
+          type: string
+        properties:
+          items:
+            $ref: "#/components/schemas/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty"
+          nullable: true
+          type: array
+      title: RawAbilityV2TooltipDetailsInfoSectionPropertyBlock
+    RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty:
+      properties:
+        requires_ability_upgrade:
+          nullable: true
+          type: boolean
+        show_property_value:
+          nullable: true
+          type: boolean
+        important_property:
+          nullable: true
+          type: string
+        status_effect_value:
+          nullable: true
+          type: string
+        important_property_icon_path:
+          nullable: true
+          readOnly: true
+          type: string
+      required:
+      - important_property_icon_path
+      title: RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
+    RawAccoladeV2:
+      example:
+        flavor_name: flavor_name
+        enabled_game_modes:
+        - normal
+        - normal
+        tracked_stat_name: ability_damage
+        description: description
+        threshold_type: automatic
+        id: 0
+        class_name: class_name
+      properties:
+        class_name:
+          title: Class Name
+          type: string
+        id:
+          title: Id
+          type: integer
+        tracked_stat_name:
+          $ref: "#/components/schemas/TrackedStatName"
+        flavor_name:
+          title: Flavor Name
+          type: string
+        description:
+          title: Description
+          type: string
+        threshold_type:
+          $ref: "#/components/schemas/ThresholdType"
+        enabled_game_modes:
+          items:
+            $ref: "#/components/schemas/GameMode"
+          nullable: true
+          type: array
+      required:
+      - class_name
+      - description
+      - flavor_name
+      - id
+      - threshold_type
+      - tracked_stat_name
+      title: RawAccoladeV2
     RawHeroItemSlotInfoValueV2:
       example:
         max_purchases_for_tier:
@@ -4216,6 +4447,26 @@ components:
       required:
       - max_purchases_for_tier
       title: RawHeroItemSlotInfoValueV2
+    RawHeroLevelInfoV2:
+      example:
+        use_standard_upgrade: true
+        bonus_currencies:
+          key: 5
+        required_gold: 6
+      properties:
+        use_standard_upgrade:
+          nullable: true
+          type: boolean
+        bonus_currencies:
+          additionalProperties:
+            type: integer
+          nullable: true
+        required_gold:
+          title: Required Gold
+          type: integer
+      required:
+      - required_gold
+      title: RawHeroLevelInfoV2
     RawHeroMapModCostBonusesV2:
       example:
         bonus: 1.4894159098541704
@@ -4285,6 +4536,40 @@ components:
       required:
       - display_stats
       title: RawHeroShopSpiritStatsDisplayV2
+    RawHeroShopStatDisplayV2:
+      example:
+        vitality_stats_display:
+          display_stats:
+          - display_stats
+          - display_stats
+          other_display_stats:
+          - other_display_stats
+          - other_display_stats
+        weapon_stats_display:
+          display_stats:
+          - display_stats
+          - display_stats
+          weapon_image: weapon_image
+          weapon_attributes: weapon_attributes
+          other_display_stats:
+          - other_display_stats
+          - other_display_stats
+        spirit_stats_display:
+          display_stats:
+          - display_stats
+          - display_stats
+      properties:
+        spirit_stats_display:
+          $ref: "#/components/schemas/RawHeroShopSpiritStatsDisplayV2"
+        vitality_stats_display:
+          $ref: "#/components/schemas/RawHeroShopVitalityStatsDisplayV2"
+        weapon_stats_display:
+          $ref: "#/components/schemas/RawHeroShopWeaponStatsDisplayV2"
+      required:
+      - spirit_stats_display
+      - vitality_stats_display
+      - weapon_stats_display
+      title: RawHeroShopStatDisplayV2
     RawHeroShopVitalityStatsDisplayV2:
       example:
         display_stats:
@@ -4308,6 +4593,145 @@ components:
       - display_stats
       - other_display_stats
       title: RawHeroShopVitalityStatsDisplayV2
+    RawHeroShopWeaponStatsDisplayV2:
+      example:
+        display_stats:
+        - display_stats
+        - display_stats
+        weapon_image: weapon_image
+        weapon_attributes: weapon_attributes
+        other_display_stats:
+        - other_display_stats
+        - other_display_stats
+      properties:
+        display_stats:
+          items:
+            type: string
+          title: Display Stats
+          type: array
+        other_display_stats:
+          items:
+            type: string
+          title: Other Display Stats
+          type: array
+        weapon_attributes:
+          nullable: true
+          type: string
+        weapon_image:
+          nullable: true
+          type: string
+      required:
+      - display_stats
+      - other_display_stats
+      title: RawHeroShopWeaponStatsDisplayV2
+    RawHeroStartingStatsV2:
+      example:
+        heavy_melee_damage: 2
+        tech_range: 8
+        weapon_power_scale: 1
+        crit_damage_received_scale: 9.965781217890562
+        reload_speed: 1
+        stamina: 6
+        move_acceleration: 9.301444243932576
+        crouch_speed: 7.061401241503109
+        stamina_regen_per_second: 1.1730742509559433
+        max_health: 4
+        ability_resource_max: 4
+        bullet_armor_damage_reduction: 9.018348186070783
+        tech_armor_damage_reduction: 6.683562403749608
+        sprint_speed: 2.3021358869347655
+        proc_build_up_rate_scale: 1
+        tech_duration: 9
+        ability_resource_regen_per_second: 5
+        max_move_speed: 5.637376656633329
+        light_melee_damage: 3.616076749251911
+        weapon_power: 7
+        base_health_regen: 7.457744773683766
+      properties:
+        max_move_speed:
+          title: Max Move Speed
+          type: number
+        sprint_speed:
+          title: Sprint Speed
+          type: number
+        crouch_speed:
+          title: Crouch Speed
+          type: number
+        move_acceleration:
+          title: Move Acceleration
+          type: number
+        light_melee_damage:
+          title: Light Melee Damage
+          type: number
+        heavy_melee_damage:
+          title: Heavy Melee Damage
+          type: integer
+        max_health:
+          title: Max Health
+          type: integer
+        weapon_power:
+          title: Weapon Power
+          type: integer
+        reload_speed:
+          title: Reload Speed
+          type: integer
+        weapon_power_scale:
+          title: Weapon Power Scale
+          type: integer
+        proc_build_up_rate_scale:
+          title: Proc Build Up Rate Scale
+          type: integer
+        stamina:
+          title: Stamina
+          type: integer
+        base_health_regen:
+          title: Base Health Regen
+          type: number
+        stamina_regen_per_second:
+          title: Stamina Regen Per Second
+          type: number
+        ability_resource_max:
+          title: Ability Resource Max
+          type: integer
+        ability_resource_regen_per_second:
+          title: Ability Resource Regen Per Second
+          type: integer
+        crit_damage_received_scale:
+          title: Crit Damage Received Scale
+          type: number
+        tech_duration:
+          title: Tech Duration
+          type: integer
+        tech_armor_damage_reduction:
+          nullable: true
+          type: number
+        tech_range:
+          title: Tech Range
+          type: integer
+        bullet_armor_damage_reduction:
+          nullable: true
+          type: number
+      required:
+      - ability_resource_max
+      - ability_resource_regen_per_second
+      - base_health_regen
+      - crit_damage_received_scale
+      - crouch_speed
+      - heavy_melee_damage
+      - light_melee_damage
+      - max_health
+      - max_move_speed
+      - move_acceleration
+      - proc_build_up_rate_scale
+      - reload_speed
+      - sprint_speed
+      - stamina
+      - stamina_regen_per_second
+      - tech_duration
+      - tech_range
+      - weapon_power
+      - weapon_power_scale
+      title: RawHeroStartingStatsV2
     RawHeroStatsDisplayV2:
       example:
         health_stats:
@@ -4403,6 +4827,322 @@ components:
       - display_stats
       - weapon_stat_display
       title: RawHeroStatsUIV2
+    RawHeroV2:
+      example:
+        complexity: 1
+        icon_hero_card: icon_hero_card
+        footstep_sound_travel_distance_meters: 6.965117697638846
+        item_draft_weights:
+          key: 6.027456183070403
+        skin: 5
+        prerelease_only: true
+        stealth_speed_meters_per_second: 1.284659006116532
+        minimap_image: minimap_image
+        shop_stat_display:
+          vitality_stats_display:
+            display_stats:
+            - display_stats
+            - display_stats
+            other_display_stats:
+            - other_display_stats
+            - other_display_stats
+          weapon_stats_display:
+            display_stats:
+            - display_stats
+            - display_stats
+            weapon_image: weapon_image
+            weapon_attributes: weapon_attributes
+            other_display_stats:
+            - other_display_stats
+            - other_display_stats
+          spirit_stats_display:
+            display_stats:
+            - display_stats
+            - display_stats
+        step_height: 2.8841621266687802
+        hero_card_critical: hero_card_critical
+        gun_tag: gun_tag
+        disabled: true
+        hero_type: ""
+        level_info:
+          key:
+            use_standard_upgrade: true
+            bonus_currencies:
+              key: 5
+            required_gold: 6
+        id: 0
+        class_name: class_name
+        stats_display:
+          health_stats:
+          - health_stats
+          - health_stats
+          magic_stats:
+          - magic_stats
+          - magic_stats
+          weapon_stats:
+          - weapon_stats
+          - weapon_stats
+          weapon_header_stats:
+          - weapon_header_stats
+          - weapon_header_stats
+          magic_header_stats:
+          - magic_header_stats
+          - magic_header_stats
+          health_header_stats:
+          - health_header_stats
+          - health_header_stats
+        item_slot_info:
+          key:
+            max_purchases_for_tier:
+            - 2
+            - 2
+        assigned_players_only: true
+        limited_testing: true
+        cost_bonuses:
+          key:
+          - bonus: 1.4894159098541704
+            gold_threshold: 1
+            percent_on_graph: 6.84685269835264
+          - bonus: 1.4894159098541704
+            gold_threshold: 1
+            percent_on_graph: 6.84685269835264
+        collision_height: 6.438423552598547
+        hero_stats_ui:
+          display_stats:
+          - stat_type: stat_type
+            category: category
+          - stat_type: stat_type
+            category: category
+          weapon_stat_display: weapon_stat_display
+        scaling_stats:
+          key:
+            scaling_stat: scaling_stat
+            scale: 1.1730742509559433
+        starting_stats:
+          heavy_melee_damage: 2
+          tech_range: 8
+          weapon_power_scale: 1
+          crit_damage_received_scale: 9.965781217890562
+          reload_speed: 1
+          stamina: 6
+          move_acceleration: 9.301444243932576
+          crouch_speed: 7.061401241503109
+          stamina_regen_per_second: 1.1730742509559433
+          max_health: 4
+          ability_resource_max: 4
+          bullet_armor_damage_reduction: 9.018348186070783
+          tech_armor_damage_reduction: 6.683562403749608
+          sprint_speed: 2.3021358869347655
+          proc_build_up_rate_scale: 1
+          tech_duration: 9
+          ability_resource_regen_per_second: 5
+          max_move_speed: 5.637376656633329
+          light_melee_damage: 3.616076749251911
+          weapon_power: 7
+          base_health_regen: 7.457744773683766
+        in_development: true
+        standard_level_up_upgrades:
+          key: 3.353193347011243
+        name_image: name_image
+        step_sound_time_sprinting: 6.878052220127876
+        tags:
+        - tags
+        - tags
+        background_image: background_image
+        available_in_hero_labs: true
+        color_ui:
+        - ""
+        - ""
+        - ""
+        hero_card_gloat: hero_card_gloat
+        purchase_bonuses:
+          key:
+          - value_type: value_type
+            tier: 4
+            value: value
+          - value_type: value_type
+            tier: 4
+            value: value
+        collision_radius: 3.5571952270680973
+        icon_image_small: icon_image_small
+        player_selectable: true
+        top_bar_vertical_image: top_bar_vertical_image
+        needs_testing: true
+        hideout_rich_presence: hideout_rich_presence
+        items:
+          key: items
+        step_sound_time: 6.778324963048013
+      properties:
+        id:
+          title: Id
+          type: integer
+        class_name:
+          title: Class Name
+          type: string
+        item_draft_weights:
+          additionalProperties:
+            type: number
+          nullable: true
+        player_selectable:
+          title: Player Selectable
+          type: boolean
+        disabled:
+          title: Disabled
+          type: boolean
+        in_development:
+          title: In Development
+          type: boolean
+        needs_testing:
+          title: Needs Testing
+          type: boolean
+        assigned_players_only:
+          title: Assigned Players Only
+          type: boolean
+        available_in_hero_labs:
+          nullable: true
+          type: boolean
+        prerelease_only:
+          nullable: true
+          type: boolean
+        limited_testing:
+          title: Limited Testing
+          type: boolean
+        complexity:
+          title: Complexity
+          type: integer
+        skin:
+          title: Skin
+          type: integer
+        starting_stats:
+          $ref: "#/components/schemas/RawHeroStartingStatsV2"
+        icon_hero_card:
+          nullable: true
+          type: string
+        icon_image_small:
+          nullable: true
+          type: string
+        minimap_image:
+          nullable: true
+          type: string
+        name_image:
+          nullable: true
+          type: string
+        hero_card_critical:
+          nullable: true
+          type: string
+        hero_card_gloat:
+          nullable: true
+          type: string
+        top_bar_vertical_image:
+          nullable: true
+          type: string
+        tags:
+          items:
+            type: string
+          nullable: true
+          type: array
+        gun_tag:
+          nullable: true
+          type: string
+        hideout_rich_presence:
+          nullable: true
+          type: string
+        hero_type:
+          allOf:
+          - $ref: "#/components/schemas/HeroTypeV2"
+          nullable: true
+        shop_stat_display:
+          $ref: "#/components/schemas/RawHeroShopStatDisplayV2"
+        cost_bonuses:
+          additionalProperties:
+            items:
+              $ref: "#/components/schemas/RawHeroMapModCostBonusesV2"
+          title: Cost Bonuses
+        color_ui:
+          items: {}
+          maxItems: 3
+          minItems: 3
+          title: Color Ui
+          type: array
+        collision_height:
+          nullable: true
+          type: number
+        collision_radius:
+          nullable: true
+          type: number
+        footstep_sound_travel_distance_meters:
+          nullable: true
+          type: number
+        stealth_speed_meters_per_second:
+          title: Stealth Speed Meters Per Second
+          type: number
+        step_height:
+          nullable: true
+          type: number
+        step_sound_time:
+          nullable: true
+          type: number
+        step_sound_time_sprinting:
+          nullable: true
+          type: number
+        stats_display:
+          $ref: "#/components/schemas/RawHeroStatsDisplayV2"
+        hero_stats_ui:
+          $ref: "#/components/schemas/RawHeroStatsUIV2"
+        items:
+          additionalProperties:
+            type: string
+          title: Items
+        item_slot_info:
+          additionalProperties:
+            $ref: "#/components/schemas/RawHeroItemSlotInfoValueV2"
+          title: Item Slot Info
+        level_info:
+          additionalProperties:
+            $ref: "#/components/schemas/RawHeroLevelInfoV2"
+          title: Level Info
+        purchase_bonuses:
+          additionalProperties:
+            items:
+              $ref: "#/components/schemas/RawHeroPurchaseBonusV2"
+          nullable: true
+        scaling_stats:
+          additionalProperties:
+            $ref: "#/components/schemas/RawHeroScalingStatV2"
+          title: Scaling Stats
+        standard_level_up_upgrades:
+          additionalProperties:
+            type: number
+          title: Standard Level Up Upgrades
+        background_image:
+          nullable: true
+          readOnly: true
+          type: string
+      required:
+      - assigned_players_only
+      - background_image
+      - class_name
+      - color_ui
+      - complexity
+      - cost_bonuses
+      - disabled
+      - hero_stats_ui
+      - id
+      - in_development
+      - item_slot_info
+      - items
+      - level_info
+      - limited_testing
+      - needs_testing
+      - player_selectable
+      - scaling_stats
+      - shop_stat_display
+      - skin
+      - standard_level_up_upgrades
+      - starting_stats
+      - stats_display
+      - stealth_speed_meters_per_second
+      title: RawHeroV2
     RawItemPropertyScaleFunctionSubclassV2:
       properties:
         class_name:
@@ -4426,6 +5166,65 @@ components:
           nullable: true
           type: number
       title: RawItemPropertyScaleFunctionSubclassV2
+    RawItemPropertyScaleFunctionV2:
+      properties:
+        subclass:
+          allOf:
+          - $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclassV2"
+          nullable: true
+      title: RawItemPropertyScaleFunctionV2
+    RawItemPropertyV2:
+      example:
+        css_class: css_class
+        disable_value: disable_value
+        usage_flags:
+        - ConditionallyApplied
+        - ConditionallyApplied
+        icon_path: icon_path
+        can_set_token_override: true
+        provided_property_type: provided_property_type
+        street_brawl_value: Street_Brawl_Value
+        negative_attribute: true
+        scale_function: ""
+        value: Value_1
+        loc_token_override: loc_token_override
+        display_units: display_units
+      properties:
+        value:
+          $ref: "#/components/schemas/Value_1"
+        street_brawl_value:
+          $ref: "#/components/schemas/Street_Brawl_Value"
+        can_set_token_override:
+          nullable: true
+          type: boolean
+        provided_property_type:
+          nullable: true
+          type: string
+        css_class:
+          nullable: true
+          type: string
+        usage_flags:
+          $ref: "#/components/schemas/Usage_Flags"
+        negative_attribute:
+          nullable: true
+          type: boolean
+        disable_value:
+          nullable: true
+          type: string
+        loc_token_override:
+          nullable: true
+          type: string
+        display_units:
+          nullable: true
+          type: string
+        icon_path:
+          nullable: true
+          type: string
+        scale_function:
+          allOf:
+          - $ref: "#/components/schemas/RawItemPropertyScaleFunctionV2"
+          nullable: true
+      title: RawItemPropertyV2
     RawItemWeaponInfoBulletSpeedCurveSplineV2:
       properties:
         slope_incoming:
@@ -4474,6 +5273,133 @@ components:
           - $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
           nullable: true
       title: RawItemWeaponInfoV2
+    RawUpgradeTooltipSectionAttributeImportantPropertyV2:
+      properties:
+        important_property:
+          nullable: true
+          type: string
+      title: RawUpgradeTooltipSectionAttributeImportantPropertyV2
+    RawUpgradeTooltipSectionAttributeV2:
+      properties:
+        loc_string:
+          nullable: true
+          type: string
+        properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+        elevated_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+        important_properties:
+          items:
+            $ref: "#/components/schemas/RawUpgradeTooltipSectionAttributeImportantPropertyV2"
+          nullable: true
+          type: array
+        important_properties_with_icon_path:
+          items:
+            $ref: "#/components/schemas/RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon"
+          nullable: true
+          type: array
+      required:
+      - important_properties_with_icon_path
+      title: RawUpgradeTooltipSectionAttributeV2
+    RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon:
+      properties:
+        name:
+          nullable: true
+          type: string
+        icon_path:
+          nullable: true
+          type: string
+      title: RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
+    RawUpgradeTooltipSectionV2:
+      properties:
+        section_type:
+          allOf:
+          - $ref: "#/components/schemas/RawAbilitySectionTypeV2"
+          nullable: true
+        section_attributes:
+          items:
+            $ref: "#/components/schemas/RawUpgradeTooltipSectionAttributeV2"
+          title: Section Attributes
+          type: array
+      required:
+      - section_attributes
+      title: RawUpgradeTooltipSectionV2
+    RawUpgradeV2:
+      properties:
+        class_name:
+          title: Class Name
+          type: string
+        start_trained:
+          nullable: true
+          type: boolean
+        image:
+          nullable: true
+          type: string
+        update_time:
+          nullable: true
+          type: integer
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/RawItemPropertyV2"
+          nullable: true
+        weapon_info:
+          allOf:
+          - $ref: "#/components/schemas/RawItemWeaponInfoV2"
+          nullable: true
+        css_class:
+          nullable: true
+          type: string
+        type:
+          default: upgrade
+          enum:
+          - upgrade
+          title: Type
+          type: string
+        shop_image:
+          nullable: true
+          type: string
+        shop_image_small:
+          nullable: true
+          type: string
+        item_slot_type:
+          $ref: "#/components/schemas/ItemSlotTypeV2"
+        item_tier:
+          $ref: "#/components/schemas/ItemTierV2"
+        disabled:
+          nullable: true
+          type: boolean
+        activation:
+          $ref: "#/components/schemas/RawAbilityActivationV2"
+        imbue:
+          allOf:
+          - $ref: "#/components/schemas/RawAbilityImbueV2"
+          nullable: true
+        component_items:
+          items:
+            type: string
+          nullable: true
+          type: array
+        tooltip_sections:
+          items:
+            $ref: "#/components/schemas/RawUpgradeTooltipSectionV2"
+          nullable: true
+          type: array
+        upgrades:
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgradeV2"
+          nullable: true
+          type: array
+      required:
+      - class_name
+      - item_slot_type
+      - item_tier
+      title: RawUpgradeV2
     RawWeaponInfoHorizontalRecoilV2:
       properties:
         range:
@@ -4482,6 +5408,199 @@ components:
           nullable: true
           type: number
       title: RawWeaponInfoHorizontalRecoilV2
+    RawWeaponInfoV2:
+      properties:
+        can_zoom:
+          nullable: true
+          type: boolean
+        bullet_damage:
+          nullable: true
+          type: number
+        bullet_gravity_scale:
+          nullable: true
+          type: number
+        bullet_inherit_shooter_velocity_scale:
+          nullable: true
+          type: number
+        bullet_lifetime:
+          nullable: true
+          type: number
+        bullet_radius:
+          nullable: true
+          type: number
+        bullet_radius_vs_world:
+          nullable: true
+          type: number
+        bullet_reflect_amount:
+          nullable: true
+          type: number
+        bullet_reflect_scale:
+          nullable: true
+          type: number
+        bullet_whiz_distance:
+          nullable: true
+          type: number
+        burst_shot_cooldown:
+          nullable: true
+          type: number
+        crit_bonus_against_npcs:
+          nullable: true
+          type: number
+        crit_bonus_end:
+          nullable: true
+          type: number
+        crit_bonus_end_range:
+          nullable: true
+          type: number
+        crit_bonus_start:
+          nullable: true
+          type: number
+        crit_bonus_start_range:
+          nullable: true
+          type: number
+        cycle_time:
+          nullable: true
+          type: number
+        spins_up:
+          nullable: true
+          type: boolean
+        is_semi_auto:
+          nullable: true
+          type: boolean
+        semi_auto_cycle_rate:
+          nullable: true
+          type: number
+        max_spin_cycle_time:
+          nullable: true
+          type: number
+        spin_increase_rate:
+          nullable: true
+          type: number
+        spin_decay_rate:
+          nullable: true
+          type: number
+        build_up_rate:
+          nullable: true
+          type: number
+        intra_burst_cycle_time:
+          nullable: true
+          type: number
+        damage_falloff_bias:
+          nullable: true
+          type: number
+        damage_falloff_end_range:
+          nullable: true
+          type: number
+        damage_falloff_end_scale:
+          nullable: true
+          type: number
+        damage_falloff_start_range:
+          nullable: true
+          type: number
+        damage_falloff_start_scale:
+          nullable: true
+          type: number
+        horizontal_punch:
+          nullable: true
+          type: number
+        range:
+          nullable: true
+          type: number
+        recoil_recovery_delay_factor:
+          nullable: true
+          type: number
+        bullet_speed:
+          nullable: true
+          type: number
+        recoil_recovery_speed:
+          nullable: true
+          type: number
+        recoil_shot_index_recovery_time_factor:
+          nullable: true
+          type: number
+        recoil_speed:
+          nullable: true
+          type: number
+        reload_move_speed:
+          nullable: true
+          type: number
+        scatter_yaw_scale:
+          nullable: true
+          type: number
+        aiming_shot_spread_penalty:
+          $ref: "#/components/schemas/Aiming_Shot_Spread_Penalty"
+        standing_shot_spread_penalty:
+          $ref: "#/components/schemas/Standing_Shot_Spread_Penalty"
+        shoot_move_speed_percent:
+          nullable: true
+          type: number
+        shoot_spread_penalty_decay:
+          nullable: true
+          type: number
+        shoot_spread_penalty_decay_delay:
+          nullable: true
+          type: number
+        shoot_spread_penalty_per_shot:
+          nullable: true
+          type: number
+        shooting_up_spread_penalty:
+          nullable: true
+          type: number
+        vertical_punch:
+          nullable: true
+          type: number
+        zoom_fov:
+          nullable: true
+          type: number
+        zoom_move_speed_percent:
+          nullable: true
+          type: number
+        bullets:
+          nullable: true
+          type: integer
+        reload_single_bullets_initial_delay:
+          nullable: true
+          type: number
+        reload_single_bullets:
+          nullable: true
+          type: boolean
+        reload_single_bullets_allow_cancel:
+          nullable: true
+          type: boolean
+        burst_shot_count:
+          nullable: true
+          type: integer
+        clip_size:
+          nullable: true
+          type: integer
+        spread:
+          nullable: true
+          type: number
+        standing_spread:
+          nullable: true
+          type: number
+        low_ammo_indicator_threshold:
+          nullable: true
+          type: number
+        recoil_seed:
+          nullable: true
+          type: number
+        reload_duration:
+          nullable: true
+          type: number
+        bullet_speed_curve:
+          allOf:
+          - $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveV2"
+          nullable: true
+        horizontal_recoil:
+          allOf:
+          - $ref: "#/components/schemas/RawWeaponInfoHorizontalRecoilV2"
+          nullable: true
+        vertical_recoil:
+          allOf:
+          - $ref: "#/components/schemas/RawWeaponInfoVerticalRecoilV2"
+          nullable: true
+      title: RawWeaponInfoV2
     RawWeaponInfoVerticalRecoilV2:
       properties:
         range:
@@ -4496,6 +5615,40 @@ components:
           nullable: true
           type: number
       title: RawWeaponInfoVerticalRecoilV2
+    RawWeaponV2:
+      properties:
+        class_name:
+          title: Class Name
+          type: string
+        start_trained:
+          nullable: true
+          type: boolean
+        image:
+          nullable: true
+          type: string
+        update_time:
+          nullable: true
+          type: integer
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/RawItemPropertyV2"
+          nullable: true
+        weapon_info:
+          allOf:
+          - $ref: "#/components/schemas/RawWeaponInfoV2"
+          nullable: true
+        css_class:
+          nullable: true
+          type: string
+        type:
+          default: weapon
+          enum:
+          - weapon
+          title: Type
+          type: string
+      required:
+      - class_name
+      title: RawWeaponV2
     RejuvParams:
       example:
         rejuvinator_expiration_warning_timing: 7.04836565559697
@@ -4568,6 +5721,63 @@ components:
       - IntrinsicallyProvidedInModifier
       title: StatsUsageFlagV2
       type: string
+    SteamInfoV1:
+      example:
+        version_time: version_time
+        source_revision: 2
+        version_datetime: 2000-01-23T04:56:07.000+00:00
+        tools_app_id: 5
+        version_date: version_date
+        server_app_id: 5
+        client_version: 0
+        server_version: 6
+        product_name: product_name
+        app_id: 1
+      properties:
+        client_version:
+          title: Client Version
+          type: integer
+        server_version:
+          title: Server Version
+          type: integer
+        product_name:
+          title: Product Name
+          type: string
+        app_id:
+          title: App Id
+          type: integer
+        server_app_id:
+          title: Server App Id
+          type: integer
+        tools_app_id:
+          title: Tools App Id
+          type: integer
+        source_revision:
+          title: Source Revision
+          type: integer
+        version_date:
+          title: Version Date
+          type: string
+        version_time:
+          title: Version Time
+          type: string
+        version_datetime:
+          format: date-time
+          readOnly: true
+          title: Version Datetime
+          type: string
+      required:
+      - app_id
+      - client_version
+      - product_name
+      - server_app_id
+      - server_version
+      - source_revision
+      - tools_app_id
+      - version_date
+      - version_datetime
+      - version_time
+      title: SteamInfoV1
     StreetBrawl:
       properties:
         respawn_times:
@@ -5489,6 +6699,11 @@ components:
       - $ref: "#/components/schemas/WeaponV2"
       - $ref: "#/components/schemas/UpgradeV2"
       title: Response Get Item V2 Items  Id Or Class Name  Get
+    Response_Get_Raw_Items_Raw_Items_Get_inner:
+      anyOf:
+      - $ref: "#/components/schemas/RawAbilityV2"
+      - $ref: "#/components/schemas/RawWeaponV2"
+      - $ref: "#/components/schemas/RawUpgradeV2"
     Value:
       anyOf:
       - type: integer
@@ -5539,10 +6754,6 @@ components:
       - type: number
       nullable: true
       title: Range
-    Location_inner:
-      anyOf:
-      - type: string
-      - type: integer
     Aiming_Shot_Spread_Penalty:
       anyOf:
       - items:
@@ -5559,4 +6770,8 @@ components:
       - type: string
       nullable: true
       title: Standing Shot Spread Penalty
+    Location_inner:
+      anyOf:
+      - type: string
+      - type: integer
 

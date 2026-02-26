@@ -23,6 +23,7 @@ from assets_deadlock_api_client.models.generic_data_v2 import GenericDataV2
 from assets_deadlock_api_client.models.loot_table_v2 import LootTableV2
 from assets_deadlock_api_client.models.map_v1 import MapV1
 from assets_deadlock_api_client.models.rank_v2 import RankV2
+from assets_deadlock_api_client.models.steam_info_v1 import SteamInfoV1
 
 from assets_deadlock_api_client.api_client import ApiClient, RequestSerialized
 from assets_deadlock_api_client.api_response import ApiResponse
@@ -2692,7 +2693,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> SteamInfoV1:
         """Get Steam Info
 
 
@@ -2729,7 +2730,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "SteamInfoV1",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2759,7 +2760,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[SteamInfoV1]:
         """Get Steam Info
 
 
@@ -2796,7 +2797,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "SteamInfoV1",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2863,7 +2864,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "SteamInfoV1",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

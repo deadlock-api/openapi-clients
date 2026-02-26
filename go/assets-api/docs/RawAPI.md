@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## GetRawAccoladesRawAccoladesGet
 
-> interface{} GetRawAccoladesRawAccoladesGet(ctx).ClientVersion(clientVersion).Execute()
+> []RawAccoladeV2 GetRawAccoladesRawAccoladesGet(ctx).ClientVersion(clientVersion).Execute()
 
 Get Raw Accolades
 
@@ -38,7 +38,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RawAPI.GetRawAccoladesRawAccoladesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRawAccoladesRawAccoladesGet`: interface{}
+	// response from `GetRawAccoladesRawAccoladesGet`: []RawAccoladeV2
 	fmt.Fprintf(os.Stdout, "Response from `RawAPI.GetRawAccoladesRawAccoladesGet`: %v\n", resp)
 }
 ```
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**[]RawAccoladeV2**](RawAccoladeV2.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ No authorization required
 
 ## GetRawHeroesRawHeroesGet
 
-> interface{} GetRawHeroesRawHeroesGet(ctx).ClientVersion(clientVersion).Execute()
+> []RawHeroV2 GetRawHeroesRawHeroesGet(ctx).ClientVersion(clientVersion).Execute()
 
 Get Raw Heroes
 
@@ -102,7 +102,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RawAPI.GetRawHeroesRawHeroesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRawHeroesRawHeroesGet`: interface{}
+	// response from `GetRawHeroesRawHeroesGet`: []RawHeroV2
 	fmt.Fprintf(os.Stdout, "Response from `RawAPI.GetRawHeroesRawHeroesGet`: %v\n", resp)
 }
 ```
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**[]RawHeroV2**](RawHeroV2.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ No authorization required
 
 ## GetRawItemsRawItemsGet
 
-> interface{} GetRawItemsRawItemsGet(ctx).ClientVersion(clientVersion).Execute()
+> []ResponseGetRawItemsRawItemsGetInner GetRawItemsRawItemsGet(ctx).ClientVersion(clientVersion).Execute()
 
 Get Raw Items
 
@@ -166,7 +166,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RawAPI.GetRawItemsRawItemsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRawItemsRawItemsGet`: interface{}
+	// response from `GetRawItemsRawItemsGet`: []ResponseGetRawItemsRawItemsGetInner
 	fmt.Fprintf(os.Stdout, "Response from `RawAPI.GetRawItemsRawItemsGet`: %v\n", resp)
 }
 ```
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**[]ResponseGetRawItemsRawItemsGetInner**](ResponseGetRawItemsRawItemsGetInner.md)
 
 ### Authorization
 

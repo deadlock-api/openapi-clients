@@ -138,6 +138,12 @@ namespace AssetsDeadlockApiClient.Client
                 return RawAbilityImbueV2ValueConverter.ToJsonValue(rawAbilityImbueV2);
             if (obj is RawAbilitySectionTypeV2 rawAbilitySectionTypeV2)
                 return RawAbilitySectionTypeV2ValueConverter.ToJsonValue(rawAbilitySectionTypeV2);
+            if (obj is RawAbilityV2.TypeEnum rawAbilityV2TypeEnum)
+                return RawAbilityV2.TypeEnumToJsonValue(rawAbilityV2TypeEnum);
+            if (obj is RawUpgradeV2.TypeEnum rawUpgradeV2TypeEnum)
+                return RawUpgradeV2.TypeEnumToJsonValue(rawUpgradeV2TypeEnum);
+            if (obj is RawWeaponV2.TypeEnum rawWeaponV2TypeEnum)
+                return RawWeaponV2.TypeEnumToJsonValue(rawWeaponV2TypeEnum);
             if (obj is ResponseGetItemV2ItemsIdOrClassNameGet.TypeEnum responseGetItemV2ItemsIdOrClassNameGetTypeEnum)
                 return ResponseGetItemV2ItemsIdOrClassNameGet.TypeEnumToJsonValue(responseGetItemV2ItemsIdOrClassNameGetTypeEnum);
             if (obj is ResponseGetItemsV2ItemsGetInner.TypeEnum responseGetItemsV2ItemsGetInnerTypeEnum)

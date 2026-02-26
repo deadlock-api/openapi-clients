@@ -299,7 +299,7 @@ No authorization required
 
 ## get_steam_info_v1_steam_info_get
 
-> serde_json::Value get_steam_info_v1_steam_info_get(client_version)
+> models::SteamInfoV1 get_steam_info_v1_steam_info_get(client_version)
 Get Steam Info
 
 ### Parameters
@@ -311,7 +311,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**models::SteamInfoV1**](SteamInfoV1.md)
 
 ### Authorization
 

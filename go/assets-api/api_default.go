@@ -1192,7 +1192,7 @@ func (r ApiGetSteamInfoV1SteamInfoGetRequest) ClientVersion(clientVersion Deadlo
 	return r
 }
 
-func (r ApiGetSteamInfoV1SteamInfoGetRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiGetSteamInfoV1SteamInfoGetRequest) Execute() (*SteamInfoV1, *http.Response, error) {
 	return r.ApiService.GetSteamInfoV1SteamInfoGetExecute(r)
 }
 
@@ -1210,13 +1210,13 @@ func (a *DefaultAPIService) GetSteamInfoV1SteamInfoGet(ctx context.Context) ApiG
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *DefaultAPIService) GetSteamInfoV1SteamInfoGetExecute(r ApiGetSteamInfoV1SteamInfoGetRequest) (interface{}, *http.Response, error) {
+//  @return SteamInfoV1
+func (a *DefaultAPIService) GetSteamInfoV1SteamInfoGetExecute(r ApiGetSteamInfoV1SteamInfoGetRequest) (*SteamInfoV1, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  *SteamInfoV1
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetSteamInfoV1SteamInfoGet")

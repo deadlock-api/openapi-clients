@@ -42,6 +42,9 @@ import {
     RankV2,
     RankV2FromJSON,
     RankV2ToJSON,
+    SteamInfoV1,
+    SteamInfoV1FromJSON,
+    SteamInfoV1ToJSON,
 } from '../models';
 
 export interface GetBuildTagsV2BuildTagsGetRequest {
@@ -570,7 +573,7 @@ export function getSoundsV1SoundsGet<T>(requestParameters: GetSoundsV1SoundsGetR
 /**
  * Get Steam Info
  */
-function getSteamInfoV1SteamInfoGetRaw<T>(requestParameters: GetSteamInfoV1SteamInfoGetRequest, requestConfig: runtime.TypedQueryConfig<T, any> = {}): QueryConfig<T> {
+function getSteamInfoV1SteamInfoGetRaw<T>(requestParameters: GetSteamInfoV1SteamInfoGetRequest, requestConfig: runtime.TypedQueryConfig<T, SteamInfoV1> = {}): QueryConfig<T> {
     let queryParameters = null;
 
     queryParameters = {};
@@ -602,7 +605,7 @@ function getSteamInfoV1SteamInfoGetRaw<T>(requestParameters: GetSteamInfoV1Steam
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        throw "OH NO";
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(SteamInfoV1FromJSON(body), text);
     }
 
     return config;
@@ -611,7 +614,7 @@ function getSteamInfoV1SteamInfoGetRaw<T>(requestParameters: GetSteamInfoV1Steam
 /**
 * Get Steam Info
 */
-export function getSteamInfoV1SteamInfoGet<T>(requestParameters: GetSteamInfoV1SteamInfoGetRequest, requestConfig?: runtime.TypedQueryConfig<T, any>): QueryConfig<T> {
+export function getSteamInfoV1SteamInfoGet<T>(requestParameters: GetSteamInfoV1SteamInfoGetRequest, requestConfig?: runtime.TypedQueryConfig<T, SteamInfoV1>): QueryConfig<T> {
     return getSteamInfoV1SteamInfoGetRaw(requestParameters, requestConfig);
 }
 

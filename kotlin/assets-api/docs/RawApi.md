@@ -11,7 +11,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 
 <a id="getRawAccoladesRawAccoladesGet"></a>
 # **getRawAccoladesRawAccoladesGet**
-> kotlin.Any getRawAccoladesRawAccoladesGet(clientVersion)
+> kotlin.collections.List&lt;RawAccoladeV2&gt; getRawAccoladesRawAccoladesGet(clientVersion)
 
 Get Raw Accolades
 
@@ -24,7 +24,7 @@ Get Raw Accolades
 val apiInstance = RawApi()
 val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.Any = apiInstance.getRawAccoladesRawAccoladesGet(clientVersion)
+    val result : kotlin.collections.List<RawAccoladeV2> = apiInstance.getRawAccoladesRawAccoladesGet(clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RawApi#getRawAccoladesRawAccoladesGet")
@@ -42,7 +42,7 @@ try {
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**kotlin.collections.List&lt;RawAccoladeV2&gt;**](RawAccoladeV2.md)
 
 ### Authorization
 
@@ -55,7 +55,7 @@ No authorization required
 
 <a id="getRawHeroesRawHeroesGet"></a>
 # **getRawHeroesRawHeroesGet**
-> kotlin.Any getRawHeroesRawHeroesGet(clientVersion)
+> kotlin.collections.List&lt;RawHeroV2&gt; getRawHeroesRawHeroesGet(clientVersion)
 
 Get Raw Heroes
 
@@ -68,7 +68,7 @@ Get Raw Heroes
 val apiInstance = RawApi()
 val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.Any = apiInstance.getRawHeroesRawHeroesGet(clientVersion)
+    val result : kotlin.collections.List<RawHeroV2> = apiInstance.getRawHeroesRawHeroesGet(clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RawApi#getRawHeroesRawHeroesGet")
@@ -86,7 +86,7 @@ try {
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**kotlin.collections.List&lt;RawHeroV2&gt;**](RawHeroV2.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ No authorization required
 
 <a id="getRawItemsRawItemsGet"></a>
 # **getRawItemsRawItemsGet**
-> kotlin.Any getRawItemsRawItemsGet(clientVersion)
+> kotlin.collections.List&lt;ResponseGetRawItemsRawItemsGetInner&gt; getRawItemsRawItemsGet(clientVersion)
 
 Get Raw Items
 
@@ -112,7 +112,7 @@ Get Raw Items
 val apiInstance = RawApi()
 val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.Any = apiInstance.getRawItemsRawItemsGet(clientVersion)
+    val result : kotlin.collections.List<ResponseGetRawItemsRawItemsGetInner> = apiInstance.getRawItemsRawItemsGet(clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RawApi#getRawItemsRawItemsGet")
@@ -130,7 +130,7 @@ try {
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**kotlin.collections.List&lt;ResponseGetRawItemsRawItemsGetInner&gt;**](ResponseGetRawItemsRawItemsGetInner.md)
 
 ### Authorization
 

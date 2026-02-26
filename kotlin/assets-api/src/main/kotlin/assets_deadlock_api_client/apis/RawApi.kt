@@ -21,6 +21,9 @@ import okhttp3.HttpUrl
 
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
+import assets_deadlock_api_client.models.RawAccoladeV2
+import assets_deadlock_api_client.models.RawHeroV2
+import assets_deadlock_api_client.models.ResponseGetRawItemsRawItemsGetInner
 
 import com.squareup.moshi.Json
 
@@ -51,7 +54,7 @@ open class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get Raw Accolades
      * 
      * @param clientVersion  (optional)
-     * @return kotlin.Any
+     * @return kotlin.collections.List<RawAccoladeV2>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -60,11 +63,11 @@ open class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRawAccoladesRawAccoladesGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.Any {
+    fun getRawAccoladesRawAccoladesGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<RawAccoladeV2> {
         val localVarResponse = getRawAccoladesRawAccoladesGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RawAccoladeV2>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -83,16 +86,16 @@ open class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get Raw Accolades
      * 
      * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<kotlin.collections.List<RawAccoladeV2>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRawAccoladesRawAccoladesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.Any?> {
+    fun getRawAccoladesRawAccoladesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<RawAccoladeV2>?> {
         val localVariableConfig = getRawAccoladesRawAccoladesGetRequestConfig(clientVersion = clientVersion)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, kotlin.collections.List<RawAccoladeV2>>(
             localVariableConfig
         )
     }
@@ -129,7 +132,7 @@ open class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get Raw Heroes
      * 
      * @param clientVersion  (optional)
-     * @return kotlin.Any
+     * @return kotlin.collections.List<RawHeroV2>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -138,11 +141,11 @@ open class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRawHeroesRawHeroesGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.Any {
+    fun getRawHeroesRawHeroesGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<RawHeroV2> {
         val localVarResponse = getRawHeroesRawHeroesGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RawHeroV2>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -161,16 +164,16 @@ open class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get Raw Heroes
      * 
      * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<kotlin.collections.List<RawHeroV2>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRawHeroesRawHeroesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.Any?> {
+    fun getRawHeroesRawHeroesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<RawHeroV2>?> {
         val localVariableConfig = getRawHeroesRawHeroesGetRequestConfig(clientVersion = clientVersion)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, kotlin.collections.List<RawHeroV2>>(
             localVariableConfig
         )
     }
@@ -207,7 +210,7 @@ open class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get Raw Items
      * 
      * @param clientVersion  (optional)
-     * @return kotlin.Any
+     * @return kotlin.collections.List<ResponseGetRawItemsRawItemsGetInner>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -216,11 +219,11 @@ open class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRawItemsRawItemsGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.Any {
+    fun getRawItemsRawItemsGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.List<ResponseGetRawItemsRawItemsGetInner> {
         val localVarResponse = getRawItemsRawItemsGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ResponseGetRawItemsRawItemsGetInner>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -239,16 +242,16 @@ open class RawApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get Raw Items
      * 
      * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<kotlin.collections.List<ResponseGetRawItemsRawItemsGetInner>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRawItemsRawItemsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.Any?> {
+    fun getRawItemsRawItemsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.List<ResponseGetRawItemsRawItemsGetInner>?> {
         val localVariableConfig = getRawItemsRawItemsGetRequestConfig(clientVersion = clientVersion)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, kotlin.collections.List<ResponseGetRawItemsRawItemsGetInner>>(
             localVariableConfig
         )
     }

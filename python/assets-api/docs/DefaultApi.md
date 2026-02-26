@@ -683,7 +683,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_steam_info_v1_steam_info_get**
-> object get_steam_info_v1_steam_info_get(client_version=client_version)
+> SteamInfoV1 get_steam_info_v1_steam_info_get(client_version=client_version)
 
 Get Steam Info
 
@@ -692,6 +692,7 @@ Get Steam Info
 
 ```python
 import assets_deadlock_api_client
+from assets_deadlock_api_client.models.steam_info_v1 import SteamInfoV1
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -728,7 +729,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**SteamInfoV1**](SteamInfoV1.md)
 
 ### Authorization
 

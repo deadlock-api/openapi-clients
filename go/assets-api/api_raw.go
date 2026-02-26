@@ -33,7 +33,7 @@ func (r ApiGetRawAccoladesRawAccoladesGetRequest) ClientVersion(clientVersion De
 	return r
 }
 
-func (r ApiGetRawAccoladesRawAccoladesGetRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiGetRawAccoladesRawAccoladesGetRequest) Execute() ([]RawAccoladeV2, *http.Response, error) {
 	return r.ApiService.GetRawAccoladesRawAccoladesGetExecute(r)
 }
 
@@ -51,13 +51,13 @@ func (a *RawAPIService) GetRawAccoladesRawAccoladesGet(ctx context.Context) ApiG
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *RawAPIService) GetRawAccoladesRawAccoladesGetExecute(r ApiGetRawAccoladesRawAccoladesGetRequest) (interface{}, *http.Response, error) {
+//  @return []RawAccoladeV2
+func (a *RawAPIService) GetRawAccoladesRawAccoladesGetExecute(r ApiGetRawAccoladesRawAccoladesGetRequest) ([]RawAccoladeV2, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  []RawAccoladeV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RawAPIService.GetRawAccoladesRawAccoladesGet")
@@ -149,7 +149,7 @@ func (r ApiGetRawHeroesRawHeroesGetRequest) ClientVersion(clientVersion Deadlock
 	return r
 }
 
-func (r ApiGetRawHeroesRawHeroesGetRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiGetRawHeroesRawHeroesGetRequest) Execute() ([]RawHeroV2, *http.Response, error) {
 	return r.ApiService.GetRawHeroesRawHeroesGetExecute(r)
 }
 
@@ -167,13 +167,13 @@ func (a *RawAPIService) GetRawHeroesRawHeroesGet(ctx context.Context) ApiGetRawH
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *RawAPIService) GetRawHeroesRawHeroesGetExecute(r ApiGetRawHeroesRawHeroesGetRequest) (interface{}, *http.Response, error) {
+//  @return []RawHeroV2
+func (a *RawAPIService) GetRawHeroesRawHeroesGetExecute(r ApiGetRawHeroesRawHeroesGetRequest) ([]RawHeroV2, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  []RawHeroV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RawAPIService.GetRawHeroesRawHeroesGet")
@@ -265,7 +265,7 @@ func (r ApiGetRawItemsRawItemsGetRequest) ClientVersion(clientVersion DeadlockAs
 	return r
 }
 
-func (r ApiGetRawItemsRawItemsGetRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiGetRawItemsRawItemsGetRequest) Execute() ([]ResponseGetRawItemsRawItemsGetInner, *http.Response, error) {
 	return r.ApiService.GetRawItemsRawItemsGetExecute(r)
 }
 
@@ -283,13 +283,13 @@ func (a *RawAPIService) GetRawItemsRawItemsGet(ctx context.Context) ApiGetRawIte
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *RawAPIService) GetRawItemsRawItemsGetExecute(r ApiGetRawItemsRawItemsGetRequest) (interface{}, *http.Response, error) {
+//  @return []ResponseGetRawItemsRawItemsGetInner
+func (a *RawAPIService) GetRawItemsRawItemsGetExecute(r ApiGetRawItemsRawItemsGetRequest) ([]ResponseGetRawItemsRawItemsGetInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  []ResponseGetRawItemsRawItemsGetInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RawAPIService.GetRawItemsRawItemsGet")

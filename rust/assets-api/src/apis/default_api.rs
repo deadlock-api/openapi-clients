@@ -538,7 +538,7 @@ pub async fn get_sounds_v1_sounds_get(configuration: &configuration::Configurati
     }
 }
 
-pub async fn get_steam_info_v1_steam_info_get(configuration: &configuration::Configuration, params: GetSteamInfoV1SteamInfoGetParams) -> Result<serde_json::Value, Error<GetSteamInfoV1SteamInfoGetError>> {
+pub async fn get_steam_info_v1_steam_info_get(configuration: &configuration::Configuration, params: GetSteamInfoV1SteamInfoGetParams) -> Result<models::SteamInfoV1, Error<GetSteamInfoV1SteamInfoGetError>> {
 
     let uri_str = format!("{}/v1/steam-info", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -565,8 +565,8 @@ pub async fn get_steam_info_v1_steam_info_get(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `serde_json::Value`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `serde_json::Value`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SteamInfoV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SteamInfoV1`")))),
         }
     } else {
         let content = resp.text().await?;

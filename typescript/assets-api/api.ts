@@ -897,8 +897,69 @@ export interface RawAbilityUpgradePropertyUpgradeV2 {
 export interface RawAbilityUpgradeV2 {
     'property_upgrades'?: Array<RawAbilityUpgradePropertyUpgradeV2>;
 }
+export interface RawAbilityV2 {
+    'class_name': string;
+    'start_trained'?: boolean | null;
+    'image'?: string | null;
+    'update_time'?: number | null;
+    'properties'?: { [key: string]: RawItemPropertyV2; } | null;
+    'weapon_info'?: RawItemWeaponInfoV2 | null;
+    'css_class'?: string | null;
+    'type'?: RawAbilityV2TypeEnum;
+    'behaviour_bits'?: string | null;
+    'upgrades': Array<RawAbilityUpgradeV2>;
+    'ability_type'?: AbilityTypeV2 | null;
+    'boss_damage_scale'?: number | null;
+    'dependant_abilities'?: Array<string> | null;
+    'video'?: string | null;
+    'tooltip_details'?: RawAbilityV2TooltipDetails | null;
+}
+
+export const RawAbilityV2TypeEnum = {
+    Ability: 'ability'
+} as const;
+
+export type RawAbilityV2TypeEnum = typeof RawAbilityV2TypeEnum[keyof typeof RawAbilityV2TypeEnum];
+
+export interface RawAbilityV2TooltipDetails {
+    'info_sections'?: Array<RawAbilityV2TooltipDetailsInfoSection> | null;
+    'additional_header_properties'?: Array<string> | null;
+}
+export interface RawAbilityV2TooltipDetailsInfoSection {
+    'property_upgrade_required'?: string | null;
+    'loc_string'?: string | null;
+    'properties_block'?: Array<RawAbilityV2TooltipDetailsInfoSectionPropertyBlock> | null;
+    'basic_properties'?: Array<string> | null;
+}
+export interface RawAbilityV2TooltipDetailsInfoSectionPropertyBlock {
+    'loc_string'?: string | null;
+    'properties'?: Array<RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty> | null;
+}
+export interface RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty {
+    'requires_ability_upgrade'?: boolean | null;
+    'show_property_value'?: boolean | null;
+    'important_property'?: string | null;
+    'status_effect_value'?: string | null;
+    'important_property_icon_path': string | null;
+}
+export interface RawAccoladeV2 {
+    'class_name': string;
+    'id': number;
+    'tracked_stat_name': TrackedStatName;
+    'flavor_name': string;
+    'description': string;
+    'threshold_type': ThresholdType;
+    'enabled_game_modes'?: Array<GameMode> | null;
+}
+
+
 export interface RawHeroItemSlotInfoValueV2 {
     'max_purchases_for_tier': Array<number>;
+}
+export interface RawHeroLevelInfoV2 {
+    'use_standard_upgrade'?: boolean | null;
+    'bonus_currencies'?: { [key: string]: number; } | null;
+    'required_gold': number;
 }
 export interface RawHeroMapModCostBonusesV2 {
     'gold_threshold': number;
@@ -917,9 +978,43 @@ export interface RawHeroScalingStatV2 {
 export interface RawHeroShopSpiritStatsDisplayV2 {
     'display_stats': Array<string>;
 }
+export interface RawHeroShopStatDisplayV2 {
+    'spirit_stats_display': RawHeroShopSpiritStatsDisplayV2;
+    'vitality_stats_display': RawHeroShopVitalityStatsDisplayV2;
+    'weapon_stats_display': RawHeroShopWeaponStatsDisplayV2;
+}
 export interface RawHeroShopVitalityStatsDisplayV2 {
     'display_stats': Array<string>;
     'other_display_stats': Array<string>;
+}
+export interface RawHeroShopWeaponStatsDisplayV2 {
+    'display_stats': Array<string>;
+    'other_display_stats': Array<string>;
+    'weapon_attributes'?: string | null;
+    'weapon_image'?: string | null;
+}
+export interface RawHeroStartingStatsV2 {
+    'max_move_speed': number;
+    'sprint_speed': number;
+    'crouch_speed': number;
+    'move_acceleration': number;
+    'light_melee_damage': number;
+    'heavy_melee_damage': number;
+    'max_health': number;
+    'weapon_power': number;
+    'reload_speed': number;
+    'weapon_power_scale': number;
+    'proc_build_up_rate_scale': number;
+    'stamina': number;
+    'base_health_regen': number;
+    'stamina_regen_per_second': number;
+    'ability_resource_max': number;
+    'ability_resource_regen_per_second': number;
+    'crit_damage_received_scale': number;
+    'tech_duration': number;
+    'tech_armor_damage_reduction'?: number | null;
+    'tech_range': number;
+    'bullet_armor_damage_reduction'?: number | null;
 }
 export interface RawHeroStatsDisplayV2 {
     'health_header_stats': Array<string>;
@@ -937,6 +1032,54 @@ export interface RawHeroStatsUIV2 {
     'weapon_stat_display': string;
     'display_stats': Array<RawHeroStatsUIDisplayV2>;
 }
+export interface RawHeroV2 {
+    'id': number;
+    'class_name': string;
+    'item_draft_weights'?: { [key: string]: number; } | null;
+    'player_selectable': boolean;
+    'disabled': boolean;
+    'in_development': boolean;
+    'needs_testing': boolean;
+    'assigned_players_only': boolean;
+    'available_in_hero_labs'?: boolean | null;
+    'prerelease_only'?: boolean | null;
+    'limited_testing': boolean;
+    'complexity': number;
+    'skin': number;
+    'starting_stats': RawHeroStartingStatsV2;
+    'icon_hero_card'?: string | null;
+    'icon_image_small'?: string | null;
+    'minimap_image'?: string | null;
+    'name_image'?: string | null;
+    'hero_card_critical'?: string | null;
+    'hero_card_gloat'?: string | null;
+    'top_bar_vertical_image'?: string | null;
+    'tags'?: Array<string> | null;
+    'gun_tag'?: string | null;
+    'hideout_rich_presence'?: string | null;
+    'hero_type'?: HeroTypeV2 | null;
+    'shop_stat_display': RawHeroShopStatDisplayV2;
+    'cost_bonuses': { [key: string]: Array<RawHeroMapModCostBonusesV2>; };
+    'color_ui': Array<any>;
+    'collision_height'?: number | null;
+    'collision_radius'?: number | null;
+    'footstep_sound_travel_distance_meters'?: number | null;
+    'stealth_speed_meters_per_second': number;
+    'step_height'?: number | null;
+    'step_sound_time'?: number | null;
+    'step_sound_time_sprinting'?: number | null;
+    'stats_display': RawHeroStatsDisplayV2;
+    'hero_stats_ui': RawHeroStatsUIV2;
+    'items': { [key: string]: string; };
+    'item_slot_info': { [key: string]: RawHeroItemSlotInfoValueV2; };
+    'level_info': { [key: string]: RawHeroLevelInfoV2; };
+    'purchase_bonuses'?: { [key: string]: Array<RawHeroPurchaseBonusV2>; } | null;
+    'scaling_stats': { [key: string]: RawHeroScalingStatV2; };
+    'standard_level_up_upgrades': { [key: string]: number; };
+    'background_image': string | null;
+}
+
+
 export interface RawItemPropertyScaleFunctionSubclassV2 {
     'class_name'?: string | null;
     'subclass_name'?: string | null;
@@ -944,6 +1087,23 @@ export interface RawItemPropertyScaleFunctionSubclassV2 {
     'scaling_stats'?: Array<string> | null;
     'stat_scale'?: number | null;
     'street_brawl_stat_scale'?: number | null;
+}
+export interface RawItemPropertyScaleFunctionV2 {
+    'subclass'?: RawItemPropertyScaleFunctionSubclassV2 | null;
+}
+export interface RawItemPropertyV2 {
+    'value'?: Value1 | null;
+    'street_brawl_value'?: StreetBrawlValue | null;
+    'can_set_token_override'?: boolean | null;
+    'provided_property_type'?: string | null;
+    'css_class'?: string | null;
+    'usage_flags'?: UsageFlags | null;
+    'negative_attribute'?: boolean | null;
+    'disable_value'?: string | null;
+    'loc_token_override'?: string | null;
+    'display_units'?: string | null;
+    'icon_path'?: string | null;
+    'scale_function'?: RawItemPropertyScaleFunctionV2 | null;
 }
 export interface RawItemWeaponInfoBulletSpeedCurveSplineV2 {
     'slope_incoming': number;
@@ -959,9 +1119,121 @@ export interface RawItemWeaponInfoBulletSpeedCurveV2 {
 export interface RawItemWeaponInfoV2 {
     'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2 | null;
 }
+export interface RawUpgradeTooltipSectionAttributeImportantPropertyV2 {
+    'important_property'?: string | null;
+}
+export interface RawUpgradeTooltipSectionAttributeV2 {
+    'loc_string'?: string | null;
+    'properties'?: Array<string> | null;
+    'elevated_properties'?: Array<string> | null;
+    'important_properties'?: Array<RawUpgradeTooltipSectionAttributeImportantPropertyV2> | null;
+    'important_properties_with_icon_path': Array<RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon> | null;
+}
+export interface RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon {
+    'name'?: string | null;
+    'icon_path'?: string | null;
+}
+export interface RawUpgradeTooltipSectionV2 {
+    'section_type'?: RawAbilitySectionTypeV2 | null;
+    'section_attributes': Array<RawUpgradeTooltipSectionAttributeV2>;
+}
+
+
+export interface RawUpgradeV2 {
+    'class_name': string;
+    'start_trained'?: boolean | null;
+    'image'?: string | null;
+    'update_time'?: number | null;
+    'properties'?: { [key: string]: RawItemPropertyV2; } | null;
+    'weapon_info'?: RawItemWeaponInfoV2 | null;
+    'css_class'?: string | null;
+    'type'?: RawUpgradeV2TypeEnum;
+    'shop_image'?: string | null;
+    'shop_image_small'?: string | null;
+    'item_slot_type': ItemSlotTypeV2;
+    'item_tier': ItemTierV2;
+    'disabled'?: boolean | null;
+    'activation'?: RawAbilityActivationV2;
+    'imbue'?: RawAbilityImbueV2 | null;
+    'component_items'?: Array<string> | null;
+    'tooltip_sections'?: Array<RawUpgradeTooltipSectionV2> | null;
+    'upgrades'?: Array<RawAbilityUpgradeV2> | null;
+}
+
+export const RawUpgradeV2TypeEnum = {
+    Upgrade: 'upgrade'
+} as const;
+
+export type RawUpgradeV2TypeEnum = typeof RawUpgradeV2TypeEnum[keyof typeof RawUpgradeV2TypeEnum];
+
 export interface RawWeaponInfoHorizontalRecoilV2 {
     'range'?: Range | null;
     'burst_exponent'?: number | null;
+}
+export interface RawWeaponInfoV2 {
+    'can_zoom'?: boolean | null;
+    'bullet_damage'?: number | null;
+    'bullet_gravity_scale'?: number | null;
+    'bullet_inherit_shooter_velocity_scale'?: number | null;
+    'bullet_lifetime'?: number | null;
+    'bullet_radius'?: number | null;
+    'bullet_radius_vs_world'?: number | null;
+    'bullet_reflect_amount'?: number | null;
+    'bullet_reflect_scale'?: number | null;
+    'bullet_whiz_distance'?: number | null;
+    'burst_shot_cooldown'?: number | null;
+    'crit_bonus_against_npcs'?: number | null;
+    'crit_bonus_end'?: number | null;
+    'crit_bonus_end_range'?: number | null;
+    'crit_bonus_start'?: number | null;
+    'crit_bonus_start_range'?: number | null;
+    'cycle_time'?: number | null;
+    'spins_up'?: boolean | null;
+    'is_semi_auto'?: boolean | null;
+    'semi_auto_cycle_rate'?: number | null;
+    'max_spin_cycle_time'?: number | null;
+    'spin_increase_rate'?: number | null;
+    'spin_decay_rate'?: number | null;
+    'build_up_rate'?: number | null;
+    'intra_burst_cycle_time'?: number | null;
+    'damage_falloff_bias'?: number | null;
+    'damage_falloff_end_range'?: number | null;
+    'damage_falloff_end_scale'?: number | null;
+    'damage_falloff_start_range'?: number | null;
+    'damage_falloff_start_scale'?: number | null;
+    'horizontal_punch'?: number | null;
+    'range'?: number | null;
+    'recoil_recovery_delay_factor'?: number | null;
+    'bullet_speed'?: number | null;
+    'recoil_recovery_speed'?: number | null;
+    'recoil_shot_index_recovery_time_factor'?: number | null;
+    'recoil_speed'?: number | null;
+    'reload_move_speed'?: number | null;
+    'scatter_yaw_scale'?: number | null;
+    'aiming_shot_spread_penalty'?: AimingShotSpreadPenalty | null;
+    'standing_shot_spread_penalty'?: StandingShotSpreadPenalty | null;
+    'shoot_move_speed_percent'?: number | null;
+    'shoot_spread_penalty_decay'?: number | null;
+    'shoot_spread_penalty_decay_delay'?: number | null;
+    'shoot_spread_penalty_per_shot'?: number | null;
+    'shooting_up_spread_penalty'?: number | null;
+    'vertical_punch'?: number | null;
+    'zoom_fov'?: number | null;
+    'zoom_move_speed_percent'?: number | null;
+    'bullets'?: number | null;
+    'reload_single_bullets_initial_delay'?: number | null;
+    'reload_single_bullets'?: boolean | null;
+    'reload_single_bullets_allow_cancel'?: boolean | null;
+    'burst_shot_count'?: number | null;
+    'clip_size'?: number | null;
+    'spread'?: number | null;
+    'standing_spread'?: number | null;
+    'low_ammo_indicator_threshold'?: number | null;
+    'recoil_seed'?: number | null;
+    'reload_duration'?: number | null;
+    'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2 | null;
+    'horizontal_recoil'?: RawWeaponInfoHorizontalRecoilV2 | null;
+    'vertical_recoil'?: RawWeaponInfoVerticalRecoilV2 | null;
 }
 export interface RawWeaponInfoVerticalRecoilV2 {
     'range'?: Range | null;
@@ -969,6 +1241,23 @@ export interface RawWeaponInfoVerticalRecoilV2 {
     'burst_constant'?: number | null;
     'burst_slope'?: number | null;
 }
+export interface RawWeaponV2 {
+    'class_name': string;
+    'start_trained'?: boolean | null;
+    'image'?: string | null;
+    'update_time'?: number | null;
+    'properties'?: { [key: string]: RawItemPropertyV2; } | null;
+    'weapon_info'?: RawWeaponInfoV2 | null;
+    'css_class'?: string | null;
+    'type'?: RawWeaponV2TypeEnum;
+}
+
+export const RawWeaponV2TypeEnum = {
+    Weapon: 'weapon'
+} as const;
+
+export type RawWeaponV2TypeEnum = typeof RawWeaponV2TypeEnum[keyof typeof RawWeaponV2TypeEnum];
+
 export interface RejuvParams {
     'rejuvinator_expiration_warning_timing': number;
     'rejuvinator_buff_duration': number;
@@ -988,6 +1277,41 @@ export type ResponseGetItemV2ItemsIdOrClassNameGet = { type: 'ability' } & Abili
  */
 export type ResponseGetItemsV2ItemsGetInner = { type: 'ability' } & AbilityV2 | { type: 'upgrade' } & UpgradeV2 | { type: 'weapon' } & WeaponV2;
 
+export interface ResponseGetRawItemsRawItemsGetInner {
+    'class_name': string;
+    'start_trained'?: boolean;
+    'image'?: string;
+    'update_time'?: number;
+    'properties'?: { [key: string]: RawItemPropertyV2; };
+    'weapon_info'?: RawItemWeaponInfoV2;
+    'css_class'?: string;
+    'type'?: ResponseGetRawItemsRawItemsGetInnerTypeEnum;
+    'behaviour_bits'?: string;
+    'upgrades': Array<RawAbilityUpgradeV2>;
+    'ability_type'?: AbilityTypeV2;
+    'boss_damage_scale'?: number;
+    'dependant_abilities'?: Array<string>;
+    'video'?: string;
+    'tooltip_details'?: RawAbilityV2TooltipDetails;
+    'shop_image'?: string;
+    'shop_image_small'?: string;
+    'item_slot_type': ItemSlotTypeV2;
+    'item_tier': ItemTierV2;
+    'disabled'?: boolean;
+    'activation'?: RawAbilityActivationV2;
+    'imbue'?: RawAbilityImbueV2;
+    'component_items'?: Array<string>;
+    'tooltip_sections'?: Array<RawUpgradeTooltipSectionV2>;
+}
+
+export const ResponseGetRawItemsRawItemsGetInnerTypeEnum = {
+    Ability: 'ability',
+    Weapon: 'weapon',
+    Upgrade: 'upgrade'
+} as const;
+
+export type ResponseGetRawItemsRawItemsGetInnerTypeEnum = typeof ResponseGetRawItemsRawItemsGetInnerTypeEnum[keyof typeof ResponseGetRawItemsRawItemsGetInnerTypeEnum];
+
 export interface ScriptValues {
     'modifier_value'?: string | null;
     'value'?: number | null;
@@ -1005,6 +1329,18 @@ export const StatsUsageFlagV2 = {
 export type StatsUsageFlagV2 = typeof StatsUsageFlagV2[keyof typeof StatsUsageFlagV2];
 
 
+export interface SteamInfoV1 {
+    'client_version': number;
+    'server_version': number;
+    'product_name': string;
+    'app_id': number;
+    'server_app_id': number;
+    'tools_app_id': number;
+    'source_revision': number;
+    'version_date': string;
+    'version_time': string;
+    'version_datetime': string;
+}
 export interface StreetBrawl {
     'respawn_times': Array<number>;
     'gold_per_round': Array<number>;
@@ -2173,7 +2509,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSteamInfoV1SteamInfoGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getSteamInfoV1SteamInfoGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SteamInfoV1>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSteamInfoV1SteamInfoGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getSteamInfoV1SteamInfoGet']?.[localVarOperationServerIndex]?.url;
@@ -2294,7 +2630,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSteamInfoV1SteamInfoGet(requestParameters: DefaultApiGetSteamInfoV1SteamInfoGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+        getSteamInfoV1SteamInfoGet(requestParameters: DefaultApiGetSteamInfoV1SteamInfoGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<SteamInfoV1> {
             return localVarFp.getSteamInfoV1SteamInfoGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
     };
@@ -3799,7 +4135,7 @@ export const RawApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRawAccoladesRawAccoladesGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getRawAccoladesRawAccoladesGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RawAccoladeV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRawAccoladesRawAccoladesGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RawApi.getRawAccoladesRawAccoladesGet']?.[localVarOperationServerIndex]?.url;
@@ -3812,7 +4148,7 @@ export const RawApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRawHeroesRawHeroesGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getRawHeroesRawHeroesGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RawHeroV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRawHeroesRawHeroesGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RawApi.getRawHeroesRawHeroesGet']?.[localVarOperationServerIndex]?.url;
@@ -3825,7 +4161,7 @@ export const RawApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRawItemsRawItemsGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getRawItemsRawItemsGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ResponseGetRawItemsRawItemsGetInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRawItemsRawItemsGet(clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RawApi.getRawItemsRawItemsGet']?.[localVarOperationServerIndex]?.url;
@@ -3847,7 +4183,7 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRawAccoladesRawAccoladesGet(requestParameters: RawApiGetRawAccoladesRawAccoladesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+        getRawAccoladesRawAccoladesGet(requestParameters: RawApiGetRawAccoladesRawAccoladesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<RawAccoladeV2>> {
             return localVarFp.getRawAccoladesRawAccoladesGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3857,7 +4193,7 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRawHeroesRawHeroesGet(requestParameters: RawApiGetRawHeroesRawHeroesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+        getRawHeroesRawHeroesGet(requestParameters: RawApiGetRawHeroesRawHeroesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<RawHeroV2>> {
             return localVarFp.getRawHeroesRawHeroesGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3867,7 +4203,7 @@ export const RawApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRawItemsRawItemsGet(requestParameters: RawApiGetRawItemsRawItemsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+        getRawItemsRawItemsGet(requestParameters: RawApiGetRawItemsRawItemsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<ResponseGetRawItemsRawItemsGetInner>> {
             return localVarFp.getRawItemsRawItemsGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
     };

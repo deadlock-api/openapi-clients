@@ -470,7 +470,7 @@ namespace AssetsDeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IGetSteamInfoV1SteamInfoGetApiResponse"/>
     /// </summary>
-    public interface IGetSteamInfoV1SteamInfoGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Object?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
+    public interface IGetSteamInfoV1SteamInfoGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<AssetsDeadlockApiClient.Model.SteamInfoV1?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -3640,11 +3640,11 @@ namespace AssetsDeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public Object? Ok()
+            public AssetsDeadlockApiClient.Model.SteamInfoV1? Ok()
             {
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<Object>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<AssetsDeadlockApiClient.Model.SteamInfoV1>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
@@ -3653,7 +3653,7 @@ namespace AssetsDeadlockApiClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Object? result)
+            public bool TryOk([NotNullWhen(true)]out AssetsDeadlockApiClient.Model.SteamInfoV1? result)
             {
                 result = null;
 

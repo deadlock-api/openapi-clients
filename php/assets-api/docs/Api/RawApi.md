@@ -14,7 +14,7 @@ All URIs are relative to https://assets.deadlock-api.com, except if the operatio
 ## `getRawAccoladesRawAccoladesGet()`
 
 ```php
-getRawAccoladesRawAccoladesGet($client_version): mixed
+getRawAccoladesRawAccoladesGet($client_version): \OpenAPI\Client\Model\RawAccoladeV2[]
 ```
 
 Get Raw Accolades
@@ -50,7 +50,7 @@ try {
 
 ### Return type
 
-**mixed**
+[**\OpenAPI\Client\Model\RawAccoladeV2[]**](../Model/RawAccoladeV2.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ## `getRawHeroesRawHeroesGet()`
 
 ```php
-getRawHeroesRawHeroesGet($client_version): mixed
+getRawHeroesRawHeroesGet($client_version): \OpenAPI\Client\Model\RawHeroV2[]
 ```
 
 Get Raw Heroes
@@ -104,7 +104,7 @@ try {
 
 ### Return type
 
-**mixed**
+[**\OpenAPI\Client\Model\RawHeroV2[]**](../Model/RawHeroV2.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ No authorization required
 ## `getRawItemsRawItemsGet()`
 
 ```php
-getRawItemsRawItemsGet($client_version): mixed
+getRawItemsRawItemsGet($client_version): \OpenAPI\Client\Model\ResponseGetRawItemsRawItemsGetInner[]
 ```
 
 Get Raw Items
@@ -158,7 +158,7 @@ try {
 
 ### Return type
 
-**mixed**
+[**\OpenAPI\Client\Model\ResponseGetRawItemsRawItemsGetInner[]**](../Model/ResponseGetRawItemsRawItemsGetInner.md)
 
 ### Authorization
 

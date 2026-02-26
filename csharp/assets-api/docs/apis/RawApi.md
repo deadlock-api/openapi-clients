@@ -10,7 +10,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 
 <a id="getrawaccoladesrawaccoladesget"></a>
 # **GetRawAccoladesRawAccoladesGet**
-> Object GetRawAccoladesRawAccoladesGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
+> List&lt;RawAccoladeV2&gt; GetRawAccoladesRawAccoladesGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
 
 Get Raw Accolades
 
@@ -23,7 +23,7 @@ Get Raw Accolades
 
 ### Return type
 
-**Object**
+[**List&lt;RawAccoladeV2&gt;**](RawAccoladeV2.md)
 
 ### Authorization
 
@@ -45,7 +45,7 @@ No authorization required
 
 <a id="getrawheroesrawheroesget"></a>
 # **GetRawHeroesRawHeroesGet**
-> Object GetRawHeroesRawHeroesGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
+> List&lt;RawHeroV2&gt; GetRawHeroesRawHeroesGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
 
 Get Raw Heroes
 
@@ -58,7 +58,7 @@ Get Raw Heroes
 
 ### Return type
 
-**Object**
+[**List&lt;RawHeroV2&gt;**](RawHeroV2.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ No authorization required
 
 <a id="getrawitemsrawitemsget"></a>
 # **GetRawItemsRawItemsGet**
-> Object GetRawItemsRawItemsGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
+> List&lt;ResponseGetRawItemsRawItemsGetInner&gt; GetRawItemsRawItemsGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
 
 Get Raw Items
 
@@ -93,7 +93,7 @@ Get Raw Items
 
 ### Return type
 
-**Object**
+[**List&lt;ResponseGetRawItemsRawItemsGetInner&gt;**](ResponseGetRawItemsRawItemsGetInner.md)
 
 ### Authorization
 

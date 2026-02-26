@@ -108,27 +108,49 @@ __all__ = [
     "RawAbilitySectionTypeV2",
     "RawAbilityUpgradePropertyUpgradeV2",
     "RawAbilityUpgradeV2",
+    "RawAbilityV2",
+    "RawAbilityV2TooltipDetails",
+    "RawAbilityV2TooltipDetailsInfoSection",
+    "RawAbilityV2TooltipDetailsInfoSectionPropertyBlock",
+    "RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty",
+    "RawAccoladeV2",
     "RawHeroItemSlotInfoValueV2",
+    "RawHeroLevelInfoV2",
     "RawHeroMapModCostBonusesV2",
     "RawHeroPurchaseBonusV2",
     "RawHeroScalingStatV2",
     "RawHeroShopSpiritStatsDisplayV2",
+    "RawHeroShopStatDisplayV2",
     "RawHeroShopVitalityStatsDisplayV2",
+    "RawHeroShopWeaponStatsDisplayV2",
+    "RawHeroStartingStatsV2",
     "RawHeroStatsDisplayV2",
     "RawHeroStatsUIDisplayV2",
     "RawHeroStatsUIV2",
+    "RawHeroV2",
     "RawItemPropertyScaleFunctionSubclassV2",
+    "RawItemPropertyScaleFunctionV2",
+    "RawItemPropertyV2",
     "RawItemWeaponInfoBulletSpeedCurveSplineV2",
     "RawItemWeaponInfoBulletSpeedCurveV2",
     "RawItemWeaponInfoV2",
+    "RawUpgradeTooltipSectionAttributeImportantPropertyV2",
+    "RawUpgradeTooltipSectionAttributeV2",
+    "RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon",
+    "RawUpgradeTooltipSectionV2",
+    "RawUpgradeV2",
     "RawWeaponInfoHorizontalRecoilV2",
+    "RawWeaponInfoV2",
     "RawWeaponInfoVerticalRecoilV2",
+    "RawWeaponV2",
     "RejuvParams",
     "ResponseGetItemV2ItemsIdOrClassNameGet",
     "ResponseGetItemsV2ItemsGetInner",
+    "ResponseGetRawItemsRawItemsGetInner",
     "ScriptValues",
     "StandingShotSpreadPenalty",
     "StatsUsageFlagV2",
+    "SteamInfoV1",
     "StreetBrawl",
     "StreetBrawlValue",
     "SubclassBulletResistModifier",
@@ -252,27 +274,49 @@ from assets_deadlock_api_client.models.raw_ability_imbue_v2 import RawAbilityImb
 from assets_deadlock_api_client.models.raw_ability_section_type_v2 import RawAbilitySectionTypeV2 as RawAbilitySectionTypeV2
 from assets_deadlock_api_client.models.raw_ability_upgrade_property_upgrade_v2 import RawAbilityUpgradePropertyUpgradeV2 as RawAbilityUpgradePropertyUpgradeV2
 from assets_deadlock_api_client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2 as RawAbilityUpgradeV2
+from assets_deadlock_api_client.models.raw_ability_v2 import RawAbilityV2 as RawAbilityV2
+from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details import RawAbilityV2TooltipDetails as RawAbilityV2TooltipDetails
+from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details_info_section import RawAbilityV2TooltipDetailsInfoSection as RawAbilityV2TooltipDetailsInfoSection
+from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details_info_section_property_block import RawAbilityV2TooltipDetailsInfoSectionPropertyBlock as RawAbilityV2TooltipDetailsInfoSectionPropertyBlock
+from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details_info_section_property_block_property import RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty as RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
+from assets_deadlock_api_client.models.raw_accolade_v2 import RawAccoladeV2 as RawAccoladeV2
 from assets_deadlock_api_client.models.raw_hero_item_slot_info_value_v2 import RawHeroItemSlotInfoValueV2 as RawHeroItemSlotInfoValueV2
+from assets_deadlock_api_client.models.raw_hero_level_info_v2 import RawHeroLevelInfoV2 as RawHeroLevelInfoV2
 from assets_deadlock_api_client.models.raw_hero_map_mod_cost_bonuses_v2 import RawHeroMapModCostBonusesV2 as RawHeroMapModCostBonusesV2
 from assets_deadlock_api_client.models.raw_hero_purchase_bonus_v2 import RawHeroPurchaseBonusV2 as RawHeroPurchaseBonusV2
 from assets_deadlock_api_client.models.raw_hero_scaling_stat_v2 import RawHeroScalingStatV2 as RawHeroScalingStatV2
 from assets_deadlock_api_client.models.raw_hero_shop_spirit_stats_display_v2 import RawHeroShopSpiritStatsDisplayV2 as RawHeroShopSpiritStatsDisplayV2
+from assets_deadlock_api_client.models.raw_hero_shop_stat_display_v2 import RawHeroShopStatDisplayV2 as RawHeroShopStatDisplayV2
 from assets_deadlock_api_client.models.raw_hero_shop_vitality_stats_display_v2 import RawHeroShopVitalityStatsDisplayV2 as RawHeroShopVitalityStatsDisplayV2
+from assets_deadlock_api_client.models.raw_hero_shop_weapon_stats_display_v2 import RawHeroShopWeaponStatsDisplayV2 as RawHeroShopWeaponStatsDisplayV2
+from assets_deadlock_api_client.models.raw_hero_starting_stats_v2 import RawHeroStartingStatsV2 as RawHeroStartingStatsV2
 from assets_deadlock_api_client.models.raw_hero_stats_display_v2 import RawHeroStatsDisplayV2 as RawHeroStatsDisplayV2
 from assets_deadlock_api_client.models.raw_hero_stats_ui_display_v2 import RawHeroStatsUIDisplayV2 as RawHeroStatsUIDisplayV2
 from assets_deadlock_api_client.models.raw_hero_stats_uiv2 import RawHeroStatsUIV2 as RawHeroStatsUIV2
+from assets_deadlock_api_client.models.raw_hero_v2 import RawHeroV2 as RawHeroV2
 from assets_deadlock_api_client.models.raw_item_property_scale_function_subclass_v2 import RawItemPropertyScaleFunctionSubclassV2 as RawItemPropertyScaleFunctionSubclassV2
+from assets_deadlock_api_client.models.raw_item_property_scale_function_v2 import RawItemPropertyScaleFunctionV2 as RawItemPropertyScaleFunctionV2
+from assets_deadlock_api_client.models.raw_item_property_v2 import RawItemPropertyV2 as RawItemPropertyV2
 from assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2 import RawItemWeaponInfoBulletSpeedCurveSplineV2 as RawItemWeaponInfoBulletSpeedCurveSplineV2
 from assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_v2 import RawItemWeaponInfoBulletSpeedCurveV2 as RawItemWeaponInfoBulletSpeedCurveV2
 from assets_deadlock_api_client.models.raw_item_weapon_info_v2 import RawItemWeaponInfoV2 as RawItemWeaponInfoV2
+from assets_deadlock_api_client.models.raw_upgrade_tooltip_section_attribute_important_property_v2 import RawUpgradeTooltipSectionAttributeImportantPropertyV2 as RawUpgradeTooltipSectionAttributeImportantPropertyV2
+from assets_deadlock_api_client.models.raw_upgrade_tooltip_section_attribute_v2 import RawUpgradeTooltipSectionAttributeV2 as RawUpgradeTooltipSectionAttributeV2
+from assets_deadlock_api_client.models.raw_upgrade_tooltip_section_attribute_v2_important_property_with_icon import RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon as RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
+from assets_deadlock_api_client.models.raw_upgrade_tooltip_section_v2 import RawUpgradeTooltipSectionV2 as RawUpgradeTooltipSectionV2
+from assets_deadlock_api_client.models.raw_upgrade_v2 import RawUpgradeV2 as RawUpgradeV2
 from assets_deadlock_api_client.models.raw_weapon_info_horizontal_recoil_v2 import RawWeaponInfoHorizontalRecoilV2 as RawWeaponInfoHorizontalRecoilV2
+from assets_deadlock_api_client.models.raw_weapon_info_v2 import RawWeaponInfoV2 as RawWeaponInfoV2
 from assets_deadlock_api_client.models.raw_weapon_info_vertical_recoil_v2 import RawWeaponInfoVerticalRecoilV2 as RawWeaponInfoVerticalRecoilV2
+from assets_deadlock_api_client.models.raw_weapon_v2 import RawWeaponV2 as RawWeaponV2
 from assets_deadlock_api_client.models.rejuv_params import RejuvParams as RejuvParams
 from assets_deadlock_api_client.models.response_get_item_v2_items_id_or_class_name_get import ResponseGetItemV2ItemsIdOrClassNameGet as ResponseGetItemV2ItemsIdOrClassNameGet
 from assets_deadlock_api_client.models.response_get_items_v2_items_get_inner import ResponseGetItemsV2ItemsGetInner as ResponseGetItemsV2ItemsGetInner
+from assets_deadlock_api_client.models.response_get_raw_items_raw_items_get_inner import ResponseGetRawItemsRawItemsGetInner as ResponseGetRawItemsRawItemsGetInner
 from assets_deadlock_api_client.models.script_values import ScriptValues as ScriptValues
 from assets_deadlock_api_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty as StandingShotSpreadPenalty
 from assets_deadlock_api_client.models.stats_usage_flag_v2 import StatsUsageFlagV2 as StatsUsageFlagV2
+from assets_deadlock_api_client.models.steam_info_v1 import SteamInfoV1 as SteamInfoV1
 from assets_deadlock_api_client.models.street_brawl import StreetBrawl as StreetBrawl
 from assets_deadlock_api_client.models.street_brawl_value import StreetBrawlValue as StreetBrawlValue
 from assets_deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier as SubclassBulletResistModifier

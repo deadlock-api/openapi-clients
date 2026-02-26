@@ -58,7 +58,7 @@ pub enum GetRawItemsRawItemsGetError {
 }
 
 
-pub async fn get_raw_accolades_raw_accolades_get(configuration: &configuration::Configuration, params: GetRawAccoladesRawAccoladesGetParams) -> Result<serde_json::Value, Error<GetRawAccoladesRawAccoladesGetError>> {
+pub async fn get_raw_accolades_raw_accolades_get(configuration: &configuration::Configuration, params: GetRawAccoladesRawAccoladesGetParams) -> Result<Vec<models::RawAccoladeV2>, Error<GetRawAccoladesRawAccoladesGetError>> {
 
     let uri_str = format!("{}/raw/accolades", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -85,8 +85,8 @@ pub async fn get_raw_accolades_raw_accolades_get(configuration: &configuration::
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `serde_json::Value`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `serde_json::Value`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::RawAccoladeV2&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::RawAccoladeV2&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -95,7 +95,7 @@ pub async fn get_raw_accolades_raw_accolades_get(configuration: &configuration::
     }
 }
 
-pub async fn get_raw_heroes_raw_heroes_get(configuration: &configuration::Configuration, params: GetRawHeroesRawHeroesGetParams) -> Result<serde_json::Value, Error<GetRawHeroesRawHeroesGetError>> {
+pub async fn get_raw_heroes_raw_heroes_get(configuration: &configuration::Configuration, params: GetRawHeroesRawHeroesGetParams) -> Result<Vec<models::RawHeroV2>, Error<GetRawHeroesRawHeroesGetError>> {
 
     let uri_str = format!("{}/raw/heroes", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -122,8 +122,8 @@ pub async fn get_raw_heroes_raw_heroes_get(configuration: &configuration::Config
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `serde_json::Value`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `serde_json::Value`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::RawHeroV2&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::RawHeroV2&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -132,7 +132,7 @@ pub async fn get_raw_heroes_raw_heroes_get(configuration: &configuration::Config
     }
 }
 
-pub async fn get_raw_items_raw_items_get(configuration: &configuration::Configuration, params: GetRawItemsRawItemsGetParams) -> Result<serde_json::Value, Error<GetRawItemsRawItemsGetError>> {
+pub async fn get_raw_items_raw_items_get(configuration: &configuration::Configuration, params: GetRawItemsRawItemsGetParams) -> Result<Vec<models::ResponseGetRawItemsRawItemsGetInner>, Error<GetRawItemsRawItemsGetError>> {
 
     let uri_str = format!("{}/raw/items", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -159,8 +159,8 @@ pub async fn get_raw_items_raw_items_get(configuration: &configuration::Configur
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `serde_json::Value`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `serde_json::Value`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ResponseGetRawItemsRawItemsGetInner&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ResponseGetRawItemsRawItemsGetInner&gt;`")))),
         }
     } else {
         let content = resp.text().await?;

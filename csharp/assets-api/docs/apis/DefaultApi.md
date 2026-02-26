@@ -365,7 +365,7 @@ No authorization required
 
 <a id="getsteaminfov1steaminfoget"></a>
 # **GetSteamInfoV1SteamInfoGet**
-> Object GetSteamInfoV1SteamInfoGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
+> SteamInfoV1 GetSteamInfoV1SteamInfoGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
 
 Get Steam Info
 
@@ -378,7 +378,7 @@ Get Steam Info
 
 ### Return type
 
-**Object**
+[**SteamInfoV1**](SteamInfoV1.md)
 
 ### Authorization
 

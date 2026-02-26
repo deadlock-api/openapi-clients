@@ -460,7 +460,7 @@ No authorization required
 
 <a id="getSteamInfoV1SteamInfoGet"></a>
 # **getSteamInfoV1SteamInfoGet**
-> kotlin.Any getSteamInfoV1SteamInfoGet(clientVersion)
+> SteamInfoV1 getSteamInfoV1SteamInfoGet(clientVersion)
 
 Get Steam Info
 
@@ -473,7 +473,7 @@ Get Steam Info
 val apiInstance = DefaultApi()
 val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.Any = apiInstance.getSteamInfoV1SteamInfoGet(clientVersion)
+    val result : SteamInfoV1 = apiInstance.getSteamInfoV1SteamInfoGet(clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getSteamInfoV1SteamInfoGet")
@@ -491,7 +491,7 @@ try {
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**SteamInfoV1**](SteamInfoV1.md)
 
 ### Authorization
 

@@ -659,7 +659,7 @@ No authorization required
 
 ## GetSteamInfoV1SteamInfoGet
 
-> interface{} GetSteamInfoV1SteamInfoGet(ctx).ClientVersion(clientVersion).Execute()
+> SteamInfoV1 GetSteamInfoV1SteamInfoGet(ctx).ClientVersion(clientVersion).Execute()
 
 Get Steam Info
 
@@ -685,7 +685,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetSteamInfoV1SteamInfoGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetSteamInfoV1SteamInfoGet`: interface{}
+	// response from `GetSteamInfoV1SteamInfoGet`: SteamInfoV1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetSteamInfoV1SteamInfoGet`: %v\n", resp)
 }
 ```
@@ -705,7 +705,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**SteamInfoV1**](SteamInfoV1.md)
 
 ### Authorization
 

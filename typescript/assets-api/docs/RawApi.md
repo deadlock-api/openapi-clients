@@ -9,7 +9,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 |[**getRawItemsRawItemsGet**](#getrawitemsrawitemsget) | **GET** /raw/items | Get Raw Items|
 
 # **getRawAccoladesRawAccoladesGet**
-> any getRawAccoladesRawAccoladesGet()
+> Array<RawAccoladeV2> getRawAccoladesRawAccoladesGet()
 
 
 ### Example
@@ -39,7 +39,7 @@ const { status, data } = await apiInstance.getRawAccoladesRawAccoladesGet(
 
 ### Return type
 
-**any**
+**Array<RawAccoladeV2>**
 
 ### Authorization
 
@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRawHeroesRawHeroesGet**
-> any getRawHeroesRawHeroesGet()
+> Array<RawHeroV2> getRawHeroesRawHeroesGet()
 
 
 ### Example
@@ -90,7 +90,7 @@ const { status, data } = await apiInstance.getRawHeroesRawHeroesGet(
 
 ### Return type
 
-**any**
+**Array<RawHeroV2>**
 
 ### Authorization
 
@@ -111,7 +111,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRawItemsRawItemsGet**
-> any getRawItemsRawItemsGet()
+> Array<ResponseGetRawItemsRawItemsGetInner> getRawItemsRawItemsGet()
 
 
 ### Example
@@ -141,7 +141,7 @@ const { status, data } = await apiInstance.getRawItemsRawItemsGet(
 
 ### Return type
 
-**any**
+**Array<ResponseGetRawItemsRawItemsGetInner>**
 
 ### Authorization
 

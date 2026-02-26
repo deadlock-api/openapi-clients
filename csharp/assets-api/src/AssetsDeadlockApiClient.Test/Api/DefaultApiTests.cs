@@ -180,7 +180,7 @@ namespace AssetsDeadlockApiClient.Test.Api
             Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
             var response = await _instance.GetSteamInfoV1SteamInfoGetAsync(clientVersion);
             var model = response.Ok();
-            Assert.IsType<Object>(model);
+            Assert.IsType<SteamInfoV1>(model);
         }
     }
 }

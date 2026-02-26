@@ -59,7 +59,7 @@ namespace AssetsDeadlockApiClient.Test.Api
             Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
             var response = await _instance.GetRawAccoladesRawAccoladesGetAsync(clientVersion);
             var model = response.Ok();
-            Assert.IsType<Object>(model);
+            Assert.IsType<List<RawAccoladeV2>>(model);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace AssetsDeadlockApiClient.Test.Api
             Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
             var response = await _instance.GetRawHeroesRawHeroesGetAsync(clientVersion);
             var model = response.Ok();
-            Assert.IsType<Object>(model);
+            Assert.IsType<List<RawHeroV2>>(model);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace AssetsDeadlockApiClient.Test.Api
             Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
             var response = await _instance.GetRawItemsRawItemsGetAsync(clientVersion);
             var model = response.Ok();
-            Assert.IsType<Object>(model);
+            Assert.IsType<List<ResponseGetRawItemsRawItemsGetInner>>(model);
         }
     }
 }

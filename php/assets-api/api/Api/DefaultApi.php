@@ -2936,7 +2936,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \OpenAPI\Client\Model\SteamInfoV1|\OpenAPI\Client\Model\HTTPValidationError
      */
     public function getSteamInfoV1SteamInfoGet($client_version = null, string $contentType = self::contentTypes['getSteamInfoV1SteamInfoGet'][0])
     {
@@ -2954,7 +2954,7 @@ class DefaultApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\SteamInfoV1|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSteamInfoV1SteamInfoGetWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getSteamInfoV1SteamInfoGet'][0])
     {
@@ -2986,7 +2986,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        'mixed',
+                        '\OpenAPI\Client\Model\SteamInfoV1',
                         $request,
                         $response,
                     );
@@ -3014,7 +3014,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                'mixed',
+                '\OpenAPI\Client\Model\SteamInfoV1',
                 $request,
                 $response,
             );
@@ -3023,7 +3023,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'mixed',
+                        '\OpenAPI\Client\Model\SteamInfoV1',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3077,7 +3077,7 @@ class DefaultApi
      */
     public function getSteamInfoV1SteamInfoGetAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getSteamInfoV1SteamInfoGet'][0])
     {
-        $returnType = 'mixed';
+        $returnType = '\OpenAPI\Client\Model\SteamInfoV1';
         $request = $this->getSteamInfoV1SteamInfoGetRequest($client_version, $contentType);
 
         return $this->client

@@ -141,7 +141,7 @@ class RawApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \OpenAPI\Client\Model\RawAccoladeV2[]|\OpenAPI\Client\Model\HTTPValidationError
      */
     public function getRawAccoladesRawAccoladesGet($client_version = null, string $contentType = self::contentTypes['getRawAccoladesRawAccoladesGet'][0])
     {
@@ -159,7 +159,7 @@ class RawApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RawAccoladeV2[]|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRawAccoladesRawAccoladesGetWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getRawAccoladesRawAccoladesGet'][0])
     {
@@ -191,7 +191,7 @@ class RawApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        'mixed',
+                        '\OpenAPI\Client\Model\RawAccoladeV2[]',
                         $request,
                         $response,
                     );
@@ -219,7 +219,7 @@ class RawApi
             }
 
             return $this->handleResponseWithDataType(
-                'mixed',
+                '\OpenAPI\Client\Model\RawAccoladeV2[]',
                 $request,
                 $response,
             );
@@ -228,7 +228,7 @@ class RawApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'mixed',
+                        '\OpenAPI\Client\Model\RawAccoladeV2[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -282,7 +282,7 @@ class RawApi
      */
     public function getRawAccoladesRawAccoladesGetAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getRawAccoladesRawAccoladesGet'][0])
     {
-        $returnType = 'mixed';
+        $returnType = '\OpenAPI\Client\Model\RawAccoladeV2[]';
         $request = $this->getRawAccoladesRawAccoladesGetRequest($client_version, $contentType);
 
         return $this->client
@@ -418,7 +418,7 @@ class RawApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \OpenAPI\Client\Model\RawHeroV2[]|\OpenAPI\Client\Model\HTTPValidationError
      */
     public function getRawHeroesRawHeroesGet($client_version = null, string $contentType = self::contentTypes['getRawHeroesRawHeroesGet'][0])
     {
@@ -436,7 +436,7 @@ class RawApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RawHeroV2[]|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRawHeroesRawHeroesGetWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getRawHeroesRawHeroesGet'][0])
     {
@@ -468,7 +468,7 @@ class RawApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        'mixed',
+                        '\OpenAPI\Client\Model\RawHeroV2[]',
                         $request,
                         $response,
                     );
@@ -496,7 +496,7 @@ class RawApi
             }
 
             return $this->handleResponseWithDataType(
-                'mixed',
+                '\OpenAPI\Client\Model\RawHeroV2[]',
                 $request,
                 $response,
             );
@@ -505,7 +505,7 @@ class RawApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'mixed',
+                        '\OpenAPI\Client\Model\RawHeroV2[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -559,7 +559,7 @@ class RawApi
      */
     public function getRawHeroesRawHeroesGetAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getRawHeroesRawHeroesGet'][0])
     {
-        $returnType = 'mixed';
+        $returnType = '\OpenAPI\Client\Model\RawHeroV2[]';
         $request = $this->getRawHeroesRawHeroesGetRequest($client_version, $contentType);
 
         return $this->client
@@ -695,7 +695,7 @@ class RawApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \OpenAPI\Client\Model\ResponseGetRawItemsRawItemsGetInner[]|\OpenAPI\Client\Model\HTTPValidationError
      */
     public function getRawItemsRawItemsGet($client_version = null, string $contentType = self::contentTypes['getRawItemsRawItemsGet'][0])
     {
@@ -713,7 +713,7 @@ class RawApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ResponseGetRawItemsRawItemsGetInner[]|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRawItemsRawItemsGetWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getRawItemsRawItemsGet'][0])
     {
@@ -745,7 +745,7 @@ class RawApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        'mixed',
+                        '\OpenAPI\Client\Model\ResponseGetRawItemsRawItemsGetInner[]',
                         $request,
                         $response,
                     );
@@ -773,7 +773,7 @@ class RawApi
             }
 
             return $this->handleResponseWithDataType(
-                'mixed',
+                '\OpenAPI\Client\Model\ResponseGetRawItemsRawItemsGetInner[]',
                 $request,
                 $response,
             );
@@ -782,7 +782,7 @@ class RawApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'mixed',
+                        '\OpenAPI\Client\Model\ResponseGetRawItemsRawItemsGetInner[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -836,7 +836,7 @@ class RawApi
      */
     public function getRawItemsRawItemsGetAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getRawItemsRawItemsGet'][0])
     {
-        $returnType = 'mixed';
+        $returnType = '\OpenAPI\Client\Model\ResponseGetRawItemsRawItemsGetInner[]';
         $request = $this->getRawItemsRawItemsGetRequest($client_version, $contentType);
 
         return $this->client

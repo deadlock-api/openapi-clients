@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_raw_accolades_raw_accolades_get**
-> object get_raw_accolades_raw_accolades_get(client_version=client_version)
+> List[RawAccoladeV2] get_raw_accolades_raw_accolades_get(client_version=client_version)
 
 Get Raw Accolades
 
@@ -19,6 +19,7 @@ Get Raw Accolades
 
 ```python
 import assets_deadlock_api_client
+from assets_deadlock_api_client.models.raw_accolade_v2 import RawAccoladeV2
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -55,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**List[RawAccoladeV2]**](RawAccoladeV2.md)
 
 ### Authorization
 
@@ -76,7 +77,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_raw_heroes_raw_heroes_get**
-> object get_raw_heroes_raw_heroes_get(client_version=client_version)
+> List[RawHeroV2] get_raw_heroes_raw_heroes_get(client_version=client_version)
 
 Get Raw Heroes
 
@@ -85,6 +86,7 @@ Get Raw Heroes
 
 ```python
 import assets_deadlock_api_client
+from assets_deadlock_api_client.models.raw_hero_v2 import RawHeroV2
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -121,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**List[RawHeroV2]**](RawHeroV2.md)
 
 ### Authorization
 
@@ -142,7 +144,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_raw_items_raw_items_get**
-> object get_raw_items_raw_items_get(client_version=client_version)
+> List[ResponseGetRawItemsRawItemsGetInner] get_raw_items_raw_items_get(client_version=client_version)
 
 Get Raw Items
 
@@ -151,6 +153,7 @@ Get Raw Items
 
 ```python
 import assets_deadlock_api_client
+from assets_deadlock_api_client.models.response_get_raw_items_raw_items_get_inner import ResponseGetRawItemsRawItemsGetInner
 from assets_deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -187,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**List[ResponseGetRawItemsRawItemsGetInner]**](ResponseGetRawItemsRawItemsGetInner.md)
 
 ### Authorization
 

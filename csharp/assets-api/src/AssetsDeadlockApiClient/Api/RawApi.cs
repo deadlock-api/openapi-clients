@@ -110,7 +110,7 @@ namespace AssetsDeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IGetRawAccoladesRawAccoladesGetApiResponse"/>
     /// </summary>
-    public interface IGetRawAccoladesRawAccoladesGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Object?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
+    public interface IGetRawAccoladesRawAccoladesGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<List<RawAccoladeV2>?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -128,7 +128,7 @@ namespace AssetsDeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IGetRawHeroesRawHeroesGetApiResponse"/>
     /// </summary>
-    public interface IGetRawHeroesRawHeroesGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Object?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
+    public interface IGetRawHeroesRawHeroesGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<List<RawHeroV2>?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -146,7 +146,7 @@ namespace AssetsDeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IGetRawItemsRawItemsGetApiResponse"/>
     /// </summary>
-    public interface IGetRawItemsRawItemsGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Object?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
+    public interface IGetRawItemsRawItemsGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<List<ResponseGetRawItemsRawItemsGetInner>?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -463,11 +463,11 @@ namespace AssetsDeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public Object? Ok()
+            public List<RawAccoladeV2>? Ok()
             {
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<Object>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<RawAccoladeV2>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
@@ -476,7 +476,7 @@ namespace AssetsDeadlockApiClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Object? result)
+            public bool TryOk([NotNullWhen(true)]out List<RawAccoladeV2>? result)
             {
                 result = null;
 
@@ -736,11 +736,11 @@ namespace AssetsDeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public Object? Ok()
+            public List<RawHeroV2>? Ok()
             {
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<Object>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<RawHeroV2>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
@@ -749,7 +749,7 @@ namespace AssetsDeadlockApiClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Object? result)
+            public bool TryOk([NotNullWhen(true)]out List<RawHeroV2>? result)
             {
                 result = null;
 
@@ -1009,11 +1009,11 @@ namespace AssetsDeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public Object? Ok()
+            public List<ResponseGetRawItemsRawItemsGetInner>? Ok()
             {
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<Object>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<ResponseGetRawItemsRawItemsGetInner>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
@@ -1022,7 +1022,7 @@ namespace AssetsDeadlockApiClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Object? result)
+            public bool TryOk([NotNullWhen(true)]out List<ResponseGetRawItemsRawItemsGetInner>? result)
             {
                 result = null;
 

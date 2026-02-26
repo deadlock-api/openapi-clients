@@ -15,7 +15,10 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from typing import Any, Optional
+from typing import Any, List, Optional
+from assets_deadlock_api_client.models.raw_accolade_v2 import RawAccoladeV2
+from assets_deadlock_api_client.models.raw_hero_v2 import RawHeroV2
+from assets_deadlock_api_client.models.response_get_raw_items_raw_items_get_inner import ResponseGetRawItemsRawItemsGetInner
 
 from assets_deadlock_api_client.api_client import ApiClient, RequestSerialized
 from assets_deadlock_api_client.api_response import ApiResponse
@@ -51,7 +54,7 @@ class RawApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> List[RawAccoladeV2]:
         """Get Raw Accolades
 
 
@@ -88,7 +91,7 @@ class RawApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "List[RawAccoladeV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -118,7 +121,7 @@ class RawApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[List[RawAccoladeV2]]:
         """Get Raw Accolades
 
 
@@ -155,7 +158,7 @@ class RawApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "List[RawAccoladeV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -222,7 +225,7 @@ class RawApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "List[RawAccoladeV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -313,7 +316,7 @@ class RawApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> List[RawHeroV2]:
         """Get Raw Heroes
 
 
@@ -350,7 +353,7 @@ class RawApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "List[RawHeroV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -380,7 +383,7 @@ class RawApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[List[RawHeroV2]]:
         """Get Raw Heroes
 
 
@@ -417,7 +420,7 @@ class RawApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "List[RawHeroV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -484,7 +487,7 @@ class RawApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "List[RawHeroV2]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -575,7 +578,7 @@ class RawApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> List[ResponseGetRawItemsRawItemsGetInner]:
         """Get Raw Items
 
 
@@ -612,7 +615,7 @@ class RawApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "List[ResponseGetRawItemsRawItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -642,7 +645,7 @@ class RawApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[List[ResponseGetRawItemsRawItemsGetInner]]:
         """Get Raw Items
 
 
@@ -679,7 +682,7 @@ class RawApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "List[ResponseGetRawItemsRawItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -746,7 +749,7 @@ class RawApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "List[ResponseGetRawItemsRawItemsGetInner]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

@@ -525,7 +525,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSteamInfoV1SteamInfoGet**
-> any getSteamInfoV1SteamInfoGet()
+> SteamInfoV1 getSteamInfoV1SteamInfoGet()
 
 
 ### Example
@@ -555,7 +555,7 @@ const { status, data } = await apiInstance.getSteamInfoV1SteamInfoGet(
 
 ### Return type
 
-**any**
+**SteamInfoV1**
 
 ### Authorization
 

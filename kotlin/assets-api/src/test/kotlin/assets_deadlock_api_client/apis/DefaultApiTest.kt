@@ -28,6 +28,7 @@ import assets_deadlock_api_client.models.Language
 import assets_deadlock_api_client.models.LootTableV2
 import assets_deadlock_api_client.models.MapV1
 import assets_deadlock_api_client.models.RankV2
+import assets_deadlock_api_client.models.SteamInfoV1
 
 class DefaultApiTest : ShouldSpec() {
     init {
@@ -119,7 +120,7 @@ class DefaultApiTest : ShouldSpec() {
         should("test getSteamInfoV1SteamInfoGet") {
             // uncomment below to test getSteamInfoV1SteamInfoGet
             //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.Any = apiInstance.getSteamInfoV1SteamInfoGet(clientVersion)
+            //val result : SteamInfoV1 = apiInstance.getSteamInfoV1SteamInfoGet(clientVersion)
             //result shouldBe ("TODO")
         }
 

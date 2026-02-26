@@ -563,7 +563,7 @@ No authorization required
 ## `getSteamInfoV1SteamInfoGet()`
 
 ```php
-getSteamInfoV1SteamInfoGet($client_version): mixed
+getSteamInfoV1SteamInfoGet($client_version): \OpenAPI\Client\Model\SteamInfoV1
 ```
 
 Get Steam Info
@@ -599,7 +599,7 @@ try {
 
 ### Return type
 
-**mixed**
+[**\OpenAPI\Client\Model\SteamInfoV1**](../Model/SteamInfoV1.md)
 
 ### Authorization
 

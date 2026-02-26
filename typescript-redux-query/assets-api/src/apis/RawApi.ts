@@ -21,6 +21,15 @@ import {
     HTTPValidationError,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    RawAccoladeV2,
+    RawAccoladeV2FromJSON,
+    RawAccoladeV2ToJSON,
+    RawHeroV2,
+    RawHeroV2FromJSON,
+    RawHeroV2ToJSON,
+    ResponseGetRawItemsRawItemsGetInner,
+    ResponseGetRawItemsRawItemsGetInnerFromJSON,
+    ResponseGetRawItemsRawItemsGetInnerToJSON,
 } from '../models';
 
 export interface GetRawAccoladesRawAccoladesGetRequest {
@@ -39,7 +48,7 @@ export interface GetRawItemsRawItemsGetRequest {
 /**
  * Get Raw Accolades
  */
-function getRawAccoladesRawAccoladesGetRaw<T>(requestParameters: GetRawAccoladesRawAccoladesGetRequest, requestConfig: runtime.TypedQueryConfig<T, any> = {}): QueryConfig<T> {
+function getRawAccoladesRawAccoladesGetRaw<T>(requestParameters: GetRawAccoladesRawAccoladesGetRequest, requestConfig: runtime.TypedQueryConfig<T, Array<RawAccoladeV2>> = {}): QueryConfig<T> {
     let queryParameters = null;
 
     queryParameters = {};
@@ -71,7 +80,7 @@ function getRawAccoladesRawAccoladesGetRaw<T>(requestParameters: GetRawAccolades
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        throw "OH NO";
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(RawAccoladeV2FromJSON), text);
     }
 
     return config;
@@ -80,14 +89,14 @@ function getRawAccoladesRawAccoladesGetRaw<T>(requestParameters: GetRawAccolades
 /**
 * Get Raw Accolades
 */
-export function getRawAccoladesRawAccoladesGet<T>(requestParameters: GetRawAccoladesRawAccoladesGetRequest, requestConfig?: runtime.TypedQueryConfig<T, any>): QueryConfig<T> {
+export function getRawAccoladesRawAccoladesGet<T>(requestParameters: GetRawAccoladesRawAccoladesGetRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<RawAccoladeV2>>): QueryConfig<T> {
     return getRawAccoladesRawAccoladesGetRaw(requestParameters, requestConfig);
 }
 
 /**
  * Get Raw Heroes
  */
-function getRawHeroesRawHeroesGetRaw<T>(requestParameters: GetRawHeroesRawHeroesGetRequest, requestConfig: runtime.TypedQueryConfig<T, any> = {}): QueryConfig<T> {
+function getRawHeroesRawHeroesGetRaw<T>(requestParameters: GetRawHeroesRawHeroesGetRequest, requestConfig: runtime.TypedQueryConfig<T, Array<RawHeroV2>> = {}): QueryConfig<T> {
     let queryParameters = null;
 
     queryParameters = {};
@@ -119,7 +128,7 @@ function getRawHeroesRawHeroesGetRaw<T>(requestParameters: GetRawHeroesRawHeroes
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        throw "OH NO";
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(RawHeroV2FromJSON), text);
     }
 
     return config;
@@ -128,14 +137,14 @@ function getRawHeroesRawHeroesGetRaw<T>(requestParameters: GetRawHeroesRawHeroes
 /**
 * Get Raw Heroes
 */
-export function getRawHeroesRawHeroesGet<T>(requestParameters: GetRawHeroesRawHeroesGetRequest, requestConfig?: runtime.TypedQueryConfig<T, any>): QueryConfig<T> {
+export function getRawHeroesRawHeroesGet<T>(requestParameters: GetRawHeroesRawHeroesGetRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<RawHeroV2>>): QueryConfig<T> {
     return getRawHeroesRawHeroesGetRaw(requestParameters, requestConfig);
 }
 
 /**
  * Get Raw Items
  */
-function getRawItemsRawItemsGetRaw<T>(requestParameters: GetRawItemsRawItemsGetRequest, requestConfig: runtime.TypedQueryConfig<T, any> = {}): QueryConfig<T> {
+function getRawItemsRawItemsGetRaw<T>(requestParameters: GetRawItemsRawItemsGetRequest, requestConfig: runtime.TypedQueryConfig<T, Array<ResponseGetRawItemsRawItemsGetInner>> = {}): QueryConfig<T> {
     let queryParameters = null;
 
     queryParameters = {};
@@ -167,7 +176,7 @@ function getRawItemsRawItemsGetRaw<T>(requestParameters: GetRawItemsRawItemsGetR
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        throw "OH NO";
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(ResponseGetRawItemsRawItemsGetInnerFromJSON), text);
     }
 
     return config;
@@ -176,7 +185,7 @@ function getRawItemsRawItemsGetRaw<T>(requestParameters: GetRawItemsRawItemsGetR
 /**
 * Get Raw Items
 */
-export function getRawItemsRawItemsGet<T>(requestParameters: GetRawItemsRawItemsGetRequest, requestConfig?: runtime.TypedQueryConfig<T, any>): QueryConfig<T> {
+export function getRawItemsRawItemsGet<T>(requestParameters: GetRawItemsRawItemsGetRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<ResponseGetRawItemsRawItemsGetInner>>): QueryConfig<T> {
     return getRawItemsRawItemsGetRaw(requestParameters, requestConfig);
 }
 

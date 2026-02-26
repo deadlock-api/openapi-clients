@@ -21,6 +21,9 @@ import io.kotlintest.specs.ShouldSpec
 import assets_deadlock_api_client.apis.RawApi
 import assets_deadlock_api_client.models.DeadlockAssetsApiRoutesValidClientVersions
 import assets_deadlock_api_client.models.HTTPValidationError
+import assets_deadlock_api_client.models.RawAccoladeV2
+import assets_deadlock_api_client.models.RawHeroV2
+import assets_deadlock_api_client.models.ResponseGetRawItemsRawItemsGetInner
 
 class RawApiTest : ShouldSpec() {
     init {
@@ -31,7 +34,7 @@ class RawApiTest : ShouldSpec() {
         should("test getRawAccoladesRawAccoladesGet") {
             // uncomment below to test getRawAccoladesRawAccoladesGet
             //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.Any = apiInstance.getRawAccoladesRawAccoladesGet(clientVersion)
+            //val result : kotlin.collections.List<RawAccoladeV2> = apiInstance.getRawAccoladesRawAccoladesGet(clientVersion)
             //result shouldBe ("TODO")
         }
 
@@ -39,7 +42,7 @@ class RawApiTest : ShouldSpec() {
         should("test getRawHeroesRawHeroesGet") {
             // uncomment below to test getRawHeroesRawHeroesGet
             //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.Any = apiInstance.getRawHeroesRawHeroesGet(clientVersion)
+            //val result : kotlin.collections.List<RawHeroV2> = apiInstance.getRawHeroesRawHeroesGet(clientVersion)
             //result shouldBe ("TODO")
         }
 
@@ -47,7 +50,7 @@ class RawApiTest : ShouldSpec() {
         should("test getRawItemsRawItemsGet") {
             // uncomment below to test getRawItemsRawItemsGet
             //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.Any = apiInstance.getRawItemsRawItemsGet(clientVersion)
+            //val result : kotlin.collections.List<ResponseGetRawItemsRawItemsGetInner> = apiInstance.getRawItemsRawItemsGet(clientVersion)
             //result shouldBe ("TODO")
         }
 

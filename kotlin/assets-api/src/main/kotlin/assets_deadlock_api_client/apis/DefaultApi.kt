@@ -28,6 +28,7 @@ import assets_deadlock_api_client.models.Language
 import assets_deadlock_api_client.models.LootTableV2
 import assets_deadlock_api_client.models.MapV1
 import assets_deadlock_api_client.models.RankV2
+import assets_deadlock_api_client.models.SteamInfoV1
 
 import com.squareup.moshi.Json
 
@@ -842,7 +843,7 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Get Steam Info
      * 
      * @param clientVersion  (optional)
-     * @return kotlin.Any
+     * @return SteamInfoV1
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -851,11 +852,11 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSteamInfoV1SteamInfoGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.Any {
+    fun getSteamInfoV1SteamInfoGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : SteamInfoV1 {
         val localVarResponse = getSteamInfoV1SteamInfoGetWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SteamInfoV1
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -874,16 +875,16 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Get Steam Info
      * 
      * @param clientVersion  (optional)
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<SteamInfoV1?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSteamInfoV1SteamInfoGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.Any?> {
+    fun getSteamInfoV1SteamInfoGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<SteamInfoV1?> {
         val localVariableConfig = getSteamInfoV1SteamInfoGetRequestConfig(clientVersion = clientVersion)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, SteamInfoV1>(
             localVariableConfig
         )
     }
