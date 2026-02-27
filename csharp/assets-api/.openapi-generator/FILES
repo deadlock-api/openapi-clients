@@ -28,6 +28,7 @@ docs/models/ColorV1.md
 docs/models/Curve.md
 docs/models/DamageFlashV2.md
 docs/models/DeadlockAssetsApiRoutesValidClientVersions.md
+docs/models/DependantAbilities.md
 docs/models/EmpoweredModifierLevel.md
 docs/models/ExpirationDuration.md
 docs/models/FlashDataV2.md
@@ -183,6 +184,7 @@ src/AssetsDeadlockApiClient.Test/Model/ColorV1Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/CurveTests.cs
 src/AssetsDeadlockApiClient.Test/Model/DamageFlashV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/DeadlockAssetsApiRoutesValidClientVersionsTests.cs
+src/AssetsDeadlockApiClient.Test/Model/DependantAbilitiesTests.cs
 src/AssetsDeadlockApiClient.Test/Model/EmpoweredModifierLevelTests.cs
 src/AssetsDeadlockApiClient.Test/Model/ExpirationDurationTests.cs
 src/AssetsDeadlockApiClient.Test/Model/FlashDataV2Tests.cs
@@ -357,6 +359,7 @@ src/AssetsDeadlockApiClient/Model/ColorV1.cs
 src/AssetsDeadlockApiClient/Model/Curve.cs
 src/AssetsDeadlockApiClient/Model/DamageFlashV2.cs
 src/AssetsDeadlockApiClient/Model/DeadlockAssetsApiRoutesValidClientVersions.cs
+src/AssetsDeadlockApiClient/Model/DependantAbilities.cs
 src/AssetsDeadlockApiClient/Model/EmpoweredModifierLevel.cs
 src/AssetsDeadlockApiClient/Model/ExpirationDuration.cs
 src/AssetsDeadlockApiClient/Model/FlashDataV2.cs

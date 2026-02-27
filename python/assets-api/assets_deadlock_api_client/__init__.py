@@ -51,6 +51,7 @@ __all__ = [
     "Curve",
     "DamageFlashV2",
     "DeadlockAssetsApiRoutesValidClientVersions",
+    "DependantAbilities",
     "EmpoweredModifierLevel",
     "ExpirationDuration",
     "FlashDataV2",
@@ -217,6 +218,7 @@ from assets_deadlock_api_client.models.color_v1 import ColorV1 as ColorV1
 from assets_deadlock_api_client.models.curve import Curve as Curve
 from assets_deadlock_api_client.models.damage_flash_v2 import DamageFlashV2 as DamageFlashV2
 from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions as DeadlockAssetsApiRoutesValidClientVersions
+from assets_deadlock_api_client.models.dependant_abilities import DependantAbilities as DependantAbilities
 from assets_deadlock_api_client.models.empowered_modifier_level import EmpoweredModifierLevel as EmpoweredModifierLevel
 from assets_deadlock_api_client.models.expiration_duration import ExpirationDuration as ExpirationDuration
 from assets_deadlock_api_client.models.flash_data_v2 import FlashDataV2 as FlashDataV2

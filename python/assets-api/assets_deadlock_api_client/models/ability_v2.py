@@ -23,6 +23,7 @@ from assets_deadlock_api_client.models.ability_description_v2 import AbilityDesc
 from assets_deadlock_api_client.models.ability_tooltip_details_v2 import AbilityTooltipDetailsV2
 from assets_deadlock_api_client.models.ability_type_v2 import AbilityTypeV2
 from assets_deadlock_api_client.models.ability_videos_v2 import AbilityVideosV2
+from assets_deadlock_api_client.models.dependant_abilities import DependantAbilities
 from assets_deadlock_api_client.models.item_property_v2 import ItemPropertyV2
 from assets_deadlock_api_client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2
 from assets_deadlock_api_client.models.raw_item_weapon_info_v2 import RawItemWeaponInfoV2
@@ -45,6 +46,7 @@ class AbilityV2(BaseModel):
     properties: Optional[Dict[str, ItemPropertyV2]] = None
     weapon_info: Optional[RawItemWeaponInfoV2] = None
     type: Optional[StrictStr] = 'ability'
+    grant_ammo_on_cast: Optional[StrictBool] = None
     behaviours: Optional[List[StrictStr]] = None
     description: AbilityDescriptionV2
     tooltip_details: Optional[AbilityTooltipDetailsV2] = None
@@ -53,7 +55,8 @@ class AbilityV2(BaseModel):
     boss_damage_scale: Optional[Union[StrictFloat, StrictInt]] = None
     dependant_abilities: Optional[List[StrictStr]] = None
     videos: Optional[AbilityVideosV2] = None
-    __properties: ClassVar[List[str]] = ["id", "class_name", "name", "start_trained", "image", "image_webp", "hero", "heroes", "update_time", "properties", "weapon_info", "type", "behaviours", "description", "tooltip_details", "upgrades", "ability_type", "boss_damage_scale", "dependant_abilities", "videos"]
+    dependent_abilities: Optional[Dict[str, DependantAbilities]] = None
+    __properties: ClassVar[List[str]] = ["id", "class_name", "name", "start_trained", "image", "image_webp", "hero", "heroes", "update_time", "properties", "weapon_info", "type", "grant_ammo_on_cast", "behaviours", "description", "tooltip_details", "upgrades", "ability_type", "boss_damage_scale", "dependant_abilities", "videos", "dependent_abilities"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -130,6 +133,13 @@ class AbilityV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of videos
         if self.videos:
             _dict['videos'] = self.videos.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each value in dependent_abilities (dict)
+        _field_dict = {}
+        if self.dependent_abilities:
+            for _key_dependent_abilities in self.dependent_abilities:
+                if self.dependent_abilities[_key_dependent_abilities]:
+                    _field_dict[_key_dependent_abilities] = self.dependent_abilities[_key_dependent_abilities].to_dict()
+            _dict['dependent_abilities'] = _field_dict
         # set to None if start_trained (nullable) is None
         # and model_fields_set contains the field
         if self.start_trained is None and "start_trained" in self.model_fields_set:
@@ -170,6 +180,11 @@ class AbilityV2(BaseModel):
         if self.weapon_info is None and "weapon_info" in self.model_fields_set:
             _dict['weapon_info'] = None
 
+        # set to None if grant_ammo_on_cast (nullable) is None
+        # and model_fields_set contains the field
+        if self.grant_ammo_on_cast is None and "grant_ammo_on_cast" in self.model_fields_set:
+            _dict['grant_ammo_on_cast'] = None
+
         # set to None if behaviours (nullable) is None
         # and model_fields_set contains the field
         if self.behaviours is None and "behaviours" in self.model_fields_set:
@@ -205,6 +220,11 @@ class AbilityV2(BaseModel):
         if self.videos is None and "videos" in self.model_fields_set:
             _dict['videos'] = None
 
+        # set to None if dependent_abilities (nullable) is None
+        # and model_fields_set contains the field
+        if self.dependent_abilities is None and "dependent_abilities" in self.model_fields_set:
+            _dict['dependent_abilities'] = None
+
         return _dict
 
     @classmethod
@@ -234,6 +254,7 @@ class AbilityV2(BaseModel):
             else None,
             "weapon_info": RawItemWeaponInfoV2.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None,
             "type": obj.get("type") if obj.get("type") is not None else 'ability',
+            "grant_ammo_on_cast": obj.get("grant_ammo_on_cast"),
             "behaviours": obj.get("behaviours"),
             "description": AbilityDescriptionV2.from_dict(obj["description"]) if obj.get("description") is not None else None,
             "tooltip_details": AbilityTooltipDetailsV2.from_dict(obj["tooltip_details"]) if obj.get("tooltip_details") is not None else None,
@@ -241,7 +262,13 @@ class AbilityV2(BaseModel):
             "ability_type": obj.get("ability_type"),
             "boss_damage_scale": obj.get("boss_damage_scale"),
             "dependant_abilities": obj.get("dependant_abilities"),
-            "videos": AbilityVideosV2.from_dict(obj["videos"]) if obj.get("videos") is not None else None
+            "videos": AbilityVideosV2.from_dict(obj["videos"]) if obj.get("videos") is not None else None,
+            "dependent_abilities": dict(
+                (_k, DependantAbilities.from_dict(_v))
+                for _k, _v in obj["dependent_abilities"].items()
+            )
+            if obj.get("dependent_abilities") is not None
+            else None
         })
         return _obj
 

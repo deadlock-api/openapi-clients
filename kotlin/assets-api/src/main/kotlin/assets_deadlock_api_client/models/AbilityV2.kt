@@ -19,6 +19,7 @@ import assets_deadlock_api_client.models.AbilityDescriptionV2
 import assets_deadlock_api_client.models.AbilityTooltipDetailsV2
 import assets_deadlock_api_client.models.AbilityTypeV2
 import assets_deadlock_api_client.models.AbilityVideosV2
+import assets_deadlock_api_client.models.DependantAbilities
 import assets_deadlock_api_client.models.ItemPropertyV2
 import assets_deadlock_api_client.models.RawAbilityUpgradeV2
 import assets_deadlock_api_client.models.RawItemWeaponInfoV2
@@ -43,6 +44,7 @@ import java.io.Serializable
  * @param properties 
  * @param weaponInfo 
  * @param type 
+ * @param grantAmmoOnCast 
  * @param behaviours 
  * @param tooltipDetails 
  * @param upgrades 
@@ -50,6 +52,7 @@ import java.io.Serializable
  * @param bossDamageScale 
  * @param dependantAbilities 
  * @param videos 
+ * @param dependentAbilities 
  */
 
 
@@ -94,6 +97,9 @@ data class AbilityV2 (
     @Json(name = "type")
     val type: AbilityV2.Type? = Type.ability,
 
+    @Json(name = "grant_ammo_on_cast")
+    val grantAmmoOnCast: kotlin.Boolean? = null,
+
     @Json(name = "behaviours")
     val behaviours: kotlin.collections.List<kotlin.String>? = null,
 
@@ -113,7 +119,10 @@ data class AbilityV2 (
     val dependantAbilities: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "videos")
-    val videos: AbilityVideosV2? = null
+    val videos: AbilityVideosV2? = null,
+
+    @Json(name = "dependent_abilities")
+    val dependentAbilities: kotlin.collections.Map<kotlin.String, DependantAbilities>? = null
 
 ) : Serializable {
     companion object {

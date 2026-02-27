@@ -42,14 +42,16 @@ namespace AssetsDeadlockApiClient.Model
         /// <param name="weaponInfo">weaponInfo</param>
         /// <param name="cssClass">cssClass</param>
         /// <param name="type">type (default to TypeEnum.Ability)</param>
+        /// <param name="grantAmmoOnCast">grantAmmoOnCast</param>
         /// <param name="behaviourBits">behaviourBits</param>
         /// <param name="abilityType">abilityType</param>
         /// <param name="bossDamageScale">bossDamageScale</param>
         /// <param name="dependantAbilities">dependantAbilities</param>
         /// <param name="video">video</param>
         /// <param name="tooltipDetails">tooltipDetails</param>
+        /// <param name="dependentAbilities">dependentAbilities</param>
         [JsonConstructor]
-        public RawAbilityV2(string className, List<RawAbilityUpgradeV2> upgrades, Option<bool?> startTrained = default, Option<string?> image = default, Option<int?> updateTime = default, Option<Dictionary<string, RawItemPropertyV2>?> properties = default, Option<RawItemWeaponInfoV2?> weaponInfo = default, Option<string?> cssClass = default, Option<TypeEnum?> type = default, Option<string?> behaviourBits = default, Option<AbilityTypeV2?> abilityType = default, Option<decimal?> bossDamageScale = default, Option<List<string>?> dependantAbilities = default, Option<string?> video = default, Option<RawAbilityV2TooltipDetails?> tooltipDetails = default)
+        public RawAbilityV2(string className, List<RawAbilityUpgradeV2> upgrades, Option<bool?> startTrained = default, Option<string?> image = default, Option<int?> updateTime = default, Option<Dictionary<string, RawItemPropertyV2>?> properties = default, Option<RawItemWeaponInfoV2?> weaponInfo = default, Option<string?> cssClass = default, Option<TypeEnum?> type = default, Option<bool?> grantAmmoOnCast = default, Option<string?> behaviourBits = default, Option<AbilityTypeV2?> abilityType = default, Option<decimal?> bossDamageScale = default, Option<List<string>?> dependantAbilities = default, Option<string?> video = default, Option<RawAbilityV2TooltipDetails?> tooltipDetails = default, Option<Dictionary<string, DependantAbilities>?> dependentAbilities = default)
         {
             ClassName = className;
             Upgrades = upgrades;
@@ -60,12 +62,14 @@ namespace AssetsDeadlockApiClient.Model
             WeaponInfoOption = weaponInfo;
             CssClassOption = cssClass;
             TypeOption = type;
+            GrantAmmoOnCastOption = grantAmmoOnCast;
             BehaviourBitsOption = behaviourBits;
             AbilityTypeOption = abilityType;
             BossDamageScaleOption = bossDamageScale;
             DependantAbilitiesOption = dependantAbilities;
             VideoOption = video;
             TooltipDetailsOption = tooltipDetails;
+            DependentAbilitiesOption = dependentAbilities;
             OnCreated();
         }
 
@@ -240,6 +244,19 @@ namespace AssetsDeadlockApiClient.Model
         public string? CssClass { get { return this.CssClassOption; } set { this.CssClassOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of GrantAmmoOnCast
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> GrantAmmoOnCastOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets GrantAmmoOnCast
+        /// </summary>
+        [JsonPropertyName("grant_ammo_on_cast")]
+        public bool? GrantAmmoOnCast { get { return this.GrantAmmoOnCastOption; } set { this.GrantAmmoOnCastOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of BehaviourBits
         /// </summary>
         [JsonIgnore]
@@ -305,6 +322,19 @@ namespace AssetsDeadlockApiClient.Model
         public RawAbilityV2TooltipDetails? TooltipDetails { get { return this.TooltipDetailsOption; } set { this.TooltipDetailsOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of DependentAbilities
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Dictionary<string, DependantAbilities>?> DependentAbilitiesOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets DependentAbilities
+        /// </summary>
+        [JsonPropertyName("dependent_abilities")]
+        public Dictionary<string, DependantAbilities>? DependentAbilities { get { return this.DependentAbilitiesOption; } set { this.DependentAbilitiesOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -321,12 +351,14 @@ namespace AssetsDeadlockApiClient.Model
             sb.Append("  WeaponInfo: ").Append(WeaponInfo).Append("\n");
             sb.Append("  CssClass: ").Append(CssClass).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  GrantAmmoOnCast: ").Append(GrantAmmoOnCast).Append("\n");
             sb.Append("  BehaviourBits: ").Append(BehaviourBits).Append("\n");
             sb.Append("  AbilityType: ").Append(AbilityType).Append("\n");
             sb.Append("  BossDamageScale: ").Append(BossDamageScale).Append("\n");
             sb.Append("  DependantAbilities: ").Append(DependantAbilities).Append("\n");
             sb.Append("  Video: ").Append(Video).Append("\n");
             sb.Append("  TooltipDetails: ").Append(TooltipDetails).Append("\n");
+            sb.Append("  DependentAbilities: ").Append(DependentAbilities).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -373,12 +405,14 @@ namespace AssetsDeadlockApiClient.Model
             Option<RawItemWeaponInfoV2?> weaponInfo = default;
             Option<string?> cssClass = default;
             Option<RawAbilityV2.TypeEnum?> type = default;
+            Option<bool?> grantAmmoOnCast = default;
             Option<string?> behaviourBits = default;
             Option<AbilityTypeV2?> abilityType = default;
             Option<decimal?> bossDamageScale = default;
             Option<List<string>?> dependantAbilities = default;
             Option<string?> video = default;
             Option<RawAbilityV2TooltipDetails?> tooltipDetails = default;
+            Option<Dictionary<string, DependantAbilities>?> dependentAbilities = default;
 
             while (utf8JsonReader.Read())
             {
@@ -424,6 +458,9 @@ namespace AssetsDeadlockApiClient.Model
                             if (typeRawValue != null)
                                 type = new Option<RawAbilityV2.TypeEnum?>(RawAbilityV2.TypeEnumFromStringOrDefault(typeRawValue));
                             break;
+                        case "grant_ammo_on_cast":
+                            grantAmmoOnCast = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
                         case "behaviour_bits":
                             behaviourBits = new Option<string?>(utf8JsonReader.GetString());
                             break;
@@ -443,6 +480,9 @@ namespace AssetsDeadlockApiClient.Model
                             break;
                         case "tooltip_details":
                             tooltipDetails = new Option<RawAbilityV2TooltipDetails?>(JsonSerializer.Deserialize<RawAbilityV2TooltipDetails>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "dependent_abilities":
+                            dependentAbilities = new Option<Dictionary<string, DependantAbilities>?>(JsonSerializer.Deserialize<Dictionary<string, DependantAbilities>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -465,7 +505,7 @@ namespace AssetsDeadlockApiClient.Model
             if (type.IsSet && type.Value == null)
                 throw new ArgumentNullException(nameof(type), "Property is not nullable for class RawAbilityV2.");
 
-            return new RawAbilityV2(className.Value!, upgrades.Value!, startTrained, image, updateTime, properties, weaponInfo, cssClass, type, behaviourBits, abilityType, bossDamageScale, dependantAbilities, video, tooltipDetails);
+            return new RawAbilityV2(className.Value!, upgrades.Value!, startTrained, image, updateTime, properties, weaponInfo, cssClass, type, grantAmmoOnCast, behaviourBits, abilityType, bossDamageScale, dependantAbilities, video, tooltipDetails, dependentAbilities);
         }
 
         /// <summary>
@@ -544,6 +584,12 @@ namespace AssetsDeadlockApiClient.Model
 
             var typeRawValue = RawAbilityV2.TypeEnumToJsonValue(rawAbilityV2.TypeOption.Value!.Value);
             writer.WriteString("type", typeRawValue);
+            if (rawAbilityV2.GrantAmmoOnCastOption.IsSet)
+                if (rawAbilityV2.GrantAmmoOnCastOption.Value != null)
+                    writer.WriteBoolean("grant_ammo_on_cast", rawAbilityV2.GrantAmmoOnCastOption.Value!.Value);
+                else
+                    writer.WriteNull("grant_ammo_on_cast");
+
             if (rawAbilityV2.BehaviourBitsOption.IsSet)
                 if (rawAbilityV2.BehaviourBitsOption.Value != null)
                     writer.WriteString("behaviour_bits", rawAbilityV2.BehaviourBits);
@@ -586,6 +632,14 @@ namespace AssetsDeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("tooltip_details");
+            if (rawAbilityV2.DependentAbilitiesOption.IsSet)
+                if (rawAbilityV2.DependentAbilitiesOption.Value != null)
+                {
+                    writer.WritePropertyName("dependent_abilities");
+                    JsonSerializer.Serialize(writer, rawAbilityV2.DependentAbilities, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("dependent_abilities");
         }
     }
 }

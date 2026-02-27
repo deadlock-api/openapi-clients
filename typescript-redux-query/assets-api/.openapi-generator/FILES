@@ -29,6 +29,7 @@ src/models/ColorV1.ts
 src/models/Curve.ts
 src/models/DamageFlashV2.ts
 src/models/DeadlockAssetsApiRoutesValidClientVersions.ts
+src/models/DependantAbilities.ts
 src/models/EmpoweredModifierLevel.ts
 src/models/ExpirationDuration.ts
 src/models/FlashDataV2.ts

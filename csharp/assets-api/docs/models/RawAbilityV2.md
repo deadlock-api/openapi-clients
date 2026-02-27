@@ -13,12 +13,14 @@ Name | Type | Description | Notes
 **WeaponInfo** | [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] 
 **CssClass** | **string** |  | [optional] 
 **Type** | **string** |  | [optional] [default to TypeEnum.Ability]
+**GrantAmmoOnCast** | **bool** |  | [optional] 
 **BehaviourBits** | **string** |  | [optional] 
 **AbilityType** | **AbilityTypeV2** |  | [optional] 
 **BossDamageScale** | **decimal** |  | [optional] 
 **DependantAbilities** | **List&lt;string&gt;** |  | [optional] 
 **Video** | **string** |  | [optional] 
 **TooltipDetails** | [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional] 
+**DependentAbilities** | [**Dictionary&lt;string, DependantAbilities&gt;**](DependantAbilities.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -69,6 +69,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'properties' => 'array<string,\OpenAPI\Client\Model\UpgradePropertyV2>',
         'weapon_info' => '\OpenAPI\Client\Model\RawItemWeaponInfoV2',
         'type' => 'string',
+        'grant_ammo_on_cast' => 'bool',
         'behaviours' => 'string[]',
         'description' => '\OpenAPI\Client\Model\UpgradeDescriptionV2',
         'tooltip_details' => '\OpenAPI\Client\Model\AbilityTooltipDetailsV2',
@@ -77,6 +78,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'boss_damage_scale' => 'float',
         'dependant_abilities' => 'string[]',
         'videos' => '\OpenAPI\Client\Model\AbilityVideosV2',
+        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\DependantAbilities>',
         'shop_image' => 'string',
         'shop_image_webp' => 'string',
         'shop_image_small' => 'string',
@@ -113,6 +115,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'properties' => null,
         'weapon_info' => null,
         'type' => null,
+        'grant_ammo_on_cast' => null,
         'behaviours' => null,
         'description' => null,
         'tooltip_details' => null,
@@ -121,6 +124,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'boss_damage_scale' => null,
         'dependant_abilities' => null,
         'videos' => null,
+        'dependent_abilities' => null,
         'shop_image' => null,
         'shop_image_webp' => null,
         'shop_image_small' => null,
@@ -155,6 +159,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'properties' => false,
         'weapon_info' => false,
         'type' => false,
+        'grant_ammo_on_cast' => false,
         'behaviours' => false,
         'description' => false,
         'tooltip_details' => false,
@@ -163,6 +168,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'boss_damage_scale' => false,
         'dependant_abilities' => false,
         'videos' => false,
+        'dependent_abilities' => false,
         'shop_image' => false,
         'shop_image_webp' => false,
         'shop_image_small' => false,
@@ -277,6 +283,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'properties' => 'properties',
         'weapon_info' => 'weapon_info',
         'type' => 'type',
+        'grant_ammo_on_cast' => 'grant_ammo_on_cast',
         'behaviours' => 'behaviours',
         'description' => 'description',
         'tooltip_details' => 'tooltip_details',
@@ -285,6 +292,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'boss_damage_scale' => 'boss_damage_scale',
         'dependant_abilities' => 'dependant_abilities',
         'videos' => 'videos',
+        'dependent_abilities' => 'dependent_abilities',
         'shop_image' => 'shop_image',
         'shop_image_webp' => 'shop_image_webp',
         'shop_image_small' => 'shop_image_small',
@@ -319,6 +327,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'properties' => 'setProperties',
         'weapon_info' => 'setWeaponInfo',
         'type' => 'setType',
+        'grant_ammo_on_cast' => 'setGrantAmmoOnCast',
         'behaviours' => 'setBehaviours',
         'description' => 'setDescription',
         'tooltip_details' => 'setTooltipDetails',
@@ -327,6 +336,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'boss_damage_scale' => 'setBossDamageScale',
         'dependant_abilities' => 'setDependantAbilities',
         'videos' => 'setVideos',
+        'dependent_abilities' => 'setDependentAbilities',
         'shop_image' => 'setShopImage',
         'shop_image_webp' => 'setShopImageWebp',
         'shop_image_small' => 'setShopImageSmall',
@@ -361,6 +371,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'properties' => 'getProperties',
         'weapon_info' => 'getWeaponInfo',
         'type' => 'getType',
+        'grant_ammo_on_cast' => 'getGrantAmmoOnCast',
         'behaviours' => 'getBehaviours',
         'description' => 'getDescription',
         'tooltip_details' => 'getTooltipDetails',
@@ -369,6 +380,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'boss_damage_scale' => 'getBossDamageScale',
         'dependant_abilities' => 'getDependantAbilities',
         'videos' => 'getVideos',
+        'dependent_abilities' => 'getDependentAbilities',
         'shop_image' => 'getShopImage',
         'shop_image_webp' => 'getShopImageWebp',
         'shop_image_small' => 'getShopImageSmall',
@@ -471,6 +483,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('properties', $data ?? [], null);
         $this->setIfExists('weapon_info', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], 'ability');
+        $this->setIfExists('grant_ammo_on_cast', $data ?? [], null);
         $this->setIfExists('behaviours', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('tooltip_details', $data ?? [], null);
@@ -479,6 +492,7 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('boss_damage_scale', $data ?? [], null);
         $this->setIfExists('dependant_abilities', $data ?? [], null);
         $this->setIfExists('videos', $data ?? [], null);
+        $this->setIfExists('dependent_abilities', $data ?? [], null);
         $this->setIfExists('shop_image', $data ?? [], null);
         $this->setIfExists('shop_image_webp', $data ?? [], null);
         $this->setIfExists('shop_image_small', $data ?? [], null);
@@ -914,6 +928,33 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
     }
 
     /**
+     * Gets grant_ammo_on_cast
+     *
+     * @return bool|null
+     */
+    public function getGrantAmmoOnCast()
+    {
+        return $this->container['grant_ammo_on_cast'];
+    }
+
+    /**
+     * Sets grant_ammo_on_cast
+     *
+     * @param bool|null $grant_ammo_on_cast grant_ammo_on_cast
+     *
+     * @return self
+     */
+    public function setGrantAmmoOnCast($grant_ammo_on_cast)
+    {
+        if (is_null($grant_ammo_on_cast)) {
+            throw new \InvalidArgumentException('non-nullable grant_ammo_on_cast cannot be null');
+        }
+        $this->container['grant_ammo_on_cast'] = $grant_ammo_on_cast;
+
+        return $this;
+    }
+
+    /**
      * Gets behaviours
      *
      * @return string[]|null
@@ -1125,6 +1166,33 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable videos cannot be null');
         }
         $this->container['videos'] = $videos;
+
+        return $this;
+    }
+
+    /**
+     * Gets dependent_abilities
+     *
+     * @return array<string,\OpenAPI\Client\Model\DependantAbilities>|null
+     */
+    public function getDependentAbilities()
+    {
+        return $this->container['dependent_abilities'];
+    }
+
+    /**
+     * Sets dependent_abilities
+     *
+     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities dependent_abilities
+     *
+     * @return self
+     */
+    public function setDependentAbilities($dependent_abilities)
+    {
+        if (is_null($dependent_abilities)) {
+            throw new \InvalidArgumentException('non-nullable dependent_abilities cannot be null');
+        }
+        $this->container['dependent_abilities'] = $dependent_abilities;
 
         return $this;
     }

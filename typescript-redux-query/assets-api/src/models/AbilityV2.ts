@@ -25,6 +25,9 @@ import {
     AbilityVideosV2,
     AbilityVideosV2FromJSON,
     AbilityVideosV2ToJSON,
+    DependantAbilities,
+    DependantAbilitiesFromJSON,
+    DependantAbilitiesToJSON,
     ItemPropertyV2,
     ItemPropertyV2FromJSON,
     ItemPropertyV2ToJSON,
@@ -116,6 +119,12 @@ export interface AbilityV2  {
     type?: AbilityV2TypeEnum;
     /**
      * 
+     * @type {boolean}
+     * @memberof AbilityV2
+     */
+    grantAmmoOnCast?: boolean;
+    /**
+     * 
      * @type {Array<string>}
      * @memberof AbilityV2
      */
@@ -162,6 +171,12 @@ export interface AbilityV2  {
      * @memberof AbilityV2
      */
     videos?: AbilityVideosV2;
+    /**
+     * 
+     * @type {{ [key: string]: DependantAbilities; }}
+     * @memberof AbilityV2
+     */
+    dependentAbilities?: { [key: string]: DependantAbilities; };
 }
 
 export function AbilityV2FromJSON(json: any): AbilityV2 {
@@ -178,6 +193,7 @@ export function AbilityV2FromJSON(json: any): AbilityV2 {
         'properties': !exists(json, 'properties') ? undefined : mapValues(json['properties'], ItemPropertyV2FromJSON),
         'weaponInfo': !exists(json, 'weapon_info') ? undefined : RawItemWeaponInfoV2FromJSON(json['weapon_info']),
         'type': !exists(json, 'type') ? undefined : json['type'],
+        'grantAmmoOnCast': !exists(json, 'grant_ammo_on_cast') ? undefined : json['grant_ammo_on_cast'],
         'behaviours': !exists(json, 'behaviours') ? undefined : json['behaviours'],
         'description': AbilityDescriptionV2FromJSON(json['description']),
         'tooltipDetails': !exists(json, 'tooltip_details') ? undefined : AbilityTooltipDetailsV2FromJSON(json['tooltip_details']),
@@ -186,6 +202,7 @@ export function AbilityV2FromJSON(json: any): AbilityV2 {
         'bossDamageScale': !exists(json, 'boss_damage_scale') ? undefined : json['boss_damage_scale'],
         'dependantAbilities': !exists(json, 'dependant_abilities') ? undefined : json['dependant_abilities'],
         'videos': !exists(json, 'videos') ? undefined : AbilityVideosV2FromJSON(json['videos']),
+        'dependentAbilities': !exists(json, 'dependent_abilities') ? undefined : mapValues(json['dependent_abilities'], DependantAbilitiesFromJSON),
     };
 }
 
@@ -206,6 +223,7 @@ export function AbilityV2ToJSON(value?: AbilityV2): any {
         'properties': value.properties === undefined ? undefined : mapValues(value.properties, ItemPropertyV2ToJSON),
         'weapon_info': RawItemWeaponInfoV2ToJSON(value.weaponInfo),
         'type': value.type,
+        'grant_ammo_on_cast': value.grantAmmoOnCast,
         'behaviours': value.behaviours,
         'description': AbilityDescriptionV2ToJSON(value.description),
         'tooltip_details': AbilityTooltipDetailsV2ToJSON(value.tooltipDetails),
@@ -214,6 +232,7 @@ export function AbilityV2ToJSON(value?: AbilityV2): any {
         'boss_damage_scale': value.bossDamageScale,
         'dependant_abilities': value.dependantAbilities,
         'videos': AbilityVideosV2ToJSON(value.videos),
+        'dependent_abilities': value.dependentAbilities === undefined ? undefined : mapValues(value.dependentAbilities, DependantAbilitiesToJSON),
     };
 }
 

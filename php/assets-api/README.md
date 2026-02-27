@@ -140,6 +140,7 @@ Class | Method | HTTP request | Description
 - [Curve](docs/Model/Curve.md)
 - [DamageFlashV2](docs/Model/DamageFlashV2.md)
 - [DeadlockAssetsApiRoutesValidClientVersions](docs/Model/DeadlockAssetsApiRoutesValidClientVersions.md)
+- [DependantAbilities](docs/Model/DependantAbilities.md)
 - [EmpoweredModifierLevel](docs/Model/EmpoweredModifierLevel.md)
 - [ExpirationDuration](docs/Model/ExpirationDuration.md)
 - [FlashDataV2](docs/Model/FlashDataV2.md)

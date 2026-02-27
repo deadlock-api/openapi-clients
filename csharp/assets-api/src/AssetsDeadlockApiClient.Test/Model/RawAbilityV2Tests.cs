@@ -135,6 +135,15 @@ namespace AssetsDeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GrantAmmoOnCast'
+        /// </summary>
+        [Fact]
+        public void GrantAmmoOnCastTest()
+        {
+            // TODO unit test for the property 'GrantAmmoOnCast'
+        }
+
+        /// <summary>
         /// Test the property 'BehaviourBits'
         /// </summary>
         [Fact]
@@ -186,6 +195,15 @@ namespace AssetsDeadlockApiClient.Test.Model
         public void TooltipDetailsTest()
         {
             // TODO unit test for the property 'TooltipDetails'
+        }
+
+        /// <summary>
+        /// Test the property 'DependentAbilities'
+        /// </summary>
+        [Fact]
+        public void DependentAbilitiesTest()
+        {
+            // TODO unit test for the property 'DependentAbilities'
         }
     }
 }

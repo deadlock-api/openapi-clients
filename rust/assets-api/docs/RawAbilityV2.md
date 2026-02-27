@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **weapon_info** | Option<[**models::RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md)> |  | [optional]
 **css_class** | Option<**String**> |  | [optional]
 **r#type** | Option<**Type**> |  (enum: ability) | [optional][default to Ability]
+**grant_ammo_on_cast** | Option<**bool**> |  | [optional]
 **behaviour_bits** | Option<**String**> |  | [optional]
 **upgrades** | [**Vec<models::RawAbilityUpgradeV2>**](RawAbilityUpgradeV2.md) |  | 
 **ability_type** | Option<[**models::AbilityTypeV2**](AbilityTypeV2.md)> |  | [optional]
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **dependant_abilities** | Option<**Vec<String>**> |  | [optional]
 **video** | Option<**String**> |  | [optional]
 **tooltip_details** | Option<[**models::RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md)> |  | [optional]
+**dependent_abilities** | Option<[**std::collections::HashMap<String, models::DependantAbilities>**](DependantAbilities.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

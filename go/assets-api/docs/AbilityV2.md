@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **Properties** | Pointer to [**map[string]ItemPropertyV2**](ItemPropertyV2.md) |  | [optional] 
 **WeaponInfo** | Pointer to [**NullableRawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] [default to "ability"]
+**GrantAmmoOnCast** | Pointer to **NullableBool** |  | [optional] 
 **Behaviours** | Pointer to **[]string** |  | [optional] 
 **Description** | [**AbilityDescriptionV2**](AbilityDescriptionV2.md) |  | 
 **TooltipDetails** | Pointer to [**NullableAbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md) |  | [optional] 
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **BossDamageScale** | Pointer to **NullableFloat32** |  | [optional] 
 **DependantAbilities** | Pointer to **[]string** |  | [optional] 
 **Videos** | Pointer to [**NullableAbilityVideosV2**](AbilityVideosV2.md) |  | [optional] 
+**DependentAbilities** | Pointer to [**map[string]DependantAbilities**](DependantAbilities.md) |  | [optional] 
 
 ## Methods
 
@@ -409,6 +411,41 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### GetGrantAmmoOnCast
+
+`func (o *AbilityV2) GetGrantAmmoOnCast() bool`
+
+GetGrantAmmoOnCast returns the GrantAmmoOnCast field if non-nil, zero value otherwise.
+
+### GetGrantAmmoOnCastOk
+
+`func (o *AbilityV2) GetGrantAmmoOnCastOk() (*bool, bool)`
+
+GetGrantAmmoOnCastOk returns a tuple with the GrantAmmoOnCast field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGrantAmmoOnCast
+
+`func (o *AbilityV2) SetGrantAmmoOnCast(v bool)`
+
+SetGrantAmmoOnCast sets GrantAmmoOnCast field to given value.
+
+### HasGrantAmmoOnCast
+
+`func (o *AbilityV2) HasGrantAmmoOnCast() bool`
+
+HasGrantAmmoOnCast returns a boolean if a field has been set.
+
+### SetGrantAmmoOnCastNil
+
+`func (o *AbilityV2) SetGrantAmmoOnCastNil(b bool)`
+
+ SetGrantAmmoOnCastNil sets the value for GrantAmmoOnCast to be an explicit nil
+
+### UnsetGrantAmmoOnCast
+`func (o *AbilityV2) UnsetGrantAmmoOnCast()`
+
+UnsetGrantAmmoOnCast ensures that no value is present for GrantAmmoOnCast, not even an explicit nil
 ### GetBehaviours
 
 `func (o *AbilityV2) GetBehaviours() []string`
@@ -674,6 +711,41 @@ HasVideos returns a boolean if a field has been set.
 `func (o *AbilityV2) UnsetVideos()`
 
 UnsetVideos ensures that no value is present for Videos, not even an explicit nil
+### GetDependentAbilities
+
+`func (o *AbilityV2) GetDependentAbilities() map[string]DependantAbilities`
+
+GetDependentAbilities returns the DependentAbilities field if non-nil, zero value otherwise.
+
+### GetDependentAbilitiesOk
+
+`func (o *AbilityV2) GetDependentAbilitiesOk() (*map[string]DependantAbilities, bool)`
+
+GetDependentAbilitiesOk returns a tuple with the DependentAbilities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDependentAbilities
+
+`func (o *AbilityV2) SetDependentAbilities(v map[string]DependantAbilities)`
+
+SetDependentAbilities sets DependentAbilities field to given value.
+
+### HasDependentAbilities
+
+`func (o *AbilityV2) HasDependentAbilities() bool`
+
+HasDependentAbilities returns a boolean if a field has been set.
+
+### SetDependentAbilitiesNil
+
+`func (o *AbilityV2) SetDependentAbilitiesNil(b bool)`
+
+ SetDependentAbilitiesNil sets the value for DependentAbilities to be an explicit nil
+
+### UnsetDependentAbilities
+`func (o *AbilityV2) UnsetDependentAbilities()`
+
+UnsetDependentAbilities ensures that no value is present for DependentAbilities, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -16,6 +16,9 @@ import {
     AbilityTypeV2,
     AbilityTypeV2FromJSON,
     AbilityTypeV2ToJSON,
+    DependantAbilities,
+    DependantAbilitiesFromJSON,
+    DependantAbilitiesToJSON,
     ItemSlotTypeV2,
     ItemSlotTypeV2FromJSON,
     ItemSlotTypeV2ToJSON,
@@ -110,6 +113,12 @@ export interface ResponseGetRawItemsRawItemsGetInner  {
     type?: ResponseGetRawItemsRawItemsGetInnerTypeEnum;
     /**
      * 
+     * @type {boolean}
+     * @memberof ResponseGetRawItemsRawItemsGetInner
+     */
+    grantAmmoOnCast?: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof ResponseGetRawItemsRawItemsGetInner
      */
@@ -150,6 +159,12 @@ export interface ResponseGetRawItemsRawItemsGetInner  {
      * @memberof ResponseGetRawItemsRawItemsGetInner
      */
     tooltipDetails?: RawAbilityV2TooltipDetails;
+    /**
+     * 
+     * @type {{ [key: string]: DependantAbilities; }}
+     * @memberof ResponseGetRawItemsRawItemsGetInner
+     */
+    dependentAbilities?: { [key: string]: DependantAbilities; };
     /**
      * 
      * @type {string}
@@ -216,6 +231,7 @@ export function ResponseGetRawItemsRawItemsGetInnerFromJSON(json: any): Response
         'weaponInfo': !exists(json, 'weapon_info') ? undefined : RawItemWeaponInfoV2FromJSON(json['weapon_info']),
         'cssClass': !exists(json, 'css_class') ? undefined : json['css_class'],
         'type': !exists(json, 'type') ? undefined : json['type'],
+        'grantAmmoOnCast': !exists(json, 'grant_ammo_on_cast') ? undefined : json['grant_ammo_on_cast'],
         'behaviourBits': !exists(json, 'behaviour_bits') ? undefined : json['behaviour_bits'],
         'upgrades': (json['upgrades'] as Array<any>).map(RawAbilityUpgradeV2FromJSON),
         'abilityType': !exists(json, 'ability_type') ? undefined : AbilityTypeV2FromJSON(json['ability_type']),
@@ -223,6 +239,7 @@ export function ResponseGetRawItemsRawItemsGetInnerFromJSON(json: any): Response
         'dependantAbilities': !exists(json, 'dependant_abilities') ? undefined : json['dependant_abilities'],
         'video': !exists(json, 'video') ? undefined : json['video'],
         'tooltipDetails': !exists(json, 'tooltip_details') ? undefined : RawAbilityV2TooltipDetailsFromJSON(json['tooltip_details']),
+        'dependentAbilities': !exists(json, 'dependent_abilities') ? undefined : mapValues(json['dependent_abilities'], DependantAbilitiesFromJSON),
         'shopImage': !exists(json, 'shop_image') ? undefined : json['shop_image'],
         'shopImageSmall': !exists(json, 'shop_image_small') ? undefined : json['shop_image_small'],
         'itemSlotType': ItemSlotTypeV2FromJSON(json['item_slot_type']),
@@ -248,6 +265,7 @@ export function ResponseGetRawItemsRawItemsGetInnerToJSON(value?: ResponseGetRaw
         'weapon_info': RawItemWeaponInfoV2ToJSON(value.weaponInfo),
         'css_class': value.cssClass,
         'type': value.type,
+        'grant_ammo_on_cast': value.grantAmmoOnCast,
         'behaviour_bits': value.behaviourBits,
         'upgrades': (value.upgrades as Array<any>).map(RawAbilityUpgradeV2ToJSON),
         'ability_type': AbilityTypeV2ToJSON(value.abilityType),
@@ -255,6 +273,7 @@ export function ResponseGetRawItemsRawItemsGetInnerToJSON(value?: ResponseGetRaw
         'dependant_abilities': value.dependantAbilities,
         'video': value.video,
         'tooltip_details': RawAbilityV2TooltipDetailsToJSON(value.tooltipDetails),
+        'dependent_abilities': value.dependentAbilities === undefined ? undefined : mapValues(value.dependentAbilities, DependantAbilitiesToJSON),
         'shop_image': value.shopImage,
         'shop_image_small': value.shopImageSmall,
         'item_slot_type': ItemSlotTypeV2ToJSON(value.itemSlotType),

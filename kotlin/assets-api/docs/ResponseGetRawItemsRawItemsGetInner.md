@@ -15,12 +15,14 @@
 | **weaponInfo** | [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  |  [optional] |
 | **cssClass** | **kotlin.String** |  |  [optional] |
 | **type** | [**inline**](#Type) |  |  [optional] |
+| **grantAmmoOnCast** | **kotlin.Boolean** |  |  [optional] |
 | **behaviourBits** | **kotlin.String** |  |  [optional] |
 | **abilityType** | [**AbilityTypeV2**](AbilityTypeV2.md) |  |  [optional] |
 | **bossDamageScale** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **dependantAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **video** | **kotlin.String** |  |  [optional] |
 | **tooltipDetails** | [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  |  [optional] |
+| **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, DependantAbilities&gt;**](DependantAbilities.md) |  |  [optional] |
 | **shopImage** | **kotlin.String** |  |  [optional] |
 | **shopImageSmall** | **kotlin.String** |  |  [optional] |
 | **disabled** | **kotlin.Boolean** |  |  [optional] |

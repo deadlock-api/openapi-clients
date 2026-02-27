@@ -73,6 +73,7 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                 weapon_info = assets_deadlock_api_client.models.raw_item_weapon_info_v2.RawItemWeaponInfoV2(
                     bullet_speed_curve = null, ),
                 type = 'ability',
+                grant_ammo_on_cast = True,
                 behaviours = [
                     ''
                     ],
@@ -124,6 +125,12 @@ class TestResponseGetItemV2ItemsIdOrClassNameGet(unittest.TestCase):
                 videos = assets_deadlock_api_client.models.ability_videos_v2.AbilityVideosV2(
                     webm = '', 
                     mp4 = '', ),
+                dependent_abilities = {
+                    'key' : assets_deadlock_api_client.models.dependant_abilities.DependantAbilities(
+                        flags = [
+                            ''
+                            ], )
+                    },
                 shop_image = '',
                 shop_image_webp = '',
                 shop_image_small = '',

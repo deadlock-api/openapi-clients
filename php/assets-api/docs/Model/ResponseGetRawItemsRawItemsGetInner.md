@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **weapon_info** | [**\OpenAPI\Client\Model\RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional]
 **css_class** | **string** |  | [optional]
 **type** | **string** |  | [optional] [default to 'ability']
+**grant_ammo_on_cast** | **bool** |  | [optional]
 **behaviour_bits** | **string** |  | [optional]
 **upgrades** | [**\OpenAPI\Client\Model\RawAbilityUpgradeV2[]**](RawAbilityUpgradeV2.md) |  |
 **ability_type** | [**\OpenAPI\Client\Model\AbilityTypeV2**](AbilityTypeV2.md) |  | [optional]
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **dependant_abilities** | **string[]** |  | [optional]
 **video** | **string** |  | [optional]
 **tooltip_details** | [**\OpenAPI\Client\Model\RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional]
+**dependent_abilities** | [**array<string,\OpenAPI\Client\Model\DependantAbilities>**](DependantAbilities.md) |  | [optional]
 **shop_image** | **string** |  | [optional]
 **shop_image_small** | **string** |  | [optional]
 **item_slot_type** | [**\OpenAPI\Client\Model\ItemSlotTypeV2**](ItemSlotTypeV2.md) |  |

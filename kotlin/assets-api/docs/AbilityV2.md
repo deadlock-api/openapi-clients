@@ -17,6 +17,7 @@
 | **properties** | [**kotlin.collections.Map&lt;kotlin.String, ItemPropertyV2&gt;**](ItemPropertyV2.md) |  |  [optional] |
 | **weaponInfo** | [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  |  [optional] |
 | **type** | [**inline**](#Type) |  |  [optional] |
+| **grantAmmoOnCast** | **kotlin.Boolean** |  |  [optional] |
 | **behaviours** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **tooltipDetails** | [**AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md) |  |  [optional] |
 | **upgrades** | [**kotlin.collections.List&lt;RawAbilityUpgradeV2&gt;**](RawAbilityUpgradeV2.md) |  |  [optional] |
@@ -24,6 +25,7 @@
 | **bossDamageScale** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **dependantAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **videos** | [**AbilityVideosV2**](AbilityVideosV2.md) |  |  [optional] |
+| **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, DependantAbilities&gt;**](DependantAbilities.md) |  |  [optional] |
 
 
 <a id="Type"></a>

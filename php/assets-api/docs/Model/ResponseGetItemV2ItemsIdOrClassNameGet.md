@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **properties** | [**array<string,\OpenAPI\Client\Model\UpgradePropertyV2>**](UpgradePropertyV2.md) |  | [optional]
 **weapon_info** | [**\OpenAPI\Client\Model\RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional]
 **type** | **string** |  | [optional] [default to 'ability']
+**grant_ammo_on_cast** | **bool** |  | [optional]
 **behaviours** | **string[]** |  | [optional]
 **description** | [**\OpenAPI\Client\Model\UpgradeDescriptionV2**](UpgradeDescriptionV2.md) |  |
 **tooltip_details** | [**\OpenAPI\Client\Model\AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md) |  | [optional]
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | **float** |  | [optional]
 **dependant_abilities** | **string[]** |  | [optional]
 **videos** | [**\OpenAPI\Client\Model\AbilityVideosV2**](AbilityVideosV2.md) |  | [optional]
+**dependent_abilities** | [**array<string,\OpenAPI\Client\Model\DependantAbilities>**](DependantAbilities.md) |  | [optional]
 **shop_image** | **string** |  | [optional]
 **shop_image_webp** | **string** |  | [optional]
 **shop_image_small** | **string** |  | [optional]

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **properties** | [**Dict[str, UpgradePropertyV2]**](UpgradePropertyV2.md) |  | [optional] 
 **weapon_info** | [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] 
 **type** | **str** |  | [optional] [default to 'ability']
+**grant_ammo_on_cast** | **bool** |  | [optional] 
 **behaviours** | **List[str]** |  | [optional] 
 **description** | [**UpgradeDescriptionV2**](UpgradeDescriptionV2.md) |  | 
 **tooltip_details** | [**AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md) |  | [optional] 
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | **float** |  | [optional] 
 **dependant_abilities** | **List[str]** |  | [optional] 
 **videos** | [**AbilityVideosV2**](AbilityVideosV2.md) |  | [optional] 
+**dependent_abilities** | [**Dict[str, DependantAbilities]**](DependantAbilities.md) |  | [optional] 
 **shop_image** | **str** |  | [optional] 
 **shop_image_webp** | **str** |  | [optional] 
 **shop_image_small** | **str** |  | [optional] 

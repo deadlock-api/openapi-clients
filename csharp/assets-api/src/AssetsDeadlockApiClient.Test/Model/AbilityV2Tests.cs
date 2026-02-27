@@ -171,6 +171,15 @@ namespace AssetsDeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GrantAmmoOnCast'
+        /// </summary>
+        [Fact]
+        public void GrantAmmoOnCastTest()
+        {
+            // TODO unit test for the property 'GrantAmmoOnCast'
+        }
+
+        /// <summary>
         /// Test the property 'Behaviours'
         /// </summary>
         [Fact]
@@ -231,6 +240,15 @@ namespace AssetsDeadlockApiClient.Test.Model
         public void VideosTest()
         {
             // TODO unit test for the property 'Videos'
+        }
+
+        /// <summary>
+        /// Test the property 'DependentAbilities'
+        /// </summary>
+        [Fact]
+        public void DependentAbilitiesTest()
+        {
+            // TODO unit test for the property 'DependentAbilities'
         }
     }
 }

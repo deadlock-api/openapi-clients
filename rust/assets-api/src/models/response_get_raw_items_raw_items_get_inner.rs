@@ -29,6 +29,8 @@ pub struct ResponseGetRawItemsRawItemsGetInner {
     pub css_class: Option<String>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<Type>,
+    #[serde(rename = "grant_ammo_on_cast", skip_serializing_if = "Option::is_none")]
+    pub grant_ammo_on_cast: Option<bool>,
     #[serde(rename = "behaviour_bits", skip_serializing_if = "Option::is_none")]
     pub behaviour_bits: Option<String>,
     #[serde(rename = "upgrades")]
@@ -43,6 +45,8 @@ pub struct ResponseGetRawItemsRawItemsGetInner {
     pub video: Option<String>,
     #[serde(rename = "tooltip_details", skip_serializing_if = "Option::is_none")]
     pub tooltip_details: Option<Box<models::RawAbilityV2TooltipDetails>>,
+    #[serde(rename = "dependent_abilities", skip_serializing_if = "Option::is_none")]
+    pub dependent_abilities: Option<std::collections::HashMap<String, models::DependantAbilities>>,
     #[serde(rename = "shop_image", skip_serializing_if = "Option::is_none")]
     pub shop_image: Option<String>,
     #[serde(rename = "shop_image_small", skip_serializing_if = "Option::is_none")]
@@ -74,6 +78,7 @@ impl ResponseGetRawItemsRawItemsGetInner {
             weapon_info: None,
             css_class: None,
             r#type: None,
+            grant_ammo_on_cast: None,
             behaviour_bits: None,
             upgrades,
             ability_type: None,
@@ -81,6 +86,7 @@ impl ResponseGetRawItemsRawItemsGetInner {
             dependant_abilities: None,
             video: None,
             tooltip_details: None,
+            dependent_abilities: None,
             shop_image: None,
             shop_image_small: None,
             item_slot_type,

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, ItemPropertyV2&gt;**](ItemPropertyV2.md) |  | [optional] 
 **WeaponInfo** | [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] 
 **Type** | **string** |  | [optional] [default to TypeEnum.Ability]
+**GrantAmmoOnCast** | **bool** |  | [optional] 
 **Behaviours** | **List&lt;string&gt;** |  | [optional] 
 **TooltipDetails** | [**AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md) |  | [optional] 
 **Upgrades** | [**List&lt;RawAbilityUpgradeV2&gt;**](RawAbilityUpgradeV2.md) |  | [optional] 
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **BossDamageScale** | **decimal** |  | [optional] 
 **DependantAbilities** | **List&lt;string&gt;** |  | [optional] 
 **Videos** | [**AbilityVideosV2**](AbilityVideosV2.md) |  | [optional] 
+**DependentAbilities** | [**Dictionary&lt;string, DependantAbilities&gt;**](DependantAbilities.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
  - [Curve](docs/Curve.md)
  - [DamageFlashV2](docs/DamageFlashV2.md)
  - [DeadlockAssetsApiRoutesValidClientVersions](docs/DeadlockAssetsApiRoutesValidClientVersions.md)
+ - [DependantAbilities](docs/DependantAbilities.md)
  - [EmpoweredModifierLevel](docs/EmpoweredModifierLevel.md)
  - [ExpirationDuration](docs/ExpirationDuration.md)
  - [FlashDataV2](docs/FlashDataV2.md)

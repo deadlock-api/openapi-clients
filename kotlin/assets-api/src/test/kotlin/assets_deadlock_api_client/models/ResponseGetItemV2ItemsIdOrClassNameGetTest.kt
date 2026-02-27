@@ -23,6 +23,7 @@ import assets_deadlock_api_client.models.AbilityTooltipDetailsV2
 import assets_deadlock_api_client.models.AbilityTypeV2
 import assets_deadlock_api_client.models.AbilityV2
 import assets_deadlock_api_client.models.AbilityVideosV2
+import assets_deadlock_api_client.models.DependantAbilities
 import assets_deadlock_api_client.models.ItemSlotTypeV2
 import assets_deadlock_api_client.models.ItemTierV2
 import assets_deadlock_api_client.models.RawAbilityActivationV2
@@ -154,6 +155,12 @@ class ResponseGetItemV2ItemsIdOrClassNameGetTest : ShouldSpec() {
             //modelInstance.type shouldBe ("TODO")
         }
 
+        // to test the property `grantAmmoOnCast`
+        should("test grantAmmoOnCast") {
+            // uncomment below to test the property
+            //modelInstance.grantAmmoOnCast shouldBe ("TODO")
+        }
+
         // to test the property `behaviours`
         should("test behaviours") {
             // uncomment below to test the property
@@ -194,6 +201,12 @@ class ResponseGetItemV2ItemsIdOrClassNameGetTest : ShouldSpec() {
         should("test videos") {
             // uncomment below to test the property
             //modelInstance.videos shouldBe ("TODO")
+        }
+
+        // to test the property `dependentAbilities`
+        should("test dependentAbilities") {
+            // uncomment below to test the property
+            //modelInstance.dependentAbilities shouldBe ("TODO")
         }
 
         // to test the property `shopImage`

@@ -152,6 +152,15 @@ class ResponseGetRawItemsRawItemsGetInnerTest extends TestCase
     }
 
     /**
+     * Test attribute "grant_ammo_on_cast"
+     */
+    public function testPropertyGrantAmmoOnCast()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "behaviour_bits"
      */
     public function testPropertyBehaviourBits()
@@ -209,6 +218,15 @@ class ResponseGetRawItemsRawItemsGetInnerTest extends TestCase
      * Test attribute "tooltip_details"
      */
     public function testPropertyTooltipDetails()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "dependent_abilities"
+     */
+    public function testPropertyDependentAbilities()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

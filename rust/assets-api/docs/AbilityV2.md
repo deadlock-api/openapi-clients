@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **properties** | Option<[**std::collections::HashMap<String, models::ItemPropertyV2>**](ItemPropertyV2.md)> |  | [optional]
 **weapon_info** | Option<[**models::RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md)> |  | [optional]
 **r#type** | Option<**Type**> |  (enum: ability) | [optional][default to Ability]
+**grant_ammo_on_cast** | Option<**bool**> |  | [optional]
 **behaviours** | Option<**Vec<String>**> |  | [optional]
 **description** | [**models::AbilityDescriptionV2**](AbilityDescriptionV2.md) |  | 
 **tooltip_details** | Option<[**models::AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md)> |  | [optional]
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | Option<**f64**> |  | [optional]
 **dependant_abilities** | Option<**Vec<String>**> |  | [optional]
 **videos** | Option<[**models::AbilityVideosV2**](AbilityVideosV2.md)> |  | [optional]
+**dependent_abilities** | Option<[**std::collections::HashMap<String, models::DependantAbilities>**](DependantAbilities.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

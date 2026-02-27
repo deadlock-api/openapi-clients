@@ -73,6 +73,7 @@ export interface AbilityV2 {
     'properties'?: { [key: string]: ItemPropertyV2; } | null;
     'weapon_info'?: RawItemWeaponInfoV2 | null;
     'type'?: AbilityV2TypeEnum;
+    'grant_ammo_on_cast'?: boolean | null;
     'behaviours'?: Array<string> | null;
     'description': AbilityDescriptionV2;
     'tooltip_details'?: AbilityTooltipDetailsV2 | null;
@@ -81,6 +82,7 @@ export interface AbilityV2 {
     'boss_damage_scale'?: number | null;
     'dependant_abilities'?: Array<string> | null;
     'videos'?: AbilityVideosV2 | null;
+    'dependent_abilities'?: { [key: string]: DependantAbilities; } | null;
 }
 
 export const AbilityV2TypeEnum = {
@@ -157,6 +159,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6351: 6351,
     NUMBER_6325: 6325,
     NUMBER_6290: 6290,
     NUMBER_6284: 6284,
@@ -226,6 +229,9 @@ export const DeadlockAssetsApiRoutesValidClientVersions = {
 export type DeadlockAssetsApiRoutesValidClientVersions = typeof DeadlockAssetsApiRoutesValidClientVersions[keyof typeof DeadlockAssetsApiRoutesValidClientVersions];
 
 
+export interface DependantAbilities {
+    'flags'?: Array<string> | null;
+}
 export interface EmpoweredModifierLevel {
     'max_health'?: number | null;
     'transition_duration'?: number | null;
@@ -906,6 +912,7 @@ export interface RawAbilityV2 {
     'weapon_info'?: RawItemWeaponInfoV2 | null;
     'css_class'?: string | null;
     'type'?: RawAbilityV2TypeEnum;
+    'grant_ammo_on_cast'?: boolean | null;
     'behaviour_bits'?: string | null;
     'upgrades': Array<RawAbilityUpgradeV2>;
     'ability_type'?: AbilityTypeV2 | null;
@@ -913,6 +920,7 @@ export interface RawAbilityV2 {
     'dependant_abilities'?: Array<string> | null;
     'video'?: string | null;
     'tooltip_details'?: RawAbilityV2TooltipDetails | null;
+    'dependent_abilities'?: { [key: string]: DependantAbilities; } | null;
 }
 
 export const RawAbilityV2TypeEnum = {
@@ -1286,6 +1294,7 @@ export interface ResponseGetRawItemsRawItemsGetInner {
     'weapon_info'?: RawItemWeaponInfoV2;
     'css_class'?: string;
     'type'?: ResponseGetRawItemsRawItemsGetInnerTypeEnum;
+    'grant_ammo_on_cast'?: boolean;
     'behaviour_bits'?: string;
     'upgrades': Array<RawAbilityUpgradeV2>;
     'ability_type'?: AbilityTypeV2;
@@ -1293,6 +1302,7 @@ export interface ResponseGetRawItemsRawItemsGetInner {
     'dependant_abilities'?: Array<string>;
     'video'?: string;
     'tooltip_details'?: RawAbilityV2TooltipDetails;
+    'dependent_abilities'?: { [key: string]: DependantAbilities; };
     'shop_image'?: string;
     'shop_image_small'?: string;
     'item_slot_type': ItemSlotTypeV2;

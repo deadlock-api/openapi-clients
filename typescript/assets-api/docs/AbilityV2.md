@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **properties** | [**{ [key: string]: ItemPropertyV2; }**](ItemPropertyV2.md) |  | [optional] [default to undefined]
 **weapon_info** | [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] [default to undefined]
 **type** | **string** |  | [optional] [default to TypeEnum_Ability]
+**grant_ammo_on_cast** | **boolean** |  | [optional] [default to undefined]
 **behaviours** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **description** | [**AbilityDescriptionV2**](AbilityDescriptionV2.md) |  | [default to undefined]
 **tooltip_details** | [**AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md) |  | [optional] [default to undefined]
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | **number** |  | [optional] [default to undefined]
 **dependant_abilities** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **videos** | [**AbilityVideosV2**](AbilityVideosV2.md) |  | [optional] [default to undefined]
+**dependent_abilities** | [**{ [key: string]: DependantAbilities; }**](DependantAbilities.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -44,6 +46,7 @@ const instance: AbilityV2 = {
     properties,
     weapon_info,
     type,
+    grant_ammo_on_cast,
     behaviours,
     description,
     tooltip_details,
@@ -52,6 +55,7 @@ const instance: AbilityV2 = {
     boss_damage_scale,
     dependant_abilities,
     videos,
+    dependent_abilities,
 };
 ```
 

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **weapon_info** | [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] 
 **css_class** | **str** |  | [optional] 
 **type** | **str** |  | [optional] [default to 'ability']
+**grant_ammo_on_cast** | **bool** |  | [optional] 
 **behaviour_bits** | **str** |  | [optional] 
 **upgrades** | [**List[RawAbilityUpgradeV2]**](RawAbilityUpgradeV2.md) |  | 
 **ability_type** | [**AbilityTypeV2**](AbilityTypeV2.md) |  | [optional] 
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 **dependant_abilities** | **List[str]** |  | [optional] 
 **video** | **str** |  | [optional] 
 **tooltip_details** | [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional] 
+**dependent_abilities** | [**Dict[str, DependantAbilities]**](DependantAbilities.md) |  | [optional] 
 **shop_image** | **str** |  | [optional] 
 **shop_image_small** | **str** |  | [optional] 
 **item_slot_type** | [**ItemSlotTypeV2**](ItemSlotTypeV2.md) |  | 

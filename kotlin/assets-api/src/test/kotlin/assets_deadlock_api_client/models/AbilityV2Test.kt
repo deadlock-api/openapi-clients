@@ -23,6 +23,7 @@ import assets_deadlock_api_client.models.AbilityDescriptionV2
 import assets_deadlock_api_client.models.AbilityTooltipDetailsV2
 import assets_deadlock_api_client.models.AbilityTypeV2
 import assets_deadlock_api_client.models.AbilityVideosV2
+import assets_deadlock_api_client.models.DependantAbilities
 import assets_deadlock_api_client.models.ItemPropertyV2
 import assets_deadlock_api_client.models.RawAbilityUpgradeV2
 import assets_deadlock_api_client.models.RawItemWeaponInfoV2
@@ -110,6 +111,12 @@ class AbilityV2Test : ShouldSpec() {
             //modelInstance.type shouldBe ("TODO")
         }
 
+        // to test the property `grantAmmoOnCast`
+        should("test grantAmmoOnCast") {
+            // uncomment below to test the property
+            //modelInstance.grantAmmoOnCast shouldBe ("TODO")
+        }
+
         // to test the property `behaviours`
         should("test behaviours") {
             // uncomment below to test the property
@@ -150,6 +157,12 @@ class AbilityV2Test : ShouldSpec() {
         should("test videos") {
             // uncomment below to test the property
             //modelInstance.videos shouldBe ("TODO")
+        }
+
+        // to test the property `dependentAbilities`
+        should("test dependentAbilities") {
+            // uncomment below to test the property
+            //modelInstance.dependentAbilities shouldBe ("TODO")
         }
 
     }

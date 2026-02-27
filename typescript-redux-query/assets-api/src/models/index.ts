@@ -15,6 +15,7 @@ export * from './ColorV1';
 export * from './Curve';
 export * from './DamageFlashV2';
 export * from './DeadlockAssetsApiRoutesValidClientVersions';
+export * from './DependantAbilities';
 export * from './EmpoweredModifierLevel';
 export * from './ExpirationDuration';
 export * from './FlashDataV2';

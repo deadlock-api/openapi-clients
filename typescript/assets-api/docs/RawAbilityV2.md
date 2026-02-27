@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **weapon_info** | [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] [default to undefined]
 **css_class** | **string** |  | [optional] [default to undefined]
 **type** | **string** |  | [optional] [default to TypeEnum_Ability]
+**grant_ammo_on_cast** | **boolean** |  | [optional] [default to undefined]
 **behaviour_bits** | **string** |  | [optional] [default to undefined]
 **upgrades** | [**Array&lt;RawAbilityUpgradeV2&gt;**](RawAbilityUpgradeV2.md) |  | [default to undefined]
 **ability_type** | [**AbilityTypeV2**](AbilityTypeV2.md) |  | [optional] [default to undefined]
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 **dependant_abilities** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **video** | **string** |  | [optional] [default to undefined]
 **tooltip_details** | [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional] [default to undefined]
+**dependent_abilities** | [**{ [key: string]: DependantAbilities; }**](DependantAbilities.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -35,6 +37,7 @@ const instance: RawAbilityV2 = {
     weapon_info,
     css_class,
     type,
+    grant_ammo_on_cast,
     behaviour_bits,
     upgrades,
     ability_type,
@@ -42,6 +45,7 @@ const instance: RawAbilityV2 = {
     dependant_abilities,
     video,
     tooltip_details,
+    dependent_abilities,
 };
 ```
 

@@ -65,13 +65,15 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'weapon_info' => '\OpenAPI\Client\Model\RawItemWeaponInfoV2',
         'css_class' => 'string',
         'type' => 'string',
+        'grant_ammo_on_cast' => 'bool',
         'behaviour_bits' => 'string',
         'upgrades' => '\OpenAPI\Client\Model\RawAbilityUpgradeV2[]',
         'ability_type' => '\OpenAPI\Client\Model\AbilityTypeV2',
         'boss_damage_scale' => 'float',
         'dependant_abilities' => 'string[]',
         'video' => 'string',
-        'tooltip_details' => '\OpenAPI\Client\Model\RawAbilityV2TooltipDetails'
+        'tooltip_details' => '\OpenAPI\Client\Model\RawAbilityV2TooltipDetails',
+        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\DependantAbilities>'
     ];
 
     /**
@@ -90,13 +92,15 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'weapon_info' => null,
         'css_class' => null,
         'type' => null,
+        'grant_ammo_on_cast' => null,
         'behaviour_bits' => null,
         'upgrades' => null,
         'ability_type' => null,
         'boss_damage_scale' => null,
         'dependant_abilities' => null,
         'video' => null,
-        'tooltip_details' => null
+        'tooltip_details' => null,
+        'dependent_abilities' => null
     ];
 
     /**
@@ -113,13 +117,15 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'weapon_info' => true,
         'css_class' => true,
         'type' => false,
+        'grant_ammo_on_cast' => true,
         'behaviour_bits' => true,
         'upgrades' => false,
         'ability_type' => true,
         'boss_damage_scale' => true,
         'dependant_abilities' => true,
         'video' => true,
-        'tooltip_details' => true
+        'tooltip_details' => true,
+        'dependent_abilities' => true
     ];
 
     /**
@@ -216,13 +222,15 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'weapon_info' => 'weapon_info',
         'css_class' => 'css_class',
         'type' => 'type',
+        'grant_ammo_on_cast' => 'grant_ammo_on_cast',
         'behaviour_bits' => 'behaviour_bits',
         'upgrades' => 'upgrades',
         'ability_type' => 'ability_type',
         'boss_damage_scale' => 'boss_damage_scale',
         'dependant_abilities' => 'dependant_abilities',
         'video' => 'video',
-        'tooltip_details' => 'tooltip_details'
+        'tooltip_details' => 'tooltip_details',
+        'dependent_abilities' => 'dependent_abilities'
     ];
 
     /**
@@ -239,13 +247,15 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'weapon_info' => 'setWeaponInfo',
         'css_class' => 'setCssClass',
         'type' => 'setType',
+        'grant_ammo_on_cast' => 'setGrantAmmoOnCast',
         'behaviour_bits' => 'setBehaviourBits',
         'upgrades' => 'setUpgrades',
         'ability_type' => 'setAbilityType',
         'boss_damage_scale' => 'setBossDamageScale',
         'dependant_abilities' => 'setDependantAbilities',
         'video' => 'setVideo',
-        'tooltip_details' => 'setTooltipDetails'
+        'tooltip_details' => 'setTooltipDetails',
+        'dependent_abilities' => 'setDependentAbilities'
     ];
 
     /**
@@ -262,13 +272,15 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'weapon_info' => 'getWeaponInfo',
         'css_class' => 'getCssClass',
         'type' => 'getType',
+        'grant_ammo_on_cast' => 'getGrantAmmoOnCast',
         'behaviour_bits' => 'getBehaviourBits',
         'upgrades' => 'getUpgrades',
         'ability_type' => 'getAbilityType',
         'boss_damage_scale' => 'getBossDamageScale',
         'dependant_abilities' => 'getDependantAbilities',
         'video' => 'getVideo',
-        'tooltip_details' => 'getTooltipDetails'
+        'tooltip_details' => 'getTooltipDetails',
+        'dependent_abilities' => 'getDependentAbilities'
     ];
 
     /**
@@ -349,6 +361,7 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('weapon_info', $data ?? [], null);
         $this->setIfExists('css_class', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], 'ability');
+        $this->setIfExists('grant_ammo_on_cast', $data ?? [], null);
         $this->setIfExists('behaviour_bits', $data ?? [], null);
         $this->setIfExists('upgrades', $data ?? [], null);
         $this->setIfExists('ability_type', $data ?? [], null);
@@ -356,6 +369,7 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('dependant_abilities', $data ?? [], null);
         $this->setIfExists('video', $data ?? [], null);
         $this->setIfExists('tooltip_details', $data ?? [], null);
+        $this->setIfExists('dependent_abilities', $data ?? [], null);
     }
 
     /**
@@ -684,6 +698,40 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets grant_ammo_on_cast
+     *
+     * @return bool|null
+     */
+    public function getGrantAmmoOnCast()
+    {
+        return $this->container['grant_ammo_on_cast'];
+    }
+
+    /**
+     * Sets grant_ammo_on_cast
+     *
+     * @param bool|null $grant_ammo_on_cast grant_ammo_on_cast
+     *
+     * @return self
+     */
+    public function setGrantAmmoOnCast($grant_ammo_on_cast)
+    {
+        if (is_null($grant_ammo_on_cast)) {
+            array_push($this->openAPINullablesSetToNull, 'grant_ammo_on_cast');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('grant_ammo_on_cast', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['grant_ammo_on_cast'] = $grant_ammo_on_cast;
+
+        return $this;
+    }
+
+    /**
      * Gets behaviour_bits
      *
      * @return string|null
@@ -910,6 +958,40 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['tooltip_details'] = $tooltip_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets dependent_abilities
+     *
+     * @return array<string,\OpenAPI\Client\Model\DependantAbilities>|null
+     */
+    public function getDependentAbilities()
+    {
+        return $this->container['dependent_abilities'];
+    }
+
+    /**
+     * Sets dependent_abilities
+     *
+     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities dependent_abilities
+     *
+     * @return self
+     */
+    public function setDependentAbilities($dependent_abilities)
+    {
+        if (is_null($dependent_abilities)) {
+            array_push($this->openAPINullablesSetToNull, 'dependent_abilities');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('dependent_abilities', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['dependent_abilities'] = $dependent_abilities;
 
         return $this;
     }

@@ -31,6 +31,7 @@ api/Model/ColorV1.php
 api/Model/Curve.php
 api/Model/DamageFlashV2.php
 api/Model/DeadlockAssetsApiRoutesValidClientVersions.php
+api/Model/DependantAbilities.php
 api/Model/EmpoweredModifierLevel.php
 api/Model/ExpirationDuration.php
 api/Model/FlashDataV2.php
@@ -184,6 +185,7 @@ docs/Model/ColorV1.md
 docs/Model/Curve.md
 docs/Model/DamageFlashV2.md
 docs/Model/DeadlockAssetsApiRoutesValidClientVersions.md
+docs/Model/DependantAbilities.md
 docs/Model/EmpoweredModifierLevel.md
 docs/Model/ExpirationDuration.md
 docs/Model/FlashDataV2.md
@@ -336,6 +338,7 @@ test/Model/ColorV1Test.php
 test/Model/CurveTest.php
 test/Model/DamageFlashV2Test.php
 test/Model/DeadlockAssetsApiRoutesValidClientVersionsTest.php
+test/Model/DependantAbilitiesTest.php
 test/Model/EmpoweredModifierLevelTest.php
 test/Model/ExpirationDurationTest.php
 test/Model/FlashDataV2Test.php

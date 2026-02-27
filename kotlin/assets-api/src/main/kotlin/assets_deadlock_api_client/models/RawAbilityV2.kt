@@ -16,6 +16,7 @@
 package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.AbilityTypeV2
+import assets_deadlock_api_client.models.DependantAbilities
 import assets_deadlock_api_client.models.RawAbilityUpgradeV2
 import assets_deadlock_api_client.models.RawAbilityV2TooltipDetails
 import assets_deadlock_api_client.models.RawItemPropertyV2
@@ -37,12 +38,14 @@ import java.io.Serializable
  * @param weaponInfo 
  * @param cssClass 
  * @param type 
+ * @param grantAmmoOnCast 
  * @param behaviourBits 
  * @param abilityType 
  * @param bossDamageScale 
  * @param dependantAbilities 
  * @param video 
  * @param tooltipDetails 
+ * @param dependentAbilities 
  */
 
 
@@ -75,6 +78,9 @@ data class RawAbilityV2 (
     @Json(name = "type")
     val type: RawAbilityV2.Type? = Type.ability,
 
+    @Json(name = "grant_ammo_on_cast")
+    val grantAmmoOnCast: kotlin.Boolean? = null,
+
     @Json(name = "behaviour_bits")
     val behaviourBits: kotlin.String? = null,
 
@@ -91,7 +97,10 @@ data class RawAbilityV2 (
     val video: kotlin.String? = null,
 
     @Json(name = "tooltip_details")
-    val tooltipDetails: RawAbilityV2TooltipDetails? = null
+    val tooltipDetails: RawAbilityV2TooltipDetails? = null,
+
+    @Json(name = "dependent_abilities")
+    val dependentAbilities: kotlin.collections.Map<kotlin.String, DependantAbilities>? = null
 
 ) : Serializable {
     companion object {

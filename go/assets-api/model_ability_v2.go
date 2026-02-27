@@ -33,6 +33,7 @@ type AbilityV2 struct {
 	Properties map[string]ItemPropertyV2 `json:"properties,omitempty"`
 	WeaponInfo NullableRawItemWeaponInfoV2 `json:"weapon_info,omitempty"`
 	Type *string `json:"type,omitempty"`
+	GrantAmmoOnCast NullableBool `json:"grant_ammo_on_cast,omitempty"`
 	Behaviours []string `json:"behaviours,omitempty"`
 	Description AbilityDescriptionV2 `json:"description"`
 	TooltipDetails NullableAbilityTooltipDetailsV2 `json:"tooltip_details,omitempty"`
@@ -41,6 +42,7 @@ type AbilityV2 struct {
 	BossDamageScale NullableFloat32 `json:"boss_damage_scale,omitempty"`
 	DependantAbilities []string `json:"dependant_abilities,omitempty"`
 	Videos NullableAbilityVideosV2 `json:"videos,omitempty"`
+	DependentAbilities map[string]DependantAbilities `json:"dependent_abilities,omitempty"`
 }
 
 type _AbilityV2 AbilityV2
@@ -492,6 +494,48 @@ func (o *AbilityV2) SetType(v string) {
 	o.Type = &v
 }
 
+// GetGrantAmmoOnCast returns the GrantAmmoOnCast field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AbilityV2) GetGrantAmmoOnCast() bool {
+	if o == nil || IsNil(o.GrantAmmoOnCast.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.GrantAmmoOnCast.Get()
+}
+
+// GetGrantAmmoOnCastOk returns a tuple with the GrantAmmoOnCast field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AbilityV2) GetGrantAmmoOnCastOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GrantAmmoOnCast.Get(), o.GrantAmmoOnCast.IsSet()
+}
+
+// HasGrantAmmoOnCast returns a boolean if a field has been set.
+func (o *AbilityV2) HasGrantAmmoOnCast() bool {
+	if o != nil && o.GrantAmmoOnCast.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGrantAmmoOnCast gets a reference to the given NullableBool and assigns it to the GrantAmmoOnCast field.
+func (o *AbilityV2) SetGrantAmmoOnCast(v bool) {
+	o.GrantAmmoOnCast.Set(&v)
+}
+// SetGrantAmmoOnCastNil sets the value for GrantAmmoOnCast to be an explicit nil
+func (o *AbilityV2) SetGrantAmmoOnCastNil() {
+	o.GrantAmmoOnCast.Set(nil)
+}
+
+// UnsetGrantAmmoOnCast ensures that no value is present for GrantAmmoOnCast, not even an explicit nil
+func (o *AbilityV2) UnsetGrantAmmoOnCast() {
+	o.GrantAmmoOnCast.Unset()
+}
+
 // GetBehaviours returns the Behaviours field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AbilityV2) GetBehaviours() []string {
 	if o == nil {
@@ -783,6 +827,39 @@ func (o *AbilityV2) UnsetVideos() {
 	o.Videos.Unset()
 }
 
+// GetDependentAbilities returns the DependentAbilities field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AbilityV2) GetDependentAbilities() map[string]DependantAbilities {
+	if o == nil {
+		var ret map[string]DependantAbilities
+		return ret
+	}
+	return o.DependentAbilities
+}
+
+// GetDependentAbilitiesOk returns a tuple with the DependentAbilities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AbilityV2) GetDependentAbilitiesOk() (map[string]DependantAbilities, bool) {
+	if o == nil || IsNil(o.DependentAbilities) {
+		return map[string]DependantAbilities{}, false
+	}
+	return o.DependentAbilities, true
+}
+
+// HasDependentAbilities returns a boolean if a field has been set.
+func (o *AbilityV2) HasDependentAbilities() bool {
+	if o != nil && !IsNil(o.DependentAbilities) {
+		return true
+	}
+
+	return false
+}
+
+// SetDependentAbilities gets a reference to the given map[string]DependantAbilities and assigns it to the DependentAbilities field.
+func (o *AbilityV2) SetDependentAbilities(v map[string]DependantAbilities) {
+	o.DependentAbilities = v
+}
+
 func (o AbilityV2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -823,6 +900,9 @@ func (o AbilityV2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
+	if o.GrantAmmoOnCast.IsSet() {
+		toSerialize["grant_ammo_on_cast"] = o.GrantAmmoOnCast.Get()
+	}
 	if o.Behaviours != nil {
 		toSerialize["behaviours"] = o.Behaviours
 	}
@@ -844,6 +924,9 @@ func (o AbilityV2) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Videos.IsSet() {
 		toSerialize["videos"] = o.Videos.Get()
+	}
+	if o.DependentAbilities != nil {
+		toSerialize["dependent_abilities"] = o.DependentAbilities
 	}
 	return toSerialize, nil
 }

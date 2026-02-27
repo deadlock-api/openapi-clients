@@ -58,6 +58,7 @@ class TestResponseGetRawItemsRawItemsGetInner(unittest.TestCase):
                     bullet_speed_curve = null, ),
                 css_class = '',
                 type = 'ability',
+                grant_ammo_on_cast = True,
                 behaviour_bits = '',
                 upgrades = [
                     assets_deadlock_api_client.models.raw_ability_upgrade_v2.RawAbilityUpgradeV2(
@@ -99,6 +100,12 @@ class TestResponseGetRawItemsRawItemsGetInner(unittest.TestCase):
                     additional_header_properties = [
                         ''
                         ], ),
+                dependent_abilities = {
+                    'key' : assets_deadlock_api_client.models.dependant_abilities.DependantAbilities(
+                        flags = [
+                            ''
+                            ], )
+                    },
                 shop_image = '',
                 shop_image_small = '',
                 item_slot_type = 'weapon',

@@ -1213,10 +1213,16 @@ components:
             bonus: Bonus
             name: name
             upgrade_type: upgrade_type
+        dependent_abilities:
+          key:
+            flags:
+            - flags
+            - flags
         update_time: 5
         heroes:
         - 1
         - 1
+        grant_ammo_on_cast: true
         tooltip_details: ""
         name: name
         id: 0
@@ -1295,6 +1301,9 @@ components:
           - ability
           title: Type
           type: string
+        grant_ammo_on_cast:
+          nullable: true
+          type: boolean
         behaviours:
           items:
             type: string
@@ -1326,6 +1335,10 @@ components:
         videos:
           allOf:
           - $ref: "#/components/schemas/AbilityVideosV2"
+          nullable: true
+        dependent_abilities:
+          additionalProperties:
+            $ref: "#/components/schemas/DependantAbilities"
           nullable: true
       required:
       - class_name
@@ -1567,6 +1580,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6351
       - 6325
       - 6290
       - 6284
@@ -1633,6 +1647,18 @@ components:
       - 5527
       title: DeadlockAssetsApiRoutesValidClientVersions
       type: integer
+    DependantAbilities:
+      example:
+        flags:
+        - flags
+        - flags
+      properties:
+        flags:
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: DependantAbilities
     EmpoweredModifierLevel:
       properties:
         max_health:
@@ -4242,8 +4268,14 @@ components:
             bonus: Bonus
             name: name
             upgrade_type: upgrade_type
+        dependent_abilities:
+          key:
+            flags:
+            - flags
+            - flags
         css_class: css_class
         update_time: 0
+        grant_ammo_on_cast: true
         tooltip_details: ""
         ability_type: ""
         class_name: class_name
@@ -4297,6 +4329,9 @@ components:
           - ability
           title: Type
           type: string
+        grant_ammo_on_cast:
+          nullable: true
+          type: boolean
         behaviour_bits:
           nullable: true
           type: string
@@ -4323,6 +4358,10 @@ components:
         tooltip_details:
           allOf:
           - $ref: "#/components/schemas/RawAbilityV2TooltipDetails"
+          nullable: true
+        dependent_abilities:
+          additionalProperties:
+            $ref: "#/components/schemas/DependantAbilities"
           nullable: true
       required:
       - class_name

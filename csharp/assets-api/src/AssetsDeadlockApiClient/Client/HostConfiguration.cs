@@ -62,6 +62,7 @@ namespace AssetsDeadlockApiClient.Client
             _jsonOptions.Converters.Add(new DamageFlashV2JsonConverter());
             _jsonOptions.Converters.Add(new DeadlockAssetsApiRoutesValidClientVersionsJsonConverter());
             _jsonOptions.Converters.Add(new DeadlockAssetsApiRoutesValidClientVersionsNullableJsonConverter());
+            _jsonOptions.Converters.Add(new DependantAbilitiesJsonConverter());
             _jsonOptions.Converters.Add(new EmpoweredModifierLevelJsonConverter());
             _jsonOptions.Converters.Add(new ExpirationDurationJsonConverter());
             _jsonOptions.Converters.Add(new FlashDataV2JsonConverter());

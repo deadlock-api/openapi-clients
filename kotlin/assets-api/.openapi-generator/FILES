@@ -20,6 +20,7 @@ docs/Curve.md
 docs/DamageFlashV2.md
 docs/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/DefaultApi.md
+docs/DependantAbilities.md
 docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -193,6 +194,7 @@ src/main/kotlin/assets_deadlock_api_client/models/ColorV1.kt
 src/main/kotlin/assets_deadlock_api_client/models/Curve.kt
 src/main/kotlin/assets_deadlock_api_client/models/DamageFlashV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesValidClientVersions.kt
+src/main/kotlin/assets_deadlock_api_client/models/DependantAbilities.kt
 src/main/kotlin/assets_deadlock_api_client/models/EmpoweredModifierLevel.kt
 src/main/kotlin/assets_deadlock_api_client/models/ExpirationDuration.kt
 src/main/kotlin/assets_deadlock_api_client/models/FlashDataV2.kt
@@ -343,6 +345,7 @@ src/test/kotlin/assets_deadlock_api_client/models/ColorV1Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/CurveTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/DamageFlashV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesValidClientVersionsTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/DependantAbilitiesTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/EmpoweredModifierLevelTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ExpirationDurationTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/FlashDataV2Test.kt

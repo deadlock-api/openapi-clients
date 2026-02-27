@@ -32,6 +32,8 @@ pub mod damage_flash_v2;
 pub use self::damage_flash_v2::DamageFlashV2;
 pub mod deadlock_assets_api_routes_valid_client_versions;
 pub use self::deadlock_assets_api_routes_valid_client_versions::DeadlockAssetsApiRoutesValidClientVersions;
+pub mod dependant_abilities;
+pub use self::dependant_abilities::DependantAbilities;
 pub mod empowered_modifier_level;
 pub use self::empowered_modifier_level::EmpoweredModifierLevel;
 pub mod expiration_duration;

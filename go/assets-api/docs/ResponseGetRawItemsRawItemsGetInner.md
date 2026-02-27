@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **WeaponInfo** | Pointer to [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] 
 **CssClass** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] [default to "ability"]
+**GrantAmmoOnCast** | Pointer to **bool** |  | [optional] 
 **BehaviourBits** | Pointer to **string** |  | [optional] 
 **Upgrades** | [**[]RawAbilityUpgradeV2**](RawAbilityUpgradeV2.md) |  | 
 **AbilityType** | Pointer to [**AbilityTypeV2**](AbilityTypeV2.md) |  | [optional] 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **DependantAbilities** | Pointer to **[]string** |  | [optional] 
 **Video** | Pointer to **string** |  | [optional] 
 **TooltipDetails** | Pointer to [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional] 
+**DependentAbilities** | Pointer to [**map[string]DependantAbilities**](DependantAbilities.md) |  | [optional] 
 **ShopImage** | Pointer to **string** |  | [optional] 
 **ShopImageSmall** | Pointer to **string** |  | [optional] 
 **ItemSlotType** | [**ItemSlotTypeV2**](ItemSlotTypeV2.md) |  | 
@@ -243,6 +245,31 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### GetGrantAmmoOnCast
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetGrantAmmoOnCast() bool`
+
+GetGrantAmmoOnCast returns the GrantAmmoOnCast field if non-nil, zero value otherwise.
+
+### GetGrantAmmoOnCastOk
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetGrantAmmoOnCastOk() (*bool, bool)`
+
+GetGrantAmmoOnCastOk returns a tuple with the GrantAmmoOnCast field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGrantAmmoOnCast
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) SetGrantAmmoOnCast(v bool)`
+
+SetGrantAmmoOnCast sets GrantAmmoOnCast field to given value.
+
+### HasGrantAmmoOnCast
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) HasGrantAmmoOnCast() bool`
+
+HasGrantAmmoOnCast returns a boolean if a field has been set.
+
 ### GetBehaviourBits
 
 `func (o *ResponseGetRawItemsRawItemsGetInner) GetBehaviourBits() string`
@@ -412,6 +439,31 @@ SetTooltipDetails sets TooltipDetails field to given value.
 `func (o *ResponseGetRawItemsRawItemsGetInner) HasTooltipDetails() bool`
 
 HasTooltipDetails returns a boolean if a field has been set.
+
+### GetDependentAbilities
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetDependentAbilities() map[string]DependantAbilities`
+
+GetDependentAbilities returns the DependentAbilities field if non-nil, zero value otherwise.
+
+### GetDependentAbilitiesOk
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetDependentAbilitiesOk() (*map[string]DependantAbilities, bool)`
+
+GetDependentAbilitiesOk returns a tuple with the DependentAbilities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDependentAbilities
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) SetDependentAbilities(v map[string]DependantAbilities)`
+
+SetDependentAbilities sets DependentAbilities field to given value.
+
+### HasDependentAbilities
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) HasDependentAbilities() bool`
+
+HasDependentAbilities returns a boolean if a field has been set.
 
 ### GetShopImage
 

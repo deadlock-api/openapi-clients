@@ -65,6 +65,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'weapon_info' => '\OpenAPI\Client\Model\RawItemWeaponInfoV2',
         'css_class' => 'string',
         'type' => 'string',
+        'grant_ammo_on_cast' => 'bool',
         'behaviour_bits' => 'string',
         'upgrades' => '\OpenAPI\Client\Model\RawAbilityUpgradeV2[]',
         'ability_type' => '\OpenAPI\Client\Model\AbilityTypeV2',
@@ -72,6 +73,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'dependant_abilities' => 'string[]',
         'video' => 'string',
         'tooltip_details' => '\OpenAPI\Client\Model\RawAbilityV2TooltipDetails',
+        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\DependantAbilities>',
         'shop_image' => 'string',
         'shop_image_small' => 'string',
         'item_slot_type' => '\OpenAPI\Client\Model\ItemSlotTypeV2',
@@ -99,6 +101,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'weapon_info' => null,
         'css_class' => null,
         'type' => null,
+        'grant_ammo_on_cast' => null,
         'behaviour_bits' => null,
         'upgrades' => null,
         'ability_type' => null,
@@ -106,6 +109,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'dependant_abilities' => null,
         'video' => null,
         'tooltip_details' => null,
+        'dependent_abilities' => null,
         'shop_image' => null,
         'shop_image_small' => null,
         'item_slot_type' => null,
@@ -131,6 +135,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'weapon_info' => false,
         'css_class' => false,
         'type' => false,
+        'grant_ammo_on_cast' => false,
         'behaviour_bits' => false,
         'upgrades' => false,
         'ability_type' => false,
@@ -138,6 +143,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'dependant_abilities' => false,
         'video' => false,
         'tooltip_details' => false,
+        'dependent_abilities' => false,
         'shop_image' => false,
         'shop_image_small' => false,
         'item_slot_type' => false,
@@ -243,6 +249,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'weapon_info' => 'weapon_info',
         'css_class' => 'css_class',
         'type' => 'type',
+        'grant_ammo_on_cast' => 'grant_ammo_on_cast',
         'behaviour_bits' => 'behaviour_bits',
         'upgrades' => 'upgrades',
         'ability_type' => 'ability_type',
@@ -250,6 +257,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'dependant_abilities' => 'dependant_abilities',
         'video' => 'video',
         'tooltip_details' => 'tooltip_details',
+        'dependent_abilities' => 'dependent_abilities',
         'shop_image' => 'shop_image',
         'shop_image_small' => 'shop_image_small',
         'item_slot_type' => 'item_slot_type',
@@ -275,6 +283,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'weapon_info' => 'setWeaponInfo',
         'css_class' => 'setCssClass',
         'type' => 'setType',
+        'grant_ammo_on_cast' => 'setGrantAmmoOnCast',
         'behaviour_bits' => 'setBehaviourBits',
         'upgrades' => 'setUpgrades',
         'ability_type' => 'setAbilityType',
@@ -282,6 +291,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'dependant_abilities' => 'setDependantAbilities',
         'video' => 'setVideo',
         'tooltip_details' => 'setTooltipDetails',
+        'dependent_abilities' => 'setDependentAbilities',
         'shop_image' => 'setShopImage',
         'shop_image_small' => 'setShopImageSmall',
         'item_slot_type' => 'setItemSlotType',
@@ -307,6 +317,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'weapon_info' => 'getWeaponInfo',
         'css_class' => 'getCssClass',
         'type' => 'getType',
+        'grant_ammo_on_cast' => 'getGrantAmmoOnCast',
         'behaviour_bits' => 'getBehaviourBits',
         'upgrades' => 'getUpgrades',
         'ability_type' => 'getAbilityType',
@@ -314,6 +325,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'dependant_abilities' => 'getDependantAbilities',
         'video' => 'getVideo',
         'tooltip_details' => 'getTooltipDetails',
+        'dependent_abilities' => 'getDependentAbilities',
         'shop_image' => 'getShopImage',
         'shop_image_small' => 'getShopImageSmall',
         'item_slot_type' => 'getItemSlotType',
@@ -407,6 +419,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         $this->setIfExists('weapon_info', $data ?? [], null);
         $this->setIfExists('css_class', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], 'ability');
+        $this->setIfExists('grant_ammo_on_cast', $data ?? [], null);
         $this->setIfExists('behaviour_bits', $data ?? [], null);
         $this->setIfExists('upgrades', $data ?? [], null);
         $this->setIfExists('ability_type', $data ?? [], null);
@@ -414,6 +427,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         $this->setIfExists('dependant_abilities', $data ?? [], null);
         $this->setIfExists('video', $data ?? [], null);
         $this->setIfExists('tooltip_details', $data ?? [], null);
+        $this->setIfExists('dependent_abilities', $data ?? [], null);
         $this->setIfExists('shop_image', $data ?? [], null);
         $this->setIfExists('shop_image_small', $data ?? [], null);
         $this->setIfExists('item_slot_type', $data ?? [], null);
@@ -715,6 +729,33 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets grant_ammo_on_cast
+     *
+     * @return bool|null
+     */
+    public function getGrantAmmoOnCast()
+    {
+        return $this->container['grant_ammo_on_cast'];
+    }
+
+    /**
+     * Sets grant_ammo_on_cast
+     *
+     * @param bool|null $grant_ammo_on_cast grant_ammo_on_cast
+     *
+     * @return self
+     */
+    public function setGrantAmmoOnCast($grant_ammo_on_cast)
+    {
+        if (is_null($grant_ammo_on_cast)) {
+            throw new \InvalidArgumentException('non-nullable grant_ammo_on_cast cannot be null');
+        }
+        $this->container['grant_ammo_on_cast'] = $grant_ammo_on_cast;
+
+        return $this;
+    }
+
+    /**
      * Gets behaviour_bits
      *
      * @return string|null
@@ -899,6 +940,33 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
             throw new \InvalidArgumentException('non-nullable tooltip_details cannot be null');
         }
         $this->container['tooltip_details'] = $tooltip_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets dependent_abilities
+     *
+     * @return array<string,\OpenAPI\Client\Model\DependantAbilities>|null
+     */
+    public function getDependentAbilities()
+    {
+        return $this->container['dependent_abilities'];
+    }
+
+    /**
+     * Sets dependent_abilities
+     *
+     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities dependent_abilities
+     *
+     * @return self
+     */
+    public function setDependentAbilities($dependent_abilities)
+    {
+        if (is_null($dependent_abilities)) {
+            throw new \InvalidArgumentException('non-nullable dependent_abilities cannot be null');
+        }
+        $this->container['dependent_abilities'] = $dependent_abilities;
 
         return $this;
     }

@@ -37,6 +37,8 @@ pub struct AbilityV2 {
     pub weapon_info: Option<Option<Box<models::RawItemWeaponInfoV2>>>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<Type>,
+    #[serde(rename = "grant_ammo_on_cast", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub grant_ammo_on_cast: Option<Option<bool>>,
     #[serde(rename = "behaviours", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub behaviours: Option<Option<Vec<String>>>,
     #[serde(rename = "description")]
@@ -53,6 +55,8 @@ pub struct AbilityV2 {
     pub dependant_abilities: Option<Option<Vec<String>>>,
     #[serde(rename = "videos", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub videos: Option<Option<Box<models::AbilityVideosV2>>>,
+    #[serde(rename = "dependent_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub dependent_abilities: Option<Option<std::collections::HashMap<String, models::DependantAbilities>>>,
 }
 
 impl AbilityV2 {
@@ -70,6 +74,7 @@ impl AbilityV2 {
             properties: None,
             weapon_info: None,
             r#type: None,
+            grant_ammo_on_cast: None,
             behaviours: None,
             description: Box::new(description),
             tooltip_details: None,
@@ -78,6 +83,7 @@ impl AbilityV2 {
             boss_damage_scale: None,
             dependant_abilities: None,
             videos: None,
+            dependent_abilities: None,
         }
     }
 }

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **properties** | [**{ [key: string]: UpgradePropertyV2; }**](UpgradePropertyV2.md) |  | [optional] [default to undefined]
 **weapon_info** | [**RawItemWeaponInfoV2**](RawItemWeaponInfoV2.md) |  | [optional] [default to undefined]
 **type** | **string** |  | [optional] [default to TypeEnum_Ability]
+**grant_ammo_on_cast** | **boolean** |  | [optional] [default to undefined]
 **behaviours** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **description** | [**UpgradeDescriptionV2**](UpgradeDescriptionV2.md) |  | [default to undefined]
 **tooltip_details** | [**AbilityTooltipDetailsV2**](AbilityTooltipDetailsV2.md) |  | [optional] [default to undefined]
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | **number** |  | [optional] [default to undefined]
 **dependant_abilities** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **videos** | [**AbilityVideosV2**](AbilityVideosV2.md) |  | [optional] [default to undefined]
+**dependent_abilities** | [**{ [key: string]: DependantAbilities; }**](DependantAbilities.md) |  | [optional] [default to undefined]
 **shop_image** | **string** |  | [optional] [default to undefined]
 **shop_image_webp** | **string** |  | [optional] [default to undefined]
 **shop_image_small** | **string** |  | [optional] [default to undefined]
@@ -58,6 +60,7 @@ const instance: ResponseGetItemsV2ItemsGetInner = {
     properties,
     weapon_info,
     type,
+    grant_ammo_on_cast,
     behaviours,
     description,
     tooltip_details,
@@ -66,6 +69,7 @@ const instance: ResponseGetItemsV2ItemsGetInner = {
     boss_damage_scale,
     dependant_abilities,
     videos,
+    dependent_abilities,
     shop_image,
     shop_image_webp,
     shop_image_small,

@@ -22,6 +22,7 @@ docs/Curve.md
 docs/DamageFlashV2.md
 docs/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/DefaultApi.md
+docs/DependantAbilities.md
 docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -181,6 +182,7 @@ src/models/color_v1.rs
 src/models/curve.rs
 src/models/damage_flash_v2.rs
 src/models/deadlock_assets_api_routes_valid_client_versions.rs
+src/models/dependant_abilities.rs
 src/models/empowered_modifier_level.rs
 src/models/expiration_duration.rs
 src/models/flash_data_v2.rs

@@ -188,6 +188,15 @@ class AbilityV2Test extends TestCase
     }
 
     /**
+     * Test attribute "grant_ammo_on_cast"
+     */
+    public function testPropertyGrantAmmoOnCast()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "behaviours"
      */
     public function testPropertyBehaviours()
@@ -254,6 +263,15 @@ class AbilityV2Test extends TestCase
      * Test attribute "videos"
      */
     public function testPropertyVideos()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "dependent_abilities"
+     */
+    public function testPropertyDependentAbilities()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

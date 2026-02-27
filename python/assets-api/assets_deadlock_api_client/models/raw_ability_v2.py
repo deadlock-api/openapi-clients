@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.ability_type_v2 import AbilityTypeV2
+from assets_deadlock_api_client.models.dependant_abilities import DependantAbilities
 from assets_deadlock_api_client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2
 from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details import RawAbilityV2TooltipDetails
 from assets_deadlock_api_client.models.raw_item_property_v2 import RawItemPropertyV2
@@ -39,6 +40,7 @@ class RawAbilityV2(BaseModel):
     weapon_info: Optional[RawItemWeaponInfoV2] = None
     css_class: Optional[StrictStr] = None
     type: Optional[StrictStr] = 'ability'
+    grant_ammo_on_cast: Optional[StrictBool] = None
     behaviour_bits: Optional[StrictStr] = None
     upgrades: List[RawAbilityUpgradeV2]
     ability_type: Optional[AbilityTypeV2] = None
@@ -46,7 +48,8 @@ class RawAbilityV2(BaseModel):
     dependant_abilities: Optional[List[StrictStr]] = None
     video: Optional[StrictStr] = None
     tooltip_details: Optional[RawAbilityV2TooltipDetails] = None
-    __properties: ClassVar[List[str]] = ["class_name", "start_trained", "image", "update_time", "properties", "weapon_info", "css_class", "type", "behaviour_bits", "upgrades", "ability_type", "boss_damage_scale", "dependant_abilities", "video", "tooltip_details"]
+    dependent_abilities: Optional[Dict[str, DependantAbilities]] = None
+    __properties: ClassVar[List[str]] = ["class_name", "start_trained", "image", "update_time", "properties", "weapon_info", "css_class", "type", "grant_ammo_on_cast", "behaviour_bits", "upgrades", "ability_type", "boss_damage_scale", "dependant_abilities", "video", "tooltip_details", "dependent_abilities"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -117,6 +120,13 @@ class RawAbilityV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of tooltip_details
         if self.tooltip_details:
             _dict['tooltip_details'] = self.tooltip_details.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each value in dependent_abilities (dict)
+        _field_dict = {}
+        if self.dependent_abilities:
+            for _key_dependent_abilities in self.dependent_abilities:
+                if self.dependent_abilities[_key_dependent_abilities]:
+                    _field_dict[_key_dependent_abilities] = self.dependent_abilities[_key_dependent_abilities].to_dict()
+            _dict['dependent_abilities'] = _field_dict
         # set to None if start_trained (nullable) is None
         # and model_fields_set contains the field
         if self.start_trained is None and "start_trained" in self.model_fields_set:
@@ -146,6 +156,11 @@ class RawAbilityV2(BaseModel):
         # and model_fields_set contains the field
         if self.css_class is None and "css_class" in self.model_fields_set:
             _dict['css_class'] = None
+
+        # set to None if grant_ammo_on_cast (nullable) is None
+        # and model_fields_set contains the field
+        if self.grant_ammo_on_cast is None and "grant_ammo_on_cast" in self.model_fields_set:
+            _dict['grant_ammo_on_cast'] = None
 
         # set to None if behaviour_bits (nullable) is None
         # and model_fields_set contains the field
@@ -177,6 +192,11 @@ class RawAbilityV2(BaseModel):
         if self.tooltip_details is None and "tooltip_details" in self.model_fields_set:
             _dict['tooltip_details'] = None
 
+        # set to None if dependent_abilities (nullable) is None
+        # and model_fields_set contains the field
+        if self.dependent_abilities is None and "dependent_abilities" in self.model_fields_set:
+            _dict['dependent_abilities'] = None
+
         return _dict
 
     @classmethod
@@ -202,13 +222,20 @@ class RawAbilityV2(BaseModel):
             "weapon_info": RawItemWeaponInfoV2.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None,
             "css_class": obj.get("css_class"),
             "type": obj.get("type") if obj.get("type") is not None else 'ability',
+            "grant_ammo_on_cast": obj.get("grant_ammo_on_cast"),
             "behaviour_bits": obj.get("behaviour_bits"),
             "upgrades": [RawAbilityUpgradeV2.from_dict(_item) for _item in obj["upgrades"]] if obj.get("upgrades") is not None else None,
             "ability_type": obj.get("ability_type"),
             "boss_damage_scale": obj.get("boss_damage_scale"),
             "dependant_abilities": obj.get("dependant_abilities"),
             "video": obj.get("video"),
-            "tooltip_details": RawAbilityV2TooltipDetails.from_dict(obj["tooltip_details"]) if obj.get("tooltip_details") is not None else None
+            "tooltip_details": RawAbilityV2TooltipDetails.from_dict(obj["tooltip_details"]) if obj.get("tooltip_details") is not None else None,
+            "dependent_abilities": dict(
+                (_k, DependantAbilities.from_dict(_v))
+                for _k, _v in obj["dependent_abilities"].items()
+            )
+            if obj.get("dependent_abilities") is not None
+            else None
         })
         return _obj
 

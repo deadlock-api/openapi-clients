@@ -29,6 +29,8 @@ pub struct RawAbilityV2 {
     pub css_class: Option<Option<String>>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<Type>,
+    #[serde(rename = "grant_ammo_on_cast", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub grant_ammo_on_cast: Option<Option<bool>>,
     #[serde(rename = "behaviour_bits", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub behaviour_bits: Option<Option<String>>,
     #[serde(rename = "upgrades")]
@@ -43,6 +45,8 @@ pub struct RawAbilityV2 {
     pub video: Option<Option<String>>,
     #[serde(rename = "tooltip_details", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tooltip_details: Option<Option<Box<models::RawAbilityV2TooltipDetails>>>,
+    #[serde(rename = "dependent_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub dependent_abilities: Option<Option<std::collections::HashMap<String, models::DependantAbilities>>>,
 }
 
 impl RawAbilityV2 {
@@ -56,6 +60,7 @@ impl RawAbilityV2 {
             weapon_info: None,
             css_class: None,
             r#type: None,
+            grant_ammo_on_cast: None,
             behaviour_bits: None,
             upgrades,
             ability_type: None,
@@ -63,6 +68,7 @@ impl RawAbilityV2 {
             dependant_abilities: None,
             video: None,
             tooltip_details: None,
+            dependent_abilities: None,
         }
     }
 }

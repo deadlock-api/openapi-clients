@@ -69,6 +69,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'array<string,\OpenAPI\Client\Model\ItemPropertyV2>',
         'weapon_info' => '\OpenAPI\Client\Model\RawItemWeaponInfoV2',
         'type' => 'string',
+        'grant_ammo_on_cast' => 'bool',
         'behaviours' => 'string[]',
         'description' => '\OpenAPI\Client\Model\AbilityDescriptionV2',
         'tooltip_details' => '\OpenAPI\Client\Model\AbilityTooltipDetailsV2',
@@ -76,7 +77,8 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'ability_type' => '\OpenAPI\Client\Model\AbilityTypeV2',
         'boss_damage_scale' => 'float',
         'dependant_abilities' => 'string[]',
-        'videos' => '\OpenAPI\Client\Model\AbilityVideosV2'
+        'videos' => '\OpenAPI\Client\Model\AbilityVideosV2',
+        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\DependantAbilities>'
     ];
 
     /**
@@ -99,6 +101,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => null,
         'weapon_info' => null,
         'type' => null,
+        'grant_ammo_on_cast' => null,
         'behaviours' => null,
         'description' => null,
         'tooltip_details' => null,
@@ -106,7 +109,8 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'ability_type' => null,
         'boss_damage_scale' => null,
         'dependant_abilities' => null,
-        'videos' => null
+        'videos' => null,
+        'dependent_abilities' => null
     ];
 
     /**
@@ -127,6 +131,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => true,
         'weapon_info' => true,
         'type' => false,
+        'grant_ammo_on_cast' => true,
         'behaviours' => true,
         'description' => false,
         'tooltip_details' => true,
@@ -134,7 +139,8 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'ability_type' => true,
         'boss_damage_scale' => true,
         'dependant_abilities' => true,
-        'videos' => true
+        'videos' => true,
+        'dependent_abilities' => true
     ];
 
     /**
@@ -235,6 +241,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'properties',
         'weapon_info' => 'weapon_info',
         'type' => 'type',
+        'grant_ammo_on_cast' => 'grant_ammo_on_cast',
         'behaviours' => 'behaviours',
         'description' => 'description',
         'tooltip_details' => 'tooltip_details',
@@ -242,7 +249,8 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'ability_type' => 'ability_type',
         'boss_damage_scale' => 'boss_damage_scale',
         'dependant_abilities' => 'dependant_abilities',
-        'videos' => 'videos'
+        'videos' => 'videos',
+        'dependent_abilities' => 'dependent_abilities'
     ];
 
     /**
@@ -263,6 +271,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'setProperties',
         'weapon_info' => 'setWeaponInfo',
         'type' => 'setType',
+        'grant_ammo_on_cast' => 'setGrantAmmoOnCast',
         'behaviours' => 'setBehaviours',
         'description' => 'setDescription',
         'tooltip_details' => 'setTooltipDetails',
@@ -270,7 +279,8 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'ability_type' => 'setAbilityType',
         'boss_damage_scale' => 'setBossDamageScale',
         'dependant_abilities' => 'setDependantAbilities',
-        'videos' => 'setVideos'
+        'videos' => 'setVideos',
+        'dependent_abilities' => 'setDependentAbilities'
     ];
 
     /**
@@ -291,6 +301,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'getProperties',
         'weapon_info' => 'getWeaponInfo',
         'type' => 'getType',
+        'grant_ammo_on_cast' => 'getGrantAmmoOnCast',
         'behaviours' => 'getBehaviours',
         'description' => 'getDescription',
         'tooltip_details' => 'getTooltipDetails',
@@ -298,7 +309,8 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'ability_type' => 'getAbilityType',
         'boss_damage_scale' => 'getBossDamageScale',
         'dependant_abilities' => 'getDependantAbilities',
-        'videos' => 'getVideos'
+        'videos' => 'getVideos',
+        'dependent_abilities' => 'getDependentAbilities'
     ];
 
     /**
@@ -383,6 +395,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('properties', $data ?? [], null);
         $this->setIfExists('weapon_info', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], 'ability');
+        $this->setIfExists('grant_ammo_on_cast', $data ?? [], null);
         $this->setIfExists('behaviours', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('tooltip_details', $data ?? [], null);
@@ -391,6 +404,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('boss_damage_scale', $data ?? [], null);
         $this->setIfExists('dependant_abilities', $data ?? [], null);
         $this->setIfExists('videos', $data ?? [], null);
+        $this->setIfExists('dependent_abilities', $data ?? [], null);
     }
 
     /**
@@ -847,6 +861,40 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets grant_ammo_on_cast
+     *
+     * @return bool|null
+     */
+    public function getGrantAmmoOnCast()
+    {
+        return $this->container['grant_ammo_on_cast'];
+    }
+
+    /**
+     * Sets grant_ammo_on_cast
+     *
+     * @param bool|null $grant_ammo_on_cast grant_ammo_on_cast
+     *
+     * @return self
+     */
+    public function setGrantAmmoOnCast($grant_ammo_on_cast)
+    {
+        if (is_null($grant_ammo_on_cast)) {
+            array_push($this->openAPINullablesSetToNull, 'grant_ammo_on_cast');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('grant_ammo_on_cast', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['grant_ammo_on_cast'] = $grant_ammo_on_cast;
+
+        return $this;
+    }
+
+    /**
      * Gets behaviours
      *
      * @return string[]|null
@@ -1107,6 +1155,40 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['videos'] = $videos;
+
+        return $this;
+    }
+
+    /**
+     * Gets dependent_abilities
+     *
+     * @return array<string,\OpenAPI\Client\Model\DependantAbilities>|null
+     */
+    public function getDependentAbilities()
+    {
+        return $this->container['dependent_abilities'];
+    }
+
+    /**
+     * Sets dependent_abilities
+     *
+     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities dependent_abilities
+     *
+     * @return self
+     */
+    public function setDependentAbilities($dependent_abilities)
+    {
+        if (is_null($dependent_abilities)) {
+            array_push($this->openAPINullablesSetToNull, 'dependent_abilities');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('dependent_abilities', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['dependent_abilities'] = $dependent_abilities;
 
         return $this;
     }

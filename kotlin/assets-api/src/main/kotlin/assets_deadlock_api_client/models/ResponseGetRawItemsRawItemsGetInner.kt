@@ -16,6 +16,7 @@
 package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.AbilityTypeV2
+import assets_deadlock_api_client.models.DependantAbilities
 import assets_deadlock_api_client.models.ItemSlotTypeV2
 import assets_deadlock_api_client.models.ItemTierV2
 import assets_deadlock_api_client.models.RawAbilityActivationV2
@@ -47,12 +48,14 @@ import java.io.Serializable
  * @param weaponInfo 
  * @param cssClass 
  * @param type 
+ * @param grantAmmoOnCast 
  * @param behaviourBits 
  * @param abilityType 
  * @param bossDamageScale 
  * @param dependantAbilities 
  * @param video 
  * @param tooltipDetails 
+ * @param dependentAbilities 
  * @param shopImage 
  * @param shopImageSmall 
  * @param disabled 
@@ -98,6 +101,9 @@ data class ResponseGetRawItemsRawItemsGetInner (
     @Json(name = "type")
     val type: ResponseGetRawItemsRawItemsGetInner.Type? = Type.ability,
 
+    @Json(name = "grant_ammo_on_cast")
+    val grantAmmoOnCast: kotlin.Boolean? = null,
+
     @Json(name = "behaviour_bits")
     val behaviourBits: kotlin.String? = null,
 
@@ -115,6 +121,9 @@ data class ResponseGetRawItemsRawItemsGetInner (
 
     @Json(name = "tooltip_details")
     val tooltipDetails: RawAbilityV2TooltipDetails? = null,
+
+    @Json(name = "dependent_abilities")
+    val dependentAbilities: kotlin.collections.Map<kotlin.String, DependantAbilities>? = null,
 
     @Json(name = "shop_image")
     val shopImage: kotlin.String? = null,
