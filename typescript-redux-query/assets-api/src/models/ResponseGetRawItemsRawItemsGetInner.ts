@@ -16,9 +16,9 @@ import {
     AbilityTypeV2,
     AbilityTypeV2FromJSON,
     AbilityTypeV2ToJSON,
-    DependantAbilities,
-    DependantAbilitiesFromJSON,
-    DependantAbilitiesToJSON,
+    AbilityV2DependentAbilitiesValue,
+    AbilityV2DependentAbilitiesValueFromJSON,
+    AbilityV2DependentAbilitiesValueToJSON,
     ItemSlotTypeV2,
     ItemSlotTypeV2FromJSON,
     ItemSlotTypeV2ToJSON,
@@ -161,10 +161,10 @@ export interface ResponseGetRawItemsRawItemsGetInner  {
     tooltipDetails?: RawAbilityV2TooltipDetails;
     /**
      * 
-     * @type {{ [key: string]: DependantAbilities; }}
+     * @type {{ [key: string]: AbilityV2DependentAbilitiesValue; }}
      * @memberof ResponseGetRawItemsRawItemsGetInner
      */
-    dependentAbilities?: { [key: string]: DependantAbilities; };
+    dependentAbilities?: { [key: string]: AbilityV2DependentAbilitiesValue; };
     /**
      * 
      * @type {string}
@@ -239,7 +239,7 @@ export function ResponseGetRawItemsRawItemsGetInnerFromJSON(json: any): Response
         'dependantAbilities': !exists(json, 'dependant_abilities') ? undefined : json['dependant_abilities'],
         'video': !exists(json, 'video') ? undefined : json['video'],
         'tooltipDetails': !exists(json, 'tooltip_details') ? undefined : RawAbilityV2TooltipDetailsFromJSON(json['tooltip_details']),
-        'dependentAbilities': !exists(json, 'dependent_abilities') ? undefined : mapValues(json['dependent_abilities'], DependantAbilitiesFromJSON),
+        'dependentAbilities': !exists(json, 'dependent_abilities') ? undefined : mapValues(json['dependent_abilities'], AbilityV2DependentAbilitiesValueFromJSON),
         'shopImage': !exists(json, 'shop_image') ? undefined : json['shop_image'],
         'shopImageSmall': !exists(json, 'shop_image_small') ? undefined : json['shop_image_small'],
         'itemSlotType': ItemSlotTypeV2FromJSON(json['item_slot_type']),
@@ -273,7 +273,7 @@ export function ResponseGetRawItemsRawItemsGetInnerToJSON(value?: ResponseGetRaw
         'dependant_abilities': value.dependantAbilities,
         'video': value.video,
         'tooltip_details': RawAbilityV2TooltipDetailsToJSON(value.tooltipDetails),
-        'dependent_abilities': value.dependentAbilities === undefined ? undefined : mapValues(value.dependentAbilities, DependantAbilitiesToJSON),
+        'dependent_abilities': value.dependentAbilities === undefined ? undefined : mapValues(value.dependentAbilities, AbilityV2DependentAbilitiesValueToJSON),
         'shop_image': value.shopImage,
         'shop_image_small': value.shopImageSmall,
         'item_slot_type': ItemSlotTypeV2ToJSON(value.itemSlotType),

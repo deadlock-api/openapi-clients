@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **BossDamageScale** | Pointer to **NullableFloat32** |  | [optional] 
 **DependantAbilities** | Pointer to **[]string** |  | [optional] 
 **Videos** | Pointer to [**NullableAbilityVideosV2**](AbilityVideosV2.md) |  | [optional] 
-**DependentAbilities** | Pointer to [**map[string]DependantAbilities**](DependantAbilities.md) |  | [optional] 
+**DependentAbilities** | Pointer to [**map[string]AbilityV2DependentAbilitiesValue**](AbilityV2DependentAbilitiesValue.md) |  | [optional] 
 
 ## Methods
 
@@ -713,20 +713,20 @@ HasVideos returns a boolean if a field has been set.
 UnsetVideos ensures that no value is present for Videos, not even an explicit nil
 ### GetDependentAbilities
 
-`func (o *AbilityV2) GetDependentAbilities() map[string]DependantAbilities`
+`func (o *AbilityV2) GetDependentAbilities() map[string]AbilityV2DependentAbilitiesValue`
 
 GetDependentAbilities returns the DependentAbilities field if non-nil, zero value otherwise.
 
 ### GetDependentAbilitiesOk
 
-`func (o *AbilityV2) GetDependentAbilitiesOk() (*map[string]DependantAbilities, bool)`
+`func (o *AbilityV2) GetDependentAbilitiesOk() (*map[string]AbilityV2DependentAbilitiesValue, bool)`
 
 GetDependentAbilitiesOk returns a tuple with the DependentAbilities field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDependentAbilities
 
-`func (o *AbilityV2) SetDependentAbilities(v map[string]DependantAbilities)`
+`func (o *AbilityV2) SetDependentAbilities(v map[string]AbilityV2DependentAbilitiesValue)`
 
 SetDependentAbilities sets DependentAbilities field to given value.
 

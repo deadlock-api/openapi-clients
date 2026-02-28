@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **dependant_abilities** | **string[]** |  | [optional]
 **video** | **string** |  | [optional]
 **tooltip_details** | [**\OpenAPI\Client\Model\RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional]
-**dependent_abilities** | [**array<string,\OpenAPI\Client\Model\DependantAbilities>**](DependantAbilities.md) |  | [optional]
+**dependent_abilities** | [**array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>**](AbilityV2DependentAbilitiesValue.md) |  | [optional]
 **shop_image** | **string** |  | [optional]
 **shop_image_small** | **string** |  | [optional]
 **item_slot_type** | [**\OpenAPI\Client\Model\ItemSlotTypeV2**](ItemSlotTypeV2.md) |  |

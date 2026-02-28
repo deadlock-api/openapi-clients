@@ -82,7 +82,7 @@ export interface AbilityV2 {
     'boss_damage_scale'?: number | null;
     'dependant_abilities'?: Array<string> | null;
     'videos'?: AbilityVideosV2 | null;
-    'dependent_abilities'?: { [key: string]: DependantAbilities; } | null;
+    'dependent_abilities'?: { [key: string]: AbilityV2DependentAbilitiesValue; } | null;
 }
 
 export const AbilityV2TypeEnum = {
@@ -91,6 +91,9 @@ export const AbilityV2TypeEnum = {
 
 export type AbilityV2TypeEnum = typeof AbilityV2TypeEnum[keyof typeof AbilityV2TypeEnum];
 
+export interface AbilityV2DependentAbilitiesValue {
+    'flags'?: Array<string> | null;
+}
 export interface AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty {
     'requires_ability_upgrade'?: boolean | null;
     'show_property_value'?: boolean | null;
@@ -920,7 +923,7 @@ export interface RawAbilityV2 {
     'dependant_abilities'?: Array<string> | null;
     'video'?: string | null;
     'tooltip_details'?: RawAbilityV2TooltipDetails | null;
-    'dependent_abilities'?: { [key: string]: DependantAbilities; } | null;
+    'dependent_abilities'?: { [key: string]: AbilityV2DependentAbilitiesValue; } | null;
 }
 
 export const RawAbilityV2TypeEnum = {
@@ -1302,7 +1305,7 @@ export interface ResponseGetRawItemsRawItemsGetInner {
     'dependant_abilities'?: Array<string>;
     'video'?: string;
     'tooltip_details'?: RawAbilityV2TooltipDetails;
-    'dependent_abilities'?: { [key: string]: DependantAbilities; };
+    'dependent_abilities'?: { [key: string]: AbilityV2DependentAbilitiesValue; };
     'shop_image'?: string;
     'shop_image_small'?: string;
     'item_slot_type': ItemSlotTypeV2;

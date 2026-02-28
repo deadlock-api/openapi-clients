@@ -46,7 +46,7 @@ pub struct RawAbilityV2 {
     #[serde(rename = "tooltip_details", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tooltip_details: Option<Option<Box<models::RawAbilityV2TooltipDetails>>>,
     #[serde(rename = "dependent_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub dependent_abilities: Option<Option<std::collections::HashMap<String, models::DependantAbilities>>>,
+    pub dependent_abilities: Option<Option<std::collections::HashMap<String, models::AbilityV2DependentAbilitiesValue>>>,
 }
 
 impl RawAbilityV2 {

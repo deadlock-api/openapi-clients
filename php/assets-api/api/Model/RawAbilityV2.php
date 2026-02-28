@@ -73,7 +73,7 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependant_abilities' => 'string[]',
         'video' => 'string',
         'tooltip_details' => '\OpenAPI\Client\Model\RawAbilityV2TooltipDetails',
-        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\DependantAbilities>'
+        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>'
     ];
 
     /**
@@ -965,7 +965,7 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets dependent_abilities
      *
-     * @return array<string,\OpenAPI\Client\Model\DependantAbilities>|null
+     * @return array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>|null
      */
     public function getDependentAbilities()
     {
@@ -975,7 +975,7 @@ class RawAbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dependent_abilities
      *
-     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities dependent_abilities
+     * @param array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>|null $dependent_abilities dependent_abilities
      *
      * @return self
      */

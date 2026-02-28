@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **dependant_abilities** | **List[str]** |  | [optional] 
 **video** | **str** |  | [optional] 
 **tooltip_details** | [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional] 
-**dependent_abilities** | [**Dict[str, DependantAbilities]**](DependantAbilities.md) |  | [optional] 
+**dependent_abilities** | [**Dict[str, AbilityV2DependentAbilitiesValue]**](AbilityV2DependentAbilitiesValue.md) |  | [optional] 
 **shop_image** | **str** |  | [optional] 
 **shop_image_small** | **str** |  | [optional] 
 **item_slot_type** | [**ItemSlotTypeV2**](ItemSlotTypeV2.md) |  | 

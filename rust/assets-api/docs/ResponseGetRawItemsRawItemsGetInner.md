@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **dependant_abilities** | Option<**Vec<String>**> |  | [optional]
 **video** | Option<**String**> |  | [optional]
 **tooltip_details** | Option<[**models::RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md)> |  | [optional]
-**dependent_abilities** | Option<[**std::collections::HashMap<String, models::DependantAbilities>**](DependantAbilities.md)> |  | [optional]
+**dependent_abilities** | Option<[**std::collections::HashMap<String, models::AbilityV2DependentAbilitiesValue>**](AbilityV2DependentAbilitiesValue.md)> |  | [optional]
 **shop_image** | Option<**String**> |  | [optional]
 **shop_image_small** | Option<**String**> |  | [optional]
 **item_slot_type** | [**models::ItemSlotTypeV2**](ItemSlotTypeV2.md) |  | 

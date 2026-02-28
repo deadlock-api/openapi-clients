@@ -103,6 +103,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets_deadlock_api_client.models.AbilityTooltipDetailsV2](docs/AbilityTooltipDetailsV2.md)
  - [assets_deadlock_api_client.models.AbilityTypeV2](docs/AbilityTypeV2.md)
  - [assets_deadlock_api_client.models.AbilityV2](docs/AbilityV2.md)
+ - [assets_deadlock_api_client.models.AbilityV2DependentAbilitiesValue](docs/AbilityV2DependentAbilitiesValue.md)
  - [assets_deadlock_api_client.models.AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty](docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md)
  - [assets_deadlock_api_client.models.AbilityVideosV2](docs/AbilityVideosV2.md)
  - [assets_deadlock_api_client.models.AccoladeV2](docs/AccoladeV2.md)

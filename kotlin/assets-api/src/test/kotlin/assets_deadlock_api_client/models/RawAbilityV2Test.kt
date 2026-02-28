@@ -20,7 +20,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.RawAbilityV2
 import assets_deadlock_api_client.models.AbilityTypeV2
-import assets_deadlock_api_client.models.DependantAbilities
+import assets_deadlock_api_client.models.AbilityV2DependentAbilitiesValue
 import assets_deadlock_api_client.models.RawAbilityUpgradeV2
 import assets_deadlock_api_client.models.RawAbilityV2TooltipDetails
 import assets_deadlock_api_client.models.RawItemPropertyV2

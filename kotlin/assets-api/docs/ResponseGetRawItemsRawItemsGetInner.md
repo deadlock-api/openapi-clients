@@ -22,7 +22,7 @@
 | **dependantAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **video** | **kotlin.String** |  |  [optional] |
 | **tooltipDetails** | [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  |  [optional] |
-| **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, DependantAbilities&gt;**](DependantAbilities.md) |  |  [optional] |
+| **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, AbilityV2DependentAbilitiesValue&gt;**](AbilityV2DependentAbilitiesValue.md) |  |  [optional] |
 | **shopImage** | **kotlin.String** |  |  [optional] |
 | **shopImageSmall** | **kotlin.String** |  |  [optional] |
 | **disabled** | **kotlin.Boolean** |  |  [optional] |

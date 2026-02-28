@@ -20,7 +20,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.ResponseGetRawItemsRawItemsGetInner
 import assets_deadlock_api_client.models.AbilityTypeV2
-import assets_deadlock_api_client.models.DependantAbilities
+import assets_deadlock_api_client.models.AbilityV2DependentAbilitiesValue
 import assets_deadlock_api_client.models.ItemSlotTypeV2
 import assets_deadlock_api_client.models.ItemTierV2
 import assets_deadlock_api_client.models.RawAbilityActivationV2

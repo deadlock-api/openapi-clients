@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | Option<**f64**> |  | [optional]
 **dependant_abilities** | Option<**Vec<String>**> |  | [optional]
 **videos** | Option<[**models::AbilityVideosV2**](AbilityVideosV2.md)> |  | [optional]
-**dependent_abilities** | Option<[**std::collections::HashMap<String, models::DependantAbilities>**](DependantAbilities.md)> |  | [optional]
+**dependent_abilities** | Option<[**std::collections::HashMap<String, models::AbilityV2DependentAbilitiesValue>**](AbilityV2DependentAbilitiesValue.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

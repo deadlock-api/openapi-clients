@@ -18,6 +18,7 @@ src/models/AbilityTooltipDetailsInfoSectionV2.ts
 src/models/AbilityTooltipDetailsV2.ts
 src/models/AbilityTypeV2.ts
 src/models/AbilityV2.ts
+src/models/AbilityV2DependentAbilitiesValue.ts
 src/models/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.ts
 src/models/AbilityVideosV2.ts
 src/models/AccoladeV2.ts

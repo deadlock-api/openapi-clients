@@ -56,7 +56,7 @@ pub struct AbilityV2 {
     #[serde(rename = "videos", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub videos: Option<Option<Box<models::AbilityVideosV2>>>,
     #[serde(rename = "dependent_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub dependent_abilities: Option<Option<std::collections::HashMap<String, models::DependantAbilities>>>,
+    pub dependent_abilities: Option<Option<std::collections::HashMap<String, models::AbilityV2DependentAbilitiesValue>>>,
 }
 
 impl AbilityV2 {

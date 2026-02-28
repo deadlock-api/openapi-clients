@@ -18,6 +18,7 @@ docs/AbilityTooltipDetailsInfoSectionV2.md
 docs/AbilityTooltipDetailsV2.md
 docs/AbilityTypeV2.md
 docs/AbilityV2.md
+docs/AbilityV2DependentAbilitiesValue.md
 docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/AbilityVideosV2.md
 docs/AccoladeV2.md
@@ -172,6 +173,7 @@ model_ability_tooltip_details_info_section_v2.go
 model_ability_tooltip_details_v2.go
 model_ability_type_v2.go
 model_ability_v2.go
+model_ability_v2_dependent_abilities_value.go
 model_ability_v2_tooltip_details_info_section_property_block_property.go
 model_ability_videos_v2.go
 model_accolade_v2.go

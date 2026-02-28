@@ -7,6 +7,7 @@ docs/AbilityTooltipDetailsInfoSectionV2.md
 docs/AbilityTooltipDetailsV2.md
 docs/AbilityTypeV2.md
 docs/AbilityV2.md
+docs/AbilityV2DependentAbilitiesValue.md
 docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/AbilityVideosV2.md
 docs/AccoladeV2.md
@@ -183,6 +184,7 @@ src/main/kotlin/assets_deadlock_api_client/models/AbilityTooltipDetailsInfoSecti
 src/main/kotlin/assets_deadlock_api_client/models/AbilityTooltipDetailsV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/AbilityTypeV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/AbilityV2.kt
+src/main/kotlin/assets_deadlock_api_client/models/AbilityV2DependentAbilitiesValue.kt
 src/main/kotlin/assets_deadlock_api_client/models/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.kt
 src/main/kotlin/assets_deadlock_api_client/models/AbilityVideosV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/AccoladeV2.kt
@@ -333,6 +335,7 @@ src/test/kotlin/assets_deadlock_api_client/models/AbilityTooltipDetailsInfoSecti
 src/test/kotlin/assets_deadlock_api_client/models/AbilityTooltipDetailsInfoSectionV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/AbilityTooltipDetailsV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/AbilityTypeV2Test.kt
+src/test/kotlin/assets_deadlock_api_client/models/AbilityV2DependentAbilitiesValueTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/AbilityV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/AbilityV2TooltipDetailsInfoSectionPropertyBlockPropertyTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/AbilityVideosV2Test.kt

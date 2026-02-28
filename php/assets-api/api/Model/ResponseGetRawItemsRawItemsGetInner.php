@@ -73,7 +73,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
         'dependant_abilities' => 'string[]',
         'video' => 'string',
         'tooltip_details' => '\OpenAPI\Client\Model\RawAbilityV2TooltipDetails',
-        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\DependantAbilities>',
+        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>',
         'shop_image' => 'string',
         'shop_image_small' => 'string',
         'item_slot_type' => '\OpenAPI\Client\Model\ItemSlotTypeV2',
@@ -947,7 +947,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
     /**
      * Gets dependent_abilities
      *
-     * @return array<string,\OpenAPI\Client\Model\DependantAbilities>|null
+     * @return array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>|null
      */
     public function getDependentAbilities()
     {
@@ -957,7 +957,7 @@ class ResponseGetRawItemsRawItemsGetInner implements ModelInterface, ArrayAccess
     /**
      * Sets dependent_abilities
      *
-     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities dependent_abilities
+     * @param array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>|null $dependent_abilities dependent_abilities
      *
      * @return self
      */

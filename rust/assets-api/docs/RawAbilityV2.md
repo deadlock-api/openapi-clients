@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **dependant_abilities** | Option<**Vec<String>**> |  | [optional]
 **video** | Option<**String**> |  | [optional]
 **tooltip_details** | Option<[**models::RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md)> |  | [optional]
-**dependent_abilities** | Option<[**std::collections::HashMap<String, models::DependantAbilities>**](DependantAbilities.md)> |  | [optional]
+**dependent_abilities** | Option<[**std::collections::HashMap<String, models::AbilityV2DependentAbilitiesValue>**](AbilityV2DependentAbilitiesValue.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -78,7 +78,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'boss_damage_scale' => 'float',
         'dependant_abilities' => 'string[]',
         'videos' => '\OpenAPI\Client\Model\AbilityVideosV2',
-        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\DependantAbilities>'
+        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>'
     ];
 
     /**
@@ -1162,7 +1162,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets dependent_abilities
      *
-     * @return array<string,\OpenAPI\Client\Model\DependantAbilities>|null
+     * @return array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>|null
      */
     public function getDependentAbilities()
     {
@@ -1172,7 +1172,7 @@ class AbilityV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dependent_abilities
      *
-     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities dependent_abilities
+     * @param array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>|null $dependent_abilities dependent_abilities
      *
      * @return self
      */

@@ -20,6 +20,7 @@ api/Model/AbilityTooltipDetailsInfoSectionV2.php
 api/Model/AbilityTooltipDetailsV2.php
 api/Model/AbilityTypeV2.php
 api/Model/AbilityV2.php
+api/Model/AbilityV2DependentAbilitiesValue.php
 api/Model/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.php
 api/Model/AbilityVideosV2.php
 api/Model/AccoladeV2.php
@@ -174,6 +175,7 @@ docs/Model/AbilityTooltipDetailsInfoSectionV2.md
 docs/Model/AbilityTooltipDetailsV2.md
 docs/Model/AbilityTypeV2.md
 docs/Model/AbilityV2.md
+docs/Model/AbilityV2DependentAbilitiesValue.md
 docs/Model/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/Model/AbilityVideosV2.md
 docs/Model/AccoladeV2.md
@@ -326,6 +328,7 @@ test/Model/AbilityTooltipDetailsInfoSectionPropertyBlockV2Test.php
 test/Model/AbilityTooltipDetailsInfoSectionV2Test.php
 test/Model/AbilityTooltipDetailsV2Test.php
 test/Model/AbilityTypeV2Test.php
+test/Model/AbilityV2DependentAbilitiesValueTest.php
 test/Model/AbilityV2Test.php
 test/Model/AbilityV2TooltipDetailsInfoSectionPropertyBlockPropertyTest.php
 test/Model/AbilityVideosV2Test.php

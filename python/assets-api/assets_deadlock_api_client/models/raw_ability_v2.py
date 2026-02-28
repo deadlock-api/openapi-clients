@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.ability_type_v2 import AbilityTypeV2
-from assets_deadlock_api_client.models.dependant_abilities import DependantAbilities
+from assets_deadlock_api_client.models.ability_v2_dependent_abilities_value import AbilityV2DependentAbilitiesValue
 from assets_deadlock_api_client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2
 from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details import RawAbilityV2TooltipDetails
 from assets_deadlock_api_client.models.raw_item_property_v2 import RawItemPropertyV2
@@ -48,7 +48,7 @@ class RawAbilityV2(BaseModel):
     dependant_abilities: Optional[List[StrictStr]] = None
     video: Optional[StrictStr] = None
     tooltip_details: Optional[RawAbilityV2TooltipDetails] = None
-    dependent_abilities: Optional[Dict[str, DependantAbilities]] = None
+    dependent_abilities: Optional[Dict[str, Optional[AbilityV2DependentAbilitiesValue]]] = None
     __properties: ClassVar[List[str]] = ["class_name", "start_trained", "image", "update_time", "properties", "weapon_info", "css_class", "type", "grant_ammo_on_cast", "behaviour_bits", "upgrades", "ability_type", "boss_damage_scale", "dependant_abilities", "video", "tooltip_details", "dependent_abilities"]
 
     @field_validator('type')
@@ -231,7 +231,7 @@ class RawAbilityV2(BaseModel):
             "video": obj.get("video"),
             "tooltip_details": RawAbilityV2TooltipDetails.from_dict(obj["tooltip_details"]) if obj.get("tooltip_details") is not None else None,
             "dependent_abilities": dict(
-                (_k, DependantAbilities.from_dict(_v))
+                (_k, AbilityV2DependentAbilitiesValue.from_dict(_v))
                 for _k, _v in obj["dependent_abilities"].items()
             )
             if obj.get("dependent_abilities") is not None

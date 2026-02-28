@@ -17,6 +17,7 @@ docs/models/AbilityTooltipDetailsInfoSectionV2.md
 docs/models/AbilityTooltipDetailsV2.md
 docs/models/AbilityTypeV2.md
 docs/models/AbilityV2.md
+docs/models/AbilityV2DependentAbilitiesValue.md
 docs/models/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/models/AbilityVideosV2.md
 docs/models/AccoladeV2.md
@@ -172,6 +173,7 @@ src/AssetsDeadlockApiClient.Test/Model/AbilityTooltipDetailsInfoSectionPropertyB
 src/AssetsDeadlockApiClient.Test/Model/AbilityTooltipDetailsInfoSectionV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/AbilityTooltipDetailsV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/AbilityTypeV2Tests.cs
+src/AssetsDeadlockApiClient.Test/Model/AbilityV2DependentAbilitiesValueTests.cs
 src/AssetsDeadlockApiClient.Test/Model/AbilityV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/AbilityV2TooltipDetailsInfoSectionPropertyBlockPropertyTests.cs
 src/AssetsDeadlockApiClient.Test/Model/AbilityVideosV2Tests.cs
@@ -348,6 +350,7 @@ src/AssetsDeadlockApiClient/Model/AbilityTooltipDetailsInfoSectionV2.cs
 src/AssetsDeadlockApiClient/Model/AbilityTooltipDetailsV2.cs
 src/AssetsDeadlockApiClient/Model/AbilityTypeV2.cs
 src/AssetsDeadlockApiClient/Model/AbilityV2.cs
+src/AssetsDeadlockApiClient/Model/AbilityV2DependentAbilitiesValue.cs
 src/AssetsDeadlockApiClient/Model/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.cs
 src/AssetsDeadlockApiClient/Model/AbilityVideosV2.cs
 src/AssetsDeadlockApiClient/Model/AccoladeV2.cs

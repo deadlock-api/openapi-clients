@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | **number** |  | [optional] [default to undefined]
 **dependant_abilities** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **videos** | [**AbilityVideosV2**](AbilityVideosV2.md) |  | [optional] [default to undefined]
-**dependent_abilities** | [**{ [key: string]: DependantAbilities; }**](DependantAbilities.md) |  | [optional] [default to undefined]
+**dependent_abilities** | [**{ [key: string]: AbilityV2DependentAbilitiesValue; }**](AbilityV2DependentAbilitiesValue.md) |  | [optional] [default to undefined]
 
 ## Example
 

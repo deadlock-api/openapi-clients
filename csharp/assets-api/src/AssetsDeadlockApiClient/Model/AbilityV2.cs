@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <param name="videos">videos</param>
         /// <param name="dependentAbilities">dependentAbilities</param>
         [JsonConstructor]
-        public AbilityV2(int id, string className, string name, AbilityDescriptionV2 description, Option<bool?> startTrained = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<int?> updateTime = default, Option<Dictionary<string, ItemPropertyV2>?> properties = default, Option<RawItemWeaponInfoV2?> weaponInfo = default, Option<TypeEnum?> type = default, Option<bool?> grantAmmoOnCast = default, Option<List<string>?> behaviours = default, Option<AbilityTooltipDetailsV2?> tooltipDetails = default, Option<List<RawAbilityUpgradeV2>?> upgrades = default, Option<AbilityTypeV2?> abilityType = default, Option<decimal?> bossDamageScale = default, Option<List<string>?> dependantAbilities = default, Option<AbilityVideosV2?> videos = default, Option<Dictionary<string, DependantAbilities>?> dependentAbilities = default)
+        public AbilityV2(int id, string className, string name, AbilityDescriptionV2 description, Option<bool?> startTrained = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<int?> updateTime = default, Option<Dictionary<string, ItemPropertyV2>?> properties = default, Option<RawItemWeaponInfoV2?> weaponInfo = default, Option<TypeEnum?> type = default, Option<bool?> grantAmmoOnCast = default, Option<List<string>?> behaviours = default, Option<AbilityTooltipDetailsV2?> tooltipDetails = default, Option<List<RawAbilityUpgradeV2>?> upgrades = default, Option<AbilityTypeV2?> abilityType = default, Option<decimal?> bossDamageScale = default, Option<List<string>?> dependantAbilities = default, Option<AbilityVideosV2?> videos = default, Option<Dictionary<string, AbilityV2DependentAbilitiesValue>?> dependentAbilities = default)
         {
             Id = id;
             ClassName = className;
@@ -387,13 +387,13 @@ namespace AssetsDeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<Dictionary<string, DependantAbilities>?> DependentAbilitiesOption { get; private set; }
+        public Option<Dictionary<string, AbilityV2DependentAbilitiesValue>?> DependentAbilitiesOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets DependentAbilities
         /// </summary>
         [JsonPropertyName("dependent_abilities")]
-        public Dictionary<string, DependantAbilities>? DependentAbilities { get { return this.DependentAbilitiesOption; } set { this.DependentAbilitiesOption = new(value); } }
+        public Dictionary<string, AbilityV2DependentAbilitiesValue>? DependentAbilities { get { return this.DependentAbilitiesOption; } set { this.DependentAbilitiesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -483,7 +483,7 @@ namespace AssetsDeadlockApiClient.Model
             Option<decimal?> bossDamageScale = default;
             Option<List<string>?> dependantAbilities = default;
             Option<AbilityVideosV2?> videos = default;
-            Option<Dictionary<string, DependantAbilities>?> dependentAbilities = default;
+            Option<Dictionary<string, AbilityV2DependentAbilitiesValue>?> dependentAbilities = default;
 
             while (utf8JsonReader.Read())
             {
@@ -568,7 +568,7 @@ namespace AssetsDeadlockApiClient.Model
                             videos = new Option<AbilityVideosV2?>(JsonSerializer.Deserialize<AbilityVideosV2>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "dependent_abilities":
-                            dependentAbilities = new Option<Dictionary<string, DependantAbilities>?>(JsonSerializer.Deserialize<Dictionary<string, DependantAbilities>>(ref utf8JsonReader, jsonSerializerOptions));
+                            dependentAbilities = new Option<Dictionary<string, AbilityV2DependentAbilitiesValue>?>(JsonSerializer.Deserialize<Dictionary<string, AbilityV2DependentAbilitiesValue>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;

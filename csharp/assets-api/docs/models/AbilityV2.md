@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **BossDamageScale** | **decimal** |  | [optional] 
 **DependantAbilities** | **List&lt;string&gt;** |  | [optional] 
 **Videos** | [**AbilityVideosV2**](AbilityVideosV2.md) |  | [optional] 
-**DependentAbilities** | [**Dictionary&lt;string, DependantAbilities&gt;**](DependantAbilities.md) |  | [optional] 
+**DependentAbilities** | [**Dictionary&lt;string, AbilityV2DependentAbilitiesValue&gt;**](AbilityV2DependentAbilitiesValue.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

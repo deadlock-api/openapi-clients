@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | **float** |  | [optional]
 **dependant_abilities** | **string[]** |  | [optional]
 **videos** | [**\OpenAPI\Client\Model\AbilityVideosV2**](AbilityVideosV2.md) |  | [optional]
-**dependent_abilities** | [**array<string,\OpenAPI\Client\Model\DependantAbilities>**](DependantAbilities.md) |  | [optional]
+**dependent_abilities** | [**array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>**](AbilityV2DependentAbilitiesValue.md) |  | [optional]
 **shop_image** | **string** |  | [optional]
 **shop_image_webp** | **string** |  | [optional]
 **shop_image_small** | **string** |  | [optional]

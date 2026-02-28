@@ -24,6 +24,7 @@ assets_deadlock_api_client/models/ability_tooltip_details_info_section_v2.py
 assets_deadlock_api_client/models/ability_tooltip_details_v2.py
 assets_deadlock_api_client/models/ability_type_v2.py
 assets_deadlock_api_client/models/ability_v2.py
+assets_deadlock_api_client/models/ability_v2_dependent_abilities_value.py
 assets_deadlock_api_client/models/ability_v2_tooltip_details_info_section_property_block_property.py
 assets_deadlock_api_client/models/ability_videos_v2.py
 assets_deadlock_api_client/models/accolade_v2.py
@@ -170,6 +171,7 @@ docs/AbilityTooltipDetailsInfoSectionV2.md
 docs/AbilityTooltipDetailsV2.md
 docs/AbilityTypeV2.md
 docs/AbilityV2.md
+docs/AbilityV2DependentAbilitiesValue.md
 docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/AbilityVideosV2.md
 docs/AccoladeV2.md
@@ -328,6 +330,7 @@ test/test_ability_tooltip_details_info_section_v2.py
 test/test_ability_tooltip_details_v2.py
 test/test_ability_type_v2.py
 test/test_ability_v2.py
+test/test_ability_v2_dependent_abilities_value.py
 test/test_ability_v2_tooltip_details_info_section_property_block_property.py
 test/test_ability_videos_v2.py
 test/test_accolade_v2.py

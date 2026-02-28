@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
  - [AbilityTooltipDetailsV2](docs/AbilityTooltipDetailsV2.md)
  - [AbilityTypeV2](docs/AbilityTypeV2.md)
  - [AbilityV2](docs/AbilityV2.md)
+ - [AbilityV2DependentAbilitiesValue](docs/AbilityV2DependentAbilitiesValue.md)
  - [AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty](docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md)
  - [AbilityVideosV2](docs/AbilityVideosV2.md)
  - [AccoladeV2](docs/AccoladeV2.md)

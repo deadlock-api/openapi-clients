@@ -9,6 +9,7 @@ docs/AbilityTooltipDetailsInfoSectionV2.md
 docs/AbilityTooltipDetailsV2.md
 docs/AbilityTypeV2.md
 docs/AbilityV2.md
+docs/AbilityV2DependentAbilitiesValue.md
 docs/AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/AbilityVideosV2.md
 docs/AccoladeV2.md
@@ -171,6 +172,7 @@ src/models/ability_tooltip_details_info_section_v2.rs
 src/models/ability_tooltip_details_v2.rs
 src/models/ability_type_v2.rs
 src/models/ability_v2.rs
+src/models/ability_v2_dependent_abilities_value.rs
 src/models/ability_v2_tooltip_details_info_section_property_block_property.rs
 src/models/ability_videos_v2.rs
 src/models/accolade_v2.rs

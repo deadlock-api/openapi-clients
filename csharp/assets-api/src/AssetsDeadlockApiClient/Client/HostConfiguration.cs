@@ -50,6 +50,7 @@ namespace AssetsDeadlockApiClient.Client
             _jsonOptions.Converters.Add(new AbilityTypeV2JsonConverter());
             _jsonOptions.Converters.Add(new AbilityTypeV2NullableJsonConverter());
             _jsonOptions.Converters.Add(new AbilityV2JsonConverter());
+            _jsonOptions.Converters.Add(new AbilityV2DependentAbilitiesValueJsonConverter());
             _jsonOptions.Converters.Add(new AbilityV2TooltipDetailsInfoSectionPropertyBlockPropertyJsonConverter());
             _jsonOptions.Converters.Add(new AbilityVideosV2JsonConverter());
             _jsonOptions.Converters.Add(new AccoladeV2JsonConverter());

@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **DependantAbilities** | Pointer to **[]string** |  | [optional] 
 **Video** | Pointer to **string** |  | [optional] 
 **TooltipDetails** | Pointer to [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional] 
-**DependentAbilities** | Pointer to [**map[string]DependantAbilities**](DependantAbilities.md) |  | [optional] 
+**DependentAbilities** | Pointer to [**map[string]AbilityV2DependentAbilitiesValue**](AbilityV2DependentAbilitiesValue.md) |  | [optional] 
 **ShopImage** | Pointer to **string** |  | [optional] 
 **ShopImageSmall** | Pointer to **string** |  | [optional] 
 **ItemSlotType** | [**ItemSlotTypeV2**](ItemSlotTypeV2.md) |  | 
@@ -442,20 +442,20 @@ HasTooltipDetails returns a boolean if a field has been set.
 
 ### GetDependentAbilities
 
-`func (o *ResponseGetRawItemsRawItemsGetInner) GetDependentAbilities() map[string]DependantAbilities`
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetDependentAbilities() map[string]AbilityV2DependentAbilitiesValue`
 
 GetDependentAbilities returns the DependentAbilities field if non-nil, zero value otherwise.
 
 ### GetDependentAbilitiesOk
 
-`func (o *ResponseGetRawItemsRawItemsGetInner) GetDependentAbilitiesOk() (*map[string]DependantAbilities, bool)`
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetDependentAbilitiesOk() (*map[string]AbilityV2DependentAbilitiesValue, bool)`
 
 GetDependentAbilitiesOk returns a tuple with the DependentAbilities field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDependentAbilities
 
-`func (o *ResponseGetRawItemsRawItemsGetInner) SetDependentAbilities(v map[string]DependantAbilities)`
+`func (o *ResponseGetRawItemsRawItemsGetInner) SetDependentAbilities(v map[string]AbilityV2DependentAbilitiesValue)`
 
 SetDependentAbilities sets DependentAbilities field to given value.
 

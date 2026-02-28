@@ -10,6 +10,8 @@ pub mod ability_type_v2;
 pub use self::ability_type_v2::AbilityTypeV2;
 pub mod ability_v2;
 pub use self::ability_v2::AbilityV2;
+pub mod ability_v2_dependent_abilities_value;
+pub use self::ability_v2_dependent_abilities_value::AbilityV2DependentAbilitiesValue;
 pub mod ability_v2_tooltip_details_info_section_property_block_property;
 pub use self::ability_v2_tooltip_details_info_section_property_block_property::AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty;
 pub mod ability_videos_v2;

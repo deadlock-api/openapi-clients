@@ -16,7 +16,7 @@
 package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.AbilityTypeV2
-import assets_deadlock_api_client.models.DependantAbilities
+import assets_deadlock_api_client.models.AbilityV2DependentAbilitiesValue
 import assets_deadlock_api_client.models.RawAbilityUpgradeV2
 import assets_deadlock_api_client.models.RawAbilityV2TooltipDetails
 import assets_deadlock_api_client.models.RawItemPropertyV2
@@ -100,7 +100,7 @@ data class RawAbilityV2 (
     val tooltipDetails: RawAbilityV2TooltipDetails? = null,
 
     @Json(name = "dependent_abilities")
-    val dependentAbilities: kotlin.collections.Map<kotlin.String, DependantAbilities>? = null
+    val dependentAbilities: kotlin.collections.Map<kotlin.String, AbilityV2DependentAbilitiesValue>? = null
 
 ) : Serializable {
     companion object {

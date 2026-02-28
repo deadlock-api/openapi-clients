@@ -18,8 +18,8 @@ package assets_deadlock_api_client.models
 import assets_deadlock_api_client.models.AbilityTooltipDetailsV2
 import assets_deadlock_api_client.models.AbilityTypeV2
 import assets_deadlock_api_client.models.AbilityV2
+import assets_deadlock_api_client.models.AbilityV2DependentAbilitiesValue
 import assets_deadlock_api_client.models.AbilityVideosV2
-import assets_deadlock_api_client.models.DependantAbilities
 import assets_deadlock_api_client.models.ItemSlotTypeV2
 import assets_deadlock_api_client.models.ItemTierV2
 import assets_deadlock_api_client.models.RawAbilityActivationV2
@@ -138,7 +138,7 @@ interface ResponseGetItemsV2ItemsGetInner : Serializable {
     @Json(name = "videos")
     val videos: AbilityVideosV2?
     @Json(name = "dependent_abilities")
-    val dependentAbilities: kotlin.collections.Map<kotlin.String, DependantAbilities>?
+    val dependentAbilities: kotlin.collections.Map<kotlin.String, AbilityV2DependentAbilitiesValue>?
     @Json(name = "shop_image")
     val shopImage: kotlin.String?
     @Json(name = "shop_image_webp")

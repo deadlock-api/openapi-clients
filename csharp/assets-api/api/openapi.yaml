@@ -1214,10 +1214,7 @@ components:
             name: name
             upgrade_type: upgrade_type
         dependent_abilities:
-          key:
-            flags:
-            - flags
-            - flags
+          key: ""
         update_time: 5
         heroes:
         - 1
@@ -1338,7 +1335,7 @@ components:
           nullable: true
         dependent_abilities:
           additionalProperties:
-            $ref: "#/components/schemas/DependantAbilities"
+            $ref: "#/components/schemas/AbilityV2_dependent_abilities_value"
           nullable: true
       required:
       - class_name
@@ -1648,10 +1645,6 @@ components:
       title: DeadlockAssetsApiRoutesValidClientVersions
       type: integer
     DependantAbilities:
-      example:
-        flags:
-        - flags
-        - flags
       properties:
         flags:
           items:
@@ -4269,10 +4262,7 @@ components:
             name: name
             upgrade_type: upgrade_type
         dependent_abilities:
-          key:
-            flags:
-            - flags
-            - flags
+          key: ""
         css_class: css_class
         update_time: 0
         grant_ammo_on_cast: true
@@ -4361,7 +4351,7 @@ components:
           nullable: true
         dependent_abilities:
           additionalProperties:
-            $ref: "#/components/schemas/DependantAbilities"
+            $ref: "#/components/schemas/AbilityV2_dependent_abilities_value"
           nullable: true
       required:
       - class_name
@@ -6743,6 +6733,12 @@ components:
       - $ref: "#/components/schemas/RawAbilityV2"
       - $ref: "#/components/schemas/RawWeaponV2"
       - $ref: "#/components/schemas/RawUpgradeV2"
+    AbilityV2_dependent_abilities_value:
+      anyOf:
+      - allOf:
+        - $ref: "#/components/schemas/DependantAbilities"
+        nullable: true
+      nullable: true
     Value:
       anyOf:
       - type: integer

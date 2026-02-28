@@ -101,10 +101,7 @@ class TestRawAbilityV2(unittest.TestCase):
                         ''
                         ], ),
                 dependent_abilities = {
-                    'key' : assets_deadlock_api_client.models.dependant_abilities.DependantAbilities(
-                        flags = [
-                            ''
-                            ], )
+                    'key' : null
                     }
             )
         else:

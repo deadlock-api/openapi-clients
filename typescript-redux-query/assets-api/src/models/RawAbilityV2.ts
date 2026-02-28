@@ -16,9 +16,9 @@ import {
     AbilityTypeV2,
     AbilityTypeV2FromJSON,
     AbilityTypeV2ToJSON,
-    DependantAbilities,
-    DependantAbilitiesFromJSON,
-    DependantAbilitiesToJSON,
+    AbilityV2DependentAbilitiesValue,
+    AbilityV2DependentAbilitiesValueFromJSON,
+    AbilityV2DependentAbilitiesValueToJSON,
     RawAbilityUpgradeV2,
     RawAbilityUpgradeV2FromJSON,
     RawAbilityUpgradeV2ToJSON,
@@ -137,10 +137,10 @@ export interface RawAbilityV2  {
     tooltipDetails?: RawAbilityV2TooltipDetails;
     /**
      * 
-     * @type {{ [key: string]: DependantAbilities; }}
+     * @type {{ [key: string]: AbilityV2DependentAbilitiesValue; }}
      * @memberof RawAbilityV2
      */
-    dependentAbilities?: { [key: string]: DependantAbilities; };
+    dependentAbilities?: { [key: string]: AbilityV2DependentAbilitiesValue; };
 }
 
 export function RawAbilityV2FromJSON(json: any): RawAbilityV2 {
@@ -161,7 +161,7 @@ export function RawAbilityV2FromJSON(json: any): RawAbilityV2 {
         'dependantAbilities': !exists(json, 'dependant_abilities') ? undefined : json['dependant_abilities'],
         'video': !exists(json, 'video') ? undefined : json['video'],
         'tooltipDetails': !exists(json, 'tooltip_details') ? undefined : RawAbilityV2TooltipDetailsFromJSON(json['tooltip_details']),
-        'dependentAbilities': !exists(json, 'dependent_abilities') ? undefined : mapValues(json['dependent_abilities'], DependantAbilitiesFromJSON),
+        'dependentAbilities': !exists(json, 'dependent_abilities') ? undefined : mapValues(json['dependent_abilities'], AbilityV2DependentAbilitiesValueFromJSON),
     };
 }
 
@@ -186,7 +186,7 @@ export function RawAbilityV2ToJSON(value?: RawAbilityV2): any {
         'dependant_abilities': value.dependantAbilities,
         'video': value.video,
         'tooltip_details': RawAbilityV2TooltipDetailsToJSON(value.tooltipDetails),
-        'dependent_abilities': value.dependentAbilities === undefined ? undefined : mapValues(value.dependentAbilities, DependantAbilitiesToJSON),
+        'dependent_abilities': value.dependentAbilities === undefined ? undefined : mapValues(value.dependentAbilities, AbilityV2DependentAbilitiesValueToJSON),
     };
 }
 

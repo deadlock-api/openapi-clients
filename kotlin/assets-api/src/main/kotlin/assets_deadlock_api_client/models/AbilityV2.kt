@@ -18,8 +18,8 @@ package assets_deadlock_api_client.models
 import assets_deadlock_api_client.models.AbilityDescriptionV2
 import assets_deadlock_api_client.models.AbilityTooltipDetailsV2
 import assets_deadlock_api_client.models.AbilityTypeV2
+import assets_deadlock_api_client.models.AbilityV2DependentAbilitiesValue
 import assets_deadlock_api_client.models.AbilityVideosV2
-import assets_deadlock_api_client.models.DependantAbilities
 import assets_deadlock_api_client.models.ItemPropertyV2
 import assets_deadlock_api_client.models.RawAbilityUpgradeV2
 import assets_deadlock_api_client.models.RawItemWeaponInfoV2
@@ -122,7 +122,7 @@ data class AbilityV2 (
     val videos: AbilityVideosV2? = null,
 
     @Json(name = "dependent_abilities")
-    val dependentAbilities: kotlin.collections.Map<kotlin.String, DependantAbilities>? = null
+    val dependentAbilities: kotlin.collections.Map<kotlin.String, AbilityV2DependentAbilitiesValue>? = null
 
 ) : Serializable {
     companion object {

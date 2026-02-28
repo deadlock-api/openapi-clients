@@ -46,7 +46,7 @@ pub struct ResponseGetRawItemsRawItemsGetInner {
     #[serde(rename = "tooltip_details", skip_serializing_if = "Option::is_none")]
     pub tooltip_details: Option<Box<models::RawAbilityV2TooltipDetails>>,
     #[serde(rename = "dependent_abilities", skip_serializing_if = "Option::is_none")]
-    pub dependent_abilities: Option<std::collections::HashMap<String, models::DependantAbilities>>,
+    pub dependent_abilities: Option<std::collections::HashMap<String, models::AbilityV2DependentAbilitiesValue>>,
     #[serde(rename = "shop_image", skip_serializing_if = "Option::is_none")]
     pub shop_image: Option<String>,
     #[serde(rename = "shop_image_small", skip_serializing_if = "Option::is_none")]

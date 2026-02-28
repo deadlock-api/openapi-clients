@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | **float** |  | [optional] 
 **dependant_abilities** | **List[str]** |  | [optional] 
 **videos** | [**AbilityVideosV2**](AbilityVideosV2.md) |  | [optional] 
-**dependent_abilities** | [**Dict[str, DependantAbilities]**](DependantAbilities.md) |  | [optional] 
+**dependent_abilities** | [**Dict[str, AbilityV2DependentAbilitiesValue]**](AbilityV2DependentAbilitiesValue.md) |  | [optional] 
 **shop_image** | **str** |  | [optional] 
 **shop_image_webp** | **str** |  | [optional] 
 **shop_image_small** | **str** |  | [optional] 

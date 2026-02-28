@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **DependantAbilities** | Pointer to **[]string** |  | [optional] 
 **Video** | Pointer to **NullableString** |  | [optional] 
 **TooltipDetails** | Pointer to [**NullableRawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional] 
-**DependentAbilities** | Pointer to [**map[string]DependantAbilities**](DependantAbilities.md) |  | [optional] 
+**DependentAbilities** | Pointer to [**map[string]AbilityV2DependentAbilitiesValue**](AbilityV2DependentAbilitiesValue.md) |  | [optional] 
 
 ## Methods
 
@@ -563,20 +563,20 @@ HasTooltipDetails returns a boolean if a field has been set.
 UnsetTooltipDetails ensures that no value is present for TooltipDetails, not even an explicit nil
 ### GetDependentAbilities
 
-`func (o *RawAbilityV2) GetDependentAbilities() map[string]DependantAbilities`
+`func (o *RawAbilityV2) GetDependentAbilities() map[string]AbilityV2DependentAbilitiesValue`
 
 GetDependentAbilities returns the DependentAbilities field if non-nil, zero value otherwise.
 
 ### GetDependentAbilitiesOk
 
-`func (o *RawAbilityV2) GetDependentAbilitiesOk() (*map[string]DependantAbilities, bool)`
+`func (o *RawAbilityV2) GetDependentAbilitiesOk() (*map[string]AbilityV2DependentAbilitiesValue, bool)`
 
 GetDependentAbilitiesOk returns a tuple with the DependentAbilities field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDependentAbilities
 
-`func (o *RawAbilityV2) SetDependentAbilities(v map[string]DependantAbilities)`
+`func (o *RawAbilityV2) SetDependentAbilities(v map[string]AbilityV2DependentAbilitiesValue)`
 
 SetDependentAbilities sets DependentAbilities field to given value.
 

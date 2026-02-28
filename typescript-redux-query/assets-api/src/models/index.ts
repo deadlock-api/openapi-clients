@@ -4,6 +4,7 @@ export * from './AbilityTooltipDetailsInfoSectionV2';
 export * from './AbilityTooltipDetailsV2';
 export * from './AbilityTypeV2';
 export * from './AbilityV2';
+export * from './AbilityV2DependentAbilitiesValue';
 export * from './AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty';
 export * from './AbilityVideosV2';
 export * from './AccoladeV2';

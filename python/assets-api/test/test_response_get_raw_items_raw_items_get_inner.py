@@ -101,10 +101,7 @@ class TestResponseGetRawItemsRawItemsGetInner(unittest.TestCase):
                         ''
                         ], ),
                 dependent_abilities = {
-                    'key' : assets_deadlock_api_client.models.dependant_abilities.DependantAbilities(
-                        flags = [
-                            ''
-                            ], )
+                    'key' : null
                     },
                 shop_image = '',
                 shop_image_small = '',

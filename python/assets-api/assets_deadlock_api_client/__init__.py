@@ -40,6 +40,7 @@ __all__ = [
     "AbilityTooltipDetailsV2",
     "AbilityTypeV2",
     "AbilityV2",
+    "AbilityV2DependentAbilitiesValue",
     "AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty",
     "AbilityVideosV2",
     "AccoladeV2",
@@ -207,6 +208,7 @@ from assets_deadlock_api_client.models.ability_tooltip_details_info_section_v2 i
 from assets_deadlock_api_client.models.ability_tooltip_details_v2 import AbilityTooltipDetailsV2 as AbilityTooltipDetailsV2
 from assets_deadlock_api_client.models.ability_type_v2 import AbilityTypeV2 as AbilityTypeV2
 from assets_deadlock_api_client.models.ability_v2 import AbilityV2 as AbilityV2
+from assets_deadlock_api_client.models.ability_v2_dependent_abilities_value import AbilityV2DependentAbilitiesValue as AbilityV2DependentAbilitiesValue
 from assets_deadlock_api_client.models.ability_v2_tooltip_details_info_section_property_block_property import AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty as AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
 from assets_deadlock_api_client.models.ability_videos_v2 import AbilityVideosV2 as AbilityVideosV2
 from assets_deadlock_api_client.models.accolade_v2 import AccoladeV2 as AccoladeV2

@@ -42,7 +42,7 @@ type AbilityV2 struct {
 	BossDamageScale NullableFloat32 `json:"boss_damage_scale,omitempty"`
 	DependantAbilities []string `json:"dependant_abilities,omitempty"`
 	Videos NullableAbilityVideosV2 `json:"videos,omitempty"`
-	DependentAbilities map[string]DependantAbilities `json:"dependent_abilities,omitempty"`
+	DependentAbilities map[string]AbilityV2DependentAbilitiesValue `json:"dependent_abilities,omitempty"`
 }
 
 type _AbilityV2 AbilityV2
@@ -828,9 +828,9 @@ func (o *AbilityV2) UnsetVideos() {
 }
 
 // GetDependentAbilities returns the DependentAbilities field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AbilityV2) GetDependentAbilities() map[string]DependantAbilities {
+func (o *AbilityV2) GetDependentAbilities() map[string]AbilityV2DependentAbilitiesValue {
 	if o == nil {
-		var ret map[string]DependantAbilities
+		var ret map[string]AbilityV2DependentAbilitiesValue
 		return ret
 	}
 	return o.DependentAbilities
@@ -839,9 +839,9 @@ func (o *AbilityV2) GetDependentAbilities() map[string]DependantAbilities {
 // GetDependentAbilitiesOk returns a tuple with the DependentAbilities field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AbilityV2) GetDependentAbilitiesOk() (map[string]DependantAbilities, bool) {
+func (o *AbilityV2) GetDependentAbilitiesOk() (map[string]AbilityV2DependentAbilitiesValue, bool) {
 	if o == nil || IsNil(o.DependentAbilities) {
-		return map[string]DependantAbilities{}, false
+		return map[string]AbilityV2DependentAbilitiesValue{}, false
 	}
 	return o.DependentAbilities, true
 }
@@ -855,8 +855,8 @@ func (o *AbilityV2) HasDependentAbilities() bool {
 	return false
 }
 
-// SetDependentAbilities gets a reference to the given map[string]DependantAbilities and assigns it to the DependentAbilities field.
-func (o *AbilityV2) SetDependentAbilities(v map[string]DependantAbilities) {
+// SetDependentAbilities gets a reference to the given map[string]AbilityV2DependentAbilitiesValue and assigns it to the DependentAbilities field.
+func (o *AbilityV2) SetDependentAbilities(v map[string]AbilityV2DependentAbilitiesValue) {
 	o.DependentAbilities = v
 }
 

@@ -78,7 +78,7 @@ class ResponseGetItemV2ItemsIdOrClassNameGet implements ModelInterface, ArrayAcc
         'boss_damage_scale' => 'float',
         'dependant_abilities' => 'string[]',
         'videos' => '\OpenAPI\Client\Model\AbilityVideosV2',
-        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\DependantAbilities>',
+        'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>',
         'shop_image' => 'string',
         'shop_image_webp' => 'string',
         'shop_image_small' => 'string',
@@ -1173,7 +1173,7 @@ class ResponseGetItemV2ItemsIdOrClassNameGet implements ModelInterface, ArrayAcc
     /**
      * Gets dependent_abilities
      *
-     * @return array<string,\OpenAPI\Client\Model\DependantAbilities>|null
+     * @return array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>|null
      */
     public function getDependentAbilities()
     {
@@ -1183,7 +1183,7 @@ class ResponseGetItemV2ItemsIdOrClassNameGet implements ModelInterface, ArrayAcc
     /**
      * Sets dependent_abilities
      *
-     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities dependent_abilities
+     * @param array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>|null $dependent_abilities dependent_abilities
      *
      * @return self
      */

@@ -22,8 +22,8 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.ability_description_v2 import AbilityDescriptionV2
 from assets_deadlock_api_client.models.ability_tooltip_details_v2 import AbilityTooltipDetailsV2
 from assets_deadlock_api_client.models.ability_type_v2 import AbilityTypeV2
+from assets_deadlock_api_client.models.ability_v2_dependent_abilities_value import AbilityV2DependentAbilitiesValue
 from assets_deadlock_api_client.models.ability_videos_v2 import AbilityVideosV2
-from assets_deadlock_api_client.models.dependant_abilities import DependantAbilities
 from assets_deadlock_api_client.models.item_property_v2 import ItemPropertyV2
 from assets_deadlock_api_client.models.raw_ability_upgrade_v2 import RawAbilityUpgradeV2
 from assets_deadlock_api_client.models.raw_item_weapon_info_v2 import RawItemWeaponInfoV2
@@ -55,7 +55,7 @@ class AbilityV2(BaseModel):
     boss_damage_scale: Optional[Union[StrictFloat, StrictInt]] = None
     dependant_abilities: Optional[List[StrictStr]] = None
     videos: Optional[AbilityVideosV2] = None
-    dependent_abilities: Optional[Dict[str, DependantAbilities]] = None
+    dependent_abilities: Optional[Dict[str, Optional[AbilityV2DependentAbilitiesValue]]] = None
     __properties: ClassVar[List[str]] = ["id", "class_name", "name", "start_trained", "image", "image_webp", "hero", "heroes", "update_time", "properties", "weapon_info", "type", "grant_ammo_on_cast", "behaviours", "description", "tooltip_details", "upgrades", "ability_type", "boss_damage_scale", "dependant_abilities", "videos", "dependent_abilities"]
 
     @field_validator('type')
@@ -264,7 +264,7 @@ class AbilityV2(BaseModel):
             "dependant_abilities": obj.get("dependant_abilities"),
             "videos": AbilityVideosV2.from_dict(obj["videos"]) if obj.get("videos") is not None else None,
             "dependent_abilities": dict(
-                (_k, DependantAbilities.from_dict(_v))
+                (_k, AbilityV2DependentAbilitiesValue.from_dict(_v))
                 for _k, _v in obj["dependent_abilities"].items()
             )
             if obj.get("dependent_abilities") is not None
