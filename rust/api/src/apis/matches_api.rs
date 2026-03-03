@@ -36,6 +36,8 @@ pub struct BulkMetadataParams {
     pub include_mid_boss: Option<bool>,
     /// Include player info in the response.
     pub include_player_info: Option<bool>,
+    /// Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.
+    pub include_player_kda: Option<bool>,
     /// Include player items in the response.
     pub include_player_items: Option<bool>,
     /// Include player stats in the response.
@@ -72,6 +74,12 @@ pub struct BulkMetadataParams {
     pub account_ids: Option<Vec<u32>>,
     /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_ids: Option<String>,
+    /// Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
+    pub item_filter_hero_id: Option<u32>,
+    /// Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
+    pub include_item_ids: Option<String>,
+    /// Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
+    pub exclude_item_ids: Option<String>,
     /// The field to order the results by.
     pub order_by: Option<String>,
     /// The direction to order the results by.
@@ -295,6 +303,9 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
     if let Some(ref param_value) = params.include_player_info {
         req_builder = req_builder.query(&[("include_player_info", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.include_player_kda {
+        req_builder = req_builder.query(&[("include_player_kda", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.include_player_items {
         req_builder = req_builder.query(&[("include_player_items", &param_value.to_string())]);
     }
@@ -354,6 +365,15 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
     }
     if let Some(ref param_value) = params.hero_ids {
         req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.item_filter_hero_id {
+        req_builder = req_builder.query(&[("item_filter_hero_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.include_item_ids {
+        req_builder = req_builder.query(&[("include_item_ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.exclude_item_ids {
+        req_builder = req_builder.query(&[("exclude_item_ids", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.order_by {
         req_builder = req_builder.query(&[("order_by", &param_value.to_string())]);

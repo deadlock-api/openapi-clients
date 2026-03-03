@@ -60,13 +60,14 @@ namespace AssetsDeadlockApiClient.Model
         /// <param name="tier2MaxResistTime">tier2MaxResistTime</param>
         /// <param name="ultimateUnlockRound">ultimateUnlockRound</param>
         /// <param name="itemDraftRoundsPerGameRound">itemDraftRoundsPerGameRound</param>
+        /// <param name="itemDrafts">itemDrafts</param>
         /// <param name="outlineColorFriend">outlineColorFriend</param>
         /// <param name="outlineColorEnemy">outlineColorEnemy</param>
         /// <param name="outlineColorTeam1">outlineColorTeam1</param>
         /// <param name="outlineColorTeam2">outlineColorTeam2</param>
         /// <param name="outlineColorNeutral">outlineColorNeutral</param>
         [JsonConstructor]
-        public StreetBrawl(List<int> respawnTimes, List<int> goldPerRound, List<int> apperRound, List<int> itemDraftRerollsPerRound, List<int> roundLengthMinutes, List<decimal> roundLengthMinutesUrgent, List<decimal> overtimeRespawnTimeIncrease, List<decimal> overtimeRespawnTimeIncreaseUrgent, List<decimal> overtimeTrooperHealthScale, List<decimal> overtimeTrooperDamageScale, List<int> buyTime, List<decimal> preBuyTime, int scoreToWin, decimal scoringTime, int laneNumber, List<int> objectiveMaxHealth, int tier2BonusHealth, int comebackBonusHealth, int comebackBonusHealthCritical, List<decimal> trooperSpawnTimer, decimal trooperSpawnBeforeRoundStartTimer, decimal zipBoostCooldownOnStart, decimal buyTimeGracePeriod, decimal tier1MaxResistTime, decimal tier2MaxResistTime, int ultimateUnlockRound, List<ItemDraftRoundPerGameRound> itemDraftRoundsPerGameRound, Option<List<int>?> outlineColorFriend = default, Option<List<int>?> outlineColorEnemy = default, Option<List<int>?> outlineColorTeam1 = default, Option<List<int>?> outlineColorTeam2 = default, Option<List<int>?> outlineColorNeutral = default)
+        public StreetBrawl(List<int> respawnTimes, List<int> goldPerRound, List<int> apperRound, List<int> itemDraftRerollsPerRound, List<int> roundLengthMinutes, List<decimal> roundLengthMinutesUrgent, List<decimal> overtimeRespawnTimeIncrease, List<decimal> overtimeRespawnTimeIncreaseUrgent, List<decimal> overtimeTrooperHealthScale, List<decimal> overtimeTrooperDamageScale, List<int> buyTime, List<decimal> preBuyTime, int scoreToWin, decimal scoringTime, int laneNumber, List<int> objectiveMaxHealth, int tier2BonusHealth, int comebackBonusHealth, int comebackBonusHealthCritical, List<decimal> trooperSpawnTimer, decimal trooperSpawnBeforeRoundStartTimer, decimal zipBoostCooldownOnStart, decimal buyTimeGracePeriod, decimal tier1MaxResistTime, decimal tier2MaxResistTime, int ultimateUnlockRound, List<ItemDraftRoundPerGameRound> itemDraftRoundsPerGameRound, Dictionary<string, ItemDraftsValue> itemDrafts, Option<List<int>?> outlineColorFriend = default, Option<List<int>?> outlineColorEnemy = default, Option<List<int>?> outlineColorTeam1 = default, Option<List<int>?> outlineColorTeam2 = default, Option<List<int>?> outlineColorNeutral = default)
         {
             RespawnTimes = respawnTimes;
             GoldPerRound = goldPerRound;
@@ -95,6 +96,7 @@ namespace AssetsDeadlockApiClient.Model
             Tier2MaxResistTime = tier2MaxResistTime;
             UltimateUnlockRound = ultimateUnlockRound;
             ItemDraftRoundsPerGameRound = itemDraftRoundsPerGameRound;
+            ItemDrafts = itemDrafts;
             OutlineColorFriendOption = outlineColorFriend;
             OutlineColorEnemyOption = outlineColorEnemy;
             OutlineColorTeam1Option = outlineColorTeam1;
@@ -268,6 +270,12 @@ namespace AssetsDeadlockApiClient.Model
         public List<ItemDraftRoundPerGameRound> ItemDraftRoundsPerGameRound { get; set; }
 
         /// <summary>
+        /// Gets or Sets ItemDrafts
+        /// </summary>
+        [JsonPropertyName("item_drafts")]
+        public Dictionary<string, ItemDraftsValue> ItemDrafts { get; set; }
+
+        /// <summary>
         /// Used to track the state of OutlineColorFriend
         /// </summary>
         [JsonIgnore]
@@ -367,6 +375,7 @@ namespace AssetsDeadlockApiClient.Model
             sb.Append("  Tier2MaxResistTime: ").Append(Tier2MaxResistTime).Append("\n");
             sb.Append("  UltimateUnlockRound: ").Append(UltimateUnlockRound).Append("\n");
             sb.Append("  ItemDraftRoundsPerGameRound: ").Append(ItemDraftRoundsPerGameRound).Append("\n");
+            sb.Append("  ItemDrafts: ").Append(ItemDrafts).Append("\n");
             sb.Append("  OutlineColorFriend: ").Append(OutlineColorFriend).Append("\n");
             sb.Append("  OutlineColorEnemy: ").Append(OutlineColorEnemy).Append("\n");
             sb.Append("  OutlineColorTeam1: ").Append(OutlineColorTeam1).Append("\n");
@@ -436,6 +445,7 @@ namespace AssetsDeadlockApiClient.Model
             Option<decimal?> tier2MaxResistTime = default;
             Option<int?> ultimateUnlockRound = default;
             Option<List<ItemDraftRoundPerGameRound>?> itemDraftRoundsPerGameRound = default;
+            Option<Dictionary<string, ItemDraftsValue>?> itemDrafts = default;
             Option<List<int>?> outlineColorFriend = default;
             Option<List<int>?> outlineColorEnemy = default;
             Option<List<int>?> outlineColorTeam1 = default;
@@ -537,6 +547,9 @@ namespace AssetsDeadlockApiClient.Model
                             break;
                         case "item_draft_rounds_per_game_round":
                             itemDraftRoundsPerGameRound = new Option<List<ItemDraftRoundPerGameRound>?>(JsonSerializer.Deserialize<List<ItemDraftRoundPerGameRound>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "item_drafts":
+                            itemDrafts = new Option<Dictionary<string, ItemDraftsValue>?>(JsonSerializer.Deserialize<Dictionary<string, ItemDraftsValue>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "outline_color_friend":
                             outlineColorFriend = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions));
@@ -640,6 +653,9 @@ namespace AssetsDeadlockApiClient.Model
             if (!itemDraftRoundsPerGameRound.IsSet)
                 throw new ArgumentException("Property is required for class StreetBrawl.", nameof(itemDraftRoundsPerGameRound));
 
+            if (!itemDrafts.IsSet)
+                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(itemDrafts));
+
             if (respawnTimes.IsSet && respawnTimes.Value == null)
                 throw new ArgumentNullException(nameof(respawnTimes), "Property is not nullable for class StreetBrawl.");
 
@@ -721,7 +737,10 @@ namespace AssetsDeadlockApiClient.Model
             if (itemDraftRoundsPerGameRound.IsSet && itemDraftRoundsPerGameRound.Value == null)
                 throw new ArgumentNullException(nameof(itemDraftRoundsPerGameRound), "Property is not nullable for class StreetBrawl.");
 
-            return new StreetBrawl(respawnTimes.Value!, goldPerRound.Value!, apperRound.Value!, itemDraftRerollsPerRound.Value!, roundLengthMinutes.Value!, roundLengthMinutesUrgent.Value!, overtimeRespawnTimeIncrease.Value!, overtimeRespawnTimeIncreaseUrgent.Value!, overtimeTrooperHealthScale.Value!, overtimeTrooperDamageScale.Value!, buyTime.Value!, preBuyTime.Value!, scoreToWin.Value!.Value!, scoringTime.Value!.Value!, laneNumber.Value!.Value!, objectiveMaxHealth.Value!, tier2BonusHealth.Value!.Value!, comebackBonusHealth.Value!.Value!, comebackBonusHealthCritical.Value!.Value!, trooperSpawnTimer.Value!, trooperSpawnBeforeRoundStartTimer.Value!.Value!, zipBoostCooldownOnStart.Value!.Value!, buyTimeGracePeriod.Value!.Value!, tier1MaxResistTime.Value!.Value!, tier2MaxResistTime.Value!.Value!, ultimateUnlockRound.Value!.Value!, itemDraftRoundsPerGameRound.Value!, outlineColorFriend, outlineColorEnemy, outlineColorTeam1, outlineColorTeam2, outlineColorNeutral);
+            if (itemDrafts.IsSet && itemDrafts.Value == null)
+                throw new ArgumentNullException(nameof(itemDrafts), "Property is not nullable for class StreetBrawl.");
+
+            return new StreetBrawl(respawnTimes.Value!, goldPerRound.Value!, apperRound.Value!, itemDraftRerollsPerRound.Value!, roundLengthMinutes.Value!, roundLengthMinutesUrgent.Value!, overtimeRespawnTimeIncrease.Value!, overtimeRespawnTimeIncreaseUrgent.Value!, overtimeTrooperHealthScale.Value!, overtimeTrooperDamageScale.Value!, buyTime.Value!, preBuyTime.Value!, scoreToWin.Value!.Value!, scoringTime.Value!.Value!, laneNumber.Value!.Value!, objectiveMaxHealth.Value!, tier2BonusHealth.Value!.Value!, comebackBonusHealth.Value!.Value!, comebackBonusHealthCritical.Value!.Value!, trooperSpawnTimer.Value!, trooperSpawnBeforeRoundStartTimer.Value!.Value!, zipBoostCooldownOnStart.Value!.Value!, buyTimeGracePeriod.Value!.Value!, tier1MaxResistTime.Value!.Value!, tier2MaxResistTime.Value!.Value!, ultimateUnlockRound.Value!.Value!, itemDraftRoundsPerGameRound.Value!, itemDrafts.Value!, outlineColorFriend, outlineColorEnemy, outlineColorTeam1, outlineColorTeam2, outlineColorNeutral);
         }
 
         /// <summary>
@@ -793,6 +812,9 @@ namespace AssetsDeadlockApiClient.Model
             if (streetBrawl.ItemDraftRoundsPerGameRound == null)
                 throw new ArgumentNullException(nameof(streetBrawl.ItemDraftRoundsPerGameRound), "Property is required for class StreetBrawl.");
 
+            if (streetBrawl.ItemDrafts == null)
+                throw new ArgumentNullException(nameof(streetBrawl.ItemDrafts), "Property is required for class StreetBrawl.");
+
             writer.WritePropertyName("respawn_times");
             JsonSerializer.Serialize(writer, streetBrawl.RespawnTimes, jsonSerializerOptions);
             writer.WritePropertyName("gold_per_round");
@@ -847,6 +869,8 @@ namespace AssetsDeadlockApiClient.Model
 
             writer.WritePropertyName("item_draft_rounds_per_game_round");
             JsonSerializer.Serialize(writer, streetBrawl.ItemDraftRoundsPerGameRound, jsonSerializerOptions);
+            writer.WritePropertyName("item_drafts");
+            JsonSerializer.Serialize(writer, streetBrawl.ItemDrafts, jsonSerializerOptions);
             if (streetBrawl.OutlineColorFriendOption.IsSet)
                 if (streetBrawl.OutlineColorFriendOption.Value != null)
                 {

@@ -22,6 +22,8 @@ docs/DamageFlashV2.md
 docs/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/DefaultApi.md
 docs/DependantAbilities.md
+docs/DraftBucket.md
+docs/DraftBuckets.md
 docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -41,10 +43,12 @@ docs/HeroStartingStatV2.md
 docs/HeroStartingStatsV2.md
 docs/HeroTypeV2.md
 docs/HeroV2.md
+docs/HeroV2ItemDraftBucketingValue.md
 docs/HeroesApi.md
 docs/IntrinsicModifiers.md
 docs/ItemDraftRound.md
 docs/ItemDraftRoundPerGameRound.md
+docs/ItemDraftsValue.md
 docs/ItemGroup.md
 docs/ItemPropertyV2.md
 docs/ItemSlotTypeV2.md
@@ -90,6 +94,7 @@ docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/RawAccoladeV2.md
 docs/RawApi.md
+docs/RawHeroDraftBucketing.md
 docs/RawHeroItemSlotInfoValueV2.md
 docs/RawHeroLevelInfoV2.md
 docs/RawHeroMapModCostBonusesV2.md
@@ -197,6 +202,8 @@ src/main/kotlin/assets_deadlock_api_client/models/Curve.kt
 src/main/kotlin/assets_deadlock_api_client/models/DamageFlashV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesValidClientVersions.kt
 src/main/kotlin/assets_deadlock_api_client/models/DependantAbilities.kt
+src/main/kotlin/assets_deadlock_api_client/models/DraftBucket.kt
+src/main/kotlin/assets_deadlock_api_client/models/DraftBuckets.kt
 src/main/kotlin/assets_deadlock_api_client/models/EmpoweredModifierLevel.kt
 src/main/kotlin/assets_deadlock_api_client/models/ExpirationDuration.kt
 src/main/kotlin/assets_deadlock_api_client/models/FlashDataV2.kt
@@ -216,9 +223,11 @@ src/main/kotlin/assets_deadlock_api_client/models/HeroStartingStatV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/HeroStartingStatsV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/HeroTypeV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/HeroV2.kt
+src/main/kotlin/assets_deadlock_api_client/models/HeroV2ItemDraftBucketingValue.kt
 src/main/kotlin/assets_deadlock_api_client/models/IntrinsicModifiers.kt
 src/main/kotlin/assets_deadlock_api_client/models/ItemDraftRound.kt
 src/main/kotlin/assets_deadlock_api_client/models/ItemDraftRoundPerGameRound.kt
+src/main/kotlin/assets_deadlock_api_client/models/ItemDraftsValue.kt
 src/main/kotlin/assets_deadlock_api_client/models/ItemGroup.kt
 src/main/kotlin/assets_deadlock_api_client/models/ItemPropertyV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/ItemSlotTypeV2.kt
@@ -260,6 +269,7 @@ src/main/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsInfo
 src/main/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawAccoladeV2.kt
+src/main/kotlin/assets_deadlock_api_client/models/RawHeroDraftBucketing.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawHeroItemSlotInfoValueV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawHeroLevelInfoV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawHeroMapModCostBonusesV2.kt
@@ -349,6 +359,8 @@ src/test/kotlin/assets_deadlock_api_client/models/CurveTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/DamageFlashV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/DeadlockAssetsApiRoutesValidClientVersionsTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/DependantAbilitiesTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/DraftBucketTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/DraftBucketsTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/EmpoweredModifierLevelTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ExpirationDurationTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/FlashDataV2Test.kt
@@ -367,10 +379,12 @@ src/test/kotlin/assets_deadlock_api_client/models/HeroShopWeaponStatsDisplayV2Te
 src/test/kotlin/assets_deadlock_api_client/models/HeroStartingStatV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/HeroStartingStatsV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/HeroTypeV2Test.kt
+src/test/kotlin/assets_deadlock_api_client/models/HeroV2ItemDraftBucketingValueTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/HeroV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/IntrinsicModifiersTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ItemDraftRoundPerGameRoundTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ItemDraftRoundTest.kt
+src/test/kotlin/assets_deadlock_api_client/models/ItemDraftsValueTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ItemGroupTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/ItemPropertyV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/ItemSlotTypeV2Test.kt
@@ -412,6 +426,7 @@ src/test/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsInfo
 src/test/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsInfoSectionTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawAccoladeV2Test.kt
+src/test/kotlin/assets_deadlock_api_client/models/RawHeroDraftBucketingTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawHeroItemSlotInfoValueV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawHeroLevelInfoV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawHeroMapModCostBonusesV2Test.kt

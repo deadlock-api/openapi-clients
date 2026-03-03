@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **outline_color_team1** | Option<**Vec<i32>**> |  | [optional]
 **outline_color_team2** | Option<**Vec<i32>**> |  | [optional]
 **outline_color_neutral** | Option<**Vec<i32>**> |  | [optional]
+**item_drafts** | [**std::collections::HashMap<String, models::ItemDraftsValue>**](ItemDraftsValue.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -53,6 +53,8 @@ __all__ = [
     "DamageFlashV2",
     "DeadlockAssetsApiRoutesValidClientVersions",
     "DependantAbilities",
+    "DraftBucket",
+    "DraftBuckets",
     "EmpoweredModifierLevel",
     "ExpirationDuration",
     "FlashDataV2",
@@ -72,9 +74,11 @@ __all__ = [
     "HeroStartingStatsV2",
     "HeroTypeV2",
     "HeroV2",
+    "HeroV2ItemDraftBucketingValue",
     "IntrinsicModifiers",
     "ItemDraftRound",
     "ItemDraftRoundPerGameRound",
+    "ItemDraftsValue",
     "ItemGroup",
     "ItemPropertyV2",
     "ItemSlotTypeV2",
@@ -116,6 +120,7 @@ __all__ = [
     "RawAbilityV2TooltipDetailsInfoSectionPropertyBlock",
     "RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty",
     "RawAccoladeV2",
+    "RawHeroDraftBucketing",
     "RawHeroItemSlotInfoValueV2",
     "RawHeroLevelInfoV2",
     "RawHeroMapModCostBonusesV2",
@@ -221,6 +226,8 @@ from assets_deadlock_api_client.models.curve import Curve as Curve
 from assets_deadlock_api_client.models.damage_flash_v2 import DamageFlashV2 as DamageFlashV2
 from assets_deadlock_api_client.models.deadlock_assets_api_routes_valid_client_versions import DeadlockAssetsApiRoutesValidClientVersions as DeadlockAssetsApiRoutesValidClientVersions
 from assets_deadlock_api_client.models.dependant_abilities import DependantAbilities as DependantAbilities
+from assets_deadlock_api_client.models.draft_bucket import DraftBucket as DraftBucket
+from assets_deadlock_api_client.models.draft_buckets import DraftBuckets as DraftBuckets
 from assets_deadlock_api_client.models.empowered_modifier_level import EmpoweredModifierLevel as EmpoweredModifierLevel
 from assets_deadlock_api_client.models.expiration_duration import ExpirationDuration as ExpirationDuration
 from assets_deadlock_api_client.models.flash_data_v2 import FlashDataV2 as FlashDataV2
@@ -240,9 +247,11 @@ from assets_deadlock_api_client.models.hero_starting_stat_v2 import HeroStarting
 from assets_deadlock_api_client.models.hero_starting_stats_v2 import HeroStartingStatsV2 as HeroStartingStatsV2
 from assets_deadlock_api_client.models.hero_type_v2 import HeroTypeV2 as HeroTypeV2
 from assets_deadlock_api_client.models.hero_v2 import HeroV2 as HeroV2
+from assets_deadlock_api_client.models.hero_v2_item_draft_bucketing_value import HeroV2ItemDraftBucketingValue as HeroV2ItemDraftBucketingValue
 from assets_deadlock_api_client.models.intrinsic_modifiers import IntrinsicModifiers as IntrinsicModifiers
 from assets_deadlock_api_client.models.item_draft_round import ItemDraftRound as ItemDraftRound
 from assets_deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound as ItemDraftRoundPerGameRound
+from assets_deadlock_api_client.models.item_drafts_value import ItemDraftsValue as ItemDraftsValue
 from assets_deadlock_api_client.models.item_group import ItemGroup as ItemGroup
 from assets_deadlock_api_client.models.item_property_v2 import ItemPropertyV2 as ItemPropertyV2
 from assets_deadlock_api_client.models.item_slot_type_v2 import ItemSlotTypeV2 as ItemSlotTypeV2
@@ -284,6 +293,7 @@ from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details_info_secti
 from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details_info_section_property_block import RawAbilityV2TooltipDetailsInfoSectionPropertyBlock as RawAbilityV2TooltipDetailsInfoSectionPropertyBlock
 from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details_info_section_property_block_property import RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty as RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
 from assets_deadlock_api_client.models.raw_accolade_v2 import RawAccoladeV2 as RawAccoladeV2
+from assets_deadlock_api_client.models.raw_hero_draft_bucketing import RawHeroDraftBucketing as RawHeroDraftBucketing
 from assets_deadlock_api_client.models.raw_hero_item_slot_info_value_v2 import RawHeroItemSlotInfoValueV2 as RawHeroItemSlotInfoValueV2
 from assets_deadlock_api_client.models.raw_hero_level_info_v2 import RawHeroLevelInfoV2 as RawHeroLevelInfoV2
 from assets_deadlock_api_client.models.raw_hero_map_mod_cost_bonuses_v2 import RawHeroMapModCostBonusesV2 as RawHeroMapModCostBonusesV2

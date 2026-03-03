@@ -48,6 +48,7 @@ Name | Type | Description | Notes
 **purchase_bonuses** | **Dict[str, List[RawHeroPurchaseBonusV2]]** |  | [optional] 
 **scaling_stats** | [**Dict[str, RawHeroScalingStatV2]**](RawHeroScalingStatV2.md) |  | 
 **standard_level_up_upgrades** | **Dict[str, float]** |  | 
+**item_draft_bucketing** | [**Dict[str, HeroV2ItemDraftBucketingValue]**](HeroV2ItemDraftBucketingValue.md) |  | [optional] 
 **background_image** | **str** |  | [readonly] 
 
 ## Example

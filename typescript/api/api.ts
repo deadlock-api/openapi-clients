@@ -7392,6 +7392,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {boolean} [includeObjectives] Include objectives in the response.
          * @param {boolean} [includeMidBoss] Include midboss in the response.
          * @param {boolean} [includePlayerInfo] Include player info in the response.
+         * @param {boolean} [includePlayerKda] Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players.
          * @param {boolean} [includePlayerItems] Include player items in the response.
          * @param {boolean} [includePlayerStats] Include player stats in the response.
          * @param {boolean} [includePlayerDeathDetails] Include player death details in the response.
@@ -7410,13 +7411,16 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
          * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [itemFilterHeroId] Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;.
+         * @param {string | null} [includeItemIds] Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items.
+         * @param {string | null} [excludeItemIds] Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items.
          * @param {BulkMetadataOrderByEnum} [orderBy] The field to order the results by.
          * @param {BulkMetadataOrderDirectionEnum} [orderDirection] The direction to order the results by.
          * @param {number} [limit] The maximum number of matches to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        bulkMetadata: async (includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        bulkMetadata: async (includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerKda?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, itemFilterHeroId?: number | null, includeItemIds?: string | null, excludeItemIds?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/matches/metadata`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7447,6 +7451,10 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
 
             if (includePlayerInfo !== undefined) {
                 localVarQueryParameter['include_player_info'] = includePlayerInfo;
+            }
+
+            if (includePlayerKda !== undefined) {
+                localVarQueryParameter['include_player_kda'] = includePlayerKda;
             }
 
             if (includePlayerItems !== undefined) {
@@ -7519,6 +7527,18 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
 
             if (heroIds !== undefined) {
                 localVarQueryParameter['hero_ids'] = heroIds;
+            }
+
+            if (itemFilterHeroId !== undefined) {
+                localVarQueryParameter['item_filter_hero_id'] = itemFilterHeroId;
+            }
+
+            if (includeItemIds !== undefined) {
+                localVarQueryParameter['include_item_ids'] = includeItemIds;
+            }
+
+            if (excludeItemIds !== undefined) {
+                localVarQueryParameter['exclude_item_ids'] = excludeItemIds;
             }
 
             if (orderBy !== undefined) {
@@ -7767,6 +7787,7 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @param {boolean} [includeObjectives] Include objectives in the response.
          * @param {boolean} [includeMidBoss] Include midboss in the response.
          * @param {boolean} [includePlayerInfo] Include player info in the response.
+         * @param {boolean} [includePlayerKda] Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players.
          * @param {boolean} [includePlayerItems] Include player items in the response.
          * @param {boolean} [includePlayerStats] Include player stats in the response.
          * @param {boolean} [includePlayerDeathDetails] Include player death details in the response.
@@ -7785,14 +7806,17 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
          * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [itemFilterHeroId] Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;.
+         * @param {string | null} [includeItemIds] Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items.
+         * @param {string | null} [excludeItemIds] Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items.
          * @param {BulkMetadataOrderByEnum} [orderBy] The field to order the results by.
          * @param {BulkMetadataOrderDirectionEnum} [orderDirection] The direction to order the results by.
          * @param {number} [limit] The maximum number of matches to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async bulkMetadata(includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit, options);
+        async bulkMetadata(includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerKda?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, itemFilterHeroId?: number | null, includeItemIds?: string | null, excludeItemIds?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, orderBy, orderDirection, limit, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.bulkMetadata']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7900,7 +7924,7 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         bulkMetadata(requestParameters: MatchesApiBulkMetadataRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
-            return localVarFp.bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(axios, basePath));
+            return localVarFp.bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerKda, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.itemFilterHeroId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
@@ -8000,6 +8024,11 @@ export interface MatchesApiBulkMetadataRequest {
     readonly includePlayerInfo?: boolean
 
     /**
+     * Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players.
+     */
+    readonly includePlayerKda?: boolean
+
+    /**
      * Include player items in the response.
      */
     readonly includePlayerItems?: boolean
@@ -8088,6 +8117,21 @@ export interface MatchesApiBulkMetadataRequest {
      * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      */
     readonly heroIds?: string | null
+
+    /**
+     * Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;.
+     */
+    readonly itemFilterHeroId?: number | null
+
+    /**
+     * Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items.
+     */
+    readonly includeItemIds?: string | null
+
+    /**
+     * Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items.
+     */
+    readonly excludeItemIds?: string | null
 
     /**
      * The field to order the results by.
@@ -8192,7 +8236,7 @@ export class MatchesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public bulkMetadata(requestParameters: MatchesApiBulkMetadataRequest = {}, options?: RawAxiosRequestConfig) {
-        return MatchesApiFp(this.configuration).bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
+        return MatchesApiFp(this.configuration).bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerKda, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.itemFilterHeroId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8258,7 +8302,8 @@ export const BulkMetadataGameModeEnum = {
 export type BulkMetadataGameModeEnum = typeof BulkMetadataGameModeEnum[keyof typeof BulkMetadataGameModeEnum];
 export const BulkMetadataOrderByEnum = {
     MatchId: 'match_id',
-    StartTime: 'start_time'
+    StartTime: 'start_time',
+    AverageBadge: 'average_badge'
 } as const;
 export type BulkMetadataOrderByEnum = typeof BulkMetadataOrderByEnum[keyof typeof BulkMetadataOrderByEnum];
 export const BulkMetadataOrderDirectionEnum = {

@@ -119,7 +119,10 @@ class TestStreetBrawl(unittest.TestCase):
                     ],
                 outline_color_neutral = [
                     56
-                    ]
+                    ],
+                item_drafts = {
+                    'key' : null
+                    }
             )
         else:
             return StreetBrawl(
@@ -193,6 +196,9 @@ class TestStreetBrawl(unittest.TestCase):
                                 chance_enhanced = 1, )
                             ], )
                     ],
+                item_drafts = {
+                    'key' : null
+                    },
         )
         """
 

@@ -48,6 +48,7 @@
 | **stepSoundTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **stepSoundTimeSprinting** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **purchaseBonuses** | **kotlin.collections.Map&lt;kotlin.String, kotlin.collections.List&lt;RawHeroPurchaseBonusV2&gt;&gt;** |  |  [optional] |
+| **itemDraftBucketing** | [**kotlin.collections.Map&lt;kotlin.String, HeroV2ItemDraftBucketingValue&gt;**](HeroV2ItemDraftBucketingValue.md) |  |  [optional] |
 
 
 

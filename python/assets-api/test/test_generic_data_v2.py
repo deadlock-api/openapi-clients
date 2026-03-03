@@ -279,7 +279,10 @@ class TestGenericDataV2(unittest.TestCase):
                         ], 
                     outline_color_neutral = [
                         56
-                        ], )
+                        ], 
+                    item_drafts = {
+                        'key' : null
+                        }, )
             )
         else:
             return GenericDataV2(

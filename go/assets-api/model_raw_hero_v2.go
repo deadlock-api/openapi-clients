@@ -64,6 +64,7 @@ type RawHeroV2 struct {
 	PurchaseBonuses map[string][]RawHeroPurchaseBonusV2 `json:"purchase_bonuses,omitempty"`
 	ScalingStats map[string]RawHeroScalingStatV2 `json:"scaling_stats"`
 	StandardLevelUpUpgrades map[string]float32 `json:"standard_level_up_upgrades"`
+	ItemDraftBucketing map[string]HeroV2ItemDraftBucketingValue `json:"item_draft_bucketing,omitempty"`
 	BackgroundImage NullableString `json:"background_image"`
 }
 
@@ -1492,6 +1493,39 @@ func (o *RawHeroV2) SetStandardLevelUpUpgrades(v map[string]float32) {
 	o.StandardLevelUpUpgrades = v
 }
 
+// GetItemDraftBucketing returns the ItemDraftBucketing field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RawHeroV2) GetItemDraftBucketing() map[string]HeroV2ItemDraftBucketingValue {
+	if o == nil {
+		var ret map[string]HeroV2ItemDraftBucketingValue
+		return ret
+	}
+	return o.ItemDraftBucketing
+}
+
+// GetItemDraftBucketingOk returns a tuple with the ItemDraftBucketing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RawHeroV2) GetItemDraftBucketingOk() (map[string]HeroV2ItemDraftBucketingValue, bool) {
+	if o == nil || IsNil(o.ItemDraftBucketing) {
+		return map[string]HeroV2ItemDraftBucketingValue{}, false
+	}
+	return o.ItemDraftBucketing, true
+}
+
+// HasItemDraftBucketing returns a boolean if a field has been set.
+func (o *RawHeroV2) HasItemDraftBucketing() bool {
+	if o != nil && !IsNil(o.ItemDraftBucketing) {
+		return true
+	}
+
+	return false
+}
+
+// SetItemDraftBucketing gets a reference to the given map[string]HeroV2ItemDraftBucketingValue and assigns it to the ItemDraftBucketing field.
+func (o *RawHeroV2) SetItemDraftBucketing(v map[string]HeroV2ItemDraftBucketingValue) {
+	o.ItemDraftBucketing = v
+}
+
 // GetBackgroundImage returns the BackgroundImage field value
 // If the value is explicit nil, the zero value for string will be returned
 func (o *RawHeroV2) GetBackgroundImage() string {
@@ -1613,6 +1647,9 @@ func (o RawHeroV2) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["scaling_stats"] = o.ScalingStats
 	toSerialize["standard_level_up_upgrades"] = o.StandardLevelUpUpgrades
+	if o.ItemDraftBucketing != nil {
+		toSerialize["item_draft_bucketing"] = o.ItemDraftBucketing
+	}
 	toSerialize["background_image"] = o.BackgroundImage.Get()
 	return toSerialize, nil
 }

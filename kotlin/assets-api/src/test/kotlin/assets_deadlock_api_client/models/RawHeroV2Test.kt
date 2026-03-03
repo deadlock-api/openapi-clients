@@ -20,6 +20,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.RawHeroV2
 import assets_deadlock_api_client.models.HeroTypeV2
+import assets_deadlock_api_client.models.HeroV2ItemDraftBucketingValue
 import assets_deadlock_api_client.models.RawHeroItemSlotInfoValueV2
 import assets_deadlock_api_client.models.RawHeroLevelInfoV2
 import assets_deadlock_api_client.models.RawHeroMapModCostBonusesV2
@@ -297,6 +298,12 @@ class RawHeroV2Test : ShouldSpec() {
         should("test purchaseBonuses") {
             // uncomment below to test the property
             //modelInstance.purchaseBonuses shouldBe ("TODO")
+        }
+
+        // to test the property `itemDraftBucketing`
+        should("test itemDraftBucketing") {
+            // uncomment below to test the property
+            //modelInstance.itemDraftBucketing shouldBe ("TODO")
         }
 
     }

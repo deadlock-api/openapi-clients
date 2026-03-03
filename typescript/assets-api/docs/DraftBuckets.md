@@ -1,0 +1,22 @@
+# DraftBuckets
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**bucket** | [**DraftBucket**](DraftBucket.md) |  | [optional] [default to undefined]
+**name** | **string** |  | [optional] [default to undefined]
+
+## Example
+
+```typescript
+import { DraftBuckets } from 'assets_deadlock_api_client';
+
+const instance: DraftBuckets = {
+    bucket,
+    name,
+};
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

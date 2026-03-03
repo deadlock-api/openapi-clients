@@ -16,6 +16,7 @@
 package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.HeroTypeV2
+import assets_deadlock_api_client.models.HeroV2ItemDraftBucketingValue
 import assets_deadlock_api_client.models.RawHeroItemSlotInfoValueV2
 import assets_deadlock_api_client.models.RawHeroLevelInfoV2
 import assets_deadlock_api_client.models.RawHeroMapModCostBonusesV2
@@ -77,6 +78,7 @@ import java.io.Serializable
  * @param stepSoundTime 
  * @param stepSoundTimeSprinting 
  * @param purchaseBonuses 
+ * @param itemDraftBucketing 
  */
 
 
@@ -212,7 +214,10 @@ data class RawHeroV2 (
     val stepSoundTimeSprinting: java.math.BigDecimal? = null,
 
     @Json(name = "purchase_bonuses")
-    val purchaseBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroPurchaseBonusV2>>? = null
+    val purchaseBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroPurchaseBonusV2>>? = null,
+
+    @Json(name = "item_draft_bucketing")
+    val itemDraftBucketing: kotlin.collections.Map<kotlin.String, HeroV2ItemDraftBucketingValue>? = null
 
 ) : Serializable {
     companion object {

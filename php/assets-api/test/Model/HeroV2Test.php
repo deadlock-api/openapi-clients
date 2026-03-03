@@ -366,4 +366,13 @@ class HeroV2Test extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "item_draft_bucketing"
+     */
+    public function testPropertyItemDraftBucketing()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

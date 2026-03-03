@@ -181,6 +181,9 @@ class TestRawHeroV2(unittest.TestCase):
                 standard_level_up_upgrades = {
                     'key' : 1.337
                     },
+                item_draft_bucketing = {
+                    'key' : null
+                    },
                 background_image = ''
             )
         else:

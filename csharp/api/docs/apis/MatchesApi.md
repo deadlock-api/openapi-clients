@@ -87,7 +87,7 @@ No authorization required
 
 <a id="bulkmetadata"></a>
 # **BulkMetadata**
-> List&lt;int&gt; BulkMetadata (bool includeInfo = null, bool includeMoreInfo = null, bool includeObjectives = null, bool includeMidBoss = null, bool includePlayerInfo = null, bool includePlayerItems = null, bool includePlayerStats = null, bool includePlayerDeathDetails = null, string gameMode = null, List<long> matchIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, List<int> accountIds = null, string heroIds = null, string orderBy = null, string orderDirection = null, int limit = null)
+> List&lt;int&gt; BulkMetadata (bool includeInfo = null, bool includeMoreInfo = null, bool includeObjectives = null, bool includeMidBoss = null, bool includePlayerInfo = null, bool includePlayerKda = null, bool includePlayerItems = null, bool includePlayerStats = null, bool includePlayerDeathDetails = null, string gameMode = null, List<long> matchIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, List<int> accountIds = null, string heroIds = null, int itemFilterHeroId = null, string includeItemIds = null, string excludeItemIds = null, string orderBy = null, string orderDirection = null, int limit = null)
 
 Bulk Metadata
 
@@ -103,6 +103,7 @@ Bulk Metadata
 | **includeObjectives** | **bool** | Include objectives in the response. | [optional]  |
 | **includeMidBoss** | **bool** | Include midboss in the response. | [optional]  |
 | **includePlayerInfo** | **bool** | Include player info in the response. | [optional]  |
+| **includePlayerKda** | **bool** | Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players. | [optional]  |
 | **includePlayerItems** | **bool** | Include player items in the response. | [optional]  |
 | **includePlayerStats** | **bool** | Include player stats in the response. | [optional]  |
 | **includePlayerDeathDetails** | **bool** | Include player death details in the response. | [optional]  |
@@ -121,6 +122,9 @@ Bulk Metadata
 | **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Filter matches by account IDs of players that participated in the match. | [optional]  |
 | **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]  |
+| **itemFilterHeroId** | **int** | Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | [optional]  |
+| **includeItemIds** | **string** | Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | [optional]  |
+| **excludeItemIds** | **string** | Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. | [optional]  |
 | **orderBy** | **string** | The field to order the results by. | [optional]  |
 | **orderDirection** | **string** | The direction to order the results by. | [optional]  |
 | **limit** | **int** | The maximum number of matches to return. | [optional] [default to 1000] |

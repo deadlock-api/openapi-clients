@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **PurchaseBonuses** | Pointer to [**map[string][]RawHeroPurchaseBonusV2**](array.md) |  | [optional] 
 **ScalingStats** | [**map[string]RawHeroScalingStatV2**](RawHeroScalingStatV2.md) |  | 
 **StandardLevelUpUpgrades** | **map[string]float32** |  | 
+**ItemDraftBucketing** | Pointer to [**map[string]HeroV2ItemDraftBucketingValue**](HeroV2ItemDraftBucketingValue.md) |  | [optional] 
 **BackgroundImage** | **NullableString** |  | [readonly] 
 
 ## Methods
@@ -1243,6 +1244,41 @@ and a boolean to check if the value has been set.
 SetStandardLevelUpUpgrades sets StandardLevelUpUpgrades field to given value.
 
 
+### GetItemDraftBucketing
+
+`func (o *RawHeroV2) GetItemDraftBucketing() map[string]HeroV2ItemDraftBucketingValue`
+
+GetItemDraftBucketing returns the ItemDraftBucketing field if non-nil, zero value otherwise.
+
+### GetItemDraftBucketingOk
+
+`func (o *RawHeroV2) GetItemDraftBucketingOk() (*map[string]HeroV2ItemDraftBucketingValue, bool)`
+
+GetItemDraftBucketingOk returns a tuple with the ItemDraftBucketing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItemDraftBucketing
+
+`func (o *RawHeroV2) SetItemDraftBucketing(v map[string]HeroV2ItemDraftBucketingValue)`
+
+SetItemDraftBucketing sets ItemDraftBucketing field to given value.
+
+### HasItemDraftBucketing
+
+`func (o *RawHeroV2) HasItemDraftBucketing() bool`
+
+HasItemDraftBucketing returns a boolean if a field has been set.
+
+### SetItemDraftBucketingNil
+
+`func (o *RawHeroV2) SetItemDraftBucketingNil(b bool)`
+
+ SetItemDraftBucketingNil sets the value for ItemDraftBucketing to be an explicit nil
+
+### UnsetItemDraftBucketing
+`func (o *RawHeroV2) UnsetItemDraftBucketing()`
+
+UnsetItemDraftBucketing ensures that no value is present for ItemDraftBucketing, not even an explicit nil
 ### GetBackgroundImage
 
 `func (o *RawHeroV2) GetBackgroundImage() string`

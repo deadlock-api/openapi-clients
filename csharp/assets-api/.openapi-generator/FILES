@@ -30,6 +30,8 @@ docs/models/Curve.md
 docs/models/DamageFlashV2.md
 docs/models/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/models/DependantAbilities.md
+docs/models/DraftBucket.md
+docs/models/DraftBuckets.md
 docs/models/EmpoweredModifierLevel.md
 docs/models/ExpirationDuration.md
 docs/models/FlashDataV2.md
@@ -49,9 +51,11 @@ docs/models/HeroStartingStatV2.md
 docs/models/HeroStartingStatsV2.md
 docs/models/HeroTypeV2.md
 docs/models/HeroV2.md
+docs/models/HeroV2ItemDraftBucketingValue.md
 docs/models/IntrinsicModifiers.md
 docs/models/ItemDraftRound.md
 docs/models/ItemDraftRoundPerGameRound.md
+docs/models/ItemDraftsValue.md
 docs/models/ItemGroup.md
 docs/models/ItemPropertyV2.md
 docs/models/ItemSlotTypeV2.md
@@ -93,6 +97,7 @@ docs/models/RawAbilityV2TooltipDetailsInfoSection.md
 docs/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/models/RawAccoladeV2.md
+docs/models/RawHeroDraftBucketing.md
 docs/models/RawHeroItemSlotInfoValueV2.md
 docs/models/RawHeroLevelInfoV2.md
 docs/models/RawHeroMapModCostBonusesV2.md
@@ -187,6 +192,8 @@ src/AssetsDeadlockApiClient.Test/Model/CurveTests.cs
 src/AssetsDeadlockApiClient.Test/Model/DamageFlashV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/DeadlockAssetsApiRoutesValidClientVersionsTests.cs
 src/AssetsDeadlockApiClient.Test/Model/DependantAbilitiesTests.cs
+src/AssetsDeadlockApiClient.Test/Model/DraftBucketTests.cs
+src/AssetsDeadlockApiClient.Test/Model/DraftBucketsTests.cs
 src/AssetsDeadlockApiClient.Test/Model/EmpoweredModifierLevelTests.cs
 src/AssetsDeadlockApiClient.Test/Model/ExpirationDurationTests.cs
 src/AssetsDeadlockApiClient.Test/Model/FlashDataV2Tests.cs
@@ -205,10 +212,12 @@ src/AssetsDeadlockApiClient.Test/Model/HeroShopWeaponStatsDisplayV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/HeroStartingStatV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/HeroStartingStatsV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/HeroTypeV2Tests.cs
+src/AssetsDeadlockApiClient.Test/Model/HeroV2ItemDraftBucketingValueTests.cs
 src/AssetsDeadlockApiClient.Test/Model/HeroV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/IntrinsicModifiersTests.cs
 src/AssetsDeadlockApiClient.Test/Model/ItemDraftRoundPerGameRoundTests.cs
 src/AssetsDeadlockApiClient.Test/Model/ItemDraftRoundTests.cs
+src/AssetsDeadlockApiClient.Test/Model/ItemDraftsValueTests.cs
 src/AssetsDeadlockApiClient.Test/Model/ItemGroupTests.cs
 src/AssetsDeadlockApiClient.Test/Model/ItemPropertyV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/ItemSlotTypeV2Tests.cs
@@ -250,6 +259,7 @@ src/AssetsDeadlockApiClient.Test/Model/RawAbilityV2TooltipDetailsInfoSectionProp
 src/AssetsDeadlockApiClient.Test/Model/RawAbilityV2TooltipDetailsInfoSectionTests.cs
 src/AssetsDeadlockApiClient.Test/Model/RawAbilityV2TooltipDetailsTests.cs
 src/AssetsDeadlockApiClient.Test/Model/RawAccoladeV2Tests.cs
+src/AssetsDeadlockApiClient.Test/Model/RawHeroDraftBucketingTests.cs
 src/AssetsDeadlockApiClient.Test/Model/RawHeroItemSlotInfoValueV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/RawHeroLevelInfoV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/RawHeroMapModCostBonusesV2Tests.cs
@@ -363,6 +373,8 @@ src/AssetsDeadlockApiClient/Model/Curve.cs
 src/AssetsDeadlockApiClient/Model/DamageFlashV2.cs
 src/AssetsDeadlockApiClient/Model/DeadlockAssetsApiRoutesValidClientVersions.cs
 src/AssetsDeadlockApiClient/Model/DependantAbilities.cs
+src/AssetsDeadlockApiClient/Model/DraftBucket.cs
+src/AssetsDeadlockApiClient/Model/DraftBuckets.cs
 src/AssetsDeadlockApiClient/Model/EmpoweredModifierLevel.cs
 src/AssetsDeadlockApiClient/Model/ExpirationDuration.cs
 src/AssetsDeadlockApiClient/Model/FlashDataV2.cs
@@ -382,9 +394,11 @@ src/AssetsDeadlockApiClient/Model/HeroStartingStatV2.cs
 src/AssetsDeadlockApiClient/Model/HeroStartingStatsV2.cs
 src/AssetsDeadlockApiClient/Model/HeroTypeV2.cs
 src/AssetsDeadlockApiClient/Model/HeroV2.cs
+src/AssetsDeadlockApiClient/Model/HeroV2ItemDraftBucketingValue.cs
 src/AssetsDeadlockApiClient/Model/IntrinsicModifiers.cs
 src/AssetsDeadlockApiClient/Model/ItemDraftRound.cs
 src/AssetsDeadlockApiClient/Model/ItemDraftRoundPerGameRound.cs
+src/AssetsDeadlockApiClient/Model/ItemDraftsValue.cs
 src/AssetsDeadlockApiClient/Model/ItemGroup.cs
 src/AssetsDeadlockApiClient/Model/ItemPropertyV2.cs
 src/AssetsDeadlockApiClient/Model/ItemSlotTypeV2.cs
@@ -426,6 +440,7 @@ src/AssetsDeadlockApiClient/Model/RawAbilityV2TooltipDetailsInfoSection.cs
 src/AssetsDeadlockApiClient/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.cs
 src/AssetsDeadlockApiClient/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.cs
 src/AssetsDeadlockApiClient/Model/RawAccoladeV2.cs
+src/AssetsDeadlockApiClient/Model/RawHeroDraftBucketing.cs
 src/AssetsDeadlockApiClient/Model/RawHeroItemSlotInfoValueV2.cs
 src/AssetsDeadlockApiClient/Model/RawHeroLevelInfoV2.cs
 src/AssetsDeadlockApiClient/Model/RawHeroMapModCostBonusesV2.cs

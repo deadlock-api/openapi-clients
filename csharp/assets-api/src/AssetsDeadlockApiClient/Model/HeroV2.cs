@@ -65,8 +65,9 @@ namespace AssetsDeadlockApiClient.Model
         /// <param name="heroType">heroType</param>
         /// <param name="prereleaseOnly">prereleaseOnly</param>
         /// <param name="costBonuses">costBonuses</param>
+        /// <param name="itemDraftBucketing">itemDraftBucketing</param>
         [JsonConstructor]
-        public HeroV2(int id, string className, string name, HeroDescriptionV2 description, bool playerSelectable, bool disabled, bool inDevelopment, bool needsTesting, bool assignedPlayersOnly, bool limitedTesting, int complexity, int skin, HeroImagesV2 images, Dictionary<string, string> items, HeroStartingStatsV2 startingStats, Dictionary<string, RawHeroItemSlotInfoValueV2> itemSlotInfo, HeroPhysicsV2 physics, HeroColorsV2 colors, HeroShopStatDisplayV2 shopStatDisplay, RawHeroStatsDisplayV2 statsDisplay, RawHeroStatsUIV2 heroStatsUi, Dictionary<string, HeroLevelInfoV2> levelInfo, Dictionary<string, RawHeroScalingStatV2> scalingStats, Dictionary<string, List<RawHeroPurchaseBonusV2>> purchaseBonuses, Dictionary<string, decimal> standardLevelUpUpgrades, Option<Dictionary<string, decimal>?> itemDraftWeights = default, Option<List<string>?> tags = default, Option<string?> gunTag = default, Option<string?> hideoutRichPresence = default, Option<HeroTypeV2?> heroType = default, Option<bool?> prereleaseOnly = default, Option<Dictionary<string, List<RawHeroMapModCostBonusesV2>>?> costBonuses = default)
+        public HeroV2(int id, string className, string name, HeroDescriptionV2 description, bool playerSelectable, bool disabled, bool inDevelopment, bool needsTesting, bool assignedPlayersOnly, bool limitedTesting, int complexity, int skin, HeroImagesV2 images, Dictionary<string, string> items, HeroStartingStatsV2 startingStats, Dictionary<string, RawHeroItemSlotInfoValueV2> itemSlotInfo, HeroPhysicsV2 physics, HeroColorsV2 colors, HeroShopStatDisplayV2 shopStatDisplay, RawHeroStatsDisplayV2 statsDisplay, RawHeroStatsUIV2 heroStatsUi, Dictionary<string, HeroLevelInfoV2> levelInfo, Dictionary<string, RawHeroScalingStatV2> scalingStats, Dictionary<string, List<RawHeroPurchaseBonusV2>> purchaseBonuses, Dictionary<string, decimal> standardLevelUpUpgrades, Option<Dictionary<string, decimal>?> itemDraftWeights = default, Option<List<string>?> tags = default, Option<string?> gunTag = default, Option<string?> hideoutRichPresence = default, Option<HeroTypeV2?> heroType = default, Option<bool?> prereleaseOnly = default, Option<Dictionary<string, List<RawHeroMapModCostBonusesV2>>?> costBonuses = default, Option<Dictionary<string, HeroV2ItemDraftBucketingValue>?> itemDraftBucketing = default)
         {
             Id = id;
             ClassName = className;
@@ -100,6 +101,7 @@ namespace AssetsDeadlockApiClient.Model
             HeroTypeOption = heroType;
             PrereleaseOnlyOption = prereleaseOnly;
             CostBonusesOption = costBonuses;
+            ItemDraftBucketingOption = itemDraftBucketing;
             OnCreated();
         }
 
@@ -347,6 +349,19 @@ namespace AssetsDeadlockApiClient.Model
         public Dictionary<string, List<RawHeroMapModCostBonusesV2>>? CostBonuses { get { return this.CostBonusesOption; } set { this.CostBonusesOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of ItemDraftBucketing
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Dictionary<string, HeroV2ItemDraftBucketingValue>?> ItemDraftBucketingOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets ItemDraftBucketing
+        /// </summary>
+        [JsonPropertyName("item_draft_bucketing")]
+        public Dictionary<string, HeroV2ItemDraftBucketingValue>? ItemDraftBucketing { get { return this.ItemDraftBucketingOption; } set { this.ItemDraftBucketingOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -386,6 +401,7 @@ namespace AssetsDeadlockApiClient.Model
             sb.Append("  HeroType: ").Append(HeroType).Append("\n");
             sb.Append("  PrereleaseOnly: ").Append(PrereleaseOnly).Append("\n");
             sb.Append("  CostBonuses: ").Append(CostBonuses).Append("\n");
+            sb.Append("  ItemDraftBucketing: ").Append(ItemDraftBucketing).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -455,6 +471,7 @@ namespace AssetsDeadlockApiClient.Model
             Option<HeroTypeV2?> heroType = default;
             Option<bool?> prereleaseOnly = default;
             Option<Dictionary<string, List<RawHeroMapModCostBonusesV2>>?> costBonuses = default;
+            Option<Dictionary<string, HeroV2ItemDraftBucketingValue>?> itemDraftBucketing = default;
 
             while (utf8JsonReader.Read())
             {
@@ -568,6 +585,9 @@ namespace AssetsDeadlockApiClient.Model
                             break;
                         case "cost_bonuses":
                             costBonuses = new Option<Dictionary<string, List<RawHeroMapModCostBonusesV2>>?>(JsonSerializer.Deserialize<Dictionary<string, List<RawHeroMapModCostBonusesV2>>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "item_draft_bucketing":
+                            itemDraftBucketing = new Option<Dictionary<string, HeroV2ItemDraftBucketingValue>?>(JsonSerializer.Deserialize<Dictionary<string, HeroV2ItemDraftBucketingValue>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -725,7 +745,7 @@ namespace AssetsDeadlockApiClient.Model
             if (standardLevelUpUpgrades.IsSet && standardLevelUpUpgrades.Value == null)
                 throw new ArgumentNullException(nameof(standardLevelUpUpgrades), "Property is not nullable for class HeroV2.");
 
-            return new HeroV2(id.Value!.Value!, className.Value!, name.Value!, description.Value!, playerSelectable.Value!.Value!, disabled.Value!.Value!, inDevelopment.Value!.Value!, needsTesting.Value!.Value!, assignedPlayersOnly.Value!.Value!, limitedTesting.Value!.Value!, complexity.Value!.Value!, skin.Value!.Value!, images.Value!, items.Value!, startingStats.Value!, itemSlotInfo.Value!, physics.Value!, colors.Value!, shopStatDisplay.Value!, statsDisplay.Value!, heroStatsUi.Value!, levelInfo.Value!, scalingStats.Value!, purchaseBonuses.Value!, standardLevelUpUpgrades.Value!, itemDraftWeights, tags, gunTag, hideoutRichPresence, heroType, prereleaseOnly, costBonuses);
+            return new HeroV2(id.Value!.Value!, className.Value!, name.Value!, description.Value!, playerSelectable.Value!.Value!, disabled.Value!.Value!, inDevelopment.Value!.Value!, needsTesting.Value!.Value!, assignedPlayersOnly.Value!.Value!, limitedTesting.Value!.Value!, complexity.Value!.Value!, skin.Value!.Value!, images.Value!, items.Value!, startingStats.Value!, itemSlotInfo.Value!, physics.Value!, colors.Value!, shopStatDisplay.Value!, statsDisplay.Value!, heroStatsUi.Value!, levelInfo.Value!, scalingStats.Value!, purchaseBonuses.Value!, standardLevelUpUpgrades.Value!, itemDraftWeights, tags, gunTag, hideoutRichPresence, heroType, prereleaseOnly, costBonuses, itemDraftBucketing);
         }
 
         /// <summary>
@@ -900,6 +920,14 @@ namespace AssetsDeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("cost_bonuses");
+            if (heroV2.ItemDraftBucketingOption.IsSet)
+                if (heroV2.ItemDraftBucketingOption.Value != null)
+                {
+                    writer.WritePropertyName("item_draft_bucketing");
+                    JsonSerializer.Serialize(writer, heroV2.ItemDraftBucketing, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("item_draft_bucketing");
         }
     }
 }

@@ -135,6 +135,7 @@ let includeMoreInfo: boolean; //Include more match info in the response. (option
 let includeObjectives: boolean; //Include objectives in the response. (optional) (default to undefined)
 let includeMidBoss: boolean; //Include midboss in the response. (optional) (default to undefined)
 let includePlayerInfo: boolean; //Include player info in the response. (optional) (default to undefined)
+let includePlayerKda: boolean; //Include only K/D/A fields (`kills`, `deaths`, `assists`) for players. (optional) (default to undefined)
 let includePlayerItems: boolean; //Include player items in the response. (optional) (default to undefined)
 let includePlayerStats: boolean; //Include player stats in the response. (optional) (default to undefined)
 let includePlayerDeathDetails: boolean; //Include player death details in the response. (optional) (default to undefined)
@@ -153,7 +154,10 @@ let isLowPriPool: boolean; //Filter matches based on whether they are in the low
 let isNewPlayerPool: boolean; //Filter matches based on whether they are in the new player pool. (optional) (default to undefined)
 let accountIds: Array<number>; //Filter matches by account IDs of players that participated in the match. (optional) (default to undefined)
 let heroIds: string; //Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
-let orderBy: 'match_id' | 'start_time'; //The field to order the results by. (optional) (default to undefined)
+let itemFilterHeroId: number; //Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`. (optional) (default to undefined)
+let includeItemIds: string; //Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items. (optional) (default to undefined)
+let excludeItemIds: string; //Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items. (optional) (default to undefined)
+let orderBy: 'match_id' | 'start_time' | 'average_badge'; //The field to order the results by. (optional) (default to undefined)
 let orderDirection: 'desc' | 'asc'; //The direction to order the results by. (optional) (default to undefined)
 let limit: number; //The maximum number of matches to return. (optional) (default to 1000)
 
@@ -163,6 +167,7 @@ const { status, data } = await apiInstance.bulkMetadata(
     includeObjectives,
     includeMidBoss,
     includePlayerInfo,
+    includePlayerKda,
     includePlayerItems,
     includePlayerStats,
     includePlayerDeathDetails,
@@ -181,6 +186,9 @@ const { status, data } = await apiInstance.bulkMetadata(
     isNewPlayerPool,
     accountIds,
     heroIds,
+    itemFilterHeroId,
+    includeItemIds,
+    excludeItemIds,
     orderBy,
     orderDirection,
     limit
@@ -196,6 +204,7 @@ const { status, data } = await apiInstance.bulkMetadata(
 | **includeObjectives** | [**boolean**] | Include objectives in the response. | (optional) defaults to undefined|
 | **includeMidBoss** | [**boolean**] | Include midboss in the response. | (optional) defaults to undefined|
 | **includePlayerInfo** | [**boolean**] | Include player info in the response. | (optional) defaults to undefined|
+| **includePlayerKda** | [**boolean**] | Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players. | (optional) defaults to undefined|
 | **includePlayerItems** | [**boolean**] | Include player items in the response. | (optional) defaults to undefined|
 | **includePlayerStats** | [**boolean**] | Include player stats in the response. | (optional) defaults to undefined|
 | **includePlayerDeathDetails** | [**boolean**] | Include player death details in the response. | (optional) defaults to undefined|
@@ -214,7 +223,10 @@ const { status, data } = await apiInstance.bulkMetadata(
 | **isNewPlayerPool** | [**boolean**] | Filter matches based on whether they are in the new player pool. | (optional) defaults to undefined|
 | **accountIds** | **Array&lt;number&gt;** | Filter matches by account IDs of players that participated in the match. | (optional) defaults to undefined|
 | **heroIds** | [**string**] | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
-| **orderBy** | [**&#39;match_id&#39; | &#39;start_time&#39;**]**Array<&#39;match_id&#39; &#124; &#39;start_time&#39;>** | The field to order the results by. | (optional) defaults to undefined|
+| **itemFilterHeroId** | [**number**] | Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | (optional) defaults to undefined|
+| **includeItemIds** | [**string**] | Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | (optional) defaults to undefined|
+| **excludeItemIds** | [**string**] | Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. | (optional) defaults to undefined|
+| **orderBy** | [**&#39;match_id&#39; | &#39;start_time&#39; | &#39;average_badge&#39;**]**Array<&#39;match_id&#39; &#124; &#39;start_time&#39; &#124; &#39;average_badge&#39;>** | The field to order the results by. | (optional) defaults to undefined|
 | **orderDirection** | [**&#39;desc&#39; | &#39;asc&#39;**]**Array<&#39;desc&#39; &#124; &#39;asc&#39;>** | The direction to order the results by. | (optional) defaults to undefined|
 | **limit** | [**number**] | The maximum number of matches to return. | (optional) defaults to 1000|
 

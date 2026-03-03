@@ -99,6 +99,8 @@ pub struct RawHeroV2 {
     pub scaling_stats: std::collections::HashMap<String, models::RawHeroScalingStatV2>,
     #[serde(rename = "standard_level_up_upgrades")]
     pub standard_level_up_upgrades: std::collections::HashMap<String, f64>,
+    #[serde(rename = "item_draft_bucketing", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub item_draft_bucketing: Option<Option<std::collections::HashMap<String, models::HeroV2ItemDraftBucketingValue>>>,
     #[serde(rename = "background_image", deserialize_with = "Option::deserialize")]
     pub background_image: Option<String>,
 }
@@ -149,6 +151,7 @@ impl RawHeroV2 {
             purchase_bonuses: None,
             scaling_stats,
             standard_level_up_upgrades,
+            item_draft_bucketing: None,
             background_image,
         }
     }

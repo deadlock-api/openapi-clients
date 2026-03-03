@@ -88,7 +88,8 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'level_info' => 'array<string,\OpenAPI\Client\Model\HeroLevelInfoV2>',
         'scaling_stats' => 'array<string,\OpenAPI\Client\Model\RawHeroScalingStatV2>',
         'purchase_bonuses' => 'array<string,\OpenAPI\Client\Model\RawHeroPurchaseBonusV2[]>',
-        'standard_level_up_upgrades' => 'array<string,float>'
+        'standard_level_up_upgrades' => 'array<string,float>',
+        'item_draft_bucketing' => 'array<string,\OpenAPI\Client\Model\HeroV2ItemDraftBucketingValue>'
     ];
 
     /**
@@ -130,7 +131,8 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'level_info' => null,
         'scaling_stats' => null,
         'purchase_bonuses' => null,
-        'standard_level_up_upgrades' => null
+        'standard_level_up_upgrades' => null,
+        'item_draft_bucketing' => null
     ];
 
     /**
@@ -170,7 +172,8 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'level_info' => false,
         'scaling_stats' => false,
         'purchase_bonuses' => false,
-        'standard_level_up_upgrades' => false
+        'standard_level_up_upgrades' => false,
+        'item_draft_bucketing' => true
     ];
 
     /**
@@ -290,7 +293,8 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'level_info' => 'level_info',
         'scaling_stats' => 'scaling_stats',
         'purchase_bonuses' => 'purchase_bonuses',
-        'standard_level_up_upgrades' => 'standard_level_up_upgrades'
+        'standard_level_up_upgrades' => 'standard_level_up_upgrades',
+        'item_draft_bucketing' => 'item_draft_bucketing'
     ];
 
     /**
@@ -330,7 +334,8 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'level_info' => 'setLevelInfo',
         'scaling_stats' => 'setScalingStats',
         'purchase_bonuses' => 'setPurchaseBonuses',
-        'standard_level_up_upgrades' => 'setStandardLevelUpUpgrades'
+        'standard_level_up_upgrades' => 'setStandardLevelUpUpgrades',
+        'item_draft_bucketing' => 'setItemDraftBucketing'
     ];
 
     /**
@@ -370,7 +375,8 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'level_info' => 'getLevelInfo',
         'scaling_stats' => 'getScalingStats',
         'purchase_bonuses' => 'getPurchaseBonuses',
-        'standard_level_up_upgrades' => 'getStandardLevelUpUpgrades'
+        'standard_level_up_upgrades' => 'getStandardLevelUpUpgrades',
+        'item_draft_bucketing' => 'getItemDraftBucketing'
     ];
 
     /**
@@ -462,6 +468,7 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('scaling_stats', $data ?? [], null);
         $this->setIfExists('purchase_bonuses', $data ?? [], null);
         $this->setIfExists('standard_level_up_upgrades', $data ?? [], null);
+        $this->setIfExists('item_draft_bucketing', $data ?? [], null);
     }
 
     /**
@@ -1490,6 +1497,40 @@ class HeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable standard_level_up_upgrades cannot be null');
         }
         $this->container['standard_level_up_upgrades'] = $standard_level_up_upgrades;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_draft_bucketing
+     *
+     * @return array<string,\OpenAPI\Client\Model\HeroV2ItemDraftBucketingValue>|null
+     */
+    public function getItemDraftBucketing()
+    {
+        return $this->container['item_draft_bucketing'];
+    }
+
+    /**
+     * Sets item_draft_bucketing
+     *
+     * @param array<string,\OpenAPI\Client\Model\HeroV2ItemDraftBucketingValue>|null $item_draft_bucketing item_draft_bucketing
+     *
+     * @return self
+     */
+    public function setItemDraftBucketing($item_draft_bucketing)
+    {
+        if (is_null($item_draft_bucketing)) {
+            array_push($this->openAPINullablesSetToNull, 'item_draft_bucketing');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('item_draft_bucketing', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['item_draft_bucketing'] = $item_draft_bucketing;
 
         return $this;
     }

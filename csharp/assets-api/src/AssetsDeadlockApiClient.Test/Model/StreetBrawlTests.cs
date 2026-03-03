@@ -297,6 +297,15 @@ namespace AssetsDeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ItemDrafts'
+        /// </summary>
+        [Fact]
+        public void ItemDraftsTest()
+        {
+            // TODO unit test for the property 'ItemDrafts'
+        }
+
+        /// <summary>
         /// Test the property 'OutlineColorFriend'
         /// </summary>
         [Fact]

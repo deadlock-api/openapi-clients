@@ -162,6 +162,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6355: 6355,
     NUMBER_6351: 6351,
     NUMBER_6325: 6325,
     NUMBER_6290: 6290,
@@ -234,6 +235,14 @@ export type DeadlockAssetsApiRoutesValidClientVersions = typeof DeadlockAssetsAp
 
 export interface DependantAbilities {
     'flags'?: Array<string> | null;
+}
+export interface DraftBucket {
+    'normal'?: number | null;
+    'good'?: number | null;
+}
+export interface DraftBuckets {
+    'bucket'?: DraftBucket | null;
+    'name'?: string | null;
 }
 export interface EmpoweredModifierLevel {
     'max_health'?: number | null;
@@ -447,9 +456,14 @@ export interface HeroV2 {
     'scaling_stats': { [key: string]: RawHeroScalingStatV2; };
     'purchase_bonuses': { [key: string]: Array<RawHeroPurchaseBonusV2>; };
     'standard_level_up_upgrades': { [key: string]: number; };
+    'item_draft_bucketing'?: { [key: string]: HeroV2ItemDraftBucketingValue; } | null;
 }
 
 
+export interface HeroV2ItemDraftBucketingValue {
+    'bucket'?: string | null;
+    'weight'?: number | null;
+}
 export interface IntrinsicModifiers {
     'script_values'?: Array<ScriptValues> | null;
 }
@@ -463,6 +477,10 @@ export interface ItemDraftRoundPerGameRound {
     'chance_rare': OutcomeToWeights;
     'chance_enhanced': OutcomeToWeights;
     'item_draft_rounds': Array<ItemDraftRound>;
+}
+export interface ItemDraftsValue {
+    'bucket'?: DraftBucket | null;
+    'name'?: string | null;
 }
 export interface ItemGroup {
     'shop_group': string;
@@ -964,6 +982,10 @@ export interface RawAccoladeV2 {
 }
 
 
+export interface RawHeroDraftBucketing {
+    'bucket'?: string | null;
+    'weight'?: number | null;
+}
 export interface RawHeroItemSlotInfoValueV2 {
     'max_purchases_for_tier': Array<number>;
 }
@@ -1087,6 +1109,7 @@ export interface RawHeroV2 {
     'purchase_bonuses'?: { [key: string]: Array<RawHeroPurchaseBonusV2>; } | null;
     'scaling_stats': { [key: string]: RawHeroScalingStatV2; };
     'standard_level_up_upgrades': { [key: string]: number; };
+    'item_draft_bucketing'?: { [key: string]: HeroV2ItemDraftBucketingValue; } | null;
     'background_image': string | null;
 }
 
@@ -1387,6 +1410,7 @@ export interface StreetBrawl {
     'outline_color_team1'?: Array<number> | null;
     'outline_color_team2'?: Array<number> | null;
     'outline_color_neutral'?: Array<number> | null;
+    'item_drafts': { [key: string]: ItemDraftsValue; };
 }
 export interface StreetBrawlValue {
 }

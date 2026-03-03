@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **StepSoundTime** | **decimal** |  | [optional] 
 **StepSoundTimeSprinting** | **decimal** |  | [optional] 
 **PurchaseBonuses** | **Dictionary&lt;string, List&lt;RawHeroPurchaseBonusV2&gt;&gt;** |  | [optional] 
+**ItemDraftBucketing** | [**Dictionary&lt;string, HeroV2ItemDraftBucketingValue&gt;**](HeroV2ItemDraftBucketingValue.md) |  | [optional] 
 **BackgroundImage** | **string** |  | [readonly] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

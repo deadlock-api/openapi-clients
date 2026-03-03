@@ -20,6 +20,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.StreetBrawl
 import assets_deadlock_api_client.models.ItemDraftRoundPerGameRound
+import assets_deadlock_api_client.models.ItemDraftsValue
 
 class StreetBrawlTest : ShouldSpec() {
     init {
@@ -186,6 +187,12 @@ class StreetBrawlTest : ShouldSpec() {
         should("test itemDraftRoundsPerGameRound") {
             // uncomment below to test the property
             //modelInstance.itemDraftRoundsPerGameRound shouldBe ("TODO")
+        }
+
+        // to test the property `itemDrafts`
+        should("test itemDrafts") {
+            // uncomment below to test the property
+            //modelInstance.itemDrafts shouldBe ("TODO")
         }
 
         // to test the property `outlineColorFriend`

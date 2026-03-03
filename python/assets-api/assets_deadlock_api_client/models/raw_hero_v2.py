@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from assets_deadlock_api_client.models.hero_type_v2 import HeroTypeV2
+from assets_deadlock_api_client.models.hero_v2_item_draft_bucketing_value import HeroV2ItemDraftBucketingValue
 from assets_deadlock_api_client.models.raw_hero_item_slot_info_value_v2 import RawHeroItemSlotInfoValueV2
 from assets_deadlock_api_client.models.raw_hero_level_info_v2 import RawHeroLevelInfoV2
 from assets_deadlock_api_client.models.raw_hero_map_mod_cost_bonuses_v2 import RawHeroMapModCostBonusesV2
@@ -80,8 +81,9 @@ class RawHeroV2(BaseModel):
     purchase_bonuses: Optional[Dict[str, List[RawHeroPurchaseBonusV2]]] = None
     scaling_stats: Dict[str, RawHeroScalingStatV2]
     standard_level_up_upgrades: Dict[str, Union[StrictFloat, StrictInt]]
+    item_draft_bucketing: Optional[Dict[str, Optional[HeroV2ItemDraftBucketingValue]]] = None
     background_image: Optional[StrictStr]
-    __properties: ClassVar[List[str]] = ["id", "class_name", "item_draft_weights", "player_selectable", "disabled", "in_development", "needs_testing", "assigned_players_only", "available_in_hero_labs", "prerelease_only", "limited_testing", "complexity", "skin", "starting_stats", "icon_hero_card", "icon_image_small", "minimap_image", "name_image", "hero_card_critical", "hero_card_gloat", "top_bar_vertical_image", "tags", "gun_tag", "hideout_rich_presence", "hero_type", "shop_stat_display", "cost_bonuses", "color_ui", "collision_height", "collision_radius", "footstep_sound_travel_distance_meters", "stealth_speed_meters_per_second", "step_height", "step_sound_time", "step_sound_time_sprinting", "stats_display", "hero_stats_ui", "items", "item_slot_info", "level_info", "purchase_bonuses", "scaling_stats", "standard_level_up_upgrades", "background_image"]
+    __properties: ClassVar[List[str]] = ["id", "class_name", "item_draft_weights", "player_selectable", "disabled", "in_development", "needs_testing", "assigned_players_only", "available_in_hero_labs", "prerelease_only", "limited_testing", "complexity", "skin", "starting_stats", "icon_hero_card", "icon_image_small", "minimap_image", "name_image", "hero_card_critical", "hero_card_gloat", "top_bar_vertical_image", "tags", "gun_tag", "hideout_rich_presence", "hero_type", "shop_stat_display", "cost_bonuses", "color_ui", "collision_height", "collision_radius", "footstep_sound_travel_distance_meters", "stealth_speed_meters_per_second", "step_height", "step_sound_time", "step_sound_time_sprinting", "stats_display", "hero_stats_ui", "items", "item_slot_info", "level_info", "purchase_bonuses", "scaling_stats", "standard_level_up_upgrades", "item_draft_bucketing", "background_image"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -175,6 +177,13 @@ class RawHeroV2(BaseModel):
                 if self.scaling_stats[_key_scaling_stats]:
                     _field_dict[_key_scaling_stats] = self.scaling_stats[_key_scaling_stats].to_dict()
             _dict['scaling_stats'] = _field_dict
+        # override the default output from pydantic by calling `to_dict()` of each value in item_draft_bucketing (dict)
+        _field_dict = {}
+        if self.item_draft_bucketing:
+            for _key_item_draft_bucketing in self.item_draft_bucketing:
+                if self.item_draft_bucketing[_key_item_draft_bucketing]:
+                    _field_dict[_key_item_draft_bucketing] = self.item_draft_bucketing[_key_item_draft_bucketing].to_dict()
+            _dict['item_draft_bucketing'] = _field_dict
         # set to None if item_draft_weights (nullable) is None
         # and model_fields_set contains the field
         if self.item_draft_weights is None and "item_draft_weights" in self.model_fields_set:
@@ -280,6 +289,11 @@ class RawHeroV2(BaseModel):
         if self.purchase_bonuses is None and "purchase_bonuses" in self.model_fields_set:
             _dict['purchase_bonuses'] = None
 
+        # set to None if item_draft_bucketing (nullable) is None
+        # and model_fields_set contains the field
+        if self.item_draft_bucketing is None and "item_draft_bucketing" in self.model_fields_set:
+            _dict['item_draft_bucketing'] = None
+
         # set to None if background_image (nullable) is None
         # and model_fields_set contains the field
         if self.background_image is None and "background_image" in self.model_fields_set:
@@ -369,6 +383,12 @@ class RawHeroV2(BaseModel):
             if obj.get("scaling_stats") is not None
             else None,
             "standard_level_up_upgrades": obj.get("standard_level_up_upgrades"),
+            "item_draft_bucketing": dict(
+                (_k, HeroV2ItemDraftBucketingValue.from_dict(_v))
+                for _k, _v in obj["item_draft_bucketing"].items()
+            )
+            if obj.get("item_draft_bucketing") is not None
+            else None,
             "background_image": obj.get("background_image")
         })
         return _obj

@@ -16,6 +16,7 @@
 package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ItemDraftRoundPerGameRound
+import assets_deadlock_api_client.models.ItemDraftsValue
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -51,6 +52,7 @@ import java.io.Serializable
  * @param tier2MaxResistTime 
  * @param ultimateUnlockRound 
  * @param itemDraftRoundsPerGameRound 
+ * @param itemDrafts 
  * @param outlineColorFriend 
  * @param outlineColorEnemy 
  * @param outlineColorTeam1 
@@ -141,6 +143,9 @@ data class StreetBrawl (
 
     @Json(name = "item_draft_rounds_per_game_round")
     val itemDraftRoundsPerGameRound: kotlin.collections.List<ItemDraftRoundPerGameRound>,
+
+    @Json(name = "item_drafts")
+    val itemDrafts: kotlin.collections.Map<kotlin.String, ItemDraftsValue>,
 
     @Json(name = "outline_color_friend")
     val outlineColorFriend: kotlin.collections.List<kotlin.Int>? = null,

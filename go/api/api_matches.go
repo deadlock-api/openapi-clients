@@ -288,6 +288,7 @@ type ApiBulkMetadataRequest struct {
 	includeObjectives *bool
 	includeMidBoss *bool
 	includePlayerInfo *bool
+	includePlayerKda *bool
 	includePlayerItems *bool
 	includePlayerStats *bool
 	includePlayerDeathDetails *bool
@@ -306,6 +307,9 @@ type ApiBulkMetadataRequest struct {
 	isNewPlayerPool *bool
 	accountIds *[]int32
 	heroIds *string
+	itemFilterHeroId *int32
+	includeItemIds *string
+	excludeItemIds *string
 	orderBy *string
 	orderDirection *string
 	limit *int32
@@ -338,6 +342,12 @@ func (r ApiBulkMetadataRequest) IncludeMidBoss(includeMidBoss bool) ApiBulkMetad
 // Include player info in the response.
 func (r ApiBulkMetadataRequest) IncludePlayerInfo(includePlayerInfo bool) ApiBulkMetadataRequest {
 	r.includePlayerInfo = &includePlayerInfo
+	return r
+}
+
+// Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players.
+func (r ApiBulkMetadataRequest) IncludePlayerKda(includePlayerKda bool) ApiBulkMetadataRequest {
+	r.includePlayerKda = &includePlayerKda
 	return r
 }
 
@@ -449,6 +459,24 @@ func (r ApiBulkMetadataRequest) HeroIds(heroIds string) ApiBulkMetadataRequest {
 	return r
 }
 
+// Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;.
+func (r ApiBulkMetadataRequest) ItemFilterHeroId(itemFilterHeroId int32) ApiBulkMetadataRequest {
+	r.itemFilterHeroId = &itemFilterHeroId
+	return r
+}
+
+// Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items.
+func (r ApiBulkMetadataRequest) IncludeItemIds(includeItemIds string) ApiBulkMetadataRequest {
+	r.includeItemIds = &includeItemIds
+	return r
+}
+
+// Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items.
+func (r ApiBulkMetadataRequest) ExcludeItemIds(excludeItemIds string) ApiBulkMetadataRequest {
+	r.excludeItemIds = &excludeItemIds
+	return r
+}
+
 // The field to order the results by.
 func (r ApiBulkMetadataRequest) OrderBy(orderBy string) ApiBulkMetadataRequest {
 	r.orderBy = &orderBy
@@ -535,6 +563,9 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	if r.includePlayerInfo != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_info", r.includePlayerInfo, "form", "")
 	}
+	if r.includePlayerKda != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_kda", r.includePlayerKda, "form", "")
+	}
 	if r.includePlayerItems != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_items", r.includePlayerItems, "form", "")
 	}
@@ -604,6 +635,15 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	}
 	if r.heroIds != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "form", "")
+	}
+	if r.itemFilterHeroId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "item_filter_hero_id", r.itemFilterHeroId, "form", "")
+	}
+	if r.includeItemIds != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_item_ids", r.includeItemIds, "form", "")
+	}
+	if r.excludeItemIds != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", r.excludeItemIds, "form", "")
 	}
 	if r.orderBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", r.orderBy, "form", "")

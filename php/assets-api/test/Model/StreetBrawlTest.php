@@ -366,4 +366,13 @@ class StreetBrawlTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "item_drafts"
+     */
+    public function testPropertyItemDrafts()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

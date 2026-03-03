@@ -467,6 +467,15 @@ class RawHeroV2Test extends TestCase
     }
 
     /**
+     * Test attribute "item_draft_bucketing"
+     */
+    public function testPropertyItemDraftBucketing()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "background_image"
      */
     public function testPropertyBackgroundImage()

@@ -146,7 +146,7 @@ No authorization required
 
 ## BulkMetadata
 
-> []int32 BulkMetadata(ctx).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
+> []int32 BulkMetadata(ctx).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerKda(includePlayerKda).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).ItemFilterHeroId(itemFilterHeroId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
 
 Bulk Metadata
 
@@ -170,6 +170,7 @@ func main() {
 	includeObjectives := true // bool | Include objectives in the response. (optional)
 	includeMidBoss := true // bool | Include midboss in the response. (optional)
 	includePlayerInfo := true // bool | Include player info in the response. (optional)
+	includePlayerKda := true // bool | Include only K/D/A fields (`kills`, `deaths`, `assists`) for players. (optional)
 	includePlayerItems := true // bool | Include player items in the response. (optional)
 	includePlayerStats := true // bool | Include player stats in the response. (optional)
 	includePlayerDeathDetails := true // bool | Include player death details in the response. (optional)
@@ -188,13 +189,16 @@ func main() {
 	isNewPlayerPool := true // bool | Filter matches based on whether they are in the new player pool. (optional)
 	accountIds := []int32{int32(123)} // []int32 | Filter matches by account IDs of players that participated in the match. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
+	itemFilterHeroId := int32(56) // int32 | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`. (optional)
+	includeItemIds := "includeItemIds_example" // string | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items. (optional)
+	excludeItemIds := "excludeItemIds_example" // string | Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items. (optional)
 	orderBy := "orderBy_example" // string | The field to order the results by. (optional)
 	orderDirection := "orderDirection_example" // string | The direction to order the results by. (optional)
 	limit := int32(56) // int32 | The maximum number of matches to return. (optional) (default to 1000)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MatchesAPI.BulkMetadata(context.Background()).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
+	resp, r, err := apiClient.MatchesAPI.BulkMetadata(context.Background()).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerKda(includePlayerKda).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).ItemFilterHeroId(itemFilterHeroId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.BulkMetadata``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -220,6 +224,7 @@ Name | Type | Description  | Notes
  **includeObjectives** | **bool** | Include objectives in the response. | 
  **includeMidBoss** | **bool** | Include midboss in the response. | 
  **includePlayerInfo** | **bool** | Include player info in the response. | 
+ **includePlayerKda** | **bool** | Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players. | 
  **includePlayerItems** | **bool** | Include player items in the response. | 
  **includePlayerStats** | **bool** | Include player stats in the response. | 
  **includePlayerDeathDetails** | **bool** | Include player death details in the response. | 
@@ -238,6 +243,9 @@ Name | Type | Description  | Notes
  **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | 
  **accountIds** | **[]int32** | Filter matches by account IDs of players that participated in the match. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+ **itemFilterHeroId** | **int32** | Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | 
+ **includeItemIds** | **string** | Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | 
+ **excludeItemIds** | **string** | Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. | 
  **orderBy** | **string** | The field to order the results by. | 
  **orderDirection** | **string** | The direction to order the results by. | 
  **limit** | **int32** | The maximum number of matches to return. | [default to 1000]

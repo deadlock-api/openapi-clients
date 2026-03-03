@@ -33,6 +33,8 @@ docs/DamageFlashV2.md
 docs/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/DefaultAPI.md
 docs/DependantAbilities.md
+docs/DraftBucket.md
+docs/DraftBuckets.md
 docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -52,10 +54,12 @@ docs/HeroStartingStatV2.md
 docs/HeroStartingStatsV2.md
 docs/HeroTypeV2.md
 docs/HeroV2.md
+docs/HeroV2ItemDraftBucketingValue.md
 docs/HeroesAPI.md
 docs/IntrinsicModifiers.md
 docs/ItemDraftRound.md
 docs/ItemDraftRoundPerGameRound.md
+docs/ItemDraftsValue.md
 docs/ItemGroup.md
 docs/ItemPropertyV2.md
 docs/ItemSlotTypeV2.md
@@ -101,6 +105,7 @@ docs/RawAbilityV2TooltipDetailsInfoSection.md
 docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/RawAccoladeV2.md
+docs/RawHeroDraftBucketing.md
 docs/RawHeroItemSlotInfoValueV2.md
 docs/RawHeroLevelInfoV2.md
 docs/RawHeroMapModCostBonusesV2.md
@@ -186,6 +191,8 @@ model_curve.go
 model_damage_flash_v2.go
 model_deadlock_assets_api_routes_valid_client_versions.go
 model_dependant_abilities.go
+model_draft_bucket.go
+model_draft_buckets.go
 model_empowered_modifier_level.go
 model_expiration_duration.go
 model_flash_data_v2.go
@@ -204,10 +211,12 @@ model_hero_starting_stat_v2.go
 model_hero_starting_stats_v2.go
 model_hero_type_v2.go
 model_hero_v2.go
+model_hero_v2_item_draft_bucketing_value.go
 model_http_validation_error.go
 model_intrinsic_modifiers.go
 model_item_draft_round.go
 model_item_draft_round_per_game_round.go
+model_item_drafts_value.go
 model_item_group.go
 model_item_property_v2.go
 model_item_slot_type_v2.go
@@ -249,6 +258,7 @@ model_raw_ability_v2_tooltip_details_info_section.go
 model_raw_ability_v2_tooltip_details_info_section_property_block.go
 model_raw_ability_v2_tooltip_details_info_section_property_block_property.go
 model_raw_accolade_v2.go
+model_raw_hero_draft_bucketing.go
 model_raw_hero_item_slot_info_value_v2.go
 model_raw_hero_level_info_v2.go
 model_raw_hero_map_mod_cost_bonuses_v2.go

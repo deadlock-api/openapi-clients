@@ -100,6 +100,7 @@ class RawHeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'purchase_bonuses' => 'array<string,\OpenAPI\Client\Model\RawHeroPurchaseBonusV2[]>',
         'scaling_stats' => 'array<string,\OpenAPI\Client\Model\RawHeroScalingStatV2>',
         'standard_level_up_upgrades' => 'array<string,float>',
+        'item_draft_bucketing' => 'array<string,\OpenAPI\Client\Model\HeroV2ItemDraftBucketingValue>',
         'background_image' => 'string'
     ];
 
@@ -154,6 +155,7 @@ class RawHeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'purchase_bonuses' => null,
         'scaling_stats' => null,
         'standard_level_up_upgrades' => null,
+        'item_draft_bucketing' => null,
         'background_image' => null
     ];
 
@@ -206,6 +208,7 @@ class RawHeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'purchase_bonuses' => true,
         'scaling_stats' => false,
         'standard_level_up_upgrades' => false,
+        'item_draft_bucketing' => true,
         'background_image' => true
     ];
 
@@ -338,6 +341,7 @@ class RawHeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'purchase_bonuses' => 'purchase_bonuses',
         'scaling_stats' => 'scaling_stats',
         'standard_level_up_upgrades' => 'standard_level_up_upgrades',
+        'item_draft_bucketing' => 'item_draft_bucketing',
         'background_image' => 'background_image'
     ];
 
@@ -390,6 +394,7 @@ class RawHeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'purchase_bonuses' => 'setPurchaseBonuses',
         'scaling_stats' => 'setScalingStats',
         'standard_level_up_upgrades' => 'setStandardLevelUpUpgrades',
+        'item_draft_bucketing' => 'setItemDraftBucketing',
         'background_image' => 'setBackgroundImage'
     ];
 
@@ -442,6 +447,7 @@ class RawHeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'purchase_bonuses' => 'getPurchaseBonuses',
         'scaling_stats' => 'getScalingStats',
         'standard_level_up_upgrades' => 'getStandardLevelUpUpgrades',
+        'item_draft_bucketing' => 'getItemDraftBucketing',
         'background_image' => 'getBackgroundImage'
     ];
 
@@ -545,6 +551,7 @@ class RawHeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('purchase_bonuses', $data ?? [], null);
         $this->setIfExists('scaling_stats', $data ?? [], null);
         $this->setIfExists('standard_level_up_upgrades', $data ?? [], null);
+        $this->setIfExists('item_draft_bucketing', $data ?? [], null);
         $this->setIfExists('background_image', $data ?? [], null);
     }
 
@@ -1978,6 +1985,40 @@ class RawHeroV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable standard_level_up_upgrades cannot be null');
         }
         $this->container['standard_level_up_upgrades'] = $standard_level_up_upgrades;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_draft_bucketing
+     *
+     * @return array<string,\OpenAPI\Client\Model\HeroV2ItemDraftBucketingValue>|null
+     */
+    public function getItemDraftBucketing()
+    {
+        return $this->container['item_draft_bucketing'];
+    }
+
+    /**
+     * Sets item_draft_bucketing
+     *
+     * @param array<string,\OpenAPI\Client\Model\HeroV2ItemDraftBucketingValue>|null $item_draft_bucketing item_draft_bucketing
+     *
+     * @return self
+     */
+    public function setItemDraftBucketing($item_draft_bucketing)
+    {
+        if (is_null($item_draft_bucketing)) {
+            array_push($this->openAPINullablesSetToNull, 'item_draft_bucketing');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('item_draft_bucketing', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['item_draft_bucketing'] = $item_draft_bucketing;
 
         return $this;
     }

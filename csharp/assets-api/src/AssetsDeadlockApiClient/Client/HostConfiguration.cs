@@ -64,6 +64,8 @@ namespace AssetsDeadlockApiClient.Client
             _jsonOptions.Converters.Add(new DeadlockAssetsApiRoutesValidClientVersionsJsonConverter());
             _jsonOptions.Converters.Add(new DeadlockAssetsApiRoutesValidClientVersionsNullableJsonConverter());
             _jsonOptions.Converters.Add(new DependantAbilitiesJsonConverter());
+            _jsonOptions.Converters.Add(new DraftBucketJsonConverter());
+            _jsonOptions.Converters.Add(new DraftBucketsJsonConverter());
             _jsonOptions.Converters.Add(new EmpoweredModifierLevelJsonConverter());
             _jsonOptions.Converters.Add(new ExpirationDurationJsonConverter());
             _jsonOptions.Converters.Add(new FlashDataV2JsonConverter());
@@ -86,9 +88,11 @@ namespace AssetsDeadlockApiClient.Client
             _jsonOptions.Converters.Add(new HeroTypeV2JsonConverter());
             _jsonOptions.Converters.Add(new HeroTypeV2NullableJsonConverter());
             _jsonOptions.Converters.Add(new HeroV2JsonConverter());
+            _jsonOptions.Converters.Add(new HeroV2ItemDraftBucketingValueJsonConverter());
             _jsonOptions.Converters.Add(new IntrinsicModifiersJsonConverter());
             _jsonOptions.Converters.Add(new ItemDraftRoundJsonConverter());
             _jsonOptions.Converters.Add(new ItemDraftRoundPerGameRoundJsonConverter());
+            _jsonOptions.Converters.Add(new ItemDraftsValueJsonConverter());
             _jsonOptions.Converters.Add(new ItemGroupJsonConverter());
             _jsonOptions.Converters.Add(new ItemPropertyV2JsonConverter());
             _jsonOptions.Converters.Add(new ItemSlotTypeV2JsonConverter());
@@ -137,6 +141,7 @@ namespace AssetsDeadlockApiClient.Client
             _jsonOptions.Converters.Add(new RawAbilityV2TooltipDetailsInfoSectionPropertyBlockJsonConverter());
             _jsonOptions.Converters.Add(new RawAbilityV2TooltipDetailsInfoSectionPropertyBlockPropertyJsonConverter());
             _jsonOptions.Converters.Add(new RawAccoladeV2JsonConverter());
+            _jsonOptions.Converters.Add(new RawHeroDraftBucketingJsonConverter());
             _jsonOptions.Converters.Add(new RawHeroItemSlotInfoValueV2JsonConverter());
             _jsonOptions.Converters.Add(new RawHeroLevelInfoV2JsonConverter());
             _jsonOptions.Converters.Add(new RawHeroMapModCostBonusesV2JsonConverter());

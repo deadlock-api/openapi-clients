@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **purchase_bonuses** | Option<[**std::collections::HashMap<String, Vec<models::RawHeroPurchaseBonusV2>>**](Vec.md)> |  | [optional]
 **scaling_stats** | [**std::collections::HashMap<String, models::RawHeroScalingStatV2>**](RawHeroScalingStatV2.md) |  | 
 **standard_level_up_upgrades** | **std::collections::HashMap<String, f64>** |  | 
+**item_draft_bucketing** | Option<[**std::collections::HashMap<String, models::HeroV2ItemDraftBucketingValue>**](HeroV2ItemDraftBucketingValue.md)> |  | [optional]
 **background_image** | Option<**String**> |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

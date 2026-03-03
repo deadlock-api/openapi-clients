@@ -27,6 +27,7 @@ from assets_deadlock_api_client.models.hero_physics_v2 import HeroPhysicsV2
 from assets_deadlock_api_client.models.hero_shop_stat_display_v2 import HeroShopStatDisplayV2
 from assets_deadlock_api_client.models.hero_starting_stats_v2 import HeroStartingStatsV2
 from assets_deadlock_api_client.models.hero_type_v2 import HeroTypeV2
+from assets_deadlock_api_client.models.hero_v2_item_draft_bucketing_value import HeroV2ItemDraftBucketingValue
 from assets_deadlock_api_client.models.raw_hero_item_slot_info_value_v2 import RawHeroItemSlotInfoValueV2
 from assets_deadlock_api_client.models.raw_hero_map_mod_cost_bonuses_v2 import RawHeroMapModCostBonusesV2
 from assets_deadlock_api_client.models.raw_hero_purchase_bonus_v2 import RawHeroPurchaseBonusV2
@@ -72,7 +73,8 @@ class HeroV2(BaseModel):
     scaling_stats: Dict[str, RawHeroScalingStatV2]
     purchase_bonuses: Dict[str, List[RawHeroPurchaseBonusV2]]
     standard_level_up_upgrades: Dict[str, Union[StrictFloat, StrictInt]]
-    __properties: ClassVar[List[str]] = ["id", "class_name", "name", "description", "item_draft_weights", "player_selectable", "disabled", "in_development", "needs_testing", "assigned_players_only", "tags", "gun_tag", "hideout_rich_presence", "hero_type", "prerelease_only", "limited_testing", "complexity", "skin", "images", "items", "starting_stats", "item_slot_info", "physics", "colors", "shop_stat_display", "cost_bonuses", "stats_display", "hero_stats_ui", "level_info", "scaling_stats", "purchase_bonuses", "standard_level_up_upgrades"]
+    item_draft_bucketing: Optional[Dict[str, Optional[HeroV2ItemDraftBucketingValue]]] = None
+    __properties: ClassVar[List[str]] = ["id", "class_name", "name", "description", "item_draft_weights", "player_selectable", "disabled", "in_development", "needs_testing", "assigned_players_only", "tags", "gun_tag", "hideout_rich_presence", "hero_type", "prerelease_only", "limited_testing", "complexity", "skin", "images", "items", "starting_stats", "item_slot_info", "physics", "colors", "shop_stat_display", "cost_bonuses", "stats_display", "hero_stats_ui", "level_info", "scaling_stats", "purchase_bonuses", "standard_level_up_upgrades", "item_draft_bucketing"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -176,6 +178,13 @@ class HeroV2(BaseModel):
                         _item.to_dict() for _item in self.purchase_bonuses[_key_purchase_bonuses]
                     ]
             _dict['purchase_bonuses'] = _field_dict_of_array
+        # override the default output from pydantic by calling `to_dict()` of each value in item_draft_bucketing (dict)
+        _field_dict = {}
+        if self.item_draft_bucketing:
+            for _key_item_draft_bucketing in self.item_draft_bucketing:
+                if self.item_draft_bucketing[_key_item_draft_bucketing]:
+                    _field_dict[_key_item_draft_bucketing] = self.item_draft_bucketing[_key_item_draft_bucketing].to_dict()
+            _dict['item_draft_bucketing'] = _field_dict
         # set to None if item_draft_weights (nullable) is None
         # and model_fields_set contains the field
         if self.item_draft_weights is None and "item_draft_weights" in self.model_fields_set:
@@ -210,6 +219,11 @@ class HeroV2(BaseModel):
         # and model_fields_set contains the field
         if self.cost_bonuses is None and "cost_bonuses" in self.model_fields_set:
             _dict['cost_bonuses'] = None
+
+        # set to None if item_draft_bucketing (nullable) is None
+        # and model_fields_set contains the field
+        if self.item_draft_bucketing is None and "item_draft_bucketing" in self.model_fields_set:
+            _dict['item_draft_bucketing'] = None
 
         return _dict
 
@@ -283,7 +297,13 @@ class HeroV2(BaseModel):
                 )
                 for _k, _v in obj.get("purchase_bonuses", {}).items()
             ),
-            "standard_level_up_upgrades": obj.get("standard_level_up_upgrades")
+            "standard_level_up_upgrades": obj.get("standard_level_up_upgrades"),
+            "item_draft_bucketing": dict(
+                (_k, HeroV2ItemDraftBucketingValue.from_dict(_v))
+                for _k, _v in obj["item_draft_bucketing"].items()
+            )
+            if obj.get("item_draft_bucketing") is not None
+            else None
         })
         return _obj
 

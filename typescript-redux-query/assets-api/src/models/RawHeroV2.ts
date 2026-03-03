@@ -16,6 +16,9 @@ import {
     HeroTypeV2,
     HeroTypeV2FromJSON,
     HeroTypeV2ToJSON,
+    HeroV2ItemDraftBucketingValue,
+    HeroV2ItemDraftBucketingValueFromJSON,
+    HeroV2ItemDraftBucketingValueToJSON,
     RawHeroItemSlotInfoValueV2,
     RawHeroItemSlotInfoValueV2FromJSON,
     RawHeroItemSlotInfoValueV2ToJSON,
@@ -311,6 +314,12 @@ export interface RawHeroV2  {
     standardLevelUpUpgrades: { [key: string]: number; };
     /**
      * 
+     * @type {{ [key: string]: HeroV2ItemDraftBucketingValue; }}
+     * @memberof RawHeroV2
+     */
+    itemDraftBucketing?: { [key: string]: HeroV2ItemDraftBucketingValue; };
+    /**
+     * 
      * @type {string}
      * @memberof RawHeroV2
      */
@@ -362,6 +371,7 @@ export function RawHeroV2FromJSON(json: any): RawHeroV2 {
         'purchaseBonuses': !exists(json, 'purchase_bonuses') ? undefined : json['purchase_bonuses'],
         'scalingStats': mapValues(json['scaling_stats'], RawHeroScalingStatV2FromJSON),
         'standardLevelUpUpgrades': json['standard_level_up_upgrades'],
+        'itemDraftBucketing': !exists(json, 'item_draft_bucketing') ? undefined : mapValues(json['item_draft_bucketing'], HeroV2ItemDraftBucketingValueFromJSON),
         'backgroundImage': json['background_image'],
     };
 }
@@ -414,6 +424,7 @@ export function RawHeroV2ToJSON(value?: RawHeroV2): any {
         'purchase_bonuses': value.purchaseBonuses,
         'scaling_stats': mapValues(value.scalingStats, RawHeroScalingStatV2ToJSON),
         'standard_level_up_upgrades': value.standardLevelUpUpgrades,
+        'item_draft_bucketing': value.itemDraftBucketing === undefined ? undefined : mapValues(value.itemDraftBucketing, HeroV2ItemDraftBucketingValueToJSON),
     };
 }
 

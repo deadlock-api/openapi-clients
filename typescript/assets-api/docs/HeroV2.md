@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **scaling_stats** | [**{ [key: string]: RawHeroScalingStatV2; }**](RawHeroScalingStatV2.md) |  | [default to undefined]
 **purchase_bonuses** | **{ [key: string]: Array&lt;RawHeroPurchaseBonusV2&gt;; }** |  | [default to undefined]
 **standard_level_up_upgrades** | **{ [key: string]: number; }** |  | [default to undefined]
+**item_draft_bucketing** | [**{ [key: string]: HeroV2ItemDraftBucketingValue; }**](HeroV2ItemDraftBucketingValue.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -76,6 +77,7 @@ const instance: HeroV2 = {
     scaling_stats,
     purchase_bonuses,
     standard_level_up_upgrades,
+    item_draft_bucketing,
 };
 ```
 

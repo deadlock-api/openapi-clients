@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **HeroType** | **HeroTypeV2** |  | [optional] 
 **PrereleaseOnly** | **bool** |  | [optional] 
 **CostBonuses** | **Dictionary&lt;string, List&lt;RawHeroMapModCostBonusesV2&gt;&gt;** |  | [optional] 
+**ItemDraftBucketing** | [**Dictionary&lt;string, HeroV2ItemDraftBucketingValue&gt;**](HeroV2ItemDraftBucketingValue.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -4,6 +4,7 @@
 
 | Name | Value |
 |---- | -----|
+| Variant6355 | 6355 |
 | Variant6351 | 6351 |
 | Variant6325 | 6325 |
 | Variant6290 | 6290 |

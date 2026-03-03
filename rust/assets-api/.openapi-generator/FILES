@@ -24,6 +24,8 @@ docs/DamageFlashV2.md
 docs/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/DefaultApi.md
 docs/DependantAbilities.md
+docs/DraftBucket.md
+docs/DraftBuckets.md
 docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -42,11 +44,13 @@ docs/HeroStartingStatV2.md
 docs/HeroStartingStatsV2.md
 docs/HeroTypeV2.md
 docs/HeroV2.md
+docs/HeroV2ItemDraftBucketingValue.md
 docs/HeroesApi.md
 docs/HttpValidationError.md
 docs/IntrinsicModifiers.md
 docs/ItemDraftRound.md
 docs/ItemDraftRoundPerGameRound.md
+docs/ItemDraftsValue.md
 docs/ItemGroup.md
 docs/ItemPropertyV2.md
 docs/ItemSlotTypeV2.md
@@ -92,6 +96,7 @@ docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/RawAccoladeV2.md
 docs/RawApi.md
+docs/RawHeroDraftBucketing.md
 docs/RawHeroItemSlotInfoValueV2.md
 docs/RawHeroLevelInfoV2.md
 docs/RawHeroMapModCostBonusesV2.md
@@ -185,6 +190,8 @@ src/models/curve.rs
 src/models/damage_flash_v2.rs
 src/models/deadlock_assets_api_routes_valid_client_versions.rs
 src/models/dependant_abilities.rs
+src/models/draft_bucket.rs
+src/models/draft_buckets.rs
 src/models/empowered_modifier_level.rs
 src/models/expiration_duration.rs
 src/models/flash_data_v2.rs
@@ -203,10 +210,12 @@ src/models/hero_starting_stat_v2.rs
 src/models/hero_starting_stats_v2.rs
 src/models/hero_type_v2.rs
 src/models/hero_v2.rs
+src/models/hero_v2_item_draft_bucketing_value.rs
 src/models/http_validation_error.rs
 src/models/intrinsic_modifiers.rs
 src/models/item_draft_round.rs
 src/models/item_draft_round_per_game_round.rs
+src/models/item_drafts_value.rs
 src/models/item_group.rs
 src/models/item_property_v2.rs
 src/models/item_slot_type_v2.rs
@@ -249,6 +258,7 @@ src/models/raw_ability_v2_tooltip_details_info_section.rs
 src/models/raw_ability_v2_tooltip_details_info_section_property_block.rs
 src/models/raw_ability_v2_tooltip_details_info_section_property_block_property.rs
 src/models/raw_accolade_v2.rs
+src/models/raw_hero_draft_bucketing.rs
 src/models/raw_hero_item_slot_info_value_v2.rs
 src/models/raw_hero_level_info_v2.rs
 src/models/raw_hero_map_mod_cost_bonuses_v2.rs

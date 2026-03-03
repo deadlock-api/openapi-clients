@@ -31,6 +31,8 @@ src/models/Curve.ts
 src/models/DamageFlashV2.ts
 src/models/DeadlockAssetsApiRoutesValidClientVersions.ts
 src/models/DependantAbilities.ts
+src/models/DraftBucket.ts
+src/models/DraftBuckets.ts
 src/models/EmpoweredModifierLevel.ts
 src/models/ExpirationDuration.ts
 src/models/FlashDataV2.ts
@@ -50,9 +52,11 @@ src/models/HeroStartingStatV2.ts
 src/models/HeroStartingStatsV2.ts
 src/models/HeroTypeV2.ts
 src/models/HeroV2.ts
+src/models/HeroV2ItemDraftBucketingValue.ts
 src/models/IntrinsicModifiers.ts
 src/models/ItemDraftRound.ts
 src/models/ItemDraftRoundPerGameRound.ts
+src/models/ItemDraftsValue.ts
 src/models/ItemGroup.ts
 src/models/ItemPropertyV2.ts
 src/models/ItemSlotTypeV2.ts
@@ -94,6 +98,7 @@ src/models/RawAbilityV2TooltipDetailsInfoSection.ts
 src/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.ts
 src/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.ts
 src/models/RawAccoladeV2.ts
+src/models/RawHeroDraftBucketing.ts
 src/models/RawHeroItemSlotInfoValueV2.ts
 src/models/RawHeroLevelInfoV2.ts
 src/models/RawHeroMapModCostBonusesV2.ts

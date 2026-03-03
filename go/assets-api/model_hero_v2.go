@@ -53,6 +53,7 @@ type HeroV2 struct {
 	ScalingStats map[string]RawHeroScalingStatV2 `json:"scaling_stats"`
 	PurchaseBonuses map[string][]RawHeroPurchaseBonusV2 `json:"purchase_bonuses"`
 	StandardLevelUpUpgrades map[string]float32 `json:"standard_level_up_upgrades"`
+	ItemDraftBucketing map[string]HeroV2ItemDraftBucketingValue `json:"item_draft_bucketing,omitempty"`
 }
 
 type _HeroV2 HeroV2
@@ -966,6 +967,39 @@ func (o *HeroV2) SetStandardLevelUpUpgrades(v map[string]float32) {
 	o.StandardLevelUpUpgrades = v
 }
 
+// GetItemDraftBucketing returns the ItemDraftBucketing field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroV2) GetItemDraftBucketing() map[string]HeroV2ItemDraftBucketingValue {
+	if o == nil {
+		var ret map[string]HeroV2ItemDraftBucketingValue
+		return ret
+	}
+	return o.ItemDraftBucketing
+}
+
+// GetItemDraftBucketingOk returns a tuple with the ItemDraftBucketing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroV2) GetItemDraftBucketingOk() (map[string]HeroV2ItemDraftBucketingValue, bool) {
+	if o == nil || IsNil(o.ItemDraftBucketing) {
+		return map[string]HeroV2ItemDraftBucketingValue{}, false
+	}
+	return o.ItemDraftBucketing, true
+}
+
+// HasItemDraftBucketing returns a boolean if a field has been set.
+func (o *HeroV2) HasItemDraftBucketing() bool {
+	if o != nil && !IsNil(o.ItemDraftBucketing) {
+		return true
+	}
+
+	return false
+}
+
+// SetItemDraftBucketing gets a reference to the given map[string]HeroV2ItemDraftBucketingValue and assigns it to the ItemDraftBucketing field.
+func (o *HeroV2) SetItemDraftBucketing(v map[string]HeroV2ItemDraftBucketingValue) {
+	o.ItemDraftBucketing = v
+}
+
 func (o HeroV2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1022,6 +1056,9 @@ func (o HeroV2) ToMap() (map[string]interface{}, error) {
 	toSerialize["scaling_stats"] = o.ScalingStats
 	toSerialize["purchase_bonuses"] = o.PurchaseBonuses
 	toSerialize["standard_level_up_upgrades"] = o.StandardLevelUpUpgrades
+	if o.ItemDraftBucketing != nil {
+		toSerialize["item_draft_bucketing"] = o.ItemDraftBucketing
+	}
 	return toSerialize, nil
 }
 

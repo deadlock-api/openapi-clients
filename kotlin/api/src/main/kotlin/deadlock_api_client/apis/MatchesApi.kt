@@ -224,7 +224,8 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
      enum class OrderByBulkMetadata(val value: kotlin.String) {
          @Json(name = "match_id") match_id("match_id"),
-         @Json(name = "start_time") start_time("start_time");
+         @Json(name = "start_time") start_time("start_time"),
+         @Json(name = "average_badge") average_badge("average_badge");
 
         /**
          * Override [toString()] to avoid using the enum variable name as the value, and instead use
@@ -262,6 +263,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param includeObjectives Include objectives in the response. (optional)
      * @param includeMidBoss Include midboss in the response. (optional)
      * @param includePlayerInfo Include player info in the response. (optional)
+     * @param includePlayerKda Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players. (optional)
      * @param includePlayerItems Include player items in the response. (optional)
      * @param includePlayerStats Include player stats in the response. (optional)
      * @param includePlayerDeathDetails Include player death details in the response. (optional)
@@ -280,6 +282,9 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
      * @param accountIds Filter matches by account IDs of players that participated in the match. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
+     * @param itemFilterHeroId Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. (optional)
+     * @param includeItemIds Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. (optional)
      * @param orderBy The field to order the results by. (optional)
      * @param orderDirection The direction to order the results by. (optional)
      * @param limit The maximum number of matches to return. (optional, default to 1000)
@@ -292,8 +297,8 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun bulkMetadata(includeInfo: kotlin.Boolean? = true, includeMoreInfo: kotlin.Boolean? = null, includeObjectives: kotlin.Boolean? = null, includeMidBoss: kotlin.Boolean? = null, includePlayerInfo: kotlin.Boolean? = null, includePlayerItems: kotlin.Boolean? = null, includePlayerStats: kotlin.Boolean? = null, includePlayerDeathDetails: kotlin.Boolean? = null, gameMode: GameModeBulkMetadata? = null, matchIds: kotlin.collections.List<kotlin.Long>? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroIds: kotlin.String? = null, orderBy: OrderByBulkMetadata? = null, orderDirection: OrderDirectionBulkMetadata? = null, limit: kotlin.Int? = 1000) : kotlin.collections.List<kotlin.Int> {
-        val localVarResponse = bulkMetadataWithHttpInfo(includeInfo = includeInfo, includeMoreInfo = includeMoreInfo, includeObjectives = includeObjectives, includeMidBoss = includeMidBoss, includePlayerInfo = includePlayerInfo, includePlayerItems = includePlayerItems, includePlayerStats = includePlayerStats, includePlayerDeathDetails = includePlayerDeathDetails, gameMode = gameMode, matchIds = matchIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, accountIds = accountIds, heroIds = heroIds, orderBy = orderBy, orderDirection = orderDirection, limit = limit)
+    fun bulkMetadata(includeInfo: kotlin.Boolean? = true, includeMoreInfo: kotlin.Boolean? = null, includeObjectives: kotlin.Boolean? = null, includeMidBoss: kotlin.Boolean? = null, includePlayerInfo: kotlin.Boolean? = null, includePlayerKda: kotlin.Boolean? = null, includePlayerItems: kotlin.Boolean? = null, includePlayerStats: kotlin.Boolean? = null, includePlayerDeathDetails: kotlin.Boolean? = null, gameMode: GameModeBulkMetadata? = null, matchIds: kotlin.collections.List<kotlin.Long>? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroIds: kotlin.String? = null, itemFilterHeroId: kotlin.Int? = null, includeItemIds: kotlin.String? = null, excludeItemIds: kotlin.String? = null, orderBy: OrderByBulkMetadata? = null, orderDirection: OrderDirectionBulkMetadata? = null, limit: kotlin.Int? = 1000) : kotlin.collections.List<kotlin.Int> {
+        val localVarResponse = bulkMetadataWithHttpInfo(includeInfo = includeInfo, includeMoreInfo = includeMoreInfo, includeObjectives = includeObjectives, includeMidBoss = includeMidBoss, includePlayerInfo = includePlayerInfo, includePlayerKda = includePlayerKda, includePlayerItems = includePlayerItems, includePlayerStats = includePlayerStats, includePlayerDeathDetails = includePlayerDeathDetails, gameMode = gameMode, matchIds = matchIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, accountIds = accountIds, heroIds = heroIds, itemFilterHeroId = itemFilterHeroId, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, orderBy = orderBy, orderDirection = orderDirection, limit = limit)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
@@ -319,6 +324,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param includeObjectives Include objectives in the response. (optional)
      * @param includeMidBoss Include midboss in the response. (optional)
      * @param includePlayerInfo Include player info in the response. (optional)
+     * @param includePlayerKda Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players. (optional)
      * @param includePlayerItems Include player items in the response. (optional)
      * @param includePlayerStats Include player stats in the response. (optional)
      * @param includePlayerDeathDetails Include player death details in the response. (optional)
@@ -337,6 +343,9 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
      * @param accountIds Filter matches by account IDs of players that participated in the match. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
+     * @param itemFilterHeroId Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. (optional)
+     * @param includeItemIds Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. (optional)
      * @param orderBy The field to order the results by. (optional)
      * @param orderDirection The direction to order the results by. (optional)
      * @param limit The maximum number of matches to return. (optional, default to 1000)
@@ -346,8 +355,8 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun bulkMetadataWithHttpInfo(includeInfo: kotlin.Boolean?, includeMoreInfo: kotlin.Boolean?, includeObjectives: kotlin.Boolean?, includeMidBoss: kotlin.Boolean?, includePlayerInfo: kotlin.Boolean?, includePlayerItems: kotlin.Boolean?, includePlayerStats: kotlin.Boolean?, includePlayerDeathDetails: kotlin.Boolean?, gameMode: GameModeBulkMetadata?, matchIds: kotlin.collections.List<kotlin.Long>?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, orderBy: OrderByBulkMetadata?, orderDirection: OrderDirectionBulkMetadata?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
-        val localVariableConfig = bulkMetadataRequestConfig(includeInfo = includeInfo, includeMoreInfo = includeMoreInfo, includeObjectives = includeObjectives, includeMidBoss = includeMidBoss, includePlayerInfo = includePlayerInfo, includePlayerItems = includePlayerItems, includePlayerStats = includePlayerStats, includePlayerDeathDetails = includePlayerDeathDetails, gameMode = gameMode, matchIds = matchIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, accountIds = accountIds, heroIds = heroIds, orderBy = orderBy, orderDirection = orderDirection, limit = limit)
+    fun bulkMetadataWithHttpInfo(includeInfo: kotlin.Boolean?, includeMoreInfo: kotlin.Boolean?, includeObjectives: kotlin.Boolean?, includeMidBoss: kotlin.Boolean?, includePlayerInfo: kotlin.Boolean?, includePlayerKda: kotlin.Boolean?, includePlayerItems: kotlin.Boolean?, includePlayerStats: kotlin.Boolean?, includePlayerDeathDetails: kotlin.Boolean?, gameMode: GameModeBulkMetadata?, matchIds: kotlin.collections.List<kotlin.Long>?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, itemFilterHeroId: kotlin.Int?, includeItemIds: kotlin.String?, excludeItemIds: kotlin.String?, orderBy: OrderByBulkMetadata?, orderDirection: OrderDirectionBulkMetadata?, limit: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        val localVariableConfig = bulkMetadataRequestConfig(includeInfo = includeInfo, includeMoreInfo = includeMoreInfo, includeObjectives = includeObjectives, includeMidBoss = includeMidBoss, includePlayerInfo = includePlayerInfo, includePlayerKda = includePlayerKda, includePlayerItems = includePlayerItems, includePlayerStats = includePlayerStats, includePlayerDeathDetails = includePlayerDeathDetails, gameMode = gameMode, matchIds = matchIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, accountIds = accountIds, heroIds = heroIds, itemFilterHeroId = itemFilterHeroId, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, orderBy = orderBy, orderDirection = orderDirection, limit = limit)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
             localVariableConfig
@@ -362,6 +371,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param includeObjectives Include objectives in the response. (optional)
      * @param includeMidBoss Include midboss in the response. (optional)
      * @param includePlayerInfo Include player info in the response. (optional)
+     * @param includePlayerKda Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players. (optional)
      * @param includePlayerItems Include player items in the response. (optional)
      * @param includePlayerStats Include player stats in the response. (optional)
      * @param includePlayerDeathDetails Include player death details in the response. (optional)
@@ -380,12 +390,15 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
      * @param accountIds Filter matches by account IDs of players that participated in the match. (optional)
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
+     * @param itemFilterHeroId Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. (optional)
+     * @param includeItemIds Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. (optional)
      * @param orderBy The field to order the results by. (optional)
      * @param orderDirection The direction to order the results by. (optional)
      * @param limit The maximum number of matches to return. (optional, default to 1000)
      * @return RequestConfig
      */
-    fun bulkMetadataRequestConfig(includeInfo: kotlin.Boolean?, includeMoreInfo: kotlin.Boolean?, includeObjectives: kotlin.Boolean?, includeMidBoss: kotlin.Boolean?, includePlayerInfo: kotlin.Boolean?, includePlayerItems: kotlin.Boolean?, includePlayerStats: kotlin.Boolean?, includePlayerDeathDetails: kotlin.Boolean?, gameMode: GameModeBulkMetadata?, matchIds: kotlin.collections.List<kotlin.Long>?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, orderBy: OrderByBulkMetadata?, orderDirection: OrderDirectionBulkMetadata?, limit: kotlin.Int?) : RequestConfig<Unit> {
+    fun bulkMetadataRequestConfig(includeInfo: kotlin.Boolean?, includeMoreInfo: kotlin.Boolean?, includeObjectives: kotlin.Boolean?, includeMidBoss: kotlin.Boolean?, includePlayerInfo: kotlin.Boolean?, includePlayerKda: kotlin.Boolean?, includePlayerItems: kotlin.Boolean?, includePlayerStats: kotlin.Boolean?, includePlayerDeathDetails: kotlin.Boolean?, gameMode: GameModeBulkMetadata?, matchIds: kotlin.collections.List<kotlin.Long>?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, accountIds: kotlin.collections.List<kotlin.Int>?, heroIds: kotlin.String?, itemFilterHeroId: kotlin.Int?, includeItemIds: kotlin.String?, excludeItemIds: kotlin.String?, orderBy: OrderByBulkMetadata?, orderDirection: OrderDirectionBulkMetadata?, limit: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -403,6 +416,9 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
                 }
                 if (includePlayerInfo != null) {
                     put("include_player_info", listOf(includePlayerInfo.toString()))
+                }
+                if (includePlayerKda != null) {
+                    put("include_player_kda", listOf(includePlayerKda.toString()))
                 }
                 if (includePlayerItems != null) {
                     put("include_player_items", listOf(includePlayerItems.toString()))
@@ -457,6 +473,15 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
                 }
                 if (heroIds != null) {
                     put("hero_ids", listOf(heroIds.toString()))
+                }
+                if (itemFilterHeroId != null) {
+                    put("item_filter_hero_id", listOf(itemFilterHeroId.toString()))
+                }
+                if (includeItemIds != null) {
+                    put("include_item_ids", listOf(includeItemIds.toString()))
+                }
+                if (excludeItemIds != null) {
+                    put("exclude_item_ids", listOf(excludeItemIds.toString()))
                 }
                 if (orderBy != null) {
                     put("order_by", listOf(orderBy.value))

@@ -121,7 +121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -339,7 +339,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -471,7 +471,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -532,7 +532,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -781,7 +781,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -1033,7 +1033,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -1294,7 +1294,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -1572,7 +1572,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -1797,7 +1797,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -2061,7 +2061,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -2350,7 +2350,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -2568,7 +2568,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -2864,7 +2864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -4291,6 +4291,15 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: "Include only K/D/A fields (`kills`, `deaths`, `assists`) for\
+          \ players."
+        explode: true
+        in: query
+        name: include_player_kda
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: Include player items in the response.
         explode: true
         in: query
@@ -4486,6 +4495,40 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: Hero ID to scope item filters to. Required when using `include_item_ids`
+          or `exclude_item_ids`.
+        explode: true
+        in: query
+        name: item_filter_hero_id
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: |-
+          Comma separated list of item ids to include.
+          Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
+        explode: true
+        in: query
+        name: include_item_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: |-
+          Comma separated list of item ids to exclude.
+          Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
+        explode: true
+        in: query
+        name: exclude_item_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       - description: The field to order the results by.
         explode: true
         in: query
@@ -4495,6 +4538,7 @@ paths:
           enum:
           - match_id
           - start_time
+          - average_badge
           type: string
         style: form
       - description: The direction to order the results by.
@@ -5041,7 +5085,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer
@@ -5160,7 +5204,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769644800
+          default: 1769817600
           format: int64
           nullable: true
           type: integer

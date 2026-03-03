@@ -37,6 +37,9 @@ import {
     HeroTypeV2,
     HeroTypeV2FromJSON,
     HeroTypeV2ToJSON,
+    HeroV2ItemDraftBucketingValue,
+    HeroV2ItemDraftBucketingValueFromJSON,
+    HeroV2ItemDraftBucketingValueToJSON,
     RawHeroItemSlotInfoValueV2,
     RawHeroItemSlotInfoValueV2FromJSON,
     RawHeroItemSlotInfoValueV2ToJSON,
@@ -255,6 +258,12 @@ export interface HeroV2  {
      * @memberof HeroV2
      */
     standardLevelUpUpgrades: { [key: string]: number; };
+    /**
+     * 
+     * @type {{ [key: string]: HeroV2ItemDraftBucketingValue; }}
+     * @memberof HeroV2
+     */
+    itemDraftBucketing?: { [key: string]: HeroV2ItemDraftBucketingValue; };
 }
 
 export function HeroV2FromJSON(json: any): HeroV2 {
@@ -291,6 +300,7 @@ export function HeroV2FromJSON(json: any): HeroV2 {
         'scalingStats': mapValues(json['scaling_stats'], RawHeroScalingStatV2FromJSON),
         'purchaseBonuses': json['purchase_bonuses'],
         'standardLevelUpUpgrades': json['standard_level_up_upgrades'],
+        'itemDraftBucketing': !exists(json, 'item_draft_bucketing') ? undefined : mapValues(json['item_draft_bucketing'], HeroV2ItemDraftBucketingValueFromJSON),
     };
 }
 
@@ -331,6 +341,7 @@ export function HeroV2ToJSON(value?: HeroV2): any {
         'scaling_stats': mapValues(value.scalingStats, RawHeroScalingStatV2ToJSON),
         'purchase_bonuses': value.purchaseBonuses,
         'standard_level_up_upgrades': value.standardLevelUpUpgrades,
+        'item_draft_bucketing': value.itemDraftBucketing === undefined ? undefined : mapValues(value.itemDraftBucketing, HeroV2ItemDraftBucketingValueToJSON),
     };
 }
 

@@ -33,6 +33,8 @@ api/Model/Curve.php
 api/Model/DamageFlashV2.php
 api/Model/DeadlockAssetsApiRoutesValidClientVersions.php
 api/Model/DependantAbilities.php
+api/Model/DraftBucket.php
+api/Model/DraftBuckets.php
 api/Model/EmpoweredModifierLevel.php
 api/Model/ExpirationDuration.php
 api/Model/FlashDataV2.php
@@ -52,9 +54,11 @@ api/Model/HeroStartingStatV2.php
 api/Model/HeroStartingStatsV2.php
 api/Model/HeroTypeV2.php
 api/Model/HeroV2.php
+api/Model/HeroV2ItemDraftBucketingValue.php
 api/Model/IntrinsicModifiers.php
 api/Model/ItemDraftRound.php
 api/Model/ItemDraftRoundPerGameRound.php
+api/Model/ItemDraftsValue.php
 api/Model/ItemGroup.php
 api/Model/ItemPropertyV2.php
 api/Model/ItemSlotTypeV2.php
@@ -97,6 +101,7 @@ api/Model/RawAbilityV2TooltipDetailsInfoSection.php
 api/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.php
 api/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.php
 api/Model/RawAccoladeV2.php
+api/Model/RawHeroDraftBucketing.php
 api/Model/RawHeroItemSlotInfoValueV2.php
 api/Model/RawHeroLevelInfoV2.php
 api/Model/RawHeroMapModCostBonusesV2.php
@@ -188,6 +193,8 @@ docs/Model/Curve.md
 docs/Model/DamageFlashV2.md
 docs/Model/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/Model/DependantAbilities.md
+docs/Model/DraftBucket.md
+docs/Model/DraftBuckets.md
 docs/Model/EmpoweredModifierLevel.md
 docs/Model/ExpirationDuration.md
 docs/Model/FlashDataV2.md
@@ -207,9 +214,11 @@ docs/Model/HeroStartingStatV2.md
 docs/Model/HeroStartingStatsV2.md
 docs/Model/HeroTypeV2.md
 docs/Model/HeroV2.md
+docs/Model/HeroV2ItemDraftBucketingValue.md
 docs/Model/IntrinsicModifiers.md
 docs/Model/ItemDraftRound.md
 docs/Model/ItemDraftRoundPerGameRound.md
+docs/Model/ItemDraftsValue.md
 docs/Model/ItemGroup.md
 docs/Model/ItemPropertyV2.md
 docs/Model/ItemSlotTypeV2.md
@@ -251,6 +260,7 @@ docs/Model/RawAbilityV2TooltipDetailsInfoSection.md
 docs/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/Model/RawAccoladeV2.md
+docs/Model/RawHeroDraftBucketing.md
 docs/Model/RawHeroItemSlotInfoValueV2.md
 docs/Model/RawHeroLevelInfoV2.md
 docs/Model/RawHeroMapModCostBonusesV2.md
@@ -342,6 +352,8 @@ test/Model/CurveTest.php
 test/Model/DamageFlashV2Test.php
 test/Model/DeadlockAssetsApiRoutesValidClientVersionsTest.php
 test/Model/DependantAbilitiesTest.php
+test/Model/DraftBucketTest.php
+test/Model/DraftBucketsTest.php
 test/Model/EmpoweredModifierLevelTest.php
 test/Model/ExpirationDurationTest.php
 test/Model/FlashDataV2Test.php
@@ -360,10 +372,12 @@ test/Model/HeroShopWeaponStatsDisplayV2Test.php
 test/Model/HeroStartingStatV2Test.php
 test/Model/HeroStartingStatsV2Test.php
 test/Model/HeroTypeV2Test.php
+test/Model/HeroV2ItemDraftBucketingValueTest.php
 test/Model/HeroV2Test.php
 test/Model/IntrinsicModifiersTest.php
 test/Model/ItemDraftRoundPerGameRoundTest.php
 test/Model/ItemDraftRoundTest.php
+test/Model/ItemDraftsValueTest.php
 test/Model/ItemGroupTest.php
 test/Model/ItemPropertyV2Test.php
 test/Model/ItemSlotTypeV2Test.php
@@ -405,6 +419,7 @@ test/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockTest.php
 test/Model/RawAbilityV2TooltipDetailsInfoSectionTest.php
 test/Model/RawAbilityV2TooltipDetailsTest.php
 test/Model/RawAccoladeV2Test.php
+test/Model/RawHeroDraftBucketingTest.php
 test/Model/RawHeroItemSlotInfoValueV2Test.php
 test/Model/RawHeroLevelInfoV2Test.php
 test/Model/RawHeroMapModCostBonusesV2Test.php

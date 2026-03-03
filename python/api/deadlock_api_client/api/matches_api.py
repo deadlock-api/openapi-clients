@@ -583,6 +583,7 @@ class MatchesApi:
         include_objectives: Annotated[Optional[StrictBool], Field(description="Include objectives in the response.")] = None,
         include_mid_boss: Annotated[Optional[StrictBool], Field(description="Include midboss in the response.")] = None,
         include_player_info: Annotated[Optional[StrictBool], Field(description="Include player info in the response.")] = None,
+        include_player_kda: Annotated[Optional[StrictBool], Field(description="Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.")] = None,
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
@@ -601,6 +602,9 @@ class MatchesApi:
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        item_filter_hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
+        include_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.")] = None,
+        exclude_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
@@ -631,6 +635,8 @@ class MatchesApi:
         :type include_mid_boss: bool
         :param include_player_info: Include player info in the response.
         :type include_player_info: bool
+        :param include_player_kda: Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.
+        :type include_player_kda: bool
         :param include_player_items: Include player items in the response.
         :type include_player_items: bool
         :param include_player_stats: Include player stats in the response.
@@ -667,6 +673,12 @@ class MatchesApi:
         :type account_ids: List[int]
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
+        :param item_filter_hero_id: Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
+        :type item_filter_hero_id: int
+        :param include_item_ids: Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
+        :type include_item_ids: str
+        :param exclude_item_ids: Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
+        :type exclude_item_ids: str
         :param order_by: The field to order the results by.
         :type order_by: str
         :param order_direction: The direction to order the results by.
@@ -701,6 +713,7 @@ class MatchesApi:
             include_objectives=include_objectives,
             include_mid_boss=include_mid_boss,
             include_player_info=include_player_info,
+            include_player_kda=include_player_kda,
             include_player_items=include_player_items,
             include_player_stats=include_player_stats,
             include_player_death_details=include_player_death_details,
@@ -719,6 +732,9 @@ class MatchesApi:
             is_new_player_pool=is_new_player_pool,
             account_ids=account_ids,
             hero_ids=hero_ids,
+            item_filter_hero_id=item_filter_hero_id,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
@@ -752,6 +768,7 @@ class MatchesApi:
         include_objectives: Annotated[Optional[StrictBool], Field(description="Include objectives in the response.")] = None,
         include_mid_boss: Annotated[Optional[StrictBool], Field(description="Include midboss in the response.")] = None,
         include_player_info: Annotated[Optional[StrictBool], Field(description="Include player info in the response.")] = None,
+        include_player_kda: Annotated[Optional[StrictBool], Field(description="Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.")] = None,
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
@@ -770,6 +787,9 @@ class MatchesApi:
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        item_filter_hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
+        include_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.")] = None,
+        exclude_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
@@ -800,6 +820,8 @@ class MatchesApi:
         :type include_mid_boss: bool
         :param include_player_info: Include player info in the response.
         :type include_player_info: bool
+        :param include_player_kda: Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.
+        :type include_player_kda: bool
         :param include_player_items: Include player items in the response.
         :type include_player_items: bool
         :param include_player_stats: Include player stats in the response.
@@ -836,6 +858,12 @@ class MatchesApi:
         :type account_ids: List[int]
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
+        :param item_filter_hero_id: Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
+        :type item_filter_hero_id: int
+        :param include_item_ids: Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
+        :type include_item_ids: str
+        :param exclude_item_ids: Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
+        :type exclude_item_ids: str
         :param order_by: The field to order the results by.
         :type order_by: str
         :param order_direction: The direction to order the results by.
@@ -870,6 +898,7 @@ class MatchesApi:
             include_objectives=include_objectives,
             include_mid_boss=include_mid_boss,
             include_player_info=include_player_info,
+            include_player_kda=include_player_kda,
             include_player_items=include_player_items,
             include_player_stats=include_player_stats,
             include_player_death_details=include_player_death_details,
@@ -888,6 +917,9 @@ class MatchesApi:
             is_new_player_pool=is_new_player_pool,
             account_ids=account_ids,
             hero_ids=hero_ids,
+            item_filter_hero_id=item_filter_hero_id,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
@@ -921,6 +953,7 @@ class MatchesApi:
         include_objectives: Annotated[Optional[StrictBool], Field(description="Include objectives in the response.")] = None,
         include_mid_boss: Annotated[Optional[StrictBool], Field(description="Include midboss in the response.")] = None,
         include_player_info: Annotated[Optional[StrictBool], Field(description="Include player info in the response.")] = None,
+        include_player_kda: Annotated[Optional[StrictBool], Field(description="Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.")] = None,
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
@@ -939,6 +972,9 @@ class MatchesApi:
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        item_filter_hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
+        include_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.")] = None,
+        exclude_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
@@ -969,6 +1005,8 @@ class MatchesApi:
         :type include_mid_boss: bool
         :param include_player_info: Include player info in the response.
         :type include_player_info: bool
+        :param include_player_kda: Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.
+        :type include_player_kda: bool
         :param include_player_items: Include player items in the response.
         :type include_player_items: bool
         :param include_player_stats: Include player stats in the response.
@@ -1005,6 +1043,12 @@ class MatchesApi:
         :type account_ids: List[int]
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_ids: str
+        :param item_filter_hero_id: Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
+        :type item_filter_hero_id: int
+        :param include_item_ids: Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
+        :type include_item_ids: str
+        :param exclude_item_ids: Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
+        :type exclude_item_ids: str
         :param order_by: The field to order the results by.
         :type order_by: str
         :param order_direction: The direction to order the results by.
@@ -1039,6 +1083,7 @@ class MatchesApi:
             include_objectives=include_objectives,
             include_mid_boss=include_mid_boss,
             include_player_info=include_player_info,
+            include_player_kda=include_player_kda,
             include_player_items=include_player_items,
             include_player_stats=include_player_stats,
             include_player_death_details=include_player_death_details,
@@ -1057,6 +1102,9 @@ class MatchesApi:
             is_new_player_pool=is_new_player_pool,
             account_ids=account_ids,
             hero_ids=hero_ids,
+            item_filter_hero_id=item_filter_hero_id,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
@@ -1085,6 +1133,7 @@ class MatchesApi:
         include_objectives,
         include_mid_boss,
         include_player_info,
+        include_player_kda,
         include_player_items,
         include_player_stats,
         include_player_death_details,
@@ -1103,6 +1152,9 @@ class MatchesApi:
         is_new_player_pool,
         account_ids,
         hero_ids,
+        item_filter_hero_id,
+        include_item_ids,
+        exclude_item_ids,
         order_by,
         order_direction,
         limit,
@@ -1149,6 +1201,10 @@ class MatchesApi:
         if include_player_info is not None:
             
             _query_params.append(('include_player_info', include_player_info))
+            
+        if include_player_kda is not None:
+            
+            _query_params.append(('include_player_kda', include_player_kda))
             
         if include_player_items is not None:
             
@@ -1221,6 +1277,18 @@ class MatchesApi:
         if hero_ids is not None:
             
             _query_params.append(('hero_ids', hero_ids))
+            
+        if item_filter_hero_id is not None:
+            
+            _query_params.append(('item_filter_hero_id', item_filter_hero_id))
+            
+        if include_item_ids is not None:
+            
+            _query_params.append(('include_item_ids', include_item_ids))
+            
+        if exclude_item_ids is not None:
+            
+            _query_params.append(('exclude_item_ids', exclude_item_ids))
             
         if order_by is not None:
             

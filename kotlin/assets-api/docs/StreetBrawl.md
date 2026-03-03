@@ -31,6 +31,7 @@
 | **tier2MaxResistTime** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |
 | **ultimateUnlockRound** | **kotlin.Int** |  |  |
 | **itemDraftRoundsPerGameRound** | [**kotlin.collections.List&lt;ItemDraftRoundPerGameRound&gt;**](ItemDraftRoundPerGameRound.md) |  |  |
+| **itemDrafts** | [**kotlin.collections.Map&lt;kotlin.String, ItemDraftsValue&gt;**](ItemDraftsValue.md) |  |  |
 | **outlineColorFriend** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  [optional] |
 | **outlineColorEnemy** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  [optional] |
 | **outlineColorTeam1** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  [optional] |

@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **outline_color_team1** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **outline_color_team2** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **outline_color_neutral** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**item_drafts** | [**{ [key: string]: ItemDraftsValue; }**](ItemDraftsValue.md) |  | [default to undefined]
 
 ## Example
 
@@ -76,6 +77,7 @@ const instance: StreetBrawl = {
     outline_color_team1,
     outline_color_team2,
     outline_color_neutral,
+    item_drafts,
 };
 ```
 

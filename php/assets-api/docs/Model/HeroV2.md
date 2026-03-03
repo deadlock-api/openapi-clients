@@ -36,5 +36,6 @@ Name | Type | Description | Notes
 **scaling_stats** | [**array<string,\OpenAPI\Client\Model\RawHeroScalingStatV2>**](RawHeroScalingStatV2.md) |  |
 **purchase_bonuses** | **array<string,\OpenAPI\Client\Model\RawHeroPurchaseBonusV2[]>** |  |
 **standard_level_up_upgrades** | **array<string,float>** |  |
+**item_draft_bucketing** | [**array<string,\OpenAPI\Client\Model\HeroV2ItemDraftBucketingValue>**](HeroV2ItemDraftBucketingValue.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

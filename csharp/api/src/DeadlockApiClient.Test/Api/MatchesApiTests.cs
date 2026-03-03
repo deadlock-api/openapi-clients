@@ -85,6 +85,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<bool> includeObjectives = default!;
             Client.Option<bool> includeMidBoss = default!;
             Client.Option<bool> includePlayerInfo = default!;
+            Client.Option<bool> includePlayerKda = default!;
             Client.Option<bool> includePlayerItems = default!;
             Client.Option<bool> includePlayerStats = default!;
             Client.Option<bool> includePlayerDeathDetails = default!;
@@ -103,10 +104,13 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<bool?> isNewPlayerPool = default!;
             Client.Option<List<int>?> accountIds = default!;
             Client.Option<string?> heroIds = default!;
+            Client.Option<int?> itemFilterHeroId = default!;
+            Client.Option<string?> includeItemIds = default!;
+            Client.Option<string?> excludeItemIds = default!;
             Client.Option<string> orderBy = default!;
             Client.Option<string> orderDirection = default!;
             Client.Option<int> limit = default!;
-            var response = await _instance.BulkMetadataAsync(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit);
+            var response = await _instance.BulkMetadataAsync(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, orderBy, orderDirection, limit);
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }

@@ -27,6 +27,7 @@ import assets_deadlock_api_client.models.HeroPhysicsV2
 import assets_deadlock_api_client.models.HeroShopStatDisplayV2
 import assets_deadlock_api_client.models.HeroStartingStatsV2
 import assets_deadlock_api_client.models.HeroTypeV2
+import assets_deadlock_api_client.models.HeroV2ItemDraftBucketingValue
 import assets_deadlock_api_client.models.RawHeroItemSlotInfoValueV2
 import assets_deadlock_api_client.models.RawHeroMapModCostBonusesV2
 import assets_deadlock_api_client.models.RawHeroPurchaseBonusV2
@@ -229,6 +230,12 @@ class HeroV2Test : ShouldSpec() {
         should("test costBonuses") {
             // uncomment below to test the property
             //modelInstance.costBonuses shouldBe ("TODO")
+        }
+
+        // to test the property `itemDraftBucketing`
+        should("test itemDraftBucketing") {
+            // uncomment below to test the property
+            //modelInstance.itemDraftBucketing shouldBe ("TODO")
         }
 
     }

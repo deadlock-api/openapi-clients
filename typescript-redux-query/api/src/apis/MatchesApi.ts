@@ -40,6 +40,7 @@ export interface BulkMetadataRequest {
     includeObjectives?: boolean;
     includeMidBoss?: boolean;
     includePlayerInfo?: boolean;
+    includePlayerKda?: boolean;
     includePlayerItems?: boolean;
     includePlayerStats?: boolean;
     includePlayerDeathDetails?: boolean;
@@ -58,6 +59,9 @@ export interface BulkMetadataRequest {
     isNewPlayerPool?: boolean;
     accountIds?: Array<number>;
     heroIds?: string;
+    itemFilterHeroId?: number;
+    includeItemIds?: string;
+    excludeItemIds?: string;
     orderBy?: BulkMetadataOrderByEnum;
     orderDirection?: BulkMetadataOrderDirectionEnum;
     limit?: number;
@@ -219,6 +223,11 @@ function bulkMetadataRaw<T>(requestParameters: BulkMetadataRequest, requestConfi
     }
 
 
+    if (requestParameters.includePlayerKda !== undefined) {
+        queryParameters['include_player_kda'] = requestParameters.includePlayerKda;
+    }
+
+
     if (requestParameters.includePlayerItems !== undefined) {
         queryParameters['include_player_items'] = requestParameters.includePlayerItems;
     }
@@ -306,6 +315,21 @@ function bulkMetadataRaw<T>(requestParameters: BulkMetadataRequest, requestConfi
 
     if (requestParameters.heroIds !== undefined) {
         queryParameters['hero_ids'] = requestParameters.heroIds;
+    }
+
+
+    if (requestParameters.itemFilterHeroId !== undefined) {
+        queryParameters['item_filter_hero_id'] = requestParameters.itemFilterHeroId;
+    }
+
+
+    if (requestParameters.includeItemIds !== undefined) {
+        queryParameters['include_item_ids'] = requestParameters.includeItemIds;
+    }
+
+
+    if (requestParameters.excludeItemIds !== undefined) {
+        queryParameters['exclude_item_ids'] = requestParameters.excludeItemIds;
     }
 
 
@@ -625,7 +649,8 @@ export enum BulkMetadataGameModeEnum {
     */
 export enum BulkMetadataOrderByEnum {
     MatchId = 'match_id',
-    StartTime = 'start_time'
+    StartTime = 'start_time',
+    AverageBadge = 'average_badge'
 }
 /**
     * @export

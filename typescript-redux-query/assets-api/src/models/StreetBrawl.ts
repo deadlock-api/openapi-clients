@@ -16,6 +16,9 @@ import {
     ItemDraftRoundPerGameRound,
     ItemDraftRoundPerGameRoundFromJSON,
     ItemDraftRoundPerGameRoundToJSON,
+    ItemDraftsValue,
+    ItemDraftsValueFromJSON,
+    ItemDraftsValueToJSON,
 } from './';
 
 /**
@@ -216,6 +219,12 @@ export interface StreetBrawl  {
      * @memberof StreetBrawl
      */
     outlineColorNeutral?: Array<number>;
+    /**
+     * 
+     * @type {{ [key: string]: ItemDraftsValue; }}
+     * @memberof StreetBrawl
+     */
+    itemDrafts: { [key: string]: ItemDraftsValue; };
 }
 
 export function StreetBrawlFromJSON(json: any): StreetBrawl {
@@ -252,6 +261,7 @@ export function StreetBrawlFromJSON(json: any): StreetBrawl {
         'outlineColorTeam1': !exists(json, 'outline_color_team1') ? undefined : json['outline_color_team1'],
         'outlineColorTeam2': !exists(json, 'outline_color_team2') ? undefined : json['outline_color_team2'],
         'outlineColorNeutral': !exists(json, 'outline_color_neutral') ? undefined : json['outline_color_neutral'],
+        'itemDrafts': mapValues(json['item_drafts'], ItemDraftsValueFromJSON),
     };
 }
 
@@ -292,6 +302,7 @@ export function StreetBrawlToJSON(value?: StreetBrawl): any {
         'outline_color_team1': value.outlineColorTeam1,
         'outline_color_team2': value.outlineColorTeam2,
         'outline_color_neutral': value.outlineColorNeutral,
+        'item_drafts': mapValues(value.itemDrafts, ItemDraftsValueToJSON),
     };
 }
 

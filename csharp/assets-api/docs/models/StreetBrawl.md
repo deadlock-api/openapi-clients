@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **Tier2MaxResistTime** | **decimal** |  | 
 **UltimateUnlockRound** | **int** |  | 
 **ItemDraftRoundsPerGameRound** | [**List&lt;ItemDraftRoundPerGameRound&gt;**](ItemDraftRoundPerGameRound.md) |  | 
+**ItemDrafts** | [**Dictionary&lt;string, ItemDraftsValue&gt;**](ItemDraftsValue.md) |  | 
 **OutlineColorFriend** | **List&lt;int&gt;** |  | [optional] 
 **OutlineColorEnemy** | **List&lt;int&gt;** |  | [optional] 
 **OutlineColorTeam1** | **List&lt;int&gt;** |  | [optional] 

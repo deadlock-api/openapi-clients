@@ -76,9 +76,10 @@ namespace AssetsDeadlockApiClient.Model
         /// <param name="stepSoundTime">stepSoundTime</param>
         /// <param name="stepSoundTimeSprinting">stepSoundTimeSprinting</param>
         /// <param name="purchaseBonuses">purchaseBonuses</param>
+        /// <param name="itemDraftBucketing">itemDraftBucketing</param>
         /// <param name="backgroundImage">backgroundImage</param>
         [JsonConstructor]
-        public RawHeroV2(int id, string className, bool playerSelectable, bool disabled, bool inDevelopment, bool needsTesting, bool assignedPlayersOnly, bool limitedTesting, int complexity, int skin, RawHeroStartingStatsV2 startingStats, RawHeroShopStatDisplayV2 shopStatDisplay, Dictionary<string, List<RawHeroMapModCostBonusesV2>> costBonuses, List<Object> colorUi, decimal stealthSpeedMetersPerSecond, RawHeroStatsDisplayV2 statsDisplay, RawHeroStatsUIV2 heroStatsUi, Dictionary<string, string> items, Dictionary<string, RawHeroItemSlotInfoValueV2> itemSlotInfo, Dictionary<string, RawHeroLevelInfoV2> levelInfo, Dictionary<string, RawHeroScalingStatV2> scalingStats, Dictionary<string, decimal> standardLevelUpUpgrades, Option<Dictionary<string, decimal>?> itemDraftWeights = default, Option<bool?> availableInHeroLabs = default, Option<bool?> prereleaseOnly = default, Option<string?> iconHeroCard = default, Option<string?> iconImageSmall = default, Option<string?> minimapImage = default, Option<string?> nameImage = default, Option<string?> heroCardCritical = default, Option<string?> heroCardGloat = default, Option<string?> topBarVerticalImage = default, Option<List<string>?> tags = default, Option<string?> gunTag = default, Option<string?> hideoutRichPresence = default, Option<HeroTypeV2?> heroType = default, Option<decimal?> collisionHeight = default, Option<decimal?> collisionRadius = default, Option<decimal?> footstepSoundTravelDistanceMeters = default, Option<decimal?> stepHeight = default, Option<decimal?> stepSoundTime = default, Option<decimal?> stepSoundTimeSprinting = default, Option<Dictionary<string, List<RawHeroPurchaseBonusV2>>?> purchaseBonuses = default, string? backgroundImage = default)
+        public RawHeroV2(int id, string className, bool playerSelectable, bool disabled, bool inDevelopment, bool needsTesting, bool assignedPlayersOnly, bool limitedTesting, int complexity, int skin, RawHeroStartingStatsV2 startingStats, RawHeroShopStatDisplayV2 shopStatDisplay, Dictionary<string, List<RawHeroMapModCostBonusesV2>> costBonuses, List<Object> colorUi, decimal stealthSpeedMetersPerSecond, RawHeroStatsDisplayV2 statsDisplay, RawHeroStatsUIV2 heroStatsUi, Dictionary<string, string> items, Dictionary<string, RawHeroItemSlotInfoValueV2> itemSlotInfo, Dictionary<string, RawHeroLevelInfoV2> levelInfo, Dictionary<string, RawHeroScalingStatV2> scalingStats, Dictionary<string, decimal> standardLevelUpUpgrades, Option<Dictionary<string, decimal>?> itemDraftWeights = default, Option<bool?> availableInHeroLabs = default, Option<bool?> prereleaseOnly = default, Option<string?> iconHeroCard = default, Option<string?> iconImageSmall = default, Option<string?> minimapImage = default, Option<string?> nameImage = default, Option<string?> heroCardCritical = default, Option<string?> heroCardGloat = default, Option<string?> topBarVerticalImage = default, Option<List<string>?> tags = default, Option<string?> gunTag = default, Option<string?> hideoutRichPresence = default, Option<HeroTypeV2?> heroType = default, Option<decimal?> collisionHeight = default, Option<decimal?> collisionRadius = default, Option<decimal?> footstepSoundTravelDistanceMeters = default, Option<decimal?> stepHeight = default, Option<decimal?> stepSoundTime = default, Option<decimal?> stepSoundTimeSprinting = default, Option<Dictionary<string, List<RawHeroPurchaseBonusV2>>?> purchaseBonuses = default, Option<Dictionary<string, HeroV2ItemDraftBucketingValue>?> itemDraftBucketing = default, string? backgroundImage = default)
         {
             Id = id;
             ClassName = className;
@@ -123,6 +124,7 @@ namespace AssetsDeadlockApiClient.Model
             StepSoundTimeOption = stepSoundTime;
             StepSoundTimeSprintingOption = stepSoundTimeSprinting;
             PurchaseBonusesOption = purchaseBonuses;
+            ItemDraftBucketingOption = itemDraftBucketing;
             BackgroundImage = backgroundImage;
             OnCreated();
         }
@@ -535,6 +537,19 @@ namespace AssetsDeadlockApiClient.Model
         public Dictionary<string, List<RawHeroPurchaseBonusV2>>? PurchaseBonuses { get { return this.PurchaseBonusesOption; } set { this.PurchaseBonusesOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of ItemDraftBucketing
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Dictionary<string, HeroV2ItemDraftBucketingValue>?> ItemDraftBucketingOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets ItemDraftBucketing
+        /// </summary>
+        [JsonPropertyName("item_draft_bucketing")]
+        public Dictionary<string, HeroV2ItemDraftBucketingValue>? ItemDraftBucketing { get { return this.ItemDraftBucketingOption; } set { this.ItemDraftBucketingOption = new(value); } }
+
+        /// <summary>
         /// Gets or Sets BackgroundImage
         /// </summary>
         [JsonPropertyName("background_image")]
@@ -591,6 +606,7 @@ namespace AssetsDeadlockApiClient.Model
             sb.Append("  StepSoundTime: ").Append(StepSoundTime).Append("\n");
             sb.Append("  StepSoundTimeSprinting: ").Append(StepSoundTimeSprinting).Append("\n");
             sb.Append("  PurchaseBonuses: ").Append(PurchaseBonuses).Append("\n");
+            sb.Append("  ItemDraftBucketing: ").Append(ItemDraftBucketing).Append("\n");
             sb.Append("  BackgroundImage: ").Append(BackgroundImage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -672,6 +688,7 @@ namespace AssetsDeadlockApiClient.Model
             Option<decimal?> stepSoundTime = default;
             Option<decimal?> stepSoundTimeSprinting = default;
             Option<Dictionary<string, List<RawHeroPurchaseBonusV2>>?> purchaseBonuses = default;
+            Option<Dictionary<string, HeroV2ItemDraftBucketingValue>?> itemDraftBucketing = default;
             Option<string?> backgroundImage = default;
 
             while (utf8JsonReader.Read())
@@ -820,6 +837,9 @@ namespace AssetsDeadlockApiClient.Model
                         case "purchase_bonuses":
                             purchaseBonuses = new Option<Dictionary<string, List<RawHeroPurchaseBonusV2>>?>(JsonSerializer.Deserialize<Dictionary<string, List<RawHeroPurchaseBonusV2>>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
+                        case "item_draft_bucketing":
+                            itemDraftBucketing = new Option<Dictionary<string, HeroV2ItemDraftBucketingValue>?>(JsonSerializer.Deserialize<Dictionary<string, HeroV2ItemDraftBucketingValue>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "background_image":
                             backgroundImage = new Option<string?>(utf8JsonReader.GetString());
                             break;
@@ -964,7 +984,7 @@ namespace AssetsDeadlockApiClient.Model
             if (standardLevelUpUpgrades.IsSet && standardLevelUpUpgrades.Value == null)
                 throw new ArgumentNullException(nameof(standardLevelUpUpgrades), "Property is not nullable for class RawHeroV2.");
 
-            return new RawHeroV2(id.Value!.Value!, className.Value!, playerSelectable.Value!.Value!, disabled.Value!.Value!, inDevelopment.Value!.Value!, needsTesting.Value!.Value!, assignedPlayersOnly.Value!.Value!, limitedTesting.Value!.Value!, complexity.Value!.Value!, skin.Value!.Value!, startingStats.Value!, shopStatDisplay.Value!, costBonuses.Value!, colorUi.Value!, stealthSpeedMetersPerSecond.Value!.Value!, statsDisplay.Value!, heroStatsUi.Value!, items.Value!, itemSlotInfo.Value!, levelInfo.Value!, scalingStats.Value!, standardLevelUpUpgrades.Value!, itemDraftWeights, availableInHeroLabs, prereleaseOnly, iconHeroCard, iconImageSmall, minimapImage, nameImage, heroCardCritical, heroCardGloat, topBarVerticalImage, tags, gunTag, hideoutRichPresence, heroType, collisionHeight, collisionRadius, footstepSoundTravelDistanceMeters, stepHeight, stepSoundTime, stepSoundTimeSprinting, purchaseBonuses, backgroundImage.Value!);
+            return new RawHeroV2(id.Value!.Value!, className.Value!, playerSelectable.Value!.Value!, disabled.Value!.Value!, inDevelopment.Value!.Value!, needsTesting.Value!.Value!, assignedPlayersOnly.Value!.Value!, limitedTesting.Value!.Value!, complexity.Value!.Value!, skin.Value!.Value!, startingStats.Value!, shopStatDisplay.Value!, costBonuses.Value!, colorUi.Value!, stealthSpeedMetersPerSecond.Value!.Value!, statsDisplay.Value!, heroStatsUi.Value!, items.Value!, itemSlotInfo.Value!, levelInfo.Value!, scalingStats.Value!, standardLevelUpUpgrades.Value!, itemDraftWeights, availableInHeroLabs, prereleaseOnly, iconHeroCard, iconImageSmall, minimapImage, nameImage, heroCardCritical, heroCardGloat, topBarVerticalImage, tags, gunTag, hideoutRichPresence, heroType, collisionHeight, collisionRadius, footstepSoundTravelDistanceMeters, stepHeight, stepSoundTime, stepSoundTimeSprinting, purchaseBonuses, itemDraftBucketing, backgroundImage.Value!);
         }
 
         /// <summary>
@@ -1205,6 +1225,14 @@ namespace AssetsDeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("purchase_bonuses");
+            if (rawHeroV2.ItemDraftBucketingOption.IsSet)
+                if (rawHeroV2.ItemDraftBucketingOption.Value != null)
+                {
+                    writer.WritePropertyName("item_draft_bucketing");
+                    JsonSerializer.Serialize(writer, rawHeroV2.ItemDraftBucketing, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("item_draft_bucketing");
             if (rawHeroV2.BackgroundImage != null)
                 writer.WriteString("background_image", rawHeroV2.BackgroundImage);
             else

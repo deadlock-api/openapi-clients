@@ -36,5 +36,6 @@ Name | Type | Description | Notes
 **outline_color_team1** | **int[]** |  | [optional]
 **outline_color_team2** | **int[]** |  | [optional]
 **outline_color_neutral** | **int[]** |  | [optional]
+**item_drafts** | [**array<string,\OpenAPI\Client\Model\ItemDraftsValue>**](ItemDraftsValue.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

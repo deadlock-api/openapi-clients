@@ -1577,6 +1577,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6355
       - 6351
       - 6325
       - 6290
@@ -1652,6 +1653,25 @@ components:
           nullable: true
           type: array
       title: DependantAbilities
+    DraftBucket:
+      properties:
+        normal:
+          nullable: true
+          type: number
+        good:
+          nullable: true
+          type: number
+      title: DraftBucket
+    DraftBuckets:
+      properties:
+        bucket:
+          allOf:
+          - $ref: "#/components/schemas/DraftBucket"
+          nullable: true
+        name:
+          nullable: true
+          type: string
+      title: DraftBuckets
     EmpoweredModifierLevel:
       properties:
         max_health:
@@ -2515,6 +2535,8 @@ components:
           - ""
           - ""
           - ""
+        item_draft_bucketing:
+          key: ""
         shop_stat_display:
           vitality_stats_display:
             display_stats:
@@ -2804,6 +2826,10 @@ components:
           additionalProperties:
             type: number
           title: Standard Level Up Upgrades
+        item_draft_bucketing:
+          additionalProperties:
+            $ref: "#/components/schemas/HeroV2_item_draft_bucketing_value"
+          nullable: true
       required:
       - assigned_players_only
       - class_name
@@ -4462,6 +4488,15 @@ components:
       - threshold_type
       - tracked_stat_name
       title: RawAccoladeV2
+    RawHeroDraftBucketing:
+      properties:
+        bucket:
+          nullable: true
+          type: string
+        weight:
+          nullable: true
+          type: number
+      title: RawHeroDraftBucketing
     RawHeroItemSlotInfoValueV2:
       example:
         max_purchases_for_tier:
@@ -4866,6 +4901,8 @@ components:
         skin: 5
         prerelease_only: true
         stealth_speed_meters_per_second: 1.284659006116532
+        item_draft_bucketing:
+          key: ""
         minimap_image: minimap_image
         shop_stat_display:
           vitality_stats_display:
@@ -5143,6 +5180,10 @@ components:
           additionalProperties:
             type: number
           title: Standard Level Up Upgrades
+        item_draft_bucketing:
+          additionalProperties:
+            $ref: "#/components/schemas/HeroV2_item_draft_bucketing_value"
+          nullable: true
         background_image:
           nullable: true
           readOnly: true
@@ -5945,6 +5986,10 @@ components:
             type: integer
           nullable: true
           type: array
+        item_drafts:
+          additionalProperties:
+            $ref: "#/components/schemas/Item_Drafts_value"
+          title: Item Drafts
       required:
       - apper_round
       - buy_time
@@ -5954,6 +5999,7 @@ components:
       - gold_per_round
       - item_draft_rerolls_per_round
       - item_draft_rounds_per_game_round
+      - item_drafts
       - lane_number
       - objective_max_health
       - overtime_respawn_time_increase
@@ -6744,6 +6790,12 @@ components:
       - type: integer
       - type: number
       title: Value
+    HeroV2_item_draft_bucketing_value:
+      anyOf:
+      - allOf:
+        - $ref: "#/components/schemas/RawHeroDraftBucketing"
+        nullable: true
+      nullable: true
     Value_1:
       anyOf:
       - type: string
@@ -6805,6 +6857,12 @@ components:
       - type: string
       nullable: true
       title: Standing Shot Spread Penalty
+    Item_Drafts_value:
+      anyOf:
+      - allOf:
+        - $ref: "#/components/schemas/DraftBuckets"
+        nullable: true
+      nullable: true
     Location_inner:
       anyOf:
       - type: string

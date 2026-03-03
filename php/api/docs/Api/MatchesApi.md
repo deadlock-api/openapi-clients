@@ -130,7 +130,7 @@ No authorization required
 ## `bulkMetadata()`
 
 ```php
-bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $game_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit): int[]
+bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_death_details, $game_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $order_by, $order_direction, $limit): int[]
 ```
 
 Bulk Metadata
@@ -155,6 +155,7 @@ $include_more_info = True; // bool | Include more match info in the response.
 $include_objectives = True; // bool | Include objectives in the response.
 $include_mid_boss = True; // bool | Include midboss in the response.
 $include_player_info = True; // bool | Include player info in the response.
+$include_player_kda = True; // bool | Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.
 $include_player_items = True; // bool | Include player items in the response.
 $include_player_stats = True; // bool | Include player stats in the response.
 $include_player_death_details = True; // bool | Include player death details in the response.
@@ -173,12 +174,15 @@ $is_low_pri_pool = True; // bool | Filter matches based on whether they are in t
 $is_new_player_pool = True; // bool | Filter matches based on whether they are in the new player pool.
 $account_ids = array(56); // int[] | Filter matches by account IDs of players that participated in the match.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+$item_filter_hero_id = 56; // int | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
+$include_item_ids = 'include_item_ids_example'; // string | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
+$exclude_item_ids = 'exclude_item_ids_example'; // string | Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
 $order_by = 'order_by_example'; // string | The field to order the results by.
 $order_direction = 'order_direction_example'; // string | The direction to order the results by.
 $limit = 1000; // int | The maximum number of matches to return.
 
 try {
-    $result = $apiInstance->bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_items, $include_player_stats, $include_player_death_details, $game_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $order_by, $order_direction, $limit);
+    $result = $apiInstance->bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_death_details, $game_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $order_by, $order_direction, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MatchesApi->bulkMetadata: ', $e->getMessage(), PHP_EOL;
@@ -194,6 +198,7 @@ try {
 | **include_objectives** | **bool**| Include objectives in the response. | [optional] |
 | **include_mid_boss** | **bool**| Include midboss in the response. | [optional] |
 | **include_player_info** | **bool**| Include player info in the response. | [optional] |
+| **include_player_kda** | **bool**| Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players. | [optional] |
 | **include_player_items** | **bool**| Include player items in the response. | [optional] |
 | **include_player_stats** | **bool**| Include player stats in the response. | [optional] |
 | **include_player_death_details** | **bool**| Include player death details in the response. | [optional] |
@@ -212,6 +217,9 @@ try {
 | **is_new_player_pool** | **bool**| Filter matches based on whether they are in the new player pool. | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Filter matches by account IDs of players that participated in the match. | [optional] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
+| **item_filter_hero_id** | **int**| Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | [optional] |
+| **include_item_ids** | **string**| Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | [optional] |
+| **exclude_item_ids** | **string**| Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. | [optional] |
 | **order_by** | **string**| The field to order the results by. | [optional] |
 | **order_direction** | **string**| The direction to order the results by. | [optional] |
 | **limit** | **int**| The maximum number of matches to return. | [optional] [default to 1000] |

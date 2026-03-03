@@ -53,6 +53,7 @@ type StreetBrawl struct {
 	OutlineColorTeam1 []int32 `json:"outline_color_team1,omitempty"`
 	OutlineColorTeam2 []int32 `json:"outline_color_team2,omitempty"`
 	OutlineColorNeutral []int32 `json:"outline_color_neutral,omitempty"`
+	ItemDrafts map[string]ItemDraftsValue `json:"item_drafts"`
 }
 
 type _StreetBrawl StreetBrawl
@@ -61,7 +62,7 @@ type _StreetBrawl StreetBrawl
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStreetBrawl(respawnTimes []int32, goldPerRound []int32, apperRound []int32, itemDraftRerollsPerRound []int32, roundLengthMinutes []int32, roundLengthMinutesUrgent []float32, overtimeRespawnTimeIncrease []float32, overtimeRespawnTimeIncreaseUrgent []float32, overtimeTrooperHealthScale []float32, overtimeTrooperDamageScale []float32, buyTime []int32, preBuyTime []float32, scoreToWin int32, scoringTime float32, laneNumber int32, objectiveMaxHealth []int32, tier2BonusHealth int32, comebackBonusHealth int32, comebackBonusHealthCritical int32, trooperSpawnTimer []float32, trooperSpawnBeforeRoundStartTimer float32, zipBoostCooldownOnStart float32, buyTimeGracePeriod float32, tier1MaxResistTime float32, tier2MaxResistTime float32, ultimateUnlockRound int32, itemDraftRoundsPerGameRound []ItemDraftRoundPerGameRound) *StreetBrawl {
+func NewStreetBrawl(respawnTimes []int32, goldPerRound []int32, apperRound []int32, itemDraftRerollsPerRound []int32, roundLengthMinutes []int32, roundLengthMinutesUrgent []float32, overtimeRespawnTimeIncrease []float32, overtimeRespawnTimeIncreaseUrgent []float32, overtimeTrooperHealthScale []float32, overtimeTrooperDamageScale []float32, buyTime []int32, preBuyTime []float32, scoreToWin int32, scoringTime float32, laneNumber int32, objectiveMaxHealth []int32, tier2BonusHealth int32, comebackBonusHealth int32, comebackBonusHealthCritical int32, trooperSpawnTimer []float32, trooperSpawnBeforeRoundStartTimer float32, zipBoostCooldownOnStart float32, buyTimeGracePeriod float32, tier1MaxResistTime float32, tier2MaxResistTime float32, ultimateUnlockRound int32, itemDraftRoundsPerGameRound []ItemDraftRoundPerGameRound, itemDrafts map[string]ItemDraftsValue) *StreetBrawl {
 	this := StreetBrawl{}
 	this.RespawnTimes = respawnTimes
 	this.GoldPerRound = goldPerRound
@@ -90,6 +91,7 @@ func NewStreetBrawl(respawnTimes []int32, goldPerRound []int32, apperRound []int
 	this.Tier2MaxResistTime = tier2MaxResistTime
 	this.UltimateUnlockRound = ultimateUnlockRound
 	this.ItemDraftRoundsPerGameRound = itemDraftRoundsPerGameRound
+	this.ItemDrafts = itemDrafts
 	return &this
 }
 
@@ -914,6 +916,30 @@ func (o *StreetBrawl) SetOutlineColorNeutral(v []int32) {
 	o.OutlineColorNeutral = v
 }
 
+// GetItemDrafts returns the ItemDrafts field value
+func (o *StreetBrawl) GetItemDrafts() map[string]ItemDraftsValue {
+	if o == nil {
+		var ret map[string]ItemDraftsValue
+		return ret
+	}
+
+	return o.ItemDrafts
+}
+
+// GetItemDraftsOk returns a tuple with the ItemDrafts field value
+// and a boolean to check if the value has been set.
+func (o *StreetBrawl) GetItemDraftsOk() (map[string]ItemDraftsValue, bool) {
+	if o == nil {
+		return map[string]ItemDraftsValue{}, false
+	}
+	return o.ItemDrafts, true
+}
+
+// SetItemDrafts sets field value
+func (o *StreetBrawl) SetItemDrafts(v map[string]ItemDraftsValue) {
+	o.ItemDrafts = v
+}
+
 func (o StreetBrawl) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -966,6 +992,7 @@ func (o StreetBrawl) ToMap() (map[string]interface{}, error) {
 	if o.OutlineColorNeutral != nil {
 		toSerialize["outline_color_neutral"] = o.OutlineColorNeutral
 	}
+	toSerialize["item_drafts"] = o.ItemDrafts
 	return toSerialize, nil
 }
 
@@ -1001,6 +1028,7 @@ func (o *StreetBrawl) UnmarshalJSON(data []byte) (err error) {
 		"tier2_max_resist_time",
 		"ultimate_unlock_round",
 		"item_draft_rounds_per_game_round",
+		"item_drafts",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -53,6 +53,7 @@ class MatchesApiTest : ShouldSpec() {
             //val includeObjectives : kotlin.Boolean = true // kotlin.Boolean | Include objectives in the response.
             //val includeMidBoss : kotlin.Boolean = true // kotlin.Boolean | Include midboss in the response.
             //val includePlayerInfo : kotlin.Boolean = true // kotlin.Boolean | Include player info in the response.
+            //val includePlayerKda : kotlin.Boolean = true // kotlin.Boolean | Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.
             //val includePlayerItems : kotlin.Boolean = true // kotlin.Boolean | Include player items in the response.
             //val includePlayerStats : kotlin.Boolean = true // kotlin.Boolean | Include player stats in the response.
             //val includePlayerDeathDetails : kotlin.Boolean = true // kotlin.Boolean | Include player death details in the response.
@@ -71,10 +72,13 @@ class MatchesApiTest : ShouldSpec() {
             //val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Filter matches by account IDs of players that participated in the match.
             //val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val itemFilterHeroId : kotlin.Int = 56 // kotlin.Int | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
+            //val includeItemIds : kotlin.String = includeItemIds_example // kotlin.String | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
+            //val excludeItemIds : kotlin.String = excludeItemIds_example // kotlin.String | Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
             //val orderBy : kotlin.String = orderBy_example // kotlin.String | The field to order the results by.
             //val orderDirection : kotlin.String = orderDirection_example // kotlin.String | The direction to order the results by.
             //val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, orderBy, orderDirection, limit)
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, orderBy, orderDirection, limit)
             //result shouldBe ("TODO")
         }
 

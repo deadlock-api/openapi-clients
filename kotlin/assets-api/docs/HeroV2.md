@@ -36,6 +36,7 @@
 | **heroType** | [**HeroTypeV2**](HeroTypeV2.md) |  |  [optional] |
 | **prereleaseOnly** | **kotlin.Boolean** |  |  [optional] |
 | **costBonuses** | **kotlin.collections.Map&lt;kotlin.String, kotlin.collections.List&lt;RawHeroMapModCostBonusesV2&gt;&gt;** |  |  [optional] |
+| **itemDraftBucketing** | [**kotlin.collections.Map&lt;kotlin.String, HeroV2ItemDraftBucketingValue&gt;**](HeroV2ItemDraftBucketingValue.md) |  |  [optional] |
 
 
 

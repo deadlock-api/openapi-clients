@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **purchase_bonuses** | **array<string,\OpenAPI\Client\Model\RawHeroPurchaseBonusV2[]>** |  | [optional]
 **scaling_stats** | [**array<string,\OpenAPI\Client\Model\RawHeroScalingStatV2>**](RawHeroScalingStatV2.md) |  |
 **standard_level_up_upgrades** | **array<string,float>** |  |
+**item_draft_bucketing** | [**array<string,\OpenAPI\Client\Model\HeroV2ItemDraftBucketingValue>**](HeroV2ItemDraftBucketingValue.md) |  | [optional]
 **background_image** | **string** |  | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

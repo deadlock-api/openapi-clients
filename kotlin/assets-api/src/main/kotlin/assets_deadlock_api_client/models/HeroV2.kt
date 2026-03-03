@@ -23,6 +23,7 @@ import assets_deadlock_api_client.models.HeroPhysicsV2
 import assets_deadlock_api_client.models.HeroShopStatDisplayV2
 import assets_deadlock_api_client.models.HeroStartingStatsV2
 import assets_deadlock_api_client.models.HeroTypeV2
+import assets_deadlock_api_client.models.HeroV2ItemDraftBucketingValue
 import assets_deadlock_api_client.models.RawHeroItemSlotInfoValueV2
 import assets_deadlock_api_client.models.RawHeroMapModCostBonusesV2
 import assets_deadlock_api_client.models.RawHeroPurchaseBonusV2
@@ -69,6 +70,7 @@ import java.io.Serializable
  * @param heroType 
  * @param prereleaseOnly 
  * @param costBonuses 
+ * @param itemDraftBucketing 
  */
 
 
@@ -168,7 +170,10 @@ data class HeroV2 (
     val prereleaseOnly: kotlin.Boolean? = null,
 
     @Json(name = "cost_bonuses")
-    val costBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroMapModCostBonusesV2>>? = null
+    val costBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<RawHeroMapModCostBonusesV2>>? = null,
+
+    @Json(name = "item_draft_bucketing")
+    val itemDraftBucketing: kotlin.collections.Map<kotlin.String, HeroV2ItemDraftBucketingValue>? = null
 
 ) : Serializable {
     companion object {

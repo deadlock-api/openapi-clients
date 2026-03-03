@@ -36,12 +36,13 @@ Name | Type | Description | Notes
 **OutlineColorTeam1** | Pointer to **[]int32** |  | [optional] 
 **OutlineColorTeam2** | Pointer to **[]int32** |  | [optional] 
 **OutlineColorNeutral** | Pointer to **[]int32** |  | [optional] 
+**ItemDrafts** | [**map[string]ItemDraftsValue**](ItemDraftsValue.md) |  | 
 
 ## Methods
 
 ### NewStreetBrawl
 
-`func NewStreetBrawl(respawnTimes []int32, goldPerRound []int32, apperRound []int32, itemDraftRerollsPerRound []int32, roundLengthMinutes []int32, roundLengthMinutesUrgent []float32, overtimeRespawnTimeIncrease []float32, overtimeRespawnTimeIncreaseUrgent []float32, overtimeTrooperHealthScale []float32, overtimeTrooperDamageScale []float32, buyTime []int32, preBuyTime []float32, scoreToWin int32, scoringTime float32, laneNumber int32, objectiveMaxHealth []int32, tier2BonusHealth int32, comebackBonusHealth int32, comebackBonusHealthCritical int32, trooperSpawnTimer []float32, trooperSpawnBeforeRoundStartTimer float32, zipBoostCooldownOnStart float32, buyTimeGracePeriod float32, tier1MaxResistTime float32, tier2MaxResistTime float32, ultimateUnlockRound int32, itemDraftRoundsPerGameRound []ItemDraftRoundPerGameRound, ) *StreetBrawl`
+`func NewStreetBrawl(respawnTimes []int32, goldPerRound []int32, apperRound []int32, itemDraftRerollsPerRound []int32, roundLengthMinutes []int32, roundLengthMinutesUrgent []float32, overtimeRespawnTimeIncrease []float32, overtimeRespawnTimeIncreaseUrgent []float32, overtimeTrooperHealthScale []float32, overtimeTrooperDamageScale []float32, buyTime []int32, preBuyTime []float32, scoreToWin int32, scoringTime float32, laneNumber int32, objectiveMaxHealth []int32, tier2BonusHealth int32, comebackBonusHealth int32, comebackBonusHealthCritical int32, trooperSpawnTimer []float32, trooperSpawnBeforeRoundStartTimer float32, zipBoostCooldownOnStart float32, buyTimeGracePeriod float32, tier1MaxResistTime float32, tier2MaxResistTime float32, ultimateUnlockRound int32, itemDraftRoundsPerGameRound []ItemDraftRoundPerGameRound, itemDrafts map[string]ItemDraftsValue, ) *StreetBrawl`
 
 NewStreetBrawl instantiates a new StreetBrawl object
 This constructor will assign default values to properties that have it defined,
@@ -771,6 +772,26 @@ HasOutlineColorNeutral returns a boolean if a field has been set.
 `func (o *StreetBrawl) UnsetOutlineColorNeutral()`
 
 UnsetOutlineColorNeutral ensures that no value is present for OutlineColorNeutral, not even an explicit nil
+### GetItemDrafts
+
+`func (o *StreetBrawl) GetItemDrafts() map[string]ItemDraftsValue`
+
+GetItemDrafts returns the ItemDrafts field if non-nil, zero value otherwise.
+
+### GetItemDraftsOk
+
+`func (o *StreetBrawl) GetItemDraftsOk() (*map[string]ItemDraftsValue, bool)`
+
+GetItemDraftsOk returns a tuple with the ItemDrafts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItemDrafts
+
+`func (o *StreetBrawl) SetItemDrafts(v map[string]ItemDraftsValue)`
+
+SetItemDrafts sets ItemDrafts field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

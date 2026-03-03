@@ -88,7 +88,8 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'outline_color_enemy' => 'int[]',
         'outline_color_team1' => 'int[]',
         'outline_color_team2' => 'int[]',
-        'outline_color_neutral' => 'int[]'
+        'outline_color_neutral' => 'int[]',
+        'item_drafts' => 'array<string,\OpenAPI\Client\Model\ItemDraftsValue>'
     ];
 
     /**
@@ -130,7 +131,8 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'outline_color_enemy' => null,
         'outline_color_team1' => null,
         'outline_color_team2' => null,
-        'outline_color_neutral' => null
+        'outline_color_neutral' => null,
+        'item_drafts' => null
     ];
 
     /**
@@ -170,7 +172,8 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'outline_color_enemy' => true,
         'outline_color_team1' => true,
         'outline_color_team2' => true,
-        'outline_color_neutral' => true
+        'outline_color_neutral' => true,
+        'item_drafts' => false
     ];
 
     /**
@@ -290,7 +293,8 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'outline_color_enemy' => 'outline_color_enemy',
         'outline_color_team1' => 'outline_color_team1',
         'outline_color_team2' => 'outline_color_team2',
-        'outline_color_neutral' => 'outline_color_neutral'
+        'outline_color_neutral' => 'outline_color_neutral',
+        'item_drafts' => 'item_drafts'
     ];
 
     /**
@@ -330,7 +334,8 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'outline_color_enemy' => 'setOutlineColorEnemy',
         'outline_color_team1' => 'setOutlineColorTeam1',
         'outline_color_team2' => 'setOutlineColorTeam2',
-        'outline_color_neutral' => 'setOutlineColorNeutral'
+        'outline_color_neutral' => 'setOutlineColorNeutral',
+        'item_drafts' => 'setItemDrafts'
     ];
 
     /**
@@ -370,7 +375,8 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'outline_color_enemy' => 'getOutlineColorEnemy',
         'outline_color_team1' => 'getOutlineColorTeam1',
         'outline_color_team2' => 'getOutlineColorTeam2',
-        'outline_color_neutral' => 'getOutlineColorNeutral'
+        'outline_color_neutral' => 'getOutlineColorNeutral',
+        'item_drafts' => 'getItemDrafts'
     ];
 
     /**
@@ -462,6 +468,7 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('outline_color_team1', $data ?? [], null);
         $this->setIfExists('outline_color_team2', $data ?? [], null);
         $this->setIfExists('outline_color_neutral', $data ?? [], null);
+        $this->setIfExists('item_drafts', $data ?? [], null);
     }
 
     /**
@@ -571,6 +578,9 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['item_draft_rounds_per_game_round'] === null) {
             $invalidProperties[] = "'item_draft_rounds_per_game_round' can't be null";
+        }
+        if ($this->container['item_drafts'] === null) {
+            $invalidProperties[] = "'item_drafts' can't be null";
         }
         return $invalidProperties;
     }
@@ -1482,6 +1492,33 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['outline_color_neutral'] = $outline_color_neutral;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_drafts
+     *
+     * @return array<string,\OpenAPI\Client\Model\ItemDraftsValue>
+     */
+    public function getItemDrafts()
+    {
+        return $this->container['item_drafts'];
+    }
+
+    /**
+     * Sets item_drafts
+     *
+     * @param array<string,\OpenAPI\Client\Model\ItemDraftsValue> $item_drafts item_drafts
+     *
+     * @return self
+     */
+    public function setItemDrafts($item_drafts)
+    {
+        if (is_null($item_drafts)) {
+            throw new \InvalidArgumentException('non-nullable item_drafts cannot be null');
+        }
+        $this->container['item_drafts'] = $item_drafts;
 
         return $this;
     }

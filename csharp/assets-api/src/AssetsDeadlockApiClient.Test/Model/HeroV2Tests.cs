@@ -340,5 +340,14 @@ namespace AssetsDeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'CostBonuses'
         }
+
+        /// <summary>
+        /// Test the property 'ItemDraftBucketing'
+        /// </summary>
+        [Fact]
+        public void ItemDraftBucketingTest()
+        {
+            // TODO unit test for the property 'ItemDraftBucketing'
+        }
     }
 }

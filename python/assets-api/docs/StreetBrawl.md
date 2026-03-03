@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **outline_color_team1** | **List[int]** |  | [optional] 
 **outline_color_team2** | **List[int]** |  | [optional] 
 **outline_color_neutral** | **List[int]** |  | [optional] 
+**item_drafts** | [**Dict[str, ItemDraftsValue]**](ItemDraftsValue.md) |  | 
 
 ## Example
 

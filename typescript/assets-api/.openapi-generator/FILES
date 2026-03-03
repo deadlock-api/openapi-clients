@@ -27,6 +27,8 @@ docs/DamageFlashV2.md
 docs/DeadlockAssetsApiRoutesValidClientVersions.md
 docs/DefaultApi.md
 docs/DependantAbilities.md
+docs/DraftBucket.md
+docs/DraftBuckets.md
 docs/EmpoweredModifierLevel.md
 docs/ExpirationDuration.md
 docs/FlashDataV2.md
@@ -46,10 +48,12 @@ docs/HeroStartingStatV2.md
 docs/HeroStartingStatsV2.md
 docs/HeroTypeV2.md
 docs/HeroV2.md
+docs/HeroV2ItemDraftBucketingValue.md
 docs/HeroesApi.md
 docs/IntrinsicModifiers.md
 docs/ItemDraftRound.md
 docs/ItemDraftRoundPerGameRound.md
+docs/ItemDraftsValue.md
 docs/ItemGroup.md
 docs/ItemPropertyV2.md
 docs/ItemSlotTypeV2.md
@@ -95,6 +99,7 @@ docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/RawAccoladeV2.md
 docs/RawApi.md
+docs/RawHeroDraftBucketing.md
 docs/RawHeroItemSlotInfoValueV2.md
 docs/RawHeroLevelInfoV2.md
 docs/RawHeroMapModCostBonusesV2.md

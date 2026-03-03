@@ -77,6 +77,8 @@ pub struct HeroV2 {
     pub purchase_bonuses: std::collections::HashMap<String, Vec<models::RawHeroPurchaseBonusV2>>,
     #[serde(rename = "standard_level_up_upgrades")]
     pub standard_level_up_upgrades: std::collections::HashMap<String, f64>,
+    #[serde(rename = "item_draft_bucketing", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub item_draft_bucketing: Option<Option<std::collections::HashMap<String, models::HeroV2ItemDraftBucketingValue>>>,
 }
 
 impl HeroV2 {
@@ -114,6 +116,7 @@ impl HeroV2 {
             scaling_stats,
             purchase_bonuses,
             standard_level_up_upgrades,
+            item_draft_bucketing: None,
         }
     }
 }

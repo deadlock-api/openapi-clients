@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound
+from assets_deadlock_api_client.models.item_drafts_value import ItemDraftsValue
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -59,7 +60,8 @@ class StreetBrawl(BaseModel):
     outline_color_team1: Optional[List[StrictInt]] = None
     outline_color_team2: Optional[List[StrictInt]] = None
     outline_color_neutral: Optional[List[StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["respawn_times", "gold_per_round", "apper_round", "item_draft_rerolls_per_round", "round_length_minutes", "round_length_minutes_urgent", "overtime_respawn_time_increase", "overtime_respawn_time_increase_urgent", "overtime_trooper_health_scale", "overtime_trooper_damage_scale", "buy_time", "pre_buy_time", "score_to_win", "scoring_time", "lane_number", "objective_max_health", "tier2_bonus_health", "comeback_bonus_health", "comeback_bonus_health_critical", "trooper_spawn_timer", "trooper_spawn_before_round_start_timer", "zip_boost_cooldown_on_start", "buy_time_grace_period", "tier1_max_resist_time", "tier2_max_resist_time", "ultimate_unlock_round", "item_draft_rounds_per_game_round", "outline_color_friend", "outline_color_enemy", "outline_color_team1", "outline_color_team2", "outline_color_neutral"]
+    item_drafts: Dict[str, Optional[ItemDraftsValue]]
+    __properties: ClassVar[List[str]] = ["respawn_times", "gold_per_round", "apper_round", "item_draft_rerolls_per_round", "round_length_minutes", "round_length_minutes_urgent", "overtime_respawn_time_increase", "overtime_respawn_time_increase_urgent", "overtime_trooper_health_scale", "overtime_trooper_damage_scale", "buy_time", "pre_buy_time", "score_to_win", "scoring_time", "lane_number", "objective_max_health", "tier2_bonus_health", "comeback_bonus_health", "comeback_bonus_health_critical", "trooper_spawn_timer", "trooper_spawn_before_round_start_timer", "zip_boost_cooldown_on_start", "buy_time_grace_period", "tier1_max_resist_time", "tier2_max_resist_time", "ultimate_unlock_round", "item_draft_rounds_per_game_round", "outline_color_friend", "outline_color_enemy", "outline_color_team1", "outline_color_team2", "outline_color_neutral", "item_drafts"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -107,6 +109,13 @@ class StreetBrawl(BaseModel):
                 if _item_item_draft_rounds_per_game_round:
                     _items.append(_item_item_draft_rounds_per_game_round.to_dict())
             _dict['item_draft_rounds_per_game_round'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each value in item_drafts (dict)
+        _field_dict = {}
+        if self.item_drafts:
+            for _key_item_drafts in self.item_drafts:
+                if self.item_drafts[_key_item_drafts]:
+                    _field_dict[_key_item_drafts] = self.item_drafts[_key_item_drafts].to_dict()
+            _dict['item_drafts'] = _field_dict
         # set to None if outline_color_friend (nullable) is None
         # and model_fields_set contains the field
         if self.outline_color_friend is None and "outline_color_friend" in self.model_fields_set:
@@ -175,7 +184,13 @@ class StreetBrawl(BaseModel):
             "outline_color_enemy": obj.get("outline_color_enemy"),
             "outline_color_team1": obj.get("outline_color_team1"),
             "outline_color_team2": obj.get("outline_color_team2"),
-            "outline_color_neutral": obj.get("outline_color_neutral")
+            "outline_color_neutral": obj.get("outline_color_neutral"),
+            "item_drafts": dict(
+                (_k, ItemDraftsValue.from_dict(_v))
+                for _k, _v in obj["item_drafts"].items()
+            )
+            if obj.get("item_drafts") is not None
+            else None
         })
         return _obj
 

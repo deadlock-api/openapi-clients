@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **scaling_stats** | [**std::collections::HashMap<String, models::RawHeroScalingStatV2>**](RawHeroScalingStatV2.md) |  | 
 **purchase_bonuses** | [**std::collections::HashMap<String, Vec<models::RawHeroPurchaseBonusV2>>**](Vec.md) |  | 
 **standard_level_up_upgrades** | **std::collections::HashMap<String, f64>** |  | 
+**item_draft_bucketing** | Option<[**std::collections::HashMap<String, models::HeroV2ItemDraftBucketingValue>**](HeroV2ItemDraftBucketingValue.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
