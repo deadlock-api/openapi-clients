@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**chance_rare** | [**ItemTierV2**](ItemTierV2.md) |  | [default to undefined]
-**chance_enhanced** | [**ItemTierV2**](ItemTierV2.md) |  | [default to undefined]
+**normal_mod_tier** | [**ItemTierV2**](ItemTierV2.md) |  | [default to undefined]
+**rare_mod_tier** | [**ItemTierV2**](ItemTierV2.md) |  | [default to undefined]
 
 ## Example
 
@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 import { ItemDraftRound } from 'assets_deadlock_api_client';
 
 const instance: ItemDraftRound = {
-    chance_rare,
-    chance_enhanced,
+    normal_mod_tier,
+    rare_mod_tier,
 };
 ```
 

@@ -285,13 +285,4 @@ class PlayerMatchHistoryEntryTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "username"
-     */
-    public function testPropertyUsername()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

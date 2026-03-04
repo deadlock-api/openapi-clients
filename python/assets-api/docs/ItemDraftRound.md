@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**chance_rare** | [**ItemTierV2**](ItemTierV2.md) |  | 
-**chance_enhanced** | [**ItemTierV2**](ItemTierV2.md) |  | 
+**normal_mod_tier** | [**ItemTierV2**](ItemTierV2.md) |  | 
+**rare_mod_tier** | [**ItemTierV2**](ItemTierV2.md) |  | 
 
 ## Example
 

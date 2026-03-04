@@ -4,8 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **chanceRare** | [**ItemTierV2**](ItemTierV2.md) |  |  |
-| **chanceEnhanced** | [**ItemTierV2**](ItemTierV2.md) |  |  |
+| **normalModTier** | [**ItemTierV2**](ItemTierV2.md) |  |  |
+| **rareModTier** | [**ItemTierV2**](ItemTierV2.md) |  |  |
 
 
 

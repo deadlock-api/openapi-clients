@@ -156,12 +156,6 @@ export interface PlayerMatchHistoryEntry  {
      * @memberof PlayerMatchHistoryEntry
      */
     teamAbandoned?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerMatchHistoryEntry
-     */
-    username?: string;
 }
 
 export function PlayerMatchHistoryEntryFromJSON(json: any): PlayerMatchHistoryEntry {
@@ -189,7 +183,6 @@ export function PlayerMatchHistoryEntryFromJSON(json: any): PlayerMatchHistoryEn
         'playerTeam': json['player_team'],
         'startTime': json['start_time'],
         'teamAbandoned': !exists(json, 'team_abandoned') ? undefined : json['team_abandoned'],
-        'username': !exists(json, 'username') ? undefined : json['username'],
     };
 }
 
@@ -221,7 +214,6 @@ export function PlayerMatchHistoryEntryToJSON(value?: PlayerMatchHistoryEntry): 
         'player_team': value.playerTeam,
         'start_time': value.startTime,
         'team_abandoned': value.teamAbandoned,
-        'username': value.username,
     };
 }
 

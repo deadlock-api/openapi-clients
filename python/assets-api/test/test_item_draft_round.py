@@ -35,13 +35,13 @@ class TestItemDraftRound(unittest.TestCase):
         model = ItemDraftRound()
         if include_optional:
             return ItemDraftRound(
-                chance_rare = 1,
-                chance_enhanced = 1
+                normal_mod_tier = 1,
+                rare_mod_tier = 1
             )
         else:
             return ItemDraftRound(
-                chance_rare = 1,
-                chance_enhanced = 1,
+                normal_mod_tier = 1,
+                rare_mod_tier = 1,
         )
         """
 

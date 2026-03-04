@@ -259,14 +259,5 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'TeamAbandoned'
         }
-
-        /// <summary>
-        /// Test the property 'Username'
-        /// </summary>
-        [Fact]
-        public void UsernameTest()
-        {
-            // TODO unit test for the property 'Username'
-        }
     }
 }

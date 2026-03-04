@@ -29,19 +29,19 @@ export interface ItemDraftRound  {
      * @type {ItemTierV2}
      * @memberof ItemDraftRound
      */
-    chanceRare: ItemTierV2;
+    normalModTier: ItemTierV2;
     /**
      * 
      * @type {ItemTierV2}
      * @memberof ItemDraftRound
      */
-    chanceEnhanced: ItemTierV2;
+    rareModTier: ItemTierV2;
 }
 
 export function ItemDraftRoundFromJSON(json: any): ItemDraftRound {
     return {
-        'chanceRare': ItemTierV2FromJSON(json['chance_rare']),
-        'chanceEnhanced': ItemTierV2FromJSON(json['chance_enhanced']),
+        'normalModTier': ItemTierV2FromJSON(json['normal_mod_tier']),
+        'rareModTier': ItemTierV2FromJSON(json['rare_mod_tier']),
     };
 }
 
@@ -50,8 +50,8 @@ export function ItemDraftRoundToJSON(value?: ItemDraftRound): any {
         return undefined;
     }
     return {
-        'chance_rare': ItemTierV2ToJSON(value.chanceRare),
-        'chance_enhanced': ItemTierV2ToJSON(value.chanceEnhanced),
+        'normal_mod_tier': ItemTierV2ToJSON(value.normalModTier),
+        'rare_mod_tier': ItemTierV2ToJSON(value.rareModTier),
     };
 }
 

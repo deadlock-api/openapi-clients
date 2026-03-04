@@ -13,17 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ItemDraftRound {
-    #[serde(rename = "chance_rare")]
-    pub chance_rare: models::ItemTierV2,
-    #[serde(rename = "chance_enhanced")]
-    pub chance_enhanced: models::ItemTierV2,
+    #[serde(rename = "normal_mod_tier")]
+    pub normal_mod_tier: models::ItemTierV2,
+    #[serde(rename = "rare_mod_tier")]
+    pub rare_mod_tier: models::ItemTierV2,
 }
 
 impl ItemDraftRound {
-    pub fn new(chance_rare: models::ItemTierV2, chance_enhanced: models::ItemTierV2) -> ItemDraftRound {
+    pub fn new(normal_mod_tier: models::ItemTierV2, rare_mod_tier: models::ItemTierV2) -> ItemDraftRound {
         ItemDraftRound {
-            chance_rare,
-            chance_enhanced,
+            normal_mod_tier,
+            rare_mod_tier,
         }
     }
 }

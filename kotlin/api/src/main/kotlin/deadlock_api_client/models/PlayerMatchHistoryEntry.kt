@@ -46,7 +46,6 @@ import java.io.Serializable
  * @param brawlScoreTeam0 
  * @param brawlScoreTeam1 
  * @param teamAbandoned 
- * @param username 
  */
 
 
@@ -120,10 +119,7 @@ data class PlayerMatchHistoryEntry (
     val brawlScoreTeam1: kotlin.Int? = null,
 
     @Json(name = "team_abandoned")
-    val teamAbandoned: kotlin.Boolean? = null,
-
-    @Json(name = "username")
-    val username: kotlin.String? = null
+    val teamAbandoned: kotlin.Boolean? = null
 
 ) : Serializable {
     companion object {

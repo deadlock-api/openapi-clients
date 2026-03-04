@@ -468,8 +468,8 @@ export interface IntrinsicModifiers {
     'script_values'?: Array<ScriptValues> | null;
 }
 export interface ItemDraftRound {
-    'chance_rare': ItemTierV2;
-    'chance_enhanced': ItemTierV2;
+    'normal_mod_tier': ItemTierV2;
+    'rare_mod_tier': ItemTierV2;
 }
 
 

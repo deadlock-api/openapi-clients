@@ -54,21 +54,21 @@ namespace AssetsDeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'ChanceRare'
+        /// Test the property 'NormalModTier'
         /// </summary>
         [Fact]
-        public void ChanceRareTest()
+        public void NormalModTierTest()
         {
-            // TODO unit test for the property 'ChanceRare'
+            // TODO unit test for the property 'NormalModTier'
         }
 
         /// <summary>
-        /// Test the property 'ChanceEnhanced'
+        /// Test the property 'RareModTier'
         /// </summary>
         [Fact]
-        public void ChanceEnhancedTest()
+        public void RareModTierTest()
         {
-            // TODO unit test for the property 'ChanceEnhanced'
+            // TODO unit test for the property 'RareModTier'
         }
     }
 }

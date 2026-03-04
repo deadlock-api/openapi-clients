@@ -56,9 +56,8 @@ namespace DeadlockApiClient.Model
         /// <param name="brawlScoreTeam0">brawlScoreTeam0</param>
         /// <param name="brawlScoreTeam1">brawlScoreTeam1</param>
         /// <param name="teamAbandoned">teamAbandoned</param>
-        /// <param name="username">username</param>
         [JsonConstructor]
-        public PlayerMatchHistoryEntry(int accountId, int denies, int gameMode, int heroId, int heroLevel, int lastHits, int matchDurationS, long matchId, int matchMode, int matchResult, int netWorth, int objectivesMaskTeam0, int objectivesMaskTeam1, int playerAssists, int playerDeaths, int playerKills, int playerTeam, int startTime, Option<int?> abandonedTimeS = default, Option<int?> brawlAvgRoundTimeS = default, Option<int?> brawlScoreTeam0 = default, Option<int?> brawlScoreTeam1 = default, Option<bool?> teamAbandoned = default, Option<string?> username = default)
+        public PlayerMatchHistoryEntry(int accountId, int denies, int gameMode, int heroId, int heroLevel, int lastHits, int matchDurationS, long matchId, int matchMode, int matchResult, int netWorth, int objectivesMaskTeam0, int objectivesMaskTeam1, int playerAssists, int playerDeaths, int playerKills, int playerTeam, int startTime, Option<int?> abandonedTimeS = default, Option<int?> brawlAvgRoundTimeS = default, Option<int?> brawlScoreTeam0 = default, Option<int?> brawlScoreTeam1 = default, Option<bool?> teamAbandoned = default)
         {
             AccountId = accountId;
             Denies = denies;
@@ -83,7 +82,6 @@ namespace DeadlockApiClient.Model
             BrawlScoreTeam0Option = brawlScoreTeam0;
             BrawlScoreTeam1Option = brawlScoreTeam1;
             TeamAbandonedOption = teamAbandoned;
-            UsernameOption = username;
             OnCreated();
         }
 
@@ -264,19 +262,6 @@ namespace DeadlockApiClient.Model
         public bool? TeamAbandoned { get { return this.TeamAbandonedOption; } set { this.TeamAbandonedOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of Username
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> UsernameOption { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets Username
-        /// </summary>
-        [JsonPropertyName("username")]
-        public string? Username { get { return this.UsernameOption; } set { this.UsernameOption = new(value); } }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -307,7 +292,6 @@ namespace DeadlockApiClient.Model
             sb.Append("  BrawlScoreTeam0: ").Append(BrawlScoreTeam0).Append("\n");
             sb.Append("  BrawlScoreTeam1: ").Append(BrawlScoreTeam1).Append("\n");
             sb.Append("  TeamAbandoned: ").Append(TeamAbandoned).Append("\n");
-            sb.Append("  Username: ").Append(Username).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -482,7 +466,6 @@ namespace DeadlockApiClient.Model
             Option<int?> brawlScoreTeam0 = default;
             Option<int?> brawlScoreTeam1 = default;
             Option<bool?> teamAbandoned = default;
-            Option<string?> username = default;
 
             while (utf8JsonReader.Read())
             {
@@ -567,9 +550,6 @@ namespace DeadlockApiClient.Model
                             break;
                         case "team_abandoned":
                             teamAbandoned = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
-                            break;
-                        case "username":
-                            username = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         default:
                             break;
@@ -685,7 +665,7 @@ namespace DeadlockApiClient.Model
             if (startTime.IsSet && startTime.Value == null)
                 throw new ArgumentNullException(nameof(startTime), "Property is not nullable for class PlayerMatchHistoryEntry.");
 
-            return new PlayerMatchHistoryEntry(accountId.Value!.Value!, denies.Value!.Value!, gameMode.Value!.Value!, heroId.Value!.Value!, heroLevel.Value!.Value!, lastHits.Value!.Value!, matchDurationS.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, matchResult.Value!.Value!, netWorth.Value!.Value!, objectivesMaskTeam0.Value!.Value!, objectivesMaskTeam1.Value!.Value!, playerAssists.Value!.Value!, playerDeaths.Value!.Value!, playerKills.Value!.Value!, playerTeam.Value!.Value!, startTime.Value!.Value!, abandonedTimeS, brawlAvgRoundTimeS, brawlScoreTeam0, brawlScoreTeam1, teamAbandoned, username);
+            return new PlayerMatchHistoryEntry(accountId.Value!.Value!, denies.Value!.Value!, gameMode.Value!.Value!, heroId.Value!.Value!, heroLevel.Value!.Value!, lastHits.Value!.Value!, matchDurationS.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, matchResult.Value!.Value!, netWorth.Value!.Value!, objectivesMaskTeam0.Value!.Value!, objectivesMaskTeam1.Value!.Value!, playerAssists.Value!.Value!, playerDeaths.Value!.Value!, playerKills.Value!.Value!, playerTeam.Value!.Value!, startTime.Value!.Value!, abandonedTimeS, brawlAvgRoundTimeS, brawlScoreTeam0, brawlScoreTeam1, teamAbandoned);
         }
 
         /// <summary>
@@ -777,12 +757,6 @@ namespace DeadlockApiClient.Model
                     writer.WriteBoolean("team_abandoned", playerMatchHistoryEntry.TeamAbandonedOption.Value!.Value);
                 else
                     writer.WriteNull("team_abandoned");
-
-            if (playerMatchHistoryEntry.UsernameOption.IsSet)
-                if (playerMatchHistoryEntry.UsernameOption.Value != null)
-                    writer.WriteString("username", playerMatchHistoryEntry.Username);
-                else
-                    writer.WriteNull("username");
         }
     }
 }

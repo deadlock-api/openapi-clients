@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -50,8 +50,7 @@ class PlayerMatchHistoryEntry(BaseModel):
     player_team: StrictInt
     start_time: Annotated[int, Field(strict=True, ge=0)]
     team_abandoned: Optional[StrictBool] = None
-    username: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "brawl_avg_round_time_s", "brawl_score_team0", "brawl_score_team1", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_team", "start_time", "team_abandoned", "username"]
+    __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "brawl_avg_round_time_s", "brawl_score_team0", "brawl_score_team1", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_team", "start_time", "team_abandoned"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -117,11 +116,6 @@ class PlayerMatchHistoryEntry(BaseModel):
         if self.team_abandoned is None and "team_abandoned" in self.model_fields_set:
             _dict['team_abandoned'] = None
 
-        # set to None if username (nullable) is None
-        # and model_fields_set contains the field
-        if self.username is None and "username" in self.model_fields_set:
-            _dict['username'] = None
-
         return _dict
 
     @classmethod
@@ -156,8 +150,7 @@ class PlayerMatchHistoryEntry(BaseModel):
             "player_kills": obj.get("player_kills"),
             "player_team": obj.get("player_team"),
             "start_time": obj.get("start_time"),
-            "team_abandoned": obj.get("team_abandoned"),
-            "username": obj.get("username")
+            "team_abandoned": obj.get("team_abandoned")
         })
         return _obj
 

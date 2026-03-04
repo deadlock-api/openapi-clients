@@ -24,18 +24,18 @@ import java.io.Serializable
 /**
  * 
  *
- * @param chanceRare 
- * @param chanceEnhanced 
+ * @param normalModTier 
+ * @param rareModTier 
  */
 
 
 data class ItemDraftRound (
 
-    @Json(name = "chance_rare")
-    val chanceRare: ItemTierV2,
+    @Json(name = "normal_mod_tier")
+    val normalModTier: ItemTierV2,
 
-    @Json(name = "chance_enhanced")
-    val chanceEnhanced: ItemTierV2
+    @Json(name = "rare_mod_tier")
+    val rareModTier: ItemTierV2
 
 ) : Serializable {
     companion object {

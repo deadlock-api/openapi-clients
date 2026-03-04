@@ -80,18 +80,18 @@ class ItemDraftRoundTest extends TestCase
     }
 
     /**
-     * Test attribute "chance_rare"
+     * Test attribute "normal_mod_tier"
      */
-    public function testPropertyChanceRare()
+    public function testPropertyNormalModTier()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "chance_enhanced"
+     * Test attribute "rare_mod_tier"
      */
-    public function testPropertyChanceEnhanced()
+    public function testPropertyRareModTier()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

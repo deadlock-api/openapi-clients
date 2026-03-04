@@ -21,8 +21,8 @@ var _ MappedNullable = &ItemDraftRound{}
 
 // ItemDraftRound struct for ItemDraftRound
 type ItemDraftRound struct {
-	ChanceRare ItemTierV2 `json:"chance_rare"`
-	ChanceEnhanced ItemTierV2 `json:"chance_enhanced"`
+	NormalModTier ItemTierV2 `json:"normal_mod_tier"`
+	RareModTier ItemTierV2 `json:"rare_mod_tier"`
 }
 
 type _ItemDraftRound ItemDraftRound
@@ -31,10 +31,10 @@ type _ItemDraftRound ItemDraftRound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemDraftRound(chanceRare ItemTierV2, chanceEnhanced ItemTierV2) *ItemDraftRound {
+func NewItemDraftRound(normalModTier ItemTierV2, rareModTier ItemTierV2) *ItemDraftRound {
 	this := ItemDraftRound{}
-	this.ChanceRare = chanceRare
-	this.ChanceEnhanced = chanceEnhanced
+	this.NormalModTier = normalModTier
+	this.RareModTier = rareModTier
 	return &this
 }
 
@@ -46,52 +46,52 @@ func NewItemDraftRoundWithDefaults() *ItemDraftRound {
 	return &this
 }
 
-// GetChanceRare returns the ChanceRare field value
-func (o *ItemDraftRound) GetChanceRare() ItemTierV2 {
+// GetNormalModTier returns the NormalModTier field value
+func (o *ItemDraftRound) GetNormalModTier() ItemTierV2 {
 	if o == nil {
 		var ret ItemTierV2
 		return ret
 	}
 
-	return o.ChanceRare
+	return o.NormalModTier
 }
 
-// GetChanceRareOk returns a tuple with the ChanceRare field value
+// GetNormalModTierOk returns a tuple with the NormalModTier field value
 // and a boolean to check if the value has been set.
-func (o *ItemDraftRound) GetChanceRareOk() (*ItemTierV2, bool) {
+func (o *ItemDraftRound) GetNormalModTierOk() (*ItemTierV2, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ChanceRare, true
+	return &o.NormalModTier, true
 }
 
-// SetChanceRare sets field value
-func (o *ItemDraftRound) SetChanceRare(v ItemTierV2) {
-	o.ChanceRare = v
+// SetNormalModTier sets field value
+func (o *ItemDraftRound) SetNormalModTier(v ItemTierV2) {
+	o.NormalModTier = v
 }
 
-// GetChanceEnhanced returns the ChanceEnhanced field value
-func (o *ItemDraftRound) GetChanceEnhanced() ItemTierV2 {
+// GetRareModTier returns the RareModTier field value
+func (o *ItemDraftRound) GetRareModTier() ItemTierV2 {
 	if o == nil {
 		var ret ItemTierV2
 		return ret
 	}
 
-	return o.ChanceEnhanced
+	return o.RareModTier
 }
 
-// GetChanceEnhancedOk returns a tuple with the ChanceEnhanced field value
+// GetRareModTierOk returns a tuple with the RareModTier field value
 // and a boolean to check if the value has been set.
-func (o *ItemDraftRound) GetChanceEnhancedOk() (*ItemTierV2, bool) {
+func (o *ItemDraftRound) GetRareModTierOk() (*ItemTierV2, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ChanceEnhanced, true
+	return &o.RareModTier, true
 }
 
-// SetChanceEnhanced sets field value
-func (o *ItemDraftRound) SetChanceEnhanced(v ItemTierV2) {
-	o.ChanceEnhanced = v
+// SetRareModTier sets field value
+func (o *ItemDraftRound) SetRareModTier(v ItemTierV2) {
+	o.RareModTier = v
 }
 
 func (o ItemDraftRound) MarshalJSON() ([]byte, error) {
@@ -104,8 +104,8 @@ func (o ItemDraftRound) MarshalJSON() ([]byte, error) {
 
 func (o ItemDraftRound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["chance_rare"] = o.ChanceRare
-	toSerialize["chance_enhanced"] = o.ChanceEnhanced
+	toSerialize["normal_mod_tier"] = o.NormalModTier
+	toSerialize["rare_mod_tier"] = o.RareModTier
 	return toSerialize, nil
 }
 
@@ -114,8 +114,8 @@ func (o *ItemDraftRound) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"chance_rare",
-		"chance_enhanced",
+		"normal_mod_tier",
+		"rare_mod_tier",
 	}
 
 	allProperties := make(map[string]interface{})

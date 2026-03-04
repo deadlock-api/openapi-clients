@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChanceRare** | [**ItemTierV2**](ItemTierV2.md) |  | 
-**ChanceEnhanced** | [**ItemTierV2**](ItemTierV2.md) |  | 
+**NormalModTier** | [**ItemTierV2**](ItemTierV2.md) |  | 
+**RareModTier** | [**ItemTierV2**](ItemTierV2.md) |  | 
 
 ## Methods
 
 ### NewItemDraftRound
 
-`func NewItemDraftRound(chanceRare ItemTierV2, chanceEnhanced ItemTierV2, ) *ItemDraftRound`
+`func NewItemDraftRound(normalModTier ItemTierV2, rareModTier ItemTierV2, ) *ItemDraftRound`
 
 NewItemDraftRound instantiates a new ItemDraftRound object
 This constructor will assign default values to properties that have it defined,
@@ -26,44 +26,44 @@ NewItemDraftRoundWithDefaults instantiates a new ItemDraftRound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetChanceRare
+### GetNormalModTier
 
-`func (o *ItemDraftRound) GetChanceRare() ItemTierV2`
+`func (o *ItemDraftRound) GetNormalModTier() ItemTierV2`
 
-GetChanceRare returns the ChanceRare field if non-nil, zero value otherwise.
+GetNormalModTier returns the NormalModTier field if non-nil, zero value otherwise.
 
-### GetChanceRareOk
+### GetNormalModTierOk
 
-`func (o *ItemDraftRound) GetChanceRareOk() (*ItemTierV2, bool)`
+`func (o *ItemDraftRound) GetNormalModTierOk() (*ItemTierV2, bool)`
 
-GetChanceRareOk returns a tuple with the ChanceRare field if it's non-nil, zero value otherwise
+GetNormalModTierOk returns a tuple with the NormalModTier field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetChanceRare
+### SetNormalModTier
 
-`func (o *ItemDraftRound) SetChanceRare(v ItemTierV2)`
+`func (o *ItemDraftRound) SetNormalModTier(v ItemTierV2)`
 
-SetChanceRare sets ChanceRare field to given value.
+SetNormalModTier sets NormalModTier field to given value.
 
 
-### GetChanceEnhanced
+### GetRareModTier
 
-`func (o *ItemDraftRound) GetChanceEnhanced() ItemTierV2`
+`func (o *ItemDraftRound) GetRareModTier() ItemTierV2`
 
-GetChanceEnhanced returns the ChanceEnhanced field if non-nil, zero value otherwise.
+GetRareModTier returns the RareModTier field if non-nil, zero value otherwise.
 
-### GetChanceEnhancedOk
+### GetRareModTierOk
 
-`func (o *ItemDraftRound) GetChanceEnhancedOk() (*ItemTierV2, bool)`
+`func (o *ItemDraftRound) GetRareModTierOk() (*ItemTierV2, bool)`
 
-GetChanceEnhancedOk returns a tuple with the ChanceEnhanced field if it's non-nil, zero value otherwise
+GetRareModTierOk returns a tuple with the RareModTier field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetChanceEnhanced
+### SetRareModTier
 
-`func (o *ItemDraftRound) SetChanceEnhanced(v ItemTierV2)`
+`func (o *ItemDraftRound) SetRareModTier(v ItemTierV2)`
 
-SetChanceEnhanced sets ChanceEnhanced field to given value.
+SetRareModTier sets RareModTier field to given value.
 
 
 

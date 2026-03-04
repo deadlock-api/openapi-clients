@@ -57,8 +57,7 @@ class TestPlayerMatchHistoryEntry(unittest.TestCase):
                 player_kills = 0,
                 player_team = 56,
                 start_time = 0,
-                team_abandoned = True,
-                username = ''
+                team_abandoned = True
             )
         else:
             return PlayerMatchHistoryEntry(

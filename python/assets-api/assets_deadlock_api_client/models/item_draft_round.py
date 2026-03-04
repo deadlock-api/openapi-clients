@@ -27,9 +27,9 @@ class ItemDraftRound(BaseModel):
     """
     ItemDraftRound
     """ # noqa: E501
-    chance_rare: ItemTierV2
-    chance_enhanced: ItemTierV2
-    __properties: ClassVar[List[str]] = ["chance_rare", "chance_enhanced"]
+    normal_mod_tier: ItemTierV2
+    rare_mod_tier: ItemTierV2
+    __properties: ClassVar[List[str]] = ["normal_mod_tier", "rare_mod_tier"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,8 +82,8 @@ class ItemDraftRound(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "chance_rare": obj.get("chance_rare"),
-            "chance_enhanced": obj.get("chance_enhanced")
+            "normal_mod_tier": obj.get("normal_mod_tier"),
+            "rare_mod_tier": obj.get("rare_mod_tier")
         })
         return _obj
 

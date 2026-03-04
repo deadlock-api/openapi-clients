@@ -79,8 +79,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_kills' => 'int',
         'player_team' => 'int',
         'start_time' => 'int',
-        'team_abandoned' => 'bool',
-        'username' => 'string'
+        'team_abandoned' => 'bool'
     ];
 
     /**
@@ -113,8 +112,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_kills' => 'int32',
         'player_team' => 'int32',
         'start_time' => 'int32',
-        'team_abandoned' => null,
-        'username' => null
+        'team_abandoned' => null
     ];
 
     /**
@@ -145,8 +143,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_kills' => false,
         'player_team' => false,
         'start_time' => false,
-        'team_abandoned' => true,
-        'username' => true
+        'team_abandoned' => true
     ];
 
     /**
@@ -257,8 +254,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_kills' => 'player_kills',
         'player_team' => 'player_team',
         'start_time' => 'start_time',
-        'team_abandoned' => 'team_abandoned',
-        'username' => 'username'
+        'team_abandoned' => 'team_abandoned'
     ];
 
     /**
@@ -289,8 +285,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_kills' => 'setPlayerKills',
         'player_team' => 'setPlayerTeam',
         'start_time' => 'setStartTime',
-        'team_abandoned' => 'setTeamAbandoned',
-        'username' => 'setUsername'
+        'team_abandoned' => 'setTeamAbandoned'
     ];
 
     /**
@@ -321,8 +316,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_kills' => 'getPlayerKills',
         'player_team' => 'getPlayerTeam',
         'start_time' => 'getStartTime',
-        'team_abandoned' => 'getTeamAbandoned',
-        'username' => 'getUsername'
+        'team_abandoned' => 'getTeamAbandoned'
     ];
 
     /**
@@ -405,7 +399,6 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('player_team', $data ?? [], null);
         $this->setIfExists('start_time', $data ?? [], null);
         $this->setIfExists('team_abandoned', $data ?? [], null);
-        $this->setIfExists('username', $data ?? [], null);
     }
 
     /**
@@ -1327,40 +1320,6 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['team_abandoned'] = $team_abandoned;
-
-        return $this;
-    }
-
-    /**
-     * Gets username
-     *
-     * @return string|null
-     */
-    public function getUsername()
-    {
-        return $this->container['username'];
-    }
-
-    /**
-     * Sets username
-     *
-     * @param string|null $username username
-     *
-     * @return self
-     */
-    public function setUsername($username)
-    {
-        if (is_null($username)) {
-            array_push($this->openAPINullablesSetToNull, 'username');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('username', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['username'] = $username;
 
         return $this;
     }

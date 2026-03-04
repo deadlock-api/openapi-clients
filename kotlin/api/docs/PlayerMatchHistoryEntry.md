@@ -27,7 +27,6 @@
 | **brawlScoreTeam0** | **kotlin.Int** |  |  [optional] |
 | **brawlScoreTeam1** | **kotlin.Int** |  |  [optional] |
 | **teamAbandoned** | **kotlin.Boolean** |  |  [optional] |
-| **username** | **kotlin.String** |  |  [optional] |
 
 
 

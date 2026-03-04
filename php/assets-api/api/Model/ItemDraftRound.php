@@ -57,8 +57,8 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'chance_rare' => '\OpenAPI\Client\Model\ItemTierV2',
-        'chance_enhanced' => '\OpenAPI\Client\Model\ItemTierV2'
+        'normal_mod_tier' => '\OpenAPI\Client\Model\ItemTierV2',
+        'rare_mod_tier' => '\OpenAPI\Client\Model\ItemTierV2'
     ];
 
     /**
@@ -69,8 +69,8 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'chance_rare' => null,
-        'chance_enhanced' => null
+        'normal_mod_tier' => null,
+        'rare_mod_tier' => null
     ];
 
     /**
@@ -79,8 +79,8 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'chance_rare' => false,
-        'chance_enhanced' => false
+        'normal_mod_tier' => false,
+        'rare_mod_tier' => false
     ];
 
     /**
@@ -169,8 +169,8 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'chance_rare' => 'chance_rare',
-        'chance_enhanced' => 'chance_enhanced'
+        'normal_mod_tier' => 'normal_mod_tier',
+        'rare_mod_tier' => 'rare_mod_tier'
     ];
 
     /**
@@ -179,8 +179,8 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'chance_rare' => 'setChanceRare',
-        'chance_enhanced' => 'setChanceEnhanced'
+        'normal_mod_tier' => 'setNormalModTier',
+        'rare_mod_tier' => 'setRareModTier'
     ];
 
     /**
@@ -189,8 +189,8 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'chance_rare' => 'getChanceRare',
-        'chance_enhanced' => 'getChanceEnhanced'
+        'normal_mod_tier' => 'getNormalModTier',
+        'rare_mod_tier' => 'getRareModTier'
     ];
 
     /**
@@ -250,8 +250,8 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('chance_rare', $data ?? [], null);
-        $this->setIfExists('chance_enhanced', $data ?? [], null);
+        $this->setIfExists('normal_mod_tier', $data ?? [], null);
+        $this->setIfExists('rare_mod_tier', $data ?? [], null);
     }
 
     /**
@@ -281,11 +281,11 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['chance_rare'] === null) {
-            $invalidProperties[] = "'chance_rare' can't be null";
+        if ($this->container['normal_mod_tier'] === null) {
+            $invalidProperties[] = "'normal_mod_tier' can't be null";
         }
-        if ($this->container['chance_enhanced'] === null) {
-            $invalidProperties[] = "'chance_enhanced' can't be null";
+        if ($this->container['rare_mod_tier'] === null) {
+            $invalidProperties[] = "'rare_mod_tier' can't be null";
         }
         return $invalidProperties;
     }
@@ -303,55 +303,55 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets chance_rare
+     * Gets normal_mod_tier
      *
      * @return \OpenAPI\Client\Model\ItemTierV2
      */
-    public function getChanceRare()
+    public function getNormalModTier()
     {
-        return $this->container['chance_rare'];
+        return $this->container['normal_mod_tier'];
     }
 
     /**
-     * Sets chance_rare
+     * Sets normal_mod_tier
      *
-     * @param \OpenAPI\Client\Model\ItemTierV2 $chance_rare chance_rare
+     * @param \OpenAPI\Client\Model\ItemTierV2 $normal_mod_tier normal_mod_tier
      *
      * @return self
      */
-    public function setChanceRare($chance_rare)
+    public function setNormalModTier($normal_mod_tier)
     {
-        if (is_null($chance_rare)) {
-            throw new \InvalidArgumentException('non-nullable chance_rare cannot be null');
+        if (is_null($normal_mod_tier)) {
+            throw new \InvalidArgumentException('non-nullable normal_mod_tier cannot be null');
         }
-        $this->container['chance_rare'] = $chance_rare;
+        $this->container['normal_mod_tier'] = $normal_mod_tier;
 
         return $this;
     }
 
     /**
-     * Gets chance_enhanced
+     * Gets rare_mod_tier
      *
      * @return \OpenAPI\Client\Model\ItemTierV2
      */
-    public function getChanceEnhanced()
+    public function getRareModTier()
     {
-        return $this->container['chance_enhanced'];
+        return $this->container['rare_mod_tier'];
     }
 
     /**
-     * Sets chance_enhanced
+     * Sets rare_mod_tier
      *
-     * @param \OpenAPI\Client\Model\ItemTierV2 $chance_enhanced chance_enhanced
+     * @param \OpenAPI\Client\Model\ItemTierV2 $rare_mod_tier rare_mod_tier
      *
      * @return self
      */
-    public function setChanceEnhanced($chance_enhanced)
+    public function setRareModTier($rare_mod_tier)
     {
-        if (is_null($chance_enhanced)) {
-            throw new \InvalidArgumentException('non-nullable chance_enhanced cannot be null');
+        if (is_null($rare_mod_tier)) {
+            throw new \InvalidArgumentException('non-nullable rare_mod_tier cannot be null');
         }
-        $this->container['chance_enhanced'] = $chance_enhanced;
+        $this->container['rare_mod_tier'] = $rare_mod_tier;
 
         return $this;
     }

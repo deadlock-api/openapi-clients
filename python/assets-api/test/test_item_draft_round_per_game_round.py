@@ -45,8 +45,8 @@ class TestItemDraftRoundPerGameRound(unittest.TestCase):
                         }, ),
                 item_draft_rounds = [
                     assets_deadlock_api_client.models.item_draft_round.ItemDraftRound(
-                        chance_rare = 1, 
-                        chance_enhanced = 1, )
+                        normal_mod_tier = 1, 
+                        rare_mod_tier = 1, )
                     ]
             )
         else:
@@ -61,8 +61,8 @@ class TestItemDraftRoundPerGameRound(unittest.TestCase):
                         }, ),
                 item_draft_rounds = [
                     assets_deadlock_api_client.models.item_draft_round.ItemDraftRound(
-                        chance_rare = 1, 
-                        chance_enhanced = 1, )
+                        normal_mod_tier = 1, 
+                        rare_mod_tier = 1, )
                     ],
         )
         """

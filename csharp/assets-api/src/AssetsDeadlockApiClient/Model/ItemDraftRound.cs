@@ -33,29 +33,29 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemDraftRound" /> class.
         /// </summary>
-        /// <param name="chanceRare">chanceRare</param>
-        /// <param name="chanceEnhanced">chanceEnhanced</param>
+        /// <param name="normalModTier">normalModTier</param>
+        /// <param name="rareModTier">rareModTier</param>
         [JsonConstructor]
-        public ItemDraftRound(ItemTierV2 chanceRare, ItemTierV2 chanceEnhanced)
+        public ItemDraftRound(ItemTierV2 normalModTier, ItemTierV2 rareModTier)
         {
-            ChanceRare = chanceRare;
-            ChanceEnhanced = chanceEnhanced;
+            NormalModTier = normalModTier;
+            RareModTier = rareModTier;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets ChanceRare
+        /// Gets or Sets NormalModTier
         /// </summary>
-        [JsonPropertyName("chance_rare")]
-        public ItemTierV2 ChanceRare { get; set; }
+        [JsonPropertyName("normal_mod_tier")]
+        public ItemTierV2 NormalModTier { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChanceEnhanced
+        /// Gets or Sets RareModTier
         /// </summary>
-        [JsonPropertyName("chance_enhanced")]
-        public ItemTierV2 ChanceEnhanced { get; set; }
+        [JsonPropertyName("rare_mod_tier")]
+        public ItemTierV2 RareModTier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +65,8 @@ namespace AssetsDeadlockApiClient.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ItemDraftRound {\n");
-            sb.Append("  ChanceRare: ").Append(ChanceRare).Append("\n");
-            sb.Append("  ChanceEnhanced: ").Append(ChanceEnhanced).Append("\n");
+            sb.Append("  NormalModTier: ").Append(NormalModTier).Append("\n");
+            sb.Append("  RareModTier: ").Append(RareModTier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,8 +104,8 @@ namespace AssetsDeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<ItemTierV2?> chanceRare = default;
-            Option<ItemTierV2?> chanceEnhanced = default;
+            Option<ItemTierV2?> normalModTier = default;
+            Option<ItemTierV2?> rareModTier = default;
 
             while (utf8JsonReader.Read())
             {
@@ -122,15 +122,15 @@ namespace AssetsDeadlockApiClient.Model
 
                     switch (localVarJsonPropertyName)
                     {
-                        case "chance_rare":
-                            string? chanceRareRawValue = utf8JsonReader.GetString();
-                            if (chanceRareRawValue != null)
-                                chanceRare = new Option<ItemTierV2?>(ItemTierV2ValueConverter.FromStringOrDefault(chanceRareRawValue));
+                        case "normal_mod_tier":
+                            string? normalModTierRawValue = utf8JsonReader.GetString();
+                            if (normalModTierRawValue != null)
+                                normalModTier = new Option<ItemTierV2?>(ItemTierV2ValueConverter.FromStringOrDefault(normalModTierRawValue));
                             break;
-                        case "chance_enhanced":
-                            string? chanceEnhancedRawValue = utf8JsonReader.GetString();
-                            if (chanceEnhancedRawValue != null)
-                                chanceEnhanced = new Option<ItemTierV2?>(ItemTierV2ValueConverter.FromStringOrDefault(chanceEnhancedRawValue));
+                        case "rare_mod_tier":
+                            string? rareModTierRawValue = utf8JsonReader.GetString();
+                            if (rareModTierRawValue != null)
+                                rareModTier = new Option<ItemTierV2?>(ItemTierV2ValueConverter.FromStringOrDefault(rareModTierRawValue));
                             break;
                         default:
                             break;
@@ -138,19 +138,19 @@ namespace AssetsDeadlockApiClient.Model
                 }
             }
 
-            if (!chanceRare.IsSet)
-                throw new ArgumentException("Property is required for class ItemDraftRound.", nameof(chanceRare));
+            if (!normalModTier.IsSet)
+                throw new ArgumentException("Property is required for class ItemDraftRound.", nameof(normalModTier));
 
-            if (!chanceEnhanced.IsSet)
-                throw new ArgumentException("Property is required for class ItemDraftRound.", nameof(chanceEnhanced));
+            if (!rareModTier.IsSet)
+                throw new ArgumentException("Property is required for class ItemDraftRound.", nameof(rareModTier));
 
-            if (chanceRare.IsSet && chanceRare.Value == null)
-                throw new ArgumentNullException(nameof(chanceRare), "Property is not nullable for class ItemDraftRound.");
+            if (normalModTier.IsSet && normalModTier.Value == null)
+                throw new ArgumentNullException(nameof(normalModTier), "Property is not nullable for class ItemDraftRound.");
 
-            if (chanceEnhanced.IsSet && chanceEnhanced.Value == null)
-                throw new ArgumentNullException(nameof(chanceEnhanced), "Property is not nullable for class ItemDraftRound.");
+            if (rareModTier.IsSet && rareModTier.Value == null)
+                throw new ArgumentNullException(nameof(rareModTier), "Property is not nullable for class ItemDraftRound.");
 
-            return new ItemDraftRound(chanceRare.Value!.Value!, chanceEnhanced.Value!.Value!);
+            return new ItemDraftRound(normalModTier.Value!.Value!, rareModTier.Value!.Value!);
         }
 
         /// <summary>
@@ -177,11 +177,11 @@ namespace AssetsDeadlockApiClient.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemDraftRound itemDraftRound, JsonSerializerOptions jsonSerializerOptions)
         {
-            var chanceRareRawValue = ItemTierV2ValueConverter.ToJsonValue(itemDraftRound.ChanceRare);
-            writer.WriteNumber("chance_rare", chanceRareRawValue);
+            var normalModTierRawValue = ItemTierV2ValueConverter.ToJsonValue(itemDraftRound.NormalModTier);
+            writer.WriteNumber("normal_mod_tier", normalModTierRawValue);
 
-            var chanceEnhancedRawValue = ItemTierV2ValueConverter.ToJsonValue(itemDraftRound.ChanceEnhanced);
-            writer.WriteNumber("chance_enhanced", chanceEnhancedRawValue);
+            var rareModTierRawValue = ItemTierV2ValueConverter.ToJsonValue(itemDraftRound.RareModTier);
+            writer.WriteNumber("rare_mod_tier", rareModTierRawValue);
         }
     }
 }

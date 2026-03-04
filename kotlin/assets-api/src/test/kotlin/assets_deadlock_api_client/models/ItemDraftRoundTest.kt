@@ -26,16 +26,16 @@ class ItemDraftRoundTest : ShouldSpec() {
         // uncomment below to create an instance of ItemDraftRound
         //val modelInstance = ItemDraftRound()
 
-        // to test the property `chanceRare`
-        should("test chanceRare") {
+        // to test the property `normalModTier`
+        should("test normalModTier") {
             // uncomment below to test the property
-            //modelInstance.chanceRare shouldBe ("TODO")
+            //modelInstance.normalModTier shouldBe ("TODO")
         }
 
-        // to test the property `chanceEnhanced`
-        should("test chanceEnhanced") {
+        // to test the property `rareModTier`
+        should("test rareModTier") {
             // uncomment below to test the property
-            //modelInstance.chanceEnhanced shouldBe ("TODO")
+            //modelInstance.rareModTier shouldBe ("TODO")
         }
 
     }

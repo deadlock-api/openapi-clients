@@ -2873,13 +2873,13 @@ components:
       title: IntrinsicModifiers
     ItemDraftRound:
       properties:
-        chance_rare:
+        normal_mod_tier:
           $ref: "#/components/schemas/ItemTierV2"
-        chance_enhanced:
+        rare_mod_tier:
           $ref: "#/components/schemas/ItemTierV2"
       required:
-      - chance_enhanced
-      - chance_rare
+      - normal_mod_tier
+      - rare_mod_tier
       title: ItemDraftRound
     ItemDraftRoundPerGameRound:
       properties:
