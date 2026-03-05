@@ -36,12 +36,12 @@ from deadlock_api_client.models.create_custom_request import CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse
 from deadlock_api_client.models.distribution_entry import DistributionEntry
 from deadlock_api_client.models.enemy_stats import EnemyStats
-from deadlock_api_client.models.entry import Entry
 from deadlock_api_client.models.game_mode import GameMode
 from deadlock_api_client.models.get_custom_match_id_response import GetCustomMatchIdResponse
 from deadlock_api_client.models.hash_map_value import HashMapValue
 from deadlock_api_client.models.hero_comb_stats import HeroCombStats
 from deadlock_api_client.models.hero_counter_stats import HeroCounterStats
+from deadlock_api_client.models.hero_entry import HeroEntry
 from deadlock_api_client.models.hero_stats import HeroStats
 from deadlock_api_client.models.hero_synergy_stats import HeroSynergyStats
 from deadlock_api_client.models.item_permutation_stats import ItemPermutationStats
@@ -63,6 +63,7 @@ from deadlock_api_client.models.player_card import PlayerCard
 from deadlock_api_client.models.player_card_slot import PlayerCardSlot
 from deadlock_api_client.models.player_card_slot_hero import PlayerCardSlotHero
 from deadlock_api_client.models.player_card_slot_stat import PlayerCardSlotStat
+from deadlock_api_client.models.player_entry import PlayerEntry
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint
 from deadlock_api_client.models.region_mode import RegionMode

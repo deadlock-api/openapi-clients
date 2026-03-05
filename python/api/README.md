@@ -87,7 +87,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1769904000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1769904000)
+    min_unix_timestamp = 1770076800 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1770076800)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -174,11 +174,11 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**mate_stats**](docs/PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**party_stats**](docs/PlayersApi.md#party_stats) | **GET** /v1/players/{account_id}/party-stats | Party Stats
 *PlayersApi* | [**player_hero_stats**](docs/PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
-*PlayersApi* | [**steam**](docs/PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
-*PlayersApi* | [**steam_search**](docs/PlayersApi.md#steam_search) | **GET** /v1/players/steam-search | Steam Profile Search
 *SQLApi* | [**list_tables**](docs/SQLApi.md#list_tables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**table_schema**](docs/SQLApi.md#table_schema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
+*SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
+*SteamApi* | [**steam_search**](docs/SteamApi.md#steam_search) | **GET** /v1/players/steam-search | Steam Profile Search
 
 
 ## Documentation For Models
@@ -206,12 +206,12 @@ Class | Method | HTTP request | Description
  - [CreateCustomResponse](docs/CreateCustomResponse.md)
  - [DistributionEntry](docs/DistributionEntry.md)
  - [EnemyStats](docs/EnemyStats.md)
- - [Entry](docs/Entry.md)
  - [GameMode](docs/GameMode.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [HashMapValue](docs/HashMapValue.md)
  - [HeroCombStats](docs/HeroCombStats.md)
  - [HeroCounterStats](docs/HeroCounterStats.md)
+ - [HeroEntry](docs/HeroEntry.md)
  - [HeroStats](docs/HeroStats.md)
  - [HeroSynergyStats](docs/HeroSynergyStats.md)
  - [ItemPermutationStats](docs/ItemPermutationStats.md)
@@ -233,6 +233,7 @@ Class | Method | HTTP request | Description
  - [PlayerCardSlot](docs/PlayerCardSlot.md)
  - [PlayerCardSlotHero](docs/PlayerCardSlotHero.md)
  - [PlayerCardSlotStat](docs/PlayerCardSlotStat.md)
+ - [PlayerEntry](docs/PlayerEntry.md)
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [RegionMode](docs/RegionMode.md)

@@ -1,0 +1,11 @@
+## SteamApi
+
+### Batch Steam Profile
+## Batch Steam Profile
+GET https://api.deadlock-api.com/v1/players/steam?accountIds={{accountIds}}
+Accept: application/json
+
+### Steam Profile Search
+## Steam Profile Search
+GET https://api.deadlock-api.com/v1/players/steam-search?searchQuery={{searchQuery}}
+Accept: application/json

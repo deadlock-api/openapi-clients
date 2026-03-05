@@ -285,18 +285,6 @@ export interface EnemyStats {
      */
     'wins': number;
 }
-export interface Entry {
-    /**
-     * See more: <https://assets.deadlock-api.com/v2/heroes>
-     */
-    'hero_id': number;
-    'matches': number;
-    /**
-     * tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
-     */
-    'rank': number;
-    'value': number;
-}
 
 export const GameMode = {
     Normal: 'normal',
@@ -412,6 +400,18 @@ export interface HeroCounterStats {
      * The number of times `hero_id` won the match when facing `enemy_hero_id`.
      */
     'wins': number;
+}
+export interface HeroEntry {
+    /**
+     * See more: <https://assets.deadlock-api.com/v2/heroes>
+     */
+    'hero_id': number;
+    'matches': number;
+    /**
+     * tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
+     */
+    'rank': number;
+    'value': number;
 }
 export interface HeroStats {
     'account_id': number;
@@ -721,6 +721,15 @@ export interface PlayerCardSlotHero {
 export interface PlayerCardSlotStat {
     'stat_id'?: number | null;
     'stat_score'?: number | null;
+}
+export interface PlayerEntry {
+    'account_id': number;
+    'matches': number;
+    /**
+     * tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
+     */
+    'rank': number;
+    'value': number;
 }
 export interface PlayerMatchHistoryEntry {
     'abandoned_time_s'?: number | null;
@@ -2669,7 +2678,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroScoreboard(sortBy: HeroScoreboardSortByEnum, sortDirection?: HeroScoreboardSortDirectionEnum, gameMode?: HeroScoreboardGameModeEnum, minMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entry>>> {
+        async heroScoreboard(sortBy: HeroScoreboardSortByEnum, sortDirection?: HeroScoreboardSortDirectionEnum, gameMode?: HeroScoreboardGameModeEnum, minMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroEntry>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.heroScoreboard(sortBy, sortDirection, gameMode, minMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroScoreboard']?.[localVarOperationServerIndex]?.url;
@@ -2887,7 +2896,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async playerScoreboard(sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, heroId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entry>>> {
+        async playerScoreboard(sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, heroId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerEntry>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.playerScoreboard(sortBy, sortDirection, gameMode, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.playerScoreboard']?.[localVarOperationServerIndex]?.url;
@@ -2987,7 +2996,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroScoreboard(requestParameters: AnalyticsApiHeroScoreboardRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<Entry>> {
+        heroScoreboard(requestParameters: AnalyticsApiHeroScoreboardRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroEntry>> {
             return localVarFp.heroScoreboard(requestParameters.sortBy, requestParameters.sortDirection, requestParameters.gameMode, requestParameters.minMatches, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3057,7 +3066,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerScoreboard(requestParameters: AnalyticsApiPlayerScoreboardRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<Entry>> {
+        playerScoreboard(requestParameters: AnalyticsApiPlayerScoreboardRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerEntry>> {
             return localVarFp.playerScoreboard(requestParameters.sortBy, requestParameters.sortDirection, requestParameters.gameMode, requestParameters.heroId, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.start, requestParameters.limit, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
@@ -8913,80 +8922,6 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
-        /**
-         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Batch Steam Profile
-         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        steam: async (accountIds: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountIds' is not null or undefined
-            assertParamExists('steam', 'accountIds', accountIds)
-            const localVarPath = `/v1/players/steam`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (accountIds) {
-                localVarQueryParameter['account_ids'] = accountIds;
-            }
-
-            localVarHeaderParameter['Accept'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Steam Profile Search
-         * @param {string} searchQuery Search query for Steam profiles.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        steamSearch: async (searchQuery: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'searchQuery' is not null or undefined
-            assertParamExists('steamSearch', 'searchQuery', searchQuery)
-            const localVarPath = `/v1/players/steam-search`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (searchQuery !== undefined) {
-                localVarQueryParameter['search_query'] = searchQuery;
-            }
-
-            localVarHeaderParameter['Accept'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -9127,32 +9062,6 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.playerHeroStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
-        /**
-         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Batch Steam Profile
-         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async steam(accountIds: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamProfile>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.steam(accountIds, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.steam']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Steam Profile Search
-         * @param {string} searchQuery Search query for Steam profiles.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async steamSearch(searchQuery: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamProfile>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.steamSearch(searchQuery, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.steamSearch']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
     }
 };
 
@@ -9231,26 +9140,6 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          */
         playerHeroStats(requestParameters: PlayersApiPlayerHeroStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroStats>> {
             return localVarFp.playerHeroStats(requestParameters.accountIds, requestParameters.gameMode, requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Batch Steam Profile
-         * @param {PlayersApiSteamRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        steam(requestParameters: PlayersApiSteamRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<SteamProfile>> {
-            return localVarFp.steam(requestParameters.accountIds, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Steam Profile Search
-         * @param {PlayersApiSteamSearchRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        steamSearch(requestParameters: PlayersApiSteamSearchRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<SteamProfile>> {
-            return localVarFp.steamSearch(requestParameters.searchQuery, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -9526,26 +9415,6 @@ export interface PlayersApiPlayerHeroStatsRequest {
 }
 
 /**
- * Request parameters for steam operation in PlayersApi.
- */
-export interface PlayersApiSteamRequest {
-    /**
-     * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-     */
-    readonly accountIds: Array<number>
-}
-
-/**
- * Request parameters for steamSearch operation in PlayersApi.
- */
-export interface PlayersApiSteamSearchRequest {
-    /**
-     * Search query for Steam profiles.
-     */
-    readonly searchQuery: string
-}
-
-/**
  * PlayersApi - object-oriented interface
  */
 export class PlayersApi extends BaseAPI {
@@ -9624,28 +9493,6 @@ export class PlayersApi extends BaseAPI {
      */
     public playerHeroStats(requestParameters: PlayersApiPlayerHeroStatsRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).playerHeroStats(requestParameters.accountIds, requestParameters.gameMode, requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @summary Batch Steam Profile
-     * @param {PlayersApiSteamRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public steam(requestParameters: PlayersApiSteamRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).steam(requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @summary Steam Profile Search
-     * @param {PlayersApiSteamSearchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public steamSearch(requestParameters: PlayersApiSteamSearchRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).steamSearch(requestParameters.searchQuery, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -9919,6 +9766,201 @@ export class SQLApi extends BaseAPI {
      */
     public tableSchema(requestParameters: SQLApiTableSchemaRequest, options?: RawAxiosRequestConfig) {
         return SQLApiFp(this.configuration).tableSchema(requestParameters.table, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * SteamApi - axios parameter creator
+ */
+export const SteamApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Batch Steam Profile
+         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        steam: async (accountIds: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountIds' is not null or undefined
+            assertParamExists('steam', 'accountIds', accountIds)
+            const localVarPath = `/v1/players/steam`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (accountIds) {
+                localVarQueryParameter['account_ids'] = accountIds;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Steam Profile Search
+         * @param {string} searchQuery Search query for Steam profiles.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        steamSearch: async (searchQuery: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'searchQuery' is not null or undefined
+            assertParamExists('steamSearch', 'searchQuery', searchQuery)
+            const localVarPath = `/v1/players/steam-search`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (searchQuery !== undefined) {
+                localVarQueryParameter['search_query'] = searchQuery;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SteamApi - functional programming interface
+ */
+export const SteamApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SteamApiAxiosParamCreator(configuration)
+    return {
+        /**
+         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Batch Steam Profile
+         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async steam(accountIds: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamProfile>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.steam(accountIds, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SteamApi.steam']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Steam Profile Search
+         * @param {string} searchQuery Search query for Steam profiles.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async steamSearch(searchQuery: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamProfile>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.steamSearch(searchQuery, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SteamApi.steamSearch']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * SteamApi - factory interface
+ */
+export const SteamApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SteamApiFp(configuration)
+    return {
+        /**
+         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Batch Steam Profile
+         * @param {SteamApiSteamRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        steam(requestParameters: SteamApiSteamRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<SteamProfile>> {
+            return localVarFp.steam(requestParameters.accountIds, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Steam Profile Search
+         * @param {SteamApiSteamSearchRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        steamSearch(requestParameters: SteamApiSteamSearchRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<SteamProfile>> {
+            return localVarFp.steamSearch(requestParameters.searchQuery, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for steam operation in SteamApi.
+ */
+export interface SteamApiSteamRequest {
+    /**
+     * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     */
+    readonly accountIds: Array<number>
+}
+
+/**
+ * Request parameters for steamSearch operation in SteamApi.
+ */
+export interface SteamApiSteamSearchRequest {
+    /**
+     * Search query for Steam profiles.
+     */
+    readonly searchQuery: string
+}
+
+/**
+ * SteamApi - object-oriented interface
+ */
+export class SteamApi extends BaseAPI {
+    /**
+     *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Batch Steam Profile
+     * @param {SteamApiSteamRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public steam(requestParameters: SteamApiSteamRequest, options?: RawAxiosRequestConfig) {
+        return SteamApiFp(this.configuration).steam(requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Steam Profile Search
+     * @param {SteamApiSteamSearchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public steamSearch(requestParameters: SteamApiSteamSearchRequest, options?: RawAxiosRequestConfig) {
+        return SteamApiFp(this.configuration).steamSearch(requestParameters.searchQuery, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

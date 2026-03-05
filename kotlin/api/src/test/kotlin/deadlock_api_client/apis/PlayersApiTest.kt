@@ -26,7 +26,6 @@ import deadlock_api_client.models.PartyStats
 import deadlock_api_client.models.PlayerAccountStats
 import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
-import deadlock_api_client.models.SteamProfile
 
 class PlayersApiTest : ShouldSpec() {
     init {
@@ -126,22 +125,6 @@ class PlayersApiTest : ShouldSpec() {
             //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val result : kotlin.collections.List<HeroStats> = apiInstance.playerHeroStats(accountIds, gameMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test steam
-        should("test steam") {
-            // uncomment below to test steam
-            //val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
-            //val result : kotlin.collections.List<SteamProfile> = apiInstance.steam(accountIds)
-            //result shouldBe ("TODO")
-        }
-
-        // to test steamSearch
-        should("test steamSearch") {
-            // uncomment below to test steamSearch
-            //val searchQuery : kotlin.String = searchQuery_example // kotlin.String | Search query for Steam profiles.
-            //val result : kotlin.collections.List<SteamProfile> = apiInstance.steamSearch(searchQuery)
             //result shouldBe ("TODO")
         }
 

@@ -121,7 +121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -339,7 +339,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -471,7 +471,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -532,7 +532,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -781,7 +781,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -1033,7 +1033,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -1294,7 +1294,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -1572,7 +1572,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -1797,7 +1797,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -2061,7 +2061,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -2350,7 +2350,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -2568,7 +2568,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -2864,7 +2864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -3006,7 +3006,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/Entry"
+                  $ref: "#/components/schemas/HeroEntry"
                 type: array
           description: Hero Scoreboard
         "400":
@@ -3312,7 +3312,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/Entry"
+                  $ref: "#/components/schemas/PlayerEntry"
                 type: array
           description: Player Scoreboard
         "400":
@@ -5085,7 +5085,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -5204,7 +5204,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1769904000
+          default: 1770076800
           format: int64
           nullable: true
           type: integer
@@ -5417,7 +5417,7 @@ paths:
           description: Failed to fetch steam profiles.
       summary: Batch Steam Profile
       tags:
-      - Players
+      - Steam
   /v1/players/steam-search:
     get:
       description: "\nThis endpoint lets you search for Steam profiles by account_id\
@@ -5451,7 +5451,7 @@ paths:
           description: Failed to fetch steam profiles.
       summary: Steam Profile Search
       tags:
-      - Players
+      - Steam
   /v1/players/{account_id}/account-stats:
     get:
       description: "\nThis endpoint returns the player account stats for the given\
@@ -7135,35 +7135,6 @@ components:
       - matches
       - matches_played
       - wins
-    Entry:
-      example:
-        rank: 0
-        hero_id: 0
-        matches: 0
-        value: 5.962133916683182
-      properties:
-        hero_id:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
-          format: int32
-          minimum: 0
-          type: integer
-        matches:
-          format: int64
-          minimum: 0
-          type: integer
-        rank:
-          description: "tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>"
-          format: int64
-          minimum: 0
-          type: integer
-        value:
-          format: double
-          type: number
-      required:
-      - hero_id
-      - matches
-      - rank
-      - value
     GameMode:
       enum:
       - normal
@@ -7363,6 +7334,35 @@ components:
       - networth
       - obj_damage
       - wins
+    HeroEntry:
+      example:
+        rank: 0
+        hero_id: 0
+        matches: 0
+        value: 5.962133916683182
+      properties:
+        hero_id:
+          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          format: int32
+          minimum: 0
+          type: integer
+        matches:
+          format: int64
+          minimum: 0
+          type: integer
+        rank:
+          description: "tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>"
+          format: int64
+          minimum: 0
+          type: integer
+        value:
+          format: double
+          type: number
+      required:
+      - hero_id
+      - matches
+      - rank
+      - value
     HeroStats:
       example:
         kills: 0
@@ -8331,6 +8331,34 @@ components:
           minimum: 0
           nullable: true
           type: integer
+    PlayerEntry:
+      example:
+        account_id: 0
+        rank: 0
+        matches: 0
+        value: 5.962133916683182
+      properties:
+        account_id:
+          format: int32
+          minimum: 0
+          type: integer
+        matches:
+          format: int64
+          minimum: 0
+          type: integer
+        rank:
+          description: "tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>"
+          format: int64
+          minimum: 0
+          type: integer
+        value:
+          format: double
+          type: number
+      required:
+      - account_id
+      - matches
+      - rank
+      - value
     PlayerMatchHistoryEntry:
       example:
         objectives_mask_team0: 0

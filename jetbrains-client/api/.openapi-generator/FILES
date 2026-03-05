@@ -11,5 +11,6 @@ Apis/MatchesApi.http
 Apis/PatchesApi.http
 Apis/PlayersApi.http
 Apis/SQLApi.http
+Apis/SteamApi.http
 Apis/http-client.template.env.json
 README.md

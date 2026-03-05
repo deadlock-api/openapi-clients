@@ -22,14 +22,15 @@ from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAb
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution
 from deadlock_api_client.models.build_item_stats import BuildItemStats
-from deadlock_api_client.models.entry import Entry
 from deadlock_api_client.models.hash_map_value import HashMapValue
 from deadlock_api_client.models.hero_comb_stats import HeroCombStats
 from deadlock_api_client.models.hero_counter_stats import HeroCounterStats
+from deadlock_api_client.models.hero_entry import HeroEntry
 from deadlock_api_client.models.hero_synergy_stats import HeroSynergyStats
 from deadlock_api_client.models.item_permutation_stats import ItemPermutationStats
 from deadlock_api_client.models.item_stats import ItemStats
 from deadlock_api_client.models.kill_death_stats import KillDeathStats
+from deadlock_api_client.models.player_entry import PlayerEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint
 
 from deadlock_api_client.api_client import ApiClient, RequestSerialized
@@ -2463,7 +2464,7 @@ class AnalyticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[Entry]:
+    ) -> List[HeroEntry]:
         """Hero Scoreboard
 
          This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -2546,7 +2547,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Entry]",
+            '200': "List[HeroEntry]",
             '400': None,
             '500': None,
         }
@@ -2592,7 +2593,7 @@ class AnalyticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[Entry]]:
+    ) -> ApiResponse[List[HeroEntry]]:
         """Hero Scoreboard
 
          This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -2675,7 +2676,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Entry]",
+            '200': "List[HeroEntry]",
             '400': None,
             '500': None,
         }
@@ -2804,7 +2805,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Entry]",
+            '200': "List[HeroEntry]",
             '400': None,
             '500': None,
         }
@@ -6464,7 +6465,7 @@ class AnalyticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[Entry]:
+    ) -> List[PlayerEntry]:
         """Player Scoreboard
 
          This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -6556,7 +6557,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Entry]",
+            '200': "List[PlayerEntry]",
             '400': None,
             '500': None,
         }
@@ -6605,7 +6606,7 @@ class AnalyticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[Entry]]:
+    ) -> ApiResponse[List[PlayerEntry]]:
         """Player Scoreboard
 
          This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -6697,7 +6698,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Entry]",
+            '200': "List[PlayerEntry]",
             '400': None,
             '500': None,
         }
@@ -6838,7 +6839,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Entry]",
+            '200': "List[PlayerEntry]",
             '400': None,
             '500': None,
         }

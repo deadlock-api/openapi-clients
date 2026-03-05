@@ -15,6 +15,7 @@ api/Api/MatchesApi.php
 api/Api/PatchesApi.php
 api/Api/PlayersApi.php
 api/Api/SQLApi.php
+api/Api/SteamApi.php
 api/ApiException.php
 api/Configuration.php
 api/FormDataProcessor.php
@@ -42,12 +43,12 @@ api/Model/CreateCustomRequest.php
 api/Model/CreateCustomResponse.php
 api/Model/DistributionEntry.php
 api/Model/EnemyStats.php
-api/Model/Entry.php
 api/Model/GameMode.php
 api/Model/GetCustomMatchIdResponse.php
 api/Model/HashMapValue.php
 api/Model/HeroCombStats.php
 api/Model/HeroCounterStats.php
+api/Model/HeroEntry.php
 api/Model/HeroStats.php
 api/Model/HeroSynergyStats.php
 api/Model/ItemPermutationStats.php
@@ -70,6 +71,7 @@ api/Model/PlayerCard.php
 api/Model/PlayerCardSlot.php
 api/Model/PlayerCardSlotHero.php
 api/Model/PlayerCardSlotStat.php
+api/Model/PlayerEntry.php
 api/Model/PlayerMatchHistoryEntry.php
 api/Model/PlayerPerformanceCurvePoint.php
 api/Model/RegionMode.php
@@ -94,6 +96,7 @@ docs/Api/MatchesApi.md
 docs/Api/PatchesApi.md
 docs/Api/PlayersApi.md
 docs/Api/SQLApi.md
+docs/Api/SteamApi.md
 docs/Model/APIInfo.md
 docs/Model/ActiveMatch.md
 docs/Model/ActiveMatchGameMode.md
@@ -117,12 +120,12 @@ docs/Model/CreateCustomRequest.md
 docs/Model/CreateCustomResponse.md
 docs/Model/DistributionEntry.md
 docs/Model/EnemyStats.md
-docs/Model/Entry.md
 docs/Model/GameMode.md
 docs/Model/GetCustomMatchIdResponse.md
 docs/Model/HashMapValue.md
 docs/Model/HeroCombStats.md
 docs/Model/HeroCounterStats.md
+docs/Model/HeroEntry.md
 docs/Model/HeroStats.md
 docs/Model/HeroSynergyStats.md
 docs/Model/ItemPermutationStats.md
@@ -144,6 +147,7 @@ docs/Model/PlayerCard.md
 docs/Model/PlayerCardSlot.md
 docs/Model/PlayerCardSlotHero.md
 docs/Model/PlayerCardSlotStat.md
+docs/Model/PlayerEntry.md
 docs/Model/PlayerMatchHistoryEntry.md
 docs/Model/PlayerPerformanceCurvePoint.md
 docs/Model/RegionMode.md
@@ -168,6 +172,7 @@ test/Api/MatchesApiTest.php
 test/Api/PatchesApiTest.php
 test/Api/PlayersApiTest.php
 test/Api/SQLApiTest.php
+test/Api/SteamApiTest.php
 test/Model/APIInfoTest.php
 test/Model/ActiveMatchGameModeTest.php
 test/Model/ActiveMatchModeTest.php
@@ -191,12 +196,12 @@ test/Model/CreateCustomRequestTest.php
 test/Model/CreateCustomResponseTest.php
 test/Model/DistributionEntryTest.php
 test/Model/EnemyStatsTest.php
-test/Model/EntryTest.php
 test/Model/GameModeTest.php
 test/Model/GetCustomMatchIdResponseTest.php
 test/Model/HashMapValueTest.php
 test/Model/HeroCombStatsTest.php
 test/Model/HeroCounterStatsTest.php
+test/Model/HeroEntryTest.php
 test/Model/HeroStatsTest.php
 test/Model/HeroSynergyStatsTest.php
 test/Model/ItemPermutationStatsTest.php
@@ -218,6 +223,7 @@ test/Model/PlayerCardSlotHeroTest.php
 test/Model/PlayerCardSlotStatTest.php
 test/Model/PlayerCardSlotTest.php
 test/Model/PlayerCardTest.php
+test/Model/PlayerEntryTest.php
 test/Model/PlayerMatchHistoryEntryTest.php
 test/Model/PlayerPerformanceCurvePointTest.php
 test/Model/RegionModeTest.php

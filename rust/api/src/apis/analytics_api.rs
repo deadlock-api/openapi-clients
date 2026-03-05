@@ -1063,7 +1063,7 @@ pub async fn hero_counters_stats(configuration: &configuration::Configuration, p
 }
 
 ///  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn hero_scoreboard(configuration: &configuration::Configuration, params: HeroScoreboardParams) -> Result<Vec<models::Entry>, Error<HeroScoreboardError>> {
+pub async fn hero_scoreboard(configuration: &configuration::Configuration, params: HeroScoreboardParams) -> Result<Vec<models::HeroEntry>, Error<HeroScoreboardError>> {
 
     let uri_str = format!("{}/v1/analytics/scoreboards/heroes", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1136,8 +1136,8 @@ pub async fn hero_scoreboard(configuration: &configuration::Configuration, param
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Entry&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Entry&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::HeroEntry&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::HeroEntry&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1741,7 +1741,7 @@ pub async fn player_performance_curve(configuration: &configuration::Configurati
 }
 
 ///  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn player_scoreboard(configuration: &configuration::Configuration, params: PlayerScoreboardParams) -> Result<Vec<models::Entry>, Error<PlayerScoreboardError>> {
+pub async fn player_scoreboard(configuration: &configuration::Configuration, params: PlayerScoreboardParams) -> Result<Vec<models::PlayerEntry>, Error<PlayerScoreboardError>> {
 
     let uri_str = format!("{}/v1/analytics/scoreboards/players", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1823,8 +1823,8 @@ pub async fn player_scoreboard(configuration: &configuration::Configuration, par
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Entry&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Entry&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::PlayerEntry&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::PlayerEntry&gt;`")))),
         }
     } else {
         let content = resp.text().await?;

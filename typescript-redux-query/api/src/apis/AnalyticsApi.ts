@@ -27,9 +27,6 @@ import {
     BuildItemStats,
     BuildItemStatsFromJSON,
     BuildItemStatsToJSON,
-    Entry,
-    EntryFromJSON,
-    EntryToJSON,
     HashMapValue,
     HashMapValueFromJSON,
     HashMapValueToJSON,
@@ -39,6 +36,9 @@ import {
     HeroCounterStats,
     HeroCounterStatsFromJSON,
     HeroCounterStatsToJSON,
+    HeroEntry,
+    HeroEntryFromJSON,
+    HeroEntryToJSON,
     HeroSynergyStats,
     HeroSynergyStatsFromJSON,
     HeroSynergyStatsToJSON,
@@ -51,6 +51,9 @@ import {
     KillDeathStats,
     KillDeathStatsFromJSON,
     KillDeathStatsToJSON,
+    PlayerEntry,
+    PlayerEntryFromJSON,
+    PlayerEntryToJSON,
     PlayerPerformanceCurvePoint,
     PlayerPerformanceCurvePointFromJSON,
     PlayerPerformanceCurvePointToJSON,
@@ -894,7 +897,7 @@ export function heroCountersStats<T>(requestParameters: HeroCountersStatsRequest
  *  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
  * Hero Scoreboard
  */
-function heroScoreboardRaw<T>(requestParameters: HeroScoreboardRequest, requestConfig: runtime.TypedQueryConfig<T, Array<Entry>> = {}): QueryConfig<T> {
+function heroScoreboardRaw<T>(requestParameters: HeroScoreboardRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroEntry>> = {}): QueryConfig<T> {
     if (requestParameters.sortBy === null || requestParameters.sortBy === undefined) {
         throw new runtime.RequiredError('sortBy','Required parameter requestParameters.sortBy was null or undefined when calling heroScoreboard.');
     }
@@ -1005,7 +1008,7 @@ function heroScoreboardRaw<T>(requestParameters: HeroScoreboardRequest, requestC
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(EntryFromJSON), text);
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(HeroEntryFromJSON), text);
     }
 
     return config;
@@ -1015,7 +1018,7 @@ function heroScoreboardRaw<T>(requestParameters: HeroScoreboardRequest, requestC
 *  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 * Hero Scoreboard
 */
-export function heroScoreboard<T>(requestParameters: HeroScoreboardRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<Entry>>): QueryConfig<T> {
+export function heroScoreboard<T>(requestParameters: HeroScoreboardRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroEntry>>): QueryConfig<T> {
     return heroScoreboardRaw(requestParameters, requestConfig);
 }
 
@@ -1868,7 +1871,7 @@ export function playerPerformanceCurve<T>(requestParameters: PlayerPerformanceCu
  *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
  * Player Scoreboard
  */
-function playerScoreboardRaw<T>(requestParameters: PlayerScoreboardRequest, requestConfig: runtime.TypedQueryConfig<T, Array<Entry>> = {}): QueryConfig<T> {
+function playerScoreboardRaw<T>(requestParameters: PlayerScoreboardRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PlayerEntry>> = {}): QueryConfig<T> {
     if (requestParameters.sortBy === null || requestParameters.sortBy === undefined) {
         throw new runtime.RequiredError('sortBy','Required parameter requestParameters.sortBy was null or undefined when calling playerScoreboard.');
     }
@@ -1994,7 +1997,7 @@ function playerScoreboardRaw<T>(requestParameters: PlayerScoreboardRequest, requ
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(EntryFromJSON), text);
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(PlayerEntryFromJSON), text);
     }
 
     return config;
@@ -2004,7 +2007,7 @@ function playerScoreboardRaw<T>(requestParameters: PlayerScoreboardRequest, requ
 *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 * Player Scoreboard
 */
-export function playerScoreboard<T>(requestParameters: PlayerScoreboardRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<Entry>>): QueryConfig<T> {
+export function playerScoreboard<T>(requestParameters: PlayerScoreboardRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PlayerEntry>>): QueryConfig<T> {
     return playerScoreboardRaw(requestParameters, requestConfig);
 }
 

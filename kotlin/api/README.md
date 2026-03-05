@@ -118,11 +118,11 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *PlayersApi* | [**mateStats**](docs/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | *PlayersApi* | [**partyStats**](docs/PlayersApi.md#partystats) | **GET** /v1/players/{account_id}/party-stats | Party Stats |
 | *PlayersApi* | [**playerHeroStats**](docs/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
-| *PlayersApi* | [**steam**](docs/PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile |
-| *PlayersApi* | [**steamSearch**](docs/PlayersApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search |
 | *SQLApi* | [**listTables**](docs/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables |
 | *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query |
 | *SQLApi* | [**tableSchema**](docs/SQLApi.md#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema |
+| *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile |
+| *SteamApi* | [**steamSearch**](docs/SteamApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search |
 
 
 <a id="documentation-for-models"></a>
@@ -151,12 +151,12 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.CreateCustomResponse](docs/CreateCustomResponse.md)
  - [deadlock_api_client.models.DistributionEntry](docs/DistributionEntry.md)
  - [deadlock_api_client.models.EnemyStats](docs/EnemyStats.md)
- - [deadlock_api_client.models.Entry](docs/Entry.md)
  - [deadlock_api_client.models.GameMode](docs/GameMode.md)
  - [deadlock_api_client.models.GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [deadlock_api_client.models.HashMapValue](docs/HashMapValue.md)
  - [deadlock_api_client.models.HeroCombStats](docs/HeroCombStats.md)
  - [deadlock_api_client.models.HeroCounterStats](docs/HeroCounterStats.md)
+ - [deadlock_api_client.models.HeroEntry](docs/HeroEntry.md)
  - [deadlock_api_client.models.HeroStats](docs/HeroStats.md)
  - [deadlock_api_client.models.HeroSynergyStats](docs/HeroSynergyStats.md)
  - [deadlock_api_client.models.ItemPermutationStats](docs/ItemPermutationStats.md)
@@ -178,6 +178,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.PlayerCardSlot](docs/PlayerCardSlot.md)
  - [deadlock_api_client.models.PlayerCardSlotHero](docs/PlayerCardSlotHero.md)
  - [deadlock_api_client.models.PlayerCardSlotStat](docs/PlayerCardSlotStat.md)
+ - [deadlock_api_client.models.PlayerEntry](docs/PlayerEntry.md)
  - [deadlock_api_client.models.PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [deadlock_api_client.models.PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [deadlock_api_client.models.RegionMode](docs/RegionMode.md)

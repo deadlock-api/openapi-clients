@@ -33,12 +33,12 @@ docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
 docs/DistributionEntry.md
 docs/EnemyStats.md
-docs/Entry.md
 docs/GameMode.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
 docs/HeroCombStats.md
 docs/HeroCounterStats.md
+docs/HeroEntry.md
 docs/HeroStats.md
 docs/HeroSynergyStats.md
 docs/InfoApi.md
@@ -66,6 +66,7 @@ docs/PlayerCard.md
 docs/PlayerCardSlot.md
 docs/PlayerCardSlotHero.md
 docs/PlayerCardSlotStat.md
+docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
@@ -74,6 +75,7 @@ docs/SQLApi.md
 docs/ServerRegion.md
 docs/Status.md
 docs/StatusServices.md
+docs/SteamApi.md
 docs/SteamProfile.md
 docs/TableSize.md
 docs/VariableCategory.md

@@ -15,6 +15,7 @@ api_mmr.go
 api_patches.go
 api_players.go
 api_sql.go
+api_steam.go
 client.go
 configuration.go
 docs/APIInfo.md
@@ -44,12 +45,12 @@ docs/CreateCustomResponse.md
 docs/CustomMatchesAPI.md
 docs/DistributionEntry.md
 docs/EnemyStats.md
-docs/Entry.md
 docs/GameMode.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
 docs/HeroCombStats.md
 docs/HeroCounterStats.md
+docs/HeroEntry.md
 docs/HeroStats.md
 docs/HeroSynergyStats.md
 docs/InfoAPI.md
@@ -77,6 +78,7 @@ docs/PlayerCard.md
 docs/PlayerCardSlot.md
 docs/PlayerCardSlotHero.md
 docs/PlayerCardSlotStat.md
+docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersAPI.md
@@ -85,6 +87,7 @@ docs/SQLAPI.md
 docs/ServerRegion.md
 docs/Status.md
 docs/StatusServices.md
+docs/SteamAPI.md
 docs/SteamProfile.md
 docs/TableSize.md
 docs/VariableCategory.md
@@ -115,12 +118,12 @@ model_create_custom_request.go
 model_create_custom_response.go
 model_distribution_entry.go
 model_enemy_stats.go
-model_entry.go
 model_game_mode.go
 model_get_custom_match_id_response.go
 model_hash_map_value.go
 model_hero_comb_stats.go
 model_hero_counter_stats.go
+model_hero_entry.go
 model_hero_stats.go
 model_hero_synergy_stats.go
 model_item_permutation_stats.go
@@ -142,6 +145,7 @@ model_player_card.go
 model_player_card_slot.go
 model_player_card_slot_hero.go
 model_player_card_slot_stat.go
+model_player_entry.go
 model_player_match_history_entry.go
 model_player_performance_curve_point.go
 model_region_mode.go
@@ -165,4 +169,5 @@ test/api_mmr_test.go
 test/api_patches_test.go
 test/api_players_test.go
 test/api_sql_test.go
+test/api_steam_test.go
 utils.go

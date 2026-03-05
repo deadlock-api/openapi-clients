@@ -173,29 +173,5 @@ namespace DeadlockApiClient.Test.Api
             var model = response.Ok();
             Assert.IsType<List<HeroStats>>(model);
         }
-
-        /// <summary>
-        /// Test Steam
-        /// </summary>
-        [Fact (Skip = "not implemented")]
-        public async Task SteamAsyncTest()
-        {
-            List<long> accountIds = default!;
-            var response = await _instance.SteamAsync(accountIds);
-            var model = response.Ok();
-            Assert.IsType<List<SteamProfile>>(model);
-        }
-
-        /// <summary>
-        /// Test SteamSearch
-        /// </summary>
-        [Fact (Skip = "not implemented")]
-        public async Task SteamSearchAsyncTest()
-        {
-            string searchQuery = default!;
-            var response = await _instance.SteamSearchAsync(searchQuery);
-            var model = response.Ok();
-            Assert.IsType<List<SteamProfile>>(model);
-        }
     }
 }

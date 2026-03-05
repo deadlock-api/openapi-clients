@@ -36,9 +36,6 @@ import {
     PlayerMatchHistoryEntry,
     PlayerMatchHistoryEntryFromJSON,
     PlayerMatchHistoryEntryToJSON,
-    SteamProfile,
-    SteamProfileFromJSON,
-    SteamProfileToJSON,
 } from '../models';
 
 export interface AccountStatsRequest {
@@ -107,14 +104,6 @@ export interface PlayerHeroStatsRequest {
     maxAverageBadge?: number;
     minMatchId?: number;
     maxMatchId?: number;
-}
-
-export interface SteamRequest {
-    accountIds: Array<number>;
-}
-
-export interface SteamSearchRequest {
-    searchQuery: string;
 }
 
 
@@ -662,114 +651,6 @@ function playerHeroStatsRaw<T>(requestParameters: PlayerHeroStatsRequest, reques
 */
 export function playerHeroStats<T>(requestParameters: PlayerHeroStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroStats>>): QueryConfig<T> {
     return playerHeroStatsRaw(requestParameters, requestConfig);
-}
-
-/**
- *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
- * Batch Steam Profile
- */
-function steamRaw<T>(requestParameters: SteamRequest, requestConfig: runtime.TypedQueryConfig<T, Array<SteamProfile>> = {}): QueryConfig<T> {
-    if (requestParameters.accountIds === null || requestParameters.accountIds === undefined) {
-        throw new runtime.RequiredError('accountIds','Required parameter requestParameters.accountIds was null or undefined when calling steam.');
-    }
-
-    let queryParameters = null;
-
-    queryParameters = {};
-
-
-    if (requestParameters.accountIds) {
-        queryParameters['account_ids'] = requestParameters.accountIds;
-    }
-
-    const headerParameters : runtime.HttpHeaders = {};
-
-
-    const { meta = {} } = requestConfig;
-
-    const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/steam`,
-        meta,
-        update: requestConfig.update,
-        queryKey: requestConfig.queryKey,
-        optimisticUpdate: requestConfig.optimisticUpdate,
-        force: requestConfig.force,
-        rollback: requestConfig.rollback,
-        options: {
-            method: 'GET',
-            headers: headerParameters,
-        },
-        body: queryParameters,
-    };
-
-    const { transform: requestTransform } = requestConfig;
-    if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(SteamProfileFromJSON), text);
-    }
-
-    return config;
-}
-
-/**
-*  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-* Batch Steam Profile
-*/
-export function steam<T>(requestParameters: SteamRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<SteamProfile>>): QueryConfig<T> {
-    return steamRaw(requestParameters, requestConfig);
-}
-
-/**
- *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
- * Steam Profile Search
- */
-function steamSearchRaw<T>(requestParameters: SteamSearchRequest, requestConfig: runtime.TypedQueryConfig<T, Array<SteamProfile>> = {}): QueryConfig<T> {
-    if (requestParameters.searchQuery === null || requestParameters.searchQuery === undefined) {
-        throw new runtime.RequiredError('searchQuery','Required parameter requestParameters.searchQuery was null or undefined when calling steamSearch.');
-    }
-
-    let queryParameters = null;
-
-    queryParameters = {};
-
-
-    if (requestParameters.searchQuery !== undefined) {
-        queryParameters['search_query'] = requestParameters.searchQuery;
-    }
-
-    const headerParameters : runtime.HttpHeaders = {};
-
-
-    const { meta = {} } = requestConfig;
-
-    const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/steam-search`,
-        meta,
-        update: requestConfig.update,
-        queryKey: requestConfig.queryKey,
-        optimisticUpdate: requestConfig.optimisticUpdate,
-        force: requestConfig.force,
-        rollback: requestConfig.rollback,
-        options: {
-            method: 'GET',
-            headers: headerParameters,
-        },
-        body: queryParameters,
-    };
-
-    const { transform: requestTransform } = requestConfig;
-    if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(SteamProfileFromJSON), text);
-    }
-
-    return config;
-}
-
-/**
-*  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-* Steam Profile Search
-*/
-export function steamSearch<T>(requestParameters: SteamSearchRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<SteamProfile>>): QueryConfig<T> {
-    return steamSearchRaw(requestParameters, requestConfig);
 }
 
 

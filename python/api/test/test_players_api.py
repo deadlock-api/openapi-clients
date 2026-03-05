@@ -75,20 +75,6 @@ class TestPlayersApi(unittest.TestCase):
         """
         pass
 
-    def test_steam(self) -> None:
-        """Test case for steam
-
-        Batch Steam Profile
-        """
-        pass
-
-    def test_steam_search(self) -> None:
-        """Test case for steam_search
-
-        Steam Profile Search
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

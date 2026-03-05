@@ -143,20 +143,6 @@ pub struct PlayerHeroStatsParams {
     pub max_match_id: Option<u64>
 }
 
-/// struct for passing parameters to the method [`steam`]
-#[derive(Clone, Debug)]
-pub struct SteamParams {
-    /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
-    pub account_ids: Vec<u64>
-}
-
-/// struct for passing parameters to the method [`steam_search`]
-#[derive(Clone, Debug)]
-pub struct SteamSearchParams {
-    /// Search query for Steam profiles.
-    pub search_query: String
-}
-
 
 /// struct for typed errors of method [`account_stats`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -222,26 +208,6 @@ pub enum PartyStatsError {
 #[serde(untagged)]
 pub enum PlayerHeroStatsError {
     Status400(),
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`steam`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum SteamError {
-    Status400(),
-    Status404(),
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`steam_search`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum SteamSearchError {
-    Status400(),
-    Status404(),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -612,81 +578,6 @@ pub async fn player_hero_stats(configuration: &configuration::Configuration, par
     } else {
         let content = resp.text().await?;
         let entity: Option<PlayerHeroStatsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-///  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn steam(configuration: &configuration::Configuration, params: SteamParams) -> Result<Vec<models::SteamProfile>, Error<SteamError>> {
-
-    let uri_str = format!("{}/v1/players/steam", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = match "multi" {
-        "multi" => req_builder.query(&params.account_ids.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => req_builder.query(&[("account_ids", &params.account_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::SteamProfile&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::SteamProfile&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<SteamError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-///  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn steam_search(configuration: &configuration::Configuration, params: SteamSearchParams) -> Result<Vec<models::SteamProfile>, Error<SteamSearchError>> {
-
-    let uri_str = format!("{}/v1/players/steam-search", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("search_query", &params.search_query.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::SteamProfile&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::SteamProfile&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<SteamSearchError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

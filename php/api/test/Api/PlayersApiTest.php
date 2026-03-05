@@ -154,28 +154,4 @@ class PlayersApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test case for steam
-     *
-     * Batch Steam Profile.
-     *
-     */
-    public function testSteam()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for steamSearch
-     *
-     * Steam Profile Search.
-     *
-     */
-    public function testSteamSearch()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

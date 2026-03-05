@@ -118,28 +118,4 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PlayersAPIService Steam", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.PlayersAPI.Steam(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PlayersAPIService SteamSearch", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.PlayersAPI.SteamSearch(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 }

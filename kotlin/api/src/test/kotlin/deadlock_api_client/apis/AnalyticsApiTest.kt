@@ -23,14 +23,15 @@ import deadlock_api_client.models.AnalyticsAbilityOrderStats
 import deadlock_api_client.models.AnalyticsHeroStats
 import deadlock_api_client.models.BadgeDistribution
 import deadlock_api_client.models.BuildItemStats
-import deadlock_api_client.models.Entry
 import deadlock_api_client.models.HashMapValue
 import deadlock_api_client.models.HeroCombStats
 import deadlock_api_client.models.HeroCounterStats
+import deadlock_api_client.models.HeroEntry
 import deadlock_api_client.models.HeroSynergyStats
 import deadlock_api_client.models.ItemPermutationStats
 import deadlock_api_client.models.ItemStats
 import deadlock_api_client.models.KillDeathStats
+import deadlock_api_client.models.PlayerEntry
 import deadlock_api_client.models.PlayerPerformanceCurvePoint
 
 class AnalyticsApiTest : ShouldSpec() {
@@ -158,7 +159,7 @@ class AnalyticsApiTest : ShouldSpec() {
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
-            //val result : kotlin.collections.List<Entry> = apiInstance.heroScoreboard(sortBy, sortDirection, gameMode, minMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds)
+            //val result : kotlin.collections.List<HeroEntry> = apiInstance.heroScoreboard(sortBy, sortDirection, gameMode, minMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds)
             //result shouldBe ("TODO")
         }
 
@@ -341,7 +342,7 @@ class AnalyticsApiTest : ShouldSpec() {
             //val start : kotlin.Int = 56 // kotlin.Int | The offset to start fetching players from.
             //val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of players to fetch.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
-            //val result : kotlin.collections.List<Entry> = apiInstance.playerScoreboard(sortBy, sortDirection, gameMode, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds)
+            //val result : kotlin.collections.List<PlayerEntry> = apiInstance.playerScoreboard(sortBy, sortDirection, gameMode, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds)
             //result shouldBe ("TODO")
         }
 

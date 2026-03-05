@@ -151,11 +151,11 @@ Class | Method | HTTP request | Description
 *PlayersAPI* | [**MateStats**](docs/PlayersAPI.md#matestats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersAPI* | [**PartyStats**](docs/PlayersAPI.md#partystats) | **Get** /v1/players/{account_id}/party-stats | Party Stats
 *PlayersAPI* | [**PlayerHeroStats**](docs/PlayersAPI.md#playerherostats) | **Get** /v1/players/hero-stats | Hero Stats
-*PlayersAPI* | [**Steam**](docs/PlayersAPI.md#steam) | **Get** /v1/players/steam | Batch Steam Profile
-*PlayersAPI* | [**SteamSearch**](docs/PlayersAPI.md#steamsearch) | **Get** /v1/players/steam-search | Steam Profile Search
 *SQLAPI* | [**ListTables**](docs/SQLAPI.md#listtables) | **Get** /v1/sql/tables | List Tables
 *SQLAPI* | [**Sql**](docs/SQLAPI.md#sql) | **Get** /v1/sql | Query
 *SQLAPI* | [**TableSchema**](docs/SQLAPI.md#tableschema) | **Get** /v1/sql/tables/{table}/schema | Table Schema
+*SteamAPI* | [**Steam**](docs/SteamAPI.md#steam) | **Get** /v1/players/steam | Batch Steam Profile
+*SteamAPI* | [**SteamSearch**](docs/SteamAPI.md#steamsearch) | **Get** /v1/players/steam-search | Steam Profile Search
 
 
 ## Documentation For Models
@@ -183,12 +183,12 @@ Class | Method | HTTP request | Description
  - [CreateCustomResponse](docs/CreateCustomResponse.md)
  - [DistributionEntry](docs/DistributionEntry.md)
  - [EnemyStats](docs/EnemyStats.md)
- - [Entry](docs/Entry.md)
  - [GameMode](docs/GameMode.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [HashMapValue](docs/HashMapValue.md)
  - [HeroCombStats](docs/HeroCombStats.md)
  - [HeroCounterStats](docs/HeroCounterStats.md)
+ - [HeroEntry](docs/HeroEntry.md)
  - [HeroStats](docs/HeroStats.md)
  - [HeroSynergyStats](docs/HeroSynergyStats.md)
  - [ItemPermutationStats](docs/ItemPermutationStats.md)
@@ -210,6 +210,7 @@ Class | Method | HTTP request | Description
  - [PlayerCardSlot](docs/PlayerCardSlot.md)
  - [PlayerCardSlotHero](docs/PlayerCardSlotHero.md)
  - [PlayerCardSlotStat](docs/PlayerCardSlotStat.md)
+ - [PlayerEntry](docs/PlayerEntry.md)
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [RegionMode](docs/RegionMode.md)

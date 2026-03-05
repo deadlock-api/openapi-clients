@@ -15,6 +15,7 @@ src/apis/MatchesApi.ts
 src/apis/PatchesApi.ts
 src/apis/PlayersApi.ts
 src/apis/SQLApi.ts
+src/apis/SteamApi.ts
 src/apis/index.ts
 src/index.ts
 src/models/APIInfo.ts
@@ -40,12 +41,12 @@ src/models/CreateCustomRequest.ts
 src/models/CreateCustomResponse.ts
 src/models/DistributionEntry.ts
 src/models/EnemyStats.ts
-src/models/Entry.ts
 src/models/GameMode.ts
 src/models/GetCustomMatchIdResponse.ts
 src/models/HashMapValue.ts
 src/models/HeroCombStats.ts
 src/models/HeroCounterStats.ts
+src/models/HeroEntry.ts
 src/models/HeroStats.ts
 src/models/HeroSynergyStats.ts
 src/models/ItemPermutationStats.ts
@@ -67,6 +68,7 @@ src/models/PlayerCard.ts
 src/models/PlayerCardSlot.ts
 src/models/PlayerCardSlotHero.ts
 src/models/PlayerCardSlotStat.ts
+src/models/PlayerEntry.ts
 src/models/PlayerMatchHistoryEntry.ts
 src/models/PlayerPerformanceCurvePoint.ts
 src/models/RegionMode.ts

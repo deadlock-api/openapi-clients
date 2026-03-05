@@ -74,7 +74,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1769904000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1770076800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -160,11 +160,11 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**mateStats**](docs/Api/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**partyStats**](docs/Api/PlayersApi.md#partystats) | **GET** /v1/players/{account_id}/party-stats | Party Stats
 *PlayersApi* | [**playerHeroStats**](docs/Api/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
-*PlayersApi* | [**steam**](docs/Api/PlayersApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
-*PlayersApi* | [**steamSearch**](docs/Api/PlayersApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
 *SQLApi* | [**listTables**](docs/Api/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](docs/Api/SQLApi.md#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**tableSchema**](docs/Api/SQLApi.md#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
+*SteamApi* | [**steam**](docs/Api/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
+*SteamApi* | [**steamSearch**](docs/Api/SteamApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
 
 ## Models
 
@@ -191,12 +191,12 @@ Class | Method | HTTP request | Description
 - [CreateCustomResponse](docs/Model/CreateCustomResponse.md)
 - [DistributionEntry](docs/Model/DistributionEntry.md)
 - [EnemyStats](docs/Model/EnemyStats.md)
-- [Entry](docs/Model/Entry.md)
 - [GameMode](docs/Model/GameMode.md)
 - [GetCustomMatchIdResponse](docs/Model/GetCustomMatchIdResponse.md)
 - [HashMapValue](docs/Model/HashMapValue.md)
 - [HeroCombStats](docs/Model/HeroCombStats.md)
 - [HeroCounterStats](docs/Model/HeroCounterStats.md)
+- [HeroEntry](docs/Model/HeroEntry.md)
 - [HeroStats](docs/Model/HeroStats.md)
 - [HeroSynergyStats](docs/Model/HeroSynergyStats.md)
 - [ItemPermutationStats](docs/Model/ItemPermutationStats.md)
@@ -218,6 +218,7 @@ Class | Method | HTTP request | Description
 - [PlayerCardSlot](docs/Model/PlayerCardSlot.md)
 - [PlayerCardSlotHero](docs/Model/PlayerCardSlotHero.md)
 - [PlayerCardSlotStat](docs/Model/PlayerCardSlotStat.md)
+- [PlayerEntry](docs/Model/PlayerEntry.md)
 - [PlayerMatchHistoryEntry](docs/Model/PlayerMatchHistoryEntry.md)
 - [PlayerPerformanceCurvePoint](docs/Model/PlayerPerformanceCurvePoint.md)
 - [RegionMode](docs/Model/RegionMode.md)

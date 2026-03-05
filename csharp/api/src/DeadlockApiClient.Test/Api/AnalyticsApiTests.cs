@@ -195,7 +195,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<List<int>?> accountIds = default!;
             var response = await _instance.HeroScoreboardAsync(sortBy, sortDirection, gameMode, minMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds);
             var model = response.Ok();
-            Assert.IsType<List<Entry>>(model);
+            Assert.IsType<List<HeroEntry>>(model);
         }
 
         /// <summary>
@@ -406,7 +406,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<List<int>?> accountIds = default!;
             var response = await _instance.PlayerScoreboardAsync(sortBy, sortDirection, gameMode, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds);
             var model = response.Ok();
-            Assert.IsType<List<Entry>>(model);
+            Assert.IsType<List<PlayerEntry>>(model);
         }
 
         /// <summary>

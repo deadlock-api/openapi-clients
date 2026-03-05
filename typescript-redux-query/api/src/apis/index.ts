@@ -10,3 +10,4 @@ export * from './MatchesApi';
 export * from './PatchesApi';
 export * from './PlayersApi';
 export * from './SQLApi';
+export * from './SteamApi';

@@ -1,0 +1,26 @@
+# PlayerEntry
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**account_id** | **number** |  | [default to undefined]
+**matches** | **number** |  | [default to undefined]
+**rank** | **number** | tier &#x3D; first digits, subtier &#x3D; last digit, see more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [default to undefined]
+**value** | **number** |  | [default to undefined]
+
+## Example
+
+```typescript
+import { PlayerEntry } from 'deadlock_api_client';
+
+const instance: PlayerEntry = {
+    account_id,
+    matches,
+    rank,
+    value,
+};
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

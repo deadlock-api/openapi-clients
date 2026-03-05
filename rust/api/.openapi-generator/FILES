@@ -30,12 +30,12 @@ docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
 docs/DistributionEntry.md
 docs/EnemyStats.md
-docs/Entry.md
 docs/GameMode.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
 docs/HeroCombStats.md
 docs/HeroCounterStats.md
+docs/HeroEntry.md
 docs/HeroStats.md
 docs/HeroSynergyStats.md
 docs/InfoApi.md
@@ -63,6 +63,7 @@ docs/PlayerCard.md
 docs/PlayerCardSlot.md
 docs/PlayerCardSlotHero.md
 docs/PlayerCardSlotStat.md
+docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
@@ -71,6 +72,7 @@ docs/ServerRegion.md
 docs/SqlApi.md
 docs/Status.md
 docs/StatusServices.md
+docs/SteamApi.md
 docs/SteamProfile.md
 docs/TableSize.md
 docs/VariableCategory.md
@@ -90,6 +92,7 @@ src/apis/mod.rs
 src/apis/patches_api.rs
 src/apis/players_api.rs
 src/apis/sql_api.rs
+src/apis/steam_api.rs
 src/lib.rs
 src/models/active_match.rs
 src/models/active_match_game_mode.rs
@@ -114,12 +117,12 @@ src/models/create_custom_request.rs
 src/models/create_custom_response.rs
 src/models/distribution_entry.rs
 src/models/enemy_stats.rs
-src/models/entry.rs
 src/models/game_mode.rs
 src/models/get_custom_match_id_response.rs
 src/models/hash_map_value.rs
 src/models/hero_comb_stats.rs
 src/models/hero_counter_stats.rs
+src/models/hero_entry.rs
 src/models/hero_stats.rs
 src/models/hero_synergy_stats.rs
 src/models/item_permutation_stats.rs
@@ -142,6 +145,7 @@ src/models/player_card.rs
 src/models/player_card_slot.rs
 src/models/player_card_slot_hero.rs
 src/models/player_card_slot_stat.rs
+src/models/player_entry.rs
 src/models/player_match_history_entry.rs
 src/models/player_performance_curve_point.rs
 src/models/region_mode.rs

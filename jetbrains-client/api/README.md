@@ -69,11 +69,11 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**mateStats**](Apis/PlayersApi.http#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**partyStats**](Apis/PlayersApi.http#partystats) | **GET** /v1/players/{account_id}/party-stats | Party Stats
 *PlayersApi* | [**playerHeroStats**](Apis/PlayersApi.http#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
-*PlayersApi* | [**steam**](Apis/PlayersApi.http#steam) | **GET** /v1/players/steam | Batch Steam Profile
-*PlayersApi* | [**steamSearch**](Apis/PlayersApi.http#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
 *SQLApi* | [**listTables**](Apis/SQLApi.http#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](Apis/SQLApi.http#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**tableSchema**](Apis/SQLApi.http#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
+*SteamApi* | [**steam**](Apis/SteamApi.http#steam) | **GET** /v1/players/steam | Batch Steam Profile
+*SteamApi* | [**steamSearch**](Apis/SteamApi.http#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
 
 
 ## Usage
