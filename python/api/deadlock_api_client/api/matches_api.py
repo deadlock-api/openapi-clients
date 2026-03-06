@@ -1358,7 +1358,7 @@ class MatchesApi:
     ) -> None:
         """Metadata
 
-         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1433,7 +1433,7 @@ class MatchesApi:
     ) -> ApiResponse[None]:
         """Metadata
 
-         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1508,7 +1508,7 @@ class MatchesApi:
     ) -> RESTResponseType:
         """Metadata
 
-         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1640,7 +1640,7 @@ class MatchesApi:
     ) -> List[int]:
         """Metadata as Protobuf
 
-         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1715,7 +1715,7 @@ class MatchesApi:
     ) -> ApiResponse[List[int]]:
         """Metadata as Protobuf
 
-         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1790,7 +1790,7 @@ class MatchesApi:
     ) -> RESTResponseType:
         """Metadata as Protobuf
 
-         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -1912,7 +1912,6 @@ class MatchesApi:
     @validate_call
     def recently_fetched(
         self,
-        player_ingested_only: Annotated[Optional[StrictBool], Field(description="If true, only return matches that have been ingested by players.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1930,8 +1929,6 @@ class MatchesApi:
 
          This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
-        :param player_ingested_only: If true, only return matches that have been ingested by players.
-        :type player_ingested_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1955,7 +1952,6 @@ class MatchesApi:
         """ # noqa: E501
 
         _param = self._recently_fetched_serialize(
-            player_ingested_only=player_ingested_only,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1980,7 +1976,6 @@ class MatchesApi:
     @validate_call
     def recently_fetched_with_http_info(
         self,
-        player_ingested_only: Annotated[Optional[StrictBool], Field(description="If true, only return matches that have been ingested by players.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1998,8 +1993,6 @@ class MatchesApi:
 
          This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
-        :param player_ingested_only: If true, only return matches that have been ingested by players.
-        :type player_ingested_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2023,7 +2016,6 @@ class MatchesApi:
         """ # noqa: E501
 
         _param = self._recently_fetched_serialize(
-            player_ingested_only=player_ingested_only,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2048,7 +2040,6 @@ class MatchesApi:
     @validate_call
     def recently_fetched_without_preload_content(
         self,
-        player_ingested_only: Annotated[Optional[StrictBool], Field(description="If true, only return matches that have been ingested by players.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2066,8 +2057,6 @@ class MatchesApi:
 
          This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
-        :param player_ingested_only: If true, only return matches that have been ingested by players.
-        :type player_ingested_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2091,7 +2080,6 @@ class MatchesApi:
         """ # noqa: E501
 
         _param = self._recently_fetched_serialize(
-            player_ingested_only=player_ingested_only,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2111,7 +2099,6 @@ class MatchesApi:
 
     def _recently_fetched_serialize(
         self,
-        player_ingested_only,
         _request_auth,
         _content_type,
         _headers,
@@ -2134,10 +2121,6 @@ class MatchesApi:
 
         # process the path parameters
         # process the query parameters
-        if player_ingested_only is not None:
-            
-            _query_params.append(('player_ingested_only', player_ingested_only))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter

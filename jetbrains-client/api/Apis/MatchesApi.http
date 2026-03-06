@@ -26,7 +26,7 @@ Accept: application/octet-stream
 
 ### Recently Fetched
 ## Recently Fetched
-GET https://api.deadlock-api.com/v1/matches/recently-fetched?playerIngestedOnly={{playerIngestedOnly}}
+GET https://api.deadlock-api.com/v1/matches/recently-fetched
 Accept: application/json
 
 ### Salts

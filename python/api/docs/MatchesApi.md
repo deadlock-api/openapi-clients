@@ -332,9 +332,9 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |
+| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |
+| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h |
+| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
     
 
 ### Example
@@ -420,9 +420,9 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |
+| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |
+| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h |
+| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
     
 
 ### Example
@@ -492,7 +492,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recently_fetched**
-> List[ClickhouseMatchInfo] recently_fetched(player_ingested_only=player_ingested_only)
+> List[ClickhouseMatchInfo] recently_fetched()
 
 Recently Fetched
 
@@ -527,11 +527,10 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.MatchesApi(api_client)
-    player_ingested_only = True # bool | If true, only return matches that have been ingested by players. (optional)
 
     try:
         # Recently Fetched
-        api_response = api_instance.recently_fetched(player_ingested_only=player_ingested_only)
+        api_response = api_instance.recently_fetched()
         print("The response of MatchesApi->recently_fetched:\n")
         pprint(api_response)
     except Exception as e:
@@ -542,10 +541,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **player_ingested_only** | **bool**| If true, only return matches that have been ingested by players. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 

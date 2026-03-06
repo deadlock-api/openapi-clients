@@ -25,7 +25,7 @@ import java.io.Serializable
  *
  * @param accountId 
  * @param matches 
- * @param rank tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
+ * @param rank 
  * @param `value` 
  */
 
@@ -38,7 +38,6 @@ data class PlayerEntry (
     @Json(name = "matches")
     val matches: kotlin.Long,
 
-    /* tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks> */
     @Json(name = "rank")
     val rank: kotlin.Long,
 

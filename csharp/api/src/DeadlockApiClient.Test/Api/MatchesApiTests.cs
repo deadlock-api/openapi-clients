@@ -145,8 +145,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task RecentlyFetchedAsyncTest()
         {
-            Client.Option<bool?> playerIngestedOnly = default!;
-            var response = await _instance.RecentlyFetchedAsync(playerIngestedOnly);
+            var response = await _instance.RecentlyFetchedAsync();
             var model = response.Ok();
             Assert.IsType<List<ClickhouseMatchInfo>>(model);
         }

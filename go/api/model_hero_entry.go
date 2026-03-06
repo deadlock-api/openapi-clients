@@ -24,7 +24,6 @@ type HeroEntry struct {
 	// See more: <https://assets.deadlock-api.com/v2/heroes>
 	HeroId int32 `json:"hero_id"`
 	Matches int64 `json:"matches"`
-	// tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
 	Rank int64 `json:"rank"`
 	Value float64 `json:"value"`
 }

@@ -407,9 +407,6 @@ export interface HeroEntry {
      */
     'hero_id': number;
     'matches': number;
-    /**
-     * tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
-     */
     'rank': number;
     'value': number;
 }
@@ -725,9 +722,6 @@ export interface PlayerCardSlotStat {
 export interface PlayerEntry {
     'account_id': number;
     'matches': number;
-    /**
-     * tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
-     */
     'rank': number;
     'value': number;
 }
@@ -7573,7 +7567,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
          * @summary Metadata
          * @param {number} matchId The match ID
          * @param {boolean | null} [isCustom] 
@@ -7611,7 +7605,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
          * @summary Metadata as Protobuf
          * @param {number} matchId The match ID
          * @param {boolean | null} [isCustom] 
@@ -7652,11 +7646,10 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
         /**
          *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Recently Fetched
-         * @param {boolean | null} [playerIngestedOnly] If true, only return matches that have been ingested by players.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        recentlyFetched: async (playerIngestedOnly?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        recentlyFetched: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/matches/recently-fetched`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7668,10 +7661,6 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            if (playerIngestedOnly !== undefined) {
-                localVarQueryParameter['player_ingested_only'] = playerIngestedOnly;
-            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -7830,7 +7819,7 @@ export const MatchesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
          * @summary Metadata
          * @param {number} matchId The match ID
          * @param {boolean | null} [isCustom] 
@@ -7844,7 +7833,7 @@ export const MatchesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
          * @summary Metadata as Protobuf
          * @param {number} matchId The match ID
          * @param {boolean | null} [isCustom] 
@@ -7860,12 +7849,11 @@ export const MatchesApiFp = function(configuration?: Configuration) {
         /**
          *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Recently Fetched
-         * @param {boolean | null} [playerIngestedOnly] If true, only return matches that have been ingested by players.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async recentlyFetched(playerIngestedOnly?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ClickhouseMatchInfo>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.recentlyFetched(playerIngestedOnly, options);
+        async recentlyFetched(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ClickhouseMatchInfo>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.recentlyFetched(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.recentlyFetched']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7935,7 +7923,7 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerKda, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.itemFilterHeroId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
          * @summary Metadata
          * @param {MatchesApiMetadataRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -7945,7 +7933,7 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.metadata(requestParameters.matchId, requestParameters.isCustom, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+         *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
          * @summary Metadata as Protobuf
          * @param {MatchesApiMetadataRawRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -7957,12 +7945,11 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
         /**
          *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Recently Fetched
-         * @param {MatchesApiRecentlyFetchedRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        recentlyFetched(requestParameters: MatchesApiRecentlyFetchedRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<ClickhouseMatchInfo>> {
-            return localVarFp.recentlyFetched(requestParameters.playerIngestedOnly, options).then((request) => request(axios, basePath));
+        recentlyFetched(options?: RawAxiosRequestConfig): AxiosPromise<Array<ClickhouseMatchInfo>> {
+            return localVarFp.recentlyFetched(options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |     
@@ -8182,16 +8169,6 @@ export interface MatchesApiMetadataRawRequest {
 }
 
 /**
- * Request parameters for recentlyFetched operation in MatchesApi.
- */
-export interface MatchesApiRecentlyFetchedRequest {
-    /**
-     * If true, only return matches that have been ingested by players.
-     */
-    readonly playerIngestedOnly?: boolean | null
-}
-
-/**
  * Request parameters for salts operation in MatchesApi.
  */
 export interface MatchesApiSaltsRequest {
@@ -8248,7 +8225,7 @@ export class MatchesApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+     *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
      * @summary Metadata
      * @param {MatchesApiMetadataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -8259,7 +8236,7 @@ export class MatchesApi extends BaseAPI {
     }
 
     /**
-     *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+     *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
      * @summary Metadata as Protobuf
      * @param {MatchesApiMetadataRawRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -8272,12 +8249,11 @@ export class MatchesApi extends BaseAPI {
     /**
      *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @summary Recently Fetched
-     * @param {MatchesApiRecentlyFetchedRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public recentlyFetched(requestParameters: MatchesApiRecentlyFetchedRequest = {}, options?: RawAxiosRequestConfig) {
-        return MatchesApiFp(this.configuration).recentlyFetched(requestParameters.playerIngestedOnly, options).then((request) => request(this.axios, this.basePath));
+    public recentlyFetched(options?: RawAxiosRequestConfig) {
+        return MatchesApiFp(this.configuration).recentlyFetched(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8629,7 +8605,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 400req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 2000req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+         *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
          * @summary Match History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {boolean} [forceRefetch] Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit.
@@ -8980,7 +8956,7 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 400req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 2000req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+         *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
          * @summary Match History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {boolean} [forceRefetch] Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit.
@@ -9102,7 +9078,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.enemyStats(requestParameters.accountId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 400req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 2000req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+         *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
          * @summary Match History
          * @param {PlayersApiMatchHistoryRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -9452,7 +9428,7 @@ export class PlayersApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 400req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 2000req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+     *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
      * @summary Match History
      * @param {PlayersApiMatchHistoryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

@@ -104,13 +104,6 @@ pub struct MetadataRawParams {
     pub is_custom: Option<bool>
 }
 
-/// struct for passing parameters to the method [`recently_fetched`]
-#[derive(Clone, Debug)]
-pub struct RecentlyFetchedParams {
-    /// If true, only return matches that have been ingested by players.
-    pub player_ingested_only: Option<bool>
-}
-
 /// struct for passing parameters to the method [`salts`]
 #[derive(Clone, Debug)]
 pub struct SaltsParams {
@@ -413,7 +406,7 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
     }
 }
 
-///  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+///  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
 pub async fn metadata(configuration: &configuration::Configuration, params: MetadataParams) -> Result<(), Error<MetadataError>> {
 
     let uri_str = format!("{}/v1/matches/{match_id}/metadata", configuration.base_path, match_id=params.match_id);
@@ -440,7 +433,7 @@ pub async fn metadata(configuration: &configuration::Configuration, params: Meta
     }
 }
 
-///  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+///  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
 pub async fn metadata_raw(configuration: &configuration::Configuration, params: MetadataRawParams) -> Result<Vec<u32>, Error<MetadataRawError>> {
 
     let uri_str = format!("{}/v1/matches/{match_id}/metadata/raw", configuration.base_path, match_id=params.match_id);
@@ -479,14 +472,11 @@ pub async fn metadata_raw(configuration: &configuration::Configuration, params: 
 }
 
 ///  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-pub async fn recently_fetched(configuration: &configuration::Configuration, params: RecentlyFetchedParams) -> Result<Vec<models::ClickhouseMatchInfo>, Error<RecentlyFetchedError>> {
+pub async fn recently_fetched(configuration: &configuration::Configuration) -> Result<Vec<models::ClickhouseMatchInfo>, Error<RecentlyFetchedError>> {
 
     let uri_str = format!("{}/v1/matches/recently-fetched", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.player_ingested_only {
-        req_builder = req_builder.query(&[("player_ingested_only", &param_value.to_string())]);
-    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

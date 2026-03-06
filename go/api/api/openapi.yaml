@@ -121,7 +121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -339,7 +339,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -471,7 +471,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -532,7 +532,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -781,7 +781,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -1033,7 +1033,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -1294,7 +1294,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -1572,7 +1572,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -1797,7 +1797,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -2061,7 +2061,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -2350,7 +2350,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -2568,7 +2568,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -2864,7 +2864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -4588,16 +4588,6 @@ paths:
         \ within the last 10 minutes.\n\n### Rate Limits:\n| Type | Limit |\n| ----\
         \ | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
       operationId: recently_fetched
-      parameters:
-      - description: "If true, only return matches that have been ingested by players."
-        explode: true
-        in: query
-        name: player_ingested_only
-        required: false
-        schema:
-          nullable: true
-          type: boolean
-        style: form
       responses:
         "200":
           content:
@@ -4681,9 +4671,9 @@ paths:
         \ parsed into JSON.\n\nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Messages:\n- CMsgMatchMetaData\n- CMsgMatchMetaDataContents\n\
         \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | From Cache:\
-        \ 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |\n| Key | From Cache:\
-        \ 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |\n| Global | From\
-        \ Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |\n    "
+        \ 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |\n| Key | From Cache:\
+        \ 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h |\n| Global | From\
+        \ Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |\n    "
       operationId: metadata
       parameters:
       - description: The match ID
@@ -4725,9 +4715,9 @@ paths:
         \nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Messages:\n- CMsgMatchMetaData\n- CMsgMatchMetaDataContents\n\
         \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | From Cache:\
-        \ 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |\n| Key | From Cache:\
-        \ 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |\n| Global | From\
-        \ Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |\n    "
+        \ 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |\n| Key | From Cache:\
+        \ 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h |\n| Global | From\
+        \ Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |\n    "
       operationId: metadata_raw
       parameters:
       - description: The match ID
@@ -5085,7 +5075,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -5204,7 +5194,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770076800
+          default: 1770163200
           format: int64
           nullable: true
           type: integer
@@ -5678,10 +5668,10 @@ paths:
         \ **Steam** and **ClickHouse**, so you always get the most up-to-date data\
         \ and full history.\n\nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Messages:\n- CMsgClientToGcGetMatchHistory\n- CMsgClientToGcGetMatchHistoryResponse\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 2req/h<br>With\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 3req/h<br>With\
         \ `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h\
-        \ |\n| Key | 400req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`:\
-        \ 5req/h |\n| Global | 2000req/h<br>With `only_stored_history=true`: -<br>With\
+        \ |\n| Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`:\
+        \ 5req/h |\n| Global | 1500req/h<br>With `only_stored_history=true`: -<br>With\
         \ `force_refetch=true`: 10req/h |\n    "
       operationId: match_history
       parameters:
@@ -7351,7 +7341,6 @@ components:
           minimum: 0
           type: integer
         rank:
-          description: "tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>"
           format: int64
           minimum: 0
           type: integer
@@ -8347,7 +8336,6 @@ components:
           minimum: 0
           type: integer
         rank:
-          description: "tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>"
           format: int64
           minimum: 0
           type: integer

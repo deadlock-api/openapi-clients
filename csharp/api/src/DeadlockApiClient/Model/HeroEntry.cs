@@ -35,7 +35,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="heroId">See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
         /// <param name="matches">matches</param>
-        /// <param name="rank">tier &#x3D; first digits, subtier &#x3D; last digit, see more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
+        /// <param name="rank">rank</param>
         /// <param name="value">value</param>
         [JsonConstructor]
         public HeroEntry(int heroId, long matches, long rank, double value)
@@ -63,9 +63,8 @@ namespace DeadlockApiClient.Model
         public long Matches { get; set; }
 
         /// <summary>
-        /// tier &#x3D; first digits, subtier &#x3D; last digit, see more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// Gets or Sets Rank
         /// </summary>
-        /// <value>tier &#x3D; first digits, subtier &#x3D; last digit, see more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
         [JsonPropertyName("rank")]
         public long Rank { get; set; }
 

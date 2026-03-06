@@ -29,7 +29,7 @@ class PlayerEntry(BaseModel):
     """ # noqa: E501
     account_id: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
-    rank: Annotated[int, Field(strict=True, ge=0)] = Field(description="tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>")
+    rank: Annotated[int, Field(strict=True, ge=0)]
     value: Union[StrictFloat, StrictInt]
     __properties: ClassVar[List[str]] = ["account_id", "matches", "rank", "value"]
 

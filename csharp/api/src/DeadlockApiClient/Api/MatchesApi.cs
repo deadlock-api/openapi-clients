@@ -168,7 +168,7 @@ namespace DeadlockApiClient.Api
         /// Metadata
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
@@ -181,7 +181,7 @@ namespace DeadlockApiClient.Api
         /// Metadata
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </remarks>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
@@ -193,7 +193,7 @@ namespace DeadlockApiClient.Api
         /// Metadata as Protobuf
         /// </summary>
         /// <remarks>
-        ///  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+        ///  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
@@ -206,7 +206,7 @@ namespace DeadlockApiClient.Api
         /// Metadata as Protobuf
         /// </summary>
         /// <remarks>
-        ///  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+        ///  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </remarks>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
@@ -221,10 +221,9 @@ namespace DeadlockApiClient.Api
         ///  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerIngestedOnly">If true, only return matches that have been ingested by players. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRecentlyFetchedApiResponse"/>&gt;</returns>
-        Task<IRecentlyFetchedApiResponse> RecentlyFetchedAsync(Option<bool?> playerIngestedOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRecentlyFetchedApiResponse> RecentlyFetchedAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Recently Fetched
@@ -232,10 +231,9 @@ namespace DeadlockApiClient.Api
         /// <remarks>
         ///  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
-        /// <param name="playerIngestedOnly">If true, only return matches that have been ingested by players. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRecentlyFetchedApiResponse"/>?&gt;</returns>
-        Task<IRecentlyFetchedApiResponse?> RecentlyFetchedOrDefaultAsync(Option<bool?> playerIngestedOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRecentlyFetchedApiResponse?> RecentlyFetchedOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Salts
@@ -1771,7 +1769,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorMetadata(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom);
 
         /// <summary>
-        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </summary>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
@@ -1790,7 +1788,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
@@ -1996,7 +1994,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorMetadataRaw(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom);
 
         /// <summary>
-        /// Metadata as Protobuf  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+        /// Metadata as Protobuf  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </summary>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
@@ -2015,7 +2013,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Metadata as Protobuf  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+        /// Metadata as Protobuf  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
@@ -2209,17 +2207,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRecentlyFetched(ref Option<bool?> playerIngestedOnly);
-
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="playerIngestedOnly"></param>
-        private void AfterRecentlyFetchedDefaultImplementation(IRecentlyFetchedApiResponse apiResponseLocalVar, Option<bool?> playerIngestedOnly)
+        private void AfterRecentlyFetchedDefaultImplementation(IRecentlyFetchedApiResponse apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
-            AfterRecentlyFetched(ref suppressDefaultLog, apiResponseLocalVar, playerIngestedOnly);
+            AfterRecentlyFetched(ref suppressDefaultLog, apiResponseLocalVar);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2229,8 +2224,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="playerIngestedOnly"></param>
-        partial void AfterRecentlyFetched(ref bool suppressDefaultLog, IRecentlyFetchedApiResponse apiResponseLocalVar, Option<bool?> playerIngestedOnly);
+        partial void AfterRecentlyFetched(ref bool suppressDefaultLog, IRecentlyFetchedApiResponse apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2238,11 +2232,10 @@ namespace DeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="playerIngestedOnly"></param>
-        private void OnErrorRecentlyFetchedDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool?> playerIngestedOnly)
+        private void OnErrorRecentlyFetchedDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRecentlyFetched(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, playerIngestedOnly);
+            OnErrorRecentlyFetched(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2254,20 +2247,18 @@ namespace DeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="playerIngestedOnly"></param>
-        partial void OnErrorRecentlyFetched(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool?> playerIngestedOnly);
+        partial void OnErrorRecentlyFetched(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
         /// Recently Fetched  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
-        /// <param name="playerIngestedOnly">If true, only return matches that have been ingested by players. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRecentlyFetchedApiResponse"/>&gt;</returns>
-        public async Task<IRecentlyFetchedApiResponse?> RecentlyFetchedOrDefaultAsync(Option<bool?> playerIngestedOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRecentlyFetchedApiResponse?> RecentlyFetchedOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RecentlyFetchedAsync(playerIngestedOnly, cancellationToken).ConfigureAwait(false);
+                return await RecentlyFetchedAsync(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2279,17 +2270,14 @@ namespace DeadlockApiClient.Api
         /// Recently Fetched  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerIngestedOnly">If true, only return matches that have been ingested by players. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRecentlyFetchedApiResponse"/>&gt;</returns>
-        public async Task<IRecentlyFetchedApiResponse> RecentlyFetchedAsync(Option<bool?> playerIngestedOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRecentlyFetchedApiResponse> RecentlyFetchedAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatRecentlyFetched(ref playerIngestedOnly);
-
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
                     uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
@@ -2298,13 +2286,6 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/recently-fetched"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/recently-fetched");
-
-                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
-
-                    if (playerIngestedOnly.IsSet)
-                        parseQueryStringLocalVar["player_ingested_only"] = ClientUtils.ParameterToString(playerIngestedOnly.Value);
-
-                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -2335,7 +2316,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterRecentlyFetchedDefaultImplementation(apiResponseLocalVar, playerIngestedOnly);
+                        AfterRecentlyFetchedDefaultImplementation(apiResponseLocalVar);
 
                         Events.ExecuteOnRecentlyFetched(apiResponseLocalVar);
 
@@ -2345,7 +2326,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorRecentlyFetchedDefaultImplementation(e, "/v1/matches/recently-fetched", uriBuilderLocalVar.Path, playerIngestedOnly);
+                OnErrorRecentlyFetchedDefaultImplementation(e, "/v1/matches/recently-fetched", uriBuilderLocalVar.Path);
                 Events.ExecuteOnErrorRecentlyFetched(e);
                 throw;
             }

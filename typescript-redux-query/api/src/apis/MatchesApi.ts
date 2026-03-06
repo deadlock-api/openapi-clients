@@ -77,10 +77,6 @@ export interface MetadataRawRequest {
     isCustom?: boolean;
 }
 
-export interface RecentlyFetchedRequest {
-    playerIngestedOnly?: boolean;
-}
-
 export interface SaltsRequest {
     matchId: number;
 }
@@ -383,7 +379,7 @@ export function bulkMetadata<T>(requestParameters: BulkMetadataRequest, requestC
 }
 
 /**
- *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+ *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
  * Metadata
  */
 function metadataRaw<T>(requestParameters: MetadataRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
@@ -428,7 +424,7 @@ function metadataRaw<T>(requestParameters: MetadataRequest, requestConfig: runti
 }
 
 /**
-*  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+*  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
 * Metadata
 */
 export function metadata<T>(requestParameters: MetadataRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
@@ -436,7 +432,7 @@ export function metadata<T>(requestParameters: MetadataRequest, requestConfig?: 
 }
 
 /**
- *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+ *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
  * Metadata as Protobuf
  */
 function metadataRawRaw<T>(requestParameters: MetadataRawRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -481,7 +477,7 @@ function metadataRawRaw<T>(requestParameters: MetadataRawRequest, requestConfig:
 }
 
 /**
-*  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |     
+*  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
 * Metadata as Protobuf
 */
 export function metadataRaw<T>(requestParameters: MetadataRawRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
@@ -492,15 +488,9 @@ export function metadataRaw<T>(requestParameters: MetadataRawRequest, requestCon
  *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
  * Recently Fetched
  */
-function recentlyFetchedRaw<T>(requestParameters: RecentlyFetchedRequest, requestConfig: runtime.TypedQueryConfig<T, Array<ClickhouseMatchInfo>> = {}): QueryConfig<T> {
+function recentlyFetchedRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<ClickhouseMatchInfo>> = {}): QueryConfig<T> {
     let queryParameters = null;
 
-    queryParameters = {};
-
-
-    if (requestParameters.playerIngestedOnly !== undefined) {
-        queryParameters['player_ingested_only'] = requestParameters.playerIngestedOnly;
-    }
 
     const headerParameters : runtime.HttpHeaders = {};
 
@@ -534,8 +524,8 @@ function recentlyFetchedRaw<T>(requestParameters: RecentlyFetchedRequest, reques
 *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 * Recently Fetched
 */
-export function recentlyFetched<T>(requestParameters: RecentlyFetchedRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<ClickhouseMatchInfo>>): QueryConfig<T> {
-    return recentlyFetchedRaw(requestParameters, requestConfig);
+export function recentlyFetched<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<ClickhouseMatchInfo>>): QueryConfig<T> {
+    return recentlyFetchedRaw( requestConfig);
 }
 
 /**

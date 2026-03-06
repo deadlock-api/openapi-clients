@@ -215,7 +215,7 @@ No authorization required
 
 Metadata
 
- This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+ This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
 
 ### Example
 ```kotlin
@@ -262,7 +262,7 @@ No authorization required
 
 Metadata as Protobuf
 
- This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+ This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
 
 ### Example
 ```kotlin
@@ -306,7 +306,7 @@ No authorization required
 
 <a id="recentlyFetched"></a>
 # **recentlyFetched**
-> kotlin.collections.List&lt;ClickhouseMatchInfo&gt; recentlyFetched(playerIngestedOnly)
+> kotlin.collections.List&lt;ClickhouseMatchInfo&gt; recentlyFetched()
 
 Recently Fetched
 
@@ -319,9 +319,8 @@ Recently Fetched
 //import deadlock_api_client.models.*
 
 val apiInstance = MatchesApi()
-val playerIngestedOnly : kotlin.Boolean = true // kotlin.Boolean | If true, only return matches that have been ingested by players.
 try {
-    val result : kotlin.collections.List<ClickhouseMatchInfo> = apiInstance.recentlyFetched(playerIngestedOnly)
+    val result : kotlin.collections.List<ClickhouseMatchInfo> = apiInstance.recentlyFetched()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MatchesApi#recentlyFetched")
@@ -333,9 +332,7 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **playerIngestedOnly** | **kotlin.Boolean**| If true, only return matches that have been ingested by players. | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 

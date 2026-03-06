@@ -18,7 +18,6 @@ pub struct HeroEntry {
     pub hero_id: u32,
     #[serde(rename = "matches")]
     pub matches: u64,
-    /// tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "rank")]
     pub rank: u64,
     #[serde(rename = "value")]

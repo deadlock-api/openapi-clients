@@ -509,7 +509,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/metadata
      * Metadata
-     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
      * @return void
@@ -541,7 +541,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/metadata
      * Metadata
-     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
      * @return ApiResponse<Unit?>
@@ -587,7 +587,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/metadata/raw
      * Metadata as Protobuf
-     *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+     *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
      * @return kotlin.collections.List<kotlin.Int>
@@ -620,7 +620,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/metadata/raw
      * Metadata as Protobuf
-     *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 5req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 400req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 2000req/h |     
+     *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
@@ -669,7 +669,6 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/matches/recently-fetched
      * Recently Fetched
      *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param playerIngestedOnly If true, only return matches that have been ingested by players. (optional)
      * @return kotlin.collections.List<ClickhouseMatchInfo>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -679,8 +678,8 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun recentlyFetched(playerIngestedOnly: kotlin.Boolean? = null) : kotlin.collections.List<ClickhouseMatchInfo> {
-        val localVarResponse = recentlyFetchedWithHttpInfo(playerIngestedOnly = playerIngestedOnly)
+    fun recentlyFetched() : kotlin.collections.List<ClickhouseMatchInfo> {
+        val localVarResponse = recentlyFetchedWithHttpInfo()
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ClickhouseMatchInfo>
@@ -701,15 +700,14 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/matches/recently-fetched
      * Recently Fetched
      *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @param playerIngestedOnly If true, only return matches that have been ingested by players. (optional)
      * @return ApiResponse<kotlin.collections.List<ClickhouseMatchInfo>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun recentlyFetchedWithHttpInfo(playerIngestedOnly: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<ClickhouseMatchInfo>?> {
-        val localVariableConfig = recentlyFetchedRequestConfig(playerIngestedOnly = playerIngestedOnly)
+    fun recentlyFetchedWithHttpInfo() : ApiResponse<kotlin.collections.List<ClickhouseMatchInfo>?> {
+        val localVariableConfig = recentlyFetchedRequestConfig()
 
         return request<Unit, kotlin.collections.List<ClickhouseMatchInfo>>(
             localVariableConfig
@@ -719,17 +717,11 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation recentlyFetched
      *
-     * @param playerIngestedOnly If true, only return matches that have been ingested by players. (optional)
      * @return RequestConfig
      */
-    fun recentlyFetchedRequestConfig(playerIngestedOnly: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun recentlyFetchedRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (playerIngestedOnly != null) {
-                    put("player_ingested_only", listOf(playerIngestedOnly.toString()))
-                }
-            }
+        val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 

@@ -23,7 +23,6 @@ var _ MappedNullable = &PlayerEntry{}
 type PlayerEntry struct {
 	AccountId int32 `json:"account_id"`
 	Matches int64 `json:"matches"`
-	// tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
 	Rank int64 `json:"rank"`
 	Value float64 `json:"value"`
 }

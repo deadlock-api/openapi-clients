@@ -743,9 +743,9 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |
+| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |
+| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h |
+| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -864,9 +864,9 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 5req/h |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 400req/h |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 2000req/h |
+| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |
+| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h |
+| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -966,13 +966,6 @@ func (a *MatchesAPIService) MetadataRawExecute(r ApiMetadataRawRequest) ([]int32
 type ApiRecentlyFetchedRequest struct {
 	ctx context.Context
 	ApiService *MatchesAPIService
-	playerIngestedOnly *bool
-}
-
-// If true, only return matches that have been ingested by players.
-func (r ApiRecentlyFetchedRequest) PlayerIngestedOnly(playerIngestedOnly bool) ApiRecentlyFetchedRequest {
-	r.playerIngestedOnly = &playerIngestedOnly
-	return r
 }
 
 func (r ApiRecentlyFetchedRequest) Execute() ([]ClickhouseMatchInfo, *http.Response, error) {
@@ -1024,9 +1017,6 @@ func (a *MatchesAPIService) RecentlyFetchedExecute(r ApiRecentlyFetchedRequest) 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.playerIngestedOnly != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "player_ingested_only", r.playerIngestedOnly, "form", "")
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

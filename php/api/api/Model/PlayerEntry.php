@@ -411,7 +411,7 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rank
      *
-     * @param int $rank tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int $rank rank
      *
      * @return self
      */

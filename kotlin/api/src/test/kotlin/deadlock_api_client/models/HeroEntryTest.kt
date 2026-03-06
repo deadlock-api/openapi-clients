@@ -37,7 +37,7 @@ class HeroEntryTest : ShouldSpec() {
             //modelInstance.matches shouldBe ("TODO")
         }
 
-        // to test the property `rank` - tier = first digits, subtier = last digit, see more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `rank`
         should("test rank") {
             // uncomment below to test the property
             //modelInstance.rank shouldBe ("TODO")
