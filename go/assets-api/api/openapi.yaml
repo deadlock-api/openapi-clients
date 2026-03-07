@@ -1577,6 +1577,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6359
       - 6355
       - 6351
       - 6325
