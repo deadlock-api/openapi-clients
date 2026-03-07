@@ -2,7 +2,7 @@
 
 ### Ability Order Stats
 ## Ability Order Stats
-GET https://api.deadlock-api.com/v1/analytics/ability-order-stats?heroId={{heroId}}&gameMode={{gameMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAbilityUpgrades={{minAbilityUpgrades}}&maxAbilityUpgrades={{maxAbilityUpgrades}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatches={{minMatches}}&accountId={{accountId}}&accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/analytics/ability-order-stats?heroId={{heroId}}&gameMode={{gameMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAbilityUpgrades={{minAbilityUpgrades}}&maxAbilityUpgrades={{maxAbilityUpgrades}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatches={{minMatches}}&accountId={{accountId}}&accountIds={{accountIds}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}
 Accept: application/json
 
 ### Badge Distribution

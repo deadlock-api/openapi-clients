@@ -949,10 +949,12 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [minMatches] The minimum number of matches played for an ability order to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        abilityOrderStats: async (heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        abilityOrderStats: async (heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('abilityOrderStats', 'heroId', heroId)
             const localVarPath = `/v1/analytics/ability-order-stats`;
@@ -1033,6 +1035,14 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (accountIds) {
                 localVarQueryParameter['account_ids'] = accountIds;
+            }
+
+            if (includeItemIds) {
+                localVarQueryParameter['include_item_ids'] = includeItemIds;
+            }
+
+            if (excludeItemIds) {
+                localVarQueryParameter['exclude_item_ids'] = excludeItemIds;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -2544,11 +2554,13 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [minMatches] The minimum number of matches played for an ability order to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+         * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async abilityOrderStats(heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsAbilityOrderStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.abilityOrderStats(heroId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, options);
+        async abilityOrderStats(heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsAbilityOrderStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.abilityOrderStats(heroId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, includeItemIds, excludeItemIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.abilityOrderStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2941,7 +2953,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         abilityOrderStats(requestParameters: AnalyticsApiAbilityOrderStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<AnalyticsAbilityOrderStats>> {
-            return localVarFp.abilityOrderStats(requestParameters.heroId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAbilityUpgrades, requestParameters.maxAbilityUpgrades, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.abilityOrderStats(requestParameters.heroId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAbilityUpgrades, requestParameters.maxAbilityUpgrades, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -3164,6 +3176,16 @@ export interface AnalyticsApiAbilityOrderStatsRequest {
      * Comma separated list of account ids to include
      */
     readonly accountIds?: Array<number> | null
+
+    /**
+     * Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+     */
+    readonly includeItemIds?: Array<number> | null
+
+    /**
+     * Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+     */
+    readonly excludeItemIds?: Array<number> | null
 }
 
 /**
@@ -4318,7 +4340,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public abilityOrderStats(requestParameters: AnalyticsApiAbilityOrderStatsRequest, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).abilityOrderStats(requestParameters.heroId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAbilityUpgrades, requestParameters.maxAbilityUpgrades, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).abilityOrderStats(requestParameters.heroId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAbilityUpgrades, requestParameters.maxAbilityUpgrades, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

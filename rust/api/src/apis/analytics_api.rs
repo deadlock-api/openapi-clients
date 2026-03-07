@@ -50,7 +50,11 @@ pub struct AbilityOrderStatsParams {
     /// Filter for matches with a specific player account ID.
     pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<u32>>
+    pub account_ids: Option<Vec<u32>>,
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    pub include_item_ids: Option<Vec<u32>>,
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    pub exclude_item_ids: Option<Vec<u32>>
 }
 
 /// struct for passing parameters to the method [`badge_distribution`]
@@ -732,6 +736,18 @@ pub async fn ability_order_stats(configuration: &configuration::Configuration, p
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.include_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("include_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.exclude_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("exclude_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref user_agent) = configuration.user_agent {

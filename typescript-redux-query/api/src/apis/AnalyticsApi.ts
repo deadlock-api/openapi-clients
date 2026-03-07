@@ -77,6 +77,8 @@ export interface AbilityOrderStatsRequest {
     minMatches?: number;
     accountId?: number;
     accountIds?: Array<number>;
+    includeItemIds?: Array<number>;
+    excludeItemIds?: Array<number>;
 }
 
 export interface BadgeDistributionRequest {
@@ -430,6 +432,16 @@ function abilityOrderStatsRaw<T>(requestParameters: AbilityOrderStatsRequest, re
 
     if (requestParameters.accountIds) {
         queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.includeItemIds) {
+        queryParameters['include_item_ids'] = requestParameters.includeItemIds;
+    }
+
+
+    if (requestParameters.excludeItemIds) {
+        queryParameters['exclude_item_ids'] = requestParameters.excludeItemIds;
     }
 
     const headerParameters : runtime.HttpHeaders = {};

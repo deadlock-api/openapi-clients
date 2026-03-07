@@ -71,6 +71,8 @@ class AnalyticsApi:
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -122,6 +124,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :type include_item_ids: List[int]
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :type exclude_item_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -162,6 +168,8 @@ class AnalyticsApi:
             min_matches=min_matches,
             account_id=account_id,
             account_ids=account_ids,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -204,6 +212,8 @@ class AnalyticsApi:
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -255,6 +265,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :type include_item_ids: List[int]
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :type exclude_item_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -295,6 +309,8 @@ class AnalyticsApi:
             min_matches=min_matches,
             account_id=account_id,
             account_ids=account_ids,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -337,6 +353,8 @@ class AnalyticsApi:
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -388,6 +406,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :type include_item_ids: List[int]
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :type exclude_item_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -428,6 +450,8 @@ class AnalyticsApi:
             min_matches=min_matches,
             account_id=account_id,
             account_ids=account_ids,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -465,6 +489,8 @@ class AnalyticsApi:
         min_matches,
         account_id,
         account_ids,
+        include_item_ids,
+        exclude_item_ids,
         _request_auth,
         _content_type,
         _headers,
@@ -475,6 +501,8 @@ class AnalyticsApi:
 
         _collection_formats: Dict[str, str] = {
             'account_ids': 'multi',
+            'include_item_ids': 'multi',
+            'exclude_item_ids': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -555,6 +583,14 @@ class AnalyticsApi:
         if account_ids is not None:
             
             _query_params.append(('account_ids', account_ids))
+            
+        if include_item_ids is not None:
+            
+            _query_params.append(('include_item_ids', include_item_ids))
+            
+        if exclude_item_ids is not None:
+            
+            _query_params.append(('exclude_item_ids', exclude_item_ids))
             
         # process the header parameters
         # process the form parameters

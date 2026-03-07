@@ -73,7 +73,9 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> minMatches = default!;
             Client.Option<int?> accountId = default!;
             Client.Option<List<int>?> accountIds = default!;
-            var response = await _instance.AbilityOrderStatsAsync(heroId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds);
+            Client.Option<List<int>?> includeItemIds = default!;
+            Client.Option<List<int>?> excludeItemIds = default!;
+            var response = await _instance.AbilityOrderStatsAsync(heroId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, includeItemIds, excludeItemIds);
             var model = response.Ok();
             Assert.IsType<List<AnalyticsAbilityOrderStats>>(model);
         }

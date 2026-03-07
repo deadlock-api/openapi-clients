@@ -121,7 +121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -296,6 +296,34 @@ paths:
           nullable: true
           type: array
         style: form
+      - description: "Comma separated list of item ids to include (only players who\
+          \ have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+        explode: true
+        in: query
+        name: include_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+        style: form
+      - description: "Comma separated list of item ids to exclude (only players who\
+          \ have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+        explode: true
+        in: query
+        name: exclude_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -339,7 +367,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -471,7 +499,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -532,7 +560,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -781,7 +809,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -1033,7 +1061,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -1294,7 +1322,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -1572,7 +1600,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -1797,7 +1825,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -2061,7 +2089,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -2350,7 +2378,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -2568,7 +2596,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -2864,7 +2892,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -5075,7 +5103,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
@@ -5194,7 +5222,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770163200
+          default: 1770249600
           format: int64
           nullable: true
           type: integer
