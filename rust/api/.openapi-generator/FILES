@@ -10,6 +10,7 @@ docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsApi.md
+docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/ApiInfo.md
 docs/BadgeDistribution.md
@@ -100,6 +101,7 @@ src/models/active_match_mode.rs
 src/models/active_match_player.rs
 src/models/active_match_team.rs
 src/models/analytics_ability_order_stats.rs
+src/models/analytics_game_stats.rs
 src/models/analytics_hero_stats.rs
 src/models/api_info.rs
 src/models/badge_distribution.rs

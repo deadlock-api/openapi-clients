@@ -5,6 +5,7 @@ export * from './ActiveMatchMode';
 export * from './ActiveMatchPlayer';
 export * from './ActiveMatchTeam';
 export * from './AnalyticsAbilityOrderStats';
+export * from './AnalyticsGameStats';
 export * from './AnalyticsHeroStats';
 export * from './BadgeDistribution';
 export * from './Build';

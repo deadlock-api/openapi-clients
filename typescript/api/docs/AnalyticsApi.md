@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**abilityOrderStats**](#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats|
 |[**badgeDistribution**](#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution|
 |[**buildItemStats**](#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats|
+|[**gameStats**](#gamestats) | **GET** /v1/analytics/game-stats | Game Stats|
 |[**heroCombStats**](#herocombstats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats|
 |[**heroCountersStats**](#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats|
 |[**heroScoreboard**](#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard|
@@ -262,6 +263,86 @@ No authorization required
 |**200** | Build Item Stats |  -  |
 |**400** | Provided parameters are invalid. |  -  |
 |**500** | Failed to fetch build item stats |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **gameStats**
+> Array<AnalyticsGameStats> gameStats()
+
+ Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+### Example
+
+```typescript
+import {
+    AnalyticsApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new AnalyticsApi(configuration);
+
+let bucket: 'no_bucket' | 'avg_badge' | 'start_time_hour' | 'start_time_day' | 'start_time_week' | 'start_time_month'; //Bucket allows you to group the stats by a specific field. (optional) (default to undefined)
+let gameMode: 'normal' | 'street_brawl'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1770336000)
+let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
+let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
+let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
+let minAverageBadge: number; //Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
+let maxAverageBadge: number; //Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional) (default to undefined)
+let minMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
+let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.gameStats(
+    bucket,
+    gameMode,
+    minUnixTimestamp,
+    maxUnixTimestamp,
+    minDurationS,
+    maxDurationS,
+    minAverageBadge,
+    maxAverageBadge,
+    minMatchId,
+    maxMatchId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **bucket** | [**&#39;no_bucket&#39; | &#39;avg_badge&#39; | &#39;start_time_hour&#39; | &#39;start_time_day&#39; | &#39;start_time_week&#39; | &#39;start_time_month&#39;**]**Array<&#39;no_bucket&#39; &#124; &#39;avg_badge&#39; &#124; &#39;start_time_hour&#39; &#124; &#39;start_time_day&#39; &#124; &#39;start_time_week&#39; &#124; &#39;start_time_month&#39;>** | Bucket allows you to group the stats by a specific field. | (optional) defaults to undefined|
+| **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1770336000|
+| **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
+| **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
+| **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
+| **minAverageBadge** | [**number**] | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
+| **maxAverageBadge** | [**number**] | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | (optional) defaults to undefined|
+| **minMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
+| **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
+
+
+### Return type
+
+**Array<AnalyticsGameStats>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Game Stats |  -  |
+|**400** | Provided parameters are invalid. |  -  |
+|**500** | Failed to fetch game stats |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

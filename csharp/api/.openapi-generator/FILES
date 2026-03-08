@@ -24,6 +24,7 @@ docs/models/ActiveMatchMode.md
 docs/models/ActiveMatchPlayer.md
 docs/models/ActiveMatchTeam.md
 docs/models/AnalyticsAbilityOrderStats.md
+docs/models/AnalyticsGameStats.md
 docs/models/AnalyticsHeroStats.md
 docs/models/BadgeDistribution.md
 docs/models/Build.md
@@ -103,6 +104,7 @@ src/DeadlockApiClient.Test/Model/ActiveMatchPlayerTests.cs
 src/DeadlockApiClient.Test/Model/ActiveMatchTeamTests.cs
 src/DeadlockApiClient.Test/Model/ActiveMatchTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsAbilityOrderStatsTests.cs
+src/DeadlockApiClient.Test/Model/AnalyticsGameStatsTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsHeroStatsTests.cs
 src/DeadlockApiClient.Test/Model/BadgeDistributionTests.cs
 src/DeadlockApiClient.Test/Model/BuildHeroDetailsAbilityOrderCurrencyChangeTests.cs
@@ -202,6 +204,7 @@ src/DeadlockApiClient/Model/ActiveMatchMode.cs
 src/DeadlockApiClient/Model/ActiveMatchPlayer.cs
 src/DeadlockApiClient/Model/ActiveMatchTeam.cs
 src/DeadlockApiClient/Model/AnalyticsAbilityOrderStats.cs
+src/DeadlockApiClient/Model/AnalyticsGameStats.cs
 src/DeadlockApiClient/Model/AnalyticsHeroStats.cs
 src/DeadlockApiClient/Model/BadgeDistribution.cs
 src/DeadlockApiClient/Model/Build.cs

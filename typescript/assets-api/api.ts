@@ -162,6 +162,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6374: 6374,
     NUMBER_6359: 6359,
     NUMBER_6355: 6355,
     NUMBER_6351: 6351,

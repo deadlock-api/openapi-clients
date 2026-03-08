@@ -66,6 +66,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *AnalyticsApi* | [**abilityOrderStats**](docs/AnalyticsApi.md#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats |
 | *AnalyticsApi* | [**badgeDistribution**](docs/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
 | *AnalyticsApi* | [**buildItemStats**](docs/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
+| *AnalyticsApi* | [**gameStats**](docs/AnalyticsApi.md#gamestats) | **GET** /v1/analytics/game-stats | Game Stats |
 | *AnalyticsApi* | [**heroCombStats**](docs/AnalyticsApi.md#herocombstats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats |
 | *AnalyticsApi* | [**heroCountersStats**](docs/AnalyticsApi.md#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats |
 | *AnalyticsApi* | [**heroScoreboard**](docs/AnalyticsApi.md#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard |
@@ -135,6 +136,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ActiveMatchPlayer](docs/ActiveMatchPlayer.md)
  - [deadlock_api_client.models.ActiveMatchTeam](docs/ActiveMatchTeam.md)
  - [deadlock_api_client.models.AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
+ - [deadlock_api_client.models.AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [deadlock_api_client.models.AnalyticsHeroStats](docs/AnalyticsHeroStats.md)
  - [deadlock_api_client.models.BadgeDistribution](docs/BadgeDistribution.md)
  - [deadlock_api_client.models.Build](docs/Build.md)

@@ -9,6 +9,7 @@ docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsApi.md
+docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/BadgeDistribution.md
 docs/Build.md
@@ -113,6 +114,7 @@ src/main/kotlin/deadlock_api_client/models/ActiveMatchMode.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchPlayer.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchTeam.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderStats.kt
+src/main/kotlin/deadlock_api_client/models/AnalyticsGameStats.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsHeroStats.kt
 src/main/kotlin/deadlock_api_client/models/BadgeDistribution.kt
 src/main/kotlin/deadlock_api_client/models/Build.kt
@@ -187,6 +189,7 @@ src/test/kotlin/deadlock_api_client/models/ActiveMatchPlayerTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchTeamTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderStatsTest.kt
+src/test/kotlin/deadlock_api_client/models/AnalyticsGameStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsHeroStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/BadgeDistributionTest.kt
 src/test/kotlin/deadlock_api_client/models/BuildHeroDetailsAbilityOrderCurrencyChangeTest.kt

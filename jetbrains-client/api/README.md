@@ -17,6 +17,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**abilityOrderStats**](Apis/AnalyticsApi.http#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
 *AnalyticsApi* | [**badgeDistribution**](Apis/AnalyticsApi.http#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**buildItemStats**](Apis/AnalyticsApi.http#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
+*AnalyticsApi* | [**gameStats**](Apis/AnalyticsApi.http#gamestats) | **GET** /v1/analytics/game-stats | Game Stats
 *AnalyticsApi* | [**heroCombStats**](Apis/AnalyticsApi.http#herocombstats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 *AnalyticsApi* | [**heroCountersStats**](Apis/AnalyticsApi.http#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 *AnalyticsApi* | [**heroScoreboard**](Apis/AnalyticsApi.http#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard

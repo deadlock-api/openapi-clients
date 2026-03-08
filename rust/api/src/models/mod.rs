@@ -10,6 +10,8 @@ pub mod active_match_team;
 pub use self::active_match_team::ActiveMatchTeam;
 pub mod analytics_ability_order_stats;
 pub use self::analytics_ability_order_stats::AnalyticsAbilityOrderStats;
+pub mod analytics_game_stats;
+pub use self::analytics_game_stats::AnalyticsGameStats;
 pub mod analytics_hero_stats;
 pub use self::analytics_hero_stats::AnalyticsHeroStats;
 pub mod api_info;

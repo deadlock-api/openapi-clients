@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ability_order_stats**](AnalyticsApi.md#ability_order_stats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
 [**badge_distribution**](AnalyticsApi.md#badge_distribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 [**build_item_stats**](AnalyticsApi.md#build_item_stats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
+[**game_stats**](AnalyticsApi.md#game_stats) | **GET** /v1/analytics/game-stats | Game Stats
 [**hero_comb_stats**](AnalyticsApi.md#hero_comb_stats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 [**hero_counters_stats**](AnalyticsApi.md#hero_counters_stats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 [**hero_scoreboard**](AnalyticsApi.md#hero_scoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard
@@ -127,6 +128,45 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**Vec<models::BuildItemStats>**](BuildItemStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## game_stats
+
+> Vec<models::AnalyticsGameStats> game_stats(bucket, game_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id)
+Game Stats
+
+ Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
+**game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1770336000]
+**max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+
+### Return type
+
+[**Vec<models::AnalyticsGameStats>**](AnalyticsGameStats.md)
 
 ### Authorization
 

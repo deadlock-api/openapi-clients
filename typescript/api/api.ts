@@ -126,6 +126,35 @@ export interface AnalyticsAbilityOrderStats {
     'total_kills': number;
     'wins': number;
 }
+export interface AnalyticsGameStats {
+    'abandon_rate': number;
+    'avg_accuracy': number;
+    'avg_assists': number;
+    'avg_boss_damage': number;
+    'avg_crit_rate': number;
+    'avg_deaths': number;
+    'avg_denies': number;
+    'avg_duration_s': number;
+    'avg_ending_level': number;
+    'avg_first_mid_boss_time_s': number;
+    'avg_gold_boss': number;
+    'avg_gold_death_loss': number;
+    'avg_gold_denied': number;
+    'avg_gold_lane_creep': number;
+    'avg_gold_neutral_creep': number;
+    'avg_gold_player': number;
+    'avg_gold_treasure': number;
+    'avg_kd_ratio': number;
+    'avg_kills': number;
+    'avg_last_hits': number;
+    'avg_net_worth': number;
+    'avg_player_damage': number;
+    'avg_player_damage_taken': number;
+    'avg_player_healing': number;
+    'bucket': number;
+    'mid_boss_kill_rate': number;
+    'total_matches': number;
+}
 export interface AnalyticsHeroStats {
     'bucket': number;
     /**
@@ -1168,6 +1197,86 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (maxLastUpdatedUnixTimestamp !== undefined) {
                 localVarQueryParameter['max_last_updated_unix_timestamp'] = maxLastUpdatedUnixTimestamp;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Game Stats
+         * @param {GameStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
+         * @param {GameStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        gameStats: async (bucket?: GameStatsBucketEnum, gameMode?: GameStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/analytics/game-stats`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (bucket !== undefined) {
+                localVarQueryParameter['bucket'] = bucket;
+            }
+
+            if (gameMode !== undefined) {
+                localVarQueryParameter['game_mode'] = gameMode;
+            }
+
+            if (minUnixTimestamp !== undefined) {
+                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
+            }
+
+            if (maxUnixTimestamp !== undefined) {
+                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
+            }
+
+            if (minDurationS !== undefined) {
+                localVarQueryParameter['min_duration_s'] = minDurationS;
+            }
+
+            if (maxDurationS !== undefined) {
+                localVarQueryParameter['max_duration_s'] = maxDurationS;
+            }
+
+            if (minAverageBadge !== undefined) {
+                localVarQueryParameter['min_average_badge'] = minAverageBadge;
+            }
+
+            if (maxAverageBadge !== undefined) {
+                localVarQueryParameter['max_average_badge'] = maxAverageBadge;
+            }
+
+            if (minMatchId !== undefined) {
+                localVarQueryParameter['min_match_id'] = minMatchId;
+            }
+
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -2603,6 +2712,28 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Game Stats
+         * @param {GameStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
+         * @param {GameStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async gameStats(bucket?: GameStatsBucketEnum, gameMode?: GameStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsGameStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.gameStats(bucket, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.gameStats']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Hero Comb Stats
          * @param {HeroCombStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -2976,6 +3107,16 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.buildItemStats(requestParameters.heroId, requestParameters.minLastUpdatedUnixTimestamp, requestParameters.maxLastUpdatedUnixTimestamp, options).then((request) => request(axios, basePath));
         },
         /**
+         *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Game Stats
+         * @param {AnalyticsApiGameStatsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        gameStats(requestParameters: AnalyticsApiGameStatsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<AnalyticsGameStats>> {
+            return localVarFp.gameStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Hero Comb Stats
          * @param {AnalyticsApiHeroCombStatsRequest} requestParameters Request parameters.
@@ -3261,6 +3402,61 @@ export interface AnalyticsApiBuildItemStatsRequest {
      * Filter builds based on their last updated time (Unix timestamp).
      */
     readonly maxLastUpdatedUnixTimestamp?: number | null
+}
+
+/**
+ * Request parameters for gameStats operation in AnalyticsApi.
+ */
+export interface AnalyticsApiGameStatsRequest {
+    /**
+     * Bucket allows you to group the stats by a specific field.
+     */
+    readonly bucket?: GameStatsBucketEnum
+
+    /**
+     * Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+     */
+    readonly gameMode?: GameStatsGameModeEnum
+
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     */
+    readonly minUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null
+
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     */
+    readonly minAverageBadge?: number | null
+
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     */
+    readonly maxAverageBadge?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null
 }
 
 /**
@@ -4366,6 +4562,17 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
+     *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Game Stats
+     * @param {AnalyticsApiGameStatsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public gameStats(requestParameters: AnalyticsApiGameStatsRequest = {}, options?: RawAxiosRequestConfig) {
+        return AnalyticsApiFp(this.configuration).gameStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @summary Hero Comb Stats
      * @param {AnalyticsApiHeroCombStatsRequest} requestParameters Request parameters.
@@ -4497,6 +4704,20 @@ export const BadgeDistributionGameModeEnum = {
     StreetBrawl: 'street_brawl'
 } as const;
 export type BadgeDistributionGameModeEnum = typeof BadgeDistributionGameModeEnum[keyof typeof BadgeDistributionGameModeEnum];
+export const GameStatsBucketEnum = {
+    NoBucket: 'no_bucket',
+    AvgBadge: 'avg_badge',
+    StartTimeHour: 'start_time_hour',
+    StartTimeDay: 'start_time_day',
+    StartTimeWeek: 'start_time_week',
+    StartTimeMonth: 'start_time_month'
+} as const;
+export type GameStatsBucketEnum = typeof GameStatsBucketEnum[keyof typeof GameStatsBucketEnum];
+export const GameStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl'
+} as const;
+export type GameStatsGameModeEnum = typeof GameStatsGameModeEnum[keyof typeof GameStatsGameModeEnum];
 export const HeroCombStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl'

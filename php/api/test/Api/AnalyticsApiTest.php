@@ -108,6 +108,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for gameStats
+     *
+     * Game Stats.
+     *
+     */
+    public function testGameStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for heroCombStats
      *
      * Hero Comb Stats.

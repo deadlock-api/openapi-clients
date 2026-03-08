@@ -124,6 +124,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**ability_order_stats**](docs/AnalyticsApi.md#ability_order_stats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
 *AnalyticsApi* | [**badge_distribution**](docs/AnalyticsApi.md#badge_distribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**build_item_stats**](docs/AnalyticsApi.md#build_item_stats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
+*AnalyticsApi* | [**game_stats**](docs/AnalyticsApi.md#game_stats) | **GET** /v1/analytics/game-stats | Game Stats
 *AnalyticsApi* | [**hero_comb_stats**](docs/AnalyticsApi.md#hero_comb_stats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 *AnalyticsApi* | [**hero_counters_stats**](docs/AnalyticsApi.md#hero_counters_stats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 *AnalyticsApi* | [**hero_scoreboard**](docs/AnalyticsApi.md#hero_scoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard
@@ -192,6 +193,7 @@ Class | Method | HTTP request | Description
  - [ActiveMatchPlayer](docs/ActiveMatchPlayer.md)
  - [ActiveMatchTeam](docs/ActiveMatchTeam.md)
  - [AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
+ - [AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [AnalyticsHeroStats](docs/AnalyticsHeroStats.md)
  - [BadgeDistribution](docs/BadgeDistribution.md)
  - [Build](docs/Build.md)

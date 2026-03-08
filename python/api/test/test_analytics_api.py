@@ -47,6 +47,13 @@ class TestAnalyticsApi(unittest.TestCase):
         """
         pass
 
+    def test_game_stats(self) -> None:
+        """Test case for game_stats
+
+        Game Stats
+        """
+        pass
+
     def test_hero_comb_stats(self) -> None:
         """Test case for hero_comb_stats
 

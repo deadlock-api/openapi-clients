@@ -26,6 +26,7 @@ docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
 docs/AnalyticsAPI.md
 docs/AnalyticsAbilityOrderStats.md
+docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/BadgeDistribution.md
 docs/Build.md
@@ -101,6 +102,7 @@ model_active_match_mode.go
 model_active_match_player.go
 model_active_match_team.go
 model_analytics_ability_order_stats.go
+model_analytics_game_stats.go
 model_analytics_hero_stats.go
 model_api_info.go
 model_badge_distribution.go

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ability_order_stats**](AnalyticsApi.md#ability_order_stats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
 [**badge_distribution**](AnalyticsApi.md#badge_distribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 [**build_item_stats**](AnalyticsApi.md#build_item_stats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
+[**game_stats**](AnalyticsApi.md#game_stats) | **GET** /v1/analytics/game-stats | Game Stats
 [**hero_comb_stats**](AnalyticsApi.md#hero_comb_stats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 [**hero_counters_stats**](AnalyticsApi.md#hero_counters_stats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 [**hero_scoreboard**](AnalyticsApi.md#hero_scoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard
@@ -314,6 +315,103 @@ No authorization required
 **200** | Build Item Stats |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **500** | Failed to fetch build item stats |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **game_stats**
+> List[AnalyticsGameStats] game_stats(bucket=bucket, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id)
+
+Game Stats
+
+
+Retrieves aggregate game-level statistics.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
+    bucket = 'bucket_example' # str | Bucket allows you to group the stats by a specific field. (optional)
+    game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
+    min_unix_timestamp = 1770336000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1770336000)
+    max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
+    min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
+    max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
+    min_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+    max_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+    min_match_id = 56 # int | Filter matches based on their ID. (optional)
+    max_match_id = 56 # int | Filter matches based on their ID. (optional)
+
+    try:
+        # Game Stats
+        api_response = api_instance.game_stats(bucket=bucket, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id)
+        print("The response of AnalyticsApi->game_stats:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AnalyticsApi->game_stats: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **str**| Bucket allows you to group the stats by a specific field. | [optional] 
+ **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1770336000]
+ **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
+ **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
+ **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
+ **min_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
+ **max_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
+ **min_match_id** | **int**| Filter matches based on their ID. | [optional] 
+ **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
+
+### Return type
+
+[**List[AnalyticsGameStats]**](AnalyticsGameStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Game Stats |  -  |
+**400** | Provided parameters are invalid. |  -  |
+**500** | Failed to fetch game stats |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

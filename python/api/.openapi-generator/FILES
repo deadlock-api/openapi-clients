@@ -30,6 +30,7 @@ deadlock_api_client/models/active_match_mode.py
 deadlock_api_client/models/active_match_player.py
 deadlock_api_client/models/active_match_team.py
 deadlock_api_client/models/analytics_ability_order_stats.py
+deadlock_api_client/models/analytics_game_stats.py
 deadlock_api_client/models/analytics_hero_stats.py
 deadlock_api_client/models/api_info.py
 deadlock_api_client/models/badge_distribution.py
@@ -95,6 +96,7 @@ docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsApi.md
+docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/BadgeDistribution.md
 docs/Build.md
@@ -175,6 +177,7 @@ test/test_active_match_player.py
 test/test_active_match_team.py
 test/test_analytics_ability_order_stats.py
 test/test_analytics_api.py
+test/test_analytics_game_stats.py
 test/test_analytics_hero_stats.py
 test/test_api_info.py
 test/test_badge_distribution.py

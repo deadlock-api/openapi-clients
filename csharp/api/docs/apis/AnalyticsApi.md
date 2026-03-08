@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**AbilityOrderStats**](AnalyticsApi.md#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats |
 | [**BadgeDistribution**](AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
 | [**BuildItemStats**](AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
+| [**GameStats**](AnalyticsApi.md#gamestats) | **GET** /v1/analytics/game-stats | Game Stats |
 | [**HeroCombStats**](AnalyticsApi.md#herocombstats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats |
 | [**HeroCountersStats**](AnalyticsApi.md#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats |
 | [**HeroScoreboard**](AnalyticsApi.md#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard |
@@ -159,6 +160,53 @@ No authorization required
 | **200** | Build Item Stats |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **500** | Failed to fetch build item stats |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="gamestats"></a>
+# **GameStats**
+> List&lt;AnalyticsGameStats&gt; GameStats (string bucket = null, string gameMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null)
+
+Game Stats
+
+ Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **bucket** | **string** | Bucket allows you to group the stats by a specific field. | [optional]  |
+| **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1770336000] |
+| **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
+| **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **minAverageBadge** | **int** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]  |
+| **maxAverageBadge** | **int** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional]  |
+| **minMatchId** | **long** | Filter matches based on their ID. | [optional]  |
+| **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
+
+### Return type
+
+[**List&lt;AnalyticsGameStats&gt;**](AnalyticsGameStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game Stats |  -  |
+| **400** | Provided parameters are invalid. |  -  |
+| **500** | Failed to fetch game stats |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

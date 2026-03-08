@@ -25,6 +25,7 @@ src/models/ActiveMatchMode.ts
 src/models/ActiveMatchPlayer.ts
 src/models/ActiveMatchTeam.ts
 src/models/AnalyticsAbilityOrderStats.ts
+src/models/AnalyticsGameStats.ts
 src/models/AnalyticsHeroStats.ts
 src/models/BadgeDistribution.ts
 src/models/Build.ts

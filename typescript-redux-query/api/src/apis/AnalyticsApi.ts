@@ -18,6 +18,9 @@ import {
     AnalyticsAbilityOrderStats,
     AnalyticsAbilityOrderStatsFromJSON,
     AnalyticsAbilityOrderStatsToJSON,
+    AnalyticsGameStats,
+    AnalyticsGameStatsFromJSON,
+    AnalyticsGameStatsToJSON,
     AnalyticsHeroStats,
     AnalyticsHeroStatsFromJSON,
     AnalyticsHeroStatsToJSON,
@@ -98,6 +101,19 @@ export interface BuildItemStatsRequest {
     heroId?: number;
     minLastUpdatedUnixTimestamp?: number;
     maxLastUpdatedUnixTimestamp?: number;
+}
+
+export interface GameStatsRequest {
+    bucket?: GameStatsBucketEnum;
+    gameMode?: GameStatsGameModeEnum;
+    minUnixTimestamp?: number;
+    maxUnixTimestamp?: number;
+    minDurationS?: number;
+    maxDurationS?: number;
+    minAverageBadge?: number;
+    maxAverageBadge?: number;
+    minMatchId?: number;
+    maxMatchId?: number;
 }
 
 export interface HeroCombStatsRequest {
@@ -633,6 +649,101 @@ function buildItemStatsRaw<T>(requestParameters: BuildItemStatsRequest, requestC
 */
 export function buildItemStats<T>(requestParameters: BuildItemStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<BuildItemStats>>): QueryConfig<T> {
     return buildItemStatsRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ * Game Stats
+ */
+function gameStatsRaw<T>(requestParameters: GameStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AnalyticsGameStats>> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.bucket !== undefined) {
+        queryParameters['bucket'] = requestParameters.bucket;
+    }
+
+
+    if (requestParameters.gameMode !== undefined) {
+        queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.minUnixTimestamp !== undefined) {
+        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
+    }
+
+
+    if (requestParameters.maxUnixTimestamp !== undefined) {
+        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
+    }
+
+
+    if (requestParameters.minDurationS !== undefined) {
+        queryParameters['min_duration_s'] = requestParameters.minDurationS;
+    }
+
+
+    if (requestParameters.maxDurationS !== undefined) {
+        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
+    }
+
+
+    if (requestParameters.minAverageBadge !== undefined) {
+        queryParameters['min_average_badge'] = requestParameters.minAverageBadge;
+    }
+
+
+    if (requestParameters.maxAverageBadge !== undefined) {
+        queryParameters['max_average_badge'] = requestParameters.maxAverageBadge;
+    }
+
+
+    if (requestParameters.minMatchId !== undefined) {
+        queryParameters['min_match_id'] = requestParameters.minMatchId;
+    }
+
+
+    if (requestParameters.maxMatchId !== undefined) {
+        queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/analytics/game-stats`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(AnalyticsGameStatsFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+* Game Stats
+*/
+export function gameStats<T>(requestParameters: GameStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AnalyticsGameStats>>): QueryConfig<T> {
+    return gameStatsRaw(requestParameters, requestConfig);
 }
 
 /**
@@ -2162,6 +2273,26 @@ export enum AbilityOrderStatsGameModeEnum {
     * @enum {string}
     */
 export enum BadgeDistributionGameModeEnum {
+    Normal = 'normal',
+    StreetBrawl = 'street_brawl'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GameStatsBucketEnum {
+    NoBucket = 'no_bucket',
+    AvgBadge = 'avg_badge',
+    StartTimeHour = 'start_time_hour',
+    StartTimeDay = 'start_time_day',
+    StartTimeWeek = 'start_time_week',
+    StartTimeMonth = 'start_time_month'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GameStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl'
 }

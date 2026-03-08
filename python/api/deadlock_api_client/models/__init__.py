@@ -20,6 +20,7 @@ from deadlock_api_client.models.active_match_mode import ActiveMatchMode
 from deadlock_api_client.models.active_match_player import ActiveMatchPlayer
 from deadlock_api_client.models.active_match_team import ActiveMatchTeam
 from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
+from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution
 from deadlock_api_client.models.build import Build

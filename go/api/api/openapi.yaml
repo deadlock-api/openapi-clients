@@ -530,6 +530,151 @@ paths:
       summary: Build Item Stats
       tags:
       - Analytics
+  /v1/analytics/game-stats:
+    get:
+      description: "\nRetrieves aggregate game-level statistics.\n\n### Rate Limits:\n\
+        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
+        \ | - |\n    "
+      operationId: game_stats
+      parameters:
+      - description: Bucket allows you to group the stats by a specific field.
+        explode: true
+        in: query
+        name: bucket
+        required: false
+        schema:
+          enum:
+          - no_bucket
+          - avg_badge
+          - start_time_hour
+          - start_time_day
+          - start_time_week
+          - start_time_month
+          type: string
+        style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. **Default:** `normal`."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          nullable: true
+          type: string
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1770336000
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/AnalyticsGameStats"
+                type: array
+          description: Game Stats
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch game stats
+      summary: Game Stats
+      tags:
+      - Analytics
   /v1/analytics/hero-comb-stats:
     get:
       description: "\nRetrieves overall statistics for each hero combination.\n\n\
@@ -6450,6 +6595,147 @@ components:
       - total_deaths
       - total_kills
       - wins
+    AnalyticsGameStats:
+      example:
+        avg_net_worth: 9.965781217890562
+        avg_deaths: 2.3021358869347655
+        avg_gold_lane_creep: 1.0246457001441578
+        avg_gold_player: 6.84685269835264
+        avg_player_damage_taken: 6.683562403749608
+        avg_player_damage: 9.369310271410669
+        avg_gold_boss: 4.145608029883936
+        avg_accuracy: 6.027456183070403
+        avg_last_hits: 5.025004791520295
+        avg_gold_death_loss: 7.386281948385884
+        total_matches: 0
+        avg_crit_rate: 5.637376656633329
+        mid_boss_kill_rate: 6.438423552598547
+        avg_assists: 1.4658129805029452
+        avg_gold_denied: 1.2315135367772556
+        avg_kills: 4.965218492984954
+        abandon_rate: 0.8008281904610115
+        bucket: 0
+        avg_gold_treasure: 7.457744773683766
+        avg_first_mid_boss_time_s: 2.027123023002322
+        avg_denies: 7.061401241503109
+        avg_duration_s: 9.301444243932576
+        avg_ending_level: 3.616076749251911
+        avg_kd_ratio: 1.1730742509559433
+        avg_gold_neutral_creep: 1.4894159098541704
+        avg_player_healing: 8.762042012749001
+        avg_boss_damage: 5.962133916683182
+      properties:
+        abandon_rate:
+          format: double
+          type: number
+        avg_accuracy:
+          format: double
+          type: number
+        avg_assists:
+          format: double
+          type: number
+        avg_boss_damage:
+          format: double
+          type: number
+        avg_crit_rate:
+          format: double
+          type: number
+        avg_deaths:
+          format: double
+          type: number
+        avg_denies:
+          format: double
+          type: number
+        avg_duration_s:
+          format: double
+          type: number
+        avg_ending_level:
+          format: double
+          type: number
+        avg_first_mid_boss_time_s:
+          format: double
+          type: number
+        avg_gold_boss:
+          format: double
+          type: number
+        avg_gold_death_loss:
+          format: double
+          type: number
+        avg_gold_denied:
+          format: double
+          type: number
+        avg_gold_lane_creep:
+          format: double
+          type: number
+        avg_gold_neutral_creep:
+          format: double
+          type: number
+        avg_gold_player:
+          format: double
+          type: number
+        avg_gold_treasure:
+          format: double
+          type: number
+        avg_kd_ratio:
+          format: double
+          type: number
+        avg_kills:
+          format: double
+          type: number
+        avg_last_hits:
+          format: double
+          type: number
+        avg_net_worth:
+          format: double
+          type: number
+        avg_player_damage:
+          format: double
+          type: number
+        avg_player_damage_taken:
+          format: double
+          type: number
+        avg_player_healing:
+          format: double
+          type: number
+        bucket:
+          format: int32
+          minimum: 0
+          type: integer
+        mid_boss_kill_rate:
+          format: double
+          type: number
+        total_matches:
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - abandon_rate
+      - avg_accuracy
+      - avg_assists
+      - avg_boss_damage
+      - avg_crit_rate
+      - avg_deaths
+      - avg_denies
+      - avg_duration_s
+      - avg_ending_level
+      - avg_first_mid_boss_time_s
+      - avg_gold_boss
+      - avg_gold_death_loss
+      - avg_gold_denied
+      - avg_gold_lane_creep
+      - avg_gold_neutral_creep
+      - avg_gold_player
+      - avg_gold_treasure
+      - avg_kd_ratio
+      - avg_kills
+      - avg_last_hits
+      - avg_net_worth
+      - avg_player_damage
+      - avg_player_damage_taken
+      - avg_player_healing
+      - bucket
+      - mid_boss_kill_rate
+      - total_matches
     AnalyticsHeroStats:
       example:
         wins: 0

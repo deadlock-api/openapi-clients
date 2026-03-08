@@ -20,6 +20,7 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import deadlock_api_client.models.AnalyticsAbilityOrderStats
+import deadlock_api_client.models.AnalyticsGameStats
 import deadlock_api_client.models.AnalyticsHeroStats
 import deadlock_api_client.models.BadgeDistribution
 import deadlock_api_client.models.BuildItemStats
@@ -491,6 +492,176 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/analytics/build-item-stats",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * enum for parameter bucket
+     */
+     enum class BucketGameStats(val value: kotlin.String) {
+         @Json(name = "no_bucket") no_bucket("no_bucket"),
+         @Json(name = "avg_badge") avg_badge("avg_badge"),
+         @Json(name = "start_time_hour") start_time_hour("start_time_hour"),
+         @Json(name = "start_time_day") start_time_day("start_time_day"),
+         @Json(name = "start_time_week") start_time_week("start_time_week"),
+         @Json(name = "start_time_month") start_time_month("start_time_month");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
+     * enum for parameter gameMode
+     */
+     enum class GameModeGameStats(val value: kotlin.String) {
+         @Json(name = "normal") normal("normal"),
+         @Json(name = "street_brawl") street_brawl("street_brawl");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
+     * GET /v1/analytics/game-stats
+     * Game Stats
+     *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param bucket Bucket allows you to group the stats by a specific field. (optional)
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1770336000L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return kotlin.collections.List<AnalyticsGameStats>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun gameStats(bucket: BucketGameStats? = null, gameMode: GameModeGameStats? = null, minUnixTimestamp: kotlin.Long? = 1770336000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<AnalyticsGameStats> {
+        val localVarResponse = gameStatsWithHttpInfo(bucket = bucket, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AnalyticsGameStats>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/analytics/game-stats
+     * Game Stats
+     *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param bucket Bucket allows you to group the stats by a specific field. (optional)
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1770336000L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return ApiResponse<kotlin.collections.List<AnalyticsGameStats>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun gameStatsWithHttpInfo(bucket: BucketGameStats?, gameMode: GameModeGameStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<AnalyticsGameStats>?> {
+        val localVariableConfig = gameStatsRequestConfig(bucket = bucket, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return request<Unit, kotlin.collections.List<AnalyticsGameStats>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation gameStats
+     *
+     * @param bucket Bucket allows you to group the stats by a specific field. (optional)
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1770336000L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return RequestConfig
+     */
+    fun gameStatsRequestConfig(bucket: BucketGameStats?, gameMode: GameModeGameStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (bucket != null) {
+                    put("bucket", listOf(bucket.value))
+                }
+                if (gameMode != null) {
+                    put("game_mode", listOf(gameMode.value))
+                }
+                if (minUnixTimestamp != null) {
+                    put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
+                }
+                if (maxUnixTimestamp != null) {
+                    put("max_unix_timestamp", listOf(maxUnixTimestamp.toString()))
+                }
+                if (minDurationS != null) {
+                    put("min_duration_s", listOf(minDurationS.toString()))
+                }
+                if (maxDurationS != null) {
+                    put("max_duration_s", listOf(maxDurationS.toString()))
+                }
+                if (minAverageBadge != null) {
+                    put("min_average_badge", listOf(minAverageBadge.toString()))
+                }
+                if (maxAverageBadge != null) {
+                    put("max_average_badge", listOf(maxAverageBadge.toString()))
+                }
+                if (minMatchId != null) {
+                    put("min_match_id", listOf(minMatchId.toString()))
+                }
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/analytics/game-stats",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

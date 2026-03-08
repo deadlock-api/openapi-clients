@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**AbilityOrderStats**](AnalyticsAPI.md#AbilityOrderStats) | **Get** /v1/analytics/ability-order-stats | Ability Order Stats
 [**BadgeDistribution**](AnalyticsAPI.md#BadgeDistribution) | **Get** /v1/analytics/badge-distribution | Badge Distribution
 [**BuildItemStats**](AnalyticsAPI.md#BuildItemStats) | **Get** /v1/analytics/build-item-stats | Build Item Stats
+[**GameStats**](AnalyticsAPI.md#GameStats) | **Get** /v1/analytics/game-stats | Game Stats
 [**HeroCombStats**](AnalyticsAPI.md#HeroCombStats) | **Get** /v1/analytics/hero-comb-stats | Hero Comb Stats
 [**HeroCountersStats**](AnalyticsAPI.md#HeroCountersStats) | **Get** /v1/analytics/hero-counter-stats | Hero Counter Stats
 [**HeroScoreboard**](AnalyticsAPI.md#HeroScoreboard) | **Get** /v1/analytics/scoreboards/heroes | Hero Scoreboard
@@ -262,6 +263,90 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]BuildItemStats**](BuildItemStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GameStats
+
+> []AnalyticsGameStats GameStats(ctx).Bucket(bucket).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Execute()
+
+Game Stats
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
+	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1770336000)
+	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
+	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
+	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AnalyticsAPI.GameStats(context.Background()).Bucket(bucket).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.GameStats``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GameStats`: []AnalyticsGameStats
+	fmt.Fprintf(os.Stdout, "Response from `AnalyticsAPI.GameStats`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGameStatsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
+ **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1770336000]
+ **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
+ **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
+ **minMatchId** | **int64** | Filter matches based on their ID. | 
+ **maxMatchId** | **int64** | Filter matches based on their ID. | 
+
+### Return type
+
+[**[]AnalyticsGameStats**](AnalyticsGameStats.md)
 
 ### Authorization
 

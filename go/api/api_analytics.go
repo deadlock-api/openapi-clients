@@ -714,6 +714,218 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGameStatsRequest struct {
+	ctx context.Context
+	ApiService *AnalyticsAPIService
+	bucket *string
+	gameMode *string
+	minUnixTimestamp *int64
+	maxUnixTimestamp *int64
+	minDurationS *int64
+	maxDurationS *int64
+	minAverageBadge *int32
+	maxAverageBadge *int32
+	minMatchId *int64
+	maxMatchId *int64
+}
+
+// Bucket allows you to group the stats by a specific field.
+func (r ApiGameStatsRequest) Bucket(bucket string) ApiGameStatsRequest {
+	r.bucket = &bucket
+	return r
+}
+
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+func (r ApiGameStatsRequest) GameMode(gameMode string) ApiGameStatsRequest {
+	r.gameMode = &gameMode
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+func (r ApiGameStatsRequest) MinUnixTimestamp(minUnixTimestamp int64) ApiGameStatsRequest {
+	r.minUnixTimestamp = &minUnixTimestamp
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp).
+func (r ApiGameStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiGameStatsRequest {
+	r.maxUnixTimestamp = &maxUnixTimestamp
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiGameStatsRequest) MinDurationS(minDurationS int64) ApiGameStatsRequest {
+	r.minDurationS = &minDurationS
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiGameStatsRequest) MaxDurationS(maxDurationS int64) ApiGameStatsRequest {
+	r.maxDurationS = &maxDurationS
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+func (r ApiGameStatsRequest) MinAverageBadge(minAverageBadge int32) ApiGameStatsRequest {
+	r.minAverageBadge = &minAverageBadge
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+func (r ApiGameStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiGameStatsRequest {
+	r.maxAverageBadge = &maxAverageBadge
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiGameStatsRequest) MinMatchId(minMatchId int64) ApiGameStatsRequest {
+	r.minMatchId = &minMatchId
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiGameStatsRequest) MaxMatchId(maxMatchId int64) ApiGameStatsRequest {
+	r.maxMatchId = &maxMatchId
+	return r
+}
+
+func (r ApiGameStatsRequest) Execute() ([]AnalyticsGameStats, *http.Response, error) {
+	return r.ApiService.GameStatsExecute(r)
+}
+
+/*
+GameStats Game Stats
+
+
+Retrieves aggregate game-level statistics.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGameStatsRequest
+*/
+func (a *AnalyticsAPIService) GameStats(ctx context.Context) ApiGameStatsRequest {
+	return ApiGameStatsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []AnalyticsGameStats
+func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]AnalyticsGameStats, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []AnalyticsGameStats
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.GameStats")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/analytics/game-stats"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.bucket != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "bucket", r.bucket, "form", "")
+	}
+	if r.gameMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "game_mode", r.gameMode, "form", "")
+	}
+	if r.minUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+	} else {
+		var defaultValue int64 = 1770336000
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
+		r.minUnixTimestamp = &defaultValue
+	}
+	if r.maxUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+	}
+	if r.minDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
+	}
+	if r.maxDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
+	}
+	if r.minAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
+	}
+	if r.maxAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
+	}
+	if r.minMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
+	}
+	if r.maxMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiHeroCombStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService

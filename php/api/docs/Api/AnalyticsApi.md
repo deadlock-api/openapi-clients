@@ -9,6 +9,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**abilityOrderStats()**](AnalyticsApi.md#abilityOrderStats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats |
 | [**badgeDistribution()**](AnalyticsApi.md#badgeDistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
 | [**buildItemStats()**](AnalyticsApi.md#buildItemStats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
+| [**gameStats()**](AnalyticsApi.md#gameStats) | **GET** /v1/analytics/game-stats | Game Stats |
 | [**heroCombStats()**](AnalyticsApi.md#heroCombStats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats |
 | [**heroCountersStats()**](AnalyticsApi.md#heroCountersStats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats |
 | [**heroScoreboard()**](AnalyticsApi.md#heroScoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard |
@@ -234,6 +235,80 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\BuildItemStats[]**](../Model/BuildItemStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gameStats()`
+
+```php
+gameStats($bucket, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id): \OpenAPI\Client\Model\AnalyticsGameStats[]
+```
+
+Game Stats
+
+Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
+$game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+$min_unix_timestamp = 1770336000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
+$min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
+$max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
+$min_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+$max_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+$min_match_id = 56; // int | Filter matches based on their ID.
+$max_match_id = 56; // int | Filter matches based on their ID.
+
+try {
+    $result = $apiInstance->gameStats($bucket, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->gameStats: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
+| **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1770336000] |
+| **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **min_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **max_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **min_match_id** | **int**| Filter matches based on their ID. | [optional] |
+| **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\AnalyticsGameStats[]**](../Model/AnalyticsGameStats.md)
 
 ### Authorization
 

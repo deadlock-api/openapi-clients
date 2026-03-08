@@ -165,6 +165,47 @@ namespace DeadlockApiClient.Api
         Task<IBuildItemStatsApiResponse?> BuildItemStatsOrDefaultAsync(Option<int?> heroId = default, Option<long?> minLastUpdatedUnixTimestamp = default, Option<long?> maxLastUpdatedUnixTimestamp = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Game Stats
+        /// </summary>
+        /// <remarks>
+        ///  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1770336000)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="minAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)</param>
+        /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGameStatsApiResponse"/>&gt;</returns>
+        Task<IGameStatsApiResponse> GameStatsAsync(Option<string> bucket = default, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Game Stats
+        /// </summary>
+        /// <remarks>
+        ///  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// </remarks>
+        /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1770336000)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="minAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)</param>
+        /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGameStatsApiResponse"/>?&gt;</returns>
+        Task<IGameStatsApiResponse?> GameStatsOrDefaultAsync(Option<string> bucket = default, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Hero Comb Stats
         /// </summary>
         /// <remarks>
@@ -873,6 +914,30 @@ namespace DeadlockApiClient.Api
     }
 
     /// <summary>
+    /// The <see cref="IGameStatsApiResponse"/>
+    /// </summary>
+    public interface IGameStatsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<AnalyticsGameStats>?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
     /// The <see cref="IHeroCombStatsApiResponse"/>
     /// </summary>
     public interface IHeroCombStatsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<HeroCombStats>?>
@@ -1199,6 +1264,26 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorBuildItemStats(Exception exception)
         {
             OnErrorBuildItemStats?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnGameStats;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorGameStats;
+
+        internal void ExecuteOnGameStats(AnalyticsApi.GameStatsApiResponse apiResponse)
+        {
+            OnGameStats?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorGameStats(Exception exception)
+        {
+            OnErrorGameStats?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -2433,6 +2518,347 @@ namespace DeadlockApiClient.Api
             /// <param name="result"></param>
             /// <returns></returns>
             public bool TryOk([NotNullWhen(true)]out List<BuildItemStats>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatGameStats(ref Option<string> bucket, ref Option<string?> gameMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="bucket"></param>
+        /// <returns></returns>
+        private void ValidateGameStats(Option<string> bucket)
+        {
+            if (bucket.IsSet && bucket.Value == null)
+                throw new ArgumentNullException(nameof(bucket));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="bucket"></param>
+        /// <param name="gameMode"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="minAverageBadge"></param>
+        /// <param name="maxAverageBadge"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        private void AfterGameStatsDefaultImplementation(IGameStatsApiResponse apiResponseLocalVar, Option<string> bucket, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId)
+        {
+            bool suppressDefaultLog = false;
+            AfterGameStats(ref suppressDefaultLog, apiResponseLocalVar, bucket, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="bucket"></param>
+        /// <param name="gameMode"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="minAverageBadge"></param>
+        /// <param name="maxAverageBadge"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        partial void AfterGameStats(ref bool suppressDefaultLog, IGameStatsApiResponse apiResponseLocalVar, Option<string> bucket, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="bucket"></param>
+        /// <param name="gameMode"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="minAverageBadge"></param>
+        /// <param name="maxAverageBadge"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        private void OnErrorGameStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> bucket, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorGameStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, bucket, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="bucket"></param>
+        /// <param name="gameMode"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="minAverageBadge"></param>
+        /// <param name="maxAverageBadge"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        partial void OnErrorGameStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> bucket, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
+
+        /// <summary>
+        /// Game Stats  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// </summary>
+        /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1770336000)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="minAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)</param>
+        /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGameStatsApiResponse"/>&gt;</returns>
+        public async Task<IGameStatsApiResponse?> GameStatsOrDefaultAsync(Option<string> bucket = default, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await GameStatsAsync(bucket, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Game Stats  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1770336000)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="minAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)</param>
+        /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGameStatsApiResponse"/>&gt;</returns>
+        public async Task<IGameStatsApiResponse> GameStatsAsync(Option<string> bucket = default, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateGameStats(bucket);
+
+                FormatGameStats(ref bucket, ref gameMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/analytics/game-stats"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/analytics/game-stats");
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (bucket.IsSet)
+                        parseQueryStringLocalVar["bucket"] = ClientUtils.ParameterToString(bucket.Value);
+
+                    if (gameMode.IsSet)
+                        parseQueryStringLocalVar["game_mode"] = ClientUtils.ParameterToString(gameMode.Value);
+
+                    if (minUnixTimestamp.IsSet)
+                        parseQueryStringLocalVar["min_unix_timestamp"] = ClientUtils.ParameterToString(minUnixTimestamp.Value);
+
+                    if (maxUnixTimestamp.IsSet)
+                        parseQueryStringLocalVar["max_unix_timestamp"] = ClientUtils.ParameterToString(maxUnixTimestamp.Value);
+
+                    if (minDurationS.IsSet)
+                        parseQueryStringLocalVar["min_duration_s"] = ClientUtils.ParameterToString(minDurationS.Value);
+
+                    if (maxDurationS.IsSet)
+                        parseQueryStringLocalVar["max_duration_s"] = ClientUtils.ParameterToString(maxDurationS.Value);
+
+                    if (minAverageBadge.IsSet)
+                        parseQueryStringLocalVar["min_average_badge"] = ClientUtils.ParameterToString(minAverageBadge.Value);
+
+                    if (maxAverageBadge.IsSet)
+                        parseQueryStringLocalVar["max_average_badge"] = ClientUtils.ParameterToString(maxAverageBadge.Value);
+
+                    if (minMatchId.IsSet)
+                        parseQueryStringLocalVar["min_match_id"] = ClientUtils.ParameterToString(minMatchId.Value);
+
+                    if (maxMatchId.IsSet)
+                        parseQueryStringLocalVar["max_match_id"] = ClientUtils.ParameterToString(maxMatchId.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        ILogger<GameStatsApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<GameStatsApiResponse>();
+                        GameStatsApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/analytics/game-stats", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterGameStatsDefaultImplementation(apiResponseLocalVar, bucket, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+
+                        Events.ExecuteOnGameStats(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorGameStatsDefaultImplementation(e, "/v1/analytics/game-stats", uriBuilderLocalVar.Path, bucket, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+                Events.ExecuteOnErrorGameStats(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="GameStatsApiResponse"/>
+        /// </summary>
+        public partial class GameStatsApiResponse : DeadlockApiClient.Client.ApiResponse, IGameStatsApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<GameStatsApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="GameStatsApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public GameStatsApiResponse(ILogger<GameStatsApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="GameStatsApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public GameStatsApiResponse(ILogger<GameStatsApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public List<AnalyticsGameStats>? Ok()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<AnalyticsGameStats>>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out List<AnalyticsGameStats>? result)
             {
                 result = null;
 
