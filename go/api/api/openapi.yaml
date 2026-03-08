@@ -121,7 +121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -367,7 +367,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -499,7 +499,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -560,7 +560,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -809,7 +809,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -1035,6 +1035,7 @@ paths:
         schema:
           enum:
           - no_bucket
+          - avg_badge
           - start_time_hour
           - start_time_day
           - start_time_week
@@ -1061,7 +1062,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -1322,7 +1323,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -1600,7 +1601,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -1825,7 +1826,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -2089,7 +2090,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -2378,7 +2379,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -2596,7 +2597,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -2892,7 +2893,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -5103,7 +5104,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer
@@ -5222,7 +5223,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770249600
+          default: 1770336000
           format: int64
           nullable: true
           type: integer

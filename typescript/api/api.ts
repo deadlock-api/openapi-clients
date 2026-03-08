@@ -4583,6 +4583,7 @@ export const HeroScoreboardGameModeEnum = {
 export type HeroScoreboardGameModeEnum = typeof HeroScoreboardGameModeEnum[keyof typeof HeroScoreboardGameModeEnum];
 export const HeroStatsBucketEnum = {
     NoBucket: 'no_bucket',
+    AvgBadge: 'avg_badge',
     StartTimeHour: 'start_time_hour',
     StartTimeDay: 'start_time_day',
     StartTimeWeek: 'start_time_week',

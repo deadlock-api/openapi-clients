@@ -2270,6 +2270,7 @@ export enum HeroScoreboardGameModeEnum {
     */
 export enum HeroStatsBucketEnum {
     NoBucket = 'no_bucket',
+    AvgBadge = 'avg_badge',
     StartTimeHour = 'start_time_hour',
     StartTimeDay = 'start_time_day',
     StartTimeWeek = 'start_time_week',
